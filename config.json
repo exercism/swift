@@ -1,0 +1,15 @@
+{
+  "slug": "swift",
+  "language": "Swift",
+  "repository": "https://github.com/exercism/xswift",
+  "active": false,
+  "problems": [
+
+  ],
+  "deprecated": [
+
+  ],
+  "ignore": [
+
+  ]
+}
