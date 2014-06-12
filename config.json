@@ -4,6 +4,16 @@
   "repository": "https://github.com/exercism/xswift",
   "active": false,
   "problems": [
+    "bob",
+    "hamming",
+    "word-count",
+    "anagram",
+    "nucleotide-count",
+    "phone-number",
+    "grade-school",
+    "robot-name",
+    "leap",
+    "etl"
 
   ],
   "deprecated": [
