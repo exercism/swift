@@ -22,7 +22,6 @@ class Robot {
     }
 }
 
-
 func convertStringToStringArray(input: String) -> String[] {
     var characterArray: String[] = []
     for character in input {
