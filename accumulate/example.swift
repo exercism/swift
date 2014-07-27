@@ -1,11 +1,5 @@
-//
-//  example.swift
-//  Accumulate
-//
-//  Created by Andrew Halls on 7/27/14.
-//
-import Foundation
 
+import Foundation
 
 extension Array {
     func accumulate(yield: (T) -> T) -> Array<T> {
@@ -14,6 +8,5 @@ extension Array {
             result += yield(item)
         }
         return result
-
     }
 }

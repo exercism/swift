@@ -1,9 +1,3 @@
-//
-//  AccumulateTest.swift
-//  Accumulate
-//
-//  Created by Andrew Halls on 7/27/14.
-//
 
 import Foundation
 import XCTest
@@ -28,7 +22,6 @@ extension String {
 
 
 class AccumulateTest: XCTestCase {
-   
 
      func test_empty_accumulation() {
 
@@ -41,7 +34,6 @@ class AccumulateTest: XCTestCase {
        let result = input.accumulate(square)
         
         XCTAssert(expected == result)
-        
     }
 
     func test_accumulate_squares() {
@@ -55,7 +47,6 @@ class AccumulateTest: XCTestCase {
         let result = input.accumulate(square)
         
         XCTAssert(expected == result)
-        
     }
 
     
@@ -86,7 +77,6 @@ class AccumulateTest: XCTestCase {
         let result = input.accumulate(reverse)
         
         XCTAssert(expected == result)
-        
     }
     
     func test_accumulate_recursively() {
@@ -103,7 +93,5 @@ class AccumulateTest: XCTestCase {
         let result = input.accumulate(recurse)
         
         XCTAssert(expected == result)
-        
     }
-  
 }
