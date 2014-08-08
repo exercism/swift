@@ -13,7 +13,8 @@
     "nucleotide-count",
     "phone-number",
     "grade-school",
-    "robot-name"
+    "robot-name",
+     "perfect-numbers"
   ],
   "deprecated": [
 
