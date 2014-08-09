@@ -1,13 +1,17 @@
 import XCTest
 
 class EtlTest: XCTestCase {
-    
+
+    func XCTAssertEqualDictionaries <S, T> (first: [S:T], _ second: [S:T]) {
+        XCTAssertEqual(first.bridgeToObjectiveC(), second.bridgeToObjectiveC())
+    }
+
     func testTransformOneValue() {
         let old = [ 1 : [ "A" ] ]
         let expected =  ["a" : 1 ]
         let results = ETL.transform(old)
         
-        XCTAssertEqualObjects(results, expected)
+        XCTAssertEqualDictionaries(results, expected)
     }
     
     func testTransformMoreValues() {
@@ -15,7 +19,7 @@ class EtlTest: XCTestCase {
         let expected =  ["a" : 1, "e": 1, "i": 1, "o": 1, "u": 1 ]
         let results = ETL.transform(old)
         
-        XCTAssertEqualObjects(results, expected)
+        XCTAssertEqualDictionaries(results, expected)
     }
     
     func testMoreKeys() {
@@ -23,7 +27,7 @@ class EtlTest: XCTestCase {
         let expected =  ["a" : 1, "e": 1, "d": 2, "g": 2 ]
         let results = ETL.transform(old)
         
-        XCTAssertEqualObjects(results, expected)
+        XCTAssertEqualDictionaries(results, expected)
     }
     
     func testFullDataSet() {
@@ -44,7 +48,7 @@ class EtlTest: XCTestCase {
         
         let results = ETL.transform(old)
         
-        XCTAssertEqualObjects(results, expected)
+        XCTAssertEqualDictionaries(results, expected)
         
     }
     
