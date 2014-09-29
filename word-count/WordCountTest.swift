@@ -2,16 +2,12 @@ import XCTest
 
 class WordCountTest: XCTestCase {
     
-    func XCTAssertEqualDictionaries <S, T> (first: [S:T], _ second: [S:T]) {
-                XCTAssertEqual(first.bridgeToObjectiveC(), second.bridgeToObjectiveC())
-            }
-    
     func testCountOneWord() {
         let words = WordCount(words: "word")
         let expected = ["word": 1]
         let result = words.count()
         
-        XCTAssertEqualDictionaries(expected, result)
+        XCTAssertEqual(expected, result)
     }
     
     func testCountOneOfEeach() {
@@ -19,7 +15,7 @@ class WordCountTest: XCTestCase {
         let expected = ["one" : 1, "of" : 1, "each" : 1 ]
         let result = words.count();
         
-        XCTAssertEqualDictionaries(expected, result)
+        XCTAssertEqual(expected, result)
     }
     
     func testCountMultipleOccurrences() {
@@ -27,7 +23,7 @@ class WordCountTest: XCTestCase {
         let expected = ["one" : 1, "fish" : 4, "two" : 1, "red" : 1, "blue" : 1 ]
         let result = words.count()
         
-        XCTAssertEqualDictionaries(expected, result)
+        XCTAssertEqual(expected, result)
     }
     
     func testIgnorePunctation() {
@@ -35,7 +31,7 @@ class WordCountTest: XCTestCase {
         let expected = ["car" : 1, "carpet" : 1, "as" : 1, "java" : 1, "javascript" : 1 ]
         let result = words.count()
         
-        XCTAssertEqualDictionaries(expected, result)
+        XCTAssertEqual(expected, result)
     }
     
     func testIncludeNumbers() {
@@ -43,7 +39,7 @@ class WordCountTest: XCTestCase {
         let expected = [ "testing" : 2, "1" : 1, "2" : 1 ]
         let result = words.count()
         
-        XCTAssertEqualDictionaries(expected, result)
+        XCTAssertEqual(expected, result)
     }
     
     func testNormalizeCase() {
@@ -51,7 +47,7 @@ class WordCountTest: XCTestCase {
         let expected = [ "go" : 3]
         let result = words.count()
         
-        XCTAssertEqualDictionaries(expected, result)
+        XCTAssertEqual(expected, result)
     }
     
 }
