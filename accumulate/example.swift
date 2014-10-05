@@ -2,10 +2,10 @@
 import Foundation
 
 extension Array {
-    func accumulate(yield: (T) -> T) -> Array<T> {
-        var result: Array<T> = Array<T>()
+    func accumulate<S>(yield: (T) -> S) -> [S] {
+        var result: [S] = [S]()
         for item in self {
-            result += yield(item)
+            result.append(yield(item))
         }
         return result
     }

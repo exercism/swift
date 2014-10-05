@@ -1,4 +1,3 @@
-
 import Foundation
 import XCTest
 
@@ -6,26 +5,21 @@ extension String {
     
     var length: Int {return countElements(self)}
     
-    subscript (index: Int) -> String {
-        return String(Array(self)[index])
-    }
-    
     func reverse() -> String {
         var result:String = ""
-        for index in stride(from: self.length, to: 0, by: -1) {
-            result += self[index - 1]
+        for char in self {
+            result = "\(char)\(result)"
         }
         return result
     }
-
+    
 }
-
 
 class AccumulateTest: XCTestCase {
 
      func test_empty_accumulation() {
 
-       let input = Array<Int>([])
+       let input = [Int]([])
        let expected = []
        func square(input:Int) -> Int {
             return input * input
@@ -69,7 +63,6 @@ class AccumulateTest: XCTestCase {
         
         let input =    ["the","quick","brown","fox","etc"]
         let expected = ["eht","kciuq","nworb","xof","cte"]
-        println("the".reverse())
         func reverse(input:String) -> String {
             return input.reverse()
         }
@@ -81,14 +74,22 @@ class AccumulateTest: XCTestCase {
     
     func test_accumulate_recursively() {
         
-        let input =    [1,2,3]
-        let expected = [3,6,9]
-        func recurse(input:Int) -> Int {
-            func triple(input:Int) -> Int {
-                return input * 3
+        let input =   ["a","b","c"]
+
+        let expected = [
+            ["a1","a2","a3"],
+            ["b1","b2","b3"],
+            ["c1","c2","c3"]
+        ]
+        
+        func recurse(input:String) -> [String] {
+            func appendTo(innerInput:String) -> String {
+                return input+innerInput
             }
-            return [input].accumulate(triple)[0]
+            let result = ["1","2","3"].accumulate(appendTo)
+            return result
         }
+
         
         let result = input.accumulate(recurse)
         
