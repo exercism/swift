@@ -1,11 +1,3 @@
-//
-//  example.swift
-//  ExercismConversion
-//
-//  Created by Hank Turowski on 6/12/14.
-//  Copyright (c) 2014 Turowski. All rights reserved.
-//
-
 import Foundation
 
 class Robot {
@@ -22,8 +14,8 @@ class Robot {
     }
 }
 
-func convertStringToStringArray(input: String) -> String[] {
-    var characterArray: String[] = []
+func convertStringToStringArray(input: String) -> [String] {
+    var characterArray: [String] = []
     for character in input {
         characterArray.append("\(character)")
     }

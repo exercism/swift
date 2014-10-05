@@ -5,10 +5,11 @@ class RobotNameTest: XCTestCase {
     func robotNameIsCorrectlyFormatted(name: String) -> Bool
     {
         let robotNameRegex = NSRegularExpression(pattern: "\\A\\w{2}\\d{3}\\z", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
-        let matches = robotNameRegex.matchesInString(name, options: NSMatchingOptions.WithoutAnchoringBounds, range: NSMakeRange(0, countElements(name)))
-        return matches.count > 0
+        let matches = robotNameRegex?.matchesInString(name, options: .WithoutAnchoringBounds, range: NSMakeRange(0, countElements(name)))
+
+        return matches!.count > 0
     }
-    
+
     func testHasName() {
         let robot = Robot()
         XCTAssert(robotNameIsCorrectlyFormatted(robot.name))
