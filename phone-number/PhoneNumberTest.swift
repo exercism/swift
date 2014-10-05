@@ -1,3 +1,4 @@
+import Foundation
 import XCTest
 
 class PhoneNumberTest : XCTestCase {
@@ -7,7 +8,7 @@ class PhoneNumberTest : XCTestCase {
         let expected = "1234567890"
         let number = PhoneNumber(startingNumber: startingNumber)
         let result = number.number()
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
 
     func testCleansNumber() {
@@ -15,7 +16,7 @@ class PhoneNumberTest : XCTestCase {
         let expected = "1234567890"
         let number = PhoneNumber(startingNumber: startingNumber)
         let result = number.number()
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
     
     func testCleansNumberWithDots() {
@@ -23,7 +24,7 @@ class PhoneNumberTest : XCTestCase {
         let expected = "1234567890"
         let number = PhoneNumber(startingNumber: startingNumber)
         let result = number.number()
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
     
     func testValidWithElevenDigitsAndFirstIsOne() {
@@ -31,7 +32,7 @@ class PhoneNumberTest : XCTestCase {
         let expected = "1234567890"
         let number = PhoneNumber(startingNumber: startingNumber)
         let result = number.number()
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
     
     func testInvalidWhenElevenDigits() {
@@ -39,7 +40,7 @@ class PhoneNumberTest : XCTestCase {
         let expected = "0000000000"
         let number = PhoneNumber(startingNumber: startingNumber)
         let result = number.number()
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
     
     func testInvalidWhenNineDigits() {
@@ -47,7 +48,7 @@ class PhoneNumberTest : XCTestCase {
         let expected = "0000000000"
         let number = PhoneNumber(startingNumber: startingNumber)
         let result = number.number()
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
     
     func testAreaCode() {
@@ -55,7 +56,7 @@ class PhoneNumberTest : XCTestCase {
         let expected = "123"
         let number = PhoneNumber(startingNumber: startingNumber)
         let result = number.areaCode()
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
     
     func testPrettyPrint() {
@@ -63,7 +64,7 @@ class PhoneNumberTest : XCTestCase {
         let expected = "(123) 456-7890"
         let number = PhoneNumber(startingNumber: startingNumber)
         let result = number.description()
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
     
     func testPrettyPrintWithFullUSPhoneNumber() {
@@ -71,7 +72,7 @@ class PhoneNumberTest : XCTestCase {
         let expected = "(123) 456-7890"
         let number = PhoneNumber(startingNumber: startingNumber)
         let result = number.description()
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
     
 }

@@ -1,11 +1,3 @@
-//
-//  PhoneNumber.swift
-//  ExercismConversion
-//
-//  Created by Hank Turowski on 6/11/14.
-//  Copyright (c) 2014 Turowski. All rights reserved.
-//
-
 import Foundation
 
 extension String {
@@ -26,7 +18,7 @@ class PhoneNumber {
         phoneNumber = removeNonDigits(startingNumber)
         if countElements(phoneNumber) == 11 {
             if phoneNumber.hasPrefix("1") {
-                phoneNumber = phoneNumber[1..11]
+                phoneNumber = phoneNumber[1...10]
             } else {
                 phoneNumber = "0000000000"
             }
@@ -40,7 +32,7 @@ class PhoneNumber {
     }
     
     func areaCode() -> String {
-        return phoneNumber[0..3]
+        return phoneNumber[0...2]
     }
     
     func description() -> String {
@@ -54,8 +46,10 @@ class PhoneNumber {
 func removeNonDigits(input: String) -> String {
     var result = ""
     for char in input {
-        if "\(char)".toInt() && char != "-" {
-            result += char
+        if let c = "\(char)".toInt() {
+            if char != "-" {
+                result += "\(char)"
+            }
         }
     }
     return result
