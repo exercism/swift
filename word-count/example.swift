@@ -7,8 +7,8 @@ class WordCount {
         self.words = words
     }
     
-    func count() -> Dictionary<String, Int> {
-        var wordCounts: Dictionary<String, Int> = [:]
+    func count() -> [String: Int] {
+        var wordCounts: [String: Int] = [:]
         var useWords = words.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet).lowercaseString
         useWords = useWords.stringByReplacingOccurrencesOfString(": ", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch)
         useWords = useWords.stringByReplacingOccurrencesOfString(",", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch)
