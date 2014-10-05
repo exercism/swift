@@ -1,11 +1,3 @@
-//
-//  Bob.swift
-//  Bob
-//
-//  Created by Hank Turowski on 6/7/14.
-//  Copyright (c) 2014 Turowski. All rights reserved.
-//
-
 import Foundation
 
 class Bob {
@@ -41,6 +33,9 @@ func inputContainsALetter(input: String) -> Bool {
     let regex = NSRegularExpression(pattern: "[A-Za-z]", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
     
     let range = NSMakeRange(0, countElements(input))
-    let matches = regex.matchesInString(input, options: NSMatchingOptions.ReportCompletion, range: range)
-    return (matches.count != 0) ? true : false
+    let matches = regex?.matchesInString(input, options: .ReportCompletion, range: range)
+    if let matched = matches {
+        if matched.count != 0 { return true }
+    }
+    return false
 }
