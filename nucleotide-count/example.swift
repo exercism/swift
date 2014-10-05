@@ -1,17 +1,9 @@
-//
-//  example.swift
-//  ExercismConversion
-//
-//  Created by Hank Turowski on 6/11/14.
-//  Copyright (c) 2014 Turowski. All rights reserved.
-//
-
 import Foundation
 
 class DNA {
     
     class func withStrand(strand: String) -> DNA? {
-        if strand.rangeOfCharacterFromSet(invalidDNANucleotides(), options: NSStringCompareOptions.LiteralSearch) {
+        if (strand.rangeOfCharacterFromSet(invalidDNANucleotides(), options: NSStringCompareOptions.LiteralSearch) != nil) {
             return nil
         }
         var result = DNA()
@@ -32,7 +24,7 @@ class DNA {
     
     func count(target: String) -> Int? {
         
-        if target.rangeOfCharacterFromSet(invalidDNANucleotides(), options: NSStringCompareOptions.LiteralSearch) {
+        if (target.rangeOfCharacterFromSet(invalidDNANucleotides(), options: NSStringCompareOptions.LiteralSearch) != nil) {
             return nil
         }
         var matches = 0
