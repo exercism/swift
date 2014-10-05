@@ -1,4 +1,3 @@
-
 import Foundation
 import XCTest
 
@@ -9,7 +8,7 @@ class PerfectNumbersTest: XCTestCase {
         let numberClassifier = NumberClassifier(number: 6)
         let expectedValue = NumberClassification.Perfect
         let result = numberClassifier.classification
-        XCTAssertEqual(result,expectedValue);
+        XCTAssertEqual(result,expectedValue)
 
     }
     
@@ -17,7 +16,7 @@ class PerfectNumbersTest: XCTestCase {
         let numberClassifier = NumberClassifier(number: 28)
         let expectedValue = NumberClassification.Perfect
         let result = numberClassifier.classification
-        XCTAssertEqual(result,expectedValue);
+        XCTAssertEqual(result,expectedValue)
         
     }
 
@@ -25,7 +24,7 @@ class PerfectNumbersTest: XCTestCase {
         let numberClassifier = NumberClassifier(number: 13)
         let expectedValue = NumberClassification.Deficient
         let result = numberClassifier.classification
-        XCTAssertEqual(result,expectedValue);
+        XCTAssertEqual(result,expectedValue)
         
     }
     
@@ -33,9 +32,8 @@ class PerfectNumbersTest: XCTestCase {
         let numberClassifier = NumberClassifier(number: 12)
         let expectedValue = NumberClassification.Abundent
         let result = numberClassifier.classification
-        XCTAssertEqual(result,expectedValue);
+        XCTAssertEqual(result,expectedValue)
         
     }
-
 
 }
