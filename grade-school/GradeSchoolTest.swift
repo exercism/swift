@@ -7,7 +7,7 @@ class GradeSchoolTest: XCTestCase
         let school = GradeSchool()
         let expected = [:]
         let result = school.db
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
     
     func testAddStudent() {
@@ -15,7 +15,8 @@ class GradeSchoolTest: XCTestCase
         school.addStudent("Aimee", grade: 2)
         let result = school.db
         let expected: Dictionary = [2: ["Aimee"]]
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result.keys.array, expected.keys.array)
+        XCTAssertEqual(result[2]!, expected[2]!)
     }
     
     func testAddMoreStudentsInSameClass() {
@@ -25,7 +26,8 @@ class GradeSchoolTest: XCTestCase
         school.addStudent("Paul", grade: 2)
         let result = school.db
         let expected = [2: ["Fred", "James", "Paul"]]
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result.keys.array, expected.keys.array)
+        XCTAssertEqual(result[2]!, expected[2]!)
     }
     
     func testAddStudentsToDifferentGrades() {
@@ -34,7 +36,8 @@ class GradeSchoolTest: XCTestCase
         school.addStudent("Logan", grade: 7)
         let result = school.db
         let expected = [3: ["Chelsea"], 7: ["Logan"]]
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result.keys.array.sorted(>), expected.keys.array.sorted(>))
+        XCTAssertEqual(result[3]!, expected[3]!)
     }
 
     func testGetStudentsInAGrade() {
@@ -44,15 +47,15 @@ class GradeSchoolTest: XCTestCase
         school.addStudent("Jeff", grade: 1)
         let result = school.studentsInGrade(5)
         let expected = [ "Franklin", "Bradley" ]
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result, expected)
     }
 
     func testGetStudentsInANonExistantGrade() {
         let school = GradeSchool()
         let result = school.studentsInGrade(1)
     
-        let expected: String[] = []
-        XCTAssertEqualObjects(result, expected)
+        let expected: [String] = []
+        XCTAssertEqual(result, expected)
     }
     
     func testSortSchool() {
@@ -70,6 +73,9 @@ class GradeSchoolTest: XCTestCase
             6 : [ "Kareem"]
         ]
         
-        XCTAssertEqualObjects(result, expected)
+        XCTAssertEqual(result.keys.array.sorted(>), expected.keys.array.sorted(>))
+        XCTAssertEqual(result[3]!, expected[3]!)
+        XCTAssertEqual(result[4]!, expected[4]!)
+        XCTAssertEqual(result[6]!, expected[6]!)
     }
 }

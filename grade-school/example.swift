@@ -1,15 +1,7 @@
-//
-//  example.swift
-//  ExercismConversion
-//
-//  Created by Hank Turowski on 6/12/14.
-//  Copyright (c) 2014 Turowski. All rights reserved.
-//
-
 import Foundation
 
 class GradeSchool {
-    var db: Dictionary<Int, String[]> = [:]
+    var db: [Int: [String]] = [:]
         
     func addStudent(name: String, grade: Int) {
         if var students = db[grade] {
@@ -20,7 +12,7 @@ class GradeSchool {
         }
     }
     
-    func studentsInGrade(grade: Int) -> String[]
+    func studentsInGrade(grade: Int) -> [String]
     {
         if let students = db[grade] {
             return students
@@ -29,10 +21,10 @@ class GradeSchool {
         }
     }
     
-    func sortedRoster() -> Dictionary<Int, String[]> {
+    func sortedRoster() -> [Int: [String]] {
         var sortedDB = db
         for (grade, students) in sortedDB {
-            sortedDB[grade] = sort(students)
+            sortedDB[grade] = students.sorted(<)
         }
         return sortedDB
     }
