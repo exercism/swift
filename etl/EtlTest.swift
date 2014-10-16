@@ -45,9 +45,5 @@ class EtlTest: XCTestCase {
         let results = ETL.transform(old)
         
         XCTAssertEqual(results, expected)
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
     }
 }
