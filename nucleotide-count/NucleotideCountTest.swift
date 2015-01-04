@@ -47,7 +47,7 @@ class NucleotideCountTest: XCTestCase
     
     func testValidatesDNA() {
         let dna = DNA.withStrand("John")
-        XCTAssertNil(dna)
+        XCTAssert(dna == nil)
     }
     
     func testCountsAllNucleotides() {

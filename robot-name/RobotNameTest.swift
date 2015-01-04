@@ -14,21 +14,21 @@ class RobotNameTest: XCTestCase {
         let robot = Robot()
         XCTAssert(robotNameIsCorrectlyFormatted(robot.name))
     }
-    
+
     func testNameSticks() {
         let robot = Robot()
         let name = robot.name
         XCTAssertEqual(name, robot.name)
     }
-    
+
     func testDifferentRobotsHaveDifferentNames() {
         let firstRobot = Robot()
         let secondRobot = Robot()
         XCTAssertNotEqual(firstRobot.name, secondRobot.name)
     }
-    
+
     func testResetName() {
-        let robot = Robot()
+        var robot = Robot()
         let firstName = robot.name
         robot.resetName()
         let secondName = robot.name

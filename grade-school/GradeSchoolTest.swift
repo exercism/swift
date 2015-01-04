@@ -11,16 +11,16 @@ class GradeSchoolTest: XCTestCase
     }
     
     func testAddStudent() {
-        let school = GradeSchool()
+        var school = GradeSchool() // var
         school.addStudent("Aimee", grade: 2)
         let result = school.db
         let expected: Dictionary = [2: ["Aimee"]]
         XCTAssertEqual(result.keys.array, expected.keys.array)
         XCTAssertEqual(result[2]!, expected[2]!)
     }
-    
+
     func testAddMoreStudentsInSameClass() {
-        let school = GradeSchool()
+        var school = GradeSchool()
         school.addStudent("Fred", grade: 2)
         school.addStudent("James", grade: 2)
         school.addStudent("Paul", grade: 2)
@@ -29,9 +29,9 @@ class GradeSchoolTest: XCTestCase
         XCTAssertEqual(result.keys.array, expected.keys.array)
         XCTAssertEqual(result[2]!, expected[2]!)
     }
-    
+
     func testAddStudentsToDifferentGrades() {
-        let school = GradeSchool()
+        var school = GradeSchool()
         school.addStudent("Chelsea", grade: 3)
         school.addStudent("Logan", grade: 7)
         let result = school.db
@@ -41,7 +41,7 @@ class GradeSchoolTest: XCTestCase
     }
 
     func testGetStudentsInAGrade() {
-        let school = GradeSchool()
+        var school = GradeSchool()
         school.addStudent("Franklin", grade: 5)
         school.addStudent("Bradley", grade: 5)
         school.addStudent("Jeff", grade: 1)
@@ -57,9 +57,9 @@ class GradeSchoolTest: XCTestCase
         let expected: [String] = []
         XCTAssertEqual(result, expected)
     }
-    
+
     func testSortSchool() {
-        let school = GradeSchool()
+        var school = GradeSchool()
         
         school.addStudent("Jennifer", grade:4)
         school.addStudent("Kareem", grade:6)
