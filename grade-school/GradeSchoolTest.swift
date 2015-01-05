@@ -11,7 +11,7 @@ class GradeSchoolTest: XCTestCase
     }
     
     func testAddStudent() {
-        var school = GradeSchool() // var
+        var school = GradeSchool()
         school.addStudent("Aimee", grade: 2)
         let result = school.db
         let expected: Dictionary = [2: ["Aimee"]]
