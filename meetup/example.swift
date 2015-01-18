@@ -17,10 +17,7 @@ struct Meetup{
         
         for (index , eachDay) in enumerate(month){
             dateMonthWeekDays.append([index + 1,eachDay])
-            dateWeekDays.append(eachDay)
-        }
-        
-        
+            dateWeekDays.append(eachDay)}
         
         if which == "1st"{
             return "\(dateComponentsStart.year)-\(dateComponentsStart.month)-\((find(dateWeekDays, day_of_the_week ) ?? 0 ))"
@@ -28,7 +25,7 @@ struct Meetup{
         
         if which == "2nd"{
             let second = dateMonthWeekDays.filter({$0[1] == day_of_the_week })[1][0]
-             return "\(dateComponentsStart.year)-\(dateComponentsStart.month)-\(second )"
+            return "\(dateComponentsStart.year)-\(dateComponentsStart.month)-\(second )"
         }
         
         if which == "3rd"{
@@ -41,7 +38,6 @@ struct Meetup{
             return "\(dateComponentsStart.year)-\(dateComponentsStart.month)-\(forth )"
         }
         
-        
         if which == "last"{
             
             let count =  dateMonthWeekDays.filter({$0[1] == day_of_the_week }).count
@@ -51,20 +47,18 @@ struct Meetup{
         }
         
         if which == "teenth"{
-
+            
             let teenthRange = Array(dateMonthWeekDays[13...19])
-
+            
             let last = teenthRange.filter({$0[1] == day_of_the_week })[0][0]
             
             return "\(dateComponentsStart.year)-\(dateComponentsStart.month)-\(last )"
         }
         
-        
-        
         return ""
         
     }
-
+    
     
     init(year:Int, month:Int){
         
@@ -79,48 +73,21 @@ struct Meetup{
             NSCalendarUnit.CalendarUnitYear |
             NSCalendarUnit.CalendarUnitMonth |
             NSCalendarUnit.CalendarUnitDay |
-            NSCalendarUnit.CalendarUnitHour |
-            NSCalendarUnit.CalendarUnitMinute |
-            NSCalendarUnit.CalendarUnitSecond |
-            NSCalendarUnit.CalendarUnitWeekday |
-            NSCalendarUnit.CalendarUnitWeekdayOrdinal |
-            NSCalendarUnit.CalendarUnitQuarter |
-            NSCalendarUnit.CalendarUnitWeekOfMonth |
-            NSCalendarUnit.CalendarUnitWeekOfYear |
-            NSCalendarUnit.CalendarUnitYearForWeekOfYear |
-            NSCalendarUnit.CalendarUnitNanosecond |
-            NSCalendarUnit.CalendarUnitCalendar |
-            NSCalendarUnit.CalendarUnitTimeZone
+            NSCalendarUnit.CalendarUnitWeekday
+        
         
         var components1 = calendar.components(componetCalendarUnits
             , fromDate: meetDate1)
         
         var components2 = calendar.components(componetCalendarUnits            , fromDate: meetDate2)
         
-
+        
         
         self.dateComponentsStart = components1
         self.dateComponentsEnd = components2
         self.dateStart = meetDate1
         self.dateEnd = meetDate2
         
-
+        
     }
 }
-
-// Not used Function
-//    private func int2weekday(input:Int)->String {
-//        if contains(lazy(1...7), input) {
-//           return (NSDateFormatter().weekdaySymbols as [String])[input-1]
-//        }
-//
-//       return "Invalid"
-//    }
-
-// Not used function
-
-//    static func stringToDate(input:String) -> NSDate?{
-//        var dateFormatter = NSDateFormatter()
-//        dateFormatter.dateFormat = "YYYY-MM-dd"
-//        return dateFormatter.dateFromString(input)
-//    }
