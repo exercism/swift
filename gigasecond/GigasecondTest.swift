@@ -1,0 +1,35 @@
+import XCTest
+
+
+class GigasecondTest: XCTestCase {
+    
+    func newDate(input:String) -> NSDate{
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
+    }
+    
+    
+    func test_1 (){
+        var gs = Gigasecond.from(newDate("2011-4-25"))
+            XCTAssert( abs(newDate("2043-1-1").timeIntervalSinceDate(gs)) < 24*60*60 )
+    }
+    
+    func test_2 (){
+        var gs = Gigasecond.from(newDate("1977-6-13"))
+            XCTAssert( abs(newDate("2009-2-19").timeIntervalSinceDate(gs)) < 24*60*60 )
+    }
+    
+    func test_3 (){
+        var gs = Gigasecond.from(newDate("1959-7-19"))
+            XCTAssert( abs(newDate("1991-3-27").timeIntervalSinceDate(gs)) < 24*60*60 )
+    }
+    
+    func test_time_with_seconds (){
+        var date = newDate("1959-7-20").dateByAddingTimeInterval(-1)
+        var gs = Gigasecond.from(date)
+        XCTAssert( abs(newDate("1991-3-28").timeIntervalSinceDate(gs)) < 24*60*60 )
+    }
+    
+ }
+
