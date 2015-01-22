@@ -12,8 +12,10 @@ import Foundation
 struct Gigasecond{
     
     static func newDate(input:String) -> NSDate{
+        //TimeZone added to not take into account daylight savings
+        let Z = ( NSTimeZone.defaultTimeZone().secondsFromGMT / 60 / 60)
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd.\(Z)"
         return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
     }
 

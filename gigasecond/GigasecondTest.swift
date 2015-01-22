@@ -5,9 +5,8 @@ class GigasecondTest: XCTestCase {
     
     func newDateWithTime(input:String) -> NSDate{
         var dateFormatter = NSDateFormatter()
-        // TimeZone added to take into account daylight savings
-        let timeZoneOffset = Int(NSTimeZone.defaultTimeZone().daylightSavingTimeOffset)
-        let Z = (( NSTimeZone.defaultTimeZone().secondsFromGMT / 60 / 60) + timeZoneOffset  )
+        //TimeZone added to not take into account daylight savings
+        let Z = ( NSTimeZone.defaultTimeZone().secondsFromGMT / 60 / 60)
         
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.\(Z)"
         return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
