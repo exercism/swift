@@ -3,38 +3,35 @@ import XCTest
 
 class GigasecondTest: XCTestCase {
     
-    func newDate(input:String) -> NSDate{
+    func newDateWithTime(input:String) -> NSDate{
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd"
+        // TimeZone added to take into account daylight savings
+        let timeZoneOffset = Int(NSTimeZone.defaultTimeZone().daylightSavingTimeOffset)
+        let Z = (( NSTimeZone.defaultTimeZone().secondsFromGMT / 60 / 60) + timeZoneOffset  )
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.\(Z)"
         return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
-    }
-    
-    func dateString(input:NSDate) ->String{
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.stringFromDate(input) ?? "4001-01-01"
     }
     
     
     func test_1 (){
-        var gs = Gigasecond.from(newDate("2011-4-25"))
-            XCTAssertTrue(dateString(newDate("2043-1-1")) == dateString(gs))
+        var gs = Gigasecond.from("2011-4-25")
+            XCTAssertTrue(newDateWithTime("2043-01-01T00:46:40") == gs)
     }
     
     func test_2 (){
-        var gs = Gigasecond.from(newDate("1977-6-13"))
-            XCTAssertTrue(dateString(newDate("2009-2-19")) == dateString(gs))
+        var gs = Gigasecond.from("1977-6-13")
+            XCTAssertTrue(newDateWithTime("2009-02-19T00:46:40") == gs)
     }
     
     func test_3 (){
-        var gs = Gigasecond.from(newDate("1959-7-19"))
-            XCTAssertTrue(dateString(newDate("1991-3-27")) == dateString(gs))
+        var gs = Gigasecond.from("1959-7-19")
+            XCTAssertTrue(newDateWithTime("1991-03-27T00:46:40") == gs)
     }
     
     func test_time_with_seconds (){
-        var date = newDate("1959-7-20").dateByAddingTimeInterval(-1)
-        var gs = Gigasecond.from(date)
-        XCTAssertTrue(dateString(newDate("1991-3-28")) == dateString(gs))
+        var gs = Gigasecond.from("1959-7-20").dateByAddingTimeInterval(-1)
+        XCTAssertTrue(newDateWithTime("1991-3-28T00:46:39") == gs)
     }
     
  }

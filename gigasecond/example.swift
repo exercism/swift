@@ -8,10 +8,20 @@
 
 import Foundation
 
+
 struct Gigasecond{
     
-    static func from(dateIn:NSDate) -> NSDate{
-     
+    static func newDate(input:String) -> NSDate{
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
+    }
+
+    
+    static func from(dateInString:String) -> NSDate{
+        
+        var dateIn = newDate(dateInString)
+        
         return dateIn.dateByAddingTimeInterval(1_000_000_000)
         
     }
