@@ -20,7 +20,6 @@
     "sum-of-multiples",
     "twelve-days",
     "space-age",
-    "gigasecond",
     "meetup",
     "triangle",
     "scrabble-score"
@@ -29,7 +28,7 @@
 
   ],
   "ignored": [
-
+    "gigasecond"
   ],
   "foregone": [
 

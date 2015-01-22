@@ -9,6 +9,10 @@
 import Foundation
 
 
+// There seems to be something wrong with .dateByAddingTimeInterval()
+// TODO: Need to investivate why it is off by 1 hour. 
+// Test are not passing.
+
 struct Gigasecond{
     
     static func newDate(input:String) -> NSDate{
@@ -18,7 +22,6 @@ struct Gigasecond{
         dateFormatter.dateFormat = "yyyy-MM-dd.\(Z)"
         return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
     }
-
     
     static func from(dateInString:String) -> NSDate{
         
