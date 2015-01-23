@@ -9,17 +9,12 @@
 import Foundation
 
 
-// There seems to be something wrong with .dateByAddingTimeInterval()
-// TODO: Need to investivate why it is off by 1 hour. 
-// Test are not passing.
-
 struct Gigasecond{
     
-    static func newDate(input:String) -> NSDate{
-        //TimeZone added to not take into account daylight savings
-        let Z = ( NSTimeZone.defaultTimeZone().secondsFromGMT / 60 / 60)
+    static func newDate(input:String, format:String = "yyyy-MM-dd" ) -> NSDate{
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd.\(Z)"
+        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        dateFormatter.dateFormat = format
         return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
     }
     
