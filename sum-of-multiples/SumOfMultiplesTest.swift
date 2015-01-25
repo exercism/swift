@@ -1,46 +1,46 @@
 import XCTest
 
 
-class SumOfMultiplesTest: XCTestCase {
+class SumOfMultiplesTest:XCTestCase {
     
     
     func testSumTo1(){
-        let result = SumOfMultiples(1)
+        let result = SumOfMultiples.toLimit(1)
         
-        XCTAssertTrue(0 == result)
+        XCTAssertEqual(0, result)
     }
     
     func testSumTo3(){
-        XCTAssertTrue(3 == SumOfMultiples(4))
+        XCTAssertEqual(3,  SumOfMultiples.toLimit(4))
     }
     
     func testSumTo10(){
-        XCTAssertTrue(23 == SumOfMultiples(10))
+        XCTAssertEqual(23,  SumOfMultiples.toLimit(10))
     }
    
     func testSumTo1000(){
-        XCTAssertTrue(233168 == SumOfMultiples(1000))
+        XCTAssertEqual(233168,  SumOfMultiples.toLimit(1000))
     }
     
     func testConfigurable_7_13_17_to_20(){
-        XCTAssertTrue(51 == SumOfMultiples(20, [7, 13, 17]))
+        XCTAssertEqual(51,  SumOfMultiples.toLimit(20, inMultiples: [7, 13, 17]))
 
     }
     
     func testConfigurable_43_47_to_10000(){
-        XCTAssertTrue(2203160 == SumOfMultiples(10000, [43, 47]))
+        XCTAssertEqual(2203160,  SumOfMultiples.toLimit(10000, inMultiples: [43, 47]))
         
     }
 
     
     func testConfigurable_0_to_10(){
-        XCTAssertTrue(0 == SumOfMultiples(10, [0]))
+        XCTAssertEqual(0,  SumOfMultiples.toLimit(10, inMultiples: [0]))
         
     }
 
 
     func testConfigurable_0_1_to_10(){
-        XCTAssertTrue(45 == SumOfMultiples(10, [0, 1]))
+        XCTAssertEqual(45,  SumOfMultiples.toLimit(10, inMultiples: [0, 1]))
     }
     
 }
