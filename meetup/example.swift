@@ -11,7 +11,7 @@ struct Meetup{
     
     func newDate(input:String) -> NSDate{
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
     }
     

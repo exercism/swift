@@ -23,7 +23,9 @@
     "gigasecond",
     "meetup",
     "triangle",
-    "scrabble-score"
+    "scrabble-score",
+    "roman-numerals",
+    "binary"
   ],
   "deprecated": [
 

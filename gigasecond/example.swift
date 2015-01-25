@@ -11,7 +11,8 @@ import Foundation
 
 struct Gigasecond{
     
-    static func newDate(input:String, format:String = "yyyy-MM-dd" ) -> NSDate{
+    static func newDate(input:String, var format:String = "yyyy-MM-dd'T'HH:mm:ss" ) -> NSDate{
+        
         var dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         dateFormatter.dateFormat = format
