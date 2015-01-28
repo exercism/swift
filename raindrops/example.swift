@@ -4,19 +4,17 @@ import Foundation
 struct Raindrops {
     
     static func convert(number:Int)->String{
-    var result = ""
-        if (number % 3 == 0){
-    result += "Pling"}
-        if (number % 5 == 0){
-    result += "Plang"}
-        if (number % 7 == 0){
-    result += "Plong"}
-        if (result.isEmpty){
-            result = String(number)}
-    return result
+    var result = (number % 3, number % 5 , number % 7)
+        switch result{
+        case (0,0,0):return "PlingPlangPlong"
+        case (_,0,0):return "PlangPlong"
+        case (0,_,0):return "PlingPlong"
+        case (0,0,_):return "PlingPlang"
+        case (_,_,0):return "Plong"
+        case (_,0,_):return "Plang"
+        case (0,_,_):return "Pling"
+        default:return "\(number)"
+        }
     }
-
-
-
 }
 
