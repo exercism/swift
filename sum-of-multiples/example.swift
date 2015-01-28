@@ -1,6 +1,9 @@
 import Foundation
 
-func SumOfMultiples(limit:Int,  _  inMultiples:[Int] = [] ) -> Int{
+
+struct SumOfMultiples {
+    
+static func toLimit (limit:Int,   inMultiples:[Int] = [] ) -> Int{
     var multiples = inMultiples
     var arrayLimit = Array(1..<limit)
     
@@ -24,4 +27,5 @@ func SumOfMultiples(limit:Int,  _  inMultiples:[Int] = [] ) -> Int{
         }
     }
     return itemToReturn
+}
 }
