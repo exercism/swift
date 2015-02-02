@@ -28,7 +28,8 @@
     "binary",
     "prime-factors",
     "raindrops",
-    "strain"
+    "strain",
+    "atbash-cipher"
   ],
   "deprecated": [
 
