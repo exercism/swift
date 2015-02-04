@@ -29,7 +29,8 @@
     "prime-factors",
     "raindrops",
     "strain",
-    "atbash-cipher"
+    "atbash-cipher",
+    "crypto-square"
   ],
   "deprecated": [
 
