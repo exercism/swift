@@ -26,7 +26,11 @@
     "scrabble-score",
     "roman-numerals",
     "binary",
-    "prime-factors"
+    "prime-factors",
+    "raindrops",
+    "strain",
+    "atbash-cipher",
+    "crypto-square"
   ],
   "deprecated": [
 
