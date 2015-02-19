@@ -30,7 +30,8 @@
     "raindrops",
     "strain",
     "atbash-cipher",
-    "crypto-square"
+    "crypto-square",
+    "trinary"
   ],
   "deprecated": [
 
