@@ -31,7 +31,8 @@
     "strain",
     "atbash-cipher",
     "crypto-square",
-    "trinary"
+    "trinary",
+    "rna-transcription"
   ],
   "deprecated": [
 
