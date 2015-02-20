@@ -33,7 +33,8 @@
     "crypto-square",
     "trinary",
     "rna-transcription",
-    "sieve"
+    "sieve",
+    "octal"
   ],
   "deprecated": [
 
