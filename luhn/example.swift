@@ -2,36 +2,36 @@ import Foundation
 
 
 struct Luhn {
-
-    var number:Double = 0
+    
+    var number:Int64 = 0
     var addends:[Int] { return addendsFunc(number)}
     var checksum:Int {return addends.reduce(0, combine: +) }
     var isValid : Bool { return checksum % 10 == 0}
     
-    init(_ num:Double){
-    self.number = num
+    init(_ num:Int64){
+        self.number = num
     }
     
-    static func create (num:Double)->Double{
+    static func create (num:Int64)->Double{
         
         func createCheckDigit(value:Int) -> Int{
             var nearestTen = Int(ceil((Double(value) / 10.00)) * 10)
             return nearestTen - value
         }
-
+        
         var zeroCheckDigitNumber = num * 10
         var luhn = Luhn(zeroCheckDigitNumber)
         
         if luhn.isValid {
-            return zeroCheckDigitNumber}
+            return Double(zeroCheckDigitNumber)}
         
-        return zeroCheckDigitNumber + Double(createCheckDigit(luhn.checksum))
+        return Double((zeroCheckDigitNumber) + createCheckDigit(luhn.checksum))
         
     }
     
-    func addendsFunc(num:Double)->[Int]{
+    func addendsFunc(num:Int64)->[Int]{
         
-        func oddIndexDoubleMinus9(var input:[Int])->[Int]{
+        func oddIndexInt64Minus9(var input:[Int])->[Int]{
             input = input.reverse()
             var tempArray:[Int] = []
             for (inx, each) in enumerate(input){
@@ -54,11 +54,9 @@ struct Luhn {
             return tempInt
         }
         
+        let tempString = "\(num)"
         
-        
-        let tempString = "\(Int64(num))"
-        
-        return oddIndexDoubleMinus9(Array(tempString).map{char2Int($0)})
+        return oddIndexInt64Minus9(Array(tempString).map{char2Int($0)})
     }
     
     
