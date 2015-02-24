@@ -34,7 +34,8 @@
     "trinary",
     "rna-transcription",
     "sieve",
-    "octal"
+    "octal",
+    "luhn"
   ],
   "deprecated": [
 
