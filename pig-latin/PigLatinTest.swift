@@ -45,5 +45,8 @@ func test_word_beginning_with_xe(){
 
 func test_word_beginning_with_xr(){
     XCTAssertEqual("xrayay", PigLatin.translate("xray") )}
+    
+func test_translates_phrase(){
+    XCTAssertEqual("ickquay astfay unray", PigLatin.translate("quick fast run") )}
 
     }

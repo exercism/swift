@@ -19,7 +19,13 @@ extension String{
 struct PigLatin {
     
     
-    static func translate(word:String) -> String{
+    static func translate (word:String) -> String {
+      return " ".join(word.componentsSeparatedByString(" ").map{self.translateWord($0)})
+
+        
+    }
+    
+    static func translateWord(word:String) -> String{
         
         
         func wordStartsWithPrefixes(word:String, prefixes:[String]) ->Bool{
