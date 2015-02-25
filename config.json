@@ -35,7 +35,8 @@
     "rna-transcription",
     "sieve",
     "octal",
-    "luhn"
+    "luhn",
+    "series"
   ],
   "deprecated": [
 
