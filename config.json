@@ -36,7 +36,8 @@
     "sieve",
     "octal",
     "luhn",
-    "series"
+    "series",
+    "pig-latin"
   ],
   "deprecated": [
 
