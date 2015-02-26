@@ -30,7 +30,15 @@
     "raindrops",
     "strain",
     "atbash-cipher",
-    "crypto-square"
+    "crypto-square",
+    "trinary",
+    "rna-transcription",
+    "sieve",
+    "octal",
+    "luhn",
+    "series",
+    "pig-latin",
+    "pythagorean-triplet"
   ],
   "deprecated": [
 
