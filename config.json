@@ -34,7 +34,12 @@
     "trinary",
     "rna-transcription",
     "sieve",
-    "octal"
+    "octal",
+    "luhn",
+    "series",
+    "pig-latin",
+    "pythagorean-triplet",
+    "difference-of-squares"
   ],
   "deprecated": [
 
