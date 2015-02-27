@@ -20,16 +20,9 @@ struct Squares {
     var sumOfSquares:Int{
         var numbers = Array(1...self.max)
         return numbers.map{ return $0*$0 }.reduce(0, combine: + )
-        
     }
-    
     
     var differenceOfSquares:Int{
         return squareOfSums - sumOfSquares
     }
-    
-    
-    
-    
-    
 }

@@ -39,7 +39,8 @@
     "series",
     "pig-latin",
     "pythagorean-triplet",
-    "difference-of-squares"
+    "difference-of-squares",
+    "secret-handshake"
   ],
   "deprecated": [
 
