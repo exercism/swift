@@ -38,7 +38,8 @@
     "luhn",
     "series",
     "pig-latin",
-    "pythagorean-triplet"
+    "pythagorean-triplet",
+    "difference-of-squares"
   ],
   "deprecated": [
 
