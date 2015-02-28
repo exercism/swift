@@ -40,7 +40,8 @@
     "pig-latin",
     "pythagorean-triplet",
     "difference-of-squares",
-    "secret-handshake"
+    "secret-handshake",
+    "clock"
   ],
   "deprecated": [
 
