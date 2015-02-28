@@ -12,8 +12,23 @@ func ==(lhs: Clock, rhs: Clock) -> Bool {
     
 }
 
+func <(lhs: Clock, rhs: Clock) -> Bool{
+    let left = (lhs.hours * 60) + lhs.minutes
+    let right = (rhs.hours * 60) + rhs.minutes
+    return left < right
+ 
+}
 
-struct Clock:Equatable, Printable {
+
+func >(lhs: Clock, rhs: Clock) -> Bool{
+    let left = (lhs.hours * 60) + lhs.minutes
+    let right = (rhs.hours * 60) + rhs.minutes
+    return left > right
+    
+}
+
+
+struct Clock:Equatable, Printable, Comparable {
     
     var hours:Int
     var minutes:Int

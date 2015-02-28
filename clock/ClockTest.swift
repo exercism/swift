@@ -1,5 +1,7 @@
 import XCTest
 
+//Test for Protocols: Printable, Equatable, Comparable
+
 class ClockTest: XCTestCase {
     
     func test_on_the_hour(){
@@ -15,11 +17,11 @@ class ClockTest: XCTestCase {
     
     func test_add_over_an_hour(){
     var clock = Clock(hours: 10).add(minutes: 61)
-    XCTAssertEqual("11:01", clock.description )}
+    XCTAssertEqual("11:01", String(clock) )}
     
     func test_wrap_around_at_midnight(){
     var clock = Clock(hours: 23, minutes: 30).add(minutes:60)
-    XCTAssertEqual("00:30", clock.description )}
+    XCTAssertEqual("00:30", String(clock) )}
     
     func test_subtract_minutes(){
     var clock = Clock(hours: 10).subtract(minutes: 90)
@@ -27,15 +29,24 @@ class ClockTest: XCTestCase {
     
     func test_equivalent_clocks(){
     var clock1 = Clock(hours: 15, minutes: 37)
-    var clock2 = Clock(hours: 15, minutes: 37)
+    var clock2 = Clock(hours: 15, minutes: 36).add(minutes: 2).subtract(minutes: 1)
     XCTAssertEqual(clock1, clock2 )}
     
-    func test_inequivalent_clocks(){
+    func test_lessThan_clocks(){
     var clock1 = Clock(hours: 15, minutes: 37)
     var clock2 = Clock(hours: 15, minutes: 36)
     var clock3 = Clock(hours: 14, minutes: 37)
-        XCTAssertNotEqual(clock1, clock2)
-        XCTAssertNotEqual(clock2, clock3) }
+        XCTAssertLessThan(clock2, clock1)
+        XCTAssertLessThan(clock3, clock2) }
+    
+    
+    func test_greaterThan_clocks(){
+        var clock1 = Clock(hours: 15, minutes: 37)
+        var clock2 = Clock(hours: 15, minutes: 36)
+        var clock3 = Clock(hours: 14, minutes: 37)
+        XCTAssertGreaterThan(clock1, clock2)
+        XCTAssertGreaterThan(clock2, clock3) }
+    
     
     func test_wrap_around_backwards(){
     var clock = Clock(hours: 0, minutes: 30).subtract(minutes: 60)
