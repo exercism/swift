@@ -11,7 +11,6 @@ class SimpleLinkedListTest: XCTestCase {
         XCTAssertEqual(1, one.value!)
         XCTAssertNil(one.next)
         XCTAssertEqual(2, two.value!)
-
     }
     
     
@@ -35,13 +34,17 @@ class SimpleLinkedListTest: XCTestCase {
         XCTAssertEqual([3, 2, 1] ,  elementThree.toArray())
     }
     
-    func test_reverse(){
-        
+    func test_reverseOne(){
         var one = Element(1, nil)
-        var two = Element(2, one)
         let one_r = one.reverseElements()
         XCTAssertEqual(1, one_r.value!)
         XCTAssertNil(one_r.next?.value)
+        
+    }
+    
+    func test_reverseTwo(){
+        var one = Element(1, nil)
+        var two = Element(2, one)
         let two_r = two.reverseElements()
         XCTAssertEqual(1, two_r.value!)
         let expect = two_r.next?.value
@@ -49,17 +52,26 @@ class SimpleLinkedListTest: XCTestCase {
     }
     
     
-    func test_from_a(){
+    func test_from_aOne(){
         
         XCTAssertNil(Element<Int>.fromArray([]).value)
         let one_a = Element.fromArray([1])
         XCTAssertEqual(1, one_a.value!)
         XCTAssertNil(one_a.next?.value)
+        
+    }
+    
+    func test_from_aTwo(){
+        
         let two_a = Element.fromArray([2, 1])
         XCTAssertEqual(2, two_a.value!)
         let expected = two_a.next?.value
         XCTAssertEqual(1, expected! )
         XCTAssertNil(two_a.next?.next?.value)
+    }
+    
+    func test_from_a_Ten(){
+        
         let one_to_ten = Element.fromArray(Array(1...10))
         let expected10 = one_to_ten.next?.next?.next?.next?.next?.next?.next?.next?.next?.value
         XCTAssertEqual(10, expected10! )
