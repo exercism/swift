@@ -5,16 +5,24 @@ import XCTest
 
 class SimpleLinkedListTest: XCTestCase {
     
-    func test_constructor(){
+    func test_constructorA(){
         var one = Element(1, nil)
         var two = Element(2, one)
         XCTAssertEqual(1, one.value!)
         XCTAssertNil(one.next)
         XCTAssertEqual(2, two.value!)
+
+    }
+    
+    
+    func test_constructorB(){
+        var one = Element(1, nil)
+        var two = Element(2, one)
         let result = one.value
         let result2 = two.next?.value
         XCTAssertEqual(result!, result2!)
     }
+    
     
     func test_to_a(){
         var elementNil = Element<Int>()
@@ -24,7 +32,8 @@ class SimpleLinkedListTest: XCTestCase {
         XCTAssertEqual([] ,      elementNil.toArray() )
         XCTAssertEqual([1] ,      elementOne.toArray() )
         XCTAssertEqual([2, 1] ,     elementTwo.toArray() )
-        XCTAssertEqual([3, 2, 1] ,  elementThree.toArray())}
+        XCTAssertEqual([3, 2, 1] ,  elementThree.toArray())
+    }
     
     func test_reverse(){
         
@@ -60,7 +69,8 @@ class SimpleLinkedListTest: XCTestCase {
     func test_roundtrip(){
         XCTAssertEqual([1], Element.fromArray([1]).toArray() )
         XCTAssertEqual([2, 1], Element.fromArray([2, 1]).toArray() )
-        XCTAssertEqual(Array(1...10), Element.fromArray(Array(1...10)).toArray())}
-
+        XCTAssertEqual(Array(1...10), Element.fromArray(Array(1...10)).toArray())
+    }
+    
     
 }
