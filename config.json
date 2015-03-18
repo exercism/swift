@@ -43,7 +43,8 @@
     "secret-handshake",
     "clock",
     "simple-linked-list",
-    "linked-list"
+    "linked-list",
+    "tournament"
   ],
   "deprecated": [
 
