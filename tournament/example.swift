@@ -65,7 +65,7 @@ struct Tournament
         AddTeamOutcome(team2, outcome2)
     }
     
-    var teamResult = TeamResult()
+    private var teamResult = TeamResult()
     
     private mutating func AddTeamOutcome(team:String, _ outcome:Outcome) -> Void
     {
