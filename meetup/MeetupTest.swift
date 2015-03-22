@@ -1,5 +1,4 @@
 import XCTest
-import UIKit
 
 class  MeetupTest: XCTestCase {
     

@@ -41,7 +41,11 @@
     "pythagorean-triplet",
     "difference-of-squares",
     "secret-handshake",
-    "clock"
+    "clock",
+    "simple-linked-list",
+    "linked-list",
+    "wordy",
+    "tournament"
   ],
   "deprecated": [
 
