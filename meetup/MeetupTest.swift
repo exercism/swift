@@ -11,7 +11,7 @@ class  MeetupTest: XCTestCase {
     
     let dayOfWeek = (Sunday:1, Monday:2,Tuesday:3,Wednesday:4,Thursday:5,Friday:6,Saturday:7)
     
-    let whichOptions = (first:"1st", second:"2nd", third:"3rd", forth:"4th", last:"last",teenth:"teenth")
+    let whichOptions = (first:"1st", second:"2nd", third:"3rd", forth:"4th", fifth: "5th", last:"last",teenth:"teenth")
     
     
     func test_monteenth_of_may_2013(){
@@ -50,6 +50,20 @@ class  MeetupTest: XCTestCase {
     }
     
     
+    func test_last_monday_of_march_2015(){
+        var meetUp = Meetup(year: 2015, month: 3)
+        XCTAssertEqual(newDate("2015-03-30"), meetUp.day(dayOfWeek.Monday, which: whichOptions.last))
+    }
+    
+    
+    func test_fifth_monday_of_march_2015(){
+        var meetUp = Meetup(year: 2015, month: 3)
+        XCTAssertEqual(
+            meetUp.day(dayOfWeek.Monday, which: whichOptions.fifth),
+            meetUp.day(dayOfWeek.Monday, which: whichOptions.last))
+    }
+    
+    
     func test_last_thursday_of_october_2013(){
         var meetUp = Meetup(year: 2013, month: 10)
         XCTAssertEqual(newDate("2013-10-31"), meetUp.day(dayOfWeek.Thursday, which: whichOptions.last))
@@ -65,5 +79,20 @@ class  MeetupTest: XCTestCase {
         XCTAssertEqual(newDate("2012-12-7"), meetUp.day(dayOfWeek.Friday, which: whichOptions.first)
         )}
     
+    
+    func test_fifth_monday_of_feb_2015_not_equal(){
+        var meetUp = Meetup(year: 2015, month: 2)
+        XCTAssertNotEqual(
+            meetUp.day(dayOfWeek.Monday, which: whichOptions.fifth),
+            meetUp.day(dayOfWeek.Monday, which: whichOptions.last))
+    }
+    
+    
+    func test_forth_monday_of_feb_2015_equal(){
+        var meetUp = Meetup(year: 2015, month: 2)
+        XCTAssertEqual(
+            meetUp.day(dayOfWeek.Monday, which: whichOptions.forth),
+            meetUp.day(dayOfWeek.Monday, which: whichOptions.last))
+    }
     
 }

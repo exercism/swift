@@ -43,7 +43,12 @@ struct Meetup{
             default: dayIndex = -1
             }
             
-            let first2last = dateMonthWeekDays.filter({$0[1] == day_of_the_week })[dayIndex][0] ?? 0
+            let tempFirst2Last = dateMonthWeekDays.filter({$0[1] == day_of_the_week })
+            
+            var first2last:Int { if tempFirst2Last.count > dayIndex {
+                                return tempFirst2Last[dayIndex][0]
+                                }
+                                return 0}
             
             return newDate("\(dateComponentsStart.year)-\(dateComponentsStart.month)-\(first2last)")
         }
