@@ -45,7 +45,8 @@
     "simple-linked-list",
     "linked-list",
     "wordy",
-    "tournament"
+    "tournament",
+    "simple-cipher"
   ],
   "deprecated": [
 
