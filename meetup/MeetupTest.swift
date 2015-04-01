@@ -1,4 +1,5 @@
 import XCTest
+import UIKit
 
 class  MeetupTest: XCTestCase {
     
@@ -50,12 +51,6 @@ class  MeetupTest: XCTestCase {
     }
     
     
-    func test_last_monday_of_march_2015(){
-        var meetUp = Meetup(year: 2015, month: 3)
-        XCTAssertEqual(newDate("2015-03-30"), meetUp.day(dayOfWeek.Monday, which: whichOptions.last))
-    }
-    
-    
     func test_last_thursday_of_october_2013(){
         var meetUp = Meetup(year: 2013, month: 10)
         XCTAssertEqual(newDate("2013-10-31"), meetUp.day(dayOfWeek.Thursday, which: whichOptions.last))
@@ -64,19 +59,13 @@ class  MeetupTest: XCTestCase {
     
     func test_last_wednesday_of_february_2012(){
         var meetUp = Meetup(year: 2012, month: 2)
-        XCTAssertEqual(newDate("2012-2-29"), meetUp.day(dayOfWeek.Wednesday, which: whichOptions.last))}
+        XCTAssertEqual(newDate("2012-2-29"), meetUp.day(dayOfWeek.Wednesday, which: whichOptions.last))
+    }
     
     func test_first_friday_of_december_2012(){
         var meetUp = Meetup(year: 2012, month: 12)
         XCTAssertEqual(newDate("2012-12-7"), meetUp.day(dayOfWeek.Friday, which: whichOptions.first)
         )}
     
-    
-    func test_forth_monday_of_feb_2015_equal(){
-        var meetUp = Meetup(year: 2015, month: 2)
-        XCTAssertEqual(
-            meetUp.day(dayOfWeek.Monday, which: whichOptions.forth),
-            meetUp.day(dayOfWeek.Monday, which: whichOptions.last))
-    }
     
 }
