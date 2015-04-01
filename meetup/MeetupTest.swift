@@ -1,5 +1,4 @@
 import XCTest
-import UIKit
 
 class  MeetupTest: XCTestCase {
     
@@ -59,8 +58,7 @@ class  MeetupTest: XCTestCase {
     
     func test_last_wednesday_of_february_2012(){
         var meetUp = Meetup(year: 2012, month: 2)
-        XCTAssertEqual(newDate("2012-2-29"), meetUp.day(dayOfWeek.Wednesday, which: whichOptions.last))
-    }
+        XCTAssertEqual(newDate("2012-2-29"), meetUp.day(dayOfWeek.Wednesday, which: whichOptions.last))}
     
     func test_first_friday_of_december_2012(){
         var meetUp = Meetup(year: 2012, month: 12)
