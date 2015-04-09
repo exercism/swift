@@ -30,12 +30,12 @@ struct Crypto {
             } else { tempString += "\(each)" }
             tempCounter++
         }
-        return ((tempString as NSString).componentsSeparatedByString(" ") as [String])
+        return ((tempString as NSString).componentsSeparatedByString(" ") as! [String])
     }
     
     func getSquareSize(text:String, floorNoCeling:Bool = false)->Int
     {
-        let tempDouble = Double(countElements(text))
+        let tempDouble = Double(count(text))
         let tempRoot = sqrt(tempDouble)
         let tempCeil = ceil(tempRoot)
         let tempFloor = floor(tempRoot)
@@ -58,9 +58,9 @@ struct Crypto {
             var ciphertextReturn = ""
             
             
-            for i in 0 ..< countElements(plaintextSegmentsArray[0]) {
-                for e in 0 ..< countElements(plaintextSegmentsArray) {
-                    if i < countElements(plaintextSegmentsArray[e]){
+            for i in 0 ..< count(plaintextSegmentsArray[0]) {
+                for e in 0 ..< count(plaintextSegmentsArray) {
+                    if i < count(plaintextSegmentsArray[e]){
                         ciphertextReturn.append(plaintextSegmentsArray[e][i])
                     }
                 }}
@@ -71,7 +71,7 @@ struct Crypto {
     
     var normalizeCiphertext:String {
         
-        var sizeNormal:Int = (countElements(ciphertext) == self.size * self.size ) ? getSquareSize(self.ciphertext) : getSquareSize(self.ciphertext, floorNoCeling: true)
+        var sizeNormal:Int = (count(ciphertext) == self.size * self.size ) ? getSquareSize(self.ciphertext) : getSquareSize(self.ciphertext, floorNoCeling: true)
         
         return (segmentSorter(ciphertext, spacing: sizeNormal) as NSArray).componentsJoinedByString(" ")
     }
