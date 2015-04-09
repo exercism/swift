@@ -25,7 +25,7 @@ public struct Cipher
     {
         func containsMatch(pattern: String, inString string: String) -> Bool {
             let regex = NSRegularExpression(pattern: pattern, options: .allZeros, error: nil)
-            let range = NSMakeRange(0, countElements(string))
+            let range = NSMakeRange(0, count(string))
             return regex?.firstMatchInString(string, options: .allZeros, range: range) != nil
         }
         return containsMatch("^[a-z]+$", inString: key)
