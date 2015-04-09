@@ -7,7 +7,7 @@ class GigasecondTest: XCTestCase {
         var dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
+        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as! NSDate
     }
     
     
