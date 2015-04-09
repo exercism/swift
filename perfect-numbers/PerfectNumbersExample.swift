@@ -2,7 +2,7 @@ import Foundation
 
 enum NumberClassification {
     case Perfect
-    case Abundent
+    case Abundant
     case Deficient
 }
 
@@ -24,7 +24,7 @@ class NumberClassifier {
     func aliquotSum (input:Int)->Int {
         return  Array(Range(start:1, end:input-1)).filter( {input % $0 == 0} ).reduce(0,combine: +)
     }
-    
+
     init(number: Int) {
         self.number = number
     }
