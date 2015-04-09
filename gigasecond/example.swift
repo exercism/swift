@@ -16,7 +16,7 @@ struct Gigasecond{
         var dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         dateFormatter.dateFormat = format
-        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
+        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as! NSDate
     }
     
     static func from(dateInString:String) -> NSDate{

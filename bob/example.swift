@@ -32,7 +32,7 @@ func inputContainsALetter(input: String) -> Bool {
     
     let regex = NSRegularExpression(pattern: "[A-Za-z]", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
     
-    let range = NSMakeRange(0, countElements(input))
+    let range = NSMakeRange(0, count(input))
     let matches = regex?.matchesInString(input, options: .ReportCompletion, range: range)
     if let matched = matches {
         if matched.count != 0 { return true }

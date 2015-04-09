@@ -12,7 +12,7 @@ struct Meetup{
     func newDate(input:String) -> NSDate{
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as NSDate
+        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as! NSDate
     }
     
     mutating func day(day_of_the_week:Int, which:String) -> NSDate{

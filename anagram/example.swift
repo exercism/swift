@@ -28,5 +28,5 @@ func sortLetters(wordToSort: String) -> String {
         characters.append("\(char)")
     }
     characters = sorted(characters,  < )
-    return characters.reduce("", +)
+    return characters.reduce("", combine: +)
 }
