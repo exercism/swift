@@ -18,7 +18,7 @@ class NumberClassifier {
         case let sum where sum < number :
             return NumberClassification.Deficient
         default:
-            return NumberClassification.Abundent
+            return NumberClassification.Abundant
             }
     }
     func aliquotSum (input:Int)->Int {

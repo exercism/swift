@@ -1,10 +1,5 @@
 import Foundation
 
-extension String {
-    func trimWS()->String{
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() )
-    }
-}
 
 struct WordProblem
 {
@@ -59,6 +54,11 @@ struct WordProblem
         return nil
     }
     
+    private func trimWS(input:String)->String{
+        return input.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() )
+    }
+    
+    
     private func replaceText(var textIn:String)-> String{
         for key in operans.keys.array{
             let toReplace = key
@@ -79,7 +79,7 @@ struct WordProblem
         var newTextIn =  Array(textIn)
         newTextIn = newTextIn.filter(checkCharInSet)
         var newTextInString:[String] = newTextIn.map{String($0)}
-        return "".join(newTextInString).trimWS()
+        return trimWS("".join(newTextInString))
     }
 
     
