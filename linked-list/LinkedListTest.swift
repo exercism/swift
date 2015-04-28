@@ -3,10 +3,9 @@ import XCTest
 
 // Use Optionals and Generic Classes
 
-
 class LinkedListTest: XCTestCase {
     
-    func test_push_pop(){
+    func testPushPop() {
         let deque = Deque<Int>()
         deque.push(10)
         deque.push(20)
@@ -14,7 +13,7 @@ class LinkedListTest: XCTestCase {
         XCTAssertEqual(10, deque.pop()! )
     }
     
-    func test_push_shift(){
+    func testPushShift() {
         let deque = Deque<Int>()
         deque.push(10)
         deque.push(20)
@@ -22,7 +21,7 @@ class LinkedListTest: XCTestCase {
         XCTAssertEqual(20, deque.shift()! )
     }
     
-    func test_unshift_shift(){
+    func testUnshiftShift() {
         let deque = Deque<Int>()
         deque.unshift(10)
         deque.unshift(20)
@@ -30,7 +29,7 @@ class LinkedListTest: XCTestCase {
         XCTAssertEqual(10, deque.shift()! )
     }
     
-    func test_unshift_pop(){
+    func testUnshiftPop() {
         let deque = Deque<Int>()
         deque.unshift(10)
         deque.unshift(20)
@@ -38,7 +37,7 @@ class LinkedListTest: XCTestCase {
         XCTAssertEqual(20, deque.pop()! )
     }
     
-    func test_example_MethodLength(){
+    func testExampleMethodLength() {
         let deque = Deque<Int>()
         deque.push(10)
         deque.push(20)

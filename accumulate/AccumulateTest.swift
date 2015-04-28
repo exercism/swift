@@ -17,7 +17,7 @@ extension String {
 
 class AccumulateTest: XCTestCase {
 
-     func test_empty_accumulation() {
+     func testEmptyAccumulation() {
 
        let input = [Int]([])
        let expected = []
@@ -30,7 +30,7 @@ class AccumulateTest: XCTestCase {
         XCTAssert(expected == result)
     }
 
-    func test_accumulate_squares() {
+    func testAccumulateSquares() {
         
         let input = [1,2,3,4]
         let expected = [1,4,9,16]
@@ -44,7 +44,7 @@ class AccumulateTest: XCTestCase {
     }
 
     
-    func test_accumulate_upcases() {
+    func testAccumulateUpcases() {
         
         let input = ["hello","world"]
         let expected = ["HELLO","WORLD"]
@@ -59,7 +59,7 @@ class AccumulateTest: XCTestCase {
      }
     
     
-    func test_accumulate_reversed_strings() {
+    func testAccumulateReversedStrings() {
         
         let input =    ["the","quick","brown","fox","etc"]
         let expected = ["eht","kciuq","nworb","xof","cte"]
@@ -72,7 +72,7 @@ class AccumulateTest: XCTestCase {
         XCTAssert(expected == result)
     }
     
-    func test_accumulate_recursively() {
+    func testAccumulateRecursively() {
         
         let input =   ["a","b","c"]
 
