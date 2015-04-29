@@ -5,47 +5,47 @@ import XCTest
 
 class GrainsTest: XCTestCase {
     
-    func test_invalidInput1(){
+    func testInvalidInput1() {
         XCTAssertTrue((result: 0, error: "Input[65] invalid. Input should be between 1 and 64 (inclusive)") == Grains.square(65))
     }
     
-    func test_invalidInput2(){
+    func testInvalidInput2() {
         XCTAssertTrue((result: 0, error: "Input[0] invalid. Input should be between 1 and 64 (inclusive)") == Grains.square(0))
     }
     
-    func test_invalidInput3(){
+    func testInvalidInput3() {
         XCTAssertTrue((result: 0, error: "Input[-1] invalid. Input should be between 1 and 64 (inclusive)") == Grains.square(-1))
     }
     
-    func test_square_1(){
+    func testSquare1() {
         XCTAssertTrue((result: 1, error: nil) == Grains.square(1) )
     }
     
-    func test_square_2(){
+    func testSquare2() {
         XCTAssertTrue((result: 2, error: nil) == Grains.square(2))
     }
 
-    func test_square_3(){
+    func testSquare3() {
         XCTAssertTrue((result: 4, error: nil) == Grains.square(3))
     }
 
-    func test_square_4(){
+    func testSquare4() {
         XCTAssertTrue((result: 8, error: nil) == Grains.square(4))
     }
 
-    func test_square_16(){
+    func testSquare16() {
         XCTAssertTrue((result: 32_768, error: nil) == Grains.square(16))
     }
 
-    func test_square_32(){
+    func testSquare32() {
         XCTAssertTrue((result: 2_147_483_648, error: nil) == Grains.square(32))
     }
 
-    func test_square_64(){
+    func testSquare64() {
         XCTAssertTrue((result:9_223_372_036_854_775_808 , error: nil) == Grains.square(64))
     }
     
-    func test_total_grains(){
+    func testTotalGrains() {
         XCTAssertTrue(18_446_744_073_709_551_615 == Grains.total)
     }
 }

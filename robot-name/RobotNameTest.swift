@@ -2,8 +2,7 @@ import XCTest
 
 class RobotNameTest: XCTestCase {
 
-    func robotNameIsCorrectlyFormatted(name: String) -> Bool
-    {
+    func robotNameIsCorrectlyFormatted(name: String) -> Bool {
         let robotNameRegex = NSRegularExpression(pattern: "\\A\\w{2}\\d{3}\\z", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
         let matches = robotNameRegex?.matchesInString(name, options: .WithoutAnchoringBounds, range: NSMakeRange(0, count(name)))
 

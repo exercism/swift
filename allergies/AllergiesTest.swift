@@ -3,7 +3,7 @@ import XCTest
 
 class AllergiesTest: XCTestCase {
     
-    func test_bob() {
+    func testBob() {
         
         let allergies = Allergies(34)
         
@@ -12,27 +12,27 @@ class AllergiesTest: XCTestCase {
         XCTAssertFalse(allergies.hasAllergy(Allergies.cats),  "Bob is not allergic to cats")
     }
     
-      func test_eggsNcats () {
-    
+    func testEggsNcats() {
+        
         let allergies = Allergies(129)
-    
+        
         XCTAssertTrue(allergies.hasAllergy(Allergies.eggs))
         XCTAssertTrue(allergies.hasAllergy(Allergies.cats))
         XCTAssertFalse(allergies.hasAllergy(Allergies.chocolate))
+        
+    }
     
-      }
-    
-      func test_none() {
+    func testNone() {
         let allergies = Allergies(0)
-    
+        
         XCTAssertFalse(allergies.hasAllergy(Allergies.pollen))
-      }
+    }
     
-      func testAll() {
-    
+    func testAll() {
+        
         let allInt =  UInt(Array(0...7).reduce(0){ return ($0 | (1 << $1)) })
         let allergies = Allergies(allInt)
-    
+        
         XCTAssertTrue(allergies.hasAllergy(Allergies.eggs))
         XCTAssertTrue(allergies.hasAllergy(Allergies.peanuts))
         XCTAssertTrue(allergies.hasAllergy(Allergies.shellfish))
@@ -41,6 +41,6 @@ class AllergiesTest: XCTestCase {
         XCTAssertTrue(allergies.hasAllergy(Allergies.chocolate))
         XCTAssertTrue(allergies.hasAllergy(Allergies.pollen))
         XCTAssertTrue(allergies.hasAllergy(Allergies.cats))
-    
-      }
+        
+    }
 }
