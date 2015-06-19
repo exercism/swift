@@ -1,43 +1,38 @@
 import Foundation
 
-class DNA {
-    
-    class func withStrand(strand: String) -> DNA? {
-        if (strand.rangeOfCharacterFromSet(invalidDNANucleotides(), options: NSStringCompareOptions.LiteralSearch) != nil) {
-            return nil
-        }
-        var result = DNA()
-        result.DNAStrand = strand
-        return result
-    }
-    
-    var DNAStrand = ""
-    var nucleotideCounts: Dictionary<String, Int> {
-        get {
-            var result = ["A": 0 , "T": 0, "C": 0, "G": 0]
-            for (k, _) in result {
-                result[k] = self.count(k)
-            }
-            return result
-        }
-    }
-    
-    func count(target: String) -> Int? {
-        
-        if (target.rangeOfCharacterFromSet(invalidDNANucleotides(), options: NSStringCompareOptions.LiteralSearch) != nil) {
-            return nil
-        }
-        var matches = 0
-        for char in DNAStrand {
-            if "\(char)" == target {
-                matches++
-            }
-        }
-        return matches
-    }
-
+enum Nucleobase: Character {
+    case Adenine = "A",
+    Cytosine = "C",
+    Thymine = "T",
+    Guanine = "G"
 }
 
-func invalidDNANucleotides() -> NSCharacterSet {
-    return NSCharacterSet(charactersInString: "ACGT").invertedSet
+struct DNA {
+    
+    var nucleotideCounts:[Nucleobase:Int] = [ .Adenine: 0, .Thymine: 0, .Cytosine: 0 , .Guanine : 0 ]
+    
+    init?(strand: String) {
+        for (_, value) in strand.characters.enumerate() {
+            if let possibleNucleobase = Nucleobase(rawValue: value) {
+                nucleotideCounts[possibleNucleobase]! += 1
+            }
+            else {
+                return nil
+            }
+        }
+    }
+    
+    func count(value :Character)-> Int {
+        return nucleotideCounts[Nucleobase(rawValue: value)!]!
+    }
+    
+    func counts()->[String: Int] {
+        var nCounts:[String:Int] = [:]
+        for (k, v) in nucleotideCounts {
+            nCounts[String(k.rawValue)] = v
+        }
+        return nCounts
+    }
+    
 }
+
