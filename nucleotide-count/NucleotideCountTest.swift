@@ -9,11 +9,10 @@ class NucleotideCountTests: XCTestCase
         XCTAssertEqual(result, expected)
     }
     
-    // An initializer defined with init can be made failable by adding a ? or a ! after the init
     func testEmptyDNAStringHasNoNucleotides() {
         let dna = DNA(strand: "")!
-        let results = dna.nucleotideCounts
-        let expected:[Nucleobase:Int] = [ .Adenine: 0, .Thymine: 0, .Cytosine: 0 , .Guanine : 0 ]
+        let results = dna.counts()
+        let expected = ["T": 0, "A": 0, "C": 0, "G": 0]
         XCTAssertEqual(results, expected)
     }
     
@@ -26,8 +25,8 @@ class NucleotideCountTests: XCTestCase
     
     func testRepetitiveSequenceHasOnlyGuanosine() {
         let dna = DNA(strand: "GGGGGGGG")!
-        let results = dna.nucleotideCounts
-        let expected:[Nucleobase:Int] = [ .Adenine: 0, .Thymine: 0, .Cytosine: 0 , .Guanine : 8 ]
+        let results = dna.counts()
+        let expected = [ "A": 0, "T": 0, "C": 0 , "G": 8 ]
         XCTAssertEqual(results, expected)
     }
     
@@ -40,8 +39,7 @@ class NucleotideCountTests: XCTestCase
     
     func testCountsANucleotideOnlyOnce() {
         let dna = DNA(strand: "CGATTGGG")!
-        var result = dna.count("T")
-        result = dna.count("T")
+        let result = dna.count("T")
         let expected = 2
         XCTAssertEqual(result, expected)
     }
@@ -53,8 +51,8 @@ class NucleotideCountTests: XCTestCase
     func testCountsAllNucleotides() {
         let longStrand = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
         let dna = DNA(strand: longStrand)!
-        let results = dna.nucleotideCounts
-        let expected:[Nucleobase:Int] = [ .Adenine: 20, .Thymine: 21, .Cytosine: 12 , .Guanine : 17 ]
+        let results = dna.counts()
+        let expected = [ "A": 20, "T": 21,"C": 12 , "G" : 17 ]
         XCTAssertEqual(results, expected)
     }
 }

@@ -26,4 +26,13 @@ struct DNA {
         return nucleotideCounts[Nucleobase(rawValue: value)!]!
     }
     
+    func counts()->[String: Int] {
+        var nCounts:[String:Int] = [:]
+        for (k, v) in nucleotideCounts {
+            nCounts[String(k.rawValue)] = v
+        }
+        return nCounts
+    }
+    
 }
+
