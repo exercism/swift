@@ -1,12 +1,5 @@
 import XCTest
 
-/*
-
-This version of the tests has been proved to have some problems with Xcode 6 Beta 5 (Up to 6.0.0)
-If the tests won't compile and gives you the error Type '[String : Int]' does not conform to protocol 'Equatable',
-please update your Xcode to the stable version 6.0.1 or higher.
-
-*/
 
 class WordCountTest: XCTestCase {
     
