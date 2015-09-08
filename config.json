@@ -46,9 +46,13 @@
     "linked-list",
     "wordy",
     "tournament",
+<<<<<<< HEAD
+    "simple-cipher"
+=======
     "simple-cipher",
     "acronym",
     "grains"
+>>>>>>> exercism/master
   ],
   "deprecated": [
 
