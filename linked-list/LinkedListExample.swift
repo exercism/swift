@@ -1,6 +1,5 @@
 import Foundation
 
-
 class Node<T> {
     var value: T? = nil
     var next: Node? = nil
