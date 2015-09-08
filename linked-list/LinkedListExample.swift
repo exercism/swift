@@ -1,10 +1,10 @@
 import Foundation
 
 
-class Element<T> {
+class Node<T> {
     var value: T? = nil
-    var next: Element? = nil
-    var prev: Element? = nil
+    var next: Node? = nil
+    var prev: Node? = nil
     
     init() {
     }
@@ -17,11 +17,11 @@ class Element<T> {
 
 class Deque<T> {
     var count: Int = 0
-    var head: Element<T>
-    var tail: Element<T>
+    var head: Node<T>
+    var tail: Node<T>
     
     init() {
-        self.head = Element<T>()
+        self.head = Node<T>()
         self.tail = head
         
     }
@@ -31,7 +31,7 @@ class Deque<T> {
     }
     
     func push(value: T) {
-        var node = Element<T>(value: value)
+        var node = Node<T>(value: value)
         if self.isEmpty() {
             self.head = node
             self.tail = node
@@ -44,7 +44,7 @@ class Deque<T> {
     }
     
     func unshift(value: T) {
-        var node = Element<T>(value: value)
+        var node = Node<T>(value: value)
         if self.isEmpty() {
             self.head = node
             self.tail = node
@@ -63,11 +63,11 @@ class Deque<T> {
         if self.isEmpty() {
             return nil
         } else if self.count == 1 {
-            var temp: Element<T> = self.head
+            var temp: Node<T> = self.head
             self.count--
             return temp.value
         } else {
-            var temp: Element<T> = self.head
+            var temp: Node<T> = self.head
             self.head = self.head.next!
             self.count--
             return temp.value
@@ -79,11 +79,11 @@ class Deque<T> {
         if self.isEmpty() {
             return nil
         } else if self.count == 1 {
-            var temp: Element<T> = self.tail
+            var temp: Node<T> = self.tail
             self.count--
             return temp.value
         } else {
-            var temp: Element<T> = self.tail
+            var temp: Node<T> = self.tail
             self.tail = self.tail.prev!
             self.count--
             return temp.value

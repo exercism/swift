@@ -53,17 +53,17 @@ class TournamentTest:XCTestCase {
     
 
         
-    func testGoodInput(){
+    func testGoodInput() {
         var tournament = Tournament()
         XCTAssertEqual(tournament.tally(input1),  expected1)
     }
 
-    func testIgnoreBadlines(){
+    func testIgnoreBadlines() {
         var tournament = Tournament()
         XCTAssertEqual(tournament.tally(input2),  expected2)
     }
     
-    func testinCompleteCompetition(){
+    func testinCompleteCompetition() {
         var tournament = Tournament()
         XCTAssertEqual(tournament.tally(input3),  expected3)
     }

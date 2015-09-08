@@ -3,56 +3,56 @@ import XCTest
 
 class SpaceAgeTest: XCTestCase {
     
-    func test_age_in_seconds(){
-    let age = SpaceAge(1_000_000)
-    XCTAssertTrue(1_000_000 == age.seconds)
+    func testAgeInSeconds() {
+        let age = SpaceAge(1_000_000)
+        XCTAssertTrue(1_000_000 == age.seconds)
     }
     
-    func test_age_in_earth_years(){
-    let age = SpaceAge(1_000_000_000)
-    XCTAssertTrue(31.69 == age.on_earth)
+    func testAgeInEarthYears() {
+        let age = SpaceAge(1_000_000_000)
+        XCTAssertTrue(31.69 == age.onEarth)
     }
     
-    func test_age_in_mercury_years(){
-    let age = SpaceAge(2_134_835_688)
-    XCTAssertTrue(67.65 == age.on_earth)
-    XCTAssertTrue(280.88 == age.on_mercury)
+    func testAgeInMercuryYears() {
+        let age = SpaceAge(2_134_835_688)
+        XCTAssertTrue(67.65 == age.onEarth)
+        XCTAssertTrue(280.88 == age.onMercury)
     }
     
-    func test_age_in_venus_years(){
-    let age = SpaceAge(189_839_836)
-    XCTAssertTrue(6.02 == age.on_earth)
-    XCTAssertTrue(9.78 == age.on_venus)
+    func testAgeInVenusYears() {
+        let age = SpaceAge(189_839_836)
+        XCTAssertTrue(6.02 == age.onEarth)
+        XCTAssertTrue(9.78 == age.onVenus)
     }
     
-    func test_age_on_mars(){
-    let age = SpaceAge(2_329_871_239)
-    XCTAssertTrue(73.83 == age.on_earth)
-    XCTAssertTrue(39.25 == age.on_mars)
+    func testAgeOnMars() {
+        let age = SpaceAge(2_329_871_239)
+        XCTAssertTrue(73.83 == age.onEarth)
+        XCTAssertTrue(39.25 == age.onMars)
     }
     
-    func test_age_on_jupiter(){
-    let age = SpaceAge(901_876_382)
-    XCTAssertTrue(28.58 == age.on_earth)
-    XCTAssertTrue(2.41 == age.on_jupiter)
+    func testAgeOnJupiter() {
+        let age = SpaceAge(901_876_382)
+        XCTAssertTrue(28.58 == age.onEarth)
+        XCTAssertTrue(2.41 == age.onJupiter)
     }
     
-    func test_age_on_saturn(){
-    let age = SpaceAge(3_000_000_000)
-    XCTAssertTrue(95.06 == age.on_earth)
-    XCTAssertTrue(3.23 == age.on_saturn)
+    func testAgeOnSaturn() {
+        let age = SpaceAge(3_000_000_000)
+        XCTAssertTrue(95.06 == age.onEarth)
+        XCTAssertTrue(3.23 == age.onSaturn)
     }
     
-    func test_age_on_uranus(){
-    let age = SpaceAge(3_210_123_456)
-    XCTAssertTrue(101.72 == age.on_earth)
-    XCTAssertTrue(1.21 == age.on_uranus)
+    func testAgeOnUranus() {
+        let age = SpaceAge(3_210_123_456)
+        XCTAssertTrue(101.72 == age.onEarth)
+        XCTAssertTrue(1.21 == age.onUranus)
     }
     
-    func test_age_on_neptune(){
-    let age = SpaceAge(8_210_123_456)
-    XCTAssertTrue(260.16 == age.on_earth)
-    XCTAssertTrue(1.58 == age.on_neptune)
+    func testAgeOnNeptune() {
+        let age = SpaceAge(8_210_123_456)
+        XCTAssertTrue(260.16 == age.onEarth)
+        XCTAssertTrue(1.58 == age.onNeptune)
     }
     
 }

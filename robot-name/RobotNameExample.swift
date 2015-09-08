@@ -25,6 +25,6 @@ func convertStringToStringArray(input: String) -> [String] {
 func generateRandomLetter() -> String {
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     let letters = convertStringToStringArray(alphabet)
-    let randomIndex = Int(rand()) % countElements(letters)
+    let randomIndex = Int(rand()) % count(letters)
     return letters[randomIndex]
 }

@@ -11,13 +11,13 @@ class PerfectNumbersTest: XCTestCase {
         XCTAssertEqual(result,expectedValue)
 
     }
-    
+
     func testPerfectAgain() {
         let numberClassifier = NumberClassifier(number: 28)
         let expectedValue = NumberClassification.Perfect
         let result = numberClassifier.classification
         XCTAssertEqual(result,expectedValue)
-        
+
     }
 
     func testDeficient() {
@@ -25,15 +25,15 @@ class PerfectNumbersTest: XCTestCase {
         let expectedValue = NumberClassification.Deficient
         let result = numberClassifier.classification
         XCTAssertEqual(result,expectedValue)
-        
+
     }
-    
-    func testAbundent() {
+
+    func testAbundant() {
         let numberClassifier = NumberClassifier(number: 12)
-        let expectedValue = NumberClassification.Abundent
+        let expectedValue = NumberClassification.Abundant
         let result = numberClassifier.classification
         XCTAssertEqual(result,expectedValue)
-        
+
     }
 
 }

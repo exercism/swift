@@ -16,13 +16,13 @@ class PhoneNumber {
     
     init(startingNumber: String) {
         phoneNumber = removeNonDigits(startingNumber)
-        if countElements(phoneNumber) == 11 {
+        if count(phoneNumber) == 11 {
             if phoneNumber.hasPrefix("1") {
                 phoneNumber = phoneNumber[1...10]
             } else {
                 phoneNumber = "0000000000"
             }
-        } else if countElements(phoneNumber) != 10 {
+        } else if count(phoneNumber) != 10 {
             phoneNumber = "0000000000"
         }
     }

@@ -5,7 +5,6 @@
   "active": true,
   "problems": [
     "leap",
-    "bob",
     "hamming",
     "word-count",
     "etl",
@@ -28,6 +27,7 @@
     "binary",
     "prime-factors",
     "raindrops",
+    "bob",
     "strain",
     "atbash-cipher",
     "crypto-square",
@@ -46,13 +46,19 @@
     "linked-list",
     "wordy",
     "tournament",
+<<<<<<< HEAD
     "simple-cipher"
+=======
+    "simple-cipher",
+    "acronym",
+    "grains"
+>>>>>>> exercism/master
   ],
   "deprecated": [
 
   ],
   "ignored": [
-
+    "docs"
   ],
   "foregone": [
 
