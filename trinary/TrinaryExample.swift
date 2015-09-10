@@ -1,6 +1,4 @@
-
-import Foundation
-
+import Darwin
 
 struct Trinary {
     

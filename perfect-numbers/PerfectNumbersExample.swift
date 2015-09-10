@@ -1,4 +1,4 @@
-import Foundation
+//Foundation not needed
 
 enum NumberClassification {
     case Perfect

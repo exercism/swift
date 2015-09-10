@@ -1,6 +1,5 @@
 import Foundation
 
-
 struct Atbash {
     
      private static func stripWhiteSpaceAndPunctuations(input:String) ->String{

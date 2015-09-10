@@ -1,6 +1,5 @@
 import Foundation
 
-
 struct Acronym{
     static func abbreviate(input:String)->String{
 

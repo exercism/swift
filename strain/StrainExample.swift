@@ -1,6 +1,4 @@
-
-import Foundation
-
+//Foundation not needed
 
 extension Array{
     

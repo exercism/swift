@@ -1,4 +1,4 @@
-import Foundation
+
 import XCTest
 
 class PigLatinTest : XCTestCase {

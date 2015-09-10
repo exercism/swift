@@ -1,5 +1,4 @@
-import Foundation
-
+import Darwin
 
 func == (left: (result: UInt64, error: String?), right:(result: UInt64, error: String?) ) -> Bool
 {

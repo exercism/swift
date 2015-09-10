@@ -1,5 +1,4 @@
-import Foundation
-
+//Foundation not needed
 
 extension String {
     init(_ myType: Clock) {

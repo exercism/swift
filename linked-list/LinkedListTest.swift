@@ -1,4 +1,4 @@
-import Foundation
+
 import XCTest
 
 // Use Optionals and Generic Classes

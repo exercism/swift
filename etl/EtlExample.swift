@@ -1,4 +1,4 @@
-import Foundation
+//Foundation not needed
 
 class ETL {
     class func transform(old: [Int: [String] ] ) -> [String: Int]

@@ -1,4 +1,4 @@
-import Foundation
+//Foundation not needed
 
 struct Allergies {
     private var value: UInt = 0

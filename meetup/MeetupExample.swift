@@ -1,6 +1,5 @@
 import Foundation
 
-
 struct Meetup{
     private var dateStart:NSDate
     private var dateEnd:NSDate = NSDate()

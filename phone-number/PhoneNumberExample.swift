@@ -1,4 +1,4 @@
-import Foundation
+//Foundation not needed
 
 extension String {
     subscript (r: Range<Int>) -> String {

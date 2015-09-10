@@ -1,5 +1,4 @@
-
-import Foundation
+//Foundation not needed
 
 class Element<T> {
     var value: T? = nil

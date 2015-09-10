@@ -1,6 +1,5 @@
 import Foundation
 
-
 struct WordProblem
 {
     private var textIn = ""

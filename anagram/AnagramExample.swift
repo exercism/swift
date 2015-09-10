@@ -1,10 +1,18 @@
-import Foundation
+//Foundation not needed
 
-class Anagram
-{
+class Anagram {
     var baseWord = ""
     init (word: String) {
         baseWord = word
+    }
+    
+    func sortLetters(wordToSort: String) -> String {
+        var characters: [String] = []
+        for char in wordToSort {
+            characters.append("\(char)")
+        }
+        characters = sorted(characters,  < )
+        return characters.reduce("", combine: +)
     }
     
     func match(words: [String]) -> [String] {
@@ -22,11 +30,4 @@ class Anagram
     
 }
 
-func sortLetters(wordToSort: String) -> String {
-    var characters: [String] = []
-    for char in wordToSort {
-        characters.append("\(char)")
-    }
-    characters = sorted(characters,  < )
-    return characters.reduce("", combine: +)
-}
+

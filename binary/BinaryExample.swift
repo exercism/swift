@@ -1,4 +1,4 @@
-import Foundation
+//Foundation not needed
 
 struct Binary {
     var UIntValue:UInt = 0

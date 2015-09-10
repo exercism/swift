@@ -1,5 +1,5 @@
 
-import Foundation
+//Foundation not needed
 
 extension Array {
     func accumulate<S>(yield: (T) -> S) -> [S] {

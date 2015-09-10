@@ -1,4 +1,4 @@
-import Foundation
+
 import XCTest
 
 //Return multiple types and compare by overloading ==

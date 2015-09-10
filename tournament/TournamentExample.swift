@@ -1,6 +1,5 @@
 import Foundation
 
-
 extension String {
     func trimWS()->String{
         return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() )
