@@ -20,20 +20,20 @@ class PythagoreanTripletTest: XCTestCase {
     }
     
     func testTripletsUpTo10() {
-        var triplets = Triplet.Where(maxFactor: 10)
-        var products = triplets.map{$0.product}.sorted(<)
+        let triplets = Triplet.Where(maxFactor: 10)
+        let products = triplets.map{$0.product}.sort(<)
         XCTAssertEqual([60, 480], products)
     }
     
     func testTripletsFrom11UpTo20() {
-        var triplets = Triplet.Where(minFactor: 11, maxFactor: 20)
-        var products = triplets.map{$0.product}.sorted(<)
+        var triplets = Triplet.Where(11, maxFactor: 20)
+        var products = triplets.map{$0.product}.sort(<)
         XCTAssertEqual([3840], products)
     }
     
     func testTripletsWhereSumX() {
-        var triplets = Triplet.Where( maxFactor: 100, sum: 180)
-        var products = triplets.map{$0.product}.sorted(<)
+        let triplets = Triplet.Where( maxFactor: 100, sum: 180)
+        let products = triplets.map{$0.product}.sort(<)
         XCTAssertEqual([118_080, 168_480, 202_500], products)
     }
     

@@ -2,7 +2,7 @@
 
 extension Array{
     
-    func keep(compare:Bool = true, inputFunc:(T) -> Bool )->Array {
+    func keep(compare compare:Bool = true, inputFunc:(Element) -> Bool )->Array {
         var array2Return:Array = []
         for each in self{
             if inputFunc(each) == compare{
@@ -11,7 +11,7 @@ extension Array{
         return array2Return
     }
     
-    func discard(inputFunc:(T) -> Bool)->Array{
+    func discard(inputFunc:(Element) -> Bool)->Array{
         return keep(compare: false, inputFunc: inputFunc)
     }
 }

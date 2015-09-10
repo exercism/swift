@@ -15,14 +15,14 @@ struct SecretHandshake{
     
     private func commandsFunc()->[String] {
         var commands = [String]()
-        for key in commandValues.keys.array.sorted( < ){
+        for key in Array(commandValues.keys).sort( < ){
             if (commandValue & key) != 0 {
                 commands.append(commandValues[key]!)
             }
         }
         
         if shouldReverse{
-            return commands.reverse()
+            return Array(commands.reverse())
         }
         else {
             return commands

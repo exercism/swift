@@ -1,13 +1,13 @@
 
 import XCTest
 
-extension String {
+private extension String {
     
-    var length: Int {return count(self)}
+    var length: Int {return self.characters.count}
     
     func reverse() -> String {
         var result:String = ""
-        for char in self {
+        for char in self.characters {
             result = "\(char)\(result)"
         }
         return result

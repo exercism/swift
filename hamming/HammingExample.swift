@@ -21,7 +21,7 @@ class Hamming {
 func convertStringToArray(input: String) -> [Character] {
     var characterArray: [Character] = []
     
-    for character in input {
+    for character in input.characters {
         characterArray.append(character)
     }
     

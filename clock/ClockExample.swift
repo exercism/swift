@@ -1,6 +1,6 @@
 //Foundation not needed
 
-extension String {
+private extension String {
     init(_ myType: Clock) {
         self = myType.description
     }
@@ -27,7 +27,7 @@ func >(lhs: Clock, rhs: Clock) -> Bool{
 }
 
 
-struct Clock:Equatable, Printable, Comparable {
+struct Clock:Equatable, CustomStringConvertible, Comparable {
     
     var hours:Int
     var minutes:Int
@@ -41,18 +41,18 @@ struct Clock:Equatable, Printable, Comparable {
     var description: String { get {return self.toString} }
 
     
-    func add(#minutes:Int) -> Clock{
+    func add(minutes minutes:Int) -> Clock{
         return Clock(hours: self.hours, minutes: self.minutes + minutes)
     }
     
-    func subtract(#minutes:Int)-> Clock{
+    func subtract(minutes minutes:Int)-> Clock{
         return add(minutes: -minutes)
     }
     
     private var toString:String {
         
-        var h = String(format: "%02d", self.hours)
-        var m = String(format: "%02d", self.minutes)
+        let h = String(format: "%02d", self.hours)
+        let m = String(format: "%02d", self.minutes)
         
         return h + ":" + m
     }

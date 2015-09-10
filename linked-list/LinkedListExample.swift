@@ -30,7 +30,7 @@ class Deque<T> {
     }
     
     func push(value: T) {
-        var node = Node<T>(value: value)
+        let node = Node<T>(value: value)
         if self.isEmpty() {
             self.head = node
             self.tail = node
@@ -43,7 +43,7 @@ class Deque<T> {
     }
     
     func unshift(value: T) {
-        var node = Node<T>(value: value)
+        let node = Node<T>(value: value)
         if self.isEmpty() {
             self.head = node
             self.tail = node
@@ -62,11 +62,11 @@ class Deque<T> {
         if self.isEmpty() {
             return nil
         } else if self.count == 1 {
-            var temp: Node<T> = self.head
+            let temp: Node<T> = self.head
             self.count--
             return temp.value
         } else {
-            var temp: Node<T> = self.head
+            let temp: Node<T> = self.head
             self.head = self.head.next!
             self.count--
             return temp.value
@@ -78,11 +78,11 @@ class Deque<T> {
         if self.isEmpty() {
             return nil
         } else if self.count == 1 {
-            var temp: Node<T> = self.tail
+            let temp: Node<T> = self.tail
             self.count--
             return temp.value
         } else {
-            var temp: Node<T> = self.tail
+            let temp: Node<T> = self.tail
             self.tail = self.tail.prev!
             self.count--
             return temp.value

@@ -6,9 +6,9 @@ struct Binary {
     var toDecimal:Int {get {return Int(UIntValue)}}
     
     private func bi2Uint(input:String) -> UInt{
-        let orderedInput = reverse(input)
+        let orderedInput = Array(input.characters.reverse())
         var tempUInt:UInt = 0
-        for (inx,each) in enumerate(orderedInput){
+        for (inx,each) in orderedInput.enumerate(){
             if each == "1" {
                 tempUInt += UInt(0x1 << inx)
             }

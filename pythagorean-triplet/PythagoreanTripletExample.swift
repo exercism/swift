@@ -26,8 +26,8 @@ struct Triplet {
         for var i = minFactor; i < maxFactor - 1; i++ {
             for var j = i + 1; j < maxFactor; j++ {
                 for var k = j + 1; k <= maxFactor; k++ {
-                    var triplet = Triplet(i, j, k)
-                    if shouldIncludeTriplet(sum, triplet){
+                    let triplet = Triplet(i, j, k)
+                    if shouldIncludeTriplet(sum, triplet: triplet){
                         triplets.append(triplet)
                     }
                 }

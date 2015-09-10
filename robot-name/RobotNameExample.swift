@@ -16,7 +16,7 @@ class Robot {
 
 func convertStringToStringArray(input: String) -> [String] {
     var characterArray: [String] = []
-    for character in input {
+    for character in input.characters {
         characterArray.append("\(character)")
     }
     return characterArray
@@ -25,6 +25,6 @@ func convertStringToStringArray(input: String) -> [String] {
 func generateRandomLetter() -> String {
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     let letters = convertStringToStringArray(alphabet)
-    let randomIndex = Int(rand()) % count(letters)
+    let randomIndex = Int(rand()) % letters.count
     return letters[randomIndex]
 }

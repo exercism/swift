@@ -6,26 +6,26 @@ import XCTest
 class SimpleLinkedListTest: XCTestCase {
     
     func testConstructorA() {
-        var one = Element(1, nil)
-        var two = Element(2, one)
+        let one = Element(1, nil)
+        let two = Element(2, one)
         XCTAssertEqual(1, one.value!)
         XCTAssertNil(one.next)
         XCTAssertEqual(2, two.value!)
     }
     
     func testConstructorB() {
-        var one = Element(1, nil)
-        var two = Element(2, one)
+        let one = Element(1, nil)
+        let two = Element(2, one)
         let result = one.value
         let result2 = two.next?.value
         XCTAssertEqual(result!, result2!)
     }
     
     func testToA() {
-        var elementNil = Element<Int>()
-        var elementOne = Element(1, nil)
-        var elementTwo = Element(2, elementOne)
-        var elementThree = Element(3, elementTwo)
+        let elementNil = Element<Int>()
+        let elementOne = Element(1, nil)
+        let elementTwo = Element(2, elementOne)
+        let elementThree = Element(3, elementTwo)
         XCTAssertEqual([] ,      elementNil.toArray() )
         XCTAssertEqual([1] ,      elementOne.toArray() )
         XCTAssertEqual([2, 1] ,     elementTwo.toArray() )
@@ -33,7 +33,7 @@ class SimpleLinkedListTest: XCTestCase {
     }
     
     func testReverseOne() {
-        var one = Element(1, nil)
+        let one = Element(1, nil)
         let oneR = one.reverseElements()
         XCTAssertEqual(1, oneR.value!)
         XCTAssertNil(oneR.next?.value)
@@ -41,8 +41,8 @@ class SimpleLinkedListTest: XCTestCase {
     }
     
     func testReverseTwo() {
-        var one = Element(1, nil)
-        var two = Element(2, one)
+        let one = Element(1, nil)
+        let two = Element(2, one)
         let twoR = two.reverseElements()
         XCTAssertEqual(1, twoR.value!)
         let expect = twoR.next?.value

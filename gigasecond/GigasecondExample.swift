@@ -2,17 +2,17 @@ import Foundation
 
 struct Gigasecond{
     
-    static func newDate(input:String, var format:String = "yyyy-MM-dd'T'HH:mm:ss" ) -> NSDate{
+    static func newDate(input:String, format:String = "yyyy-MM-dd'T'HH:mm:ss" ) -> NSDate{
         
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         dateFormatter.dateFormat = format
-        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as! NSDate
+        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() 
     }
     
     static func from(dateInString:String) -> NSDate{
         
-        var dateIn = newDate(dateInString)
+        let dateIn = newDate(dateInString)
         
         return dateIn.dateByAddingTimeInterval(1_000_000_000)
         

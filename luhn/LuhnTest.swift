@@ -23,7 +23,7 @@ class LuhnTest: XCTestCase {
     }
     
     func testInvalidNumber() {
-        var luhn = Luhn(738)
+        let luhn = Luhn(738)
         XCTAssertEqual (false ,luhn.isValid)
     }
     

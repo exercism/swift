@@ -8,10 +8,10 @@ class Anagram {
     
     func sortLetters(wordToSort: String) -> String {
         var characters: [String] = []
-        for char in wordToSort {
+        for char in wordToSort.characters {
             characters.append("\(char)")
         }
-        characters = sorted(characters,  < )
+        characters = characters.sort(< )
         return characters.reduce("", combine: +)
     }
     

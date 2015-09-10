@@ -1,6 +1,6 @@
 import Foundation
 
-extension String {
+private extension String {
     func trimWS()->String{
         return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() )
     }
@@ -40,7 +40,7 @@ struct Tournament
             case .WIN :
                 ++Wins
             default :
-                println("Error AddOutcome")
+                print("Error AddOutcome")
             }
         }
     }
@@ -52,10 +52,10 @@ struct Tournament
         teams = Dictionary<String, TeamResult>()
     }
     
-    private mutating func AddResult(#team1:String, team2:String, outcome:Outcome) -> Void
+    private mutating func AddResult(team1 team1:String, team2:String, outcome:Outcome) -> Void
     {
         // Invert outcome for the second team.
-        var outcome2:Outcome  = (outcome == Outcome.WIN) ? Outcome.LOSS :
+        let outcome2:Outcome  = (outcome == Outcome.WIN) ? Outcome.LOSS :
             (outcome == Outcome.LOSS) ? Outcome.WIN :
             Outcome.DRAW
         
@@ -86,11 +86,11 @@ struct Tournament
         func formarter (Team:String, MP:String, W:String, D:String, L:String, P:String)->String{
             
             func wsChars(text:String, spacing:Int = 31)->String{
-                return "".join(Repeat(count:abs(spacing - Array(text).count) , repeatedValue: " "))
+                return Repeat(count:abs(spacing - Array(text.characters).count) , repeatedValue: " ").joinWithSeparator("")
             }
             
             func spacing(text:String, columnWith:Int = 4)->String{
-                let textCount = Array(text).count
+                let textCount = Array(text.characters).count
                 let space = Int(round(Double(textCount) / Double(columnWith)))
                 
                 return wsChars(text, spacing: columnWith - space - textCount) + text + wsChars(text, spacing: space )
@@ -104,7 +104,7 @@ struct Tournament
 
         var textOutput:String = ""
         
-        let header = formarter("Team", "MP", "W", "D", "L", "P")
+        let header = formarter("Team", MP: "MP", W: "W", D: "D", L: "L", P: "P")
         
         textOutput += header
         
@@ -112,11 +112,11 @@ struct Tournament
         func sortKeysByValue()->[String]
         {
             var sortByValue = [(String, Int)]()
-            for each in teams.keys.array{
+            for each in Array(teams.keys){
                 let tempVal = teams[each]!
                 sortByValue.append((each, tempVal.Score))
             }
-            sortByValue.sort{$0.1 > $1.1}
+            sortByValue.sortInPlace{$0.1 > $1.1}
             var sortedKeys = [String]()
             for each in sortByValue{
                 sortedKeys.append(each.0)
@@ -137,11 +137,11 @@ struct Tournament
             
             
             let line = formarter(team,
-                "\(MP)",
-                "\(W)",
-                "\(D)",
-                "\(L)",
-                "\(P)")
+                MP: "\(MP)",
+                W: "\(W)",
+                D: "\(D)",
+                L: "\(L)",
+                P: "\(P)")
             
             textOutput += line
         }
@@ -154,7 +154,7 @@ struct Tournament
         var outcome:Outcome = Outcome.ERR
         
         // alternative to .componentsSeparatedByString
-        let textArrayLines = split(inStream) {$0 == "\n"}
+        let textArrayLines = inStream.characters.split {$0 == "\n"}.map { String($0) }
         
         for line in textArrayLines
         {

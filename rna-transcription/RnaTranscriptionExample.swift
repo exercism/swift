@@ -16,7 +16,7 @@ struct Nucleotide {
 
     func transcrive(dict:[Character : String]) -> String{
         var tempText = ""
-        for each in self.value{
+        for each in self.value.characters{
             tempText += dict[each] ?? ""
         }
         return tempText

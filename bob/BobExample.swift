@@ -28,11 +28,11 @@ func isShouting(input: String) -> Bool {
 }
 
 func inputContainsALetter(input: String) -> Bool {
-    var containsLetter: Bool = false
+    //var containsLetter: Bool = false
     
-    let regex = NSRegularExpression(pattern: "[A-Za-z]", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
+    let regex = try? NSRegularExpression(pattern: "[A-Za-z]", options: NSRegularExpressionOptions.CaseInsensitive)
     
-    let range = NSMakeRange(0, count(input))
+    let range = NSMakeRange(0, input.characters.count)
     let matches = regex?.matchesInString(input, options: .ReportCompletion, range: range)
     if let matched = matches {
         if matched.count != 0 { return true }

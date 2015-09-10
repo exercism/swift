@@ -1,6 +1,6 @@
 import Foundation
 
-extension String {
+private extension String {
     
     func stripCharSet(charSet:NSCharacterSet) -> String{
         let tempstring:NSArray = self.componentsSeparatedByCharactersInSet(charSet)
@@ -24,18 +24,18 @@ struct Crypto {
     func segmentSorter(value:String, spacing:Int)->[String]{
         var tempCounter = 0
         var tempString:String = ""
-        for each in value{
+        for each in value.characters{
             if tempCounter % spacing == 0 && tempCounter != 0{
                 tempString += " \(each)"
             } else { tempString += "\(each)" }
             tempCounter++
         }
-        return ((tempString as NSString).componentsSeparatedByString(" ") as! [String])
+        return ((tempString as NSString).componentsSeparatedByString(" ") )
     }
     
     func getSquareSize(text:String, floorNoCeling:Bool = false)->Int
     {
-        let tempDouble = Double(count(text))
+        let tempDouble = Double(text.characters.count)
         let tempRoot = sqrt(tempDouble)
         let tempCeil = ceil(tempRoot)
         let tempFloor = floor(tempRoot)
@@ -52,15 +52,15 @@ struct Crypto {
             var plaintextSegmentsArray = [[Character]]()
             
             for each in plaintextSegments{
-                plaintextSegmentsArray.append(Array(each))
+                plaintextSegmentsArray.append(Array(each.characters))
             }
             
             var ciphertextReturn = ""
             
             
-            for i in 0 ..< count(plaintextSegmentsArray[0]) {
-                for e in 0 ..< count(plaintextSegmentsArray) {
-                    if i < count(plaintextSegmentsArray[e]){
+            for i in 0 ..< plaintextSegmentsArray[0].count {
+                for e in 0 ..< plaintextSegmentsArray.count {
+                    if i < plaintextSegmentsArray[e].count{
                         ciphertextReturn.append(plaintextSegmentsArray[e][i])
                     }
                 }}
@@ -71,7 +71,7 @@ struct Crypto {
     
     var normalizeCiphertext:String {
         
-        var sizeNormal:Int = (count(ciphertext) == self.size * self.size ) ? getSquareSize(self.ciphertext) : getSquareSize(self.ciphertext, floorNoCeling: true)
+        let sizeNormal:Int = (ciphertext.characters.count == self.size * self.size ) ? getSquareSize(self.ciphertext) : getSquareSize(self.ciphertext, floorNoCeling: true)
         
         return (segmentSorter(ciphertext, spacing: sizeNormal) as NSArray).componentsJoinedByString(" ")
     }

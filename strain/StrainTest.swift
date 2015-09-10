@@ -1,6 +1,5 @@
 import XCTest
 
-
 class StrainTest: XCTestCase {
     
     func testEmptyKeep() {
@@ -36,7 +35,7 @@ class StrainTest: XCTestCase {
             [2, 2, 1],
             [1, 2, 5]
         ]
-        let result = rows.keep{ each -> Bool in contains((each as [Int]), 5)}
+        let result = rows.keep{ each -> Bool in (each as [Int]).contains(5)}
         XCTAssertEqual([[5, 5, 5], [5, 1, 2], [1, 5, 2], [1, 2, 5]], result)
     }
     
@@ -72,7 +71,7 @@ class StrainTest: XCTestCase {
             [2, 2, 1],
             [1, 2, 5]
         ]
-        let result = rows.discard { each -> Bool in contains((each as [Int]), 5)}
+        let result = rows.discard { each -> Bool in (each as [Int]).contains(5)}
         XCTAssertEqual([[1, 2, 3], [2, 1, 2], [2, 2, 1]], result)
     }
     

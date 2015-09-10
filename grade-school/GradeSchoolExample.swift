@@ -24,7 +24,7 @@ class GradeSchool {
     func sortedRoster() -> [Int: [String]] {
         var sortedDB = db
         for (grade, students) in sortedDB {
-            sortedDB[grade] = students.sorted(<)
+            sortedDB[grade] = students.sort(<)
         }
         return sortedDB
     }

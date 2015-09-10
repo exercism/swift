@@ -4,12 +4,12 @@ import XCTest
 class SeriesTest: XCTestCase {
     
     func testSimpleSlicesOfOne() {
-        var series = Series("01234")
+        let series = Series("01234")
         XCTAssertEqual([[0], [1], [2], [3], [4]], series.slices(1))
     }
     
     func testSimpleSlicesOfOneAgain() {
-        var series = Series("92834")
+        let series = Series("92834")
         XCTAssertEqual([[9], [2], [8], [3], [4]], series.slices(1))
     }
     

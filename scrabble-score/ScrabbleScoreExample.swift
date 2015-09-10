@@ -1,6 +1,6 @@
 import Foundation
 
-extension String {
+private extension String {
     var IsEmptyOrWhiteSpace:Bool { get {
         return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty
         }}}
@@ -18,7 +18,7 @@ struct Scrabble{
             return 0}
         
         var count:Int = 0
-        for each in input.lowercaseString{
+        for each in input.lowercaseString.characters{
             count += letterScores[String(each)] ?? 0
         }
         return count

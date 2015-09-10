@@ -4,12 +4,12 @@ struct SumOfMultiples {
     
 static func toLimit (limit:Int,   inMultiples:[Int] = [] ) -> Int{
     var multiples = inMultiples
-    var arrayLimit = Array(1..<limit)
+    let arrayLimit = Array(1..<limit)
     
     if multiples.count == 0 {
         multiples = [3, 5]
     } else if multiples[0] == 0{
-        multiples = Array(dropFirst(inMultiples))
+        multiples = Array(inMultiples.dropFirst())
     }
     
     var itemToReturn = 0
