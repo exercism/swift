@@ -1,8 +1,30 @@
-import Foundation
+import Darwin
 
-private extension String {
-    func trimWS()->String{
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() )
+extension String {
+    
+    func trimWS()-> String{
+        let removeSpaces = trimCharacters(" ", sourceText: self)
+        if removeSpaces.hasSuffix("\n"){
+            return String(removeSpaces.characters.dropLast())
+        }
+        return  removeSpaces
+
+    }
+    
+    func trimCharacters(charToTrim:Character, sourceText:String) -> String{
+        var editCharacterView = sourceText.characters
+        var editString = String(editCharacterView)
+        
+        let trimFirst  = sourceText.characters.first == charToTrim
+        let trimLast   = sourceText.characters.last == charToTrim
+        
+        if trimFirst { editCharacterView  = editCharacterView.dropFirst() }
+        if trimLast { editCharacterView  = editCharacterView.dropLast() }
+        
+        if trimFirst || trimLast == true {
+            editString = trimCharacters(charToTrim, sourceText: String(editCharacterView))
+        }
+        return editString
     }
 }
 

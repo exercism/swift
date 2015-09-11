@@ -1,17 +1,15 @@
-import Foundation
 
 struct Atbash {
     
-     private static func stripWhiteSpaceAndPunctuations(input:String) ->String{
-        
-        func stripCharSet(input input:String, charSet:NSCharacterSet) -> String{
-            let tempstring:NSArray = input.componentsSeparatedByCharactersInSet(charSet)
-            let returnString = tempstring.componentsJoinedByString("")
-            return returnString
+    private static func stripWhiteSpaceAndPunctuations(input:String) ->String{
+        var returnString = ""
+        input.characters.forEach{
+            if !" ,.".containsString(String($0)){
+                returnString.append($0)
+            }
         }
-
-        let passOne = stripCharSet(input: input, charSet: .whitespaceAndNewlineCharacterSet())
-        return stripCharSet(input: passOne, charSet: .punctuationCharacterSet())
+        
+        return returnString
     }
     
     

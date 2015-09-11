@@ -37,11 +37,12 @@ class SimpleCipherTestIncorrectKey: XCTestCase {
     func testCipherWithEmptyKey() {
         XCTAssertTrue(Cipher(key: "") == nil)
     }
+    
 }
 
 class SimpleCipherTestSubstitution: XCTestCase {
 
-    let cipher = Cipher(key: "abcdefghij")!
+    let cipher = Cipher(key: "abcdefghij") ?? Cipher()
 
     func testCipherKeyIsAsSubmitted() {
         XCTAssertEqual(cipher.key, "abcdefghij")
@@ -79,7 +80,7 @@ class SimpleCipherTestSubstitution: XCTestCase {
 
 class SimpleCipherTestPseudoShift: XCTestCase {
 
-    let cipherPseudo = Cipher(key: "dddddddddd")!
+    let cipherPseudo = Cipher(key: "dddddddddd") ?? Cipher()
 
     func testCipherEncode() {
         let plaintext = "aaaaaaaaaa"

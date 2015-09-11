@@ -1,22 +1,23 @@
-import Foundation
+import Darwin
 
 private extension String {
     
-    func stripCharSet(charSet:NSCharacterSet) -> String{
-        let tempstring:NSArray = self.componentsSeparatedByCharactersInSet(charSet)
-        let returnString = tempstring.componentsJoinedByString("")
+    func stripCharacters(charToRemove:String) -> String{
+        var returnString = ""
+        self.characters.forEach{
+            if !charToRemove.containsString(String($0)){
+                returnString.append($0)
+            }}
         return returnString
     }
-    var stripWhiteSpace:String { get {
-        return stripCharSet(.whitespaceAndNewlineCharacterSet())
-        }}
-    var stripPunctuations:String { get {
-        return stripCharSet(.punctuationCharacterSet())
-        }}
-    var stripSymbols:String { get {
-        return stripCharSet(.symbolCharacterSet())
-        }}
+    
+    var stripWhiteSpace:String { return stripCharacters(" ") }
+    var stripPunctuations:String { return stripCharacters(",.!?") }
+    var stripSymbols:String { return stripCharacters("#$%^&") }
+    
+    
 }
+
 
 
 struct Crypto {
@@ -30,7 +31,7 @@ struct Crypto {
             } else { tempString += "\(each)" }
             tempCounter++
         }
-        return ((tempString as NSString).componentsSeparatedByString(" ") )
+        return (tempString.componentsSeparatedByString(" ") )
     }
     
     func getSquareSize(text:String, floorNoCeling:Bool = false)->Int
@@ -73,7 +74,7 @@ struct Crypto {
         
         let sizeNormal:Int = (ciphertext.characters.count == self.size * self.size ) ? getSquareSize(self.ciphertext) : getSquareSize(self.ciphertext, floorNoCeling: true)
         
-        return (segmentSorter(ciphertext, spacing: sizeNormal) as NSArray).componentsJoinedByString(" ")
+        return segmentSorter(ciphertext, spacing: sizeNormal).joinWithSeparator(" ")
     }
     
     
