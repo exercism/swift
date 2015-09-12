@@ -1,8 +1,8 @@
 import Darwin
 
-extension String {
+private extension String {
     
-    func trimWS()-> String{
+    func trimWhiteSpace()-> String{
         let removeSpaces = trimCharacters(" ", sourceText: self)
         if removeSpaces.hasSuffix("\n"){
             return String(removeSpaces.characters.dropLast())
@@ -120,7 +120,7 @@ struct Tournament
             
             let text = "\(Team)" + wsChars(Team) + "|" + spacing(MP) + "|" + spacing(W) + "|" + spacing(D) + "|" + spacing(L) + "|" + spacing(P)
             
-            return text.trimWS() + "\n"
+            return text.trimWhiteSpace() + "\n"
             
         }
 
@@ -167,7 +167,7 @@ struct Tournament
             
             textOutput += line
         }
-        return textOutput.trimWS()
+        return textOutput.trimWhiteSpace()
     }
     
     mutating func tally(inStream:String) -> String
@@ -180,7 +180,7 @@ struct Tournament
         
         for line in textArrayLines
         {
-            let parts = line.trimWS().componentsSeparatedByString(";")
+            let parts = line.trimWhiteSpace().componentsSeparatedByString(";")
             if parts.count == 3
             {
                 switch parts[2].lowercaseString

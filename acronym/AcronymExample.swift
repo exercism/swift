@@ -1,10 +1,8 @@
+//Not foundation needed
+
 import Foundation
 
 private extension String{
-    func substringFromIndexInt(indx:Int) -> String {
-        let index = self.startIndex.advancedBy(indx)
-        return self.substringFromIndex(index)
-    }
     
     func substringWithRangeInt(intRange:Range<Int>)->String{
         let start = self.startIndex.advancedBy(intRange.startIndex)
@@ -12,28 +10,71 @@ private extension String{
         return self.substringWithRange(start..<end)
     }
     
+    func substringWithRangeInt(start start:Int, end:Int) -> String{
+        let range = Range<Int>(start: start, end: end)
+        return self.substringWithRangeInt(range)
+    }
+    
+    var isUppercase:Bool {
+        return self == self.uppercaseString
+    }
+    
+    var isLowercase:Bool {
+        return self == self.lowercaseString
+    }
+}
+
+struct Acronym{
+    
+    static func abbreviate(inString:String) -> String {
+        
+        var previousLetter:String = ""
+        
+        func splitCamelcaseAt(currentLetter: String, inout withString previousLetter: String ) -> Bool {
+            
+            defer { previousLetter = currentLetter }
+            
+            if currentLetter == " " { return false
+            } else if currentLetter.isEmpty { return false
+            } else if (previousLetter.isLowercase && currentLetter.isUppercase){
+                //previousLetter = currentLetter // see defer block
+                return true
+            }
+            //previousLetter = currentLetter // see defer block
+            return false
+        }
+        
+        func insertSpaceAtCamelcase(inString:String)->String{
+            var accumulate  = ""
+            var lastIndexAdded = 0
+            
+            for (index , each) in inString.characters.map({String($0)}).enumerate() {
+                if splitCamelcaseAt(each, withString: &previousLetter){
+                    accumulate += inString.substringWithRangeInt(start: lastIndexAdded, end: index)+" " // inserts a space
+                    lastIndexAdded = index
+                }
+            }
+            let lastStringSection = inString.substringWithRangeInt(start: lastIndexAdded, end: inString.characters.count)
+            return accumulate + lastStringSection
+        }
+        
+        func splitAt(characterToCompare:Character, charToSplitAt:String = " ,-:")-> Bool{
+            for each in charToSplitAt.characters{
+                if each == characterToCompare{
+                    return true
+                }
+            }
+            return false
+        }
+        
+        func splitStringToArray(inString:String) -> [String]{
+            
+            return inString.characters.split(isSeparator: { splitAt($0) }).map{String($0)}
+        }
+        
+        return splitStringToArray(insertSpaceAtCamelcase(inString)).map({$0.uppercaseString.substringWithRangeInt(start: 0, end: 1)}).joinWithSeparator("")
+    }
     
 }
 
 
-struct Acronym{
-    static func abbreviate(input:String)->String{
-
-        func listMatches(pattern pattern: String, inString string: String) -> [String] {
-            let regex = try? NSRegularExpression(pattern: pattern, options: [])
-            let range = NSMakeRange(0, string.characters.count)
-            guard let matches = regex?.matchesInString(string, options: [], range: range) else {fatalError("Nothing Matched")}
-            
-            return matches.map {
-                let rangeIn = $0.range
-                guard let rangeInt = rangeIn.toRange() else {fatalError("Nothing Matched")}
-
-                return string.substringWithRangeInt(rangeInt) ?? ""
-            }
-        }
-        
-        return listMatches(pattern: "[A-Z]+[a-z]*|[a-z]+", inString: input).map{$0.capitalizedString.substringToIndex(input.startIndex.advancedBy(1))}.joinWithSeparator("")
-     
-        
-    }
-}

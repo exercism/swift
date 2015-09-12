@@ -32,6 +32,10 @@ public struct Cipher
     {
         if isLowerCaseAlfabet(key){
             self.key = key
+            
+            if key.isEmpty {
+                return nil
+            }
         } else { return nil
             //self.key = randomKeySet() // Alternative non Optional faiulure
         }
@@ -45,7 +49,6 @@ public struct Cipher
             if "abcdefghijklmnopqrstuvwxyz".containsString(String($0)) == false {
                 valid = false
             }
-            if inkey.isEmpty { valid = false }
         }
         return valid
     }

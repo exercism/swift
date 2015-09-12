@@ -1,3 +1,4 @@
+//Foundation not needed
 
 private extension String {
     private func stripCharacters(charsToRemove:String) -> String{
