@@ -1,14 +1,17 @@
 import Foundation
 
+enum calculateError:ErrorType{
+    case error
+}
+
+
 struct WordProblem
 {
-    private var textIn = ""
+    var textIn = ""
     
     init(_ text:String){
         self.textIn = text
     }
-    
-    var answer:Int? { return calculate(textIn)}
     
     private let operans =
     ["plus" : "+",
@@ -22,10 +25,17 @@ struct WordProblem
         "*":{(a:Int, b:Int) -> Int in return a * b},
         "/":{(a:Int, b:Int) -> Int in return a / b}]
     
+    //Calculate
     
-    private func calculate(textIn:String)->Int?{
+    func answer() throws -> Int{
+        guard let toReturn = calculate(textIn) else {
+            throw calculateError.error
+        }
+        return toReturn
+    }
+    
+    func calculate(textIn:String) ->Int?{
         let calcStack = replaceText(textIn).componentsSeparatedByString(" ")
-        
         
         if calcStack.count == 3 {
             let a = Int(calcStack[0])
@@ -53,7 +63,7 @@ struct WordProblem
         return nil
     }
     
-    private func trimWS(input:String)->String{
+    private func trimWS(input:String )->String{
         return input.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() )
     }
     
