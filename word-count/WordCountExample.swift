@@ -1,25 +1,43 @@
-import Foundation
+// Foundation not needed
 
-class WordCount {
-    var words: String
+// Apple Swift version 2.0
+
+struct WordCount {
+
+    func splitStringToArray(inString:String) -> [String]{
+        
+        return inString.characters.split(isSeparator: { splitAt($0) }).map{String($0)}
+    }
+    
+    func splitAt(characterToCompare:Character, charToSplitAt:String = " !&$%^&,:")-> Bool{
+        for each in charToSplitAt.characters{
+            if each == characterToCompare{
+                return true
+            }
+        }
+        return false
+    }
+    
+    let words: String
     
     init(words: String) {
         self.words = words
     }
     
     func count() -> [String: Int] {
-        var wordCounts: [String: Int] = [:]
-        var useWords = words.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet).lowercaseString
-        useWords = useWords.stringByReplacingOccurrencesOfString(": ", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch)
-        useWords = useWords.stringByReplacingOccurrencesOfString(",", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch)
-
-        for w in useWords.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) {
-            if let thisCount = wordCounts[w] {
-                wordCounts[w] = thisCount+1
-            } else {
-                wordCounts[w] = 1
-            }
+        var dict = [String:Int]()
+        let cleanArray = splitStringToArray(words)
+        
+        cleanArray.forEach { string in
+            if !string.isEmpty {
+                if let count = dict[string.lowercaseString] {
+                    dict[string.lowercaseString] = count + 1
+                } else { dict[string.lowercaseString] = 1
+                }
+                }
+                }
+            return dict
         }
-        return wordCounts
-    }
 }
+
+

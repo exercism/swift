@@ -1,6 +1,8 @@
 import XCTest
 
-class hammingTests: XCTestCase {
+// Apple Swift version 2.0
+
+class HammingTests: XCTestCase {
     func testNoDifferenceBetweenEmptyStrands() {
         let result = Hamming.compute("", against: "")!
         let expected = 0
@@ -33,7 +35,6 @@ class hammingTests: XCTestCase {
     
     func testReturnsNilWhenOtherStrandLonger() {
         let result = Hamming.compute("AAACTAGGGG", against:"AGGCTAGCGGTAGGAC")
-        let expected: Int? = nil
         XCTAssertNil(result, "Different length strands return nil")
     }
     

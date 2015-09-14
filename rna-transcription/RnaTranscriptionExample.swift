@@ -1,5 +1,6 @@
+// Foundation not needed
 
-import Foundation
+// Apple Swift version 2.0
 
 struct Nucleotide {
     
@@ -17,7 +18,7 @@ struct Nucleotide {
 
     func transcrive(dict:[Character : String]) -> String{
         var tempText = ""
-        for each in self.value{
+        for each in self.value.characters{
             tempText += dict[each] ?? ""
         }
         return tempText

@@ -1,13 +1,15 @@
-import Foundation
+
 import XCTest
 
-extension String {
+// Apple Swift version 2.0
+
+private extension String {
     
-    var length: Int {return count(self)}
+    var length: Int {return self.characters.count}
     
     func reverse() -> String {
         var result:String = ""
-        for char in self {
+        for char in self.characters {
             result = "\(char)\(result)"
         }
         return result
@@ -27,7 +29,7 @@ class AccumulateTest: XCTestCase {
       
        let result = input.accumulate(square)
         
-        XCTAssert(expected == result)
+        XCTAssertEqual(expected, result)
     }
 
     func testAccumulateSquares() {
@@ -40,7 +42,7 @@ class AccumulateTest: XCTestCase {
         
         let result = input.accumulate(square)
         
-        XCTAssert(expected == result)
+        XCTAssertEqual(expected, result)
     }
 
     
@@ -54,7 +56,7 @@ class AccumulateTest: XCTestCase {
         
         let result = input.accumulate(toUpper)
         
-        XCTAssert(expected == result)
+        XCTAssertEqual(expected, result)
 
      }
     
@@ -69,7 +71,7 @@ class AccumulateTest: XCTestCase {
         
         let result = input.accumulate(reverse)
         
-        XCTAssert(expected == result)
+        XCTAssertEqual(expected, result)
     }
     
     func testAccumulateRecursively() {
@@ -93,6 +95,6 @@ class AccumulateTest: XCTestCase {
         
         let result = input.accumulate(recurse)
         
-        XCTAssert(expected == result)
+        XCTAssertEqual(expected, result)
     }
 }

@@ -1,5 +1,6 @@
+// Foundation not needed
 
-import Foundation
+// Apple Swift version 2.0
 
 struct Sieve {
     var value:Int = 0

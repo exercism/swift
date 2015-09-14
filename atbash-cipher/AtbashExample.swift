@@ -1,18 +1,18 @@
-import Foundation
+// Foundation not needed
 
+// Apple Swift version 2.0
 
 struct Atbash {
     
-     private static func stripWhiteSpaceAndPunctuations(input:String) ->String{
-        
-        func stripCharSet(#input:String, charSet:NSCharacterSet) -> String{
-            let tempstring:NSArray = input.componentsSeparatedByCharactersInSet(charSet)
-            let returnString = tempstring.componentsJoinedByString("")
-            return returnString
+    private static func stripWhiteSpaceAndPunctuations(input:String) ->String{
+        var returnString = ""
+        input.characters.forEach{
+            if !" ,.".containsString(String($0)){
+                returnString.append($0)
+            }
         }
-
-        var passOne = stripCharSet(input: input, .whitespaceAndNewlineCharacterSet())
-        return stripCharSet(input: passOne, .punctuationCharacterSet())
+        
+        return returnString
     }
     
     
@@ -24,7 +24,7 @@ struct Atbash {
         
         var text2return = ""
         
-        for each in value{
+        for each in value.characters{
             text2return.append(cipherDictApply[each] ?? each )
         }
         return insertSpace5th(text2return)
@@ -33,7 +33,7 @@ struct Atbash {
     static func insertSpace5th(value:String)->String{
         var tempCounter = 0
         var tempString:String = ""
-        for each in value{
+        for each in value.characters{
             if tempCounter % 5 == 0 && tempCounter != 0{
                 tempString += " \(each)"
             } else { tempString += "\(each)" }

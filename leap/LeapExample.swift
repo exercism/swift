@@ -1,4 +1,6 @@
-import Foundation
+// Foundation not needed
+
+// Apple Swift version 2.0
 
 class Year {
     var year = 1900

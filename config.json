@@ -4,6 +4,7 @@
   "repository": "https://github.com/exercism/xswift",
   "active": true,
   "problems": [
+    "hello-world",
     "leap",
     "hamming",
     "word-count",
@@ -54,7 +55,8 @@
 
   ],
   "ignored": [
-    "docs"
+    "docs",
+    "xcodeProject"
   ],
   "foregone": [
 

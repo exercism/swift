@@ -1,4 +1,6 @@
-import Foundation
+// Foundation not needed
+
+// Apple Swift version 2.0
 
 class Hamming {
     class func compute(input: String, against: String) -> Int? {
@@ -21,7 +23,7 @@ class Hamming {
 func convertStringToArray(input: String) -> [Character] {
     var characterArray: [Character] = []
     
-    for character in input {
+    for character in input.characters {
         characterArray.append(character)
     }
     

@@ -1,5 +1,6 @@
-import Foundation
+// Foundation not needed
 
+// Apple Swift version 2.0
 
 extension Int {
     
@@ -12,7 +13,7 @@ extension Int {
         var i = self
         var s = ""
         
-        for arabic in sorted(arabicToRoman.keys, > ){
+        for arabic in arabicToRoman.keys.sort(> ){
             while i >= arabic{
                 s += arabicToRoman[arabic] ?? ""
                 i -= arabic

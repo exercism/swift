@@ -1,4 +1,6 @@
-import Foundation
+// Foundation not needed
+
+// Apple Swift version 2.0
 
 enum Nucleobase: Character {
     case Adenine = "A",

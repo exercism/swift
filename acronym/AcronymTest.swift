@@ -1,5 +1,7 @@
-import Foundation
+
 import XCTest
+
+// Apple Swift version 2.0
 
 class AcronymTest: XCTestCase {
     

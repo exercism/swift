@@ -1,7 +1,9 @@
 import XCTest
 
+// Apple Swift version 2.0
 
-class BlankTest: XCTestCase {
+
+class PrimeFactorsTest: XCTestCase {
     
     func test1() {
         XCTAssertEqual([], PrimeFactors.For(1))

@@ -1,10 +1,12 @@
-import Foundation
+// Foundation not needed
 
-extension String {
+// Apple Swift version 2.0
+
+private extension String {
     subscript (r: Range<Int>) -> String {
         get {
-            let startIndex = advance(self.startIndex, r.startIndex)
-            let endIndex = advance(startIndex, r.endIndex - r.startIndex)
+            let startIndex = self.startIndex.advancedBy(r.startIndex)
+            let endIndex = startIndex.advancedBy(r.endIndex - r.startIndex)
             
             return self[Range(start: startIndex, end: endIndex)]
         }
@@ -16,13 +18,13 @@ class PhoneNumber {
     
     init(startingNumber: String) {
         phoneNumber = removeNonDigits(startingNumber)
-        if count(phoneNumber) == 11 {
+        if phoneNumber.characters.count == 11 {
             if phoneNumber.hasPrefix("1") {
                 phoneNumber = phoneNumber[1...10]
             } else {
                 phoneNumber = "0000000000"
             }
-        } else if count(phoneNumber) != 10 {
+        } else if phoneNumber.characters.count != 10 {
             phoneNumber = "0000000000"
         }
     }
@@ -45,8 +47,8 @@ class PhoneNumber {
 
 func removeNonDigits(input: String) -> String {
     var result = ""
-    for char in input {
-        if let c = "\(char)".toInt() {
+    for char in input.characters {
+        if let _ = Int("\(char)") {
             if char != "-" {
                 result += "\(char)"
             }

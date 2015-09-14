@@ -1,25 +1,80 @@
-import Foundation
+// Foundation not needed
 
+// Apple Swift version 2.0
 
-struct Acronym{
-    static func abbreviate(input:String)->String{
-
-        func listMatches(#pattern: String, inString string: String) -> [String] {
-            let regex = NSRegularExpression(pattern: pattern, options: .allZeros, error: nil)
-            let range = NSMakeRange(0, count(string))
-            let matches = regex?.matchesInString(string, options: .allZeros, range: range) as! [NSTextCheckingResult]
-            
-            return matches.map {
-                let range = $0.range
-                return (string as NSString).substringWithRange(range)
-            }
-        }
-        
-        return "".join(listMatches(pattern: "[A-Z]+[a-z]*|[a-z]+", inString: input).map{$0.capitalizedString.substringToIndex(advance(input.startIndex, 1))})
-        
-        
-
-            
-        
+private extension String{
+    
+    func substringWithRangeInt(intRange:Range<Int>)->String{
+        let start = self.startIndex.advancedBy(intRange.startIndex)
+        let end = self.startIndex.advancedBy(intRange.endIndex)
+        return self.substringWithRange(start..<end)
+    }
+    
+    func substringWithRangeInt(start start:Int, end:Int) -> String{
+        let range = Range<Int>(start: start, end: end)
+        return self.substringWithRangeInt(range)
+    }
+    
+    var isUppercase:Bool {
+        return self == self.uppercaseString
+    }
+    
+    var isLowercase:Bool {
+        return self == self.lowercaseString
     }
 }
+
+struct Acronym{
+    
+    static func abbreviate(inString:String) -> String {
+        
+        var previousLetter:String = ""
+        
+        func splitCamelcaseAt(currentLetter: String, inout withString previousLetter: String ) -> Bool {
+            
+            defer { previousLetter = currentLetter }
+            
+            if currentLetter == " " { return false
+            } else if currentLetter.isEmpty { return false
+            } else if (previousLetter.isLowercase && currentLetter.isUppercase){
+                //previousLetter = currentLetter // see defer block
+                return true
+            }
+            //previousLetter = currentLetter // see defer block
+            return false
+        }
+        
+        func insertSpaceAtCamelcase(inString:String)->String{
+            var accumulate  = ""
+            var lastIndexAdded = 0
+            
+            for (index , each) in inString.characters.map({String($0)}).enumerate() {
+                if splitCamelcaseAt(each, withString: &previousLetter){
+                    accumulate += inString.substringWithRangeInt(start: lastIndexAdded, end: index)+" " // inserts a space
+                    lastIndexAdded = index
+                }
+            }
+            let lastStringSection = inString.substringWithRangeInt(start: lastIndexAdded, end: inString.characters.count)
+            return accumulate + lastStringSection
+        }
+        
+        func splitAt(characterToCompare:Character, charToSplitAt:String = " ,-:")-> Bool{
+            for each in charToSplitAt.characters{
+                if each == characterToCompare{
+                    return true
+                }
+            }
+            return false
+        }
+        
+        func splitStringToArray(inString:String) -> [String]{
+            
+            return inString.characters.split(isSeparator: { splitAt($0) }).map{String($0)}
+        }
+        
+        return splitStringToArray(insertSpaceAtCamelcase(inString)).map({$0.uppercaseString.substringWithRangeInt(start: 0, end: 1)}).joinWithSeparator("")
+    }
+    
+}
+
+

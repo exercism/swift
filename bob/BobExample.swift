@@ -1,41 +1,76 @@
-import Foundation
+// Foundation not needed
 
-class Bob {
-    class func hey(input: String) -> String {
-        if isEmpty(input) {
+// Apple Swift version 2.0
+
+private extension String {
+    
+    func trimWhiteSpace()-> String{
+        let removeSpaces = trimCharacters(" ", sourceText: self)
+        if removeSpaces.hasSuffix("\n"){
+            return String(removeSpaces.characters.dropLast())
+        }
+        return  removeSpaces
+    }
+    
+    func trimCharacters(charToTrim:Character, sourceText:String) -> String{
+        var editCharacterView = sourceText.characters
+        var editString = String(editCharacterView)
+        
+        let trimFirst  = sourceText.characters.first == charToTrim
+        let trimLast   = sourceText.characters.last == charToTrim
+        
+        if trimFirst { editCharacterView  = editCharacterView.dropFirst() }
+        if trimLast { editCharacterView  = editCharacterView.dropLast() }
+        
+        if trimFirst || trimLast == true {
+            editString = trimCharacters(charToTrim, sourceText: String(editCharacterView))
+        }
+        return editString
+    }
+    
+    
+    var isQuestion:Bool {
+        return hasSuffix("?")
+    }
+    
+    var hasLetters:Bool {
+        return containsLetters(self)
+    }
+    
+    var isShouting:Bool {
+        return (self == uppercaseString && hasLetters)
+    }
+    
+    private func containsLetters(input:String) ->Bool{
+        let abc = "abcdefghijklmnopqrstuvwxyz"
+        var contains = false
+        let inputStringCollection = input.characters.map({String($0)})
+        let abcStringCollection = abc.characters.map({String($0)})
+        
+        for each in inputStringCollection {
+            abcStringCollection.forEach({
+            if each == $0 || each == $0.uppercaseString {
+            contains = true
+                }
+            })
+        }
+        return contains
+    }
+    
+}
+
+struct Bob {
+    static func hey(input: String) -> String {
+        if input.trimWhiteSpace().isEmpty {
             return "Fine, be that way."
-        } else if isShouting(input) {
+        } else if input.isShouting {
             return "Woah, chill out!"
-        } else if isQuestion(input) {
+        } else if input.isQuestion {
             return "Sure."
         } else {
             return "Whatever."
         }
     }
-}
-
-
-func isEmpty(input: String) -> Bool {
-    return input.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).isEmpty;
-}
-
-func isQuestion(input: String) -> Bool {
-    return input.hasSuffix("?")
-}
-
-func isShouting(input: String) -> Bool {
-    return (input == input.uppercaseString && inputContainsALetter(input))
-}
-
-func inputContainsALetter(input: String) -> Bool {
-    var containsLetter: Bool = false
     
-    let regex = NSRegularExpression(pattern: "[A-Za-z]", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
-    
-    let range = NSMakeRange(0, count(input))
-    let matches = regex?.matchesInString(input, options: .ReportCompletion, range: range)
-    if let matched = matches {
-        if matched.count != 0 { return true }
-    }
-    return false
 }
+

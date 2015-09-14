@@ -1,15 +1,16 @@
-import Foundation
+// Foundation not needed
 
+// Apple Swift version 2.0
 
-extension String{
+private extension String{
     func substringFromIndexInt(indx:Int) -> String {
-        let index = advance(self.startIndex, indx)
+        let index = self.startIndex.advancedBy(indx)
         return self.substringFromIndex(index)
     }
 
     func substringWithRangeInt(intRange:Range<Int>)->String{
-        let start = advance(self.startIndex,intRange.startIndex)
-        let end = advance(self.startIndex,intRange.endIndex)
+        let start = self.startIndex.advancedBy(intRange.startIndex)
+        let end = self.startIndex.advancedBy(intRange.endIndex)
         return self.substringWithRange(start..<end)
     }
     
@@ -20,7 +21,7 @@ struct PigLatin {
     
     
     static func translate (word:String) -> String {
-      return " ".join(word.componentsSeparatedByString(" ").map{self.translateWord($0)})
+      return word.componentsSeparatedByString(" ").map{self.translateWord($0)}.joinWithSeparator(" ")
 
         
     }
@@ -34,21 +35,21 @@ struct PigLatin {
         }
         
         func wordStartsWithVowelLike(word:String) ->Bool{
-            return wordStartsWithPrefixes(word, ["xr", "yt", "a", "e","i", "o","u" ])
+            return wordStartsWithPrefixes(word, prefixes: ["xr", "yt", "a", "e","i", "o","u" ])
         }
         
         func wordStartsWithConsonantAndQu(word:String) -> Bool{
-            let index = advance(word.startIndex, 1)
+            let index = word.startIndex.advancedBy(1)
             return word.substringFromIndex(index).hasPrefix("qu")
         }
         
 
         
         if wordStartsWithVowelLike(word){return word + "ay"}
-        if wordStartsWithPrefixes(word, ["thr", "sch"]){
+        if wordStartsWithPrefixes(word, prefixes: ["thr", "sch"]){
         return (word.substringFromIndexInt(3) + word.substringWithRangeInt(Range(start: 0,end: 3)) + "ay") }
         
-        if wordStartsWithPrefixes(word, ["ch", "qu", "th"]){
+        if wordStartsWithPrefixes(word, prefixes: ["ch", "qu", "th"]){
         return word.substringFromIndexInt(2) +
             word.substringWithRangeInt(Range(start: 0,end: 2)) + "ay" }
         if wordStartsWithConsonantAndQu(word){

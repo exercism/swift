@@ -1,6 +1,6 @@
+import Darwin
 
-import Foundation
-
+// Apple Swift version 2.0
 
 struct Trinary {
     
@@ -9,14 +9,14 @@ struct Trinary {
     var toDecimal:Int = 0
     
     func isValidTrinary() -> Bool{
-        return (stringValue.toInt() ?? -1) > -1 ? true : false
+        return (Int(stringValue) ?? -1) > -1 ? true : false
     }
     
     private func tri2int(input:String)->Int{
-        let orderedInput = reverse(input)
+        let orderedInput = Array(input.characters.reverse())
         var tempInt:Int = 0
-        for (inx,each) in enumerate(orderedInput){
-            let tempCharInt = "\(each)".toInt() ?? 0
+        for (inx,each) in orderedInput.enumerate(){
+            let tempCharInt = Int("\(each)") ?? 0
             let tempTriPower = Int(pow(Double(3),Double(inx)))
                 tempInt += tempTriPower * tempCharInt
         }

@@ -1,4 +1,6 @@
-import Foundation
+// Foundation not needed
+
+// Apple Swift version 2.0
 
 class GradeSchool {
     var db: [Int: [String]] = [:]
@@ -24,7 +26,7 @@ class GradeSchool {
     func sortedRoster() -> [Int: [String]] {
         var sortedDB = db
         for (grade, students) in sortedDB {
-            sortedDB[grade] = students.sorted(<)
+            sortedDB[grade] = students.sort(<)
         }
         return sortedDB
     }

@@ -1,19 +1,21 @@
-import Foundation
+
 import XCTest
+
+// Apple Swift version 2.0
 
 class SimpleCipherTest: XCTestCase {
 
     func testCipherEncode() {
         let cipher = Cipher()
         let plaintext = "aaaaaaaaaa"
-        let expected  = cipher.key.substringToIndex(advance(cipher.key.startIndex, 10))
+        let expected  = cipher.key.substringToIndex(cipher.key.startIndex.advancedBy(10))
         XCTAssertEqual(expected, cipher.encode(plaintext))
     }
 
     func testCipherDecode() {
         let cipher = Cipher()
         let plaintext = "aaaaaaaaaa"
-        let expected  = cipher.key.substringToIndex(advance(cipher.key.startIndex, 10))
+        let expected  = cipher.key.substringToIndex(cipher.key.startIndex.advancedBy(10))
         XCTAssertEqual(plaintext, cipher.decode(expected))
     }
 
@@ -37,11 +39,12 @@ class SimpleCipherTestIncorrectKey: XCTestCase {
     func testCipherWithEmptyKey() {
         XCTAssertTrue(Cipher(key: "") == nil)
     }
+    
 }
 
 class SimpleCipherTestSubstitution: XCTestCase {
 
-    let cipher = Cipher(key: "abcdefghij")!
+    let cipher = Cipher(key: "abcdefghij") ?? Cipher()
 
     func testCipherKeyIsAsSubmitted() {
         XCTAssertEqual(cipher.key, "abcdefghij")
@@ -79,7 +82,7 @@ class SimpleCipherTestSubstitution: XCTestCase {
 
 class SimpleCipherTestPseudoShift: XCTestCase {
 
-    let cipherPseudo = Cipher(key: "dddddddddd")!
+    let cipherPseudo = Cipher(key: "dddddddddd") ?? Cipher()
 
     func testCipherEncode() {
         let plaintext = "aaaaaaaaaa"

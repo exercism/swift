@@ -1,5 +1,6 @@
 import Foundation
 
+// Apple Swift version 2.0
 
 struct Meetup{
     private var dateStart:NSDate
@@ -10,16 +11,16 @@ struct Meetup{
     private var dateWeekDays = [Int()]
     
     func newDate(input:String) -> NSDate{
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() as! NSDate
+        return dateFormatter.dateFromString(input) ?? NSDate.distantFuture() 
     }
     
     mutating func day(day_of_the_week:Int, which:String) -> NSDate{
         let starDay = dateComponentsStart.weekday
         var month = Array(dateComponentsStart.day...dateComponentsEnd.day).map({(($0 + 5 + starDay) % 7) + 1  })
         
-        for (index , eachDay) in enumerate(month){
+        for (index , eachDay) in month.enumerate(){
             dateMonthWeekDays.append([index + 1,eachDay])
             dateWeekDays.append(eachDay)}
         
@@ -52,23 +53,19 @@ struct Meetup{
     }
     
     init(year:Int, month:Int){
-        var calendar = NSCalendar.currentCalendar()
-        var dateFormatter = NSDateFormatter()
+        let calendar = NSCalendar.currentCalendar()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        var meetDate1 = (dateFormatter.dateFromString("\(year)-\(month)-\(1)") ?? NSDate())
+        let meetDate1 = (dateFormatter.dateFromString("\(year)-\(month)-\(1)") ?? NSDate())
         var meetDate2 = (dateFormatter.dateFromString("\(year)-\(month+1)-\(1)") ?? NSDate())
         
         meetDate2 = meetDate2.dateByAddingTimeInterval(-1*24*60*60)
-        let componetCalendarUnits = NSCalendarUnit.CalendarUnitEra |
-            NSCalendarUnit.CalendarUnitYear |
-            NSCalendarUnit.CalendarUnitMonth |
-            NSCalendarUnit.CalendarUnitDay |
-            NSCalendarUnit.CalendarUnitWeekday
+        let componetCalendarUnits: NSCalendarUnit = [NSCalendarUnit.Era, NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Weekday]
         
-        var components1 = calendar.components(componetCalendarUnits
+        let components1 = calendar.components(componetCalendarUnits
             , fromDate: meetDate1)
         
-        var components2 = calendar.components(componetCalendarUnits            , fromDate: meetDate2)
+        let components2 = calendar.components(componetCalendarUnits            , fromDate: meetDate2)
         
         self.dateComponentsStart = components1
         self.dateComponentsEnd = components2

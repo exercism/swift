@@ -1,5 +1,6 @@
+// Foundation not needed
 
-import Foundation
+// Apple Swift version 2.0
 
 class Element<T> {
     var value: T? = nil
@@ -35,7 +36,7 @@ class Element<T> {
     
     class func fromArray(input:[T]) ->Element {
         var tempElement = Element<T>()
-        for each in input.reverse(){
+        for each in Array(input.reverse()){
             tempElement = Element(each, tempElement)
         }
         return tempElement
@@ -44,7 +45,7 @@ class Element<T> {
     
     
     func reverseElements() -> Element  {
-        return Element.fromArray(toArray().reverse())
+        return Element.fromArray(Array(toArray().reverse()))
     }
     
     

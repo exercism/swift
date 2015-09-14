@@ -1,10 +1,11 @@
-import Foundation
+// Foundation not needed
 
+// Apple Swift version 2.0
 
 struct Raindrops {
     
     static func convert(number:Int)->String{
-    var result = (number % 3, number % 5 , number % 7)
+    let result = (number % 3, number % 5 , number % 7)
         switch result{
         case (0,0,0):return "PlingPlangPlong"
         case (_,0,0):return "PlangPlong"

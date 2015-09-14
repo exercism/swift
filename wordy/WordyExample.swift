@@ -1,15 +1,19 @@
 import Foundation
 
+// Apple Swift version 2.0
+
+enum calculateError:ErrorType{
+    case error
+}
+
 
 struct WordProblem
 {
-    private var textIn = ""
+    var textIn = ""
     
     init(_ text:String){
         self.textIn = text
     }
-    
-    var answer:Int? { return calculate(textIn)}
     
     private let operans =
     ["plus" : "+",
@@ -23,15 +27,22 @@ struct WordProblem
         "*":{(a:Int, b:Int) -> Int in return a * b},
         "/":{(a:Int, b:Int) -> Int in return a / b}]
     
+    //Calculate
     
-    private func calculate(textIn:String)->Int?{
+    func answer() throws -> Int{
+        guard let toReturn = calculate(textIn) else {
+            throw calculateError.error
+        }
+        return toReturn
+    }
+    
+    func calculate(textIn:String) ->Int?{
         let calcStack = replaceText(textIn).componentsSeparatedByString(" ")
         
-        
         if calcStack.count == 3 {
-            let a = calcStack[0].toInt()
+            let a = Int(calcStack[0])
             let operA = funcs[calcStack[1]]
-            let b = calcStack[2].toInt()
+            let b = Int(calcStack[2])
             
             if a != nil || operA != nil || b == nil {
                 return operA!(a!, b!)
@@ -39,11 +50,11 @@ struct WordProblem
         }
         
         if calcStack.count == 5 {
-            let a = calcStack[0].toInt()
+            let a = Int(calcStack[0])
             let operA = funcs[calcStack[1]]
-            let b = calcStack[2].toInt()
+            let b = Int(calcStack[2])
             let operB = funcs[calcStack[3]]
-            let c = calcStack[4].toInt()
+            let c = Int(calcStack[4])
             
             if a != nil || operA != nil || b == nil ||
                 operB != nil || c != nil {
@@ -54,13 +65,13 @@ struct WordProblem
         return nil
     }
     
-    private func trimWS(input:String)->String{
+    private func trimWS(input:String )->String{
         return input.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() )
     }
     
     
     private func replaceText(var textIn:String)-> String{
-        for key in operans.keys.array{
+        for key in Array(operans.keys){
             let toReplace = key
             let teReplaceValue = operans[key]!
             textIn = textIn.stringByReplacingOccurrencesOfString(toReplace, withString: teReplaceValue, options: NSStringCompareOptions.LiteralSearch, range: nil)
@@ -76,10 +87,10 @@ struct WordProblem
                 return true}
         }
         
-        var newTextIn =  Array(textIn)
+        var newTextIn =  Array(textIn.characters)
         newTextIn = newTextIn.filter(checkCharInSet)
-        var newTextInString:[String] = newTextIn.map{String($0)}
-        return trimWS("".join(newTextInString))
+        let newTextInString:[String] = newTextIn.map{String($0)}
+        return trimWS(newTextInString.joinWithSeparator(""))
     }
 
     

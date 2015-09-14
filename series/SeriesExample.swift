@@ -1,5 +1,6 @@
-import Foundation
+// Foundation not needed
 
+// Apple Swift version 2.0
 
 struct Series {
     
@@ -10,12 +11,12 @@ struct Series {
     }
     
     func slices(chunkSize:Int)->[[Int]]{
-        var numberStringArray = Array(numberString).map{"\($0)".toInt() ?? 0}
-        var count = numberStringArray.count
+        var numberStringArray = Array(numberString.characters).map{Int("\($0)") ?? 0}
+        let count = numberStringArray.count
         var start = 0
         var end = chunkSize
         var tempArrayReturn = [[Int]]()
-        for (indx, each) in enumerate(0..<(count)){
+        for (_, _) in (0..<(count)).enumerate(){
             if end < count+1 {
                 let tempArray = Array(numberStringArray[start ..< end])
                 tempArrayReturn.append(tempArray)

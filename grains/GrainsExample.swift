@@ -1,5 +1,6 @@
-import Foundation
+import Darwin
 
+// Apple Swift version 2.0
 
 func == (left: (result: UInt64, error: String?), right:(result: UInt64, error: String?) ) -> Bool
 {

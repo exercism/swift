@@ -1,5 +1,6 @@
-import Foundation
+import Darwin
 
+// Apple Swift version 2.0
 
 struct Luhn {
     
@@ -15,12 +16,12 @@ struct Luhn {
     static func create (num:Int64)->Double{
         
         func createCheckDigit(value:Int) -> Int{
-            var nearestTen = Int(ceil((Double(value) / 10.00)) * 10)
+            let nearestTen = Int(ceil((Double(value) / 10.00)) * 10)
             return nearestTen - value
         }
         
-        var zeroCheckDigitNumber = num * 10
-        var luhn = Luhn(zeroCheckDigitNumber)
+        let zeroCheckDigitNumber = num * 10
+        let luhn = Luhn(zeroCheckDigitNumber)
         
         if luhn.isValid {
             return Double(zeroCheckDigitNumber)}
@@ -32,9 +33,9 @@ struct Luhn {
     func addendsFunc(num:Int64)->[Int]{
         
         func oddIndexInt64Minus9(var input:[Int])->[Int]{
-            input = input.reverse()
+            input = Array(input.reverse())
             var tempArray:[Int] = []
-            for (inx, each) in enumerate(input){
+            for (inx, each) in input.enumerate(){
                 var tempEach:Int = each
                 if (inx+1) % 2 == 0 {
                     tempEach *= 2
@@ -50,13 +51,13 @@ struct Luhn {
         }
         
         func char2Int(input:Character)-> Int{
-            let tempInt = String(input).toInt() ?? -1 // -1 = error
+            let tempInt = Int(String(input)) ?? -1 // -1 = error
             return tempInt
         }
         
         let tempString = "\(num)"
         
-        return oddIndexInt64Minus9(Array(tempString).map{char2Int($0)})
+        return oddIndexInt64Minus9(Array(tempString.characters).map{char2Int($0)})
     }
     
     
