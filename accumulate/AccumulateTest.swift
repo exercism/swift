@@ -1,6 +1,8 @@
 
 import XCTest
 
+// Apple Swift version 2.0
+
 private extension String {
     
     var length: Int {return self.characters.count}

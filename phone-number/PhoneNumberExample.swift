@@ -1,4 +1,6 @@
-//Foundation not needed
+// Foundation not needed
+
+// Apple Swift version 2.0
 
 private extension String {
     subscript (r: Range<Int>) -> String {
@@ -46,7 +48,7 @@ class PhoneNumber {
 func removeNonDigits(input: String) -> String {
     var result = ""
     for char in input.characters {
-        if let c = Int("\(char)") {
+        if let _ = Int("\(char)") {
             if char != "-" {
                 result += "\(char)"
             }

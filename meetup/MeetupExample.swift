@@ -1,5 +1,7 @@
 import Foundation
 
+// Apple Swift version 2.0
+
 struct Meetup{
     private var dateStart:NSDate
     private var dateEnd:NSDate = NSDate()

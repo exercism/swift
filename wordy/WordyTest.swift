@@ -1,4 +1,7 @@
 import XCTest
+
+// Apple Swift version 2.0
+
 // Use Swift's 2.0 error handeling
 
 class WordyTest: XCTestCase {

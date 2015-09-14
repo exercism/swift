@@ -1,6 +1,8 @@
 import XCTest
 
-//Test for Protocols: CustomStringConvertible, Equatable, Comparable
+// Apple Swift version 2.0
+
+// Test for Protocols: CustomStringConvertible, Equatable, Comparable
 
 class ClockTest: XCTestCase {
     

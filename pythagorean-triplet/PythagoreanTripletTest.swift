@@ -1,6 +1,8 @@
 
 import XCTest
 
+// Apple Swift version 2.0
+
 
 class PythagoreanTripletTest: XCTestCase {
     func testSum() {
@@ -26,8 +28,8 @@ class PythagoreanTripletTest: XCTestCase {
     }
     
     func testTripletsFrom11UpTo20() {
-        var triplets = Triplet.Where(11, maxFactor: 20)
-        var products = triplets.map{$0.product}.sort(<)
+        let triplets = Triplet.Where(11, maxFactor: 20)
+        let products = triplets.map{$0.product}.sort(<)
         XCTAssertEqual([3840], products)
     }
     

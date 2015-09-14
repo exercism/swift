@@ -1,6 +1,8 @@
 
 import XCTest
 
+// Apple Swift version 2.0
+
 class RnaTranscriptionTest: XCTestCase {
     
 func testRnaComplementOfCytosineIsGuanine() {

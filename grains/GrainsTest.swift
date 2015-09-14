@@ -1,7 +1,9 @@
 
 import XCTest
 
-//Return multiple types and compare by overloading ==
+// Apple Swift version 2.0
+
+// Return multiple types and compare by overloading ==
 
 class GrainsTest: XCTestCase {
     

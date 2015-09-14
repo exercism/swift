@@ -1,5 +1,7 @@
 import Darwin
 
+// Apple Swift version 2.0
+
 struct Triplet {
     
     var a:Int, b:Int, c:Int = 0

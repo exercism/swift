@@ -1,5 +1,7 @@
 import Foundation
 
+// Apple Swift version 2.0
+
 struct Gigasecond{
     
     static func newDate(input:String, format:String = "yyyy-MM-dd'T'HH:mm:ss" ) -> NSDate{

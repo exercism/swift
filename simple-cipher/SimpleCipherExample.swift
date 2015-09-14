@@ -1,5 +1,7 @@
 import Darwin
 
+// Apple Swift version 2.0
+
 func arc4random_uniform(input:Int)->Int{
     let temp = UInt32(input)
     return Int(arc4random_uniform(temp))

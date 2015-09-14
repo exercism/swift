@@ -54,7 +54,8 @@
 
   ],
   "ignored": [
-    "docs"
+    "docs",
+    "xcodeProject"
   ],
   "foregone": [
 

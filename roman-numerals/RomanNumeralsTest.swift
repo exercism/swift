@@ -1,5 +1,7 @@
 import XCTest
 
+// Apple Swift version 2.0
+
 class  RomanNumeralsTest: XCTestCase {
     func test1() {
         XCTAssertEqual("I", 1.toRoman)

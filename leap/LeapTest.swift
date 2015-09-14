@@ -1,5 +1,7 @@
 import XCTest
 
+// Apple Swift version 2.0
+
 class LeapTest : XCTestCase {
 
 	func testVanillaLeapYear() {

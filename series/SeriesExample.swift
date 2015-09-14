@@ -1,4 +1,6 @@
-//Foundation not needed
+// Foundation not needed
+
+// Apple Swift version 2.0
 
 struct Series {
     
@@ -14,7 +16,7 @@ struct Series {
         var start = 0
         var end = chunkSize
         var tempArrayReturn = [[Int]]()
-        for (indx, each) in (0..<(count)).enumerate(){
+        for (_, _) in (0..<(count)).enumerate(){
             if end < count+1 {
                 let tempArray = Array(numberStringArray[start ..< end])
                 tempArrayReturn.append(tempArray)

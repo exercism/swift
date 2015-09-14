@@ -1,4 +1,6 @@
-//Foundation not needed
+// Foundation not needed
+
+// Apple Swift version 2.0
 
 struct Binary {
     var UIntValue:UInt = 0

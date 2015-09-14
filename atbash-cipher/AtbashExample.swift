@@ -1,3 +1,6 @@
+// Foundation not needed
+
+// Apple Swift version 2.0
 
 struct Atbash {
     

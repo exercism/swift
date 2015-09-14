@@ -1,5 +1,7 @@
 import Foundation
 
+// Apple Swift version 2.0
+
 enum calculateError:ErrorType{
     case error
 }

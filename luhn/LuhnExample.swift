@@ -1,5 +1,7 @@
 import Darwin
 
+// Apple Swift version 2.0
+
 struct Luhn {
     
     var number:Int64 = 0
