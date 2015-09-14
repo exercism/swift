@@ -35,7 +35,6 @@ class HammingTests: XCTestCase {
     
     func testReturnsNilWhenOtherStrandLonger() {
         let result = Hamming.compute("AAACTAGGGG", against:"AGGCTAGCGGTAGGAC")
-        //let expected: Int? = nil
         XCTAssertNil(result, "Different length strands return nil")
     }
     

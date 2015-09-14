@@ -29,7 +29,7 @@ class AccumulateTest: XCTestCase {
       
        let result = input.accumulate(square)
         
-        XCTAssert(expected == result)
+        XCTAssertEqual(expected, result)
     }
 
     func testAccumulateSquares() {
@@ -42,7 +42,7 @@ class AccumulateTest: XCTestCase {
         
         let result = input.accumulate(square)
         
-        XCTAssert(expected == result)
+        XCTAssertEqual(expected, result)
     }
 
     
@@ -56,7 +56,7 @@ class AccumulateTest: XCTestCase {
         
         let result = input.accumulate(toUpper)
         
-        XCTAssert(expected == result)
+        XCTAssertEqual(expected, result)
 
      }
     
@@ -71,7 +71,7 @@ class AccumulateTest: XCTestCase {
         
         let result = input.accumulate(reverse)
         
-        XCTAssert(expected == result)
+        XCTAssertEqual(expected, result)
     }
     
     func testAccumulateRecursively() {
@@ -95,6 +95,6 @@ class AccumulateTest: XCTestCase {
         
         let result = input.accumulate(recurse)
         
-        XCTAssert(expected == result)
+        XCTAssertEqual(expected, result)
     }
 }
