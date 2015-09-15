@@ -1,8 +1,9 @@
 language: objective-c
 osx_image: xcode7
-xcode_project: '/xcodeProject/xSwift.xcodeproj'
+xcode_project: 'xcodeProject/xSwift.xcodeproj'
 xcode_scheme: 'xSwift Tests'
 
 script:
+  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwift Tests' -sdk macosx10.11
   - bin/fetch-configlet
   - bin/configlet .
