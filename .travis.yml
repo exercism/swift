@@ -1,4 +1,7 @@
-language: bash
+language: objective-c
+osx_image: xcode7
+xcode_project: 'xcodeProject/xSwift.xcodeproj'
+xcode_scheme: 'xSwift Tests'
 
 script:
   - bin/fetch-configlet
