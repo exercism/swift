@@ -1,14 +1,42 @@
-import Foundation
+// Foundation not needed
 
 // Apple Swift version 2.0
+
+private extension String {
+    
+    func trimWhiteSpace()-> String{
+        let removeSpaces = trimCharacters(" ", sourceText: self)
+        if removeSpaces.hasSuffix("\n"){
+            return String(removeSpaces.characters.dropLast())
+        }
+        return  removeSpaces
+    }
+    
+    func trimCharacters(charToTrim:Character, sourceText:String) -> String{
+        var editCharacterView = sourceText.characters
+        var editString = String(editCharacterView)
+        
+        let trimFirst  = sourceText.characters.first == charToTrim
+        let trimLast   = sourceText.characters.last == charToTrim
+        
+        if trimFirst { editCharacterView  = editCharacterView.dropFirst() }
+        if trimLast { editCharacterView  = editCharacterView.dropLast() }
+        
+        if trimFirst || trimLast == true {
+            editString = trimCharacters(charToTrim, sourceText: String(editCharacterView))
+        }
+        return editString
+    }
+}
+
+
 
 enum calculateError:ErrorType{
     case error
 }
 
 
-struct WordProblem
-{
+struct WordProblem {
     var textIn = ""
     
     init(_ text:String){
@@ -16,18 +44,17 @@ struct WordProblem
     }
     
     private let operans =
-    ["plus" : "+",
+        ["plus" : "+",
         "minus" : "-",
         "multiplied by" : "*",
         "divided by" : "/"]
     
     private let funcs =
-    ["+":{(a:Int, b:Int) -> Int in return a + b},
+        ["+":{(a:Int, b:Int) -> Int in return a + b},
         "-":{(a:Int, b:Int) -> Int in return a - b},
         "*":{(a:Int, b:Int) -> Int in return a * b},
         "/":{(a:Int, b:Int) -> Int in return a / b}]
     
-    //Calculate
     
     func answer() throws -> Int{
         guard let toReturn = calculate(textIn) else {
@@ -65,32 +92,27 @@ struct WordProblem
         return nil
     }
     
-    private func trimWS(input:String )->String{
-        return input.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() )
-    }
     
     
-    private func replaceText(var textIn:String)-> String{
+    private func replaceText(var textInp:String)-> String{
         for key in Array(operans.keys){
-            let toReplace = key
-            let teReplaceValue = operans[key]!
-            textIn = textIn.stringByReplacingOccurrencesOfString(toReplace, withString: teReplaceValue, options: NSStringCompareOptions.LiteralSearch, range: nil)
+            let toBeReplaced = key
+            let toReplaceValue = operans[key]!
+           textInp = textInp.stringByReplacingOccurrencesOfString(toBeReplaced, withString: toReplaceValue)
         }
         
         func checkCharInSet(input:Character)->Bool{
-            let customCharSet = NSMutableCharacterSet()
-            customCharSet.addCharactersInString(" 0987654321+-*/")
-            let temp = ("\(input)" as String).rangeOfCharacterFromSet(customCharSet, options: NSStringCompareOptions.LiteralSearch, range: nil)
+            let temp = " 0987654321+-*/".characters.indexOf(input)
             if temp == nil {
                 return false
             } else {
                 return true}
         }
         
-        var newTextIn =  Array(textIn.characters)
+        var newTextIn =  Array(textInp.characters)
         newTextIn = newTextIn.filter(checkCharInSet)
         let newTextInString:[String] = newTextIn.map{String($0)}
-        return trimWS(newTextInString.joinWithSeparator(""))
+        return newTextInString.joinWithSeparator("").trimWhiteSpace()
     }
 
     
