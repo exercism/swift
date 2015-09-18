@@ -2,6 +2,24 @@ import Foundation
 
 // Apple Swift version 2.0
 
+extension NSDate{
+    var dateString:String {
+        
+        var toReturn = ""
+        
+        for (idx, each) in description.characters.enumerate() where idx < 10{
+            toReturn.append(each)
+        }
+        return toReturn
+    }
+    
+}
+
+func == (lhs: String, rhs: NSDate) -> Bool {
+    return lhs == rhs.dateString
+}
+
+
 struct Meetup{
     private var dateStart:NSDate
     private var dateEnd:NSDate = NSDate()

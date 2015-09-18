@@ -2,7 +2,7 @@ import Darwin
 
 // Apple Swift version 2.0
 
-extension tm{
+private extension tm{
     
     var year:Int32 { return tm_year + 1900 }
     
