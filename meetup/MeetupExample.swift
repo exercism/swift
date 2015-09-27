@@ -131,15 +131,17 @@ extension Date{
 struct Meetup{
     private var dateStart = Date()
     private var dateEnd = Date()
-    private var dateMonthWeekDays = [[Int32(),Int32()]]
-    private var dateWeekDays = [Int32()]
+
     
     func newDate(input:String) -> Date{
         
         return Date(from: input) ?? Date()
     }
     
-    mutating func day(dayOfTheWeek:Int, which:String) -> Date{
+    func day(dayOfTheWeek:Int, which:String) -> Date{
+        var dateMonthWeekDays = [[Int32(),Int32()]]
+        var dateWeekDays = [Int32()]
+        
         let starDay = dateStart.weekday
         var month = Array(dateStart.day ... dateEnd.day).map{(($0 + 5 + starDay) % 7) + 1  }
         

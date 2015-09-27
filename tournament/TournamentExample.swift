@@ -10,7 +10,7 @@ private extension String {
             return String(removeSpaces.characters.dropLast())
         }
         return  removeSpaces
-
+        
     }
     
     func trimCharacters(charToTrim:Character, sourceText:String) -> String{
@@ -54,7 +54,7 @@ struct Tournament
             return Wins * 3 + Draws
         }
         
-        mutating func AddOutcome( outcome:Outcome )-> Void
+        mutating func addOutcome( outcome:Outcome )-> Void
         {
             switch outcome {
             case .LOSS :
@@ -64,19 +64,15 @@ struct Tournament
             case .WIN :
                 ++Wins
             default :
-                print("Error AddOutcome")
+                print("Error addOutcome")
             }
         }
     }
     
     private var teams = Dictionary<String, TeamResult>()
     
-    private mutating func newTournament() ->Void
-    {
-        teams = Dictionary<String, TeamResult>()
-    }
     
-    private mutating func AddResult(team1 team1:String, team2:String, outcome:Outcome) -> Void
+    private mutating func addResult(team1 team1:String, team2:String, outcome:Outcome) -> Void
     {
         // Invert outcome for the second team.
         let outcome2:Outcome  = (outcome == Outcome.WIN) ? Outcome.LOSS :
@@ -84,27 +80,27 @@ struct Tournament
             Outcome.DRAW
         
         
-        AddTeamOutcome(team1, outcome)
-        AddTeamOutcome(team2, outcome2)
+        addTeamOutcome(team1, outcome)
+        addTeamOutcome(team2, outcome2)
     }
     
     private var teamResult = TeamResult()
     
-    private mutating func AddTeamOutcome(team:String, _ outcome:Outcome) -> Void
+    private mutating func addTeamOutcome(team:String, _ outcome:Outcome) -> Void
     {
         if teams[team] != nil {
             teamResult = teams[team]!
-            teamResult.AddOutcome(outcome)
+            teamResult.addOutcome(outcome)
             teams[team] = teamResult
             
         } else {
             teamResult = TeamResult()
-            teamResult.AddOutcome(outcome)
+            teamResult.addOutcome(outcome)
             teams[team] = teamResult
         }
     }
     
-    private mutating func WriteResults()-> String
+    private mutating func writeResults()-> String
     {
         
         func formarter (Team:String, MP:String, W:String, D:String, L:String, P:String)->String{
@@ -125,7 +121,7 @@ struct Tournament
             return text.trimWhiteSpace() + "\n"
             
         }
-
+        
         var textOutput:String = ""
         
         let header = formarter("Team", MP: "MP", W: "W", D: "D", L: "L", P: "P")
@@ -148,7 +144,7 @@ struct Tournament
             
             return sortedKeys
         }
-
+        
         for team in sortKeysByValue(){
             
             let result = teams[team]!
@@ -172,9 +168,11 @@ struct Tournament
         return textOutput.trimWhiteSpace()
     }
     
-    mutating func tally(inStream:String) -> String
+    func tally(inStream:String) -> String
     {
-        newTournament()
+        // Create New Tournament
+        var tournament = Tournament()
+        
         var outcome:Outcome = Outcome.ERR
         
         // alternative to .componentsSeparatedByString
@@ -187,24 +185,24 @@ struct Tournament
             {
                 switch parts[2].lowercaseString
                 {
-                    case "loss":
-                        outcome = Outcome.LOSS
-                    case "draw":
-                        outcome = Outcome.DRAW
-                    case "win":
-                        outcome = Outcome.WIN
-                    default:
-                        outcome = Outcome.ERR
+                case "loss":
+                    outcome = Outcome.LOSS
+                case "draw":
+                    outcome = Outcome.DRAW
+                case "win":
+                    outcome = Outcome.WIN
+                default:
+                    outcome = Outcome.ERR
                 }
                 
                 if outcome != Outcome.ERR
                 {
-                    self.AddResult(team1: parts[0], team2: parts[1], outcome: outcome)
+                    tournament.addResult(team1: parts[0], team2: parts[1], outcome: outcome)
                 }
             }
         }
         
-        return WriteResults()
+        return tournament.writeResults()
     }
     
     
