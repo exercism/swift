@@ -6,7 +6,7 @@ class  MeetupTest: XCTestCase {
     
     let dayOfWeek = (Sunday:1, Monday:2, Tuesday:3, Wednesday:4, Thursday:5, Friday:6, Saturday:7)
     
-    let whichOptions = (first:"1st", second:"2nd", third:"3rd", forth:"4th", last:"last",teenth:"teenth")
+    let whichOptions = (first:"1st", second:"2nd", third:"3rd", fourth:"4th", last:"last",teenth:"teenth")
     
     
     func testMonteenthOfMay2013() {
@@ -36,7 +36,7 @@ class  MeetupTest: XCTestCase {
     
     func testFourthSundayOfMarch2013() {
         var meetUp = Meetup(year: 2013, month: 3)
-        XCTAssertEqual("2013-03-24", meetUp.day(dayOfWeek.Sunday, which: whichOptions.forth).description)
+        XCTAssertEqual("2013-03-24", meetUp.day(dayOfWeek.Sunday, which: whichOptions.fourth).description)
     }
     
     func testLastThursdayOfOctober2013() {
