@@ -22,9 +22,9 @@ class StrainTest: XCTestCase {
     }
     
     func testKeepStrings() {
-        let words = "apple zebra banana zombies cherimoya zelot".componentsSeparatedByString(" ")
+        let words = "apple zebra banana zombies cherimoya zealot".componentsSeparatedByString(" ")
         let result = words.keep{each -> Bool in (each as String).hasPrefix("z") ?? false}
-        XCTAssertEqual("zebra zombies zelot".componentsSeparatedByString(" "), result)
+        XCTAssertEqual("zebra zombies zealot".componentsSeparatedByString(" "), result)
     }
     
     func testKeepArrays () {
@@ -58,7 +58,7 @@ class StrainTest: XCTestCase {
     }
     
     func testDiscardStrings() {
-        let words = "apple zebra banana zombies cherimoya zelot".componentsSeparatedByString(" ")
+        let words = "apple zebra banana zombies cherimoya zealot".componentsSeparatedByString(" ")
         let result = words.discard{each -> Bool in (each as String).hasPrefix("z") ?? false}
         XCTAssertEqual("apple banana cherimoya".componentsSeparatedByString(" "), result)
     }
