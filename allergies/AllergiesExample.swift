@@ -1,28 +1,24 @@
 // Foundation not needed
 
-// Apple Swift version 2.0
+enum Allergen: UInt {
+    case Eggs = 1
+    case Peanuts = 2
+    case Shellfish = 4
+    case Strawberries = 8
+    case Tomatoes = 16
+    case Chocolate = 32
+    case Pollen = 64
+    case Cats = 128
+}
 
 struct Allergies {
-    private var value: UInt = 0
-    init(_ value: UInt) { self.value = value }
-    var boolValue: Bool { return self.value != 0 }
-    func toRaw() -> UInt { return self.value }
-    static func fromRaw(raw: UInt) -> Allergies? { return self.init(raw) }
-    static func fromMask(raw: UInt) -> Allergies { return self.init(raw) }
-    static func convertFromNilLiteral() -> Allergies { return self.init(0) }
+    let score: UInt
     
-    func hasAllergy(testAgainst: Allergies) -> Bool {
-        return self.value & testAgainst.value  > 0
+    init(_ score: UInt) {
+        self.score = UInt(score)
     }
     
-    static var None: Allergies { return self.init(0) }
-    static var eggs: Allergies { return Allergies(1 << 0) }
-    static var peanuts: Allergies { return Allergies(1 << 1) }
-    static var shellfish: Allergies { return Allergies(1 << 2) }
-    static var strawberries: Allergies { return Allergies(1 << 3) }
-    static var tomatoes: Allergies { return Allergies(1 << 4) }
-    static var chocolate: Allergies { return Allergies(1 << 5) }
-    static var pollen: Allergies { return Allergies(1 << 6) }
-    static var cats: Allergies { return Allergies(1 << 7) }
+    func hasAllergy(allergen: Allergen) -> Bool {
+        return allergen.rawValue & score == allergen.rawValue ? true : false
+    }
 }
-func == (lhs: Allergies, rhs: Allergies) -> Bool { return lhs.value == rhs.value }
