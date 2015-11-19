@@ -2,7 +2,7 @@ import XCTest
 
 // Apple Swift version 2.0
 
-class ScrambbleScoreTest: XCTestCase {
+class ScrabbleScoreTest: XCTestCase {
     
     func testEmptyWordScoresZero() {
         XCTAssertEqual( 0, Scrabble("").score)
