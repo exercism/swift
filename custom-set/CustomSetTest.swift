@@ -6,6 +6,9 @@ import XCTest
 
 class CustomSetTest: XCTestCase {
     
+    let emptyTypedArray = [Int]()
+
+    
     func testEqual(){
         XCTAssertEqual(CustomSet([1, 3]), CustomSet([3, 1]))
         XCTAssertNotEqual(CustomSet([1, 3]), CustomSet([3, 1, 5]))
@@ -26,7 +29,6 @@ class CustomSetTest: XCTestCase {
         var expected2 = CustomSet([3, 2, 1])
         expected2.delete(4)
         XCTAssertEqual(CustomSet([1, 2, 3]), expected2)
-        
     }
     
     func testDifference(){
@@ -37,7 +39,6 @@ class CustomSetTest: XCTestCase {
         
     }
     
-    
     func testDisjoint(){
         XCTAssertTrue(CustomSet([1, 2]).isDisjoint(CustomSet([3, 4])))
         XCTAssertFalse(CustomSet([1, 2]).isDisjoint(CustomSet([2, 3])))
@@ -45,8 +46,6 @@ class CustomSetTest: XCTestCase {
     }
     
     func testEmptyMethod(){
-        let emptyTypedArray = Array<Int>()
-        
         var expected1 = CustomSet([1, 2])
         expected1.removeAll()
         XCTAssertEqual(CustomSet(emptyTypedArray ), expected1 )
@@ -72,7 +71,6 @@ class CustomSetTest: XCTestCase {
     }
     
     func testPutMethod(){
-        
         var expected1 = CustomSet([1, 2, 4])
         expected1.put(3)
         XCTAssertEqual(CustomSet([1, 2, 3, 4]),
@@ -82,18 +80,15 @@ class CustomSetTest: XCTestCase {
         expected2.put(3)
         XCTAssertEqual(CustomSet([1, 2, 3]),
             expected2)
-        
     }
     
     func testSize(){
-        XCTAssertEqual(0, CustomSet(Array<Int>()).size)
+        XCTAssertEqual(0, CustomSet(emptyTypedArray).size)
         XCTAssertEqual(3, CustomSet([1, 2, 3]).size)
         XCTAssertEqual(3, CustomSet([1, 2, 3, 2]).size)
     }
     
     func testSubsetMethod(){
-        let emptyTypedArray = Array<Int>()
-        
         XCTAssertTrue(CustomSet([1, 2, 3]).isSupersetOf(CustomSet([1, 2, 3])))
         XCTAssertTrue(CustomSet([4, 1, 2, 3]).isSupersetOf(CustomSet([1, 2, 3])))
         XCTAssertFalse(CustomSet([4, 1, 3]).isSupersetOf(CustomSet([1, 2, 3])))
@@ -108,9 +103,6 @@ class CustomSetTest: XCTestCase {
     }
     
     func testUnion(){
-        let emptyTypedArray = Array<Int>()
-        
-        
         XCTAssertEqual(CustomSet([3, 2, 1]),
             CustomSet([1, 3]).union(CustomSet([2])))
         XCTAssertEqual(CustomSet([3.0, 3, 2, 1]),
