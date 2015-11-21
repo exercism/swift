@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E38009B1BFE8E7A00F14931 /* CustomSetExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3800991BFE8E7A00F14931 /* CustomSetExample.swift */; settings = {ASSET_TAGS = (); }; };
+		1E38009C1BFE8E7A00F14931 /* CustomSetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38009A1BFE8E7A00F14931 /* CustomSetTest.swift */; settings = {ASSET_TAGS = (); }; };
 		9D3613A11BA645C9007D52C7 /* WordCountExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36131A1BA645C8007D52C7 /* WordCountExample.swift */; settings = {ASSET_TAGS = (); }; };
 		9D3613A21BA645C9007D52C7 /* WordCountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36131B1BA645C8007D52C7 /* WordCountTest.swift */; settings = {ASSET_TAGS = (); }; };
 		9D3613A31BA645C9007D52C7 /* WordyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36131D1BA645C8007D52C7 /* WordyExample.swift */; settings = {ASSET_TAGS = (); }; };
@@ -101,6 +103,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E3800991BFE8E7A00F14931 /* CustomSetExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSetExample.swift; sourceTree = "<group>"; };
+		1E38009A1BFE8E7A00F14931 /* CustomSetTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSetTest.swift; sourceTree = "<group>"; };
 		9D3155D21BA12FB1009A3991 /* xSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3155D51BA12FB1009A3991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D36131A1BA645C8007D52C7 /* WordCountExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCountExample.swift; sourceTree = "<group>"; };
@@ -207,6 +211,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E3800981BFE8E7A00F14931 /* custom-set */ = {
+			isa = PBXGroup;
+			children = (
+				1E3800991BFE8E7A00F14931 /* CustomSetExample.swift */,
+				1E38009A1BFE8E7A00F14931 /* CustomSetTest.swift */,
+			);
+			name = "custom-set";
+			path = "../../custom-set";
+			sourceTree = "<group>";
+		};
 		9D3155BB1BA12DC1009A3991 = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +240,7 @@
 		9D3155D31BA12FB1009A3991 /* xSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				1E3800981BFE8E7A00F14931 /* custom-set */,
 				9D3613191BA645C8007D52C7 /* word-count */,
 				9D36131C1BA645C8007D52C7 /* wordy */,
 				9D36131F1BA645C8007D52C7 /* tournament */,
@@ -851,12 +866,14 @@
 				9D3613F21BA645C9007D52C7 /* EtlTest.swift in Sources */,
 				9D3613F81BA645C9007D52C7 /* TriangleTest.swift in Sources */,
 				9D3613AA1BA645C9007D52C7 /* AcronymTest.swift in Sources */,
+				1E38009B1BFE8E7A00F14931 /* CustomSetExample.swift in Sources */,
 				9D3613AB1BA645C9007D52C7 /* SimpleCipherExample.swift in Sources */,
 				9D3613B21BA645C9007D52C7 /* AtbashTest.swift in Sources */,
 				9D3613A81BA645C9007D52C7 /* BobTest.swift in Sources */,
 				9D3613E71BA645C9007D52C7 /* SumOfMultiplesExample.swift in Sources */,
 				9D3613B61BA645C9007D52C7 /* RomanNumeralsTest.swift in Sources */,
 				9D3613F51BA645C9007D52C7 /* PrimeFactorsExample.swift in Sources */,
+				1E38009C1BFE8E7A00F14931 /* CustomSetTest.swift in Sources */,
 				9D3613CC1BA645C9007D52C7 /* DifferenceOfSquaresTests.swift in Sources */,
 				9D3613C71BA645C9007D52C7 /* AnagramExample.swift in Sources */,
 				9D3613DA1BA645C9007D52C7 /* PythagoreanTripletTest.swift in Sources */,
