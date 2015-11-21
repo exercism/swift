@@ -9,7 +9,7 @@ func == <T> (lh: CustomSet<T>, rh: CustomSet<T>) -> Bool {
 }
 
 
-struct CustomSet<T:Hashable>:Hashable{
+struct CustomSet<T:Hashable>:Equatable{
     
     typealias Element = T
     
@@ -17,19 +17,13 @@ struct CustomSet<T:Hashable>:Hashable{
     
     var size:Int {return contents.count}
     
-    var hashValue: Int = 0
-    
     
     var toSortedArray:[Element] {return Array(contents.keys.sort{$0.hashValue < $1.hashValue})}
-    
-    init(){
-        self.contents = [:]
-    }
+
     
     init<S: SequenceType where S.Generator.Element == Element>(_ sequence: S) {
         self.contents = [:]
         _ = sequence.map{ self.contents[$0] = true }
-        self.hashValue = hashArrayGenerator(Array(contents.keys))
     }
     
     
@@ -45,7 +39,6 @@ struct CustomSet<T:Hashable>:Hashable{
     
     mutating func removeAll(){
         contents = [:]
-        hashValue = 0
         
     }
     
@@ -95,18 +88,6 @@ struct CustomSet<T:Hashable>:Hashable{
             return true}
         return false
     }
-    
-    
-    private func hashArrayGenerator<T:Hashable>(input:Array<T>) ->Int{
-        var temp = 0
-        for (index, each) in input.enumerate(){
-            let toAdd = each.hashValue/(index + 1)
-            temp = (temp + toAdd)/(index + 1)
-            
-        }
-        return temp
-    }
-    
     
     
     
