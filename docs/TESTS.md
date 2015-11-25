@@ -1,7 +1,3 @@
-## Running Tests
-
-Test will run through the Xcode GUI using the XCTest framework.
-
 ### Creating the project in Xcode
 
 These steps will use the `bob` exercise as an example. If you are not working on `bob`, replace `bob` with your exercise name in the steps below.
@@ -15,3 +11,7 @@ These steps will use the `bob` exercise as an example. If you are not working on
 * Add a new file to the `Bob` target folder and name it `Bob.swift`.
 * Select `Bob.swift` and in the File Inspector make sure that both `Bob` and `BobTests` are checked in the Target Membership area.
 * Now use CMD-U to run the tests, and happy coding!
+
+## Running Tests
+
+Test will run through the Xcode GUI using the XCTest framework.
