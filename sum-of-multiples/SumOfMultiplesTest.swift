@@ -16,6 +16,10 @@ class SumOfMultiplesTest:XCTestCase {
     func testSumTo10() {
         XCTAssertEqual(23,  SumOfMultiples.toLimit(10))
     }
+
+    func testSumTo100() {
+        XCTAssertEqual(2318,  SumOfMultiples.toLimit(100))
+    }
    
     func testSumTo1000() {
         XCTAssertEqual(233168,  SumOfMultiples.toLimit(1000))
