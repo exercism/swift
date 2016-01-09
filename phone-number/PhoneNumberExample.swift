@@ -23,47 +23,29 @@ private extension Character {
     }
 }
 
-class PhoneNumber {
-    var phoneNumber: String
+struct PhoneNumber: CustomStringConvertible {
+    let number: String
     
     init(startingNumber: String) {
-        phoneNumber = removeNonDigits(startingNumber)
-        if phoneNumber.characters.count == 11 {
-            if phoneNumber.hasPrefix("1") {
-                phoneNumber = phoneNumber[1...10]
-            } else {
-                phoneNumber = "0000000000"
-            }
-        } else if phoneNumber.characters.count != 10 {
-            phoneNumber = "0000000000"
+        let digits = startingNumber.onlyDigits
+
+        switch digits.characters.count {
+        case 10:
+            number = digits
+        case 11 where digits.hasPrefix("1"):
+            number = digits[1...10]
+        default:
+            number = "0000000000"
         }
     }
-    
-    func number() -> String {
-        return phoneNumber
-    }
-    
-    func areaCode() -> String {
-        return phoneNumber[0...2]
-    }
-    
-    func description() -> String {
-        let prefix = phoneNumber[3...5]
-        let final = phoneNumber[6...9]
-        return "(\(self.areaCode())) \(prefix)-\(final)"
-    }
 
+    var areaCode: String {
+        return number[0...2]
+    }
+    
+    var description: String {
+        let prefix = number[3...5]
+        let final  = number[6...9]
+        return "(\(areaCode)) \(prefix)-\(final)"
+    }
 }
-
-func removeNonDigits(input: String) -> String {
-    var result = ""
-    for char in input.characters {
-        if let _ = Int("\(char)") {
-            if char != "-" {
-                result += "\(char)"
-            }
-        }
-    }
-    return result
-}
-
