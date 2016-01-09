@@ -3,13 +3,23 @@
 // Apple Swift version 2.0
 
 private extension String {
-    subscript (r: Range<Int>) -> String {
+    subscript (range: Range<Int>) -> String {
         get {
-            let startIndex = self.startIndex.advancedBy(r.startIndex)
-            let endIndex = startIndex.advancedBy(r.endIndex - r.startIndex)
+            let start = startIndex.advancedBy(range.startIndex)
+            let end   = start.advancedBy(range.endIndex - range.startIndex)
             
-            return self[Range(start: startIndex, end: endIndex)]
+            return self[Range(start: start, end: end)]
         }
+    }
+
+    var onlyDigits: String {
+        return String(characters.filter { $0.isDigit })
+    }
+}
+
+private extension Character {
+    var isDigit: Bool {
+        return "0123456789".characters.contains(self)
     }
 }
 
