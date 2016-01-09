@@ -14,7 +14,7 @@
     "phone-number",
     "grade-school",
     "robot-name",
-     "perfect-numbers",
+    "perfect-numbers",
     "allergies",
     "accumulate",
     "sum-of-multiples",
@@ -50,7 +50,8 @@
     "simple-cipher",
     "acronym",
     "grains",
-    "custom-set"
+    "custom-set",
+    "nth-prime"
   ],
   "deprecated": [
 
