@@ -2,32 +2,27 @@
 
 // Apple Swift version 2.0
 
-class GradeSchool {
-    var db: [Int: [String]] = [:]
-        
-    func addStudent(name: String, grade: Int) {
-        if var students = db[grade] {
+struct GradeSchool {
+    var roster = [Int: [String]]()
+
+    mutating func addStudent(name: String, grade: Int) {
+        if var students = roster[grade] {
             students.append(name)
-            db[grade] = students
+            roster[grade] = students
         } else {
-            db[grade] = [name]
+            roster[grade] = [name]
         }
     }
-    
-    func studentsInGrade(grade: Int) -> [String]
-    {
-        if let students = db[grade] {
-            return students
-        } else {
-            return []
-        }
+
+    func studentsInGrade(grade: Int) -> [String] {
+        return roster[grade] ?? []
     }
-    
-    func sortedRoster() -> [Int: [String]] {
-        var sortedDB = db
-        for (grade, students) in sortedDB {
-            sortedDB[grade] = students.sort(<)
+
+    var sortedRoster: [Int: [String]] {
+        var sortedRoster = [Int: [String]](minimumCapacity: roster.count)
+        for (grade, students) in roster {
+            sortedRoster[grade] = students.sort(<)
         }
-        return sortedDB
+        return sortedRoster
     }
 }
