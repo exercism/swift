@@ -100,8 +100,8 @@
 		9D3613F91BA645C9007D52C7 /* TwelveDaysExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36139E1BA645C9007D52C7 /* TwelveDaysExample.swift */; };
 		9D3613FA1BA645C9007D52C7 /* TwelveDaysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36139F1BA645C9007D52C7 /* TwelveDaysTest.swift */; };
 		9D3613FB1BA645C9007D52C7 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D3613A01BA645C9007D52C7 /* config.json */; };
-		E95D0C701C41E8F500C0427C /* NthPrimeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D0C6E1C41E8F500C0427C /* NthPrimeExample.swift */; };
-		E95D0C711C41E8F500C0427C /* NthPrimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D0C6F1C41E8F500C0427C /* NthPrimeTest.swift */; };
+		E95D0C741C41EBC000C0427C /* NthPrimeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D0C721C41EBC000C0427C /* NthPrimeExample.swift */; };
+		E95D0C751C41EBC000C0427C /* NthPrimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D0C731C41EBC000C0427C /* NthPrimeTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,8 +200,8 @@
 		9D36139E1BA645C9007D52C7 /* TwelveDaysExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwelveDaysExample.swift; sourceTree = "<group>"; };
 		9D36139F1BA645C9007D52C7 /* TwelveDaysTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TwelveDaysTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9D3613A01BA645C9007D52C7 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = config.json; path = ../../config.json; sourceTree = "<group>"; };
-		E95D0C6E1C41E8F500C0427C /* NthPrimeExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NthPrimeExample.swift; sourceTree = "<group>"; };
-		E95D0C6F1C41E8F500C0427C /* NthPrimeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NthPrimeTest.swift; sourceTree = "<group>"; };
+		E95D0C721C41EBC000C0427C /* NthPrimeExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NthPrimeExample.swift; path = "../../nth-prime/NthPrimeExample.swift"; sourceTree = "<group>"; };
+		E95D0C731C41EBC000C0427C /* NthPrimeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NthPrimeTest.swift; path = "../../nth-prime/NthPrimeTest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -759,8 +759,8 @@
 		E95D0C6D1C41E8A200C0427C /* nth-prime */ = {
 			isa = PBXGroup;
 			children = (
-				E95D0C6E1C41E8F500C0427C /* NthPrimeExample.swift */,
-				E95D0C6F1C41E8F500C0427C /* NthPrimeTest.swift */,
+				E95D0C721C41EBC000C0427C /* NthPrimeExample.swift */,
+				E95D0C731C41EBC000C0427C /* NthPrimeTest.swift */,
 			);
 			name = "nth-prime";
 			sourceTree = "<group>";
@@ -850,7 +850,7 @@
 				9D3613CA1BA645C9007D52C7 /* BinaryTest.swift in Sources */,
 				9D3613EF1BA645C9007D52C7 /* LeapExample.swift in Sources */,
 				9D3613E21BA645C9007D52C7 /* SeriesTest.swift in Sources */,
-				E95D0C711C41E8F500C0427C /* NthPrimeTest.swift in Sources */,
+				E95D0C751C41EBC000C0427C /* NthPrimeTest.swift in Sources */,
 				9D3613AF1BA645C9007D52C7 /* CryptoSquareExample.swift in Sources */,
 				9D3613B91BA645C9007D52C7 /* HammingExample.swift in Sources */,
 				9D3613AD1BA645C9007D52C7 /* ScrabbleScoreExample.swift in Sources */,
@@ -923,7 +923,7 @@
 				9D3613C51BA645C9007D52C7 /* AllergiesExample.swift in Sources */,
 				9D3613E81BA645C9007D52C7 /* SumOfMultiplesTest.swift in Sources */,
 				9D3613F01BA645C9007D52C7 /* LeapTest.swift in Sources */,
-				E95D0C701C41E8F500C0427C /* NthPrimeExample.swift in Sources */,
+				E95D0C741C41EBC000C0427C /* NthPrimeExample.swift in Sources */,
 				9D3613A41BA645C9007D52C7 /* WordyTest.swift in Sources */,
 				9D3613E41BA645C9007D52C7 /* SieveTest.swift in Sources */,
 				9D3613CF1BA645C9007D52C7 /* LinkedListExample.swift in Sources */,

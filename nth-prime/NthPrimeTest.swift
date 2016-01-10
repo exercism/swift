@@ -1,5 +1,6 @@
 import XCTest
-@testable import NthPrime
+
+// Apple Swift version 2.1
 
 class NthPrimeTests: XCTestCase {
     
