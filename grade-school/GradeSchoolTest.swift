@@ -3,38 +3,41 @@ import XCTest
 // Apple Swift version 2.0
 
 private extension XCTestCase {
+    
+    // Workaround unit test liminitaiton on Optional Arrays/Sets
+    
+    private func sameCollection<C: CollectionType where C.Generator.Element == String>(result: C?, _ expected: [String]?) -> Bool {
+        guard let result = result, expected = expected else { return false }
+        
+        for (index, student) in result.enumerate() {
+            guard index < expected.count && expected.contains(student) else { return false }
+        }
+        
+        return true
+        }
 
-    // workaround unit test liminitaiton  http://stackoverflow.com/questions/26092281/xctassertequals-with-two-dicts-in-swift
-    func XCTAssertEqual(lhs: [Int: [String]], _ rhs: [Int: [String]]) {
-        let l = lhs as NSDictionary
-        let r = rhs as NSDictionary
-        XCTAssert(l == r)
+    
+    func XCTAssertEqualCollection (collectionS : Set<String>? , _ collectionA : [String]? ) {
+        
+        XCTAssert(sameCollection(collectionS, collectionA))
+
+    }
+
+    func XCTAssertEqualCollection (collectionA1 : [String]?, _ collectionA2 : [String]? ) {
+        
+        XCTAssert(sameCollection(collectionA1, collectionA2))
+        
     }
     
-    // workaround unit test liminitaiton http://stackoverflow.com/questions/29478665/comparing-optional-arrays
-    func XCTAssertEqual <T : Equatable>(collection1 : [T]? , _ collection2 : [T]? ) {
-        XCTAssert(collection1 == collection2)
-    }
 }
 
-func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
-    switch (lhs,rhs) {
-    case (.Some(let lhs), .Some(let rhs)):
-        return lhs == rhs
-    case (.None, .None):
-        return true
-    default:
-        return false
-    }
-}
 
 class GradeSchoolTest: XCTestCase {
     
     func testAnEmptySchool() {
         let school   = GradeSchool()
-        let expected = [Int: [String]]()
         let result   = school.roster
-        XCTAssertEqual(result, expected)
+        XCTAssertTrue(result.isEmpty)
 
     }
 
@@ -44,7 +47,7 @@ class GradeSchoolTest: XCTestCase {
         let result = school.roster
         let expected: Dictionary = [2: ["Aimee"]]
         XCTAssertEqual(Array(result.keys), Array(expected.keys))
-        XCTAssertEqual(result[2], expected[2])
+        XCTAssertEqualCollection(result[2], expected[2])
     }
 
     func testAddMoreStudentsInSameClass() {
@@ -55,7 +58,7 @@ class GradeSchoolTest: XCTestCase {
         let result   = school.roster
         let expected = [2: ["Fred", "James", "Paul"]]
         XCTAssertEqual(Array(result.keys), Array(expected.keys))
-        XCTAssertEqual(result[2], expected[2])
+        XCTAssertEqualCollection(result[2], expected[2])
     }
 
     func testAddStudentsToDifferentGrades() {
@@ -65,7 +68,7 @@ class GradeSchoolTest: XCTestCase {
         let result = school.roster
         let expected = [3: ["Chelsea"], 7: ["Logan"]]
         XCTAssertEqual(Array(result.keys).sort(>), Array(expected.keys).sort(>))
-        XCTAssertEqual(result[3], expected[3])
+        XCTAssertEqualCollection(result[3], expected[3])
     }
 
     func testGetStudentsInAGrade() {
@@ -75,7 +78,7 @@ class GradeSchoolTest: XCTestCase {
         school.addStudent("Jeff", grade: 1)
         let result   = school.studentsInGrade(5)
         let expected = ["Franklin", "Bradley"]
-        XCTAssertEqual(result, expected)
+        XCTAssertEqualCollection(result, expected)
     }
 
     func testGetStudentsInANonExistantGrade() {
@@ -83,7 +86,7 @@ class GradeSchoolTest: XCTestCase {
         let result = school.studentsInGrade(1)
 
         let expected = [String]()
-        XCTAssertEqual(result, expected)
+        XCTAssertEqualCollection(result, expected)
     }
 
     func testSortSchool() {
@@ -101,9 +104,9 @@ class GradeSchoolTest: XCTestCase {
         ]
 
         XCTAssertEqual(Array(result.keys).sort(>), Array(expected.keys).sort(>))
-        XCTAssertEqual(result[3], expected[3])
-        XCTAssertEqual(result[4], expected[4])
-        XCTAssertEqual(result[6], expected[6])
+        XCTAssertEqualCollection(result[3], expected[3])
+        XCTAssertEqualCollection(result[4], expected[4])
+        XCTAssertEqualCollection(result[6], expected[6])
     }
 
 }
