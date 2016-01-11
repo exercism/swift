@@ -21,15 +21,13 @@ class AccumulateTest: XCTestCase {
 
      func testEmptyAccumulation() {
 
-       let input = [Int]([])
-       let expected = []
+       let input = [Int]()
        func square(input:Int) -> Int {
             return input * input
        }
-      
        let result = input.accumulate(square)
         
-        XCTAssertEqual(expected, result)
+        XCTAssertTrue(result.isEmpty)
     }
 
     func testAccumulateSquares() {
