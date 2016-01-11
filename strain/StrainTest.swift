@@ -5,8 +5,8 @@ import XCTest
 class StrainTest: XCTestCase {
     
     func testEmptyKeep() {
-        let emptyIntArray = [Int]()
-        XCTAssertEqual( emptyIntArray, [].keep{each -> Bool in each < 10})
+        
+        XCTAssertTrue ([].keep{each -> Bool in each < 10}.isEmpty)
     }
     
     func testKeepEverything() {
