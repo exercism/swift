@@ -2,7 +2,7 @@
 
 // Apple Swift version 2.1
 
-class Anagram {
+struct Anagram {
     var baseWord = ""
     init (word: String) {
         baseWord = word

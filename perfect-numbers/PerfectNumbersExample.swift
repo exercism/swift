@@ -8,7 +8,7 @@ enum NumberClassification {
     case Deficient
 }
 
-class NumberClassifier {
+struct NumberClassifier {
     let number: Int
     var sum: Int {
         return aliquotSum(number)

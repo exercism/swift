@@ -40,7 +40,8 @@ struct GradeSchool {
 //    var roster = [Int: [String]]()
 //
 //    mutating func addStudent(name: String, grade: Int) {
-//        if var students = roster[grade] {
+//        if let students = roster[grade] {
+//            var students = students
 //            students.append(name)
 //            roster[grade] = students
 //        } else {
@@ -62,12 +63,13 @@ struct GradeSchool {
 //}
 
 // Class Version for Reference
-
+//
 //class GradeSchool {
 //    var roster: [Int: [String]] = [:]
-//    
+
 //    func addStudent(name: String, grade: Int) {
-//        if var students = roster[grade] {
+//        if let students = roster[grade] {
+//            var students = students
 //            students.append(name)
 //            roster[grade] = students
 //        } else {

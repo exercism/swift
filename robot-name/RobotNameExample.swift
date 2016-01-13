@@ -2,7 +2,7 @@ import Darwin
 
 // Apple Swift version 2.1
 
-class Robot {
+struct Robot {
     var name: String
     
     init() {
@@ -10,13 +10,13 @@ class Robot {
         name = generateRandomLetter() + generateRandomLetter() + "\(numberPart)"
     }
 
-    func resetName() {
+    mutating func resetName() {
         let numberPart = (Int(rand()) % 899) + 100
         name = generateRandomLetter() + generateRandomLetter() + "\(numberPart)"
     }
 }
 
-func convertStringToStringArray(input: String) -> [String] {
+private func convertStringToStringArray(input: String) -> [String] {
     var characterArray: [String] = []
     for character in input.characters {
         characterArray.append("\(character)")
@@ -24,7 +24,7 @@ func convertStringToStringArray(input: String) -> [String] {
     return characterArray
 }
 
-func generateRandomLetter() -> String {
+private func generateRandomLetter() -> String {
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     let letters = convertStringToStringArray(alphabet)
     let randomIndex = Int(rand()) % letters.count

@@ -2,8 +2,8 @@
 
 // Apple Swift version 2.1
 
-class Hamming {
-    class func compute(input: String, against: String) -> Int? {
+struct Hamming {
+    static func compute(input: String, against: String) -> Int? {
         var differences = 0
         
         let char1 = convertStringToArray(input)
@@ -20,7 +20,7 @@ class Hamming {
     
 }
 
-func convertStringToArray(input: String) -> [Character] {
+private func convertStringToArray(input: String) -> [Character] {
     var characterArray: [Character] = []
     
     for character in input.characters {

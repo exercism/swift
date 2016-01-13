@@ -2,8 +2,8 @@
 
 // Apple Swift version 2.1
 
-class ETL {
-    class func transform(old: [Int: [String] ] ) -> [String: Int]
+struct ETL {
+    static func transform(old: [Int: [String] ] ) -> [String: Int]
     {
         var result = [String: Int]()
         for (score, letters) in old {
