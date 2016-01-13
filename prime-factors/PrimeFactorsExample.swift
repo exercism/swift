@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 struct PrimeFactors{
     
