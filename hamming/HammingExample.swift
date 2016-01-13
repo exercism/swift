@@ -12,7 +12,7 @@ class Hamming {
         if char1.count != char2.count { return nil }
         for i in 0..<char1.count {
             if char1[i] != char2[i] {
-                differences++
+                differences += 1
             }
         }
         return differences

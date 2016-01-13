@@ -20,8 +20,8 @@ struct Series {
             if end < count+1 {
                 let tempArray = Array(numberStringArray[start ..< end])
                 tempArrayReturn.append(tempArray)
-                start++
-                end++
+                start += 1
+                end += 1
             }
         }
         return tempArrayReturn

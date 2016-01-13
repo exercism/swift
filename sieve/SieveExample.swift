@@ -19,7 +19,8 @@ struct Sieve {
         }
     }
     
-     static func onlyDivisorSelf(var number:Int)->Bool{
+     static func onlyDivisorSelf( number:Int)->Bool{
+        var number = number
         
         var primes = [Int]()
         var divisor:Int = 2
@@ -28,7 +29,7 @@ struct Sieve {
                 primes.append(divisor)
                 number /= divisor
             }
-            divisor++
+            divisor += 1
         }
         if primes.count == 1 {return true} else {return false}
     }

@@ -65,7 +65,7 @@ struct Clock:Equatable, CustomStringConvertible, Comparable {
             self.minutes = (self.minutes % 60)
         }
         while(self.minutes < 0){
-            --self.hours
+            self.hours -= 1
             self.minutes += 60
         }
         if(self.hours >= 24){

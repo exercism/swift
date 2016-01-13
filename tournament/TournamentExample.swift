@@ -58,11 +58,11 @@ struct Tournament
         {
             switch outcome {
             case .LOSS :
-                ++Losses
+                Losses += 1
             case .DRAW :
-                ++Draws
+                Draws += 1
             case .WIN :
-                ++Wins
+                Wins += 1
             default :
                 print("Error addOutcome")
             }

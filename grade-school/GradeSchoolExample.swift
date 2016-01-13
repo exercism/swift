@@ -12,7 +12,8 @@ struct GradeSchool {
     var roster = [Int: Set<String>]()
     
     mutating func addStudent(name: String, grade: Int) {
-        if var students = roster[grade] {
+        if let students = roster[grade] {
+            var students = students
             students.insert(name)
             roster[grade] = students
         } else {

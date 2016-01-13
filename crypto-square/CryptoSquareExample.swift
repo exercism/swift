@@ -31,7 +31,7 @@ struct Crypto {
             if tempCounter % spacing == 0 && tempCounter != 0{
                 tempString += " \(each)"
             } else { tempString += "\(each)" }
-            tempCounter++
+            tempCounter += 1
         }
         return (tempString.componentsSeparatedByString(" ") )
     }

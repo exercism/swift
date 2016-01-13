@@ -94,11 +94,12 @@ struct WordProblem {
     
     
     
-    private func replaceText(var textInp:String)-> String{
+    private func replaceText( textInp:String)-> String{
+        var textInp = textInp
         for key in Array(operans.keys){
             let toBeReplaced = key
             let toReplaceValue = operans[key]!
-           textInp = textInp.stringByReplacingOccurrencesOfString(toBeReplaced, withString: toReplaceValue)
+            textInp = textInp.stringByReplacingOccurrencesOfString(toBeReplaced, withString: toReplaceValue)
         }
         
         func checkCharInSet(input:Character)->Bool{
