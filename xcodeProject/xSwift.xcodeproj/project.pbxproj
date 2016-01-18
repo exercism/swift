@@ -102,6 +102,8 @@
 		9D3613FB1BA645C9007D52C7 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D3613A01BA645C9007D52C7 /* config.json */; };
 		E95D0C741C41EBC000C0427C /* NthPrimeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D0C721C41EBC000C0427C /* NthPrimeExample.swift */; };
 		E95D0C751C41EBC000C0427C /* NthPrimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D0C731C41EBC000C0427C /* NthPrimeTest.swift */; };
+		E9EF72821C4D453C006CB07C /* KindergartenGardenExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF72801C4D453C006CB07C /* KindergartenGardenExample.swift */; };
+		E9EF72831C4D453C006CB07C /* KindergartenGardenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF72811C4D453C006CB07C /* KindergartenGardenTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,6 +204,8 @@
 		9D3613A01BA645C9007D52C7 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = config.json; path = ../../config.json; sourceTree = "<group>"; };
 		E95D0C721C41EBC000C0427C /* NthPrimeExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NthPrimeExample.swift; path = "../../nth-prime/NthPrimeExample.swift"; sourceTree = "<group>"; };
 		E95D0C731C41EBC000C0427C /* NthPrimeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NthPrimeTest.swift; path = "../../nth-prime/NthPrimeTest.swift"; sourceTree = "<group>"; };
+		E9EF72801C4D453C006CB07C /* KindergartenGardenExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KindergartenGardenExample.swift; path = "../../kindergarten-garden/KindergartenGardenExample.swift"; sourceTree = "<group>"; };
+		E9EF72811C4D453C006CB07C /* KindergartenGardenTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KindergartenGardenTest.swift; path = "../../kindergarten-garden/KindergartenGardenTest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +295,7 @@
 				9D36139A1BA645C9007D52C7 /* triangle */,
 				9D36139D1BA645C9007D52C7 /* twelve-days */,
 				E95D0C6D1C41E8A200C0427C /* nth-prime */,
+				E9EF727F1C4D4510006CB07C /* kindergarten-garden */,
 				9D3613A01BA645C9007D52C7 /* config.json */,
 				9D3155D41BA12FB1009A3991 /* Supporting Files */,
 			);
@@ -765,6 +770,15 @@
 			name = "nth-prime";
 			sourceTree = "<group>";
 		};
+		E9EF727F1C4D4510006CB07C /* kindergarten-garden */ = {
+			isa = PBXGroup;
+			children = (
+				E9EF72801C4D453C006CB07C /* KindergartenGardenExample.swift */,
+				E9EF72811C4D453C006CB07C /* KindergartenGardenTest.swift */,
+			);
+			name = "kindergarten-garden";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -872,6 +886,7 @@
 				9D3613EC1BA645C9007D52C7 /* PerfectNumbersTest.swift in Sources */,
 				9D3613AE1BA645C9007D52C7 /* ScrabbleScoreTest.swift in Sources */,
 				9D3613F11BA645C9007D52C7 /* EtlExample.swift in Sources */,
+				E9EF72831C4D453C006CB07C /* KindergartenGardenTest.swift in Sources */,
 				9D3613D61BA645C9007D52C7 /* NucleotideCountTest.swift in Sources */,
 				9D3613C31BA645C9007D52C7 /* SecretHandshakeExample.swift in Sources */,
 				9D3613E91BA645C9007D52C7 /* TrinaryExample.swift in Sources */,
@@ -880,6 +895,7 @@
 				9D3613CE1BA645C9007D52C7 /* GigasecondTest.swift in Sources */,
 				9D3613F21BA645C9007D52C7 /* EtlTest.swift in Sources */,
 				9D3613F81BA645C9007D52C7 /* TriangleTest.swift in Sources */,
+				E9EF72821C4D453C006CB07C /* KindergartenGardenExample.swift in Sources */,
 				9D3613AA1BA645C9007D52C7 /* AcronymTest.swift in Sources */,
 				1E38009B1BFE8E7A00F14931 /* CustomSetExample.swift in Sources */,
 				9D3613AB1BA645C9007D52C7 /* SimpleCipherExample.swift in Sources */,
