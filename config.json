@@ -52,7 +52,8 @@
     "grains",
     "custom-set",
     "nth-prime",
-    "kindergarten-garden"
+    "kindergarten-garden",
+    "robot-simulator"
   ],
   "deprecated": [
 

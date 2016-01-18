@@ -104,6 +104,8 @@
 		E95D0C751C41EBC000C0427C /* NthPrimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D0C731C41EBC000C0427C /* NthPrimeTest.swift */; };
 		E9EF72821C4D453C006CB07C /* KindergartenGardenExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF72801C4D453C006CB07C /* KindergartenGardenExample.swift */; };
 		E9EF72831C4D453C006CB07C /* KindergartenGardenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF72811C4D453C006CB07C /* KindergartenGardenTest.swift */; };
+		E9EF72861C4D5F28006CB07C /* RobotSimulatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF72851C4D5F28006CB07C /* RobotSimulatorExample.swift */; };
+		E9EF72881C4D5F67006CB07C /* RobotSimulatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF72871C4D5F67006CB07C /* RobotSimulatorTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +208,8 @@
 		E95D0C731C41EBC000C0427C /* NthPrimeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NthPrimeTest.swift; path = "../../nth-prime/NthPrimeTest.swift"; sourceTree = "<group>"; };
 		E9EF72801C4D453C006CB07C /* KindergartenGardenExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KindergartenGardenExample.swift; path = "../../kindergarten-garden/KindergartenGardenExample.swift"; sourceTree = "<group>"; };
 		E9EF72811C4D453C006CB07C /* KindergartenGardenTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KindergartenGardenTest.swift; path = "../../kindergarten-garden/KindergartenGardenTest.swift"; sourceTree = "<group>"; };
+		E9EF72851C4D5F28006CB07C /* RobotSimulatorExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RobotSimulatorExample.swift; path = "../../robot-simulator/RobotSimulatorExample.swift"; sourceTree = "<group>"; };
+		E9EF72871C4D5F67006CB07C /* RobotSimulatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RobotSimulatorTest.swift; path = "../../robot-simulator/RobotSimulatorTest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +300,7 @@
 				9D36139D1BA645C9007D52C7 /* twelve-days */,
 				E95D0C6D1C41E8A200C0427C /* nth-prime */,
 				E9EF727F1C4D4510006CB07C /* kindergarten-garden */,
+				E9EF72841C4D5E81006CB07C /* robot-simulator */,
 				9D3613A01BA645C9007D52C7 /* config.json */,
 				9D3155D41BA12FB1009A3991 /* Supporting Files */,
 			);
@@ -779,6 +784,15 @@
 			name = "kindergarten-garden";
 			sourceTree = "<group>";
 		};
+		E9EF72841C4D5E81006CB07C /* robot-simulator */ = {
+			isa = PBXGroup;
+			children = (
+				E9EF72851C4D5F28006CB07C /* RobotSimulatorExample.swift */,
+				E9EF72871C4D5F67006CB07C /* RobotSimulatorTest.swift */,
+			);
+			name = "robot-simulator";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -921,6 +935,7 @@
 				9D3613BD1BA645C9007D52C7 /* PhoneNumberExample.swift in Sources */,
 				9D3613B41BA645C9007D52C7 /* AccumulateTest.swift in Sources */,
 				9D3613BB1BA645C9007D52C7 /* ClockExample.swift in Sources */,
+				E9EF72881C4D5F67006CB07C /* RobotSimulatorTest.swift in Sources */,
 				9D3613A71BA645C9007D52C7 /* BobExample.swift in Sources */,
 				9D3613D81BA645C9007D52C7 /* OctalTest.swift in Sources */,
 				9D3613A31BA645C9007D52C7 /* WordyExample.swift in Sources */,
@@ -932,6 +947,7 @@
 				9D3613D11BA645C9007D52C7 /* LuhnExample.swift in Sources */,
 				9D3613EB1BA645C9007D52C7 /* PerfectNumbersExample.swift in Sources */,
 				9D3613CD1BA645C9007D52C7 /* GigasecondExample.swift in Sources */,
+				E9EF72861C4D5F28006CB07C /* RobotSimulatorExample.swift in Sources */,
 				9D3613D31BA645C9007D52C7 /* MeetupExample.swift in Sources */,
 				9D3613DB1BA645C9007D52C7 /* RaindropsExample.swift in Sources */,
 				9D3613E11BA645C9007D52C7 /* SeriesExample.swift in Sources */,
