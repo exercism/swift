@@ -12,6 +12,7 @@ enum CardinalDirection {
 }
 
 class SimulatedRobot {
+    
     var bearing: CardinalDirection = .North
     var x: Int = 0
     var y: Int = 0
@@ -55,15 +56,16 @@ class SimulatedRobot {
             case .West:  x -= 1
         }
     }
-}
-
-enum RobotInstruction: String {
-    case TurnLeft  = "L"
-    case TurnRight = "R"
-    case Advance   = "A"
+    
 }
 
 struct Simulator {
+    
+    enum RobotInstruction: String {
+        case TurnLeft  = "L"
+        case TurnRight = "R"
+        case Advance   = "A"
+    }
     
     func instructions(instructions: String) -> [RobotInstruction] {
         var result = [RobotInstruction]()
