@@ -53,7 +53,8 @@
     "custom-set",
     "nth-prime",
     "kindergarten-garden",
-    "robot-simulator"
+    "robot-simulator",
+    "queen-attack"
   ],
   "deprecated": [
 
