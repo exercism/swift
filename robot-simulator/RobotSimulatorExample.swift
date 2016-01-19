@@ -2,51 +2,60 @@
 
 // Apple Swift version 2.1
 
-enum CardinalDirection {
-    case North
-    case East
-    case South
-    case West
+struct SimulatedRobot {
     
-    static let allValues: [CardinalDirection] = [.North, .East, .South, .West]
-}
-
-class SimulatedRobot {
+    enum Direction {
+        case North
+        case East
+        case South
+        case West
+        
+        static let allValues: [Direction] = [.North, .East, .South, .West]
+    }
     
-    var bearing: CardinalDirection = .North
+    enum RobotInstruction: String {
+        case TurnLeft  = "L"
+        case TurnRight = "R"
+        case Advance   = "A"
+    }
+    
+    var bearing: Direction = .North
     var x: Int = 0
     var y: Int = 0
     var coordinates: [Int] {
         return [x, y]
     }
     
-    func orient(bearing: CardinalDirection) {
+    mutating func orient(bearing: Direction) {
         self.bearing = bearing
     }
     
-    func turnRight() {
-        if let index = CardinalDirection.allValues.indexOf(bearing) {
-            let newIndex = (index + 1) % 4
-            bearing = CardinalDirection.allValues[newIndex]
+    mutating func turnRight() {
+        if let index = Direction.allValues.indexOf(bearing) {
+            var newIndex = index + 1
+            if newIndex > 3 {
+                newIndex -= 4
+            }
+            bearing = Direction.allValues[newIndex]
         }
     }
     
-    func turnLeft() {
-        if let index = CardinalDirection.allValues.indexOf(bearing) {
-            var newIndex = (index - 1) % 4
+    mutating func turnLeft() {
+        if let index = Direction.allValues.indexOf(bearing) {
+            var newIndex = index - 1
             if newIndex < 0 {
                 newIndex += 4
             }
-            bearing = CardinalDirection.allValues[newIndex]
+            bearing = Direction.allValues[newIndex]
         }
     }
     
-    func at(x x: Int, y: Int) {
+    mutating func at(x x: Int, y: Int) {
         self.x = x
         self.y = y
     }
     
-    func advance() {
+    mutating func advance() {
         switch bearing {
             // Note: ++ and -- will be deprecated in Swift 2.2 and removed in Swift 3.0
             // See https://github.com/apple/swift-evolution/blob/master/proposals/0004-remove-pre-post-inc-decrement.md
@@ -55,16 +64,6 @@ class SimulatedRobot {
             case .South: y -= 1
             case .West:  x -= 1
         }
-    }
-    
-}
-
-struct Simulator {
-    
-    enum RobotInstruction: String {
-        case TurnLeft  = "L"
-        case TurnRight = "R"
-        case Advance   = "A"
     }
     
     func instructions(instructions: String) -> [RobotInstruction] {
@@ -81,19 +80,20 @@ struct Simulator {
         return result
     }
     
-    func place(robot: SimulatedRobot, x: Int, y: Int, direction: CardinalDirection) {
-        robot.at(x: x, y: y)
-        robot.orient(direction)
+    mutating func place(x x: Int, y: Int, direction: Direction) {
+        at(x: x, y: y)
+        orient(direction)
     }
     
-    func evaluate(robot: SimulatedRobot, commands: String) {
+    mutating func evaluate(commands: String) {
         for instruction in instructions(commands) {
             switch instruction {
-                case .TurnLeft:  robot.turnLeft()
-                case .TurnRight: robot.turnRight()
-                case .Advance:   robot.advance()
+                case .TurnLeft:  turnLeft()
+                case .TurnRight: turnRight()
+                case .Advance:   advance()
             }
         }
     }
-    
+
 }
+

@@ -4,11 +4,10 @@ import XCTest
 
 class RobotSimulatorTest: XCTestCase {
     
-    let robot = SimulatedRobot()
-    var simulator = Simulator()
+    var robot = SimulatedRobot()
     
     func testRobotBearing() {
-        let directions: [CardinalDirection] = [.East, .West, .North, .South]
+        let directions: [SimulatedRobot.Direction] = [.East, .West, .North, .South]
         
         for direction in directions {
             robot.orient(direction)
@@ -19,49 +18,49 @@ class RobotSimulatorTest: XCTestCase {
     func testTurnRightFromNorth() {
         robot.orient(.North)
         robot.turnRight()
-        XCTAssertEqual(CardinalDirection.East, robot.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.East, robot.bearing)
     }
     
     func testTurnRightFromEast() {
         robot.orient(.East)
         robot.turnRight()
-        XCTAssertEqual(CardinalDirection.South, robot.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.South, robot.bearing)
     }
     
     func testTurnRightFromSouth() {
         robot.orient(.South)
         robot.turnRight()
-        XCTAssertEqual(CardinalDirection.West, robot.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.West, robot.bearing)
     }
     
     func testTurnRightFromWest() {
         robot.orient(.West)
         robot.turnRight()
-        XCTAssertEqual(CardinalDirection.North, robot.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.North, robot.bearing)
     }
     
     func testTurnLeftFromNorth() {
         robot.orient(.North)
         robot.turnLeft()
-        XCTAssertEqual(CardinalDirection.West, robot.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.West, robot.bearing)
     }
     
     func testTurnLeftFromEast() {
         robot.orient(.East)
         robot.turnLeft()
-        XCTAssertEqual(CardinalDirection.North, robot.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.North, robot.bearing)
     }
     
     func testTurnLeftFromSouth() {
         robot.orient(.South)
         robot.turnLeft()
-        XCTAssertEqual(CardinalDirection.East, robot.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.East, robot.bearing)
     }
     
     func testTurnLeftFromWest() {
         robot.orient(.West)
         robot.turnLeft()
-        XCTAssertEqual(CardinalDirection.South, robot.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.South, robot.bearing)
     }
 
     func testRobotCoordinates() {
@@ -103,48 +102,49 @@ class RobotSimulatorTest: XCTestCase {
     }
     
     func testInstructionForTurningLeft() {
-        XCTAssertEqual([.TurnLeft], simulator.instructions("L"))
+        XCTAssertEqual([.TurnLeft], robot.instructions("L"))
     }
     
     func testInstructionForTurningRight() {
-        XCTAssertEqual([.TurnRight], simulator.instructions("R"))
+        XCTAssertEqual([.TurnRight], robot.instructions("R"))
     }
     
     func testInstructionForAdvancing() {
-        XCTAssertEqual([.Advance], simulator.instructions("A"))
+        XCTAssertEqual([.Advance], robot.instructions("A"))
     }
     
     func testSeriesOfInstructions() {
-        XCTAssertEqual([.TurnRight, .Advance, .Advance, .TurnLeft], simulator.instructions("RAAL"))
+        XCTAssertEqual([.TurnRight, .Advance, .Advance, .TurnLeft], robot.instructions("RAAL"))
     }
     
     func testInstructRobot() {
-        let robot = SimulatedRobot()
-        simulator.place(robot, x: -2, y: 1, direction: .East)
-        simulator.evaluate(robot, commands: "RLAALAL")
+        var robot = SimulatedRobot()
+        robot.place(x: -2, y: 1, direction: .East)
+        robot.evaluate("RLAALAL")
+        
         XCTAssertEqual([0, 2], robot.coordinates)
-        XCTAssertEqual(CardinalDirection.West, robot.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.West, robot.bearing)
     }
     
     func testInstructManyRobots() {
-        let robot1 = SimulatedRobot()
-        let robot2 = SimulatedRobot()
-        let robot3 = SimulatedRobot()
-        simulator.place(robot1, x: 0, y: 0, direction: .North)
-        simulator.place(robot2, x: 2, y: -7, direction: .East)
-        simulator.place(robot3, x: 8, y: 4, direction: .South)
-        simulator.evaluate(robot1, commands: "LAAARALA")
-        simulator.evaluate(robot2, commands: "RRAAAAALA")
-        simulator.evaluate(robot3, commands: "LAAARRRALLLL")
+        var robot1 = SimulatedRobot()
+        var robot2 = SimulatedRobot()
+        var robot3 = SimulatedRobot()
+        robot1.place(x: 0, y: 0, direction: .North)
+        robot2.place(x: 2, y: -7, direction: .East)
+        robot3.place(x: 8, y: 4, direction: .South)
+        robot1.evaluate("LAAARALA")
+        robot2.evaluate("RRAAAAALA")
+        robot3.evaluate("LAAARRRALLLL")
         
         XCTAssertEqual([-4, 1], robot1.coordinates)
-        XCTAssertEqual(CardinalDirection.West, robot1.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.West, robot1.bearing)
         
         XCTAssertEqual([-3, -8], robot2.coordinates)
-        XCTAssertEqual(CardinalDirection.South, robot2.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.South, robot2.bearing)
         
         XCTAssertEqual([11, 5], robot3.coordinates)
-        XCTAssertEqual(CardinalDirection.North, robot3.bearing)
+        XCTAssertEqual(SimulatedRobot.Direction.North, robot3.bearing)
     }
         
 }
