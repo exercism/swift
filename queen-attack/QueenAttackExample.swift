@@ -1,4 +1,4 @@
-import Foundation
+// Foundation not needed
 
 // Apple Swift version 2.1
 
