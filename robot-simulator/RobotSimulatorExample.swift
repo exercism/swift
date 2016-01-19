@@ -13,7 +13,7 @@ struct SimulatedRobot {
         static let allValues: [Direction] = [.North, .East, .South, .West]
     }
     
-    enum RobotInstruction: String {
+    enum Instruction: String {
         case TurnLeft  = "L"
         case TurnRight = "R"
         case Advance   = "A"
@@ -66,13 +66,13 @@ struct SimulatedRobot {
         }
     }
     
-    func instructions(instructions: String) -> [RobotInstruction] {
-        var result = [RobotInstruction]()
+    func instructions(instructions: String) -> [Instruction] {
+        var result = [Instruction]()
         
         let characters = instructions.characters.map { String($0) }
         
         for character in characters {
-            if let instruction = RobotInstruction(rawValue: character) {
+            if let instruction = Instruction(rawValue: character) {
                 result.append(instruction)
             }
         }
