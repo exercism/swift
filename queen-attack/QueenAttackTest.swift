@@ -26,6 +26,38 @@ class QueenAttackTest: XCTestCase {
         XCTAssertEqual([7, 7], queens2.black)
     }
     
+    func testIncorrectNumberOfCoordinates() {
+        var throwsIncorrectNumberOfCoordinates = false
+        
+        defer {
+            XCTAssertTrue(throwsIncorrectNumberOfCoordinates)
+        }
+        
+        do {
+            let _ = try Queens(white: [1, 2, 3], black: [4, 5])
+        } catch Queens.InitError.IncorrectNumberOfCoordinates {
+            throwsIncorrectNumberOfCoordinates = true
+        } catch {
+            return
+        }
+    }
+    
+    func testInvalidCoordinates() {
+        var throwsInvalidCoordinates = false
+        
+        defer {
+            XCTAssertTrue(throwsInvalidCoordinates)
+        }
+        
+        do {
+            let _ = try Queens(white: [-3, 0], black: [2, 481])
+        } catch Queens.InitError.InvalidCoordinates {
+            throwsInvalidCoordinates = true
+        } catch {
+            return
+        }
+    }
+    
     func testCannotOccupySameSpace() {
         var throwsSameSpaceError = false
         
@@ -38,7 +70,7 @@ class QueenAttackTest: XCTestCase {
         } catch Queens.InitError.SameSpace {
             throwsSameSpaceError = true
         } catch {
-            throwsSameSpaceError = false
+            return
         }
     }
     
