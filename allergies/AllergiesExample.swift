@@ -1,5 +1,7 @@
 // Foundation not needed
 
+// Apple Swift version 2.1
+
 enum Allergen: UInt {
     case Eggs = 1
     case Peanuts = 2

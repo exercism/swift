@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 enum NumberClassification {
     case Perfect
@@ -8,7 +8,7 @@ enum NumberClassification {
     case Deficient
 }
 
-class NumberClassifier {
+struct NumberClassifier {
     let number: Int
     var sum: Int {
         return aliquotSum(number)

@@ -1,6 +1,6 @@
 import Darwin
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 struct Trinary {
     
@@ -30,7 +30,7 @@ struct Trinary {
         if isValidTrinary() {
             self.toDecimal = tri2int(sv)
         }
-    
+        
     }
 
 }

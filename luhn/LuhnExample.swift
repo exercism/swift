@@ -1,6 +1,6 @@
 import Darwin
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 struct Luhn {
     
@@ -32,7 +32,8 @@ struct Luhn {
     
     func addendsFunc(num:Int64)->[Int]{
         
-        func oddIndexInt64Minus9(var input:[Int])->[Int]{
+        func oddIndexInt64Minus9( input:[Int])->[Int]{
+            var input = input
             input = Array(input.reverse())
             var tempArray:[Int] = []
             for (inx, each) in input.enumerate(){

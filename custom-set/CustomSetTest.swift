@@ -1,13 +1,11 @@
 
 import XCTest
 
-// Apple Swift version 2.0
-
+// Apple Swift version 2.1
 
 class CustomSetTest: XCTestCase {
     
     let emptyTypedArray = [Int]()
-
     
     func testEqual(){
         XCTAssertEqual(CustomSet([1, 3]), CustomSet([3, 1]))

@@ -2,7 +2,7 @@ import XCTest
 
 // Apple Swift version 2.1
 
-class NthPrimeTests: XCTestCase {
+class NthPrimeTest: XCTestCase {
     
     func testFirst() {
         XCTAssertEqual(2, Prime.nth(1))

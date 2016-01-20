@@ -1,6 +1,6 @@
 import XCTest
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 class RobotNameTest: XCTestCase {
 
@@ -29,7 +29,7 @@ class RobotNameTest: XCTestCase {
     }
 
     func testResetName() {
-        let robot = Robot()
+        var robot = Robot()
         let firstName = robot.name
         robot.resetName()
         let secondName = robot.name

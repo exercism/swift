@@ -1,6 +1,6 @@
 import Darwin
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 private extension String {
     
@@ -58,11 +58,11 @@ struct Tournament
         {
             switch outcome {
             case .LOSS :
-                ++Losses
+                Losses += 1
             case .DRAW :
-                ++Draws
+                Draws += 1
             case .WIN :
-                ++Wins
+                Wins += 1
             default :
                 print("Error addOutcome")
             }

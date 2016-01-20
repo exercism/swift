@@ -1,6 +1,6 @@
 import Darwin
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 func arc4random_uniform(input:Int)->Int{
     let temp = UInt32(input)
@@ -73,7 +73,7 @@ public struct Cipher
         }
         
         var ciphertext = ""
-        for var i = 0; i < min(plainTextArray.count, keyArray.count); i++ {
+        for i in 0 ..< min(plainTextArray.count, keyArray.count) {
             ciphertext.append(encodeCharacter(plaintext, idx: i))
         }
         return ciphertext
@@ -100,7 +100,7 @@ public struct Cipher
         
         var plaintext = ""
         
-        for var i = 0; i < cipherTextArray.count ; i++ {
+        for i in 0 ..< cipherTextArray.count  {
             plaintext.append(decodeCharacter(ciphertext, idx: i))
         }
         return plaintext

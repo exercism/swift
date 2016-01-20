@@ -1,6 +1,6 @@
 import Darwin
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 struct Triplet {
     
@@ -25,9 +25,9 @@ struct Triplet {
         }
         
         var triplets = [Triplet]()
-        for var i = minFactor; i < maxFactor - 1; i++ {
-            for var j = i + 1; j < maxFactor; j++ {
-                for var k = j + 1; k <= maxFactor; k++ {
+        for i in minFactor ..< maxFactor - 1 {
+            for j in i + 1 ..< maxFactor {
+                for k in j + 1 ... maxFactor {
                     let triplet = Triplet(i, j, k)
                     if shouldIncludeTriplet(sum, triplet: triplet){
                         triplets.append(triplet)

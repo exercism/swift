@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 struct Series {
     
@@ -20,8 +20,8 @@ struct Series {
             if end < count+1 {
                 let tempArray = Array(numberStringArray[start ..< end])
                 tempArrayReturn.append(tempArray)
-                start++
-                end++
+                start += 1
+                end += 1
             }
         }
         return tempArrayReturn

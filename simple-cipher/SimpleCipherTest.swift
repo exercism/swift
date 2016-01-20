@@ -1,7 +1,7 @@
 
 import XCTest
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 class SimpleCipherTest: XCTestCase {
 
@@ -24,9 +24,8 @@ class SimpleCipherTest: XCTestCase {
         let plaintext = "abcdefghij"
         XCTAssertEqual(plaintext, cipher.decode(cipher.encode(plaintext)))
     }
-}
 
-class SimpleCipherTestIncorrectKey: XCTestCase {
+// MARK: TestIncorrectKey
 
     func testCipherWithCapsKey() {
         XCTAssertTrue(Cipher(key: "ABCDEF") == nil)
@@ -39,32 +38,30 @@ class SimpleCipherTestIncorrectKey: XCTestCase {
     func testCipherWithEmptyKey() {
         XCTAssertTrue(Cipher(key: "") == nil)
     }
-    
-}
 
-class SimpleCipherTestSubstitution: XCTestCase {
+// MARK: TestSubstitution
 
-    let cipher = Cipher(key: "abcdefghij") ?? Cipher()
+    let cipherSubstitution = Cipher(key: "abcdefghij") ?? Cipher()
 
     func testCipherKeyIsAsSubmitted() {
-        XCTAssertEqual(cipher.key, "abcdefghij")
+        XCTAssertEqual(cipherSubstitution.key, "abcdefghij")
     }
 
-    func testCipherEncode() {
+    func testCipherEncodeSubstitution() {
         let plaintext = "aaaaaaaaaa"
         let ciphertext = "abcdefghij"
-        XCTAssertEqual(ciphertext, cipher.encode(plaintext))
+        XCTAssertEqual(ciphertext, cipherSubstitution.encode(plaintext))
     }
 
-    func testCipherDecode() {
+    func testCipherDecodeSubstitution() {
         let plaintext = "aaaaaaaaaa"
         let ciphertext = "abcdefghij"
-        XCTAssertEqual(plaintext, cipher.decode(ciphertext))
+        XCTAssertEqual(plaintext, cipherSubstitution.decode(ciphertext))
     }
 
-    func testCipherReversible() {
+    func testCipherReversibleSubstitution() {
         let plaintext = "abcdefghij"
-        XCTAssertEqual(plaintext, cipher.decode(cipher.encode(plaintext)))
+        XCTAssertEqual(plaintext, cipherSubstitution.decode(cipherSubstitution.encode(plaintext)))
     }
 
     func testDoubleShiftEncode() {
@@ -76,27 +73,26 @@ class SimpleCipherTestSubstitution: XCTestCase {
     func testCipherEncodeWrap() {
         let plaintext = "zzzzzzzzzz"
         let ciphertext = "zabcdefghi"
-        XCTAssertEqual(ciphertext, cipher.encode(plaintext))
+        XCTAssertEqual(ciphertext, cipherSubstitution.encode(plaintext))
     }
-}
 
-class SimpleCipherTestPseudoShift: XCTestCase {
+// MARK: TestPseudoShift
 
     let cipherPseudo = Cipher(key: "dddddddddd") ?? Cipher()
 
-    func testCipherEncode() {
+    func testCipherEncodePseudo() {
         let plaintext = "aaaaaaaaaa"
         let ciphertext = "dddddddddd"
         XCTAssertEqual(ciphertext, cipherPseudo.encode(plaintext))
     }
 
-    func testCipherDecode() {
+    func testCipherDecodePseudo() {
         let plaintext = "aaaaaaaaaa"
         let ciphertext = "dddddddddd"
         XCTAssertEqual(plaintext, cipherPseudo.decode(ciphertext))
     }
 
-    func testCipherReversible() {
+    func testCipherReversiblePseudo() {
         let plaintext = "abcdefghij"
         XCTAssertEqual(plaintext, cipherPseudo.decode(cipherPseudo.encode(plaintext)))
     }

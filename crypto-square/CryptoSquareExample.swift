@@ -1,6 +1,6 @@
 import Darwin
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 private extension String {
     
@@ -31,7 +31,7 @@ struct Crypto {
             if tempCounter % spacing == 0 && tempCounter != 0{
                 tempString += " \(each)"
             } else { tempString += "\(each)" }
-            tempCounter++
+            tempCounter += 1
         }
         return (tempString.componentsSeparatedByString(" ") )
     }

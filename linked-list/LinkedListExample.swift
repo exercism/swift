@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.0
+// Apple Swift version 2.1
 
 class Node<T> {
     var value: T? = nil
@@ -41,7 +41,7 @@ class Deque<T> {
             self.head.prev = node
             self.head = node
         }
-        self.count++
+        self.count += 1
     }
     
     func unshift(value: T) {
@@ -54,7 +54,7 @@ class Deque<T> {
             self.tail.next = node
             self.tail = node
         }
-        self.count++
+        self.count += 1
     }
     
     
@@ -65,12 +65,12 @@ class Deque<T> {
             return nil
         } else if self.count == 1 {
             let temp: Node<T> = self.head
-            self.count--
+            self.count -= 1
             return temp.value
         } else {
             let temp: Node<T> = self.head
             self.head = self.head.next!
-            self.count--
+            self.count -= 1
             return temp.value
         }
     }
@@ -81,12 +81,12 @@ class Deque<T> {
             return nil
         } else if self.count == 1 {
             let temp: Node<T> = self.tail
-            self.count--
+            self.count -= 1
             return temp.value
         } else {
             let temp: Node<T> = self.tail
             self.tail = self.tail.prev!
-            self.count--
+            self.count -= 1
             return temp.value
         }
     }
