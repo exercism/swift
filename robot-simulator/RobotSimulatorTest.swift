@@ -6,61 +6,73 @@ class RobotSimulatorTest: XCTestCase {
     
     var robot = SimulatedRobot()
     
-    func testRobotBearing() {
-        let directions: [SimulatedRobot.Direction] = [.East, .West, .North, .South]
-        
-        for direction in directions {
-            robot.orient(direction)
-            XCTAssertEqual(direction, robot.bearing)
-        }
+    
+    func testRobotBearingEast() {
+        robot.orient(.East)
+        XCTAssertEqual([.East], [robot.bearing])
+    }
+    
+    func testRobotBearingWest() {
+        robot.orient(.West)
+        XCTAssertEqual([.West], [robot.bearing])
+    }
+
+    func testRobotBearingNorth() {
+        robot.orient(.North)
+        XCTAssertEqual([.North], [robot.bearing])
+    }
+    
+    func testRobotBearingSouth() {
+        robot.orient(.South)
+        XCTAssertEqual([.South], [robot.bearing])
     }
     
     func testTurnRightFromNorth() {
         robot.orient(.North)
         robot.turnRight()
-        XCTAssertEqual(SimulatedRobot.Direction.East, robot.bearing)
+        XCTAssertEqual([.East], [robot.bearing])
     }
     
     func testTurnRightFromEast() {
         robot.orient(.East)
         robot.turnRight()
-        XCTAssertEqual(SimulatedRobot.Direction.South, robot.bearing)
+        XCTAssertEqual([.South], [robot.bearing])
     }
     
     func testTurnRightFromSouth() {
         robot.orient(.South)
         robot.turnRight()
-        XCTAssertEqual(SimulatedRobot.Direction.West, robot.bearing)
+        XCTAssertEqual([.West], [robot.bearing])
     }
     
     func testTurnRightFromWest() {
         robot.orient(.West)
         robot.turnRight()
-        XCTAssertEqual(SimulatedRobot.Direction.North, robot.bearing)
+        XCTAssertEqual([.North], [robot.bearing])
     }
     
     func testTurnLeftFromNorth() {
         robot.orient(.North)
         robot.turnLeft()
-        XCTAssertEqual(SimulatedRobot.Direction.West, robot.bearing)
+        XCTAssertEqual([.West], [robot.bearing])
     }
     
     func testTurnLeftFromEast() {
         robot.orient(.East)
         robot.turnLeft()
-        XCTAssertEqual(SimulatedRobot.Direction.North, robot.bearing)
+        XCTAssertEqual([.North], [robot.bearing])
     }
     
     func testTurnLeftFromSouth() {
         robot.orient(.South)
         robot.turnLeft()
-        XCTAssertEqual(SimulatedRobot.Direction.East, robot.bearing)
+        XCTAssertEqual([.East], [robot.bearing])
     }
     
     func testTurnLeftFromWest() {
         robot.orient(.West)
         robot.turnLeft()
-        XCTAssertEqual(SimulatedRobot.Direction.South, robot.bearing)
+        XCTAssertEqual([.South], [robot.bearing])
     }
 
     func testRobotCoordinates() {
@@ -123,7 +135,7 @@ class RobotSimulatorTest: XCTestCase {
         robot.evaluate("RLAALAL")
         
         XCTAssertEqual([0, 2], robot.coordinates)
-        XCTAssertEqual(SimulatedRobot.Direction.West, robot.bearing)
+        XCTAssertEqual([.West], [robot.bearing])
     }
     
     func testInstructManyRobots() {
