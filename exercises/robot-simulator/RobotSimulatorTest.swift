@@ -4,8 +4,7 @@ import XCTest
 
 class RobotSimulatorTest: XCTestCase {
     
-    var robot = SimulatedRobot()
-    
+    var robot = SimulatedRobot()    
     
     func testRobotBearingEast() {
         robot.orient(.East)
@@ -150,13 +149,13 @@ class RobotSimulatorTest: XCTestCase {
         robot3.evaluate("LAAARRRALLLL")
         
         XCTAssertEqual([-4, 1], robot1.coordinates)
-        XCTAssertEqual(SimulatedRobot.Direction.West, robot1.bearing)
+        XCTAssertEqual([.West], [robot1.bearing])
         
         XCTAssertEqual([-3, -8], robot2.coordinates)
-        XCTAssertEqual(SimulatedRobot.Direction.South, robot2.bearing)
+        XCTAssertEqual([.South], [robot2.bearing])
         
         XCTAssertEqual([11, 5], robot3.coordinates)
-        XCTAssertEqual(SimulatedRobot.Direction.North, robot3.bearing)
+        XCTAssertEqual([.North], [robot3.bearing])
     }
         
 }

@@ -4,38 +4,31 @@ import XCTest
 // Apple Swift version 2.1
 
 class PerfectNumbersTest: XCTestCase {
-
-
+    
+    
     func testPerfect() {
         let numberClassifier = NumberClassifier(number: 6)
-        let expectedValue = NumberClassification.Perfect
-        let result = numberClassifier.classification
-        XCTAssertEqual(result,expectedValue)
-
+        XCTAssertEqual([.Perfect],[numberClassifier.classification])
     }
-
+    
     func testPerfectAgain() {
         let numberClassifier = NumberClassifier(number: 28)
-        let expectedValue = NumberClassification.Perfect
-        let result = numberClassifier.classification
-        XCTAssertEqual(result,expectedValue)
+        XCTAssertEqual([.Perfect],[numberClassifier.classification])
 
+        
     }
-
+    
     func testDeficient() {
         let numberClassifier = NumberClassifier(number: 13)
-        let expectedValue = NumberClassification.Deficient
-        let result = numberClassifier.classification
-        XCTAssertEqual(result,expectedValue)
-
+        XCTAssertEqual([.Deficient],[numberClassifier.classification])
+        
     }
-
+    
     func testAbundant() {
         let numberClassifier = NumberClassifier(number: 12)
-        let expectedValue = NumberClassification.Abundant
-        let result = numberClassifier.classification
-        XCTAssertEqual(result,expectedValue)
+        XCTAssertEqual([.Abundant],[numberClassifier.classification])
 
+        
     }
-
+    
 }

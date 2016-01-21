@@ -2,13 +2,18 @@ import Darwin
 
 // Apple Swift version 2.1
 
+extension Int{
+
+    init(_ value:Octal){
+        self = value.toDecimal
+    }
+    
+}
+
 struct Octal {
-    
-    var stringValue = ""
-    
-    var toDecimal:Int = 0
-    
-    func isValidOctal() -> Bool{
+    private var stringValue = ""
+    private var toDecimal:Int = 0
+    private func isValidOctal() -> Bool{
         return (Int(stringValue) ?? -1) > -1 ? true : false
     }
     

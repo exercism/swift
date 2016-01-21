@@ -2,11 +2,19 @@
 
 // Apple Swift version 2.1
 
+extension Int{
+    init(_ value:Binary?){
+        if let value = value {
+         self = value.toDecimal
+        } else {
+        self = 0 }
+    }
+}
+
+
 struct Binary {
-    var UIntValue:UInt = 0
-    
-    var toDecimal:Int {get {return Int(UIntValue)}}
-    
+    private var UIntValue:UInt = 0
+    private var toDecimal:Int {get {return Int(UIntValue)}}
     private func bi2Uint(input:String) -> UInt?{
         let orderedInput = Array(input.characters.reverse())
         var tempUInt:UInt = 0

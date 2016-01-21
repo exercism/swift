@@ -2,13 +2,17 @@ import Darwin
 
 // Apple Swift version 2.1
 
+extension Int{
+    init(_ value:Trinary){
+        self  = value.toDecimal
+    }
+}
+
+
 struct Trinary {
-    
-    var stringValue = ""
-    
-    var toDecimal:Int = 0
-    
-    func isValidTrinary() -> Bool{
+   private var stringValue = ""
+   private var toDecimal:Int = 0
+   private func isValidTrinary() -> Bool{
         return (Int(stringValue) ?? -1) > -1 ? true : false
     }
     
