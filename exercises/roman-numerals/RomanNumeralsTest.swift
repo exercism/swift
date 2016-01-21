@@ -3,76 +3,77 @@ import XCTest
 // Apple Swift version 2.1
 
 class  RomanNumeralsTest: XCTestCase {
+    
     func test1() {
-        XCTAssertEqual("I", 1.toRoman)
+        XCTAssertEqual("I", String(RomanNumeral(1)))
     }
     
     func test2() {
-        XCTAssertEqual("II", 2.toRoman)
+        XCTAssertEqual("II", String(RomanNumeral(2)))
     }
     
     func test3() {
-        XCTAssertEqual("III", 3.toRoman)
+        XCTAssertEqual("III", String(RomanNumeral(3)))
     }
     
     func test4() {
-        XCTAssertEqual("IV", 4.toRoman)
+        XCTAssertEqual("IV", String(RomanNumeral(4)))
     }
     
     func test5() {
-        XCTAssertEqual("V", 5.toRoman)
+        XCTAssertEqual("V", String(RomanNumeral(5)))
     }
     
     func test6() {
-        XCTAssertEqual("VI", 6.toRoman)
+        XCTAssertEqual("VI", String(RomanNumeral(6)))
     }
     
     func test9() {
-        XCTAssertEqual("IX", 9.toRoman)
+        XCTAssertEqual("IX", String(RomanNumeral(9)))
     }
     
     func test27() {
-        XCTAssertEqual("XXVII", 27.toRoman)
+        XCTAssertEqual("XXVII", String(RomanNumeral(27)))
     }
     
     func test48() {
-        XCTAssertEqual("XLVIII", 48.toRoman)
+        XCTAssertEqual("XLVIII", String(RomanNumeral(48)))
     }
     
     func test59() {
-        XCTAssertEqual("LIX", 59.toRoman)
+        XCTAssertEqual("LIX", String(RomanNumeral(59)))
     }
     
     func test93() {
-        XCTAssertEqual("XCIII", 93.toRoman)
+        XCTAssertEqual("XCIII", String(RomanNumeral(93)))
     }
     
     func test141() {
-        XCTAssertEqual("CXLI", 141.toRoman)
+        XCTAssertEqual("CXLI", String(RomanNumeral(141)))
     }
     
     func test163() {
-        XCTAssertEqual("CLXIII", 163.toRoman)
+        XCTAssertEqual("CLXIII", String(RomanNumeral(163)))
     }
     
     func test402() {
-        XCTAssertEqual("CDII", 402.toRoman)
+        XCTAssertEqual("CDII", String(RomanNumeral(402)))
     }
     
     func test575() {
-        XCTAssertEqual("DLXXV", 575.toRoman)
+        XCTAssertEqual("DLXXV", String(RomanNumeral(575)))
     }
     
     func test911() {
-        XCTAssertEqual("CMXI", 911.toRoman)
+        XCTAssertEqual("CMXI", String(RomanNumeral(911)))
     }
     
     func test1024() {
-        XCTAssertEqual("MXXIV", 1024.toRoman)
+        XCTAssertEqual("MXXIV", String(RomanNumeral(1024)))
     }
     
     func test3000() {
-        XCTAssertEqual("MMM", 3000.toRoman)
+        XCTAssertEqual("MMM", String(RomanNumeral(3000)))
     }
     
 }
