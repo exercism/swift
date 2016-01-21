@@ -111,6 +111,8 @@
 		1E9A63ED1C506EFD00E28AE1 /* WordCountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63841C506EFC00E28AE1 /* WordCountTest.swift */; };
 		1E9A63EE1C506EFD00E28AE1 /* WordyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63861C506EFC00E28AE1 /* WordyExample.swift */; };
 		1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63871C506EFC00E28AE1 /* WordyTest.swift */; };
+		E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECD1C510E68009318BB /* BinarySearchExample.swift */; };
+		E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECE1C510E68009318BB /* BinarySearchTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +233,8 @@
 		1E9A63871C506EFC00E28AE1 /* WordyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordyTest.swift; sourceTree = "<group>"; };
 		9D3155D21BA12FB1009A3991 /* xSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3155D51BA12FB1009A3991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E94BDECD1C510E68009318BB /* BinarySearchExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchExample.swift; path = "binary-search/BinarySearchExample.swift"; sourceTree = "<group>"; };
+		E94BDECE1C510E68009318BB /* BinarySearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTest.swift; path = "binary-search/BinarySearchTest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +257,7 @@
 				1E9A62F21C506EFC00E28AE1 /* anagram */,
 				1E9A62F51C506EFC00E28AE1 /* atbash-cipher */,
 				1E9A62F81C506EFC00E28AE1 /* binary */,
+				E94BDECB1C510DF4009318BB /* binary-search */,
 				1E9A62FB1C506EFC00E28AE1 /* bob */,
 				1E9A62FE1C506EFC00E28AE1 /* clock */,
 				1E9A63011C506EFC00E28AE1 /* crypto-square */,
@@ -815,6 +820,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E94BDECB1C510DF4009318BB /* binary-search */ = {
+			isa = PBXGroup;
+			children = (
+				E94BDECD1C510E68009318BB /* BinarySearchExample.swift */,
+				E94BDECE1C510E68009318BB /* BinarySearchTest.swift */,
+			);
+			name = "binary-search";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -919,6 +933,7 @@
 				1E9A63C11C506EFD00E28AE1 /* PigLatinTest.swift in Sources */,
 				1E9A63B91C506EFD00E28AE1 /* NucleotideCountTest.swift in Sources */,
 				1E9A63BF1C506EFD00E28AE1 /* PhoneNumberTest.swift in Sources */,
+				E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */,
 				1E9A63961C506EFD00E28AE1 /* ClockExample.swift in Sources */,
 				1E9A63BD1C506EFD00E28AE1 /* PerfectNumbersTest.swift in Sources */,
 				1E9A63E51C506EFD00E28AE1 /* TournamentTest.swift in Sources */,
@@ -967,6 +982,7 @@
 				1E9A63CD1C506EFD00E28AE1 /* RobotNameTest.swift in Sources */,
 				1E9A63B51C506EFD00E28AE1 /* MeetupTest.swift in Sources */,
 				1E9A639C1C506EFD00E28AE1 /* DifferenceOfSquaresExample.swift in Sources */,
+				E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */,
 				1E9A639F1C506EFD00E28AE1 /* EtlTest.swift in Sources */,
 				1E9A63B11C506EFD00E28AE1 /* LinkedListTest.swift in Sources */,
 				1E9A63921C506EFD00E28AE1 /* BinaryExample.swift in Sources */,
