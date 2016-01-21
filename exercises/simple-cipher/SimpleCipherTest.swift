@@ -28,15 +28,15 @@ class SimpleCipherTest: XCTestCase {
 // MARK: TestIncorrectKey
 
     func testCipherWithCapsKey() {
-        XCTAssertTrue(Cipher(key: "ABCDEF") == nil)
+        XCTAssertNil(Cipher(key: "ABCDEF"))
     }
 
     func testCipherWithNumericKey() {
-        XCTAssertTrue(Cipher(key: "12345") == nil)
+        XCTAssertNil(Cipher(key: "12345"))
     }
 
     func testCipherWithEmptyKey() {
-        XCTAssertTrue(Cipher(key: "") == nil)
+        XCTAssertNil(Cipher(key: ""))
     }
 
 // MARK: TestSubstitution
