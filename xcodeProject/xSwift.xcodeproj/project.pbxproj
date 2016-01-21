@@ -104,6 +104,8 @@
 		E95D0C751C41EBC000C0427C /* NthPrimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D0C731C41EBC000C0427C /* NthPrimeTest.swift */; };
 		E96C7AAF1C4EC616001CF52C /* QueenAttackExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C7AAE1C4EC616001CF52C /* QueenAttackExample.swift */; };
 		E96C7AB31C4ED7C8001CF52C /* QueenAttackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C7AB21C4ED7C8001CF52C /* QueenAttackTest.swift */; };
+		E97332031C505EFF001DBFFD /* BinarySearchExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97332021C505EFF001DBFFD /* BinarySearchExample.swift */; };
+		E97332051C505F22001DBFFD /* BinarySearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97332041C505F22001DBFFD /* BinarySearchTest.swift */; };
 		E9EF72821C4D453C006CB07C /* KindergartenGardenExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF72801C4D453C006CB07C /* KindergartenGardenExample.swift */; };
 		E9EF72831C4D453C006CB07C /* KindergartenGardenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF72811C4D453C006CB07C /* KindergartenGardenTest.swift */; };
 		E9EF72861C4D5F28006CB07C /* RobotSimulatorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF72851C4D5F28006CB07C /* RobotSimulatorExample.swift */; };
@@ -210,6 +212,8 @@
 		E95D0C731C41EBC000C0427C /* NthPrimeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NthPrimeTest.swift; path = "../../nth-prime/NthPrimeTest.swift"; sourceTree = "<group>"; };
 		E96C7AAE1C4EC616001CF52C /* QueenAttackExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QueenAttackExample.swift; path = "../../queen-attack/QueenAttackExample.swift"; sourceTree = "<group>"; };
 		E96C7AB21C4ED7C8001CF52C /* QueenAttackTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QueenAttackTest.swift; path = "../../queen-attack/QueenAttackTest.swift"; sourceTree = "<group>"; };
+		E97332021C505EFF001DBFFD /* BinarySearchExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchExample.swift; path = "../../binary-search/BinarySearchExample.swift"; sourceTree = "<group>"; };
+		E97332041C505F22001DBFFD /* BinarySearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTest.swift; path = "../../binary-search/BinarySearchTest.swift"; sourceTree = "<group>"; };
 		E9EF72801C4D453C006CB07C /* KindergartenGardenExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KindergartenGardenExample.swift; path = "../../kindergarten-garden/KindergartenGardenExample.swift"; sourceTree = "<group>"; };
 		E9EF72811C4D453C006CB07C /* KindergartenGardenTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KindergartenGardenTest.swift; path = "../../kindergarten-garden/KindergartenGardenTest.swift"; sourceTree = "<group>"; };
 		E9EF72851C4D5F28006CB07C /* RobotSimulatorExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RobotSimulatorExample.swift; path = "../../robot-simulator/RobotSimulatorExample.swift"; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				E9EF727F1C4D4510006CB07C /* kindergarten-garden */,
 				E9EF72841C4D5E81006CB07C /* robot-simulator */,
 				E96C7AAD1C4EC5AF001CF52C /* queen-attack */,
+				E97332011C505EA5001DBFFD /* binary-search */,
 				9D3613A01BA645C9007D52C7 /* config.json */,
 				9D3155D41BA12FB1009A3991 /* Supporting Files */,
 			);
@@ -789,6 +794,15 @@
 			name = "queen-attack";
 			sourceTree = "<group>";
 		};
+		E97332011C505EA5001DBFFD /* binary-search */ = {
+			isa = PBXGroup;
+			children = (
+				E97332021C505EFF001DBFFD /* BinarySearchExample.swift */,
+				E97332041C505F22001DBFFD /* BinarySearchTest.swift */,
+			);
+			name = "binary-search";
+			sourceTree = "<group>";
+		};
 		E9EF727F1C4D4510006CB07C /* kindergarten-garden */ = {
 			isa = PBXGroup;
 			children = (
@@ -934,6 +948,7 @@
 				9D3613E71BA645C9007D52C7 /* SumOfMultiplesExample.swift in Sources */,
 				9D3613B61BA645C9007D52C7 /* RomanNumeralsTest.swift in Sources */,
 				9D3613F51BA645C9007D52C7 /* PrimeFactorsExample.swift in Sources */,
+				E97332051C505F22001DBFFD /* BinarySearchTest.swift in Sources */,
 				1E38009C1BFE8E7A00F14931 /* CustomSetTest.swift in Sources */,
 				9D3613CC1BA645C9007D52C7 /* DifferenceOfSquaresTests.swift in Sources */,
 				9D3613C71BA645C9007D52C7 /* AnagramExample.swift in Sources */,
@@ -971,6 +986,7 @@
 				9D3613C51BA645C9007D52C7 /* AllergiesExample.swift in Sources */,
 				9D3613E81BA645C9007D52C7 /* SumOfMultiplesTest.swift in Sources */,
 				9D3613F01BA645C9007D52C7 /* LeapTest.swift in Sources */,
+				E97332031C505EFF001DBFFD /* BinarySearchExample.swift in Sources */,
 				E95D0C741C41EBC000C0427C /* NthPrimeExample.swift in Sources */,
 				9D3613A41BA645C9007D52C7 /* WordyTest.swift in Sources */,
 				9D3613E41BA645C9007D52C7 /* SieveTest.swift in Sources */,
