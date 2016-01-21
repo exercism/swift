@@ -11,12 +11,12 @@ class LeapTest : XCTestCase {
 
 	func testAnyOldYear() {
 	  let year = Year(calendarYear: 1997)
-	  XCTAssertTrue(!year.isLeapYear)
+	  XCTAssertFalse(year.isLeapYear)
 	}
 
 	func testCentury() {
 	  let year = Year(calendarYear: 1900)
-	  XCTAssertTrue(!year.isLeapYear)
+	  XCTAssertFalse(year.isLeapYear)
 	}
 
 	func testExceptionalCentury() {

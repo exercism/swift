@@ -26,7 +26,7 @@ private extension Character {
 struct PhoneNumber: CustomStringConvertible {
     let number: String
     
-    init(startingNumber: String) {
+    init(_ startingNumber: String) {
         let digits = startingNumber.onlyDigits
 
         switch digits.characters.count {

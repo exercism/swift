@@ -6,9 +6,9 @@ class RobotNameTest: XCTestCase {
 
     func robotNameIsCorrectlyFormatted(name: String) -> Bool {
         let robotNameRegex = try? NSRegularExpression(pattern: "\\A\\w{2}\\d{3}\\z", options: NSRegularExpressionOptions.CaseInsensitive)
-        let matches = robotNameRegex?.matchesInString(name, options: .WithoutAnchoringBounds, range: NSMakeRange(0, name.characters.count))
+        guard let matches = robotNameRegex?.matchesInString(name, options: .WithoutAnchoringBounds, range: NSMakeRange(0, name.characters.count)) else { return false }
 
-        return matches!.count > 0
+        return matches.count > 0
     }
 
     func testHasName() {

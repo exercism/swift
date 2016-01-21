@@ -2,9 +2,14 @@
 
 // Apple Swift version 2.1
 
+
 struct PrimeFactors{
     
-    static func For( number:Int64)->[Int64]{
+    var number:Int64
+    
+    var toArray = [Int64]()
+    
+    private func primesFor( number:Int64)->[Int64]{
         var number = number
         var primes = [Int64]()
         var divisor:Int64 = 2
@@ -17,6 +22,12 @@ struct PrimeFactors{
             divisor += 1
         }
         return primes
+    }
+    
+    init(_ value:Int64){
+     self.number = value
+     self.toArray = primesFor(value)
+        
     }
 }
 
