@@ -113,6 +113,8 @@
 		1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63871C506EFC00E28AE1 /* WordyTest.swift */; };
 		E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECD1C510E68009318BB /* BinarySearchExample.swift */; };
 		E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECE1C510E68009318BB /* BinarySearchTest.swift */; };
+		E9AFA1481C593AF5006AD72D /* BinarySearchTreeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */; };
+		E9AFA1491C593AF5006AD72D /* BinarySearchTreeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1471C593AF5006AD72D /* BinarySearchTreeTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +237,8 @@
 		9D3155D51BA12FB1009A3991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E94BDECD1C510E68009318BB /* BinarySearchExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchExample.swift; path = "binary-search/BinarySearchExample.swift"; sourceTree = "<group>"; };
 		E94BDECE1C510E68009318BB /* BinarySearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTest.swift; path = "binary-search/BinarySearchTest.swift"; sourceTree = "<group>"; };
+		E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTreeExample.swift; path = "binary-search-tree/BinarySearchTreeExample.swift"; sourceTree = "<group>"; };
+		E9AFA1471C593AF5006AD72D /* BinarySearchTreeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTreeTest.swift; path = "binary-search-tree/BinarySearchTreeTest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +262,7 @@
 				1E9A62F51C506EFC00E28AE1 /* atbash-cipher */,
 				1E9A62F81C506EFC00E28AE1 /* binary */,
 				E94BDECB1C510DF4009318BB /* binary-search */,
+				E9B4BE511C585B510080E585 /* binary-search-tree */,
 				1E9A62FB1C506EFC00E28AE1 /* bob */,
 				1E9A62FE1C506EFC00E28AE1 /* clock */,
 				1E9A63011C506EFC00E28AE1 /* crypto-square */,
@@ -829,6 +834,15 @@
 			name = "binary-search";
 			sourceTree = "<group>";
 		};
+		E9B4BE511C585B510080E585 /* binary-search-tree */ = {
+			isa = PBXGroup;
+			children = (
+				E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */,
+				E9AFA1471C593AF5006AD72D /* BinarySearchTreeTest.swift */,
+			);
+			name = "binary-search-tree";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -947,6 +961,7 @@
 				1E9A63DC1C506EFD00E28AE1 /* SimpleLinkedListExample.swift in Sources */,
 				1E9A63B81C506EFD00E28AE1 /* NucleotideCountExample.swift in Sources */,
 				1E9A63881C506EFC00E28AE1 /* AccumulateExample.swift in Sources */,
+				E9AFA1491C593AF5006AD72D /* BinarySearchTreeTest.swift in Sources */,
 				1E9A63D61C506EFD00E28AE1 /* SeriesExample.swift in Sources */,
 				1E9A638B1C506EFD00E28AE1 /* AcronymTest.swift in Sources */,
 				1E9A63E21C506EFD00E28AE1 /* SumOfMultiplesExample.swift in Sources */,
@@ -1003,6 +1018,7 @@
 				1E9A639B1C506EFD00E28AE1 /* CustomSetTest.swift in Sources */,
 				1E9A63CB1C506EFD00E28AE1 /* RnaTranscriptionTest.swift in Sources */,
 				1E9A63AE1C506EFD00E28AE1 /* LeapExample.swift in Sources */,
+				E9AFA1481C593AF5006AD72D /* BinarySearchTreeExample.swift in Sources */,
 				1E9A63E01C506EFD00E28AE1 /* StrainExample.swift in Sources */,
 				1E9A63C71C506EFD00E28AE1 /* QueenAttackTest.swift in Sources */,
 				1E9A63981C506EFD00E28AE1 /* CryptoSquareExample.swift in Sources */,
