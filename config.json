@@ -56,7 +56,8 @@
     "robot-simulator",
     "queen-attack",
     "binary-search",
-    "binary-search-tree"
+    "binary-search-tree",
+    "hexadecimal"
   ],
   "deprecated": [
 
