@@ -5,43 +5,43 @@ import XCTest
 class HexadecimalTest: XCTestCase {
     
     func testHex1IsDecimal1() {
-        XCTAssertEqual(1, Hexadecimal("1").toDecimal())
+        XCTAssertEqual(1, Int(hex: "1"))
     }
     
     func testHexCIsDecimal12() {
-        XCTAssertEqual(12, Hexadecimal("c").toDecimal())
+        XCTAssertEqual(12, Int(hex: "c"))
     }
     
     func testHex10IsDecimal16() {
-        XCTAssertEqual(16, Hexadecimal("10").toDecimal())
+        XCTAssertEqual(16, Int(hex: "10"))
     }
     
     func testHexAFIsDecimal175() {
-        XCTAssertEqual(175, Hexadecimal("af").toDecimal())
+        XCTAssertEqual(175, Int(hex: "af"))
     }
     
     func testHex100IsDecimal256() {
-        XCTAssertEqual(256, Hexadecimal("100").toDecimal())
+        XCTAssertEqual(256, Int(hex: "100"))
     }
     
     func testHex19aceIsDecimal105166() {
-        XCTAssertEqual(105_166, Hexadecimal("19ace").toDecimal())
+        XCTAssertEqual(105_166, Int(hex: "19ace"))
     }
     
     func testInvalidHexIsNil() {
-        XCTAssertNil(Hexadecimal("carrot").toDecimal())
+        XCTAssertNil(Int(hex: "carrot"))
     }
     
     func testBlack() {
-        XCTAssertEqual(0, Hexadecimal("000000").toDecimal())
+        XCTAssertEqual(0, Int(hex: "000000"))
     }
     
     func testWhite() {
-        XCTAssertEqual(16_777_215, Hexadecimal("ffffff").toDecimal())
+        XCTAssertEqual(16_777_215, Int(hex: "ffffff"))
     }
     
     func testYellow() {
-        XCTAssertEqual(16_776_960, Hexadecimal("ffff00").toDecimal())
+        XCTAssertEqual(16_776_960, Int(hex: "ffff00"))
     }
     
 }
