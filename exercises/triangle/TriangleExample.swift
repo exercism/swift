@@ -21,7 +21,9 @@ struct Triangle {
     func uniqueSides() -> Int{
         var tempSet = Set<Double>()
         for each in [a,b,c]{
+            if !tempSet.contains(each) {
                 tempSet.insert(each)
+            }
         }
         
         return tempSet.count
@@ -37,7 +39,7 @@ struct Triangle {
     }
     
     func violatesTriangleInequality() -> Bool{
-        return a + b < c || a + c < b || b + c < a
+        return a + b <= c || a + c <= b || b + c <= a
     }
     
     func Kind()->String{
@@ -52,6 +54,7 @@ struct Triangle {
             return triangleKind.Equilateral}
         
         if (unique == 2){
+            
             return triangleKind.Isosceles}
         
         return triangleKind.Scalene
