@@ -24,10 +24,6 @@ class TriangleTest: XCTestCase {
         XCTAssertEqual(triangleKind.Isosceles,  Triangle(4, 3, 4).kind)
     }
     
-    func testIsoscelesTrianglesHaveFirstAndLastSidesEqual242() {
-        XCTAssertEqual(triangleKind.Isosceles,  Triangle(2, 4, 2).kind)
-    }
-    
     func testIsoscelesTrianglesHaveTwoFirstSidesEqual() {
         XCTAssertEqual(triangleKind.Isosceles,  Triangle(4, 4, 3).kind)
     }
