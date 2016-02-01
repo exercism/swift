@@ -117,6 +117,8 @@
 		E9AFA1491C593AF5006AD72D /* BinarySearchTreeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1471C593AF5006AD72D /* BinarySearchTreeTest.swift */; };
 		E9AFA1511C5944D0006AD72D /* HexadecimalExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1501C5944D0006AD72D /* HexadecimalExample.swift */; };
 		E9AFA1531C5945C9006AD72D /* HexadecimalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1521C5945C9006AD72D /* HexadecimalTest.swift */; };
+		E9AFA1601C5BFC57006AD72D /* LargestSeriesProductExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA15F1C5BFC57006AD72D /* LargestSeriesProductExample.swift */; };
+		E9AFA1621C5BFC6B006AD72D /* LargestSeriesProductTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1611C5BFC6B006AD72D /* LargestSeriesProductTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +245,8 @@
 		E9AFA1471C593AF5006AD72D /* BinarySearchTreeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTreeTest.swift; path = "binary-search-tree/BinarySearchTreeTest.swift"; sourceTree = "<group>"; };
 		E9AFA1501C5944D0006AD72D /* HexadecimalExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HexadecimalExample.swift; path = hexadecimal/HexadecimalExample.swift; sourceTree = "<group>"; };
 		E9AFA1521C5945C9006AD72D /* HexadecimalTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HexadecimalTest.swift; path = hexadecimal/HexadecimalTest.swift; sourceTree = "<group>"; };
+		E9AFA15F1C5BFC57006AD72D /* LargestSeriesProductExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LargestSeriesProductExample.swift; path = "../largest-series-product/LargestSeriesProductExample.swift"; sourceTree = "<group>"; };
+		E9AFA1611C5BFC6B006AD72D /* LargestSeriesProductTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargestSeriesProductTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +284,7 @@
 				1E9A63191C506EFC00E28AE1 /* hello-world */,
 				E9AFA14E1C594423006AD72D /* hexadecimal */,
 				1E9A63221C506EFC00E28AE1 /* kindergarten-garden */,
+				E9AFA15D1C5BFB55006AD72D /* largest-series-product */,
 				1E9A63251C506EFC00E28AE1 /* leap */,
 				1E9A63281C506EFC00E28AE1 /* linked-list */,
 				1E9A632B1C506EFC00E28AE1 /* luhn */,
@@ -848,6 +853,16 @@
 			name = hexadecimal;
 			sourceTree = "<group>";
 		};
+		E9AFA15D1C5BFB55006AD72D /* largest-series-product */ = {
+			isa = PBXGroup;
+			children = (
+				E9AFA15F1C5BFC57006AD72D /* LargestSeriesProductExample.swift */,
+				E9AFA1611C5BFC6B006AD72D /* LargestSeriesProductTest.swift */,
+			);
+			name = "largest-series-product";
+			path = leap;
+			sourceTree = "<group>";
+		};
 		E9B4BE511C585B510080E585 /* binary-search-tree */ = {
 			isa = PBXGroup;
 			children = (
@@ -969,6 +984,7 @@
 				1E9A63DA1C506EFD00E28AE1 /* SimpleCipherExample.swift in Sources */,
 				1E9A63E61C506EFD00E28AE1 /* TriangleExample.swift in Sources */,
 				1E9A63D21C506EFD00E28AE1 /* ScrabbleScoreExample.swift in Sources */,
+				E9AFA1621C5BFC6B006AD72D /* LargestSeriesProductTest.swift in Sources */,
 				1E9A63E31C506EFD00E28AE1 /* SumOfMultiplesTest.swift in Sources */,
 				1E9A63A31C506EFD00E28AE1 /* GradeSchoolTest.swift in Sources */,
 				1E9A63B31C506EFD00E28AE1 /* LuhnTest.swift in Sources */,
@@ -1020,6 +1036,7 @@
 				1E9A63D51C506EFD00E28AE1 /* SecretHandshakeTests.swift in Sources */,
 				1E9A63BA1C506EFD00E28AE1 /* OctalExample.swift in Sources */,
 				1E9A63C81C506EFD00E28AE1 /* RaindropsExample.swift in Sources */,
+				E9AFA1601C5BFC57006AD72D /* LargestSeriesProductExample.swift in Sources */,
 				1E9A638E1C506EFD00E28AE1 /* AnagramExample.swift in Sources */,
 				1E9A63A01C506EFD00E28AE1 /* GigasecondExample.swift in Sources */,
 				1E9A639A1C506EFD00E28AE1 /* CustomSetExample.swift in Sources */,
