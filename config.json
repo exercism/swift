@@ -57,7 +57,8 @@
     "queen-attack",
     "binary-search",
     "binary-search-tree",
-    "hexadecimal"
+    "hexadecimal",
+    "largest-series-product"
   ],
   "deprecated": [
 
