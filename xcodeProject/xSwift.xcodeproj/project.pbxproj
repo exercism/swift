@@ -121,6 +121,8 @@
 		E9AFA1621C5BFC6B006AD72D /* LargestSeriesProductTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1611C5BFC6B006AD72D /* LargestSeriesProductTest.swift */; };
 		E9AFA16B1C5EF4DA006AD72D /* MatrixExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA16A1C5EF4DA006AD72D /* MatrixExample.swift */; };
 		E9AFA16D1C5EF4EA006AD72D /* MatrixTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA16C1C5EF4EA006AD72D /* MatrixTest.swift */; };
+		E9AFA1781C614D8D006AD72D /* HouseExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1771C614D8D006AD72D /* HouseExample.swift */; };
+		E9AFA17A1C614DA0006AD72D /* HouseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1791C614DA0006AD72D /* HouseTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +253,8 @@
 		E9AFA1611C5BFC6B006AD72D /* LargestSeriesProductTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargestSeriesProductTest.swift; sourceTree = "<group>"; };
 		E9AFA16A1C5EF4DA006AD72D /* MatrixExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatrixExample.swift; path = ../matrix/MatrixExample.swift; sourceTree = "<group>"; };
 		E9AFA16C1C5EF4EA006AD72D /* MatrixTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatrixTest.swift; path = ../matrix/MatrixTest.swift; sourceTree = "<group>"; };
+		E9AFA1771C614D8D006AD72D /* HouseExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HouseExample.swift; path = house/HouseExample.swift; sourceTree = "<group>"; };
+		E9AFA1791C614DA0006AD72D /* HouseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HouseTest.swift; path = house/HouseTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +291,7 @@
 				1E9A63161C506EFC00E28AE1 /* hamming */,
 				1E9A63191C506EFC00E28AE1 /* hello-world */,
 				E9AFA14E1C594423006AD72D /* hexadecimal */,
+				E9AFA1751C614D6A006AD72D /* house */,
 				1E9A63221C506EFC00E28AE1 /* kindergarten-garden */,
 				E9AFA15D1C5BFB55006AD72D /* largest-series-product */,
 				1E9A63251C506EFC00E28AE1 /* leap */,
@@ -878,6 +883,15 @@
 			path = luhn;
 			sourceTree = "<group>";
 		};
+		E9AFA1751C614D6A006AD72D /* house */ = {
+			isa = PBXGroup;
+			children = (
+				E9AFA1771C614D8D006AD72D /* HouseExample.swift */,
+				E9AFA1791C614DA0006AD72D /* HouseTest.swift */,
+			);
+			name = house;
+			sourceTree = "<group>";
+		};
 		E9B4BE511C585B510080E585 /* binary-search-tree */ = {
 			isa = PBXGroup;
 			children = (
@@ -977,6 +991,7 @@
 				1E9A63DD1C506EFD00E28AE1 /* SimpleLinkedListTest.swift in Sources */,
 				1E9A63B01C506EFD00E28AE1 /* LinkedListExample.swift in Sources */,
 				1E9A63CA1C506EFD00E28AE1 /* RnaTranscriptionExample.swift in Sources */,
+				E9AFA1781C614D8D006AD72D /* HouseExample.swift in Sources */,
 				1E9A63D31C506EFD00E28AE1 /* ScrabbleScoreTest.swift in Sources */,
 				1E9A63D81C506EFD00E28AE1 /* SieveExample.swift in Sources */,
 				1E9A63AC1C506EFD00E28AE1 /* KindergartenGardenExample.swift in Sources */,
@@ -1046,6 +1061,7 @@
 				1E9A639C1C506EFD00E28AE1 /* DifferenceOfSquaresExample.swift in Sources */,
 				E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */,
 				1E9A639F1C506EFD00E28AE1 /* EtlTest.swift in Sources */,
+				E9AFA17A1C614DA0006AD72D /* HouseTest.swift in Sources */,
 				1E9A63B11C506EFD00E28AE1 /* LinkedListTest.swift in Sources */,
 				1E9A63921C506EFD00E28AE1 /* BinaryExample.swift in Sources */,
 				1E9A638F1C506EFD00E28AE1 /* AnagramTest.swift in Sources */,
