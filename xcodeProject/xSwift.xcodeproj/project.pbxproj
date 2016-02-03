@@ -118,11 +118,11 @@
 		E9AFA1511C5944D0006AD72D /* HexadecimalExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1501C5944D0006AD72D /* HexadecimalExample.swift */; };
 		E9AFA1531C5945C9006AD72D /* HexadecimalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1521C5945C9006AD72D /* HexadecimalTest.swift */; };
 		E9AFA1601C5BFC57006AD72D /* LargestSeriesProductExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA15F1C5BFC57006AD72D /* LargestSeriesProductExample.swift */; };
-		E9AFA1621C5BFC6B006AD72D /* LargestSeriesProductTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1611C5BFC6B006AD72D /* LargestSeriesProductTest.swift */; };
 		E9AFA16B1C5EF4DA006AD72D /* MatrixExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA16A1C5EF4DA006AD72D /* MatrixExample.swift */; };
 		E9AFA16D1C5EF4EA006AD72D /* MatrixTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA16C1C5EF4EA006AD72D /* MatrixTest.swift */; };
 		E9AFA1781C614D8D006AD72D /* HouseExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1771C614D8D006AD72D /* HouseExample.swift */; };
 		E9AFA17A1C614DA0006AD72D /* HouseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1791C614DA0006AD72D /* HouseTest.swift */; };
+		E9AFA17E1C61B162006AD72D /* LargestSeriesProductTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA17D1C61B162006AD72D /* LargestSeriesProductTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,11 +250,11 @@
 		E9AFA1501C5944D0006AD72D /* HexadecimalExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HexadecimalExample.swift; path = hexadecimal/HexadecimalExample.swift; sourceTree = "<group>"; };
 		E9AFA1521C5945C9006AD72D /* HexadecimalTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HexadecimalTest.swift; path = hexadecimal/HexadecimalTest.swift; sourceTree = "<group>"; };
 		E9AFA15F1C5BFC57006AD72D /* LargestSeriesProductExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LargestSeriesProductExample.swift; path = "../largest-series-product/LargestSeriesProductExample.swift"; sourceTree = "<group>"; };
-		E9AFA1611C5BFC6B006AD72D /* LargestSeriesProductTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargestSeriesProductTest.swift; sourceTree = "<group>"; };
 		E9AFA16A1C5EF4DA006AD72D /* MatrixExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatrixExample.swift; path = ../matrix/MatrixExample.swift; sourceTree = "<group>"; };
 		E9AFA16C1C5EF4EA006AD72D /* MatrixTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatrixTest.swift; path = ../matrix/MatrixTest.swift; sourceTree = "<group>"; };
 		E9AFA1771C614D8D006AD72D /* HouseExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HouseExample.swift; path = house/HouseExample.swift; sourceTree = "<group>"; };
 		E9AFA1791C614DA0006AD72D /* HouseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HouseTest.swift; path = house/HouseTest.swift; sourceTree = "<group>"; };
+		E9AFA17D1C61B162006AD72D /* LargestSeriesProductTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LargestSeriesProductTest.swift; path = "../largest-series-product/LargestSeriesProductTest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -867,7 +867,7 @@
 			isa = PBXGroup;
 			children = (
 				E9AFA15F1C5BFC57006AD72D /* LargestSeriesProductExample.swift */,
-				E9AFA1611C5BFC6B006AD72D /* LargestSeriesProductTest.swift */,
+				E9AFA17D1C61B162006AD72D /* LargestSeriesProductTest.swift */,
 			);
 			name = "largest-series-product";
 			path = leap;
@@ -1015,7 +1015,6 @@
 				1E9A63DA1C506EFD00E28AE1 /* SimpleCipherExample.swift in Sources */,
 				1E9A63E61C506EFD00E28AE1 /* TriangleExample.swift in Sources */,
 				1E9A63D21C506EFD00E28AE1 /* ScrabbleScoreExample.swift in Sources */,
-				E9AFA1621C5BFC6B006AD72D /* LargestSeriesProductTest.swift in Sources */,
 				1E9A63E31C506EFD00E28AE1 /* SumOfMultiplesTest.swift in Sources */,
 				1E9A63A31C506EFD00E28AE1 /* GradeSchoolTest.swift in Sources */,
 				1E9A63B31C506EFD00E28AE1 /* LuhnTest.swift in Sources */,
@@ -1061,6 +1060,7 @@
 				1E9A639C1C506EFD00E28AE1 /* DifferenceOfSquaresExample.swift in Sources */,
 				E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */,
 				1E9A639F1C506EFD00E28AE1 /* EtlTest.swift in Sources */,
+				E9AFA17E1C61B162006AD72D /* LargestSeriesProductTest.swift in Sources */,
 				E9AFA17A1C614DA0006AD72D /* HouseTest.swift in Sources */,
 				1E9A63B11C506EFD00E28AE1 /* LinkedListTest.swift in Sources */,
 				1E9A63921C506EFD00E28AE1 /* BinaryExample.swift in Sources */,
