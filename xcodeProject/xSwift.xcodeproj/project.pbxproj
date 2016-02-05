@@ -111,6 +111,8 @@
 		1E9A63ED1C506EFD00E28AE1 /* WordCountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63841C506EFC00E28AE1 /* WordCountTest.swift */; };
 		1E9A63EE1C506EFD00E28AE1 /* WordyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63861C506EFC00E28AE1 /* WordyExample.swift */; };
 		1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63871C506EFC00E28AE1 /* WordyTest.swift */; };
+		E90D61FE1C642EC600C266D3 /* OcrNumbersExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D61FD1C642EC600C266D3 /* OcrNumbersExample.swift */; };
+		E90D62001C642EFB00C266D3 /* OcrNumbersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D61FF1C642EFB00C266D3 /* OcrNumbersTest.swift */; };
 		E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECD1C510E68009318BB /* BinarySearchExample.swift */; };
 		E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECE1C510E68009318BB /* BinarySearchTest.swift */; };
 		E9AFA1481C593AF5006AD72D /* BinarySearchTreeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */; };
@@ -245,6 +247,8 @@
 		1E9A63871C506EFC00E28AE1 /* WordyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordyTest.swift; sourceTree = "<group>"; };
 		9D3155D21BA12FB1009A3991 /* xSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3155D51BA12FB1009A3991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E90D61FD1C642EC600C266D3 /* OcrNumbersExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OcrNumbersExample.swift; path = "ocr-numbers/OcrNumbersExample.swift"; sourceTree = "<group>"; };
+		E90D61FF1C642EFB00C266D3 /* OcrNumbersTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OcrNumbersTest.swift; path = "ocr-numbers/OcrNumbersTest.swift"; sourceTree = "<group>"; };
 		E94BDECD1C510E68009318BB /* BinarySearchExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchExample.swift; path = "binary-search/BinarySearchExample.swift"; sourceTree = "<group>"; };
 		E94BDECE1C510E68009318BB /* BinarySearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTest.swift; path = "binary-search/BinarySearchTest.swift"; sourceTree = "<group>"; };
 		E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTreeExample.swift; path = "binary-search-tree/BinarySearchTreeExample.swift"; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				E9AFA1821C624D62006AD72D /* minesweeper */,
 				1E9A63311C506EFC00E28AE1 /* nth-prime */,
 				1E9A63341C506EFC00E28AE1 /* nucleotide-count */,
+				E90D61FB1C642E9900C266D3 /* ocr-numbers */,
 				1E9A63371C506EFC00E28AE1 /* octal */,
 				1E9A633A1C506EFC00E28AE1 /* perfect-numbers */,
 				1E9A633D1C506EFC00E28AE1 /* phone-number */,
@@ -850,6 +855,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E90D61FB1C642E9900C266D3 /* ocr-numbers */ = {
+			isa = PBXGroup;
+			children = (
+				E90D61FD1C642EC600C266D3 /* OcrNumbersExample.swift */,
+				E90D61FF1C642EFB00C266D3 /* OcrNumbersTest.swift */,
+			);
+			name = "ocr-numbers";
+			sourceTree = "<group>";
+		};
 		E94BDECB1C510DF4009318BB /* binary-search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1009,6 +1023,7 @@
 				1E9A63D31C506EFD00E28AE1 /* ScrabbleScoreTest.swift in Sources */,
 				1E9A63D81C506EFD00E28AE1 /* SieveExample.swift in Sources */,
 				1E9A63AC1C506EFD00E28AE1 /* KindergartenGardenExample.swift in Sources */,
+				E90D62001C642EFB00C266D3 /* OcrNumbersTest.swift in Sources */,
 				1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */,
 				1E9A63EA1C506EFD00E28AE1 /* TwelveDaysExample.swift in Sources */,
 				1E9A63BC1C506EFD00E28AE1 /* PerfectNumbersExample.swift in Sources */,
@@ -1028,6 +1043,7 @@
 				1E9A63A41C506EFD00E28AE1 /* GrainsExample.swift in Sources */,
 				1E9A63DA1C506EFD00E28AE1 /* SimpleCipherExample.swift in Sources */,
 				1E9A63E61C506EFD00E28AE1 /* TriangleExample.swift in Sources */,
+				E90D61FE1C642EC600C266D3 /* OcrNumbersExample.swift in Sources */,
 				1E9A63D21C506EFD00E28AE1 /* ScrabbleScoreExample.swift in Sources */,
 				1E9A63E31C506EFD00E28AE1 /* SumOfMultiplesTest.swift in Sources */,
 				1E9A63A31C506EFD00E28AE1 /* GradeSchoolTest.swift in Sources */,
