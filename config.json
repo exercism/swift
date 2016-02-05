@@ -61,7 +61,8 @@
     "largest-series-product",
     "matrix",
     "house",
-    "minesweeper"
+    "minesweeper",
+    "ocr-numbers"
   ],
   "deprecated": [
 
