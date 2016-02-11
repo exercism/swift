@@ -60,7 +60,11 @@
     "hexadecimal",
     "largest-series-product",
     "matrix",
-    "house"
+    "house",
+    "minesweeper",
+    "ocr-numbers",
+    "food-chain",
+    "palindrome-products"
   ],
   "deprecated": [
 
