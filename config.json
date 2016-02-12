@@ -64,7 +64,8 @@
     "minesweeper",
     "ocr-numbers",
     "food-chain",
-    "palindrome-products"
+    "palindrome-products",
+    "pascals-triangle"
   ],
   "deprecated": [
 

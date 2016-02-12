@@ -113,6 +113,8 @@
 		1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63871C506EFC00E28AE1 /* WordyTest.swift */; };
 		E908CD461C6AD05F005D081E /* FoodChainExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD451C6AD05F005D081E /* FoodChainExample.swift */; };
 		E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD471C6AD076005D081E /* FoodChainTest.swift */; };
+		E908CD541C6D7AD1005D081E /* PascalsTriangleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */; };
+		E908CD561C6D7AF6005D081E /* PascalsTriangleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD551C6D7AF6005D081E /* PascalsTriangleTest.swift */; };
 		E90D61FE1C642EC600C266D3 /* OcrNumbersExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D61FD1C642EC600C266D3 /* OcrNumbersExample.swift */; };
 		E90D62001C642EFB00C266D3 /* OcrNumbersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D61FF1C642EFB00C266D3 /* OcrNumbersTest.swift */; };
 		E90D62061C653AC000C266D3 /* PalindromeProductsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D62051C653AC000C266D3 /* PalindromeProductsExample.swift */; };
@@ -253,6 +255,8 @@
 		9D3155D51BA12FB1009A3991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E908CD451C6AD05F005D081E /* FoodChainExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodChainExample.swift; path = "food-chain/FoodChainExample.swift"; sourceTree = "<group>"; };
 		E908CD471C6AD076005D081E /* FoodChainTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodChainTest.swift; path = "food-chain/FoodChainTest.swift"; sourceTree = "<group>"; };
+		E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PascalsTriangleExample.swift; path = "pascals-triangle/PascalsTriangleExample.swift"; sourceTree = "<group>"; };
+		E908CD551C6D7AF6005D081E /* PascalsTriangleTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PascalsTriangleTest.swift; path = "pascals-triangle/PascalsTriangleTest.swift"; sourceTree = "<group>"; };
 		E90D61FD1C642EC600C266D3 /* OcrNumbersExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OcrNumbersExample.swift; path = "ocr-numbers/OcrNumbersExample.swift"; sourceTree = "<group>"; };
 		E90D61FF1C642EFB00C266D3 /* OcrNumbersTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OcrNumbersTest.swift; path = "ocr-numbers/OcrNumbersTest.swift"; sourceTree = "<group>"; };
 		E90D62051C653AC000C266D3 /* PalindromeProductsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PalindromeProductsExample.swift; path = "palindrome-products/PalindromeProductsExample.swift"; sourceTree = "<group>"; };
@@ -322,6 +326,7 @@
 				E90D61FB1C642E9900C266D3 /* ocr-numbers */,
 				1E9A63371C506EFC00E28AE1 /* octal */,
 				E90D62031C653A5400C266D3 /* palindrome-products */,
+				E908CD511C6D7A86005D081E /* pascals-triangle */,
 				1E9A633A1C506EFC00E28AE1 /* perfect-numbers */,
 				1E9A633D1C506EFC00E28AE1 /* phone-number */,
 				1E9A63401C506EFC00E28AE1 /* pig-latin */,
@@ -874,6 +879,15 @@
 			name = "food-chain";
 			sourceTree = "<group>";
 		};
+		E908CD511C6D7A86005D081E /* pascals-triangle */ = {
+			isa = PBXGroup;
+			children = (
+				E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */,
+				E908CD551C6D7AF6005D081E /* PascalsTriangleTest.swift */,
+			);
+			name = "pascals-triangle";
+			sourceTree = "<group>";
+		};
 		E90D61FB1C642E9900C266D3 /* ocr-numbers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1051,6 +1065,7 @@
 				E9AFA1781C614D8D006AD72D /* HouseExample.swift in Sources */,
 				1E9A63D31C506EFD00E28AE1 /* ScrabbleScoreTest.swift in Sources */,
 				1E9A63D81C506EFD00E28AE1 /* SieveExample.swift in Sources */,
+				E908CD561C6D7AF6005D081E /* PascalsTriangleTest.swift in Sources */,
 				1E9A63AC1C506EFD00E28AE1 /* KindergartenGardenExample.swift in Sources */,
 				E90D62081C653ADC00C266D3 /* PalindromeProductsTest.swift in Sources */,
 				E90D62001C642EFB00C266D3 /* OcrNumbersTest.swift in Sources */,
@@ -1082,6 +1097,7 @@
 				1E9A63B81C506EFD00E28AE1 /* NucleotideCountExample.swift in Sources */,
 				1E9A63881C506EFC00E28AE1 /* AccumulateExample.swift in Sources */,
 				E9AFA1491C593AF5006AD72D /* BinarySearchTreeTest.swift in Sources */,
+				E908CD541C6D7AD1005D081E /* PascalsTriangleExample.swift in Sources */,
 				1E9A63D61C506EFD00E28AE1 /* SeriesExample.swift in Sources */,
 				1E9A638B1C506EFD00E28AE1 /* AcronymTest.swift in Sources */,
 				1E9A63E21C506EFD00E28AE1 /* SumOfMultiplesExample.swift in Sources */,
