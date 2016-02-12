@@ -115,6 +115,8 @@
 		E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD471C6AD076005D081E /* FoodChainTest.swift */; };
 		E90D61FE1C642EC600C266D3 /* OcrNumbersExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D61FD1C642EC600C266D3 /* OcrNumbersExample.swift */; };
 		E90D62001C642EFB00C266D3 /* OcrNumbersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D61FF1C642EFB00C266D3 /* OcrNumbersTest.swift */; };
+		E90D62061C653AC000C266D3 /* PalindromeProductsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D62051C653AC000C266D3 /* PalindromeProductsExample.swift */; };
+		E90D62081C653ADC00C266D3 /* PalindromeProductsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D62071C653ADC00C266D3 /* PalindromeProductsTest.swift */; };
 		E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECD1C510E68009318BB /* BinarySearchExample.swift */; };
 		E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECE1C510E68009318BB /* BinarySearchTest.swift */; };
 		E9AFA1481C593AF5006AD72D /* BinarySearchTreeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */; };
@@ -253,6 +255,8 @@
 		E908CD471C6AD076005D081E /* FoodChainTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodChainTest.swift; path = "food-chain/FoodChainTest.swift"; sourceTree = "<group>"; };
 		E90D61FD1C642EC600C266D3 /* OcrNumbersExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OcrNumbersExample.swift; path = "ocr-numbers/OcrNumbersExample.swift"; sourceTree = "<group>"; };
 		E90D61FF1C642EFB00C266D3 /* OcrNumbersTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OcrNumbersTest.swift; path = "ocr-numbers/OcrNumbersTest.swift"; sourceTree = "<group>"; };
+		E90D62051C653AC000C266D3 /* PalindromeProductsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PalindromeProductsExample.swift; path = "palindrome-products/PalindromeProductsExample.swift"; sourceTree = "<group>"; };
+		E90D62071C653ADC00C266D3 /* PalindromeProductsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PalindromeProductsTest.swift; path = "palindrome-products/PalindromeProductsTest.swift"; sourceTree = "<group>"; };
 		E94BDECD1C510E68009318BB /* BinarySearchExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchExample.swift; path = "binary-search/BinarySearchExample.swift"; sourceTree = "<group>"; };
 		E94BDECE1C510E68009318BB /* BinarySearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTest.swift; path = "binary-search/BinarySearchTest.swift"; sourceTree = "<group>"; };
 		E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTreeExample.swift; path = "binary-search-tree/BinarySearchTreeExample.swift"; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 				1E9A63341C506EFC00E28AE1 /* nucleotide-count */,
 				E90D61FB1C642E9900C266D3 /* ocr-numbers */,
 				1E9A63371C506EFC00E28AE1 /* octal */,
+				E90D62031C653A5400C266D3 /* palindrome-products */,
 				1E9A633A1C506EFC00E28AE1 /* perfect-numbers */,
 				1E9A633D1C506EFC00E28AE1 /* phone-number */,
 				1E9A63401C506EFC00E28AE1 /* pig-latin */,
@@ -878,6 +883,15 @@
 			name = "ocr-numbers";
 			sourceTree = "<group>";
 		};
+		E90D62031C653A5400C266D3 /* palindrome-products */ = {
+			isa = PBXGroup;
+			children = (
+				E90D62051C653AC000C266D3 /* PalindromeProductsExample.swift */,
+				E90D62071C653ADC00C266D3 /* PalindromeProductsTest.swift */,
+			);
+			name = "palindrome-products";
+			sourceTree = "<group>";
+		};
 		E94BDECB1C510DF4009318BB /* binary-search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1038,6 +1052,7 @@
 				1E9A63D31C506EFD00E28AE1 /* ScrabbleScoreTest.swift in Sources */,
 				1E9A63D81C506EFD00E28AE1 /* SieveExample.swift in Sources */,
 				1E9A63AC1C506EFD00E28AE1 /* KindergartenGardenExample.swift in Sources */,
+				E90D62081C653ADC00C266D3 /* PalindromeProductsTest.swift in Sources */,
 				E90D62001C642EFB00C266D3 /* OcrNumbersTest.swift in Sources */,
 				1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */,
 				1E9A63EA1C506EFD00E28AE1 /* TwelveDaysExample.swift in Sources */,
@@ -1099,6 +1114,7 @@
 				1E9A63C21C506EFD00E28AE1 /* PrimeFactorsExample.swift in Sources */,
 				1E9A63AD1C506EFD00E28AE1 /* KindergartenGardenTest.swift in Sources */,
 				1E9A638D1C506EFD00E28AE1 /* AllergiesTest.swift in Sources */,
+				E90D62061C653AC000C266D3 /* PalindromeProductsExample.swift in Sources */,
 				1E9A63E91C506EFD00E28AE1 /* TrinaryTest.swift in Sources */,
 				1E9A63A11C506EFD00E28AE1 /* GigasecondTest.swift in Sources */,
 				1E9A63911C506EFD00E28AE1 /* AtbashTest.swift in Sources */,

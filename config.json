@@ -63,7 +63,8 @@
     "house",
     "minesweeper",
     "ocr-numbers",
-    "food-chain"
+    "food-chain",
+    "palindrome-products"
   ],
   "deprecated": [
 
