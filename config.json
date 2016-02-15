@@ -65,7 +65,8 @@
     "ocr-numbers",
     "food-chain",
     "palindrome-products",
-    "pascals-triangle"
+    "pascals-triangle",
+    "saddle-points"
   ],
   "deprecated": [
 
