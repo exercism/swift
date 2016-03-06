@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E167A111C8AA5D7001EAD90 /* PokerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E167A0F1C8AA5D7001EAD90 /* PokerExample.swift */; };
+		1E167A121C8AA5D7001EAD90 /* PokerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E167A101C8AA5D7001EAD90 /* PokerTest.swift */; };
 		1E9A63881C506EFC00E28AE1 /* AccumulateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A62EA1C506EFC00E28AE1 /* AccumulateExample.swift */; };
 		1E9A63891C506EFD00E28AE1 /* AccumulateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A62EB1C506EFC00E28AE1 /* AccumulateTest.swift */; };
 		1E9A638A1C506EFD00E28AE1 /* AcronymExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A62ED1C506EFC00E28AE1 /* AcronymExample.swift */; };
@@ -148,6 +150,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E167A0F1C8AA5D7001EAD90 /* PokerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerExample.swift; sourceTree = "<group>"; };
+		1E167A101C8AA5D7001EAD90 /* PokerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerTest.swift; sourceTree = "<group>"; };
 		1E9A62EA1C506EFC00E28AE1 /* AccumulateExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccumulateExample.swift; sourceTree = "<group>"; };
 		1E9A62EB1C506EFC00E28AE1 /* AccumulateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccumulateTest.swift; sourceTree = "<group>"; };
 		1E9A62ED1C506EFC00E28AE1 /* AcronymExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcronymExample.swift; sourceTree = "<group>"; };
@@ -292,9 +296,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E167A0E1C8AA5D7001EAD90 /* poker */ = {
+			isa = PBXGroup;
+			children = (
+				1E167A0F1C8AA5D7001EAD90 /* PokerExample.swift */,
+				1E167A101C8AA5D7001EAD90 /* PokerTest.swift */,
+			);
+			path = poker;
+			sourceTree = "<group>";
+		};
 		1E9A62E81C506EFC00E28AE1 /* exercises */ = {
 			isa = PBXGroup;
 			children = (
+				1E167A0E1C8AA5D7001EAD90 /* poker */,
 				1E9A62E91C506EFC00E28AE1 /* accumulate */,
 				1E9A62EC1C506EFC00E28AE1 /* acronym */,
 				1E9A62EF1C506EFC00E28AE1 /* allergies */,
@@ -1126,8 +1140,10 @@
 				1E9A63A91C506EFD00E28AE1 /* helloWorldExample.swift in Sources */,
 				E9AFA1871C624FD5006AD72D /* MinesweeperTest.swift in Sources */,
 				1E9A63A51C506EFD00E28AE1 /* GrainsTest.swift in Sources */,
+				1E167A121C8AA5D7001EAD90 /* PokerTest.swift in Sources */,
 				1E9A63E11C506EFD00E28AE1 /* StrainTest.swift in Sources */,
 				1E9A63B71C506EFD00E28AE1 /* NthPrimeTest.swift in Sources */,
+				1E167A111C8AA5D7001EAD90 /* PokerExample.swift in Sources */,
 				1E9A639E1C506EFD00E28AE1 /* EtlExample.swift in Sources */,
 				1E9A63CE1C506EFD00E28AE1 /* RobotSimulatorExample.swift in Sources */,
 				1E9A639D1C506EFD00E28AE1 /* DifferenceOfSquaresTests.swift in Sources */,
