@@ -32,7 +32,7 @@ class test: XCTestCase {
             best:  "3♡ 2♡ 5♧ 6♢ 10♡"
         ),
         (
-            name:  "highest card with mostly same cards",
+            name:  "One pair",
             hands: ["3♢ 2♢ 5♤ 6♤ 9♡", "3♡ 3♤ 5♧ 6♢ 9♢"],
             best:  "3♡ 3♤ 5♧ 6♢ 9♢"
         ),
@@ -88,21 +88,21 @@ class test: XCTestCase {
             best:  "4♧ J♡ 5♢ 4♡ J♢"
         ),
         (
-            name: "three of a kind beats lower",
+            name: "full house",
             hands: [
                 "4♢ 3♤ 4♤ J♤ K♤",
                 "A♡ K♡ J♢ 10♧ 9♡",
-                "3♢ 8♡ 3♢ 3♧ 8♧",
+                "3♡ 8♡ 3♢ 3♧ 8♧",
                 "2♢ 8♡ 5♢ 2♡ 8♧",
             ],
-            best:  "3♢ 8♡ 3♢ 3♧ 8♧"
+            best:  "3♡ 8♡ 3♢ 3♧ 8♧"
         ),
         (
             name: "best three of a kind",
             hands: [
                 "4♢ 3♤ 4♤ J♤ 4♡",
                 "A♡ K♡ J♢ 10♧ 9♡",
-                "3♢ 8♡ 3♢ 3♧ 9♧",
+                "3♢ 8♡ 3♡ 3♧ 9♧",
                 "2♢ 8♡ 5♢ 2♡ 8♧",
             ],
             best:  "4♢ 3♤ 4♤ J♤ 4♡"
@@ -112,7 +112,7 @@ class test: XCTestCase {
             hands: [
                 "4♢ 3♤ 4♤ J♤ K♤",
                 "Q♡ K♡ J♢ 10♧ 9♡",
-                "3♢ 8♡ 3♢ 3♧ 9♧",
+                "3♡ 8♡ 3♢ 3♧ 9♧",
                 "2♢ 8♡ 5♢ 2♡ 8♧",
             ],
             best:  "Q♡ K♡ J♢ 10♧ 9♡"
@@ -122,7 +122,7 @@ class test: XCTestCase {
             hands: [
                 "4♢ 3♤ 4♤ J♤ K♤",
                 "2♤ 3♡ A♤ 5♤ 4♤",
-                "3♢ 8♡ 3♢ 3♧ 9♧",
+                "3♢ 8♡ 3♡ 3♧ 9♧",
                 "2♢ 8♡ 5♢ 2♡ 8♧",
             ],
             best:  "2♤ 3♡ A♤ 5♤ 4♤"
@@ -163,7 +163,7 @@ class test: XCTestCase {
                 "4♤ 3♤ 8♤ J♤ K♤",
                 "2♢ 8♡ 8♢ 2♡ 8♧",
                 "Q♡ K♡ J♢ 10♧ 9♡",
-                "3♢ A♡ 3♢ 3♧ A♧",
+                "3♡ A♡ 3♢ 3♧ A♧",
             ],
             best:  "2♢ 8♡ 8♢ 2♡ 8♧"
         ),
@@ -172,8 +172,8 @@ class test: XCTestCase {
             hands: [
                 "4♤ 3♤ 8♤ J♤ K♤",
                 "2♢ 8♡ 8♢ 2♡ 8♧",
-                "5♡ 5♢ A♢ 5♧ A♢",
-                "3♢ A♡ 3♢ 3♧ A♧",
+                "5♡ 5♢ A♤ 5♧ A♢",
+                "3♡ A♡ 3♢ 3♧ A♧",
             ],
             best:  "2♢ 8♡ 8♢ 2♡ 8♧"
         ),
@@ -200,7 +200,7 @@ class test: XCTestCase {
         (
             name: "straight flush beats lower",
             hands: [
-                "4♤ 5♢ 8♤ J♤ K♤",
+                "4♤ 4♢ 4♡ 4♧ K♤",
                 "2♢ 8♡ 8♢ 2♡ 8♧",
                 "Q♡ K♡ 8♡ 10♡ 9♡",
                 "2♤ 3♤ A♤ 5♤ 4♤",
@@ -219,7 +219,7 @@ class test: XCTestCase {
         ),
         (
             name:  "tie for best pair: brake tide by suit",
-            hands: ["4♡ 2♡ 5♧ 4♢ 10♡", "4♧ 10♢ 5♤ 2♤ 4♧"],
+            hands: ["4♡ 2♡ 5♧ 4♢ 10♡", "4♧ 10♢ 5♤ 2♤ 4♤"],
             best:  "4♡ 2♡ 5♧ 4♢ 10♡"
         ),
         (
