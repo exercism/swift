@@ -1,6 +1,6 @@
 import XCTest
 
-class test: XCTestCase {
+class PokerTest: XCTestCase {
     
     var validTestCases:[(name: String, hands:[String], best:String)] = []
     var invalidTestCases:[(name: String, hand:String)] = []
