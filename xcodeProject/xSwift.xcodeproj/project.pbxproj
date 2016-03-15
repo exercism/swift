@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E167A111C8AA5D7001EAD90 /* PokerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E167A0F1C8AA5D7001EAD90 /* PokerExample.swift */; };
 		1E167A121C8AA5D7001EAD90 /* PokerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E167A101C8AA5D7001EAD90 /* PokerTest.swift */; };
+		1E4CC79F1C90D48300C8BBEB /* DominoesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CC79E1C90D48300C8BBEB /* DominoesExample.swift */; };
 		1E9A63881C506EFC00E28AE1 /* AccumulateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A62EA1C506EFC00E28AE1 /* AccumulateExample.swift */; };
 		1E9A63891C506EFD00E28AE1 /* AccumulateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A62EB1C506EFC00E28AE1 /* AccumulateTest.swift */; };
 		1E9A638A1C506EFD00E28AE1 /* AcronymExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A62ED1C506EFC00E28AE1 /* AcronymExample.swift */; };
@@ -113,6 +114,7 @@
 		1E9A63ED1C506EFD00E28AE1 /* WordCountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63841C506EFC00E28AE1 /* WordCountTest.swift */; };
 		1E9A63EE1C506EFD00E28AE1 /* WordyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63861C506EFC00E28AE1 /* WordyExample.swift */; };
 		1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63871C506EFC00E28AE1 /* WordyTest.swift */; };
+		1EAF95E11C90C587009DDCB6 /* DominoesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */; };
 		E908CD461C6AD05F005D081E /* FoodChainExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD451C6AD05F005D081E /* FoodChainExample.swift */; };
 		E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD471C6AD076005D081E /* FoodChainTest.swift */; };
 		E908CD541C6D7AD1005D081E /* PascalsTriangleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */; };
@@ -152,6 +154,7 @@
 /* Begin PBXFileReference section */
 		1E167A0F1C8AA5D7001EAD90 /* PokerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerExample.swift; sourceTree = "<group>"; };
 		1E167A101C8AA5D7001EAD90 /* PokerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerTest.swift; sourceTree = "<group>"; };
+		1E4CC79E1C90D48300C8BBEB /* DominoesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoesExample.swift; sourceTree = "<group>"; };
 		1E9A62EA1C506EFC00E28AE1 /* AccumulateExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccumulateExample.swift; sourceTree = "<group>"; };
 		1E9A62EB1C506EFC00E28AE1 /* AccumulateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccumulateTest.swift; sourceTree = "<group>"; };
 		1E9A62ED1C506EFC00E28AE1 /* AcronymExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcronymExample.swift; sourceTree = "<group>"; };
@@ -257,6 +260,7 @@
 		1E9A63841C506EFC00E28AE1 /* WordCountTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCountTest.swift; sourceTree = "<group>"; };
 		1E9A63861C506EFC00E28AE1 /* WordyExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordyExample.swift; sourceTree = "<group>"; };
 		1E9A63871C506EFC00E28AE1 /* WordyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordyTest.swift; sourceTree = "<group>"; };
+		1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoesTest.swift; sourceTree = "<group>"; };
 		9D3155D21BA12FB1009A3991 /* xSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3155D51BA12FB1009A3991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E908CD451C6AD05F005D081E /* FoodChainExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodChainExample.swift; path = "food-chain/FoodChainExample.swift"; sourceTree = "<group>"; };
@@ -308,6 +312,7 @@
 		1E9A62E81C506EFC00E28AE1 /* exercises */ = {
 			isa = PBXGroup;
 			children = (
+				1EAF95DF1C90C587009DDCB6 /* dominoes */,
 				1E167A0E1C8AA5D7001EAD90 /* poker */,
 				1E9A62E91C506EFC00E28AE1 /* accumulate */,
 				1E9A62EC1C506EFC00E28AE1 /* acronym */,
@@ -855,6 +860,15 @@
 			path = wordy;
 			sourceTree = "<group>";
 		};
+		1EAF95DF1C90C587009DDCB6 /* dominoes */ = {
+			isa = PBXGroup;
+			children = (
+				1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */,
+				1E4CC79E1C90D48300C8BBEB /* DominoesExample.swift */,
+			);
+			path = dominoes;
+			sourceTree = "<group>";
+		};
 		9D3155BB1BA12DC1009A3991 = {
 			isa = PBXGroup;
 			children = (
@@ -1145,6 +1159,7 @@
 				1E9A63B71C506EFD00E28AE1 /* NthPrimeTest.swift in Sources */,
 				1E167A111C8AA5D7001EAD90 /* PokerExample.swift in Sources */,
 				1E9A639E1C506EFD00E28AE1 /* EtlExample.swift in Sources */,
+				1EAF95E11C90C587009DDCB6 /* DominoesTest.swift in Sources */,
 				1E9A63CE1C506EFD00E28AE1 /* RobotSimulatorExample.swift in Sources */,
 				1E9A639D1C506EFD00E28AE1 /* DifferenceOfSquaresTests.swift in Sources */,
 				E9AFA1531C5945C9006AD72D /* HexadecimalTest.swift in Sources */,
@@ -1165,6 +1180,7 @@
 				1E9A63A11C506EFD00E28AE1 /* GigasecondTest.swift in Sources */,
 				1E9A63911C506EFD00E28AE1 /* AtbashTest.swift in Sources */,
 				1E9A63CD1C506EFD00E28AE1 /* RobotNameTest.swift in Sources */,
+				1E4CC79F1C90D48300C8BBEB /* DominoesExample.swift in Sources */,
 				1E9A63B51C506EFD00E28AE1 /* MeetupTest.swift in Sources */,
 				1E9A639C1C506EFD00E28AE1 /* DifferenceOfSquaresExample.swift in Sources */,
 				E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */,
