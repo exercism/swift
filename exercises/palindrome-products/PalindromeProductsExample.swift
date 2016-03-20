@@ -2,71 +2,73 @@
 
 // Apple Swift version 2.1
 
-struct PalindromeCollection: CollectionType {
+private extension String {
     
-    typealias Index = Int
+    var length: Int {return self.characters.count}
     
-    var startIndex: Int {
-        return 0
+    func reverse() -> String {
+        var result:String = ""
+        for char in self.characters {
+            result = "\(char)\(result)"
+        }
+        return result
     }
+}
+
+struct PalindromeProducts{
     
-    var endIndex: Int {
-        return count
-    }
+    typealias Palindrome = (value:Int, factor:[Int])
+    private let maxFactor:Int
+    private let minFactor:Int
     
-    subscript(i: Int) -> Palindrome {
-        return contents[i]
-    }
-    
-    typealias Palindrome = (value:Int, factors: [[Int]])
-    
-    private let contents: [Palindrome]
-    
-    let largest: Palindrome
-    let smallest: Palindrome
+    var largest:Palindrome {return calculate(.max)}
+    var smallest:Palindrome {return calculate(.min)}
     
     init(maxFactor: Int, minFactor: Int = 1) {
-        let result = PalindromeCollection.generate(maxFactor: maxFactor, minFactor: minFactor)
-        
-        self.contents = result
-        self.largest = result.last!
-        self.smallest = result.first!
+        self.maxFactor = maxFactor
+        self.minFactor = minFactor
     }
     
-    private static func generate(maxFactor maxFactor: Int, minFactor: Int) -> [Palindrome] {
-        var palindromes = [Int : Palindrome]()
+    private enum Mode { case max, min }
+    private func calculate(upTo:Mode)->Palindrome{
         
-        for i in minFactor...maxFactor {
-            for j in minFactor...maxFactor {
-                let product = i * j
-                
-                if numberIsPalindrome(product) {
-                    let newFactor = [i, j].sort()
-                    var factors = [newFactor]
-                    
-                    if let currentPalindrome = palindromes[product] {
-                        for factor in currentPalindrome.factors {
-                            if factor == newFactor {
-                                continue
-                            }
-                            factors.append(factor)
-                        }
-                    }
-                    
-                    palindromes[product] = Palindrome(value: product, factors: factors)
-                }
+        let rangeOuter = minFactor...maxFactor
+        var rangeInner = rangeOuter
+        var multiplications = [Palindrome]()
+        
+        for each in rangeOuter{
+            for eaInside in rangeInner{
+            let multiplied = each * eaInside
+            let number = String(multiplied)
+            if number == number.reverse(){
+                multiplications.append((multiplied,[each,eaInside]))
             }
+          }
+          rangeInner = rangeInner.dropFirst(1).indices
+        }
+        multiplications.sortInPlace({$0.0 > $1.0})
+        
+        if let large = multiplications.first, let small = multiplications.last{
+            
+            switch upTo{
+            case .max : return large
+            case .min : return small
+            }
+        } else {
+            switch upTo{
+            case .max : return (self.maxFactor,[self.maxFactor, 1])
+            case .min : return (self.minFactor,[self.minFactor, 1])
+            }
+            
         }
         
-        let sorted = palindromes.sort { $0.0 < $1.0 }
         
-        return sorted.map { $0.1 }
     }
     
-    private static func numberIsPalindrome(number: Int) -> Bool {
-        let numberString = String(number)
-        
-        return numberString == String(numberString.characters.reverse())
-    }
+    
+    
+    
     
 }
+
+
