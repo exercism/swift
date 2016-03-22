@@ -1,14 +1,23 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 struct Queens {
     
-    enum InitError: ErrorType {
+    #if swift(>=3.0)
+    enum InitError: ErrorProtocol {
         case SameSpace
         case IncorrectNumberOfCoordinates
         case InvalidCoordinates
     }
+    #else
+    enum InitError: ErrorType {
+    case SameSpace
+    case IncorrectNumberOfCoordinates
+    case InvalidCoordinates
+    }
+    #endif
+    
     
     let white: [Int]
     let black: [Int]
@@ -44,23 +53,36 @@ struct Queens {
         self.white = white
         self.black = black
     }
-
+    
 }
 
 extension Queens: CustomStringConvertible {
     var description: String {
-        let row = [String](count: 8, repeatedValue: "_")
-        var board = [[String]](count: 8, repeatedValue: row)
+        #if swift(>=3.0)
+            let row = [String](repeating: "_", count: 8)
+            var board = [[String]](repeating: row, count: 8)
+        #else
+            let row = [String](count: 8, repeatedValue: "_")
+            var board = [[String]](count: 8, repeatedValue: row)
+            
+        #endif
         
         board[white[0]][white[1]] = "W"
         board[black[0]][black[1]] = "B"
         
         var rows = [String]()
-        
-        for row in board {
+        #if swift(>=3.0)
+            
+            for row in board {
+                rows.append(row.joined(separator: " "))
+            }
+            return rows.joined(separator: "\n")
+        #else
+            for row in board {
             rows.append(row.joinWithSeparator(" "))
-        }
+            }
+            return rows.joinWithSeparator("\n")
+        #endif
         
-        return rows.joinWithSeparator("\n")
     }
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-// Apple Swift version 2.1
+
 
 enum Plant: String {
     case Grass = "G"
@@ -22,19 +22,22 @@ struct Garden {
         guard let plants = pots[child] else {
             return []
         }
-        
         return plants
     }
     
     private static func parse(diagram: String, children: [String]) -> [String : [Plant]] {
-        let sortedChildren = children.sort(<)
+        #if swift(>=3.0)
+            let sortedChildren = children.sorted(isOrderedBefore: <)
+            let lines = diagram.componentsSeparatedByCharacters(in: NSCharacterSet.newline())
+        #else
+            let sortedChildren = children.sort(<)
+            let lines = diagram.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        #endif
         
         var result = [String : [Plant]]()
-        let lines = diagram.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
-        
         var line1 = lines[0].characters.map { String($0) }
         var line2 = lines[1].characters.map { String($0) }
-    
+        
         var index = 0
         
         for child in sortedChildren {

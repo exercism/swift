@@ -1,7 +1,7 @@
 
 import XCTest
 
-// Apple Swift version 2.1
+
 
 // Return multiple types and compare by overloading ==
 

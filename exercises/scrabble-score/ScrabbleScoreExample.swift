@@ -1,12 +1,29 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 private extension String {
+    
+    func containsCustom(input: Character) ->Bool{
+        #if swift(>=3.0)
+            return contains(String(input))
+        #else
+            return containsString(String(input))
+        #endif
+    }
+    
+    func lowercasedCustom()->String{
+        #if swift(>=3.0)
+            return lowercased()
+        #else
+            return lowercaseString
+        #endif
+    }
+    
     private func stripCharacters(charsToRemove:String) -> String{
         var returnString = ""
         self.characters.forEach{
-            if !charsToRemove.containsString(String($0)){
+            if !charsToRemove.containsCustom($0){
                 returnString.append($0)
             }}
         return returnString
@@ -32,7 +49,7 @@ struct Scrabble{
             return 0}
         
         var count:Int = 0
-        for each in input.lowercaseString.characters{
+        for each in input.lowercasedCustom().characters{
             count += letterScores[String(each)] ?? 0
         }
         return count

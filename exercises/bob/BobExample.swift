@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 private extension String {
     
@@ -38,7 +38,11 @@ private extension String {
     }
     
     var isShouting:Bool {
-        return (self == uppercaseString && hasLetters)
+        #if swift(>=3.0)
+            return (self == uppercased() && hasLetters)
+        #else
+            return (self == uppercaseString && hasLetters)
+        #endif
     }
     
     private func containsLetters(input:String) ->Bool{
@@ -49,9 +53,14 @@ private extension String {
         
         for each in inputStringCollection {
             abcStringCollection.forEach({
-            if each == $0 || each == $0.uppercaseString {
-            contains = true
-                }
+                
+                #if swift(>=3.0)
+                    if each == $0 || each == $0.uppercased() {
+                        contains = true }
+                #else
+                    if each == $0 || each == $0.uppercaseString {
+                    contains = true }
+                #endif
             })
         }
         return contains

@@ -1,6 +1,17 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
+
+private extension Array{
+
+    func reversedCustom()->Array{
+        #if swift(>=3.0)
+        return reversed()
+        #else
+        return reverse()
+        #endif
+    }
+}
 
 class Element<T> {
     var value: T? = nil
@@ -33,10 +44,9 @@ class Element<T> {
     
     
     
-    
     class func fromArray(input:[T]) ->Element {
         var tempElement = Element<T>()
-        for each in Array(input.reverse()){
+        for each in Array(input.reversedCustom()){
             tempElement = Element(each, tempElement)
         }
         return tempElement
@@ -45,7 +55,7 @@ class Element<T> {
     
     
     func reverseElements() -> Element  {
-        return Element.fromArray(Array(toArray().reverse()))
+        return Element.fromArray(Array(toArray().reversedCustom()))
     }
     
     

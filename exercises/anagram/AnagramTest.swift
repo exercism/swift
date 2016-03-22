@@ -1,7 +1,7 @@
 
 import XCTest
 
-// Apple Swift version 2.1
+
 
 class AnagramTest: XCTestCase {
     

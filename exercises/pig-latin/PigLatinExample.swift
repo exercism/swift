@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 private extension String{
     func substringFromIndexInt(indx:Int) -> String {
@@ -47,17 +47,17 @@ struct PigLatin {
         
         if wordStartsWithVowelLike(word){return word + "ay"}
         if wordStartsWithPrefixes(word, prefixes: ["thr", "sch"]){
-        return (word.substringFromIndexInt(3) + word.substringWithRangeInt(Range(start: 0,end: 3)) + "ay") }
+        return (word.substringFromIndexInt(3) + word.substringWithRangeInt(0..<3) + "ay") }
         
         if wordStartsWithPrefixes(word, prefixes: ["ch", "qu", "th"]){
         return word.substringFromIndexInt(2) +
-            word.substringWithRangeInt(Range(start: 0,end: 2)) + "ay" }
+            word.substringWithRangeInt(0..<2) + "ay" }
         if wordStartsWithConsonantAndQu(word){
         return word.substringFromIndexInt(3) +
-            word.substringWithRangeInt(Range(start: 0,end: 1)) + "quay"}
+            word.substringWithRangeInt(0..<1) + "quay"}
 
         return word.substringFromIndexInt(1) +
-            word.substringWithRangeInt(Range(start: 0,end: 1)) + "ay"
+            word.substringWithRangeInt(0..<1) + "ay"
  
     }
     

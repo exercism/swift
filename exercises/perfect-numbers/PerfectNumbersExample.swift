@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 enum NumberClassification {
     case Perfect
@@ -24,7 +24,7 @@ struct NumberClassifier {
             }
     }
     func aliquotSum (input:Int)->Int {
-        return  Array(Range(start:1, end:input-1)).filter( {input % $0 == 0} ).reduce(0,combine: +)
+            return  Array(1..<(input-1)).filter( {input % $0 == 0} ).reduce(0,combine: +)
     }
 
     init(number: Int) {

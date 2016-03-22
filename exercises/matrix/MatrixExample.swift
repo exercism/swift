@@ -1,6 +1,8 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
+
+
 
 struct Matrix {
     
@@ -11,12 +13,20 @@ struct Matrix {
         var rows = [[Int]]()
         var columns = [[Int]]()
         
-        let rowItems = stringRepresentation.characters.split("\n")
         
+        #if swift(>=3.0)
+        let rowItems = stringRepresentation.characters.split(separator: "\n")
         for item in rowItems {
-            let elements = item.split(" ").flatMap { Int(String($0)) }
+            let elements = item.split(separator: " ").flatMap { Int(String($0)) }
             rows.append(elements)
         }
+        #else
+            let rowItems = stringRepresentation.characters.split("\n")
+            for item in rowItems {
+            let elements = item.split(" ").flatMap { Int(String($0)) }
+            rows.append(elements)
+            }
+        #endif
         
         for i in 0 ..< rows[0].count {
             var column = [Int]()

@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 let triangleKind = (Equilateral:"Equilateral",Isosceles:"Isosceles",Scalene:"Scalene",ErrorKind:"ErrorKind")
 
