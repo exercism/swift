@@ -1,6 +1,6 @@
 import Darwin
 
-// Apple Swift version 2.1
+
 
 struct Robot {
     var name: String

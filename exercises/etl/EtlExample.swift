@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 struct ETL {
     static func transform(old: [Int: [String] ] ) -> [String: Int]

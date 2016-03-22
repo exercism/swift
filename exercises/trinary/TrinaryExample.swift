@@ -1,6 +1,6 @@
 import Darwin
 
-// Apple Swift version 2.1
+
 
 extension Int{
     init(_ value:Trinary){
@@ -17,9 +17,15 @@ struct Trinary {
     }
     
     private func tri2int(input:String)->Int{
+        #if swift(>=3.0)
+        let orderedInput = Array(input.characters.reversed())
+        let enumarated = orderedInput.enumerated()
+        #else
         let orderedInput = Array(input.characters.reverse())
+        let enumarated = orderedInput.enumerate()
+        #endif
         var tempInt:Int = 0
-        for (inx,each) in orderedInput.enumerate(){
+        for (inx,each) in enumarated{
             let tempCharInt = Int("\(each)") ?? 0
             let tempTriPower = Int(pow(Double(3),Double(inx)))
                 tempInt += tempTriPower * tempCharInt

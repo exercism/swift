@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 private extension String{
     
@@ -11,7 +11,7 @@ private extension String{
     }
     
     func substringWithRangeInt(start start:Int, end:Int) -> String{
-        let range = Range<Int>(start: start, end: end)
+        let range = start..<end
         return self.substringWithRangeInt(range)
     }
     

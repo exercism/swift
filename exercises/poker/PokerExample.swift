@@ -67,12 +67,11 @@ enum HandRank{
                 toReturn[each] = (toReturn[each] ?? 0) + 1
             }
         }
-        return toReturn.map({key,value in return (rank:key,count:value)}).sort({
+        let result = toReturn.map({key,value in return (rank:key,count:value)}).sort({
             (one, two) in
-            return
-            one.count == two.count ?
-                one.rank > two.rank : one.count > two.count
-        })
+                return one.count == two.count ? one.rank > two.rank : one.count > two.count
+            })
+        return result
     }
     
     static func isFlush(inputHand:PokerHand)->(bool:Bool,suit:Suit){

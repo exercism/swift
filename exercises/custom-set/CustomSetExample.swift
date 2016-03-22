@@ -1,11 +1,15 @@
 
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 
 func == <T> (lh: CustomSet<T>, rh: CustomSet<T>) -> Bool {
-    return lh.contents.keys.sort{$0.hashValue < $1.hashValue} == rh.contents.keys.sort{$0.hashValue < $1.hashValue}
+    #if swift(>=3.0)
+        return lh.contents.keys.sorted{$0.hashValue < $1.hashValue} == rh.contents.keys.sorted{$0.hashValue < $1.hashValue}
+    #else
+        return lh.contents.keys.sort{$0.hashValue < $1.hashValue} == rh.contents.keys.sort{$0.hashValue < $1.hashValue}
+    #endif
 }
 
 
@@ -18,14 +22,22 @@ struct CustomSet<T:Hashable>:Equatable{
     var size:Int {return contents.count}
     
     
-    var toSortedArray:[Element] {return Array(contents.keys.sort{$0.hashValue < $1.hashValue})}
+    #if swift(>=3.0)
+    var toSortedArray:[Element] {return Array(contents.keys.sorted{$0.hashValue < $1.hashValue})}
 
+    init<S: Sequence where S.Iterator.Element == Element>(_ sequence: S) {
+        self.contents = [:]
+        _ = sequence.map{ self.contents[$0] = true }
+    }
+    
+    #else
+    var toSortedArray:[Element] {return Array(contents.keys.sort{$0.hashValue < $1.hashValue})}
     
     init<S: SequenceType where S.Generator.Element == Element>(_ sequence: S) {
         self.contents = [:]
         _ = sequence.map{ self.contents[$0] = true }
     }
-    
+    #endif
     
     mutating func put(item:Element){
         contents[item] = true

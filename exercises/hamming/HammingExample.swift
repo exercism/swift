@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 struct Hamming {
     static func compute(input: String, against: String) -> Int? {

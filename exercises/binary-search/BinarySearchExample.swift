@@ -1,11 +1,18 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 // Note: Placing this enum inside the BinarySearch struct results in a compiler crash
-enum BinarySearchError: ErrorType {
+
+#if swift(>=3.0)
+    enum BinarySearchError: ErrorProtocol {
+        case Unsorted
+    }
+#else
+    enum BinarySearchError: ErrorType {
     case Unsorted
-}
+    }
+#endif
 
 struct BinarySearch<T: Comparable> {
     
@@ -15,9 +22,16 @@ struct BinarySearch<T: Comparable> {
     }
     
     init(_ list: [T]) throws {
-        guard list == list.sort(<) else {
+        #if swift(>=3.0)
+        guard list == list.sorted(isOrderedBefore: <) else {
             throw BinarySearchError.Unsorted
         }
+        #else
+            guard list == list.sort(<) else {
+                throw BinarySearchError.Unsorted
+            }
+            
+        #endif
         
         self.list = list
     }

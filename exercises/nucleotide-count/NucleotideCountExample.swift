@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 enum Nucleobase: Character {
     case Adenine = "A",
@@ -14,7 +14,12 @@ struct DNA {
     var nucleotideCounts:[Nucleobase:Int] = [ .Adenine: 0, .Thymine: 0, .Cytosine: 0 , .Guanine : 0 ]
     
     init?(strand: String) {
-        for (_, value) in strand.characters.enumerate() {
+        #if swift(>=3.0)
+        let enumarated = strand.characters.enumerated()
+        #else
+        let enumarated = strand.characters.enumerate()
+        #endif
+        for (_, value) in enumarated {
             if let possibleNucleobase = Nucleobase(rawValue: value) {
                 nucleotideCounts[possibleNucleobase]! += 1
             }

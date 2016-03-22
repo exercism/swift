@@ -1,6 +1,6 @@
 // Foundation not needed
 
-// Apple Swift version 2.1
+
 
 private extension String {
     
@@ -27,14 +27,35 @@ private extension String {
         }
         return editString
     }
+    
+    func replacingOccurrencesCustom(of:String, with: String) -> String {
+        #if swift(>=3.0)
+           return replacingOccurrences(of: of, with: with)
+        #else
+           return stringByReplacingOccurrencesOfString(of, withString: with)
+        #endif
+    }
+    
+    func componentsSeparatedByStringCustom(input:String)->Array<String> {
+        #if swift(>=3.0)
+        return componentsSeparated(by: input)
+        #else
+        return componentsSeparatedByString(input)
+        #endif
+    }
+    
 }
 
 
-
-enum calculateError:ErrorType{
+#if swift(>=3.0)
+    enum calculateError:ErrorProtocol{
+        case error
+    }
+#else
+    enum calculateError:ErrorType{
     case error
-}
-
+    }
+#endif
 
 struct WordProblem {
     var textIn = ""
@@ -64,7 +85,7 @@ struct WordProblem {
     }
     
     func calculate(textIn:String) ->Int?{
-        let calcStack = replaceText(textIn).componentsSeparatedByString(" ")
+        let calcStack = replaceText(textIn).componentsSeparatedByStringCustom(" ")
         
         if calcStack.count == 3 {
             let a = Int(calcStack[0])
@@ -93,17 +114,20 @@ struct WordProblem {
     }
     
     
-    
     private func replaceText( textInp:String)-> String{
         var textInp = textInp
         for key in Array(operans.keys){
             let toBeReplaced = key
             let toReplaceValue = operans[key]!
-            textInp = textInp.stringByReplacingOccurrencesOfString(toBeReplaced, withString: toReplaceValue)
+            textInp = textInp.replacingOccurrencesCustom(toBeReplaced, with: toReplaceValue)
         }
         
         func checkCharInSet(input:Character)->Bool{
-            let temp = " 0987654321+-*/".characters.indexOf(input)
+            #if swift(>=3.0)
+            let temp = " 0987654321+-*/".characters.index(of: input)
+            #else
+                let temp = " 0987654321+-*/".characters.indexOf(input)
+            #endif
             if temp == nil {
                 return false
             } else {
@@ -113,7 +137,11 @@ struct WordProblem {
         var newTextIn =  Array(textInp.characters)
         newTextIn = newTextIn.filter(checkCharInSet)
         let newTextInString:[String] = newTextIn.map{String($0)}
+        #if swift(>=3.0)
+        return newTextInString.joined(separator: "").trimWhiteSpace()
+        #else
         return newTextInString.joinWithSeparator("").trimWhiteSpace()
+        #endif
     }
 
     

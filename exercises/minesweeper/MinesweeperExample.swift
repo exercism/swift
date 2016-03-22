@@ -1,17 +1,25 @@
 import Foundation
 
-// Apple Swift version 2.1
+
 
 struct Board {
     
     private let validCharacters: [Character] = ["+", "-", "|", "*", " "]
     private let rows: [String]
     
+    #if swift(>=3.0)
+    enum Error: ErrorProtocol {
+        case DifferentLength
+        case FaultyBorder
+        case InvalidCharacter
+    }
+    #else
     enum Error: ErrorType {
         case DifferentLength
         case FaultyBorder
         case InvalidCharacter
     }
+    #endif
     
     init(_ rows: [String]) throws {
         self.rows = rows
@@ -21,10 +29,22 @@ struct Board {
     
     func transform() -> [String] {
         var result = [String]()
+        #if swift(>=3.0)
+        let rowsEnumarated = rows.enumerated()
+        #else
+            let rowsEnumarated = rows.enumerate()
+        #endif
+            
 
-        for (i, row) in rows.enumerate() {
+        for (i, row) in rowsEnumarated {
             var newRow = ""
-            for (j, character) in row.characters.enumerate() {
+            #if swift(>=3.0)
+            let rowCharsEnumarated = row.characters.enumerated()
+            #else
+            let rowCharsEnumarated = row.characters.enumerate()
+            #endif
+            
+            for (j, character) in rowCharsEnumarated {
                 if character != " " {
                     newRow += String(character)
                 } else {
@@ -101,25 +121,41 @@ struct Board {
     }
 }
 
-extension String {
+#if swift(>=3.0)
+private extension String {
     func matchesRegex(pattern: String) -> Bool {
-        let options = NSRegularExpressionOptions.DotMatchesLineSeparators
-        
+        let options = NSRegularExpressionOptions.dotMatchesLineSeparators
         let regex = try? NSRegularExpression(pattern: pattern, options: options)
-        
         var matches = 0
         if let regex = regex {
-            matches = regex.numberOfMatchesInString(self,
+            matches = regex.numberOfMatches(in: self,
                 options: [],
                 range: NSMakeRange(0, (self as NSString).length))
         }
-        
         return matches > 0
     }
-    
     subscript(index: Int) -> Character {
-        let index = startIndex.advancedBy(index)
-        
+        let index = startIndex.advanced(by:index)
         return self[index]
     }
 }
+    
+#else
+    private extension String {
+    func matchesRegex(pattern: String) -> Bool {
+    let options = NSRegularExpressionOptions.DotMatchesLineSeparators
+    let regex = try? NSRegularExpression(pattern: pattern, options: options)
+    var matches = 0
+    if let regex = regex {
+    matches = regex.numberOfMatchesInString(self,
+    options: [],
+    range: NSMakeRange(0, (self as NSString).length))
+    }
+    return matches > 0
+    }
+    subscript(index: Int) -> Character {
+    let index = startIndex.advancedBy(index)
+    return self[index]
+    }
+    }
+#endif

@@ -1,6 +1,6 @@
 import XCTest
 
-// Apple Swift version 2.1
+
 
 class BinarySearchTreeTest: XCTestCase {
     
@@ -54,7 +54,6 @@ class BinarySearchTreeTest: XCTestCase {
         var four = BinarySearchTree(4)
         four.insert(2)
         XCTAssertEqual([2, 4], four.allData())
-        print(four.allData())
     }
     
     func testAllDataForLargerElement() {

@@ -1,6 +1,6 @@
 import Darwin
 
-// Apple Swift version 2.1
+
 
 func == (left: (result: UInt64, error: String?), right:(result: UInt64, error: String?) ) -> Bool
 {
