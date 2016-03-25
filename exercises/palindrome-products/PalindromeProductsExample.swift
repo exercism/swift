@@ -1,6 +1,5 @@
-// Foundation not needed
-
-
+import Foundation
+// Apple Swift version 2.1
 
 private extension String {
     
@@ -33,23 +32,29 @@ struct PalindromeProducts{
     private func calculate(upTo:Mode)->Palindrome{
         
         let rangeOuter = minFactor...maxFactor
-        var rangeInner = rangeOuter
         var multiplications = [Palindrome]()
         
-        for each in rangeOuter{
-            for eaInside in rangeInner{
-            let multiplied = each * eaInside
-            let number = String(multiplied)
-            if number == number.reverse(){
-                multiplications.append((multiplied,[each,eaInside]))
+        //Multitreaded code
+        let queue = dispatch_queue_create("io.exercism.multiQueuePali", DISPATCH_QUEUE_CONCURRENT)
+        var results = [[Palindrome]](count: rangeOuter.count, repeatedValue: [Palindrome]())
+        
+        dispatch_apply(rangeOuter.count, queue){
+            advanceByIndex in
+            var multiplicationsTemp = [Palindrome]()
+            let each = rangeOuter.startIndex.advancedBy(advanceByIndex)
+            let innerRangeCustom = each..<rangeOuter.endIndex
+            for eaInside in innerRangeCustom{
+                let multiplied = each * eaInside
+                let number = String(multiplied)
+                if number == number.reverse(){
+                    multiplicationsTemp.append((multiplied,[each,eaInside]))
+                }
             }
-          }
-          rangeInner = rangeInner.dropFirst(1).indices
+            results[advanceByIndex] = multiplicationsTemp
         }
-        multiplications.sortInPlace({$0.0 > $1.0})
+        multiplications = results.flatten().sort({$0.0 > $1.0})
         
         if let large = multiplications.first, let small = multiplications.last{
-            
             switch upTo{
             case .max : return large
             case .min : return small
@@ -59,16 +64,8 @@ struct PalindromeProducts{
             case .max : return (self.maxFactor,[self.maxFactor, 1])
             case .min : return (self.minFactor,[self.minFactor, 1])
             }
-            
         }
-        
-        
     }
-    
-    
-    
-    
-    
 }
 
 
