@@ -12,6 +12,11 @@ class DominoesTest: XCTestCase {
         XCTAssertTrue(Dominoes(input).chained)
     }
     
+    func testSingletonThatCantBeChained() {
+        let input = [(1, 2)]
+        XCTAssertFalse(Dominoes(input).chained)
+    }
+
     func testNoRepeatNumbers() {
         let input = [(1, 2), (3, 1), (2, 3)]
         XCTAssertTrue(Dominoes(input).chained)
