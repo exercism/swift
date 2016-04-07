@@ -1,8 +1,6 @@
 
 import XCTest
 
-
-
 class RnaTranscriptionTest: XCTestCase {
     
     func testRnaComplementOfCytosineIsGuanine() {
@@ -23,26 +21,6 @@ class RnaTranscriptionTest: XCTestCase {
     
     func testRnaComplement() {
         XCTAssertEqual("UGCACCAGAAUU", Nucleotide("ACGTGGTCTTAA").complementOfDNA)
-    }
-    
-    func testDnaComplementOfCytosineIsGuanine() {
-        XCTAssertEqual("G", Nucleotide("C").complementOfRNA)
-    }
-    
-    func testDnaComplementOfGuanineIsCytosine() {
-        XCTAssertEqual("C", Nucleotide("G").complementOfRNA)
-    }
-    
-    func testDnaComplementOfUracilIsAdenine() {
-        XCTAssertEqual("A", Nucleotide("U").complementOfRNA)
-    }
-    
-    func testDnaComplementOfAdenineIsThymine() {
-        XCTAssertEqual("T", Nucleotide("A").complementOfRNA)
-    }
-    
-    func testDnaComplement() {
-        XCTAssertEqual("ACTTGGGCTGTAC", Nucleotide("UGAACCCGACAUG").complementOfRNA)
     }
     
 }
