@@ -33,7 +33,7 @@ class ScrabbleScoreTest: XCTestCase {
     }
     
     func testScoresAreCaseInsensitive() {
-        XCTAssertEqual( 20, Scrabble("Oxyphenbutazone").score)
+        XCTAssertEqual( 20, Scrabble("OXYPHENBUTAZONE").score)
     }
     
     func testConvenientScoring() {
