@@ -4,7 +4,7 @@ struct Nucleotide {
     
     var complementOfDNA:String{ return transcribe(dnaToRna) }
     
-    private let value = ""
+    private let value
     
     init(_ nucleotide:String){
         self.value = nucleotide
