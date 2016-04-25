@@ -3,51 +3,90 @@ import XCTest
 
 
 
-// Return multiple types and compare by overloading ==
 
 class GrainsTest: XCTestCase {
     
     func testInvalidInput1() {
-        XCTAssertTrue((result: 0, error: "Input[65] invalid. Input should be between 1 and 64 (inclusive)") == Grains.square(65))
+        var throwsInputTooHighError = false
+        
+        defer {
+            XCTAssertTrue(throwsInputTooHighError)
+        }
+        
+        do {
+            let _ = try Grains.square(65)
+        } catch Grains.Error.InputTooHigh(let message) {
+            throwsInputTooHighError = true
+            XCTAssertTrue(message == "Input[65] invalid. Input should be between 1 and 64 (inclusive)")
+        } catch {
+            return
+        }
+        
     }
     
     func testInvalidInput2() {
-        XCTAssertTrue((result: 0, error: "Input[0] invalid. Input should be between 1 and 64 (inclusive)") == Grains.square(0))
+        var throwsInputTooLowError = false
+        
+        defer {
+            XCTAssertTrue(throwsInputTooLowError)
+        }
+        
+        do {
+            let _ = try Grains.square(0)
+        } catch Grains.Error.InputTooLow(let message) {
+            throwsInputTooLowError = true
+            XCTAssertTrue(message == "Input[0] invalid. Input should be between 1 and 64 (inclusive)")
+        } catch {
+            return
+        }
     }
     
     func testInvalidInput3() {
-        XCTAssertTrue((result: 0, error: "Input[-1] invalid. Input should be between 1 and 64 (inclusive)") == Grains.square(-1))
+        var throwsInputTooLowError = false
+        
+        defer {
+            XCTAssertTrue(throwsInputTooLowError)
+        }
+        
+        do {
+            let _ = try Grains.square(-1)
+        } catch Grains.Error.InputTooLow(let message) {
+            throwsInputTooLowError = true
+            XCTAssertTrue(message == "Input[-1] invalid. Input should be between 1 and 64 (inclusive)")
+        } catch {
+            return
+        }
     }
     
     func testSquare1() {
-        XCTAssertTrue((result: 1, error: nil) == Grains.square(1) )
+        XCTAssertTrue(try! Grains.square(1) == 1)
     }
     
     func testSquare2() {
-        XCTAssertTrue((result: 2, error: nil) == Grains.square(2))
+        XCTAssertTrue(try! Grains.square(2) == 2)
     }
 
     func testSquare3() {
-        XCTAssertTrue((result: 4, error: nil) == Grains.square(3))
+        XCTAssertTrue(try! Grains.square(3) == 4)
     }
 
     func testSquare4() {
-        XCTAssertTrue((result: 8, error: nil) == Grains.square(4))
+        XCTAssertTrue(try! Grains.square(4) == 8)
     }
 
     func testSquare16() {
-        XCTAssertTrue((result: 32_768, error: nil) == Grains.square(16))
+        XCTAssertTrue(try! Grains.square(16) == 32_768)
     }
 
     func testSquare32() {
-        XCTAssertTrue((result: 2_147_483_648, error: nil) == Grains.square(32))
+        XCTAssertTrue(try! Grains.square(32) == 2_147_483_648)
     }
 
     func testSquare64() {
-        XCTAssertTrue((result:9_223_372_036_854_775_808 , error: nil) == Grains.square(64))
+        XCTAssertTrue(try! Grains.square(64) == 9_223_372_036_854_775_808)
     }
     
     func testTotalGrains() {
-        XCTAssertTrue(18_446_744_073_709_551_615 == Grains.total)
+        XCTAssertTrue(Grains.total == 18_446_744_073_709_551_615)
     }
 }
