@@ -2,34 +2,23 @@ import Darwin
 
 
 
-func == (left: (result: UInt64, error: String?), right:(result: UInt64, error: String?) ) -> Bool
-{
-    if left.result == right.result && left.error == right.error
-    {
-        return true
-    }
-    else
-    {
-        return false
-    }
-}
-
 
 struct Grains {
-    enum Error: ErrorType {
-        case InputTooLow(String)
-        case InputTooHigh(String)
-    }
     
+    enum Error: ErrorType {
+        case inputTooLow(String)
+        case inputTooHigh(String)
+    }
+
     static func square(num: Int) throws -> UInt64 {
         guard num >= 1 else {
             let message = "Input[\(num)] invalid. Input should be between 1 and 64 (inclusive)"
-            throw Error.InputTooLow(message)
+            throw Error.inputTooLow(message)
         }
         
         guard num <= 64 else {
             let message = "Input[\(num)] invalid. Input should be between 1 and 64 (inclusive)"
-            throw Error.InputTooHigh(message)
+            throw Error.inputTooHigh(message)
         }
        
         let one: UInt64 = 1
