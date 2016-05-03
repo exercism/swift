@@ -7,7 +7,7 @@ private extension XCTestCase {
     // Workaround unit test liminitaiton on Optional Arrays/Sets
     #if swift(>=3.0)
     private func sameCollection<C: Collection where C.Iterator.Element == String>(result: C?, _ expected: [String]?) -> Bool {
-        guard let result = result, expected = expected else { return false }
+        guard let result = result, expected = expected where similar(result, expected) else { return false }
         for (index, student) in result.enumerated() {
             guard index < expected.count && expected.contains(student) else { return false }
         }
@@ -15,7 +15,7 @@ private extension XCTestCase {
     }
     #else // Swift 2.2 and below
     private func sameCollection<C: CollectionType where C.Generator.Element == String>(result: C?, _ expected: [String]?) -> Bool {
-        guard let result = result, expected = expected else { return false }
+        guard let result = result, expected = expected where similar(result, expected) else { return false }
         for (index, student) in result.enumerate() {
             guard index < expected.count && expected.contains(student) else { return false }
         }
@@ -23,6 +23,9 @@ private extension XCTestCase {
         }
     #endif
     
+    private func similar<C: CollectionType>(result: C, _ expected: [String]) -> Bool {
+        return result.count.toIntMax() == IntMax(expected.count)
+    }
     
     func XCTAssertEqualCollection (collectionS : Set<String>? , _ collectionA : [String]? ) {
         XCTAssert(sameCollection(collectionS, collectionA))
