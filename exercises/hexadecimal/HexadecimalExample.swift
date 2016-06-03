@@ -1,12 +1,9 @@
 // Foundation not needed
 
-
-
 struct Hexadecimal {
-    
     let hexString: String
     let intValue: Int?
-    
+
     private static let hexDigits = [
         "0" : 0,
         "1" : 1,
@@ -25,40 +22,38 @@ struct Hexadecimal {
         "e" : 14,
         "f" : 15
     ]
-    
+
     init(_ hexString: String) {
         self.hexString = hexString
         self.intValue = Hexadecimal.getIntFromHexString(hexString)
     }
-    
+
     private static func getIntFromHexString(hexString: String) -> Int? {
         var result = 0
         var multiplier = 1
-        
+
         let digits = hexString.characters.map { String($0).lowercaseString }.reverse()
-        
+
         for digit in digits {
             guard let intValue = hexDigits[digit] else {
                 // Invalid hex string
                 return nil
             }
-            
+
             result += intValue * multiplier
             multiplier *= 16
         }
-        
+
         return result
     }
 }
 
 extension Int {
-    
     init?(_ hex: Hexadecimal) {
         guard let intValue = hex.intValue else {
             return nil
         }
-        
+
         self = intValue
     }
-    
 }

@@ -1,34 +1,31 @@
 import XCTest
 
-
-
 class BinarySearchTreeTest: XCTestCase {
-    
     func testDataIsRetained() {
         XCTAssertEqual(4, BinarySearchTree(4).data)
     }
-    
+
     func testInsertingLess() {
         var four = BinarySearchTree(4)
         four.insert(2)
         XCTAssertEqual(4, four.data)
         XCTAssertEqual(2, four.left?.data)
     }
-    
+
     func testInsertingSame() {
         var four = BinarySearchTree(4)
         four.insert(4)
         XCTAssertEqual(4, four.data)
         XCTAssertEqual(4, four.left?.data)
     }
-    
+
     func testInsertingRight() {
         var four = BinarySearchTree(4)
         four.insert(5)
         XCTAssertEqual(4, four.data)
         XCTAssertEqual(5, four.right?.data)
     }
-    
+
     func testComplexTree() {
         var four = BinarySearchTree(4)
         four.insert(2)
@@ -45,17 +42,17 @@ class BinarySearchTreeTest: XCTestCase {
         XCTAssertEqual(5, four.right?.left?.data)
         XCTAssertEqual(7, four.right?.right?.data)
     }
-    
+
     func testAllDataForOneElement() {
         XCTAssertEqual([4], BinarySearchTree(4).allData())
     }
-    
+
     func testAllDataForSmallerElement() {
         var four = BinarySearchTree(4)
         four.insert(2)
         XCTAssertEqual([2, 4], four.allData())
     }
-    
+
     func testAllDataForLargerElement() {
         var four = BinarySearchTree(4)
         four.insert(5)
@@ -72,5 +69,4 @@ class BinarySearchTreeTest: XCTestCase {
         four.insert(5)
         XCTAssertEqual([1, 2, 3, 4, 5, 6, 7], four.allData())
     }
-    
 }

@@ -1,14 +1,12 @@
 // Foundation not needed
 
-
-
 private extension Array{
 
     func reversedCustom()->Array{
         #if swift(>=3.0)
-        return reversed()
+            return reversed()
         #else
-        return reverse()
+            return reverse()
         #endif
     }
 }
@@ -16,21 +14,20 @@ private extension Array{
 class Element<T> {
     var value: T? = nil
     var next: Element? = nil
-    
+
     init() { }
-    
+
     init(_ value: T, _ next:Element?) {
         self.value = value
         self.next = next
     }
-    
-    
+
     func toArray () ->[T] {
         return toA(self)
     }
-    
+
     private var countArray:Array<T> = []
-    
+
     private func toA(input:Element, _ tempArray:Array<T> = []) ->[T]{
         if tempArray.isEmpty && input.value != nil {
             countArray.append(input.value!)
@@ -41,9 +38,7 @@ class Element<T> {
         }
         return countArray
     }
-    
-    
-    
+
     class func fromArray(input:[T]) ->Element {
         var tempElement = Element<T>()
         for each in Array(input.reversedCustom()){
@@ -51,12 +46,8 @@ class Element<T> {
         }
         return tempElement
     }
-    
-    
-    
+
     func reverseElements() -> Element  {
         return Element.fromArray(Array(toArray().reversedCustom()))
     }
-    
-    
 }

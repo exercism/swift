@@ -1,10 +1,6 @@
-
 import XCTest
 
-
-
 class SimpleCipherTest: XCTestCase {
-
     func testCipherEncode() {
         let cipher = Cipher()
         let plaintext = "aaaaaaaaaa"
@@ -25,7 +21,7 @@ class SimpleCipherTest: XCTestCase {
         XCTAssertEqual(plaintext, cipher.decode(cipher.encode(plaintext)))
     }
 
-// MARK: TestIncorrectKey
+    // MARK: TestIncorrectKey
 
     func testCipherWithCapsKey() {
         XCTAssertNil(Cipher(key: "ABCDEF"))
@@ -39,7 +35,7 @@ class SimpleCipherTest: XCTestCase {
         XCTAssertNil(Cipher(key: ""))
     }
 
-// MARK: TestSubstitution
+    // MARK: TestSubstitution
 
     let cipherSubstitution = Cipher(key: "abcdefghij") ?? Cipher()
 
@@ -76,7 +72,7 @@ class SimpleCipherTest: XCTestCase {
         XCTAssertEqual(ciphertext, cipherSubstitution.encode(plaintext))
     }
 
-// MARK: TestPseudoShift
+    // MARK: TestPseudoShift
 
     let cipherPseudo = Cipher(key: "dddddddddd") ?? Cipher()
 
@@ -96,5 +92,4 @@ class SimpleCipherTest: XCTestCase {
         let plaintext = "abcdefghij"
         XCTAssertEqual(plaintext, cipherPseudo.decode(cipherPseudo.encode(plaintext)))
     }
-
 }

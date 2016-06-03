@@ -1,9 +1,6 @@
 import XCTest
 
-
-
 class OcrNumbersTest: XCTestCase {
-    
     func testRecognizeZero() {
         let text =  " _ \n" +
                     "| |\n" +
@@ -11,7 +8,7 @@ class OcrNumbersTest: XCTestCase {
                     "   "
         XCTAssertEqual("0", try? OCR(text).converted())
     }
-    
+
     func testRecognizeOne() {
         let text =  "   \n" +
                     "  |\n" +
@@ -27,7 +24,7 @@ class OcrNumbersTest: XCTestCase {
                     "   "
         XCTAssertEqual("2", try? OCR(text).converted())
     }
-    
+
     func testRecognizeThree() {
         let text =  " _ \n" +
                     " _|\n" +
@@ -35,7 +32,7 @@ class OcrNumbersTest: XCTestCase {
                     "   "
         XCTAssertEqual("3", try? OCR(text).converted())
     }
-        
+
     func testRecognizeFour() {
         let text =  "   \n" +
                     "|_|\n" +
@@ -43,7 +40,7 @@ class OcrNumbersTest: XCTestCase {
                     "   "
         XCTAssertEqual("4", try? OCR(text).converted())
     }
-    
+
     func testRecognizeFive() {
         let text =  " _ \n" +
                     "|_ \n" +
@@ -51,7 +48,7 @@ class OcrNumbersTest: XCTestCase {
                     "   "
         XCTAssertEqual("5", try? OCR(text).converted())
     }
-    
+
     func testRecognizeSix() {
         let text =  " _ \n" +
                     "|_ \n" +
@@ -67,7 +64,7 @@ class OcrNumbersTest: XCTestCase {
                     "   "
         XCTAssertEqual("7", try? OCR(text).converted())
     }
-    
+
     func testRecognizeEight() {
         let text =  " _ \n" +
                     "|_|\n" +
@@ -83,7 +80,7 @@ class OcrNumbersTest: XCTestCase {
                     "   "
         XCTAssertEqual("9", try? OCR(text).converted())
     }
-  
+
     func testIdentifyGarble() {
         let text =  "   \n" +
                     "| |\n" +
@@ -91,7 +88,7 @@ class OcrNumbersTest: XCTestCase {
                     "   "
         XCTAssertEqual("?", try? OCR(text).converted())
     }
-    
+
     func testIdentify10() {
         let text =  "    _ \n" +
                     "  || |\n" +
@@ -99,7 +96,7 @@ class OcrNumbersTest: XCTestCase {
                     "      "
         XCTAssertEqual("10", try? OCR(text).converted())
     }
-    
+
     func testIdentify110101100() {
         let text =
             "       _     _        _  _ \n" +
@@ -108,7 +105,7 @@ class OcrNumbersTest: XCTestCase {
             "                           "
         XCTAssertEqual("110101100", try? OCR(text).converted())
     }
-    
+
     func testIdentifyWithGarble() {
         let text =
             "       _     _           _ \n" +
@@ -117,7 +114,7 @@ class OcrNumbersTest: XCTestCase {
             "                           "
         XCTAssertEqual("11?10?1?0", try? OCR(text).converted())
     }
-    
+
     func testIdentify1234567890() {
         let text =
             "    _  _     _  _  _  _  _  _ \n" +
@@ -126,7 +123,7 @@ class OcrNumbersTest: XCTestCase {
             "                              "
         XCTAssertEqual("1234567890", try? OCR(text).converted())
     }
-    
+
     func testIdentify123_456_789() {
         let text =
             "    _  _ \n" +
@@ -143,14 +140,14 @@ class OcrNumbersTest: XCTestCase {
             "         "
         XCTAssertEqual("123,456,789", try? OCR(text).converted())
     }
-    
+
     func testThrowsInvalidNumberOfLinesError() {
         var throwsInvalidNumberOfLinesError = false
-        
+
         defer {
             XCTAssertTrue(throwsInvalidNumberOfLinesError)
         }
-        
+
         do {
             let text =
                 "    _  _ \n" +
@@ -163,14 +160,14 @@ class OcrNumbersTest: XCTestCase {
             return
         }
     }
-    
+
     func testThrowsInvalidNumberOfColumnsError() {
         var throwsInvalidNumberOfColumnsError = false
-        
+
         defer {
             XCTAssertTrue(throwsInvalidNumberOfColumnsError)
         }
-        
+
         do {
             let text =
                 "    _\n" +
@@ -185,5 +182,4 @@ class OcrNumbersTest: XCTestCase {
             return
         }
     }
-    
 }
