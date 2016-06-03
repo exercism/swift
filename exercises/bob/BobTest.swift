@@ -2,7 +2,7 @@ import XCTest
 
 
 
-class BobTests: XCTestCase {
+class BobTest: XCTestCase {
     
     func testStatingSomething() {
         let input = "Tom-ay-to, tom-aaaah-to."

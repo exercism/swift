@@ -2,7 +2,7 @@ import XCTest
 
 
 
-class BinaryTests: XCTestCase {
+class BinaryTest: XCTestCase {
     
     func testBinary0IsDecimal0() {
         XCTAssertEqual( 0, Int(Binary("0")))
