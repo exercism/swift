@@ -42,10 +42,8 @@
 		1E9A63A51C506EFD00E28AE1 /* GrainsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63151C506EFC00E28AE1 /* GrainsTest.swift */; };
 		1E9A63A61C506EFD00E28AE1 /* HammingExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63171C506EFC00E28AE1 /* HammingExample.swift */; };
 		1E9A63A71C506EFD00E28AE1 /* HammingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63181C506EFC00E28AE1 /* HammingTest.swift */; };
-		1E9A63A81C506EFD00E28AE1 /* helloWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A631A1C506EFC00E28AE1 /* helloWorld.swift */; };
-		1E9A63A91C506EFD00E28AE1 /* helloWorldExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A631E1C506EFC00E28AE1 /* helloWorldExample.swift */; };
-		1E9A63AA1C506EFD00E28AE1 /* helloWorldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63201C506EFC00E28AE1 /* helloWorldTest.swift */; };
-		1E9A63AB1C506EFD00E28AE1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E9A63211C506EFC00E28AE1 /* Info.plist */; };
+		1E9A63A91C506EFD00E28AE1 /* HelloWorldExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A631E1C506EFC00E28AE1 /* HelloWorldExample.swift */; };
+		1E9A63AA1C506EFD00E28AE1 /* HelloWorldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63201C506EFC00E28AE1 /* HelloWorldTest.swift */; };
 		1E9A63AC1C506EFD00E28AE1 /* KindergartenGardenExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63231C506EFC00E28AE1 /* KindergartenGardenExample.swift */; };
 		1E9A63AD1C506EFD00E28AE1 /* KindergartenGardenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63241C506EFC00E28AE1 /* KindergartenGardenTest.swift */; };
 		1E9A63AE1C506EFD00E28AE1 /* LeapExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63261C506EFC00E28AE1 /* LeapExample.swift */; };
@@ -141,16 +139,6 @@
 		E9AFA1871C624FD5006AD72D /* MinesweeperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1861C624FD5006AD72D /* MinesweeperTest.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		1E9A63F11C506EFD00E28AE1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1E9A631B1C506EFC00E28AE1 /* helloWorld.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9DCE807D1BA747050024C69D;
-			remoteInfo = helloWorldTest;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1E167A0F1C8AA5D7001EAD90 /* PokerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerExample.swift; sourceTree = "<group>"; };
 		1E167A101C8AA5D7001EAD90 /* PokerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerTest.swift; sourceTree = "<group>"; };
@@ -187,11 +175,8 @@
 		1E9A63151C506EFC00E28AE1 /* GrainsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrainsTest.swift; sourceTree = "<group>"; };
 		1E9A63171C506EFC00E28AE1 /* HammingExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HammingExample.swift; sourceTree = "<group>"; };
 		1E9A63181C506EFC00E28AE1 /* HammingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HammingTest.swift; sourceTree = "<group>"; };
-		1E9A631A1C506EFC00E28AE1 /* helloWorld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloWorld.swift; sourceTree = "<group>"; };
-		1E9A631B1C506EFC00E28AE1 /* helloWorld.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = helloWorld.xcodeproj; sourceTree = "<group>"; };
-		1E9A631E1C506EFC00E28AE1 /* helloWorldExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloWorldExample.swift; sourceTree = "<group>"; };
-		1E9A63201C506EFC00E28AE1 /* helloWorldTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloWorldTest.swift; sourceTree = "<group>"; };
-		1E9A63211C506EFC00E28AE1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E9A631E1C506EFC00E28AE1 /* HelloWorldExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloWorldExample.swift; sourceTree = "<group>"; };
+		1E9A63201C506EFC00E28AE1 /* HelloWorldTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloWorldTest.swift; sourceTree = "<group>"; };
 		1E9A63231C506EFC00E28AE1 /* KindergartenGardenExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindergartenGardenExample.swift; sourceTree = "<group>"; };
 		1E9A63241C506EFC00E28AE1 /* KindergartenGardenTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindergartenGardenTest.swift; sourceTree = "<group>"; };
 		1E9A63261C506EFC00E28AE1 /* LeapExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeapExample.swift; sourceTree = "<group>"; };
@@ -529,29 +514,10 @@
 		1E9A63191C506EFC00E28AE1 /* hello-world */ = {
 			isa = PBXGroup;
 			children = (
-				1E9A631A1C506EFC00E28AE1 /* helloWorld.swift */,
-				1E9A631B1C506EFC00E28AE1 /* helloWorld.xcodeproj */,
-				1E9A631E1C506EFC00E28AE1 /* helloWorldExample.swift */,
-				1E9A631F1C506EFC00E28AE1 /* helloWorldTest */,
+				1E9A631E1C506EFC00E28AE1 /* HelloWorldExample.swift */,
+				1E9A63201C506EFC00E28AE1 /* HelloWorldTest.swift */,
 			);
 			path = "hello-world";
-			sourceTree = "<group>";
-		};
-		1E9A631C1C506EFC00E28AE1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1E9A63F21C506EFD00E28AE1 /* helloWorldTest.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		1E9A631F1C506EFC00E28AE1 /* helloWorldTest */ = {
-			isa = PBXGroup;
-			children = (
-				1E9A63201C506EFC00E28AE1 /* helloWorldTest.swift */,
-				1E9A63211C506EFC00E28AE1 /* Info.plist */,
-			);
-			path = helloWorldTest;
 			sourceTree = "<group>";
 		};
 		1E9A63221C506EFC00E28AE1 /* kindergarten-garden */ = {
@@ -1059,12 +1025,6 @@
 			mainGroup = 9D3155BB1BA12DC1009A3991;
 			productRefGroup = 9D3155C51BA12DC2009A3991 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1E9A631C1C506EFC00E28AE1 /* Products */;
-					ProjectRef = 1E9A631B1C506EFC00E28AE1 /* helloWorld.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				9D3155D11BA12FB1009A3991 /* xSwiftTests */,
@@ -1072,22 +1032,11 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		1E9A63F21C506EFD00E28AE1 /* helloWorldTest.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = helloWorldTest.xctest;
-			remoteRef = 1E9A63F11C506EFD00E28AE1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		9D3155D01BA12FB1009A3991 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E9A63AB1C506EFD00E28AE1 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1147,11 +1096,10 @@
 				1E9A63DF1C506EFD00E28AE1 /* SpaceAgeTest.swift in Sources */,
 				1E9A63B21C506EFD00E28AE1 /* LuhnExample.swift in Sources */,
 				1E9A63991C506EFD00E28AE1 /* CryptoSquareTest.swift in Sources */,
-				1E9A63A81C506EFD00E28AE1 /* helloWorld.swift in Sources */,
 				1E9A63E81C506EFD00E28AE1 /* TrinaryExample.swift in Sources */,
 				1E9A63C01C506EFD00E28AE1 /* PigLatinExample.swift in Sources */,
 				1E9A63A21C506EFD00E28AE1 /* GradeSchoolExample.swift in Sources */,
-				1E9A63A91C506EFD00E28AE1 /* helloWorldExample.swift in Sources */,
+				1E9A63A91C506EFD00E28AE1 /* HelloWorldExample.swift in Sources */,
 				E9AFA1871C624FD5006AD72D /* MinesweeperTest.swift in Sources */,
 				1E9A63A51C506EFD00E28AE1 /* GrainsTest.swift in Sources */,
 				1E167A121C8AA5D7001EAD90 /* PokerTest.swift in Sources */,
@@ -1168,7 +1116,7 @@
 				1E9A63C61C506EFD00E28AE1 /* QueenAttackExample.swift in Sources */,
 				E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */,
 				1E9A63D91C506EFD00E28AE1 /* SieveTest.swift in Sources */,
-				1E9A63AA1C506EFD00E28AE1 /* helloWorldTest.swift in Sources */,
+				1E9A63AA1C506EFD00E28AE1 /* HelloWorldTest.swift in Sources */,
 				1E9A63A71C506EFD00E28AE1 /* HammingTest.swift in Sources */,
 				1E9A63D01C506EFD00E28AE1 /* RomanNumeralsExample.swift in Sources */,
 				1E9A63971C506EFD00E28AE1 /* ClockTest.swift in Sources */,
