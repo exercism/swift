@@ -1,36 +1,32 @@
 // Foundation not needed
 
-
-
 class Node<T> {
     var value: T? = nil
     var next: Node? = nil
     var prev: Node? = nil
-    
+
     init() {
     }
-    
+
     init(value: T) {
         self.value = value
     }
-    
 }
 
 class Deque<T> {
     var count: Int = 0
     var head: Node<T>
     var tail: Node<T>
-    
+
     init() {
         self.head = Node<T>()
         self.tail = head
-        
     }
-    
+
     func isEmpty() -> Bool {
         return self.count == 0
     }
-    
+
     func push(value: T) {
         let node = Node<T>(value: value)
         if self.isEmpty() {
@@ -43,7 +39,7 @@ class Deque<T> {
         }
         self.count += 1
     }
-    
+
     func unshift(value: T) {
         let node = Node<T>(value: value)
         if self.isEmpty() {
@@ -56,10 +52,7 @@ class Deque<T> {
         }
         self.count += 1
     }
-    
-    
-    
-    
+
     func pop() -> T? {
         if self.isEmpty() {
             return nil
@@ -74,8 +67,7 @@ class Deque<T> {
             return temp.value
         }
     }
-    
-    
+
     func shift() -> T? {
         if self.isEmpty() {
             return nil
@@ -91,4 +83,3 @@ class Deque<T> {
         }
     }
 }
-

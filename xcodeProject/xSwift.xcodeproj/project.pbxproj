@@ -863,8 +863,8 @@
 		1EAF95DF1C90C587009DDCB6 /* dominoes */ = {
 			isa = PBXGroup;
 			children = (
-				1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */,
 				1E4CC79E1C90D48300C8BBEB /* DominoesExample.swift */,
+				1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */,
 			);
 			path = dominoes;
 			sourceTree = "<group>";

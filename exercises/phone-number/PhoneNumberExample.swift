@@ -1,20 +1,16 @@
 // Foundation not needed
 
-
-
 private extension String {
     subscript (range: Range<Int>) -> String {
         get {
             #if swift(>=3.0)
                 let start = startIndex.advanced(by:range.startIndex)
                 let end   = start.advanced(by:range.endIndex - range.startIndex)
-
             #else
-            let start = startIndex.advancedBy(range.startIndex)
-            let end   = start.advancedBy(range.endIndex - range.startIndex)
-
+                let start = startIndex.advancedBy(range.startIndex)
+                let end   = start.advancedBy(range.endIndex - range.startIndex)
             #endif
-            
+
             return self[start..<end]
         }
     }
@@ -32,7 +28,7 @@ private extension Character {
 
 struct PhoneNumber: CustomStringConvertible {
     let number: String
-    
+
     init(_ startingNumber: String) {
         let digits = startingNumber.onlyDigits
 
@@ -49,7 +45,7 @@ struct PhoneNumber: CustomStringConvertible {
     var areaCode: String {
         return number[0...2]
     }
-    
+
     var description: String {
         let prefix = number[3...5]
         let final  = number[6...9]

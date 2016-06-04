@@ -1,6 +1,4 @@
-
 // Foundation not needed
-
 
 extension Array {
     func accumulate<S>(yield: (Element) -> S) -> [S] {

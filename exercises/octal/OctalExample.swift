@@ -1,13 +1,9 @@
 import Darwin
 
-
-
 extension Int{
-
     init(_ value:Octal){
         self = value.toDecimal
     }
-    
 }
 
 struct Octal {
@@ -16,7 +12,7 @@ struct Octal {
     private func isValidOctal() -> Bool{
         return (Int(stringValue) ?? -1) > -1 ? true : false
     }
-    
+
     private func oct2int(input:String)->Int{
         let orderedInput = Array(input.characters.reverse())
         var tempInt:Int = 0
@@ -28,15 +24,12 @@ struct Octal {
         }
         return tempInt
     }
-    
-    
+
     init( _ sv:String){
         self.stringValue = sv
-        
+
         if isValidOctal() {
             self.toDecimal = oct2int(sv)
         }
-        
     }
-    
 }

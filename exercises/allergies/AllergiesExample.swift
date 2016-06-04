@@ -1,7 +1,5 @@
 // Foundation not needed
 
-
-
 enum Allergen: UInt {
     case Eggs = 1
     case Peanuts = 2
@@ -15,11 +13,11 @@ enum Allergen: UInt {
 
 struct Allergies {
     let score: UInt
-    
+
     init(_ score: UInt) {
         self.score = UInt(score)
     }
-    
+
     func hasAllergy(allergen: Allergen) -> Bool {
         return allergen.rawValue & score == allergen.rawValue ? true : false
     }

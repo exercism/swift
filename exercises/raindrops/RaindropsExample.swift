@@ -1,12 +1,9 @@
 // Foundation not needed
 
-
-
 struct Raindrops {
-    
     private var drops:Int
     var sounds:String = ""
-    
+
     private func convert(number:Int)->String{
         let result = (number % 3, number % 5 , number % 7)
         switch result{
@@ -20,10 +17,9 @@ struct Raindrops {
         default:return "\(number)"
         }
     }
-    
+
     init(_ value:Int){
         self.drops = value
         self.sounds = convert(value)
     }
 }
-
