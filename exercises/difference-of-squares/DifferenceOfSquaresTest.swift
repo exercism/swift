@@ -3,7 +3,7 @@ import XCTest
 
 
 
-class DifferenceOfSquaresTests: XCTestCase {
+class DifferenceOfSquaresTest: XCTestCase {
     
     func testSquareOfSumsTo5() {
         XCTAssertEqual(225, Squares(5).squareOfSums)

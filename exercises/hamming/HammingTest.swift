@@ -2,7 +2,7 @@ import XCTest
 
 
 
-class HammingTests: XCTestCase {
+class HammingTest: XCTestCase {
     func testNoDifferenceBetweenEmptyStrands() {
         let result = Hamming.compute("", against: "")!
         let expected = 0

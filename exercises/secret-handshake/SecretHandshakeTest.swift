@@ -3,7 +3,7 @@ import XCTest
 
 
 
-class SecretHandshakeTests: XCTestCase {
+class SecretHandshakeTest: XCTestCase {
     
     func testHandshake1ToWink() {
         let handshake = SecretHandshake(1)
