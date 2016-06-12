@@ -1,10 +1,6 @@
 import XCTest
 
-
-
-
 class GigasecondTest: XCTestCase {
-    
     
     func test1 () {
         let gs = Gigasecond(from: "2011-04-25T00:00:00")?.description
@@ -26,5 +22,14 @@ class GigasecondTest: XCTestCase {
         XCTAssertEqual("1991-03-28T01:46:39", gs)
     }
     
+    func testFullTimeSpecified () {
+        let gs = Gigasecond(from: "2015-01-24T22:00:00")?.description
+        XCTAssertEqual("2046-10-02T23:46:40", gs)
+    }
+    
+    func testFullTimeWithDayRollOver () {
+        let gs = Gigasecond(from: "2015-01-24T23:59:59")?.description
+        XCTAssertEqual("2046-10-03T01:46:39", gs)
+    }
  }
 
