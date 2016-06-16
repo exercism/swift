@@ -75,6 +75,7 @@
   ],
   "ignored": [
     "docs",
+    "img",
     "xcodeProject"
   ],
   "foregone": [
