@@ -4,7 +4,7 @@ xcode_project: 'xcodeProject/xSwift.xcodeproj'
 xcode_scheme: 'xSwiftTests'
 
 script:
-  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' -sdk macosx10.11
+  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' -sdk macosx10.12
   - bin/fetch-configlet
   - bin/configlet .
 sudo: false
