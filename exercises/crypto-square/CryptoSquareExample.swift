@@ -4,10 +4,10 @@ import Darwin
 
 private extension String {
     
-    func stripCharacters(charToRemove:String) -> String{
+    func stripCharacters(_ charToRemove:String) -> String{
         var returnString = ""
         self.characters.forEach{
-            if !charToRemove.containsString(String($0)){
+            if !charToRemove.contains(String($0)){
                 returnString.append($0)
             }}
         return returnString
@@ -24,7 +24,7 @@ private extension String {
 
 struct Crypto {
     
-    func segmentSorter(value:String, spacing:Int)->[String]{
+    func segmentSorter(_ value:String, spacing:Int)->[String]{
         var tempCounter = 0
         var tempString:String = ""
         for each in value.characters{
@@ -33,10 +33,10 @@ struct Crypto {
             } else { tempString += "\(each)" }
             tempCounter += 1
         }
-        return (tempString.componentsSeparatedByString(" ") )
+        return (tempString.components(separatedBy: " ") )
     }
     
-    func getSquareSize(text:String, floorNoCeling:Bool = false)->Int
+    func getSquareSize(_ text:String, floorNoCeling:Bool = false)->Int
     {
         let tempDouble = Double(text.characters.count)
         let tempRoot = sqrt(tempDouble)
@@ -46,8 +46,8 @@ struct Crypto {
             return Int(tempCeil)}
     }
     
-    func normalizer(textInput:String)->String{
-        return textInput.stripSymbols.stripPunctuations.stripWhiteSpace.lowercaseString
+    func normalizer(_ textInput:String)->String{
+        return textInput.stripSymbols.stripPunctuations.stripWhiteSpace.lowercased()
     }
     
     var ciphertext:String {
@@ -76,7 +76,7 @@ struct Crypto {
         
         let sizeNormal:Int = (ciphertext.characters.count == self.size * self.size ) ? getSquareSize(self.ciphertext) : getSquareSize(self.ciphertext, floorNoCeling: true)
         
-        return segmentSorter(ciphertext, spacing: sizeNormal).joinWithSeparator(" ")
+        return segmentSorter(ciphertext, spacing: sizeNormal).joined(separator: " ")
     }
     
     

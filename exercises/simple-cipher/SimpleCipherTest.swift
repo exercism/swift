@@ -8,14 +8,14 @@ class SimpleCipherTest: XCTestCase {
     func testCipherEncode() {
         let cipher = Cipher()
         let plaintext = "aaaaaaaaaa"
-        let expected  = cipher.key.substringToIndex(cipher.key.startIndex.advancedBy(10))
+        let expected  = cipher.key.substring(to: cipher.key.characters.index(cipher.key.startIndex, offsetBy: 10))
         XCTAssertEqual(expected, cipher.encode(plaintext))
     }
 
     func testCipherDecode() {
         let cipher = Cipher()
         let plaintext = "aaaaaaaaaa"
-        let expected  = cipher.key.substringToIndex(cipher.key.startIndex.advancedBy(10))
+        let expected  = cipher.key.substring(to: cipher.key.characters.index(cipher.key.startIndex, offsetBy: 10))
         XCTAssertEqual(plaintext, cipher.decode(expected))
     }
 

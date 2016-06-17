@@ -3,7 +3,7 @@ import Darwin
 
 
 struct Prime {
-    static func nth(nth: Int) -> Int? {
+    static func nth(_ nth: Int) -> Int? {
         if nth < 1 {
             return nil
         }
@@ -21,7 +21,7 @@ struct Prime {
         return i
     }
     
-    private static func isPrime(number: Int) -> Bool {
+    private static func isPrime(_ number: Int) -> Bool {
         if number == 1 {
             return false
         } else if number == 2 {

@@ -18,7 +18,7 @@ class BinarySearchTest: XCTestCase {
         
         do {
             let _ = try BinarySearch([2, 1, 4, 3, 6])
-        } catch BinarySearchError.Unsorted {
+        } catch BinarySearchError.unsorted {
             throwsUnsortedError = true
         } catch {
             return

@@ -10,7 +10,7 @@ struct Sieve {
     
     var primes:[Int]{return primesFunc(self.value ) }
     
-    func primesFunc(limit:Int) -> [Int]{
+    func primesFunc(_ limit:Int) -> [Int]{
         
         if limit < 2 { return []}
         else{
@@ -19,7 +19,7 @@ struct Sieve {
         }
     }
     
-     static func onlyDivisorSelf( number:Int)->Bool{
+     static func onlyDivisorSelf( _ number:Int)->Bool{
         var number = number
         
         var primes = [Int]()

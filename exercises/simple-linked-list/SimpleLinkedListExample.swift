@@ -5,7 +5,7 @@
 private extension Array{
 
     func reversedCustom()->Array{
-        return reverse()
+        return reversed()
         
     }
 }
@@ -28,7 +28,7 @@ class Element<T> {
     
     private var countArray:Array<T> = []
     
-    private func toA(input:Element, _ tempArray:Array<T> = []) ->[T]{
+    private func toA(_ input:Element, _ tempArray:Array<T> = []) ->[T]{
         if tempArray.isEmpty && input.value != nil {
             countArray.append(input.value!)
         }
@@ -41,7 +41,7 @@ class Element<T> {
     
     
     
-    class func fromArray(input:[T]) ->Element {
+    class func fromArray(_ input:[T]) ->Element {
         var tempElement = Element<T>()
         for each in Array(input.reversedCustom()){
             tempElement = Element(each, tempElement)

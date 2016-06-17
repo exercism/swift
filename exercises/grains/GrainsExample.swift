@@ -5,12 +5,12 @@ import Darwin
 
 struct Grains {
     
-    enum Error: ErrorType {
+    enum Error: ErrorProtocol {
         case inputTooLow(String)
         case inputTooHigh(String)
     }
 
-    static func square(num: Int) throws -> UInt64 {
+    static func square(_ num: Int) throws -> UInt64 {
         guard num >= 1 else {
             let message = "Input[\(num)] invalid. Input should be between 1 and 64 (inclusive)"
             throw Error.inputTooLow(message)

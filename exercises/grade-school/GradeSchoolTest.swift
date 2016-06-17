@@ -5,24 +5,24 @@ import XCTest
 private extension XCTestCase {
     
     // Workaround unit test liminitaiton on Optional Arrays/Sets
-    private func sameCollection<C: CollectionType where C.Generator.Element == String>(result: C?, _ expected: [String]?) -> Bool {
+    private func sameCollection<C: Collection where C.Iterator.Element == String>(_ result: C?, _ expected: [String]?) -> Bool {
         guard let result = result, expected = expected where similar(result, expected) else { return false }
-        for (index, student) in result.enumerate() {
+        for (index, student) in result.enumerated() {
             guard index < expected.count && expected.contains(student) else { return false }
         }
         return true
         }
     
     
-    private func similar<C: CollectionType>(result: C, _ expected: [String]) -> Bool {
+    private func similar<C: Collection>(_ result: C, _ expected: [String]) -> Bool {
         return result.count.toIntMax() == IntMax(expected.count)
     }
     
-    func XCTAssertEqualCollection (collectionS : Set<String>? , _ collectionA : [String]? ) {
+    func XCTAssertEqualCollection (_ collectionS : Set<String>? , _ collectionA : [String]? ) {
         XCTAssert(sameCollection(collectionS, collectionA))
     }
     
-    func XCTAssertEqualCollection (collectionA1 : [String]?, _ collectionA2 : [String]? ) {
+    func XCTAssertEqualCollection (_ collectionA1 : [String]?, _ collectionA2 : [String]? ) {
         XCTAssert(sameCollection(collectionA1, collectionA2))
     }
 }
@@ -63,7 +63,7 @@ class GradeSchoolTest: XCTestCase {
         school.addStudent("Logan", grade: 7)
         let result = school.roster
         let expected = [3: ["Chelsea"], 7: ["Logan"]]
-            XCTAssertEqual(Array(result.keys).sort(>), Array(expected.keys).sort(>))
+            XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
         
         XCTAssertEqualCollection(result[3], expected[3])
     }
@@ -99,7 +99,7 @@ class GradeSchoolTest: XCTestCase {
                            4 : ["Christopher", "Jennifer"],
                            6 : ["Kareem"]
         ]
-            XCTAssertEqual(Array(result.keys).sort(>), Array(expected.keys).sort(>))
+            XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
         
         XCTAssertEqualCollection(result[3], expected[3])
         XCTAssertEqualCollection(result[4], expected[4])

@@ -8,7 +8,7 @@ struct TwelveDaysSong {
         return verses(1,12)
     }
     
-    static func verses(start:Int, _ end:Int) ->String{
+    static func verses(_ start:Int, _ end:Int) ->String{
         var string2return = ""
         for each in start...end{
             string2return += verse(each) + "\n"
@@ -16,7 +16,7 @@ struct TwelveDaysSong {
         
         return string2return
     }
-    static func verse(number:Int) ->String{
+    static func verse(_ number:Int) ->String{
         switch(number)
         {
         case 1:

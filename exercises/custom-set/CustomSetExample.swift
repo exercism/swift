@@ -5,7 +5,7 @@
 
 
 func == <T> (lh: CustomSet<T>, rh: CustomSet<T>) -> Bool {
-        return lh.contents.keys.sort{$0.hashValue < $1.hashValue} == rh.contents.keys.sort{$0.hashValue < $1.hashValue}
+        return lh.contents.keys.sorted{$0.hashValue < $1.hashValue} == rh.contents.keys.sorted{$0.hashValue < $1.hashValue}
     
 }
 
@@ -18,20 +18,20 @@ struct CustomSet<T:Hashable>:Equatable{
     
     var size:Int {return contents.count}
 
-    var toSortedArray:[Element] {return Array(contents.keys.sort{$0.hashValue < $1.hashValue})}
+    var toSortedArray:[Element] {return Array(contents.keys.sorted{$0.hashValue < $1.hashValue})}
     
-    init<S: SequenceType where S.Generator.Element == Element>(_ sequence: S) {
+    init<S: Sequence where S.Iterator.Element == Element>(_ sequence: S) {
         self.contents = [:]
         _ = sequence.map{ self.contents[$0] = true }
     }
     
     
-    mutating func put(item:Element){
+    mutating func put(_ item:Element){
         contents[item] = true
         
     }
     
-    mutating func delete(item:Element){
+    mutating func delete(_ item:Element){
         contents[item] = nil
         
     }
@@ -41,7 +41,7 @@ struct CustomSet<T:Hashable>:Equatable{
         
     }
     
-    func intersection(item:CustomSet)-> CustomSet{
+    func intersection(_ item:CustomSet)-> CustomSet{
         var temp = [Element: Bool]()
         for each in Array(item.contents.keys){
             if (contents[each] != nil) { temp[each] = true }
@@ -50,7 +50,7 @@ struct CustomSet<T:Hashable>:Equatable{
     }
     
     
-    func difference(item:CustomSet)-> CustomSet{
+    func difference(_ item:CustomSet)-> CustomSet{
         var temp = contents
         for each in Array(item.contents.keys){
             temp[each] = nil
@@ -58,7 +58,7 @@ struct CustomSet<T:Hashable>:Equatable{
         return CustomSet(temp.keys)
     }
     
-    func union(item:CustomSet)-> CustomSet{
+    func union(_ item:CustomSet)-> CustomSet{
         var temp = contents
         for each in Array(item.contents.keys){
             temp[each] = true
@@ -67,12 +67,12 @@ struct CustomSet<T:Hashable>:Equatable{
     }
     
     
-    func isSupersetOf (item:CustomSet)-> Bool{
+    func isSupersetOf (_ item:CustomSet)-> Bool{
         
         return item.contents.count == item.contents.filter{self.contents.keys.contains($0.0)}.count
         
     }
-    func isDisjoint(item:CustomSet)-> Bool{
+    func isDisjoint(_ item:CustomSet)-> Bool{
         
         for each in Array(item.contents.keys){
             if contents.keys.contains(each){
@@ -82,7 +82,7 @@ struct CustomSet<T:Hashable>:Equatable{
         return true
     }
     
-    func containsMember(item:Element)-> Bool{
+    func containsMember(_ item:Element)-> Bool{
         if contents[item] != nil {
             return true}
         return false

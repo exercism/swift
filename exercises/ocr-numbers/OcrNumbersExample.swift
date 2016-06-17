@@ -18,32 +18,32 @@ struct OCR {
                         [" _ ", "|_|", " _|", "   "] : "9"
     ]
 
-    enum Error: ErrorType {
-    case InvalidNumberOfLines
-    case InvalidNumberOfColumns
+    enum Error: ErrorProtocol {
+    case invalidNumberOfLines
+    case invalidNumberOfColumns
     }
     
     
     init(_ text: String) throws {
-            let lines = text.characters.split("\n").map { String($0) }
+            let lines = text.characters.split(separator: "\n").map { String($0) }
             
         
         
         let rowCount = lines.count
         
         guard rowCount > 0 && rowCount % 4 == 0 else {
-            throw Error.InvalidNumberOfLines
+            throw Error.invalidNumberOfLines
         }
         
         let columnCount = lines[0].characters.count
         
         guard columnCount > 0 && columnCount % 3 == 0 else {
-            throw Error.InvalidNumberOfColumns
+            throw Error.invalidNumberOfColumns
         }
         
         try lines.forEach {
             guard $0.characters.count == columnCount else {
-                throw Error.InvalidNumberOfColumns
+                throw Error.invalidNumberOfColumns
             }
         }
         
@@ -65,8 +65,8 @@ struct OCR {
                 var grouping = [String]()
                 
                 for line in selectedLines {
-                        let startIndex = line.startIndex.advancedBy(columnIndex)
-                        let endIndex = line.startIndex.advancedBy(columnIndex + 2)
+                        let startIndex = line.characters.index(line.startIndex, offsetBy: columnIndex)
+                        let endIndex = line.characters.index(line.startIndex, offsetBy: columnIndex + 2)
                         grouping.append(line[startIndex...endIndex])
 
                     
@@ -80,11 +80,11 @@ struct OCR {
             resultArray.append(result)
             rowIndex += 4
         }
-        return resultArray.joinWithSeparator(",")
+        return resultArray.joined(separator: ",")
         
     }
     
-    func patternForGrouping(grouping: [String]) -> String {
+    func patternForGrouping(_ grouping: [String]) -> String {
         guard let number = patterns[grouping] else {
             return "?"
         }

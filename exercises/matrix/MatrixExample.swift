@@ -13,9 +13,9 @@ struct Matrix {
         var rows = [[Int]]()
         var columns = [[Int]]()
         
-            let rowItems = stringRepresentation.characters.split("\n")
+            let rowItems = stringRepresentation.characters.split(separator: "\n")
             for item in rowItems {
-            let elements = item.split(" ").flatMap { Int(String($0)) }
+            let elements = item.split(separator: " ").flatMap { Int(String($0)) }
             rows.append(elements)
             }
         

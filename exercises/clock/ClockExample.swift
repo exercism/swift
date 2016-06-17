@@ -13,11 +13,11 @@ struct Clock: Equatable, CustomStringConvertible {
     
     var description: String { return self.toString }
     
-    func add(minutes minutes:Int) -> Clock {
+    func add(minutes:Int) -> Clock {
         return Clock(hours: self.hours, minutes: self.minutes + minutes)
     }
     
-    func subtract(minutes minutes:Int) -> Clock {
+    func subtract(minutes:Int) -> Clock {
         return add(minutes: -minutes)
     }
     

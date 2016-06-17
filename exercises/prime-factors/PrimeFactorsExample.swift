@@ -9,7 +9,7 @@ struct PrimeFactors{
     
     var toArray = [Int64]()
     
-    private func primesFor( number:Int64)->[Int64]{
+    private func primesFor( _ number:Int64)->[Int64]{
         var number = number
         var primes = [Int64]()
         var divisor:Int64 = 2

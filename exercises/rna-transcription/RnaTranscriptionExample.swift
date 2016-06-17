@@ -12,7 +12,7 @@ struct Nucleotide {
     
     private let dnaToRna:[Character:String] = [ "G": "C" ,  "C": "G" , "T": "A" ,  "A": "U" ]
 
-    private func transcribe(dict:[Character : String]) -> String{
+    private func transcribe(_ dict:[Character : String]) -> String{
         var tempText = ""
         for each in self.value.characters{
             tempText += dict[each] ?? ""

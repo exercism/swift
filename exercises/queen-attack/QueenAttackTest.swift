@@ -35,7 +35,7 @@ class QueenAttackTest: XCTestCase {
         
         do {
             let _ = try Queens(white: [1, 2, 3], black: [4, 5])
-        } catch Queens.InitError.IncorrectNumberOfCoordinates {
+        } catch Queens.InitError.incorrectNumberOfCoordinates {
             throwsIncorrectNumberOfCoordinates = true
         } catch {
             return
@@ -51,7 +51,7 @@ class QueenAttackTest: XCTestCase {
         
         do {
             let _ = try Queens(white: [-3, 0], black: [2, 481])
-        } catch Queens.InitError.InvalidCoordinates {
+        } catch Queens.InitError.invalidCoordinates {
             throwsInvalidCoordinates = true
         } catch {
             return
@@ -67,7 +67,7 @@ class QueenAttackTest: XCTestCase {
         
         do {
             let _ = try Queens(white: [2, 4], black: [2, 4])
-        } catch Queens.InitError.SameSpace {
+        } catch Queens.InitError.sameSpace {
             throwsSameSpaceError = true
         } catch {
             return

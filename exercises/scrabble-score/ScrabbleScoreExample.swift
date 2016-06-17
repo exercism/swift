@@ -4,17 +4,17 @@
 
 private extension String {
     
-    func containsCustom(input: Character) ->Bool{
-            return containsString(String(input))
+    func containsCustom(_ input: Character) ->Bool{
+            return contains(String(input))
         
     }
     
     func lowercasedCustom()->String{
-            return lowercaseString
+            return lowercased()
         
     }
     
-    private func stripCharacters(charsToRemove:String) -> String{
+    private func stripCharacters(_ charsToRemove:String) -> String{
         var returnString = ""
         self.characters.forEach{
             if !charsToRemove.containsCustom($0){
@@ -38,7 +38,7 @@ struct Scrabble{
     
     
     
-    static func score(input:String) -> Int {
+    static func score(_ input:String) -> Int {
         if (input.IsEmptyOrWhiteSpace ){
             return 0}
         

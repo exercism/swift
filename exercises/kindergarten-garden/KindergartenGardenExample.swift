@@ -18,16 +18,16 @@ struct Garden {
         self.pots = Garden.parse(diagram, children: children)
     }
     
-    func plantsForChild(child: String) -> [Plant] {
+    func plantsForChild(_ child: String) -> [Plant] {
         guard let plants = pots[child] else {
             return []
         }
         return plants
     }
     
-    private static func parse(diagram: String, children: [String]) -> [String : [Plant]] {
-            let sortedChildren = children.sort(<)
-            let lines = diagram.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+    private static func parse(_ diagram: String, children: [String]) -> [String : [Plant]] {
+            let sortedChildren = children.sorted(isOrderedBefore: <)
+            let lines = diagram.components(separatedBy: CharacterSet.newlines)
         
         
         var result = [String : [Plant]]()

@@ -29,19 +29,19 @@ struct PalindromeProducts{
     }
     
     private enum Mode { case max, min }
-    private func calculate(upTo:Mode)->Palindrome{
+    private func calculate(_ upTo:Mode)->Palindrome{
         
         let rangeOuter = minFactor...maxFactor
         var multiplications = [Palindrome]()
         
         //Multitreaded code
-        let queue = dispatch_queue_create("io.exercism.multiQueuePali", DISPATCH_QUEUE_CONCURRENT)
-        var results = [[Palindrome]](count: rangeOuter.count, repeatedValue: [Palindrome]())
+        let queue = DispatchQueue(label: "io.exercism.multiQueuePali", attributes: DispatchQueueAttributes.concurrent)
+        var results = [[Palindrome]](repeating: [Palindrome](), count: rangeOuter.count)
         
-        dispatch_apply(rangeOuter.count, queue){
+        DispatchQueue.concurrentPerform(iterations: rangeOuter.count){
             advanceByIndex in
             var multiplicationsTemp = [Palindrome]()
-            let each = rangeOuter.startIndex.advancedBy(advanceByIndex)
+            let each = rangeOuter.startIndex.advanced(by: advanceByIndex)
             let innerRangeCustom = each..<rangeOuter.endIndex
             for eaInside in innerRangeCustom{
                 let multiplied = each * eaInside
@@ -52,7 +52,7 @@ struct PalindromeProducts{
             }
             results[advanceByIndex] = multiplicationsTemp
         }
-        multiplications = results.flatten().sort({$0.0 > $1.0})
+        multiplications = results.flatten().sorted(isOrderedBefore: {$0.0 > $1.0})
         
         if let large = multiplications.first, let small = multiplications.last{
             switch upTo{

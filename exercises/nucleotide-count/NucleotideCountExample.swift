@@ -3,18 +3,18 @@
 
 
 enum Nucleobase: Character {
-    case Adenine = "A",
-    Cytosine = "C",
-    Thymine = "T",
-    Guanine = "G"
+    case adenine = "A",
+    cytosine = "C",
+    thymine = "T",
+    guanine = "G"
 }
 
 struct DNA {
     
-    var nucleotideCounts:[Nucleobase:Int] = [ .Adenine: 0, .Thymine: 0, .Cytosine: 0 , .Guanine : 0 ]
+    var nucleotideCounts:[Nucleobase:Int] = [ .adenine: 0, .thymine: 0, .cytosine: 0 , .guanine : 0 ]
     
     init?(strand: String) {
-        let enumarated = strand.characters.enumerate()
+        let enumarated = strand.characters.enumerated()
         
         for (_, value) in enumarated {
             if let possibleNucleobase = Nucleobase(rawValue: value) {
@@ -26,7 +26,7 @@ struct DNA {
         }
     }
     
-    func count(value :Character)-> Int {
+    func count(_ value :Character)-> Int {
         return nucleotideCounts[Nucleobase(rawValue: value)!]!
     }
     

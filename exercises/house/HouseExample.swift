@@ -20,15 +20,15 @@ struct House {
     ]
     
     static func recite() -> String {
-        return (1...pieces.count).map { line($0) }.joinWithSeparator("\n\n")
+        return (1...pieces.count).map { line($0) }.joined(separator: "\n\n")
         
     }
     
-    private static func line(number: Int) -> String {
+    private static func line(_ number: Int) -> String {
         let startIndex = pieces.count - number
         let endIndex = pieces.count
         let selectedPieces = pieces[startIndex ..< endIndex]
-        let text = selectedPieces.map { $0.joinWithSeparator("\n") }.joinWithSeparator(" ")
+        let text = selectedPieces.map { $0.joined(separator: "\n") }.joined(separator: " ")
         
         return "This is \(text)."
     }

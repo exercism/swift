@@ -3,15 +3,15 @@
 
 
 private extension String{
-    func substringFromIndexInt(indx:Int) -> String {
-        let index = self.startIndex.advancedBy(indx)
-        return self.substringFromIndex(index)
+    func substringFromIndexInt(_ indx:Int) -> String {
+        let index = self.characters.index(self.startIndex, offsetBy: indx)
+        return self.substring(from: index)
     }
 
-    func substringWithRangeInt(intRange:Range<Int>)->String{
-        let start = self.startIndex.advancedBy(intRange.startIndex)
-        let end = self.startIndex.advancedBy(intRange.endIndex)
-        return self.substringWithRange(start..<end)
+    func substringWithRangeInt(_ intRange:Range<Int>)->String{
+        let start = self.characters.index(self.startIndex, offsetBy: intRange.lowerBound)
+        let end = self.characters.index(self.startIndex, offsetBy: intRange.upperBound)
+        return self.substring(with: start..<end)
     }
     
     
@@ -20,27 +20,27 @@ private extension String{
 struct PigLatin {
     
     
-    static func translate (word:String) -> String {
-      return word.componentsSeparatedByString(" ").map{self.translateWord($0)}.joinWithSeparator(" ")
+    static func translate (_ word:String) -> String {
+      return word.components(separatedBy: " ").map{self.translateWord($0)}.joined(separator: " ")
 
         
     }
     
-    static func translateWord(word:String) -> String{
+    static func translateWord(_ word:String) -> String{
         
         
-        func wordStartsWithPrefixes(word:String, prefixes:[String]) ->Bool{
+        func wordStartsWithPrefixes(_ word:String, prefixes:[String]) ->Bool{
             return 0 < prefixes.filter{word.hasPrefix($0)}.count
             
         }
         
-        func wordStartsWithVowelLike(word:String) ->Bool{
+        func wordStartsWithVowelLike(_ word:String) ->Bool{
             return wordStartsWithPrefixes(word, prefixes: ["xr", "yt", "a", "e","i", "o","u" ])
         }
         
-        func wordStartsWithConsonantAndQu(word:String) -> Bool{
-            let index = word.startIndex.advancedBy(1)
-            return word.substringFromIndex(index).hasPrefix("qu")
+        func wordStartsWithConsonantAndQu(_ word:String) -> Bool{
+            let index = word.characters.index(word.startIndex, offsetBy: 1)
+            return word.substring(from: index).hasPrefix("qu")
         }
         
 

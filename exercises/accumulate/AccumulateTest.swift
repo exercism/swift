@@ -22,7 +22,7 @@ class AccumulateTest: XCTestCase {
      func testEmptyAccumulation() {
 
        let input = [Int]()
-       func square(input:Int) -> Int {
+       func square(_ input:Int) -> Int {
             return input * input
        }
        let result = input.accumulate(square)
@@ -34,7 +34,7 @@ class AccumulateTest: XCTestCase {
         
         let input = [1,2,3,4]
         let expected = [1,4,9,16]
-        func square(input:Int) -> Int {
+        func square(_ input:Int) -> Int {
             return input * input
         }
         
@@ -48,8 +48,8 @@ class AccumulateTest: XCTestCase {
         
         let input = ["hello","world"]
         let expected = ["HELLO","WORLD"]
-        func toUpper(input:String) -> String {
-            return input.uppercaseString
+        func toUpper(_ input:String) -> String {
+            return input.uppercased()
         }
         
         let result = input.accumulate(toUpper)
@@ -63,7 +63,7 @@ class AccumulateTest: XCTestCase {
         
         let input =    ["the","quick","brown","fox","etc"]
         let expected = ["eht","kciuq","nworb","xof","cte"]
-        func reverse(input:String) -> String {
+        func reverse(_ input:String) -> String {
             return input.reverse()
         }
         
@@ -82,8 +82,8 @@ class AccumulateTest: XCTestCase {
             ["c1","c2","c3"]
         ]
         
-        func recurse(input:String) -> [String] {
-            func appendTo(innerInput:String) -> String {
+        func recurse(_ input:String) -> [String] {
+            func appendTo(_ innerInput:String) -> String {
                 return input+innerInput
             }
             let result = ["1","2","3"].accumulate(appendTo)

@@ -31,7 +31,7 @@ class Deque<T> {
         return self.count == 0
     }
     
-    func push(value: T) {
+    func push(_ value: T) {
         let node = Node<T>(value: value)
         if self.isEmpty() {
             self.head = node
@@ -44,7 +44,7 @@ class Deque<T> {
         self.count += 1
     }
     
-    func unshift(value: T) {
+    func unshift(_ value: T) {
         let node = Node<T>(value: value)
         if self.isEmpty() {
             self.head = node

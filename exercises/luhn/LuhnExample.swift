@@ -13,9 +13,9 @@ struct Luhn {
         self.number = num
     }
     
-    static func create (num:Int64)->Double{
+    static func create (_ num:Int64)->Double{
         
-        func createCheckDigit(value:Int) -> Int{
+        func createCheckDigit(_ value:Int) -> Int{
             let nearestTen = Int(ceil((Double(value) / 10.00)) * 10)
             return nearestTen - value
         }
@@ -30,28 +30,28 @@ struct Luhn {
         
     }
     
-    func addendsFunc(num:Int64)->[Int]{
-            func oddIndexInt64Minus9( input:[Int])->[Int]{
+    func addendsFunc(_ num:Int64)->[Int]{
+            func oddIndexInt64Minus9( _ input:[Int])->[Int]{
             var input = input
-            input = Array(input.reverse())
+            input = Array(input.reversed())
             var tempArray:[Int] = []
-            for (inx, each) in input.enumerate(){
+            for (inx, each) in input.enumerated(){
             var tempEach:Int = each
             if (inx+1) % 2 == 0 {
             tempEach *= 2
             if tempEach > 10 {
             tempEach -= 9
             }
-            tempArray.insert(tempEach, atIndex: 0)
+            tempArray.insert(tempEach, at: 0)
             } else {
-            tempArray.insert(tempEach, atIndex: 0)
+            tempArray.insert(tempEach, at: 0)
             }
             }
             return tempArray
             }
         
         
-        func char2Int(input:Character)-> Int{
+        func char2Int(_ input:Character)-> Int{
             let tempInt = Int(String(input)) ?? -1 // -1 = error
             return tempInt
         }

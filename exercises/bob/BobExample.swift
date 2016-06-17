@@ -12,7 +12,7 @@ private extension String {
         return  removeSpaces
     }
     
-    func trimCharacters(charToTrim:Character, sourceText:String) -> String{
+    func trimCharacters(_ charToTrim:Character, sourceText:String) -> String{
         var editCharacterView = sourceText.characters
         var editString = String(editCharacterView)
         
@@ -38,11 +38,11 @@ private extension String {
     }
     
     var isShouting:Bool {
-            return (self == uppercaseString && hasLetters)
+            return (self == uppercased() && hasLetters)
         
     }
     
-    private func containsLetters(input:String) ->Bool{
+    private func containsLetters(_ input:String) ->Bool{
         let abc = "abcdefghijklmnopqrstuvwxyz"
         var contains = false
         let inputStringCollection = input.characters.map({String($0)})
@@ -50,7 +50,7 @@ private extension String {
         
         for each in inputStringCollection {
             abcStringCollection.forEach({
-                    if each == $0 || each == $0.uppercaseString {
+                    if each == $0 || each == $0.uppercased() {
                     contains = true }
                 
             })
@@ -61,7 +61,7 @@ private extension String {
 }
 
 struct Bob {
-    static func hey(input: String) -> String {
+    static func hey(_ input: String) -> String {
         if input.trimWhiteSpace().isEmpty {
             return "Fine, be that way."
         } else if input.isShouting {

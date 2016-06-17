@@ -10,7 +10,7 @@ class BinarySearchTree<T: Comparable> {
         self.data = data
     }
     
-    func insert(newData: T) {
+    func insert(_ newData: T) {
         if newData <= data {
             if let left = left {
                 left.insert(newData)
@@ -27,7 +27,7 @@ class BinarySearchTree<T: Comparable> {
     }
     
     func allData() -> [T] {
-        return getAllData().sort(<)
+        return getAllData().sorted(isOrderedBefore: <)
     }
     
     private func getAllData() -> [T] {

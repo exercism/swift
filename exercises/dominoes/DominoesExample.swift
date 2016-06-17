@@ -17,11 +17,11 @@ struct Dominoes{
         }
     }
     
-    private func swapDuplicate(input:[Bone])->[Bone]{
+    private func swapDuplicate(_ input:[Bone])->[Bone]{
         var unique = [Bone]()
         for each in input{
             if unique.contains(each){
-                    unique.insert(Bone(each.value.tail,each.value.head), atIndex: 0)
+                    unique.insert(Bone(each.value.tail,each.value.head), at: 0)
                 
             }else{
                 unique.append(each)
@@ -30,7 +30,7 @@ struct Dominoes{
         return unique
     }
     
-    private func chainning(input:[Bone])->(Bool,[Bone]){
+    private func chainning(_ input:[Bone])->(Bool,[Bone]){
         var matched = input
         
         guard !matched.isEmpty else {return (false,[])}
@@ -78,7 +78,7 @@ class Bone:CustomStringConvertible,Equatable{
         return "\(value)|\(connected)|\(available) "
     }
     
-    func connect(input:Bone)->Bool{
+    func connect(_ input:Bone)->Bool{
         
         if self === input {return false}
         if self === input.connectedTo {return false}

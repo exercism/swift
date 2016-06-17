@@ -3,7 +3,7 @@
 
 
 struct Hamming {
-    static func compute(input: String, against: String) -> Int? {
+    static func compute(_ input: String, against: String) -> Int? {
         var differences = 0
         
         let char1 = convertStringToArray(input)
@@ -20,7 +20,7 @@ struct Hamming {
     
 }
 
-private func convertStringToArray(input: String) -> [Character] {
+private func convertStringToArray(_ input: String) -> [Character] {
     var characterArray: [Character] = []
     
     for character in input.characters {

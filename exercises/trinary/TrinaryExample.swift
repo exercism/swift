@@ -16,9 +16,9 @@ struct Trinary {
         return (Int(stringValue) ?? -1) > -1 ? true : false
     }
     
-    private func tri2int(input:String)->Int{
-        let orderedInput = Array(input.characters.reverse())
-        let enumarated = orderedInput.enumerate()
+    private func tri2int(_ input:String)->Int{
+        let orderedInput = Array(input.characters.reversed())
+        let enumarated = orderedInput.enumerated()
         
         var tempInt:Int = 0
         for (inx,each) in enumarated{

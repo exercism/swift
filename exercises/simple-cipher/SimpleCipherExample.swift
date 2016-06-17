@@ -2,7 +2,7 @@ import Darwin
 
 
 
-func arc4random_uniform(input:Int)->Int{
+func arc4random_uniform(_ input:Int)->Int{
     let temp = UInt32(input)
     return Int(arc4random_uniform(temp))
 }
@@ -18,7 +18,7 @@ public struct Cipher
     
     private func randomKeySet()->String{
         var tempKey = ""
-        for _ in (0..<100).enumerate(){
+        for _ in (0..<100).enumerated(){
             tempKey.append(alphabet[arc4random_uniform(alphabet.count)])
         }
         return tempKey
@@ -44,11 +44,11 @@ public struct Cipher
     }
     
     
-     func isLowerCaseAlfabet(inkey:String)-> Bool{
+     func isLowerCaseAlfabet(_ inkey:String)-> Bool{
         var valid = true
         inkey.characters.forEach{
             
-            if "abcdefghijklmnopqrstuvwxyz".containsString(String($0)) == false {
+            if "abcdefghijklmnopqrstuvwxyz".contains(String($0)) == false {
                 valid = false
             }
         }
@@ -56,16 +56,16 @@ public struct Cipher
     }
 
     
-    func encode(plaintext:String) ->String
+    func encode(_ plaintext:String) ->String
     {
         let plainTextArray = Array(plaintext.characters)
         
-        func encodeCharacter(plaintext:String, idx:Int)->Character
+        func encodeCharacter(_ plaintext:String, idx:Int)->Character
         {
             //let plainTextArray = Array(plaintext) // hack for subscript support for Strings
             var alphabetIdx:Int =
-            (alphabet.indexOf(plainTextArray[idx]) ?? 0) +
-                (alphabet.indexOf(keyArray[idx]) ?? 0)
+            (alphabet.index(of: plainTextArray[idx]) ?? 0) +
+                (alphabet.index(of: keyArray[idx]) ?? 0)
             if alphabetIdx >= alphabet.count {
                 alphabetIdx -= alphabet.count
             }
@@ -81,16 +81,16 @@ public struct Cipher
     
     
     
-    func decode(ciphertext:String)->String
+    func decode(_ ciphertext:String)->String
     {
         let cipherTextArray = Array(ciphertext.characters)
         
-        func decodeCharacter(ciphertext:String, idx:Int)-> Character
+        func decodeCharacter(_ ciphertext:String, idx:Int)-> Character
         {
             //let cipherTextArray = Array(ciphertext) // no native subscript for String
             var alphabetIdx:Int =
-            (alphabet.indexOf(cipherTextArray[idx]) ?? 0) -
-                (alphabet.indexOf(keyArray[idx]) ?? 0)
+            (alphabet.index(of: cipherTextArray[idx]) ?? 0) -
+                (alphabet.index(of: keyArray[idx]) ?? 0)
             if alphabetIdx < 0{
                 alphabetIdx += alphabet.count
             }

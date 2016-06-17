@@ -13,11 +13,11 @@ struct RomanNumeral{
     
     var romanNumeral:String = ""
     
-    private func toRomanNumerals(input:Int) ->String{
+    private func toRomanNumerals(_ input:Int) ->String{
         var arabicToRoman = [1000: "M", 900: "CM", 500: "D", 400: "CD", 100: "C", 90: "XC", 50: "L", 40: "XL", 10: "X", 9: "IX", 5: "V", 4: "IV", 1: "I"]
         var i = input
         var s = ""
-        for arabic in arabicToRoman.keys.sort(> ){
+        for arabic in arabicToRoman.keys.sorted(isOrderedBefore: > ){
             while i >= arabic{
                 s += arabicToRoman[arabic] ?? ""
                 i -= arabic

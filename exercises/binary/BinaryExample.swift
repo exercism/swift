@@ -15,10 +15,10 @@ extension Int{
 struct Binary {
     private var UIntValue:UInt = 0
     private var toDecimal:Int {get {return Int(UIntValue)}}
-    private func bi2Uint(input:String) -> UInt?{
-        let orderedInput = Array(input.characters.reverse())
+    private func bi2Uint(_ input:String) -> UInt?{
+        let orderedInput = Array(input.characters.reversed())
         var tempUInt:UInt = 0
-        for (inx,each) in orderedInput.enumerate(){
+        for (inx,each) in orderedInput.enumerated(){
             if each == "1" {
                 tempUInt += UInt(0x1 << inx)
             }

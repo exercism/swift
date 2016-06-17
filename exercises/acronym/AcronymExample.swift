@@ -4,33 +4,33 @@
 
 private extension String{
     
-    func substringWithRangeInt(intRange:Range<Int>)->String{
-        let start = self.startIndex.advancedBy(intRange.startIndex)
-        let end = self.startIndex.advancedBy(intRange.endIndex)
-        return self.substringWithRange(start..<end)
+    func substringWithRangeInt(_ intRange:Range<Int>)->String{
+        let start = self.characters.index(self.startIndex, offsetBy: intRange.lowerBound)
+        let end = self.characters.index(self.startIndex, offsetBy: intRange.upperBound)
+        return self.substring(with: start..<end)
     }
     
-    func substringWithRangeInt(start start:Int, end:Int) -> String{
+    func substringWithRangeInt(start:Int, end:Int) -> String{
         let range = start..<end
         return self.substringWithRangeInt(range)
     }
     
     var isUppercase:Bool {
-        return self == self.uppercaseString
+        return self == self.uppercased()
     }
     
     var isLowercase:Bool {
-        return self == self.lowercaseString
+        return self == self.lowercased()
     }
 }
 
 struct Acronym{
     
-    static func abbreviate(inString:String) -> String {
+    static func abbreviate(_ inString:String) -> String {
         
         var previousLetter:String = ""
         
-        func splitCamelcaseAt(currentLetter: String, inout withString previousLetter: String ) -> Bool {
+        func splitCamelcaseAt(_ currentLetter: String, withString previousLetter: inout String ) -> Bool {
             
             defer { previousLetter = currentLetter }
             
@@ -44,11 +44,11 @@ struct Acronym{
             return false
         }
         
-        func insertSpaceAtCamelcase(inString:String)->String{
+        func insertSpaceAtCamelcase(_ inString:String)->String{
             var accumulate  = ""
             var lastIndexAdded = 0
             
-            for (index , each) in inString.characters.map({String($0)}).enumerate() {
+            for (index , each) in inString.characters.map({String($0)}).enumerated() {
                 if splitCamelcaseAt(each, withString: &previousLetter){
                     accumulate += inString.substringWithRangeInt(start: lastIndexAdded, end: index)+" " // inserts a space
                     lastIndexAdded = index
@@ -58,7 +58,7 @@ struct Acronym{
             return accumulate + lastStringSection
         }
         
-        func splitAt(characterToCompare:Character, charToSplitAt:String = " ,-:")-> Bool{
+        func splitAt(_ characterToCompare:Character, charToSplitAt:String = " ,-:")-> Bool{
             for each in charToSplitAt.characters{
                 if each == characterToCompare{
                     return true
@@ -67,12 +67,12 @@ struct Acronym{
             return false
         }
         
-        func splitStringToArray(inString:String) -> [String]{
+        func splitStringToArray(_ inString:String) -> [String]{
             
             return inString.characters.split(isSeparator: { splitAt($0) }).map{String($0)}
         }
         
-        return splitStringToArray(insertSpaceAtCamelcase(inString)).map({$0.uppercaseString.substringWithRangeInt(start: 0, end: 1)}).joinWithSeparator("")
+        return splitStringToArray(insertSpaceAtCamelcase(inString)).map({$0.uppercased().substringWithRangeInt(start: 0, end: 1)}).joined(separator: "")
     }
     
 }

@@ -50,12 +50,12 @@ struct Date{
         
         // Automaticly sets the week day
         var d1 = timegm(&date)
-        self.tmDateBacking = gmtime(&d1).memory
+        self.tmDateBacking = gmtime(&d1).pointee
     }
     
-    mutating func dateByAddingSeconds(seconds:Int) -> Date {
+    mutating func dateByAddingSeconds(_ seconds:Int) -> Date {
         var d1 = timegm(&tmDateBacking) + seconds
-        let d2 = gmtime(&d1).memory
+        let d2 = gmtime(&d1).pointee
         return Date.init(d2)
     }
     
@@ -64,7 +64,7 @@ struct Date{
 extension Date:CustomStringConvertible {
 
     
-    private func addLeadingZero(input:Int32) -> String {
+    private func addLeadingZero(_ input:Int32) -> String {
         
         if (0...9).contains(input) {
             return "0\(input)" }
@@ -95,7 +95,7 @@ extension Date{
         }
     }
     
-    static func dateFromString(input:String) -> Date?  {
+    static func dateFromString(_ input:String) -> Date?  {
         var year = Int32()
         var month = Int32()
         var day = Int32()
@@ -103,8 +103,8 @@ extension Date{
         var minute = Int32()
         var second = Int32()
         
-        let dateTime = input.characters.split("T").map{String($0)}
-        let date = dateTime[0].characters.split("-").map{String($0)}
+        let dateTime = input.characters.split(separator: "T").map{String($0)}
+        let date = dateTime[0].characters.split(separator: "-").map{String($0)}
         if date.count == 3 {
             year = Int32(date[0]) ?? 0
             month = Int32(date[1]) ?? 0
@@ -112,7 +112,7 @@ extension Date{
         }
         
         if dateTime.count == 2 {
-            let time = dateTime[1].characters.split(":").map{String($0)}
+            let time = dateTime[1].characters.split(separator: ":").map{String($0)}
             if time.count == 3  {
                 hour = Int32(time[0]) ?? 0
                 minute = Int32(time[1]) ?? 0
@@ -133,23 +133,23 @@ struct Meetup{
     private var dateEnd = Date()
 
     
-    func newDate(input:String) -> Date{
+    func newDate(_ input:String) -> Date{
         
         return Date(from: input) ?? Date()
     }
     
-    func day(dayOfTheWeek:Int, which:String) -> Date{
+    func day(_ dayOfTheWeek:Int, which:String) -> Date{
         var dateMonthWeekDays = [[Int32(),Int32()]]
         var dateWeekDays = [Int32()]
         
         let starDay = dateStart.weekday
         var month = Array(dateStart.day ... dateEnd.day).map{(($0 + 5 + starDay) % 7) + 1  }
         
-        for (index , eachDay) in month.enumerate(){
+        for (index , eachDay) in month.enumerated(){
             dateMonthWeekDays.append([index + 1,eachDay])
             dateWeekDays.append(eachDay)}
         
-        func which2date(dateInput:String)->Date{
+        func which2date(_ dateInput:String)->Date{
             
             if which == "teenth" {
                 let teenthRange = Array(dateMonthWeekDays[13...19])

@@ -1,22 +1,22 @@
 
 private extension String {
     
-    func split(input: String)->[String] {
-        return self.componentsSeparatedByString(input)
+    func split(_ input: String)->[String] {
+        return self.components(separatedBy: input)
     }
     // Returns the Rank part of the card
     func head()->String{
-        return self.substringToIndex(self.endIndex.predecessor())
+        return self.substring(to: self.characters.index(before: self.endIndex))
     }
     // Return the Suit part of the card
     func tail()->String{
-        return self.substringFromIndex(self.endIndex.predecessor())
+        return self.substring(from: self.characters.index(before: self.endIndex))
     }
 }
 
 struct Poker{
     
-    static func bestHand(hands:[String])->String?{
+    static func bestHand(_ hands:[String])->String?{
         
         var pokerHandsParsed:[PokerHand] = []
         
@@ -25,8 +25,8 @@ struct Poker{
             pokerHandsParsed.append(pokerHand)
         }
         
-        guard let topHand = (pokerHandsParsed.sort(>)).first,
-            let indexTop = pokerHandsParsed.indexOf(topHand) else {return nil}
+        guard let topHand = (pokerHandsParsed.sorted(isOrderedBefore: >)).first,
+            let indexTop = pokerHandsParsed.index(of: topHand) else {return nil}
         
         return hands[indexTop]
         
@@ -58,7 +58,7 @@ enum HandRank{
         }
     }
     
-    static func parsePairs(inputHand:PokerHand)->[(rank:Rank,count:Int)]{
+    static func parsePairs(_ inputHand:PokerHand)->[(rank:Rank,count:Int)]{
         let ranks = inputHand.hand.map({$0.rank})
         let rankSet = Set(ranks)
         var toReturn = [Rank:Int]()
@@ -67,14 +67,14 @@ enum HandRank{
                 toReturn[each] = (toReturn[each] ?? 0) + 1
             }
         }
-        let result = toReturn.map({key,value in return (rank:key,count:value)}).sort({
+        let result = toReturn.map({key,value in return (rank:key,count:value)}).sorted(isOrderedBefore: {
             (one, two) in
                 return one.count == two.count ? one.rank > two.rank : one.count > two.count
             })
         return result
     }
     
-    static func isFlush(inputHand:PokerHand)->(bool:Bool,suit:Suit){
+    static func isFlush(_ inputHand:PokerHand)->(bool:Bool,suit:Suit){
         let suits = inputHand.hand.map({$0.suit})
         let first = suits[0]
         for each in suits{
@@ -83,19 +83,19 @@ enum HandRank{
         return (true,first)
     }
     
-    static func isStraight(inputHand:PokerHand)->(bool:Bool, highest:Rank){
-        let sorted = inputHand.hand.sort({$0.rank < $1.rank})
+    static func isStraight(_ inputHand:PokerHand)->(bool:Bool, highest:Rank){
+        let sorted = inputHand.hand.sorted(isOrderedBefore: {$0.rank < $1.rank})
         let first = sorted[0].rank.rawValue
-        for (index, each) in sorted.enumerate() {
+        for (index, each) in sorted.enumerated() {
             if (each.rank.rawValue != index + first){
                 // checks for Ace as the lowest card
-                guard let aceIndex = inputHand.hand.indexOf({$0.rank.rawValue == 14})else {return (false, .Ace)}
+                guard let aceIndex = inputHand.hand.index(where: {$0.rank.rawValue == 14})else {return (false, .ace)}
                 var replacedAced = inputHand.hand.map({$0.rank.rawValue})
                 replacedAced[aceIndex] = 1 // swaps ace value to lowest
-                replacedAced.sortInPlace()
+                replacedAced.sort()
                 let firstVal = replacedAced[0]
-                for (idx,eachVal) in replacedAced.enumerate(){
-                    if (eachVal != firstVal + idx ) { return (false,.Ace) }
+                for (idx,eachVal) in replacedAced.enumerated(){
+                    if (eachVal != firstVal + idx ) { return (false,.ace) }
                 }
             }
         }
@@ -306,9 +306,9 @@ func <(lhs: PlayingCard, rhs: PlayingCard) -> Bool {
 
 
 enum Rank : Int {
-    case Two = 2
-    case Three, Four, Five, Six, Seven, Eight, Nine, Ten
-    case Jack, Queen, King, Ace
+    case two = 2
+    case three, four, five, six, seven, eight, nine, ten
+    case jack, queen, king, ace
     
     init?(_ rank:String){
         var rankInt = 0

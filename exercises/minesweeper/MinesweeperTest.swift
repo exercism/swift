@@ -74,7 +74,7 @@ class MinesweeperTest: XCTestCase {
         let input = ["+-+", "| |", "|*  |", "|  |", "+-+"]
         do {
             let _ = try Board(input)
-        } catch Board.Error.DifferentLength {
+        } catch Board.Error.differentLength {
             throwsDifferentLengthError = true
         } catch {
             return
@@ -91,7 +91,7 @@ class MinesweeperTest: XCTestCase {
         let input = ["+-----+", "*   * |", "+-- --+"]
         do {
             let _ = try Board(input)
-        } catch Board.Error.FaultyBorder {
+        } catch Board.Error.faultyBorder {
             throwsFaultyBorderError = true
         } catch {
             return
@@ -108,7 +108,7 @@ class MinesweeperTest: XCTestCase {
         let input = ["+-----+", "|X  * |", "+-----+"]
         do {
             let _ = try Board(input)
-        } catch Board.Error.InvalidCharacter {
+        } catch Board.Error.invalidCharacter {
             throwsInvalidCharacterError = true
         } catch {
             return

@@ -31,11 +31,11 @@ struct Hexadecimal {
         self.intValue = Hexadecimal.getIntFromHexString(hexString)
     }
     
-    private static func getIntFromHexString(hexString: String) -> Int? {
+    private static func getIntFromHexString(_ hexString: String) -> Int? {
         var result = 0
         var multiplier = 1
         
-        let digits = hexString.characters.map { String($0).lowercaseString }.reverse()
+        let digits = hexString.characters.map { String($0).lowercased() }.reversed()
         
         for digit in digits {
             guard let intValue = hexDigits[digit] else {

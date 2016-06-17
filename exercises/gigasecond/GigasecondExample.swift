@@ -25,12 +25,12 @@ private extension tm{
         
     }
     
-    mutating func dateByAddingSeconds(seconds:Int) -> tm {
+    mutating func dateByAddingSeconds(_ seconds:Int) -> tm {
         var d1 = timegm(&self) + seconds
-        return gmtime(&d1).memory
+        return gmtime(&d1).pointee
     }
     
-    private func addLeadingZero(input:Int32) -> String{
+    private func addLeadingZero(_ input:Int32) -> String{
         var addZero = false
         (0...9).forEach{
             if $0 == Int(input) {
@@ -76,12 +76,12 @@ struct Gigasecond: Equatable, CustomStringConvertible{
     }
     
     
-    private func parse(input:String) -> tm?  {
+    private func parse(_ input:String) -> tm?  {
         
-        let dateTime = input.characters.split("T").map{String($0)}
+        let dateTime = input.characters.split(separator: "T").map{String($0)}
         if dateTime.count > 1 {
-            let date = dateTime[0].characters.split("-").map{String($0)}
-            let time = dateTime[1].characters.split(":").map{String($0)}
+            let date = dateTime[0].characters.split(separator: "-").map{String($0)}
+            let time = dateTime[1].characters.split(separator: ":").map{String($0)}
             if date.count == 3 && time.count == date.count {
                 
                 let year = Int32(date[0]) ?? 0

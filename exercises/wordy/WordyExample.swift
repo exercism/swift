@@ -12,7 +12,7 @@ private extension String {
         return  removeSpaces
     }
     
-    func trimCharacters(charToTrim:Character, sourceText:String) -> String{
+    func trimCharacters(_ charToTrim:Character, sourceText:String) -> String{
         var editCharacterView = sourceText.characters
         var editString = String(editCharacterView)
         
@@ -28,20 +28,20 @@ private extension String {
         return editString
     }
     
-    func replacingOccurrencesCustom(of:String, with: String) -> String {
-           return stringByReplacingOccurrencesOfString(of, withString: with)
+    func replacingOccurrencesCustom(_ of:String, with: String) -> String {
+           return replacingOccurrences(of: of, with: with)
         
     }
     
-    func componentsSeparatedByStringCustom(input:String)->Array<String> {
-        return componentsSeparatedByString(input)
+    func componentsSeparatedByStringCustom(_ input:String)->Array<String> {
+        return components(separatedBy: input)
         
     }
     
 }
 
 
-    enum calculateError:ErrorType{
+    enum calculateError:ErrorProtocol{
     case error
     }
 
@@ -73,7 +73,7 @@ struct WordProblem {
         return toReturn
     }
     
-    func calculate(textIn:String) ->Int?{
+    func calculate(_ textIn:String) ->Int?{
         let calcStack = replaceText(textIn).componentsSeparatedByStringCustom(" ")
         
         if calcStack.count == 3 {
@@ -103,7 +103,7 @@ struct WordProblem {
     }
     
     
-    private func replaceText( textInp:String)-> String{
+    private func replaceText( _ textInp:String)-> String{
         var textInp = textInp
         for key in Array(operans.keys){
             let toBeReplaced = key
@@ -111,8 +111,8 @@ struct WordProblem {
             textInp = textInp.replacingOccurrencesCustom(toBeReplaced, with: toReplaceValue)
         }
         
-        func checkCharInSet(input:Character)->Bool{
-                let temp = " 0987654321+-*/".characters.indexOf(input)
+        func checkCharInSet(_ input:Character)->Bool{
+                let temp = " 0987654321+-*/".characters.index(of: input)
             
             if temp == nil {
                 return false
@@ -123,7 +123,7 @@ struct WordProblem {
         var newTextIn =  Array(textInp.characters)
         newTextIn = newTextIn.filter(checkCharInSet)
         let newTextInString:[String] = newTextIn.map{String($0)}
-        return newTextInString.joinWithSeparator("").trimWhiteSpace()
+        return newTextInString.joined(separator: "").trimWhiteSpace()
         
     }
 

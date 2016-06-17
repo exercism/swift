@@ -4,10 +4,10 @@
 
 struct Atbash {
     
-    private static func stripWhiteSpaceAndPunctuations(input:String) ->String{
+    private static func stripWhiteSpaceAndPunctuations(_ input:String) ->String{
         var returnString = ""
         input.characters.forEach{
-            if !" ,.".containsString(String($0)){
+            if !" ,.".contains(String($0)){
                 returnString.append($0)
             }
         }
@@ -19,8 +19,8 @@ struct Atbash {
     
     static let cipherDictApply:[Character : Character] = ["a": "z", "b": "y", "c": "x", "d": "w", "e": "v", "f": "u", "g": "t", "h": "s", "i": "r", "j": "q", "k": "p", "l": "o", "m": "n", "n": "m", "o": "l", "p": "k", "q": "j", "r": "i", "s": "h", "t": "g", "u": "f", "v": "e", "w": "d", "x": "c", "y": "b", "z": "a"]
     
-    static func encode( valueIn:String)->String{
-       let value = stripWhiteSpaceAndPunctuations(valueIn.lowercaseString  )
+    static func encode( _ valueIn:String)->String{
+       let value = stripWhiteSpaceAndPunctuations(valueIn.lowercased()  )
         
         var text2return = ""
         
@@ -30,7 +30,7 @@ struct Atbash {
         return insertSpace5th(text2return)
     }
     
-    static func insertSpace5th(value:String)->String{
+    static func insertSpace5th(_ value:String)->String{
         var tempCounter = 0
         var tempString:String = ""
         for each in value.characters{

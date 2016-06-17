@@ -5,8 +5,8 @@
 private extension String {
     subscript (range: Range<Int>) -> String {
         get {
-            let start = startIndex.advancedBy(range.startIndex)
-            let end   = start.advancedBy(range.endIndex - range.startIndex)
+            let start = characters.index(startIndex, offsetBy: range.lowerBound)
+            let end   = characters.index(start, offsetBy: range.upperBound - range.lowerBound)
 
             
             

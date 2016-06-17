@@ -2,11 +2,11 @@
 
 struct SumOfMultiples {
     
-    static func toLimit(limit: Int, inMultiples: [Int]) -> Int {
+    static func toLimit(_ limit: Int, inMultiples: [Int]) -> Int {
         var multiples = Set(inMultiples)
         
-        if let indexOfZero = multiples.indexOf(0) {
-            multiples.removeAtIndex(indexOfZero)
+        if let indexOfZero = multiples.index(of: 0) {
+            multiples.remove(at: indexOfZero)
         }
         
         var itemToReturn = 0

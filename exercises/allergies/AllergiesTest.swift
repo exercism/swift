@@ -9,25 +9,25 @@ class AllergiesTest: XCTestCase {
         
         let allergies = Allergies(34)
         
-        XCTAssertTrue(allergies.hasAllergy(.Peanuts), "Bob is allergic to peanuts")
-        XCTAssertTrue(allergies.hasAllergy(.Chocolate), "Bob is allergic to chocolate")
-        XCTAssertFalse(allergies.hasAllergy(.Cats),  "Bob is not allergic to cats")
+        XCTAssertTrue(allergies.hasAllergy(.peanuts), "Bob is allergic to peanuts")
+        XCTAssertTrue(allergies.hasAllergy(.chocolate), "Bob is allergic to chocolate")
+        XCTAssertFalse(allergies.hasAllergy(.cats),  "Bob is not allergic to cats")
     }
     
     func testEggsNcats() {
         
         let allergies = Allergies(129)
         
-        XCTAssertTrue(allergies.hasAllergy(.Eggs))
-        XCTAssertTrue(allergies.hasAllergy(.Cats))
-        XCTAssertFalse(allergies.hasAllergy(.Chocolate))
+        XCTAssertTrue(allergies.hasAllergy(.eggs))
+        XCTAssertTrue(allergies.hasAllergy(.cats))
+        XCTAssertFalse(allergies.hasAllergy(.chocolate))
         
     }
     
     func testNone() {
         let allergies = Allergies(0)
         
-        XCTAssertFalse(allergies.hasAllergy(.Pollen))
+        XCTAssertFalse(allergies.hasAllergy(.pollen))
     }
     
     func testAll() {
@@ -35,14 +35,14 @@ class AllergiesTest: XCTestCase {
         let allInt =  UInt(Array(0...7).reduce(0){ return ($0 | (1 << $1)) })
         let allergies = Allergies(allInt)
         
-        XCTAssertTrue(allergies.hasAllergy(.Eggs))
-        XCTAssertTrue(allergies.hasAllergy(.Peanuts))
-        XCTAssertTrue(allergies.hasAllergy(.Shellfish))
-        XCTAssertTrue(allergies.hasAllergy(.Strawberries))
-        XCTAssertTrue(allergies.hasAllergy(.Tomatoes))
-        XCTAssertTrue(allergies.hasAllergy(.Chocolate))
-        XCTAssertTrue(allergies.hasAllergy(.Pollen))
-        XCTAssertTrue(allergies.hasAllergy(.Cats))
+        XCTAssertTrue(allergies.hasAllergy(.eggs))
+        XCTAssertTrue(allergies.hasAllergy(.peanuts))
+        XCTAssertTrue(allergies.hasAllergy(.shellfish))
+        XCTAssertTrue(allergies.hasAllergy(.strawberries))
+        XCTAssertTrue(allergies.hasAllergy(.tomatoes))
+        XCTAssertTrue(allergies.hasAllergy(.chocolate))
+        XCTAssertTrue(allergies.hasAllergy(.pollen))
+        XCTAssertTrue(allergies.hasAllergy(.cats))
         
     }
 }

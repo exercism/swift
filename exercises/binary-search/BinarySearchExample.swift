@@ -4,8 +4,8 @@
 
 // Note: Placing this enum inside the BinarySearch struct results in a compiler crash
 
-    enum BinarySearchError: ErrorType {
-    case Unsorted
+    enum BinarySearchError: ErrorProtocol {
+    case unsorted
     }
 
 
@@ -17,8 +17,8 @@ struct BinarySearch<T: Comparable> {
     }
     
     init(_ list: [T]) throws {
-            guard list == list.sort(<) else {
-                throw BinarySearchError.Unsorted
+            guard list == list.sorted(isOrderedBefore: <) else {
+                throw BinarySearchError.unsorted
             }
             
         
@@ -26,7 +26,7 @@ struct BinarySearch<T: Comparable> {
         self.list = list
     }
     
-    func searchFor(datum: T) -> Int? {
+    func searchFor(_ datum: T) -> Int? {
         let middleItem = list[middle]
         
         if middleItem == datum {

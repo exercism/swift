@@ -3,10 +3,10 @@
 
 
 struct Queens {
-    enum InitError: ErrorType {
-    case SameSpace
-    case IncorrectNumberOfCoordinates
-    case InvalidCoordinates
+    enum InitError: ErrorProtocol {
+    case sameSpace
+    case incorrectNumberOfCoordinates
+    case invalidCoordinates
     }
     
     
@@ -29,17 +29,17 @@ struct Queens {
     
     init(white: [Int] = [0, 3], black: [Int] = [7, 3]) throws {
         guard white.count == 2 && black.count == 2 else {
-            throw InitError.IncorrectNumberOfCoordinates
+            throw InitError.incorrectNumberOfCoordinates
         }
         
         for number in white + black {
             guard number >= 0 && number <= 7 else {
-                throw InitError.InvalidCoordinates
+                throw InitError.invalidCoordinates
             }
         }
         
         guard white != black else {
-            throw InitError.SameSpace
+            throw InitError.sameSpace
         }
         
         self.white = white
@@ -50,8 +50,8 @@ struct Queens {
 
 extension Queens: CustomStringConvertible {
     var description: String {
-            let row = [String](count: 8, repeatedValue: "_")
-            var board = [[String]](count: 8, repeatedValue: row)
+            let row = [String](repeating: "_", count: 8)
+            var board = [[String]](repeating: row, count: 8)
             
         
         
@@ -60,9 +60,9 @@ extension Queens: CustomStringConvertible {
         
         var rows = [String]()
             for row in board {
-            rows.append(row.joinWithSeparator(" "))
+            rows.append(row.joined(separator: " "))
             }
-            return rows.joinWithSeparator("\n")
+            return rows.joined(separator: "\n")
         
         
     }

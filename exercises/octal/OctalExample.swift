@@ -17,10 +17,10 @@ struct Octal {
         return (Int(stringValue) ?? -1) > -1 ? true : false
     }
     
-    private func oct2int(input:String)->Int{
-        let orderedInput = Array(input.characters.reverse())
+    private func oct2int(_ input:String)->Int{
+        let orderedInput = Array(input.characters.reversed())
         var tempInt:Int = 0
-        for (inx,each) in orderedInput.enumerate(){
+        for (inx,each) in orderedInput.enumerated(){
             let tempCharInt = Int("\(each)") ?? 0
             if tempCharInt > 7 {return 0}
             let tempOctPower = Int(pow(Double(8),Double(inx)))
