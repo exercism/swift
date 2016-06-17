@@ -20,22 +20,16 @@ struct House {
     ]
     
     static func recite() -> String {
-        #if swift(>=3.0)
-        return (1...pieces.count).map { line($0) }.joined(separator: "\n\n")
-        #else
         return (1...pieces.count).map { line($0) }.joinWithSeparator("\n\n")
-        #endif
+        
     }
     
     private static func line(number: Int) -> String {
         let startIndex = pieces.count - number
         let endIndex = pieces.count
         let selectedPieces = pieces[startIndex ..< endIndex]
-        #if swift(>=3.0)
-        let text = selectedPieces.map { $0.joined(separator: "\n") }.joined(separator: " ")
-        #else
         let text = selectedPieces.map { $0.joinWithSeparator("\n") }.joinWithSeparator(" ")
-        #endif
+        
         return "This is \(text)."
     }
     

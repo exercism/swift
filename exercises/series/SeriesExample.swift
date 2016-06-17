@@ -17,11 +17,8 @@ struct Series {
         var end = chunkSize
         var tempArrayReturn = [[Int]]()
         
-        #if swift(>=3.0)
-        let enumarated = (0..<(count)).enumerated()
-        #else
         let enumarated = (0..<(count)).enumerate()
-        #endif
+        
         for (_, _) in enumarated {
             if end < count+1 {
                 let tempArray = Array(numberStringArray[start ..< end])

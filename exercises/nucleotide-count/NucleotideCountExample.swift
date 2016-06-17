@@ -14,11 +14,8 @@ struct DNA {
     var nucleotideCounts:[Nucleobase:Int] = [ .Adenine: 0, .Thymine: 0, .Cytosine: 0 , .Guanine : 0 ]
     
     init?(strand: String) {
-        #if swift(>=3.0)
-        let enumarated = strand.characters.enumerated()
-        #else
         let enumarated = strand.characters.enumerate()
-        #endif
+        
         for (_, value) in enumarated {
             if let possibleNucleobase = Nucleobase(rawValue: value) {
                 nucleotideCounts[possibleNucleobase]! += 1

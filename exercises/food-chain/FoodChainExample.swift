@@ -8,11 +8,8 @@ struct FoodChain {
     
     static func song() -> String {
         let verses = (1...8).map { verse($0) }
-        #if swift(>=3.0)
-        return verses.joined(separator: "\n\n")
-        #else
         return verses.joinWithSeparator("\n\n")
-        #endif
+        
     }
     
     static func verse(number: Int) -> String {

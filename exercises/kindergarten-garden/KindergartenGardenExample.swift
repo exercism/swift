@@ -26,13 +26,9 @@ struct Garden {
     }
     
     private static func parse(diagram: String, children: [String]) -> [String : [Plant]] {
-        #if swift(>=3.0)
-            let sortedChildren = children.sorted(isOrderedBefore: <)
-            let lines = diagram.componentsSeparatedByCharacters(in: NSCharacterSet.newline())
-        #else
             let sortedChildren = children.sort(<)
             let lines = diagram.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
-        #endif
+        
         
         var result = [String : [Plant]]()
         var line1 = lines[0].characters.map { String($0) }

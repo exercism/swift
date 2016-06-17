@@ -5,11 +5,8 @@
 private extension Array{
 
     func reversedCustom()->Array{
-        #if swift(>=3.0)
-        return reversed()
-        #else
         return reverse()
-        #endif
+        
     }
 }
 

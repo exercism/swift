@@ -5,15 +5,10 @@
 private extension String {
     subscript (range: Range<Int>) -> String {
         get {
-            #if swift(>=3.0)
-                let start = startIndex.advanced(by:range.startIndex)
-                let end   = start.advanced(by:range.endIndex - range.startIndex)
-
-            #else
             let start = startIndex.advancedBy(range.startIndex)
             let end   = start.advancedBy(range.endIndex - range.startIndex)
 
-            #endif
+            
             
             return self[start..<end]
         }

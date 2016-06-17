@@ -5,19 +5,13 @@
 private extension String {
     
     func containsCustom(input: Character) ->Bool{
-        #if swift(>=3.0)
-            return contains(String(input))
-        #else
             return containsString(String(input))
-        #endif
+        
     }
     
     func lowercasedCustom()->String{
-        #if swift(>=3.0)
-            return lowercased()
-        #else
             return lowercaseString
-        #endif
+        
     }
     
     private func stripCharacters(charsToRemove:String) -> String{

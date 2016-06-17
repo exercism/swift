@@ -23,11 +23,8 @@ struct GradeSchool {
     var sortedRoster: [Int: Set<String>] {
         var sortedRoster = [Int: Set<String>](minimumCapacity: roster.count)
         for (grade, students) in roster {
-        #if swift(>=3.0)
-            sortedRoster[grade] = Set(students.sorted())
-        #else
             sortedRoster[grade] = Set(students.sort())
-        #endif
+        
         }
         return sortedRoster
     }

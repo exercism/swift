@@ -29,33 +29,22 @@ private extension String {
     }
     
     func replacingOccurrencesCustom(of:String, with: String) -> String {
-        #if swift(>=3.0)
-           return replacingOccurrences(of: of, with: with)
-        #else
            return stringByReplacingOccurrencesOfString(of, withString: with)
-        #endif
+        
     }
     
     func componentsSeparatedByStringCustom(input:String)->Array<String> {
-        #if swift(>=3.0)
-        return componentsSeparated(by: input)
-        #else
         return componentsSeparatedByString(input)
-        #endif
+        
     }
     
 }
 
 
-#if swift(>=3.0)
-    enum calculateError:ErrorProtocol{
-        case error
-    }
-#else
     enum calculateError:ErrorType{
     case error
     }
-#endif
+
 
 struct WordProblem {
     var textIn = ""
@@ -123,11 +112,8 @@ struct WordProblem {
         }
         
         func checkCharInSet(input:Character)->Bool{
-            #if swift(>=3.0)
-            let temp = " 0987654321+-*/".characters.index(of: input)
-            #else
                 let temp = " 0987654321+-*/".characters.indexOf(input)
-            #endif
+            
             if temp == nil {
                 return false
             } else {
@@ -137,11 +123,8 @@ struct WordProblem {
         var newTextIn =  Array(textInp.characters)
         newTextIn = newTextIn.filter(checkCharInSet)
         let newTextInString:[String] = newTextIn.map{String($0)}
-        #if swift(>=3.0)
-        return newTextInString.joined(separator: "").trimWhiteSpace()
-        #else
         return newTextInString.joinWithSeparator("").trimWhiteSpace()
-        #endif
+        
     }
 
     

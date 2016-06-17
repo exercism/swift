@@ -5,15 +5,6 @@ import XCTest
 private extension XCTestCase {
     
     // Workaround unit test liminitaiton on Optional Arrays/Sets
-    #if swift(>=3.0)
-    private func sameCollection<C: Collection where C.Iterator.Element == String>(result: C?, _ expected: [String]?) -> Bool {
-        guard let result = result, expected = expected where similar(result, expected) else { return false }
-        for (index, student) in result.enumerated() {
-            guard index < expected.count && expected.contains(student) else { return false }
-        }
-        return true
-    }
-    #else // Swift 2.2 and below
     private func sameCollection<C: CollectionType where C.Generator.Element == String>(result: C?, _ expected: [String]?) -> Bool {
         guard let result = result, expected = expected where similar(result, expected) else { return false }
         for (index, student) in result.enumerate() {
@@ -21,7 +12,7 @@ private extension XCTestCase {
         }
         return true
         }
-    #endif
+    
     
     private func similar<C: CollectionType>(result: C, _ expected: [String]) -> Bool {
         return result.count.toIntMax() == IntMax(expected.count)
@@ -72,12 +63,8 @@ class GradeSchoolTest: XCTestCase {
         school.addStudent("Logan", grade: 7)
         let result = school.roster
         let expected = [3: ["Chelsea"], 7: ["Logan"]]
-        
-        #if swift(>=3.0)
-            XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
-        #else
             XCTAssertEqual(Array(result.keys).sort(>), Array(expected.keys).sort(>))
-        #endif
+        
         XCTAssertEqualCollection(result[3], expected[3])
     }
     
@@ -112,11 +99,8 @@ class GradeSchoolTest: XCTestCase {
                            4 : ["Christopher", "Jennifer"],
                            6 : ["Kareem"]
         ]
-        #if swift(>=3.0)
-            XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
-        #else
             XCTAssertEqual(Array(result.keys).sort(>), Array(expected.keys).sort(>))
-        #endif
+        
         XCTAssertEqualCollection(result[3], expected[3])
         XCTAssertEqualCollection(result[4], expected[4])
         XCTAssertEqualCollection(result[6], expected[6])

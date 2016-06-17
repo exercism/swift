@@ -38,11 +38,8 @@ private extension String {
     }
     
     var isShouting:Bool {
-        #if swift(>=3.0)
-            return (self == uppercased() && hasLetters)
-        #else
             return (self == uppercaseString && hasLetters)
-        #endif
+        
     }
     
     private func containsLetters(input:String) ->Bool{
@@ -53,14 +50,9 @@ private extension String {
         
         for each in inputStringCollection {
             abcStringCollection.forEach({
-                
-                #if swift(>=3.0)
-                    if each == $0 || each == $0.uppercased() {
-                        contains = true }
-                #else
                     if each == $0 || each == $0.uppercaseString {
                     contains = true }
-                #endif
+                
             })
         }
         return contains

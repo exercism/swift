@@ -17,26 +17,17 @@ struct OCR {
                         [" _ ", "|_|", "|_|", "   "] : "8",
                         [" _ ", "|_|", " _|", "   "] : "9"
     ]
-    
-    #if swift(>=3.0)
-    enum Error: ErrorProtocol {
-        case InvalidNumberOfLines
-        case InvalidNumberOfColumns
-    }
-    #else
+
     enum Error: ErrorType {
     case InvalidNumberOfLines
     case InvalidNumberOfColumns
     }
-    #endif
+    
     
     init(_ text: String) throws {
-        #if swift(>=3.0)
-            let lines = text.characters.split(separator: "\n").map { String($0) }
-        #else
             let lines = text.characters.split("\n").map { String($0) }
             
-        #endif
+        
         
         let rowCount = lines.count
         
@@ -74,16 +65,11 @@ struct OCR {
                 var grouping = [String]()
                 
                 for line in selectedLines {
-                    #if swift(>=3.0)
-                        let startIndex = line.startIndex.advanced(by:columnIndex)
-                        let endIndex = line.startIndex.advanced(by:columnIndex + 2)
-                        grouping.append(line[startIndex...endIndex])
-                    #else
                         let startIndex = line.startIndex.advancedBy(columnIndex)
                         let endIndex = line.startIndex.advancedBy(columnIndex + 2)
                         grouping.append(line[startIndex...endIndex])
 
-                    #endif
+                    
                     
                 }
                 
@@ -94,11 +80,8 @@ struct OCR {
             resultArray.append(result)
             rowIndex += 4
         }
-        #if swift(>=3.0)
-        return resultArray.joined(separator: ",")
-        #else
         return resultArray.joinWithSeparator(",")
-        #endif
+        
     }
     
     func patternForGrouping(grouping: [String]) -> String {
