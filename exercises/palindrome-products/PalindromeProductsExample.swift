@@ -35,15 +35,15 @@ struct PalindromeProducts{
         var multiplications = [Palindrome]()
         
         //Multitreaded code
-        let queue = DispatchQueue(label: "io.exercism.multiQueuePali", attributes: DispatchQueueAttributes.concurrent)
         var results = [[Palindrome]](repeating: [Palindrome](), count: rangeOuter.count)
         
         DispatchQueue.concurrentPerform(iterations: rangeOuter.count){
             advanceByIndex in
             var multiplicationsTemp = [Palindrome]()
-            let each = rangeOuter.startIndex.advanced(by: advanceByIndex)
-            let innerRangeCustom = each..<rangeOuter.endIndex
-            for eaInside in innerRangeCustom{
+            let each = rangeOuter.lowerBound + advanceByIndex
+            let innerRangeCustom = each...rangeOuter.upperBound
+            
+            for eaInside in innerRangeCustom {
                 let multiplied = each * eaInside
                 let number = String(multiplied)
                 if number == number.reverse(){

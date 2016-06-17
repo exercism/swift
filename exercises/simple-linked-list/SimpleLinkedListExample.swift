@@ -28,6 +28,7 @@ class Element<T> {
     
     private var countArray:Array<T> = []
     
+    @discardableResult
     private func toA(_ input:Element, _ tempArray:Array<T> = []) ->[T]{
         if tempArray.isEmpty && input.value != nil {
             countArray.append(input.value!)

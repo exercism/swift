@@ -4,7 +4,7 @@
 
 private extension String{
     
-    func substringWithRangeInt(_ intRange:Range<Int>)->String{
+    func substringWithRangeInt(_ intRange:CountableRange<Int>)->String{
         let start = self.characters.index(self.startIndex, offsetBy: intRange.lowerBound)
         let end = self.characters.index(self.startIndex, offsetBy: intRange.upperBound)
         return self.substring(with: start..<end)

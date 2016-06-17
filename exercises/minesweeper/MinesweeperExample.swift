@@ -13,7 +13,6 @@ struct Board {
         case invalidCharacter
     }
     
-    
     init(_ rows: [String]) throws {
         self.rows = rows
         
@@ -23,13 +22,11 @@ struct Board {
     func transform() -> [String] {
         var result = [String]()
             let rowsEnumarated = rows.enumerated()
-        
             
 
         for (i, row) in rowsEnumarated {
             var newRow = ""
             let rowCharsEnumarated = row.characters.enumerated()
-            
             
             for (j, character) in rowCharsEnumarated {
                 if character != " " {
@@ -54,7 +51,8 @@ struct Board {
         // Must be split up to avoid error: "Expression was too complex to be solved in reasonable time."
         var surroundings = [row[j - 1], row[j + 1], rows[i - 1][j - 1]]
         surroundings += [rows[i - 1][j], rows[i - 1][j + 1]]
-        surroundings += [rows[i + 1][j - 1], rows[i + 1][j], rows[i + 1][j + 1]]
+        surroundings += [rows[i + 1][j - 1]]
+        surroundings += [rows[i + 1][j], rows[i + 1][j + 1]]
         
         return surroundings.filter { isMine($0) }.count
     }
@@ -107,6 +105,7 @@ struct Board {
         }
     }
 }
+
     private extension String {
     func matchesRegex(_ pattern: String) -> Bool {
     let options = RegularExpression.Options.dotMatchesLineSeparators

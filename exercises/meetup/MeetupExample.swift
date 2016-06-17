@@ -30,13 +30,14 @@ struct Date{
     var secs:Int32 { return tmDateBacking.tm_sec }
     var weekday:Int32 { return tmDateBacking.tm_wday + 1 }
     
+    @discardableResult
     init(_ input:tm){
         self.tmDateBacking = input
     }
     
     init(){
         let temp = tm()
-        Date.init(temp).tmDateBacking
+        Date.init(temp)
     }
     
     init(year:Int32, month:Int32, day:Int32, hour:Int32 = 0, mins:Int32 = 0, secs:Int32 = 0){
@@ -143,7 +144,8 @@ struct Meetup{
         var dateWeekDays = [Int32()]
         
         let starDay = dateStart.weekday
-        var month = Array(dateStart.day ... dateEnd.day).map{(($0 + 5 + starDay) % 7) + 1  }
+        var month = Array(dateStart.day ... dateEnd.day)
+            month =  month.map{(($0 + 5 + starDay) % 7) + 1  }
         
         for (index , eachDay) in month.enumerated(){
             dateMonthWeekDays.append([index + 1,eachDay])

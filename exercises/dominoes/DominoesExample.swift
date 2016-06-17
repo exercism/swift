@@ -77,7 +77,7 @@ class Bone:CustomStringConvertible,Equatable{
     var description:String{
         return "\(value)|\(connected)|\(available) "
     }
-    
+    @discardableResult
     func connect(_ input:Bone)->Bool{
         
         if self === input {return false}

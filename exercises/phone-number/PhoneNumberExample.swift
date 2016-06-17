@@ -1,16 +1,13 @@
 // Foundation not needed
 
 
-
 private extension String {
-    subscript (range: Range<Int>) -> String {
+    subscript (range: CountableClosedRange<Int>) -> String {
         get {
             let start = characters.index(startIndex, offsetBy: range.lowerBound)
-            let end   = characters.index(start, offsetBy: range.upperBound - range.lowerBound)
-
+            let end = characters.index(start, offsetBy: range.upperBound - range.lowerBound)
             
-            
-            return self[start..<end]
+            return self[start...end]
         }
     }
 

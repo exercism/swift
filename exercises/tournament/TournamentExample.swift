@@ -1,7 +1,5 @@
 import Darwin
 
-
-
 private extension String {
     
     func trimWhiteSpace()-> String{
@@ -106,7 +104,8 @@ struct Tournament
         func formarter (_ Team:String, MP:String, W:String, D:String, L:String, P:String)->String{
             
             func wsChars(_ text:String, spacing:Int = 31)->String{
-                return Repeated(abs(spacing - Array(text.characters).count) , count: " ").joined(separator: "")
+                return repeatElement( " ",count: abs(spacing - Array(text.characters).count)).joined(separator: "")
+                
             }
             
             func spacing(_ text:String, columnWith:Int = 4)->String{
