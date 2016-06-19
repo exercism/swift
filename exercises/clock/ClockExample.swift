@@ -1,4 +1,4 @@
-// Foundation not needed
+
 
 struct Clock: Equatable, CustomStringConvertible {
     

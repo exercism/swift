@@ -1,5 +1,4 @@
 import Foundation
-// Apple Swift version 2.1
 
 private extension String {
     

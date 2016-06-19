@@ -1,4 +1,3 @@
-// Foundation not needed
 
 
 
@@ -57,8 +56,6 @@ struct SimulatedRobot {
     
     mutating func advance() {
         switch bearing {
-            // Note: ++ and -- will be deprecated in Swift 2.2 and removed in Swift 3.0
-            // See https://github.com/apple/swift-evolution/blob/master/proposals/0004-remove-pre-post-inc-decrement.md
             case .north: y += 1
             case .east:  x += 1
             case .south: y -= 1
