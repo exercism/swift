@@ -26,7 +26,7 @@ private extension String {
         return stripCharacters(" ")
         }
 
-    var IsEmptyOrWhiteSpace: Bool { get {
+    var isEmptyOrWhiteSpace: Bool { get {
         return self.stripWhiteSpace.isEmpty
         }}}
 
@@ -39,7 +39,7 @@ struct Scrabble {
 
 
     static func score(_ input: String) -> Int {
-        if (input.IsEmptyOrWhiteSpace ) {
+        if (input.isEmptyOrWhiteSpace ) {
             return 0}
 
         var count: Int = 0

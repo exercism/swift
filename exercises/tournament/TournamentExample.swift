@@ -37,26 +37,26 @@ struct Tournament {
     }
 
     struct TeamResult {
-        var Losses: Int = 0
-        var Draws: Int = 0
-        var Wins: Int = 0
+        var losses: Int = 0
+        var draws: Int = 0
+        var wins: Int = 0
 
-        var Played: Int {
-            return Losses + Draws + Wins
+        var played: Int {
+            return losses + draws + wins
         }
 
-        var Score: Int {
-            return Wins * 3 + Draws
+        var score: Int {
+            return wins * 3 + draws
         }
 
         mutating func addOutcome( _ outcome: Outcome ) -> Void {
             switch outcome {
             case .loss :
-                Losses += 1
+                losses += 1
             case .draw :
-                Draws += 1
+                draws += 1
             case .win :
-                Wins += 1
+                wins += 1
             default :
                 print("Error addOutcome")
             }
@@ -94,7 +94,7 @@ struct Tournament {
 
     private mutating func writeResults() -> String {
 
-        func formarter (_ Team: String, MP: String, W: String, D: String, L: String, P: String) -> String {
+        func formarter (_ team: String, mp: String, w: String, d: String, l: String, p: String) -> String {
 
             func wsChars(_ text: String, spacing: Int = 31) -> String {
                 return repeatElement( " ", count: abs(spacing - Array(text.characters).count)).joined(separator: "")
@@ -108,7 +108,7 @@ struct Tournament {
                 return wsChars(text, spacing: columnWith - space - textCount) + text + wsChars(text, spacing: space )
             }
 
-            let text = "\(Team)" + wsChars(Team) + "|" + spacing(MP) + "|" + spacing(W) + "|" + spacing(D) + "|" + spacing(L) + "|" + spacing(P)
+            let text = "\(team)" + wsChars(team) + "|" + spacing(mp) + "|" + spacing(w) + "|" + spacing(d) + "|" + spacing(l) + "|" + spacing(p)
 
             return text.trimWhiteSpace() + "\n"
 
@@ -116,7 +116,7 @@ struct Tournament {
 
         var textOutput: String = ""
 
-        let header = formarter("Team", MP: "MP", W: "W", D: "D", L: "L", P: "P")
+        let header = formarter("Team", mp: "MP", w: "W", d: "D", l: "L", p: "P")
 
         textOutput += header
 
@@ -125,7 +125,7 @@ struct Tournament {
             var sortByValue = [(String, Int)]()
             for each in Array(teams.keys) {
                 let tempVal = teams[each]!
-                sortByValue.append((each, tempVal.Score))
+                sortByValue.append((each, tempVal.score))
             }
             sortByValue.sort {$0.1 > $1.1}
             var sortedKeys = [String]()
@@ -140,19 +140,19 @@ struct Tournament {
 
             let result = teams[team]!
 
-            let MP = result.Played
-            let W  = result.Wins
-            let D  = result.Draws
-            let L  = result.Losses
-            let P  = result.Score
+            let mp = result.played
+            let w  = result.wins
+            let d  = result.draws
+            let l  = result.losses
+            let p  = result.score
 
 
             let line = formarter(team,
-                MP: "\(MP)",
-                W: "\(W)",
-                D: "\(D)",
-                L: "\(L)",
-                P: "\(P)")
+                mp: "\(mp)",
+                w: "\(w)",
+                d: "\(d)",
+                l: "\(l)",
+                p: "\(p)")
 
             textOutput += line
         }
