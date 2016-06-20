@@ -4,7 +4,7 @@ xcode_project: 'xcodeProject/xSwift.xcodeproj'
 xcode_scheme: 'xSwiftTests'
 
 install:
-  - $ brew update && brew install swiftlint
+  - brew update && brew install swiftlint
 
 script:
   - swiftlint
