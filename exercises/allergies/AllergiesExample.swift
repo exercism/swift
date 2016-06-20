@@ -15,11 +15,11 @@ enum Allergen: UInt {
 
 struct Allergies {
     let score: UInt
-    
+
     init(_ score: UInt) {
         self.score = UInt(score)
     }
-    
+
     func hasAllergy(_ allergen: Allergen) -> Bool {
         return allergen.rawValue & score == allergen.rawValue ? true : false
     }

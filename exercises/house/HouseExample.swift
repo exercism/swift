@@ -1,9 +1,9 @@
 
 
 
-    
+
 struct House {
-    
+
     private static let pieces = [
         ["the horse and the hound and the horn", "that belonged to"],
         ["the farmer sowing his corn", "that kept"],
@@ -18,20 +18,19 @@ struct House {
         ["the malt", "that lay in"],
         ["the house that Jack built"]
     ]
-    
+
     static func recite() -> String {
         return (1...pieces.count).map { line($0) }.joined(separator: "\n\n")
-        
+
     }
-    
+
     private static func line(_ number: Int) -> String {
         let startIndex = pieces.count - number
         let endIndex = pieces.count
         let selectedPieces = pieces[startIndex ..< endIndex]
         let text = selectedPieces.map { $0.joined(separator: "\n") }.joined(separator: " ")
-        
+
         return "This is \(text)."
     }
-    
-}
 
+}

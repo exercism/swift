@@ -2,39 +2,37 @@ import Darwin
 
 
 
-func arc4random_uniform(_ input:Int)->Int{
+func arc4random_uniform(_ input: Int) -> Int {
     let temp = UInt32(input)
     return Int(arc4random_uniform(temp))
 }
 
 
-public struct Cipher
-{
+public struct Cipher {
     private let abc = "abcdefghijklmnopqrstuvwxyz"
-    private var alphabet:[Character] { return Array(abc.characters) }
-    private(set) var key:String = ""
-    private var keyArray:[Character] { return Array(key.characters) }
-    
-    
-    private func randomKeySet()->String{
+    private var alphabet: [Character] { return Array(abc.characters) }
+    private(set) var key: String = ""
+    private var keyArray: [Character] { return Array(key.characters) }
+
+
+    private func randomKeySet() -> String {
         var tempKey = ""
-        for _ in (0..<100).enumerated(){
+        for _ in (0..<100).enumerated() {
             tempKey.append(alphabet[arc4random_uniform(alphabet.count)])
         }
         return tempKey
     }
-    
 
-    init(){
+
+    init() {
         key = randomKeySet()
     }
-    
-    
-    init?(key:String)
-    {
-        if isLowerCaseAlfabet(key){
+
+
+    init?(key: String) {
+        if isLowerCaseAlfabet(key) {
             self.key = key
-            
+
             if key.isEmpty {
                 return nil
             }
@@ -42,12 +40,12 @@ public struct Cipher
             //self.key = randomKeySet() // Alternative non Optional faiulure
         }
     }
-    
-    
-     func isLowerCaseAlfabet(_ inkey:String)-> Bool{
+
+
+     func isLowerCaseAlfabet(_ inkey: String) -> Bool {
         var valid = true
-        inkey.characters.forEach{
-            
+        inkey.characters.forEach {
+
             if "abcdefghijklmnopqrstuvwxyz".contains(String($0)) == false {
                 valid = false
             }
@@ -55,15 +53,13 @@ public struct Cipher
         return valid
     }
 
-    
-    func encode(_ plaintext:String) ->String
-    {
+
+    func encode(_ plaintext: String) -> String {
         let plainTextArray = Array(plaintext.characters)
-        
-        func encodeCharacter(_ plaintext:String, idx:Int)->Character
-        {
+
+        func encodeCharacter(_ plaintext: String, idx: Int) -> Character {
             //let plainTextArray = Array(plaintext) // hack for subscript support for Strings
-            var alphabetIdx:Int =
+            var alphabetIdx: Int =
             (alphabet.index(of: plainTextArray[idx]) ?? 0) +
                 (alphabet.index(of: keyArray[idx]) ?? 0)
             if alphabetIdx >= alphabet.count {
@@ -71,40 +67,38 @@ public struct Cipher
             }
             return alphabet[alphabetIdx]
         }
-        
+
         var ciphertext = ""
         for i in 0 ..< min(plainTextArray.count, keyArray.count) {
             ciphertext.append(encodeCharacter(plaintext, idx: i))
         }
         return ciphertext
     }
-    
-    
-    
-    func decode(_ ciphertext:String)->String
-    {
+
+
+
+    func decode(_ ciphertext: String) -> String {
         let cipherTextArray = Array(ciphertext.characters)
-        
-        func decodeCharacter(_ ciphertext:String, idx:Int)-> Character
-        {
+
+        func decodeCharacter(_ ciphertext: String, idx: Int) -> Character {
             //let cipherTextArray = Array(ciphertext) // no native subscript for String
-            var alphabetIdx:Int =
+            var alphabetIdx: Int =
             (alphabet.index(of: cipherTextArray[idx]) ?? 0) -
                 (alphabet.index(of: keyArray[idx]) ?? 0)
-            if alphabetIdx < 0{
+            if alphabetIdx < 0 {
                 alphabetIdx += alphabet.count
             }
             return alphabet[alphabetIdx]
         }
-        
-        
+
+
         var plaintext = ""
-        
-        for i in 0 ..< cipherTextArray.count  {
+
+        for i in 0 ..< cipherTextArray.count {
             plaintext.append(decodeCharacter(ciphertext, idx: i))
         }
         return plaintext
     }
-    
-    
+
+
 }

@@ -6,7 +6,7 @@ private extension String {
         get {
             let start = characters.index(startIndex, offsetBy: range.lowerBound)
             let end = characters.index(start, offsetBy: range.upperBound - range.lowerBound)
-            
+
             return self[start...end]
         }
     }
@@ -24,7 +24,7 @@ private extension Character {
 
 struct PhoneNumber: CustomStringConvertible {
     let number: String
-    
+
     init(_ startingNumber: String) {
         let digits = startingNumber.onlyDigits
 
@@ -41,7 +41,7 @@ struct PhoneNumber: CustomStringConvertible {
     var areaCode: String {
         return number[0...2]
     }
-    
+
     var description: String {
         let prefix = number[3...5]
         let final  = number[6...9]

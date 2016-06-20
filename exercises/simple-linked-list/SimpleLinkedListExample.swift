@@ -2,59 +2,59 @@
 
 
 
-private extension Array{
+private extension Array {
 
-    func reversedCustom()->Array{
+    func reversedCustom() -> Array {
         return reversed()
-        
+
     }
 }
 
 class Element<T> {
     var value: T? = nil
     var next: Element? = nil
-    
+
     init() { }
-    
-    init(_ value: T, _ next:Element?) {
+
+    init(_ value: T, _ next: Element?) {
         self.value = value
         self.next = next
     }
-    
-    
-    func toArray () ->[T] {
+
+
+    func toArray () -> [T] {
         return toA(self)
     }
-    
-    private var countArray:Array<T> = []
-    
+
+    private var countArray: Array<T> = []
+
     @discardableResult
-    private func toA(_ input:Element, _ tempArray:Array<T> = []) ->[T]{
+    private func toA(_ input: Element, _ tempArray: Array<T> = []) -> [T] {
         if tempArray.isEmpty && input.value != nil {
             countArray.append(input.value!)
         }
-        if input.next != nil && input.next!.value != nil{
+        if input.next != nil && input.next!.value != nil {
             countArray.append(input.next!.value!)
             toA(input.next!, countArray)
         }
         return countArray
     }
-    
-    
-    
-    class func fromArray(_ input:[T]) ->Element {
+
+
+
+    class func fromArray(_ input: [T]) -> Element {
         var tempElement = Element<T>()
-        for each in Array(input.reversedCustom()){
+        for each in Array(input.reversedCustom()) {
             tempElement = Element(each, tempElement)
         }
         return tempElement
     }
-    
-    
-    
-    func reverseElements() -> Element  {
+
+
+
+    func reverseElements() -> Element {
         return Element.fromArray(Array(toArray().reversedCustom()))
     }
-    
-    
+
+
 }

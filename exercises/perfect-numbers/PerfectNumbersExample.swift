@@ -23,8 +23,8 @@ struct NumberClassifier {
             return NumberClassification.abundant
             }
     }
-    func aliquotSum (_ input:Int)->Int {
-            return  Array(1..<(input-1)).filter( {input % $0 == 0} ).reduce(0,combine: +)
+    func aliquotSum (_ input: Int) -> Int {
+            return  Array(1..<(input-1)).filter({input % $0 == 0}).reduce(0, combine: +)
     }
 
     init(number: Int) {

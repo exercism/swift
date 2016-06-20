@@ -1,26 +1,26 @@
 import XCTest
 
 class PokerTest: XCTestCase {
-    
-    var validTestCases:[(name: String, hands:[String], best:String)] = []
-    var invalidTestCases:[(name: String, hand:String)] = []
-    
-    func testInvalidCases(){
-        for each in invalidTestCases{
+
+    var validTestCases:[(name: String, hands: [String], best: String)] = []
+    var invalidTestCases:[(name: String, hand: String)] = []
+
+    func testInvalidCases() {
+        for each in invalidTestCases {
         XCTAssertNil(PokerHand(each.hand), "\(each.name)")
         }
     }
-    
+
     func testAllValid() {
-        for each in validTestCases{
-            XCTAssertEqual(Poker.bestHand(each.hands), each.best,  "\(each.name)")
+        for each in validTestCases {
+            XCTAssertEqual(Poker.bestHand(each.hands), each.best, "\(each.name)")
         }
     }
-    
+
     override func setUp() {
         super.setUp()
-        
-    validTestCases = [  
+
+    validTestCases = [
         (
             name:  "single hand is always best",
             hands: ["3♡ 10♢ 7♧ 8♤ A♢"],
@@ -233,7 +233,7 @@ class PokerTest: XCTestCase {
             best:  "A♤ 2♤ 3♤ 4♤ 5♤"
         ),
     ]
-    
+
     invalidTestCases  =
     [
         (
@@ -277,8 +277,8 @@ class PokerTest: XCTestCase {
             hand: "2♡ 3♡ 5♡♡ 8♡ 9♡"
         ),
     ]
-    
+
     }
-    
-    
+
+
 }

@@ -4,30 +4,30 @@
 
 struct WordCount {
 
-    func splitStringToArray(_ inString:String) -> [String]{
-        
-        return inString.characters.split(isSeparator: { splitAt($0) }).map{String($0)}
+    func splitStringToArray(_ inString: String) -> [String] {
+
+        return inString.characters.split(isSeparator: { splitAt($0) }).map {String($0)}
     }
-    
-    func splitAt(_ characterToCompare:Character, charToSplitAt:String = " !&$%^&,:")-> Bool{
-        for each in charToSplitAt.characters{
-            if each == characterToCompare{
+
+    func splitAt(_ characterToCompare: Character, charToSplitAt: String = " !&$%^&,:") -> Bool {
+        for each in charToSplitAt.characters {
+            if each == characterToCompare {
                 return true
             }
         }
         return false
     }
-    
+
     let words: String
-    
+
     init(words: String) {
         self.words = words
     }
-    
+
     func count() -> [String: Int] {
         var dict = [String:Int]()
         let cleanArray = splitStringToArray(words)
-        
+
         cleanArray.forEach { string in
             if !string.isEmpty {
                 if let count = dict[string.lowercased()] {
@@ -39,5 +39,3 @@ struct WordCount {
             return dict
         }
 }
-
-

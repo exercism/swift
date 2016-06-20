@@ -2,7 +2,7 @@ import Darwin
 
 struct Robot {
     var name: String
-    
+
     init() {
         let numberPart = (Int(arc4random()) % 899) + 100
         name = generateRandomLetter() + generateRandomLetter() + "\(numberPart)"

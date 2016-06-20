@@ -4,12 +4,12 @@ import XCTest
 
 
 class SieveTest: XCTestCase {
-    
+
     func testAFewPrimes() {
         let expected = [2, 3, 5, 7]
         XCTAssertEqual(expected, Sieve(10).primes)
     }
-    
+
     func testPrimes() {
         let expected = [
             2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,
@@ -29,5 +29,5 @@ class SieveTest: XCTestCase {
         ]
         XCTAssertEqual(expected, Sieve(1000).primes)
     }
-    
+
 }

@@ -4,89 +4,89 @@ import XCTest
 
 
 class CustomSetTest: XCTestCase {
-    
+
     let emptyTypedArray = [Int]()
-    
-    func testEqual(){
+
+    func testEqual() {
         XCTAssertEqual(CustomSet([1, 3]), CustomSet([3, 1]))
         XCTAssertNotEqual(CustomSet([1, 3]), CustomSet([3, 1, 5]))
         XCTAssertNotEqual(CustomSet([1, 3, 5]), CustomSet([3, 1]))
         XCTAssertNotEqual(CustomSet([1, 3]), CustomSet([2, 1]))
     }
-    
-    func testNoDuplicates(){
+
+    func testNoDuplicates() {
         XCTAssertEqual(CustomSet([1, 1]), CustomSet([1]))
     }
-    
-    func testDeleteMethod(){
-        
+
+    func testDeleteMethod() {
+
         var expected1 = CustomSet([3, 2, 1])
         expected1.delete(2)
         XCTAssertEqual(CustomSet([1, 3]), expected1)
-        
+
         var expected2 = CustomSet([3, 2, 1])
         expected2.delete(4)
         XCTAssertEqual(CustomSet([1, 2, 3]), expected2)
     }
-    
-    func testDifference(){
+
+    func testDifference() {
         XCTAssertEqual(CustomSet([1, 3]),
             CustomSet([1, 2, 3]).difference(CustomSet([2, 4])))
         XCTAssertEqual(CustomSet([2, 3]),
             CustomSet([1, 2, 3, 4]).difference(CustomSet([1, 4])))
-        
+
     }
-    
-    func testDisjoint(){
+
+    func testDisjoint() {
         XCTAssertTrue(CustomSet([1, 2]).isDisjoint(CustomSet([3, 4])))
         XCTAssertFalse(CustomSet([1, 2]).isDisjoint(CustomSet([2, 3])))
         XCTAssertFalse(CustomSet([1.0, 2.0]).isDisjoint(CustomSet([2.0, 3.0])))
     }
-    
-    func testEmptyMethod(){
+
+    func testEmptyMethod() {
         var expected1 = CustomSet([1, 2])
         expected1.removeAll()
         XCTAssertEqual(CustomSet(emptyTypedArray ), expected1 )
-        
+
         var expected2 = CustomSet(emptyTypedArray )
         expected2.removeAll()
         XCTAssertEqual(CustomSet(emptyTypedArray ), expected2 )
     }
-    
-    
-    func testIntersection(){
+
+
+    func testIntersection() {
         XCTAssertEqual(CustomSet(["a", "c"]),
             CustomSet(["a", "b", "c"]).intersection(CustomSet(["a", "c", "d"])))
-        
+
         XCTAssertEqual(CustomSet([3.0]),
             CustomSet([1.0, 2.0, 3.0]).intersection(CustomSet([3.0])))
     }
-    
-    func testMember(){
+
+    func testMember() {
         XCTAssertTrue(CustomSet([1, 2, 3]).containsMember(2))
         XCTAssertTrue(CustomSet([1, 2, 3]).containsMember(3))
         XCTAssertFalse(CustomSet([1, 2, 3]).containsMember(4))
     }
-    
-    func testPutMethod(){
+
+    func testPutMethod() {
         var expected1 = CustomSet([1, 2, 4])
         expected1.put(3)
         XCTAssertEqual(CustomSet([1, 2, 3, 4]),
             expected1)
-        
+
         var expected2 = CustomSet([1, 2, 3])
         expected2.put(3)
         XCTAssertEqual(CustomSet([1, 2, 3]),
             expected2)
     }
-    
-    func testSize(){
+
+    func testSize() {
         XCTAssertEqual(0, CustomSet(emptyTypedArray).size)
         XCTAssertEqual(3, CustomSet([1, 2, 3]).size)
         XCTAssertEqual(3, CustomSet([1, 2, 3, 2]).size)
     }
-    
-    func testSubsetMethod(){
+
+    func testSubsetMethod() {
         XCTAssertTrue(CustomSet([1, 2, 3]).isSupersetOf(CustomSet([1, 2, 3])))
         XCTAssertTrue(CustomSet([4, 1, 2, 3]).isSupersetOf(CustomSet([1, 2, 3])))
         XCTAssertFalse(CustomSet([4, 1, 3]).isSupersetOf(CustomSet([1, 2, 3])))
@@ -94,13 +94,13 @@ class CustomSetTest: XCTestCase {
         XCTAssertTrue(CustomSet([4, 1, 3]).isSupersetOf(CustomSet(emptyTypedArray)))
         XCTAssertTrue(CustomSet(emptyTypedArray).isSupersetOf(CustomSet(emptyTypedArray)))
     }
-    
-    func testToA(){
+
+    func testToA() {
         XCTAssertEqual([1, 2, 3], CustomSet([3, 1, 2]).toSortedArray)
         XCTAssertEqual([1, 2, 3], CustomSet([3, 1, 2, 1]).toSortedArray)
     }
-    
-    func testUnion(){
+
+    func testUnion() {
         XCTAssertEqual(CustomSet([3, 2, 1]),
             CustomSet([1, 3]).union(CustomSet([2])))
         XCTAssertEqual(CustomSet([3.0, 3, 2, 1]),
@@ -112,6 +112,6 @@ class CustomSetTest: XCTestCase {
         XCTAssertEqual(CustomSet(emptyTypedArray),
             CustomSet(emptyTypedArray).union(CustomSet(emptyTypedArray)))
     }
-    
-    
+
+
 }

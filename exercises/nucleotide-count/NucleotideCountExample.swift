@@ -10,33 +10,31 @@ enum Nucleobase: Character {
 }
 
 struct DNA {
-    
-    var nucleotideCounts:[Nucleobase:Int] = [ .adenine: 0, .thymine: 0, .cytosine: 0 , .guanine : 0 ]
-    
+
+    var nucleotideCounts: [Nucleobase:Int] = [ .adenine: 0, .thymine: 0, .cytosine: 0, .guanine : 0 ]
+
     init?(strand: String) {
         let enumarated = strand.characters.enumerated()
-        
+
         for (_, value) in enumarated {
             if let possibleNucleobase = Nucleobase(rawValue: value) {
                 nucleotideCounts[possibleNucleobase]! += 1
-            }
-            else {
+            } else {
                 return nil
             }
         }
     }
-    
-    func count(_ value :Character)-> Int {
+
+    func count(_ value: Character) -> Int {
         return nucleotideCounts[Nucleobase(rawValue: value)!]!
     }
-    
-    func counts()->[String: Int] {
-        var nCounts:[String:Int] = [:]
+
+    func counts() -> [String: Int] {
+        var nCounts: [String:Int] = [:]
         for (k, v) in nucleotideCounts {
             nCounts[String(k.rawValue)] = v
         }
         return nCounts
     }
-    
-}
 
+}

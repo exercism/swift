@@ -2,7 +2,7 @@ import XCTest
 
 
 
-class LeapTest : XCTestCase {
+class LeapTest: XCTestCase {
 
 	func testVanillaLeapYear() {
 	  let year = Year(calendarYear: 1996)

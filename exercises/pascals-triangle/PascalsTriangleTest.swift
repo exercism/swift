@@ -3,32 +3,32 @@ import XCTest
 
 
 class PascalsTriangleTest: XCTestCase {
-    
+
     func testOneRow() {
         let triangle = PascalsTriangle(1)
         XCTAssertEqual([[1]], triangle.rows)
     }
-    
+
     func testTwoRows() {
         let triangle = PascalsTriangle(2)
         XCTAssertEqual([[1], [1, 1]], triangle.rows)
     }
-    
+
     func testThreeRows() {
         let triangle = PascalsTriangle(3)
         XCTAssertEqual([[1], [1, 1], [1, 2, 1]], triangle.rows)
     }
-    
+
     func testFourthRow() {
         let triangle = PascalsTriangle(4)
         XCTAssertEqual([1, 3, 3, 1], triangle.rows.last!)
     }
-    
+
     func testFifthRow() {
         let triangle = PascalsTriangle(5)
         XCTAssertEqual([1, 4, 6, 4, 1], triangle.rows.last!)
     }
-    
+
     func testTwentiethRow() {
         let triangle = PascalsTriangle(20)
         let expected = [
@@ -37,5 +37,5 @@ class PascalsTriangleTest: XCTestCase {
         ]
         XCTAssertEqual(expected, triangle.rows.last!)
     }
-    
+
 }

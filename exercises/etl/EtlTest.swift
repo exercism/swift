@@ -8,26 +8,26 @@ class EtlTest: XCTestCase {
         let old = [ 1 : [ "A" ] ]
         let expected =  ["a" : 1 ]
         let results = ETL.transform(old)
-        
+
         XCTAssertEqual(results, expected)
     }
-    
+
     func testTransformMoreValues() {
         let old = [ 1 : [ "A", "E", "I", "O", "U" ] ]
         let expected =  ["a" : 1, "e": 1, "i": 1, "o": 1, "u": 1 ]
         let results = ETL.transform(old)
-        
+
         XCTAssertEqual(results, expected)
     }
-    
+
     func testMoreKeys() {
         let old = [ 1 : [ "A", "E" ], 2: ["D", "G"] ]
         let expected =  ["a" : 1, "e": 1, "d": 2, "g": 2 ]
         let results = ETL.transform(old)
-        
+
         XCTAssertEqual(results, expected)
     }
-    
+
     func testFullDataSet() {
         let old = [ 1 : [ "A", "E", "I", "O", "U", "L", "N", "R", "S", "T" ],
             2 : [ "D", "G" ],
@@ -43,9 +43,9 @@ class EtlTest: XCTestCase {
             "p" : 3, "q" : 10, "r" : 1, "s" : 1, "t" : 1,
             "u" : 1, "v" : 4, "w" : 4, "x" : 8, "y" : 4,
             "z" : 10 ]
-        
+
         let results = ETL.transform(old)
-        
+
         XCTAssertEqual(results, expected)
     }
 }

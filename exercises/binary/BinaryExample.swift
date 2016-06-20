@@ -2,8 +2,8 @@
 
 
 
-extension Int{
-    init(_ value:Binary?){
+extension Int {
+    init(_ value: Binary?) {
         if let value = value {
          self = value.toDecimal
         } else {
@@ -13,12 +13,12 @@ extension Int{
 
 
 struct Binary {
-    private var UIntValue:UInt = 0
-    private var toDecimal:Int {get {return Int(UIntValue)}}
-    private func bi2Uint(_ input:String) -> UInt?{
+    private var UIntValue: UInt = 0
+    private var toDecimal: Int {get {return Int(UIntValue)}}
+    private func bi2Uint(_ input: String) -> UInt? {
         let orderedInput = Array(input.characters.reversed())
-        var tempUInt:UInt = 0
-        for (inx,each) in orderedInput.enumerated(){
+        var tempUInt: UInt = 0
+        for (inx, each) in orderedInput.enumerated() {
             if each == "1" {
                 tempUInt += UInt(0x1 << inx)
             }
@@ -28,13 +28,13 @@ struct Binary {
         }
         return tempUInt
     }
-    
-    init?(_ input:String){
+
+    init?(_ input: String) {
         if bi2Uint(input) != nil {
         self.UIntValue = bi2Uint(input)!
         } else {
         return nil
         }
-        
+
     }
 }
