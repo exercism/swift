@@ -41,7 +41,7 @@ private extension String {
 }
 
 
-    enum calculateError: ErrorProtocol {
+    enum CalculateError: ErrorProtocol {
     case error
     }
 
@@ -68,7 +68,7 @@ struct WordProblem {
 
     func answer() throws -> Int {
         guard let toReturn = calculate(textIn) else {
-            throw calculateError.error
+            throw CalculateError.error
         }
         return toReturn
     }

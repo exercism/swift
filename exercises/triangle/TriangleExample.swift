@@ -14,13 +14,13 @@ struct Triangle {
     var kind: String { get { return self.Kind() }}
 
     init(_ a: Double, _ b: Double, _ c: Double) {
-        (self.a, self.b, self.c) = (a, b,c)
+        (self.a, self.b, self.c) = (a, b, c)
 
     }
 
     func uniqueSides() -> Int {
         var tempSet = Set<Double>()
-        for each in [a, b,c] {
+        for each in [a, b, c] {
                 tempSet.insert(each)
         }
 
