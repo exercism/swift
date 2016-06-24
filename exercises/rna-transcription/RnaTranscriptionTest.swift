@@ -1,5 +1,7 @@
 
+#if swift(>=3.0)
 import XCTest
+#endif
 
 class RnaTranscriptionTest: XCTestCase {
 

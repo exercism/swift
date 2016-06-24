@@ -1,6 +1,7 @@
 
+#if swift(>=3.0)
 import XCTest
-
+#endif
 
 
 private extension String {
@@ -96,3 +97,4 @@ class AccumulateTest: XCTestCase {
         XCTAssertEqual(expected, result)
     }
 }
+
