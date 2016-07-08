@@ -97,4 +97,3 @@ class AccumulateTest: XCTestCase {
         XCTAssertEqual(expected, result)
     }
 }
-
