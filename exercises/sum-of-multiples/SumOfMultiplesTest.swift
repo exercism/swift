@@ -1,5 +1,5 @@
 #if swift(>=3.0)
-import XCTest
+    import XCTest
 #endif
 
 class SumOfMultiplesTest: XCTestCase {

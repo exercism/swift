@@ -25,8 +25,8 @@ struct PrimeFactors {
     }
 
     init(_ value: Int64) {
-     self.number = value
-     self.toArray = primesFor(value)
+        self.number = value
+        self.toArray = primesFor(value)
 
     }
 }

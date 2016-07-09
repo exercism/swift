@@ -21,7 +21,7 @@ struct PigLatin {
 
 
     static func translate (_ word: String) -> String {
-      return word.components(separatedBy: " ").map {self.translateWord($0)}.joined(separator: " ")
+        return word.components(separatedBy: " ").map {self.translateWord($0)}.joined(separator: " ")
 
 
     }
@@ -47,14 +47,14 @@ struct PigLatin {
 
         if wordStartsWithVowelLike(word) {return word + "ay"}
         if wordStartsWithPrefixes(word, prefixes: ["thr", "sch"]) {
-        return (word.substringFromIndexInt(3) + word.substringWithRangeInt(0..<3) + "ay") }
+            return (word.substringFromIndexInt(3) + word.substringWithRangeInt(0..<3) + "ay") }
 
         if wordStartsWithPrefixes(word, prefixes: ["ch", "qu", "th"]) {
-        return word.substringFromIndexInt(2) +
-            word.substringWithRangeInt(0..<2) + "ay" }
+            return word.substringFromIndexInt(2) +
+                word.substringWithRangeInt(0..<2) + "ay" }
         if wordStartsWithConsonantAndQu(word) {
-        return word.substringFromIndexInt(3) +
-            word.substringWithRangeInt(0..<1) + "quay"}
+            return word.substringFromIndexInt(3) +
+                word.substringWithRangeInt(0..<1) + "quay"}
 
         return word.substringFromIndexInt(1) +
             word.substringWithRangeInt(0..<1) + "ay"

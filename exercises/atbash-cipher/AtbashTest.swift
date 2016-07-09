@@ -1,6 +1,6 @@
 
 #if swift(>=3.0)
-import XCTest
+    import XCTest
 #endif
 
 
@@ -29,7 +29,7 @@ class AtbashTest: XCTestCase {
 
     func testEncodeNumbers() {
         XCTAssertEqual("gvhgr mt123 gvhgr mt",
-            Atbash.encode("Testing, 1 2 3, testing.") )
+                       Atbash.encode("Testing, 1 2 3, testing.") )
     }
 
     func testEncodeSentence() {

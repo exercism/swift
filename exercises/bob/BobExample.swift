@@ -38,7 +38,7 @@ private extension String {
     }
 
     var isShouting: Bool {
-            return (self == uppercased() && hasLetters)
+        return (self == uppercased() && hasLetters)
 
     }
 
@@ -50,7 +50,7 @@ private extension String {
 
         for each in inputStringCollection {
             abcStringCollection.forEach({
-                    if each == $0 || each == $0.uppercased() {
+                if each == $0 || each == $0.uppercased() {
                     contains = true }
 
             })

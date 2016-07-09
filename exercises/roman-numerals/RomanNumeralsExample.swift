@@ -6,7 +6,7 @@ extension String {
 
     init(_ value: RomanNumeral) {
         self = value.romanNumeral
-        }
+    }
 }
 
 struct RomanNumeral {

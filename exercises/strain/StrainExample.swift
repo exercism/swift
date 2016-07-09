@@ -9,7 +9,7 @@ extension Array {
         for each in self {
             if inputFunc(each) == compare {
                 array2Return.append(each)}
-                        }
+        }
         return array2Return
     }
 

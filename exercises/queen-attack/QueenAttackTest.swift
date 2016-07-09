@@ -1,5 +1,5 @@
 #if swift(>=3.0)
-import XCTest
+    import XCTest
 #endif
 
 
@@ -79,39 +79,39 @@ class QueenAttackTest: XCTestCase {
     func testStringRepresentation() {
         let queens = try! Queens(white: [2, 4], black: [6, 6])
         let board = "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ W _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ B _\n" +
-                    "_ _ _ _ _ _ _ _"
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ W _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ _ _ B _\n" +
+        "_ _ _ _ _ _ _ _"
         XCTAssertEqual(board, queens.description)
     }
 
     func testAnotherStringRepresentation() {
         let queens = try! Queens(white: [7, 1], black: [0, 0])
         let board = "B _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ W _ _ _ _ _ _"
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+        "_ W _ _ _ _ _ _"
         XCTAssertEqual(board, queens.description)
     }
 
     func testYetAnotherStringRepresentation() {
         let queens = try! Queens(white: [4, 3], black: [3, 4])
         let board = "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ B _ _ _\n" +
-                    "_ _ _ W _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _\n" +
-                    "_ _ _ _ _ _ _ _"
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ B _ _ _\n" +
+            "_ _ _ W _ _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+            "_ _ _ _ _ _ _ _\n" +
+        "_ _ _ _ _ _ _ _"
         XCTAssertEqual(board, queens.description)
     }
 

@@ -31,24 +31,24 @@ struct Luhn {
     }
 
     func addendsFunc(_ num: Int64) -> [Int] {
-            func oddIndexInt64Minus9( _ input: [Int]) -> [Int] {
+        func oddIndexInt64Minus9( _ input: [Int]) -> [Int] {
             var input = input
             input = Array(input.reversed())
             var tempArray: [Int] = []
             for (inx, each) in input.enumerated() {
-            var tempEach: Int = each
-            if (inx+1) % 2 == 0 {
-            tempEach *= 2
-            if tempEach > 10 {
-            tempEach -= 9
-            }
-            tempArray.insert(tempEach, at: 0)
-            } else {
-            tempArray.insert(tempEach, at: 0)
-            }
+                var tempEach: Int = each
+                if (inx+1) % 2 == 0 {
+                    tempEach *= 2
+                    if tempEach > 10 {
+                        tempEach -= 9
+                    }
+                    tempArray.insert(tempEach, at: 0)
+                } else {
+                    tempArray.insert(tempEach, at: 0)
+                }
             }
             return tempArray
-            }
+        }
 
 
         func char2Int(_ input: Character) -> Int {

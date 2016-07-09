@@ -1,6 +1,6 @@
 
 #if swift(>=3.0)
-import XCTest
+    import XCTest
 #endif
 
 
@@ -33,9 +33,9 @@ class CustomSetTest: XCTestCase {
 
     func testDifference() {
         XCTAssertEqual(CustomSet([1, 3]),
-            CustomSet([1, 2, 3]).difference(CustomSet([2, 4])))
+                       CustomSet([1, 2, 3]).difference(CustomSet([2, 4])))
         XCTAssertEqual(CustomSet([2, 3]),
-            CustomSet([1, 2, 3, 4]).difference(CustomSet([1, 4])))
+                       CustomSet([1, 2, 3, 4]).difference(CustomSet([1, 4])))
 
     }
 
@@ -58,10 +58,10 @@ class CustomSetTest: XCTestCase {
 
     func testIntersection() {
         XCTAssertEqual(CustomSet(["a", "c"]),
-            CustomSet(["a", "b", "c"]).intersection(CustomSet(["a", "c", "d"])))
+                       CustomSet(["a", "b", "c"]).intersection(CustomSet(["a", "c", "d"])))
 
         XCTAssertEqual(CustomSet([3.0]),
-            CustomSet([1.0, 2.0, 3.0]).intersection(CustomSet([3.0])))
+                       CustomSet([1.0, 2.0, 3.0]).intersection(CustomSet([3.0])))
     }
 
     func testMember() {
@@ -74,12 +74,12 @@ class CustomSetTest: XCTestCase {
         var expected1 = CustomSet([1, 2, 4])
         expected1.put(3)
         XCTAssertEqual(CustomSet([1, 2, 3, 4]),
-            expected1)
+                       expected1)
 
         var expected2 = CustomSet([1, 2, 3])
         expected2.put(3)
         XCTAssertEqual(CustomSet([1, 2, 3]),
-            expected2)
+                       expected2)
     }
 
     func testSize() {
@@ -104,15 +104,15 @@ class CustomSetTest: XCTestCase {
 
     func testUnion() {
         XCTAssertEqual(CustomSet([3, 2, 1]),
-            CustomSet([1, 3]).union(CustomSet([2])))
+                       CustomSet([1, 3]).union(CustomSet([2])))
         XCTAssertEqual(CustomSet([3.0, 3, 2, 1]),
-            CustomSet([1, 3]).union(CustomSet([2, 3.0])))
+                       CustomSet([1, 3]).union(CustomSet([2, 3.0])))
         XCTAssertEqual(CustomSet([3, 1]),
-            CustomSet([1, 3]).union(CustomSet(emptyTypedArray)))
+                       CustomSet([1, 3]).union(CustomSet(emptyTypedArray)))
         XCTAssertEqual(CustomSet([2]),
-            CustomSet([2]).union(CustomSet(emptyTypedArray)))
+                       CustomSet([2]).union(CustomSet(emptyTypedArray)))
         XCTAssertEqual(CustomSet(emptyTypedArray),
-            CustomSet(emptyTypedArray).union(CustomSet(emptyTypedArray)))
+                       CustomSet(emptyTypedArray).union(CustomSet(emptyTypedArray)))
     }
 
 

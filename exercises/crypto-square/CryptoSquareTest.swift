@@ -1,5 +1,5 @@
 #if swift(>=3.0)
-import XCTest
+    import XCTest
 #endif
 
 
@@ -75,8 +75,8 @@ class CryptoSquareTest: XCTestCase {
     func testAnotherNormalizedCiphertext() {
         let crypto = Crypto(
             "If man was meant to stay on the ground god would have given us roots"
-       )
-       let  expected = "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghns seoau"
+        )
+        let  expected = "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghns seoau"
         XCTAssertEqual(expected, crypto.normalizeCiphertext)
     }
 

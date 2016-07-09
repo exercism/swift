@@ -6,26 +6,26 @@ struct OCR {
 
     let lines: [String]
     let patterns =  [
-                        [" _ ", "| |", "|_|", "   "] : "0",
-                        ["   ", "  |", "  |", "   "] : "1",
-                        [" _ ", " _|", "|_ ", "   "] : "2",
-                        [" _ ", " _|", " _|", "   "] : "3",
-                        ["   ", "|_|", "  |", "   "] : "4",
-                        [" _ ", "|_ ", " _|", "   "] : "5",
-                        [" _ ", "|_ ", "|_|", "   "] : "6",
-                        [" _ ", "  |", "  |", "   "] : "7",
-                        [" _ ", "|_|", "|_|", "   "] : "8",
-                        [" _ ", "|_|", " _|", "   "] : "9"
+        [" _ ", "| |", "|_|", "   "] : "0",
+        ["   ", "  |", "  |", "   "] : "1",
+        [" _ ", " _|", "|_ ", "   "] : "2",
+        [" _ ", " _|", " _|", "   "] : "3",
+        ["   ", "|_|", "  |", "   "] : "4",
+        [" _ ", "|_ ", " _|", "   "] : "5",
+        [" _ ", "|_ ", "|_|", "   "] : "6",
+        [" _ ", "  |", "  |", "   "] : "7",
+        [" _ ", "|_|", "|_|", "   "] : "8",
+        [" _ ", "|_|", " _|", "   "] : "9"
     ]
 
     enum Error: ErrorProtocol {
-    case invalidNumberOfLines
-    case invalidNumberOfColumns
+        case invalidNumberOfLines
+        case invalidNumberOfColumns
     }
 
 
     init(_ text: String) throws {
-            let lines = text.characters.split(separator: "\n").map { String($0) }
+        let lines = text.characters.split(separator: "\n").map { String($0) }
 
 
 
@@ -65,9 +65,9 @@ struct OCR {
                 var grouping = [String]()
 
                 for line in selectedLines {
-                        let startIndex = line.characters.index(line.startIndex, offsetBy: columnIndex)
-                        let endIndex = line.characters.index(line.startIndex, offsetBy: columnIndex + 2)
-                        grouping.append(line[startIndex...endIndex])
+                    let startIndex = line.characters.index(line.startIndex, offsetBy: columnIndex)
+                    let endIndex = line.characters.index(line.startIndex, offsetBy: columnIndex + 2)
+                    grouping.append(line[startIndex...endIndex])
 
 
 

@@ -21,7 +21,7 @@ struct Board {
 
     func transform() -> [String] {
         var result = [String]()
-            let rowsEnumarated = rows.enumerated()
+        let rowsEnumarated = rows.enumerated()
 
 
         for (i, row) in rowsEnumarated {
@@ -106,20 +106,20 @@ struct Board {
     }
 }
 
-    private extension String {
+private extension String {
     func matchesRegex(_ pattern: String) -> Bool {
-    let options = RegularExpression.Options.dotMatchesLineSeparators
-    let regex = try? RegularExpression(pattern: pattern, options: options)
-    var matches = 0
-    if let regex = regex {
-    matches = regex.numberOfMatches(in: self,
-    options: [],
-    range: NSMakeRange(0, (self as NSString).length))
-    }
-    return matches > 0
+        let options = RegularExpression.Options.dotMatchesLineSeparators
+        let regex = try? RegularExpression(pattern: pattern, options: options)
+        var matches = 0
+        if let regex = regex {
+            matches = regex.numberOfMatches(in: self,
+                                            options: [],
+                                            range: NSMakeRange(0, (self as NSString).length))
+        }
+        return matches > 0
     }
     subscript(index: Int) -> Character {
-    let index = characters.index(startIndex, offsetBy: index)
-    return self[index]
+        let index = characters.index(startIndex, offsetBy: index)
+        return self[index]
     }
-    }
+}

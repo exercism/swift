@@ -1,5 +1,5 @@
 #if swift(>=3.0)
-import XCTest
+    import XCTest
 #endif
 
 
@@ -13,7 +13,7 @@ private extension XCTestCase {
             guard index < expected.count && expected.contains(student) else { return false }
         }
         return true
-        }
+    }
 
 
     private func similar<C: Collection>(_ result: C, _ expected: [String]) -> Bool {
@@ -65,7 +65,7 @@ class GradeSchoolTest: XCTestCase {
         school.addStudent("Logan", grade: 7)
         let result = school.roster
         let expected = [3: ["Chelsea"], 7: ["Logan"]]
-            XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
+        XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
 
         XCTAssertEqualCollection(result[3], expected[3])
     }
@@ -97,11 +97,11 @@ class GradeSchoolTest: XCTestCase {
         let result = school.sortedRoster
 
         let expected = [
-                           3 : ["Kyle"],
-                           4 : ["Christopher", "Jennifer"],
-                           6 : ["Kareem"]
+            3 : ["Kyle"],
+            4 : ["Christopher", "Jennifer"],
+            6 : ["Kareem"]
         ]
-            XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
+        XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
 
         XCTAssertEqualCollection(result[3], expected[3])
         XCTAssertEqualCollection(result[4], expected[4])

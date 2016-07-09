@@ -10,9 +10,9 @@ extension Int {
 
 
 struct Trinary {
-   private var stringValue = ""
-   private var toDecimal: Int = 0
-   private func isValidTrinary() -> Bool {
+    private var stringValue = ""
+    private var toDecimal: Int = 0
+    private func isValidTrinary() -> Bool {
         return (Int(stringValue) ?? -1) > -1 ? true : false
     }
 
@@ -24,7 +24,7 @@ struct Trinary {
         for (inx, each) in enumarated {
             let tempCharInt = Int("\(each)") ?? 0
             let tempTriPower = Int(pow(Double(3), Double(inx)))
-                tempInt += tempTriPower * tempCharInt
+            tempInt += tempTriPower * tempCharInt
         }
         return tempInt
     }

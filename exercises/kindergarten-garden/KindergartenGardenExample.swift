@@ -26,8 +26,8 @@ struct Garden {
     }
 
     private static func parse(_ diagram: String, children: [String]) -> [String : [Plant]] {
-            let sortedChildren = children.sorted(isOrderedBefore: <)
-            let lines = diagram.components(separatedBy: CharacterSet.newlines)
+        let sortedChildren = children.sorted(isOrderedBefore: <)
+        let lines = diagram.components(separatedBy: CharacterSet.newlines)
 
 
         var result = [String : [Plant]]()

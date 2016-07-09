@@ -56,10 +56,10 @@ struct SimulatedRobot {
 
     mutating func advance() {
         switch bearing {
-            case .north: y += 1
-            case .east:  x += 1
-            case .south: y -= 1
-            case .west:  x -= 1
+        case .north: y += 1
+        case .east:  x += 1
+        case .south: y -= 1
+        case .west:  x -= 1
         }
     }
 
@@ -85,9 +85,9 @@ struct SimulatedRobot {
     mutating func evaluate(_ commands: String) {
         for instruction in instructions(commands) {
             switch instruction {
-                case .TurnLeft:  turnLeft()
-                case .TurnRight: turnRight()
-                case .Advance:   advance()
+            case .TurnLeft:  turnLeft()
+            case .TurnRight: turnRight()
+            case .Advance:   advance()
             }
         }
     }

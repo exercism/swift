@@ -8,12 +8,12 @@ indirect enum BinarySearchTree<Element: Comparable> {
     }
 
     var left: BinarySearchTree<Element>? {
-        guard case let .node(left, _,_) = self else { return nil }
+        guard case let .node(left, _, _) = self else { return nil }
         return left
     }
 
     var right: BinarySearchTree<Element>? {
-        guard case let .node(_, _,right) = self else { return nil }
+        guard case let .node(_, _, right) = self else { return nil }
         return right
     }
 
@@ -22,7 +22,7 @@ indirect enum BinarySearchTree<Element: Comparable> {
 
     init(left: BinarySearchTree<Element> = .empty,
          _ value: Element,
-         right: BinarySearchTree<Element>= .empty ) {
+           right: BinarySearchTree<Element>= .empty ) {
         self = .node(left, value, right)
     }
     init() {

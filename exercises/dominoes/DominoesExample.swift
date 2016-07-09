@@ -21,7 +21,7 @@ struct Dominoes {
         var unique = [Bone]()
         for each in input {
             if unique.contains(each) {
-                    unique.insert(Bone(each.value.tail, each.value.head), at: 0)
+                unique.insert(Bone(each.value.tail, each.value.head), at: 0)
 
             } else {
                 unique.append(each)

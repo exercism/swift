@@ -5,7 +5,7 @@
 
 
 func == <T> (lh: CustomSet<T>, rh: CustomSet<T>) -> Bool {
-        return lh.contents.keys.sorted {$0.hashValue < $1.hashValue} == rh.contents.keys.sorted {$0.hashValue < $1.hashValue}
+    return lh.contents.keys.sorted {$0.hashValue < $1.hashValue} == rh.contents.keys.sorted {$0.hashValue < $1.hashValue}
 
 }
 

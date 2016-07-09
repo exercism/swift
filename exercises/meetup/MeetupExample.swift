@@ -144,7 +144,7 @@ struct Meetup {
 
         let starDay = dateStart.weekday
         var month = Array(dateStart.day ... dateEnd.day)
-            month =  month.map {(($0 + 5 + starDay) % 7) + 1  }
+        month =  month.map {(($0 + 5 + starDay) % 7) + 1  }
 
         for (index, eachDay) in month.enumerated() {
             dateMonthWeekDays.append([index + 1, eachDay])

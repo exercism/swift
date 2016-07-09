@@ -34,8 +34,8 @@ struct WordCount {
                     dict[string.lowercased()] = count + 1
                 } else { dict[string.lowercased()] = 1
                 }
-                }
-                }
-            return dict
+            }
         }
+        return dict
+    }
 }

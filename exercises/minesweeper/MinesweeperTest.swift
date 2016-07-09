@@ -1,5 +1,5 @@
 #if swift(>=3.0)
-import XCTest
+    import XCTest
 #endif
 
 
@@ -8,17 +8,17 @@ class MinesweeperTest: XCTestCase {
 
     func testTransform1() {
         let input = ["+------+", "| *  * |", "|  *   |", "|    * |", "|   * *|",
-        "| *  * |", "|      |", "+------+"]
+                     "| *  * |", "|      |", "+------+"]
         let output = ["+------+", "|1*22*1|", "|12*322|", "| 123*2|", "|112*4*|",
-        "|1*22*2|", "|111111|", "+------+"]
+                      "|1*22*2|", "|111111|", "+------+"]
         XCTAssertEqual(output, try! Board(input).transform())
     }
 
     func testTransform2() {
         let input = ["+-----+", "| * * |", "|     |", "|   * |", "|  * *|",
-        "| * * |", "+-----+"]
+                     "| * * |", "+-----+"]
         let output = ["+-----+", "|1*2*1|", "|11322|", "| 12*2|", "|12*4*|",
-        "|1*3*2|", "+-----+"]
+                      "|1*3*2|", "+-----+"]
         XCTAssertEqual(output, try! Board(input).transform())
     }
 
@@ -60,9 +60,9 @@ class MinesweeperTest: XCTestCase {
 
     func testTransform9() {
         let input = ["+-----+", "|     |", "|   * |", "|     |", "|     |",
-        "| *   |", "+-----+"]
+                     "| *   |", "+-----+"]
         let output = ["+-----+", "|  111|", "|  1*1|", "|  111|", "|111  |",
-        "|1*1  |", "+-----+"]
+                      "|1*1  |", "+-----+"]
         XCTAssertEqual(output, try! Board(input).transform())
     }
 

@@ -29,7 +29,7 @@ private extension String {
     }
 
     func replacingOccurrencesCustom(_ of: String, with: String) -> String {
-           return replacingOccurrences(of: of, with: with)
+        return replacingOccurrences(of: of, with: with)
 
     }
 
@@ -41,9 +41,9 @@ private extension String {
 }
 
 
-    enum CalculateError: ErrorProtocol {
+enum CalculateError: ErrorProtocol {
     case error
-    }
+}
 
 
 struct WordProblem {
@@ -55,15 +55,15 @@ struct WordProblem {
 
     private let operans =
         ["plus" : "+",
-        "minus" : "-",
-        "multiplied by" : "*",
-        "divided by" : "/"]
+         "minus" : "-",
+         "multiplied by" : "*",
+         "divided by" : "/"]
 
     private let funcs =
         ["+": {(a: Int, b: Int) -> Int in return a + b},
-        "-": {(a: Int, b: Int) -> Int in return a - b},
-        "*": {(a: Int, b: Int) -> Int in return a * b},
-        "/": {(a: Int, b: Int) -> Int in return a / b}]
+         "-": {(a: Int, b: Int) -> Int in return a - b},
+         "*": {(a: Int, b: Int) -> Int in return a * b},
+         "/": {(a: Int, b: Int) -> Int in return a / b}]
 
 
     func answer() throws -> Int {
@@ -96,8 +96,8 @@ struct WordProblem {
             if a != nil || operA != nil || b == nil ||
                 operB != nil || c != nil {
 
-                    let left = operA!(a!, b!)
-                    return operB!(left, c!) }
+                let left = operA!(a!, b!)
+                return operB!(left, c!) }
         }
         return nil
     }
@@ -112,7 +112,7 @@ struct WordProblem {
         }
 
         func checkCharInSet(_ input: Character) -> Bool {
-                let temp = " 0987654321+-*/".characters.index(of: input)
+            let temp = " 0987654321+-*/".characters.index(of: input)
 
             if temp == nil {
                 return false

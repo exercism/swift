@@ -1,6 +1,6 @@
 
 #if swift(>=3.0)
-import XCTest
+    import XCTest
 #endif
 
 
@@ -20,13 +20,13 @@ private extension String {
 
 class AccumulateTest: XCTestCase {
 
-     func testEmptyAccumulation() {
+    func testEmptyAccumulation() {
 
-       let input = [Int]()
-       func square(_ input: Int) -> Int {
+        let input = [Int]()
+        func square(_ input: Int) -> Int {
             return input * input
-       }
-       let result = input.accumulate(square)
+        }
+        let result = input.accumulate(square)
 
         XCTAssertTrue(result.isEmpty)
     }
@@ -57,7 +57,7 @@ class AccumulateTest: XCTestCase {
 
         XCTAssertEqual(expected, result)
 
-     }
+    }
 
 
     func testAccumulateReversedStrings() {

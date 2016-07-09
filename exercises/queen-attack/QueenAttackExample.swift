@@ -4,9 +4,9 @@
 
 struct Queens {
     enum InitError: ErrorProtocol {
-    case sameSpace
-    case incorrectNumberOfCoordinates
-    case invalidCoordinates
+        case sameSpace
+        case incorrectNumberOfCoordinates
+        case invalidCoordinates
     }
 
 
@@ -50,8 +50,8 @@ struct Queens {
 
 extension Queens: CustomStringConvertible {
     var description: String {
-            let row = [String](repeating: "_", count: 8)
-            var board = [[String]](repeating: row, count: 8)
+        let row = [String](repeating: "_", count: 8)
+        var board = [[String]](repeating: row, count: 8)
 
 
 
@@ -59,10 +59,10 @@ extension Queens: CustomStringConvertible {
         board[black[0]][black[1]] = "B"
 
         var rows = [String]()
-            for row in board {
+        for row in board {
             rows.append(row.joined(separator: " "))
-            }
-            return rows.joined(separator: "\n")
+        }
+        return rows.joined(separator: "\n")
 
 
     }

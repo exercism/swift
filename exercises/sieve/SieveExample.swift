@@ -13,12 +13,12 @@ struct Sieve {
     func primesFunc(_ limit: Int) -> [Int] {
 
         if limit < 2 { return []} else {
-          let tempArray =  Array(2...limit)
+            let tempArray =  Array(2...limit)
             return tempArray.filter {Sieve.onlyDivisorSelf($0)}
         }
     }
 
-     static func onlyDivisorSelf( _ number: Int) -> Bool {
+    static func onlyDivisorSelf( _ number: Int) -> Bool {
         var number = number
 
         var primes = [Int]()

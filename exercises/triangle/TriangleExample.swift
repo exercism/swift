@@ -21,7 +21,7 @@ struct Triangle {
     func uniqueSides() -> Int {
         var tempSet = Set<Double>()
         for each in [a, b, c] {
-                tempSet.insert(each)
+            tempSet.insert(each)
         }
 
         return tempSet.count

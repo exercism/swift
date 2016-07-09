@@ -5,9 +5,9 @@
 extension Int {
     init(_ value: Binary?) {
         if let value = value {
-         self = value.toDecimal
+            self = value.toDecimal
         } else {
-        self = 0 }
+            self = 0 }
     }
 }
 
@@ -31,9 +31,9 @@ struct Binary {
 
     init?(_ input: String) {
         if bi2Uint(input) != nil {
-        self.UIntValue = bi2Uint(input)!
+            self.UIntValue = bi2Uint(input)!
         } else {
-        return nil
+            return nil
         }
 
     }

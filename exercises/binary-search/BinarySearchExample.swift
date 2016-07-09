@@ -4,9 +4,9 @@
 
 // Note: Placing this enum inside the BinarySearch struct results in a compiler crash
 
-    enum BinarySearchError: ErrorProtocol {
+enum BinarySearchError: ErrorProtocol {
     case unsorted
-    }
+}
 
 
 struct BinarySearch<T: Comparable> {
@@ -17,9 +17,9 @@ struct BinarySearch<T: Comparable> {
     }
 
     init(_ list: [T]) throws {
-            guard list == list.sorted(isOrderedBefore: <) else {
-                throw BinarySearchError.unsorted
-            }
+        guard list == list.sorted(isOrderedBefore: <) else {
+            throw BinarySearchError.unsorted
+        }
 
 
 

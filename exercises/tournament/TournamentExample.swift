@@ -148,11 +148,11 @@ struct Tournament {
 
 
             let line = formarter(team,
-                mp: "\(mp)",
-                w: "\(w)",
-                d: "\(d)",
-                l: "\(l)",
-                p: "\(p)")
+                                 mp: "\(mp)",
+                                 w: "\(w)",
+                                 d: "\(d)",
+                                 l: "\(l)",
+                                 p: "\(p)")
 
             textOutput += line
         }
