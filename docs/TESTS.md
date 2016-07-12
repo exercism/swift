@@ -1,5 +1,7 @@
 ### Creating the project in Xcode
 
+Please see [Apple's guide on XCTest](https://developer.apple.com/library/tvos/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/02-quick_start.html#//apple_ref/doc/uid/TP40014132-CH2-SW1)  
+
 These steps will use the `bob` exercise as an example. If you are not working on `bob`, replace `bob` with your exercise name in the steps below.
 
 * Select iOS-->Application and then Single View Application and click Next.
