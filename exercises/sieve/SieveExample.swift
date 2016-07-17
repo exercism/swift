@@ -1,7 +1,3 @@
-
-
-
-
 struct Sieve {
     var value: Int = 0
     init(_ num: Int) {

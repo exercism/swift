@@ -1,7 +1,3 @@
-
-
-
-
 struct Hexadecimal {
 
     let hexString: String

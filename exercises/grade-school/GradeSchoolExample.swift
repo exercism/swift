@@ -1,8 +1,3 @@
-
-
-
-
-
 struct GradeSchool {
     var roster = [Int: Set<String>]()
 

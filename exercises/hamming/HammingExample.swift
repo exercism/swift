@@ -1,7 +1,3 @@
-
-
-
-
 struct Hamming {
     static func compute(_ input: String, against: String) -> Int? {
         var differences = 0

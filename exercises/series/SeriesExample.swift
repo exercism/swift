@@ -1,7 +1,3 @@
-
-
-
-
 struct Series {
 
     var numberString = ""

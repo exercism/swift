@@ -1,7 +1,3 @@
-
-
-
-
 struct Queens {
     enum InitError: ErrorProtocol {
         case sameSpace

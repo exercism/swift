@@ -1,5 +1,3 @@
-
-
 indirect enum BinarySearchTree<Element: Comparable> {
 
     var data: Element? {

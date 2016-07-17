@@ -1,7 +1,3 @@
-
-
-
-
 private extension Array {
 
     func reversedCustom() -> Array {

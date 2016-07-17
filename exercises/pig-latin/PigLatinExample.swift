@@ -1,7 +1,3 @@
-
-
-
-
 private extension String {
     func substringFromIndexInt(_ indx: Int) -> String {
         let index = self.characters.index(self.startIndex, offsetBy: indx)
@@ -13,25 +9,18 @@ private extension String {
         let end = self.characters.index(self.startIndex, offsetBy: intRange.upperBound)
         return self.substring(with: start..<end)
     }
-
-
 }
 
 struct PigLatin {
 
-
     static func translate (_ word: String) -> String {
         return word.components(separatedBy: " ").map {self.translateWord($0)}.joined(separator: " ")
-
-
     }
 
     static func translateWord(_ word: String) -> String {
 
-
         func wordStartsWithPrefixes(_ word: String, prefixes: [String]) -> Bool {
             return 0 < prefixes.filter {word.hasPrefix($0)}.count
-
         }
 
         func wordStartsWithVowelLike(_ word: String) -> Bool {
@@ -42,8 +31,6 @@ struct PigLatin {
             let index = word.characters.index(word.startIndex, offsetBy: 1)
             return word.substring(from: index).hasPrefix("qu")
         }
-
-
 
         if wordStartsWithVowelLike(word) {return word + "ay"}
         if wordStartsWithPrefixes(word, prefixes: ["thr", "sch"]) {
@@ -60,10 +47,5 @@ struct PigLatin {
             word.substringWithRangeInt(0..<1) + "ay"
 
     }
-
-
-
-
-
 
 }

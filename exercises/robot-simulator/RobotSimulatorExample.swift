@@ -1,6 +1,3 @@
-
-
-
 struct SimulatedRobot {
 
     enum Direction {

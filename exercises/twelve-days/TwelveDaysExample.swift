@@ -1,7 +1,3 @@
-
-
-
-
 struct TwelveDaysSong {
 
     static func sing() -> String {

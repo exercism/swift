@@ -1,7 +1,3 @@
-
-
-
-
 struct Squares {
 
     var max = 1

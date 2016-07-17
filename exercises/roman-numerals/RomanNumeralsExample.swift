@@ -1,7 +1,3 @@
-
-
-
-
 extension String {
 
     init(_ value: RomanNumeral) {

@@ -1,7 +1,3 @@
-
-
-
-
 struct SecretHandshake {
 
     var commandValue: Int

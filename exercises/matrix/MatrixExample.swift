@@ -1,9 +1,3 @@
-
-
-
-
-
-
 struct Matrix {
 
     let rows: [[Int]]

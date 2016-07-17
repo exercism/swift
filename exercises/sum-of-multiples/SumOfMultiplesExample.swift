@@ -1,5 +1,3 @@
-
-
 struct SumOfMultiples {
 
     static func toLimit(_ limit: Int, inMultiples: [Int]) -> Int {

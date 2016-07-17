@@ -1,7 +1,3 @@
-
-
-
-
 struct SaddlePointsMatrix {
 
     let rows: [[Int]]

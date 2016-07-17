@@ -1,7 +1,3 @@
-
-
-
-
 struct Anagram {
     var baseWord = ""
     init (word: String) {

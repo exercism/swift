@@ -1,7 +1,3 @@
-
-
-
-
 struct Year {
     var year = 1900
     init(calendarYear: Int) {

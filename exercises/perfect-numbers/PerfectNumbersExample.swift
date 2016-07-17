@@ -1,7 +1,3 @@
-
-
-
-
 enum NumberClassification {
     case perfect
     case abundant

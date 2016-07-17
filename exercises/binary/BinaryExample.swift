@@ -1,7 +1,3 @@
-
-
-
-
 extension Int {
     init(_ value: Binary?) {
         if let value = value {

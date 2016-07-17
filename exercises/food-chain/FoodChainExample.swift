@@ -1,7 +1,3 @@
-
-
-
-
 struct FoodChain {
 
     private static let animals = ["fly", "spider", "bird", "cat", "dog", "goat", "cow", "horse"]
@@ -9,7 +5,6 @@ struct FoodChain {
     static func song() -> String {
         let verses = (1...8).map { verse($0) }
         return verses.joined(separator: "\n\n")
-
     }
 
     static func verse(_ number: Int) -> String {

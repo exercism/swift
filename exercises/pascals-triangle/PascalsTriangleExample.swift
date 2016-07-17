@@ -1,7 +1,3 @@
-
-
-
-
 struct PascalsTriangle {
 
     let rows: [[Int]]

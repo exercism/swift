@@ -1,7 +1,3 @@
-
-
-
-
 private extension String {
 
     func containsCustom(_ input: Character) -> Bool {
@@ -39,7 +35,7 @@ struct Scrabble {
 
 
     static func score(_ input: String) -> Int {
-        if (input.isEmptyOrWhiteSpace ) {
+        if input.isEmptyOrWhiteSpace {
             return 0}
 
         var count: Int = 0

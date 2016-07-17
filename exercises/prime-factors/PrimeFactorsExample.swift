@@ -1,8 +1,3 @@
-
-
-
-
-
 struct PrimeFactors {
 
     var number: Int64

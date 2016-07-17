@@ -1,5 +1,3 @@
-
-
 struct NumberSeries {
 
     enum Error: ErrorProtocol {

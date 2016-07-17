@@ -1,7 +1,3 @@
-
-
-
-
 extension Array {
 
     func keep(compare: Bool = true, inputFunc: (Element) -> Bool ) -> Array {

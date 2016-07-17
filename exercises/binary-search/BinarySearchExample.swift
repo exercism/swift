@@ -1,13 +1,6 @@
-
-
-
-
-// Note: Placing this enum inside the BinarySearch struct results in a compiler crash
-
 enum BinarySearchError: ErrorProtocol {
     case unsorted
 }
-
 
 struct BinarySearch<T: Comparable> {
 
@@ -20,9 +13,6 @@ struct BinarySearch<T: Comparable> {
         guard list == list.sorted(isOrderedBefore: <) else {
             throw BinarySearchError.unsorted
         }
-
-
-
         self.list = list
     }
 
@@ -36,8 +26,6 @@ struct BinarySearch<T: Comparable> {
             guard sublist != list else {
                 return nil
             }
-
-            // try! is safe here, since it's not possible to get here if the data isn't initially sorted
             return try! BinarySearch(sublist).searchFor(datum)
         } else {
             let sublist = Array(list[middle..<list.count])
@@ -45,7 +33,6 @@ struct BinarySearch<T: Comparable> {
                 return nil
             }
 
-            // try! is safe here, since it's not possible to get here if the data isn't initially sorted
             if let index = try! BinarySearch(sublist).searchFor(datum) {
                 return index + middle
             } else {

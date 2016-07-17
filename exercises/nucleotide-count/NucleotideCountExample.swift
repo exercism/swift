@@ -1,7 +1,3 @@
-
-
-
-
 enum Nucleobase: Character {
     case adenine = "A",
     cytosine = "C",

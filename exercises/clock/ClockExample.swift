@@ -1,5 +1,3 @@
-
-
 struct Clock: Equatable, CustomStringConvertible {
 
     var hours: Int

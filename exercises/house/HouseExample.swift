@@ -1,7 +1,3 @@
-
-
-
-
 struct House {
 
     private static let pieces = [

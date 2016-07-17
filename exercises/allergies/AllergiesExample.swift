@@ -1,7 +1,3 @@
-
-
-
-
 enum Allergen: UInt {
     case eggs = 1
     case peanuts = 2

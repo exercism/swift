@@ -1,7 +1,3 @@
-
-
-
-
 struct Atbash {
 
     private static func stripWhiteSpaceAndPunctuations(_ input: String) -> String {

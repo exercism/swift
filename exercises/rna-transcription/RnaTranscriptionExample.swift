@@ -1,5 +1,3 @@
-
-
 struct Nucleotide {
 
     var complementOfDNA: String { return transcribe(dnaToRna) }

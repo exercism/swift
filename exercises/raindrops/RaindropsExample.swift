@@ -1,7 +1,3 @@
-
-
-
-
 struct Raindrops {
 
     private var drops: Int

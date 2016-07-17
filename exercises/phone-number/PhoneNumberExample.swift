@@ -1,6 +1,3 @@
-
-
-
 private extension String {
     subscript (range: CountableClosedRange<Int>) -> String {
         get {

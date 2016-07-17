@@ -1,7 +1,3 @@
-
-
-
-
 extension Array {
     func accumulate<S>(_ yield: (Element) -> S) -> [S] {
         var result: [S] = [S]()

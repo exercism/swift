@@ -1,5 +1,3 @@
-
-
 struct Dominoes {
 
     let singles: [Bone]

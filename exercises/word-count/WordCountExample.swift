@@ -1,7 +1,3 @@
-
-
-
-
 struct WordCount {
 
     func splitStringToArray(_ inString: String) -> [String] {

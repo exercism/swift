@@ -1,7 +1,3 @@
-
-
-
-
 struct ETL {
     static func transform(_ old: [Int: [String] ] ) -> [String: Int] {
         var result = [String: Int]()

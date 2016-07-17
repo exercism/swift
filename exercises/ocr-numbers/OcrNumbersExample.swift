@@ -1,7 +1,3 @@
-
-
-
-
 struct OCR {
 
     let lines: [String]
