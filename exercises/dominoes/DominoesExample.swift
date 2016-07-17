@@ -63,7 +63,7 @@ struct Dominoes {
 }
 
 
-func ==(lhs: Bone, rhs: Bone) -> Bool {
+func == (lhs: Bone, rhs: Bone) -> Bool {
     return lhs.value.head == rhs.value.head && lhs.value.tail == rhs.value.tail
 }
 

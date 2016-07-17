@@ -147,7 +147,7 @@ enum HandRank {
 
 extension HandRank : Equatable, Comparable {}
 
-func ==(lhs: HandRank, rhs: HandRank) -> Bool {
+func == (lhs: HandRank, rhs: HandRank) -> Bool {
     switch (lhs, rhs) {
     //straightFlush(Rank,Suit)
     case (HandRank.straightFlush(let lRank, let lSuit), HandRank.straightFlush(let rRank, let rSuit)):
@@ -186,7 +186,7 @@ func ==(lhs: HandRank, rhs: HandRank) -> Bool {
     }
 }
 
-func <(lhs: HandRank, rhs: HandRank) -> Bool {
+func < (lhs: HandRank, rhs: HandRank) -> Bool {
     switch (lhs, rhs) {
     case (_, _) where lhs == rhs:
         return false
@@ -265,11 +265,11 @@ struct PokerHand {
 
 extension PokerHand : Equatable, Comparable {}
 
-func ==(lhs: PokerHand, rhs: PokerHand) -> Bool {
+func == (lhs: PokerHand, rhs: PokerHand) -> Bool {
     return lhs.hand == rhs.hand
 }
 
-func <(lhs: PokerHand, rhs: PokerHand) -> Bool {
+func < (lhs: PokerHand, rhs: PokerHand) -> Bool {
     return lhs.handRank() < rhs.handRank()
 }
 
@@ -295,11 +295,11 @@ struct PlayingCard {
 
 extension PlayingCard : Equatable, Comparable {}
 
-func ==(lhs: PlayingCard, rhs: PlayingCard) -> Bool {
+func == (lhs: PlayingCard, rhs: PlayingCard) -> Bool {
     return lhs.rank == rhs.rank && lhs.suit == rhs.suit
 }
 
-func <(lhs: PlayingCard, rhs: PlayingCard) -> Bool {
+func < (lhs: PlayingCard, rhs: PlayingCard) -> Bool {
     return lhs.rank == rhs.rank ? lhs.suit < rhs.suit : lhs.rank < rhs.rank
 }
 
@@ -340,7 +340,7 @@ enum Suit: String {
 
 extension Rank : Comparable {}
 
-func <(lhs: Rank, rhs: Rank) -> Bool {
+func < (lhs: Rank, rhs: Rank) -> Bool {
     switch (lhs, rhs) {
     case (_, _) where lhs == rhs:
         return false
@@ -351,7 +351,7 @@ func <(lhs: Rank, rhs: Rank) -> Bool {
 
 extension Suit: Comparable {}
 
-func <(lhs: Suit, rhs: Suit) -> Bool {
+func < (lhs: Suit, rhs: Suit) -> Bool {
     switch (lhs, rhs) {
     case (_, _) where lhs == rhs:
         return false
