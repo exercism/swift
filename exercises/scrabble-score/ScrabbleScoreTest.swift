@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class ScrabbleScoreTest: XCTestCase {
 
     func testEmptyWordScoresZero() {

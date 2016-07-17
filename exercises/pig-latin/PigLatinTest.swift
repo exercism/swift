@@ -3,8 +3,6 @@
 #endif
 
 class PigLatinTest: XCTestCase {
-
-
     func testWordBeginningWithA() {
         XCTAssertEqual("appleay", PigLatin.translate("apple"))
     }

@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class BinarySearchTest: XCTestCase {
 
     func testHasListData() {

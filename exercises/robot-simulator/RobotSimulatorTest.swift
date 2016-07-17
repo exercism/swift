@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class RobotSimulatorTest: XCTestCase {
 
     var robot = SimulatedRobot()

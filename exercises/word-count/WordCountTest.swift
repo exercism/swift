@@ -2,9 +2,6 @@
     import XCTest
 #endif
 
-
-
-
 class WordCountTest: XCTestCase {
 
     func testCountOneWord() {

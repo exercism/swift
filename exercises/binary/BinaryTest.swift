@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class BinaryTest: XCTestCase {
 
     func testBinary0IsDecimal0() {

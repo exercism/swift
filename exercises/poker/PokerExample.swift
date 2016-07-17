@@ -260,8 +260,6 @@ struct PokerHand {
         if handParsed.count == 5 {self.hand = handParsed } else {return nil}
     }
 }
-
-
 extension PokerHand : Equatable, Comparable {}
 
 func == (lhs: PokerHand, rhs: PokerHand) -> Bool {
@@ -271,8 +269,6 @@ func == (lhs: PokerHand, rhs: PokerHand) -> Bool {
 func < (lhs: PokerHand, rhs: PokerHand) -> Bool {
     return lhs.handRank() < rhs.handRank()
 }
-
-
 struct PlayingCard {
     let rank: Rank
     let suit: Suit
@@ -301,8 +297,6 @@ func == (lhs: PlayingCard, rhs: PlayingCard) -> Bool {
 func < (lhs: PlayingCard, rhs: PlayingCard) -> Bool {
     return lhs.rank == rhs.rank ? lhs.suit < rhs.suit : lhs.rank < rhs.rank
 }
-
-
 enum Rank: Int {
     case two = 2
     case three, four, five, six, seven, eight, nine, ten

@@ -281,6 +281,4 @@ class PokerTest: XCTestCase {
         ]
 
     }
-
-
 }

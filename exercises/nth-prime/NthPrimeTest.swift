@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class NthPrimeTest: XCTestCase {
 
     func testFirst() {

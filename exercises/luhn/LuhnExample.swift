@@ -1,7 +1,5 @@
 import Darwin
 
-
-
 struct Luhn {
 
     var number: Int64 = 0
@@ -49,8 +47,6 @@ struct Luhn {
             }
             return tempArray
         }
-
-
         func char2Int(_ input: Character) -> Int {
             let tempInt = Int(String(input)) ?? -1 // -1 = error
             return tempInt
@@ -60,7 +56,5 @@ struct Luhn {
 
         return oddIndexInt64Minus9(Array(tempString.characters).map {char2Int($0)})
     }
-
-
 
 }

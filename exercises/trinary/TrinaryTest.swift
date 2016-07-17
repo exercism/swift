@@ -2,9 +2,6 @@
     import XCTest
 #endif
 
-
-
-
 class TrinaryTest: XCTestCase {
 
     func testTrinary1IsDecimal1() {
@@ -42,6 +39,4 @@ class TrinaryTest: XCTestCase {
     func testInvalidTrinaryIsDecimal0() {
         XCTAssertEqual(0, Int(Trinary("carrot")))
     }
-
-
 }

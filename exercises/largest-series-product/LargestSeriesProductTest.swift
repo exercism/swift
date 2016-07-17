@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class LargestSeriesProductTest: XCTestCase {
 
     func testCanFindTheLargestProductOf2WithNumbersInOrder() {

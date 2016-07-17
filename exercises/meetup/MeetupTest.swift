@@ -2,15 +2,11 @@
     import XCTest
 #endif
 
-
-
 class  MeetupTest: XCTestCase {
 
     let dayOfWeek = (Sunday:1, Monday:2, Tuesday:3, Wednesday:4, Thursday:5, Friday:6, Saturday:7)
 
     let whichOptions = (first:"1st", second:"2nd", third:"3rd", fourth:"4th", last:"last", teenth:"teenth")
-
-
     func testMonteenthOfMay2013() {
         let meetUp = Meetup(year: 2013, month: 5)
         XCTAssertEqual("2013-05-13", meetUp.day(dayOfWeek.Monday, which: whichOptions.teenth).description)
@@ -55,6 +51,4 @@ class  MeetupTest: XCTestCase {
         let meetUp = Meetup(year: 2012, month: 12)
         XCTAssertEqual("2012-12-07", meetUp.day(dayOfWeek.Friday, which: whichOptions.first).description)
     }
-
-
 }

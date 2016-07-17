@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class KindergartenGardenTest: XCTestCase {
 
     private let fullGarden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")

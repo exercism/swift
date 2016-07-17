@@ -1,7 +1,5 @@
 import Darwin
 
-
-
 extension Int {
 
     init(_ value: Octal) {
@@ -28,8 +26,6 @@ struct Octal {
         }
         return tempInt
     }
-
-
     init( _ sv: String) {
         self.stringValue = sv
 

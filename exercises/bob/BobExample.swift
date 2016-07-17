@@ -23,8 +23,6 @@ private extension String {
         }
         return editString
     }
-
-
     var isQuestion: Bool {
         return hasSuffix("?")
     }

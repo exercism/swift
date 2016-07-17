@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class LuhnTest: XCTestCase {
 
     func testAddends() {

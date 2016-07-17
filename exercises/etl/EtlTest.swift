@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class EtlTest: XCTestCase {
 
     func testTransformOneValue() {

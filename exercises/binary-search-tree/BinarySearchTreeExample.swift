@@ -26,8 +26,6 @@ indirect enum BinarySearchTree<Element: Comparable> {
     init() {
         self = .empty
     }
-
-
     private func insert ( _ into: BinarySearchTree<Element>, _ newValue: Element ) -> BinarySearchTree<Element> {
         let bailOut = BinarySearchTree<Element>(left: .empty, newValue, right: .empty)
 
@@ -43,8 +41,6 @@ indirect enum BinarySearchTree<Element: Comparable> {
 
         return .node(left, value, right)
     }
-
-
     mutating func insert( _ newValue: Element ) {
 
         guard case let .node(left, value, right) = insert(self, newValue) else { return }

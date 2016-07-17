@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class  HelloWorldTest: XCTestCase {
 
     func testNoName() {

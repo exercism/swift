@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class MatrixTest: XCTestCase {
 
     func testExtractARow() {

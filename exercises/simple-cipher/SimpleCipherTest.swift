@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class SimpleCipherTest: XCTestCase {
 
     func testCipherEncode() {

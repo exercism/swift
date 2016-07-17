@@ -5,8 +5,6 @@ struct Queens {
         case invalidCoordinates
     }
 
-
-
     let white: [Int]
     let black: [Int]
     var canAttack: Bool {
@@ -49,8 +47,6 @@ extension Queens: CustomStringConvertible {
         let row = [String](repeating: "_", count: 8)
         var board = [[String]](repeating: row, count: 8)
 
-
-
         board[white[0]][white[1]] = "W"
         board[black[0]][black[1]] = "B"
 
@@ -59,7 +55,5 @@ extension Queens: CustomStringConvertible {
             rows.append(row.joined(separator: " "))
         }
         return rows.joined(separator: "\n")
-
-
     }
 }

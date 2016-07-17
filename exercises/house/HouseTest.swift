@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class HouseTest: XCTestCase {
 
     func testRhyme() {
@@ -100,6 +98,4 @@ class HouseTest: XCTestCase {
 
         XCTAssertEqual(expected, House.recite())
     }
-
-
 }

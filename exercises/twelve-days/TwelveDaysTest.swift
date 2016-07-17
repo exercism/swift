@@ -2,12 +2,7 @@
     import XCTest
 #endif
 
-
-
-
 class TwelveDaysTest: XCTestCase {
-
-
     func testVerse1() {
         let expected = "On the first day of Christmas my true love gave to me, a Partridge in a Pear Tree.\n"
         let result = TwelveDaysSong.verse(1)
@@ -94,7 +89,5 @@ class TwelveDaysTest: XCTestCase {
         XCTAssertEqual(TwelveDaysSong.verses(1, 12), TwelveDaysSong.sing())
 
     }
-
-
 
 }

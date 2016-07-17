@@ -1,8 +1,5 @@
 import Darwin
 
-
-
-
 struct Grains {
 
     enum Error: ErrorProtocol {

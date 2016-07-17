@@ -10,8 +10,6 @@ class AnagramTest: XCTestCase {
         let expected = []
         XCTAssertEqual(results, expected)
     }
-
-
     func testDetectSimpleAnagram() {
         let anagram = Anagram(word: "ant")
         let results = anagram.match(["tan", "stand", "at"])

@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class SieveTest: XCTestCase {
 
     func testAFewPrimes() {

@@ -2,9 +2,6 @@
     import XCTest
 #endif
 
-
-
-
 class PrimeFactorsTest: XCTestCase {
 
     func test1() {
@@ -50,7 +47,5 @@ class PrimeFactorsTest: XCTestCase {
     func test93819012551() {
         XCTAssertEqual([11, 9539, 894_119], PrimeFactors(93_819_012_551).toArray)
     }
-
-
 
 }

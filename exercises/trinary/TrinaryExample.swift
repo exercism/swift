@@ -1,14 +1,10 @@
 import Darwin
 
-
-
 extension Int {
     init(_ value: Trinary) {
         self  = value.toDecimal
     }
 }
-
-
 struct Trinary {
     private var stringValue = ""
     private var toDecimal: Int = 0
@@ -28,8 +24,6 @@ struct Trinary {
         }
         return tempInt
     }
-
-
     init( _ sv: String) {
         self.stringValue = sv
 

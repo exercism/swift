@@ -35,13 +35,9 @@ private extension String {
     }
 
 }
-
-
 enum CalculateError: ErrorProtocol {
     case error
 }
-
-
 struct WordProblem {
     var textIn = ""
 
@@ -60,8 +56,6 @@ struct WordProblem {
          "-": {(a: Int, b: Int) -> Int in return a - b},
          "*": {(a: Int, b: Int) -> Int in return a * b},
          "/": {(a: Int, b: Int) -> Int in return a / b}]
-
-
     func answer() throws -> Int {
         guard let toReturn = calculate(textIn) else {
             throw CalculateError.error
@@ -97,8 +91,6 @@ struct WordProblem {
         }
         return nil
     }
-
-
     private func replaceText( _ textInp: String) -> String {
         var textInp = textInp
         for key in Array(operans.keys) {
@@ -122,6 +114,4 @@ struct WordProblem {
         return newTextInString.joined(separator: "").trimWhiteSpace()
 
     }
-
-
 }

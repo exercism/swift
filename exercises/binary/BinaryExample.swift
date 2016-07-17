@@ -6,8 +6,6 @@ extension Int {
             self = 0 }
     }
 }
-
-
 struct Binary {
     private var UIntValue: UInt = 0
     private var toDecimal: Int {get {return Int(UIntValue)}}

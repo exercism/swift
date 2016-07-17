@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class FoodChainTest: XCTestCase {
 
     func testVerse1() {

@@ -1,7 +1,5 @@
 import Darwin
 
-
-
 struct Triplet {
 
     var a: Int, b: Int, c: Int = 0

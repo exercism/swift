@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 private extension XCTestCase {
 
     // Workaround unit test liminitaiton on Optional Arrays/Sets
@@ -14,8 +12,6 @@ private extension XCTestCase {
         }
         return true
     }
-
-
     private func similar<C: Collection>(_ result: C, _ expected: [String]) -> Bool {
         return result.count.toIntMax() == IntMax(expected.count)
     }
@@ -28,8 +24,6 @@ private extension XCTestCase {
         XCTAssert(sameCollection(collectionA1, collectionA2))
     }
 }
-
-
 class GradeSchoolTest: XCTestCase {
 
     func testAnEmptySchool() {

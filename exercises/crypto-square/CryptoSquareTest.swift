@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class CryptoSquareTest: XCTestCase {
 
     func testNormalizeStrangeCharacters() {
@@ -85,6 +83,4 @@ class CryptoSquareTest: XCTestCase {
         let expected = "hifei acedl veeol eddgo aatcu nyhht"
         XCTAssertEqual(expected, crypto.normalizeCiphertext)
     }
-
-
 }

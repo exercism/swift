@@ -26,6 +26,4 @@ struct RomanNumeral {
 
         self.romanNumeral = toRomanNumerals(value)
     }
-
-
 }

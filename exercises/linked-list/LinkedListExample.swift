@@ -53,9 +53,6 @@ class Deque<T> {
         self.count += 1
     }
 
-
-
-
     func pop() -> T? {
         if self.isEmpty() {
             return nil
@@ -70,8 +67,6 @@ class Deque<T> {
             return temp.value
         }
     }
-
-
     func shift() -> T? {
         if self.isEmpty() {
             return nil

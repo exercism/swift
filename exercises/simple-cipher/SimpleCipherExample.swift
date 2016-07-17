@@ -1,20 +1,14 @@
 import Darwin
 
-
-
 func arc4random_uniform(_ input: Int) -> Int {
     let temp = UInt32(input)
     return Int(arc4random_uniform(temp))
 }
-
-
 public struct Cipher {
     private let abc = "abcdefghijklmnopqrstuvwxyz"
     private var alphabet: [Character] { return Array(abc.characters) }
     private(set) var key: String = ""
     private var keyArray: [Character] { return Array(key.characters) }
-
-
     private func randomKeySet() -> String {
         var tempKey = ""
         for _ in (0..<100).enumerated() {
@@ -22,13 +16,9 @@ public struct Cipher {
         }
         return tempKey
     }
-
-
     init() {
         key = randomKeySet()
     }
-
-
     init?(key: String) {
         if isLowerCaseAlfabet(key) {
             self.key = key
@@ -40,8 +30,6 @@ public struct Cipher {
             //self.key = randomKeySet() // Alternative non Optional faiulure
         }
     }
-
-
     func isLowerCaseAlfabet(_ inkey: String) -> Bool {
         var valid = true
         inkey.characters.forEach {
@@ -52,8 +40,6 @@ public struct Cipher {
         }
         return valid
     }
-
-
     func encode(_ plaintext: String) -> String {
         let plainTextArray = Array(plaintext.characters)
 
@@ -75,8 +61,6 @@ public struct Cipher {
         return ciphertext
     }
 
-
-
     func decode(_ ciphertext: String) -> String {
         let cipherTextArray = Array(ciphertext.characters)
 
@@ -90,8 +74,6 @@ public struct Cipher {
             }
             return alphabet[alphabetIdx]
         }
-
-
         var plaintext = ""
 
         for i in 0 ..< cipherTextArray.count {
@@ -99,6 +81,4 @@ public struct Cipher {
         }
         return plaintext
     }
-
-
 }

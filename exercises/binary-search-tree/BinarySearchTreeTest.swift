@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class BinarySearchTreeTest: XCTestCase {
 
     func testDataIsRetained() {

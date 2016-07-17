@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class QueenAttackTest: XCTestCase {
 
     func testDefaultPositions() {

@@ -51,8 +51,6 @@ class CustomSetTest: XCTestCase {
         expected2.removeAll()
         XCTAssertEqual(CustomSet(emptyTypedArray ), expected2 )
     }
-
-
     func testIntersection() {
         XCTAssertEqual(CustomSet(["a", "c"]),
                        CustomSet(["a", "b", "c"]).intersection(CustomSet(["a", "c", "d"])))
@@ -111,6 +109,4 @@ class CustomSetTest: XCTestCase {
         XCTAssertEqual(CustomSet(emptyTypedArray),
                        CustomSet(emptyTypedArray).union(CustomSet(emptyTypedArray)))
     }
-
-
 }

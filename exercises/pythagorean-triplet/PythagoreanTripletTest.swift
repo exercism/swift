@@ -2,9 +2,6 @@
     import XCTest
 #endif
 
-
-
-
 class PythagoreanTripletTest: XCTestCase {
     func testSum() {
         XCTAssertEqual(12, Triplet(3, 4, 5).sum)
@@ -39,6 +36,4 @@ class PythagoreanTripletTest: XCTestCase {
         let products = triplets.map {$0.product}.sorted(isOrderedBefore: <)
         XCTAssertEqual([118_080, 168_480, 202_500], products)
     }
-
-
 }

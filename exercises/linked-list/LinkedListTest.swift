@@ -2,9 +2,7 @@
     import XCTest
 #endif
 
-
 // Use Optionals and Generic Classes
-
 class LinkedListTest: XCTestCase {
 
     func testPushPop() {

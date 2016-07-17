@@ -1,7 +1,5 @@
 import Darwin
 
-
-
 func == (lhs: String, rhs: Date) -> Bool {
     return lhs == rhs.description
 }
@@ -9,8 +7,6 @@ func == (lhs: String, rhs: Date) -> Bool {
 func == (lhs: Date, rhs: Date) -> Bool {
     return lhs.description == rhs.description
 }
-
-
 struct Date {
 
     enum DateFormatingOption {
@@ -63,8 +59,6 @@ struct Date {
 }
 
 extension Date:CustomStringConvertible {
-
-
     private func addLeadingZero(_ input: Int32) -> String {
 
         if (0...9).contains(input) {
@@ -126,13 +120,9 @@ extension Date {
     }
 }
 
-
-
 struct Meetup {
     private var dateStart = Date()
     private var dateEnd = Date()
-
-
     func newDate(_ input: String) -> Date {
 
         return Date(from: input) ?? Date()

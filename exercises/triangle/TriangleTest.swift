@@ -2,14 +2,9 @@
     import XCTest
 #endif
 
-
-
-
 class TriangleTest: XCTestCase {
 
     let triangleKind = (Equilateral:"Equilateral", Isosceles:"Isosceles", Scalene:"Scalene", ErrorKind:"ErrorKind")
-
-
     func testEquilateralTrianglesHaveEqualSides() {
         XCTAssertEqual(triangleKind.Equilateral, Triangle(2, 2, 2).kind)
     }
@@ -62,11 +57,7 @@ class TriangleTest: XCTestCase {
         XCTAssertEqual(triangleKind.ErrorKind, Triangle(1, 1, 3).kind)
     }
 
-
-
     func testTrianglesViolatingTriangleInequalityAreIllegal3() {
         XCTAssertEqual(triangleKind.ErrorKind, Triangle(7, 3, 2).kind)
     }
-
-
 }

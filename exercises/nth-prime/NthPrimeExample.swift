@@ -1,7 +1,5 @@
 import Darwin
 
-
-
 struct Prime {
     static func nth(_ nth: Int) -> Int? {
         if nth < 1 {

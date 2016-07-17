@@ -2,8 +2,6 @@ func == <T> (lh: CustomSet<T>, rh: CustomSet<T>) -> Bool {
     return lh.contents.keys.sorted {$0.hashValue < $1.hashValue} == rh.contents.keys.sorted {$0.hashValue < $1.hashValue}
 
 }
-
-
 struct CustomSet<T:Hashable>:Equatable {
 
     typealias Element = T
@@ -18,8 +16,6 @@ struct CustomSet<T:Hashable>:Equatable {
         self.contents = [:]
         _ = sequence.map { self.contents[$0] = true }
     }
-
-
     mutating func put(_ item: Element) {
         contents[item] = true
 
@@ -42,8 +38,6 @@ struct CustomSet<T:Hashable>:Equatable {
         }
         return CustomSet(temp.keys)
     }
-
-
     func difference(_ item: CustomSet) -> CustomSet {
         var temp = contents
         for each in Array(item.contents.keys) {
@@ -59,8 +53,6 @@ struct CustomSet<T:Hashable>:Equatable {
         }
         return CustomSet(temp.keys)
     }
-
-
     func isSupersetOf (_ item: CustomSet) -> Bool {
 
         return item.contents.count == item.contents.filter {self.contents.keys.contains($0.0)}.count
@@ -81,8 +73,5 @@ struct CustomSet<T:Hashable>:Equatable {
             return true}
         return false
     }
-
-
-
 
 }

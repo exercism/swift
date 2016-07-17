@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class NucleotideCountTest: XCTestCase {
     func testEmptyDNAStringHasNoAdenosine() {
         let dna = DNA(strand: "")!

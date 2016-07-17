@@ -2,7 +2,6 @@
     import XCTest
 #endif
 
-
 private extension String {
 
     var length: Int {return self.characters.count}
@@ -42,8 +41,6 @@ class AccumulateTest: XCTestCase {
 
         XCTAssertEqual(expected, result)
     }
-
-
     func testAccumulateUpcases() {
 
         let input = ["hello", "world"]
@@ -57,8 +54,6 @@ class AccumulateTest: XCTestCase {
         XCTAssertEqual(expected, result)
 
     }
-
-
     func testAccumulateReversedStrings() {
 
         let input =    ["the", "quick", "brown", "fox", "etc"]
@@ -89,8 +84,6 @@ class AccumulateTest: XCTestCase {
             let result = ["1", "2", "3"].accumulate(appendTo)
             return result
         }
-
-
         let result = input.accumulate(recurse)
 
         XCTAssertEqual(expected, result)

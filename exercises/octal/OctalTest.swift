@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class OctalTest: XCTestCase {
 
     func testOctal1IsDecimal1() {
@@ -61,6 +59,4 @@ class OctalTest: XCTestCase {
     func testvalidOctalformattedstring011IsDecimal9() {
         XCTAssertEqual(9, Int(Octal("011")))
     }
-
-
 }

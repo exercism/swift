@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class HexadecimalTest: XCTestCase {
 
     func testHex1IsDecimal1() {

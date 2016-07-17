@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class SaddlePointsTest: XCTestCase {
 
     func testExtractARow() {

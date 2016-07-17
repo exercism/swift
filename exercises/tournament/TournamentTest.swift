@@ -2,9 +2,6 @@
     import XCTest
 #endif
 
-
-
-
 class TournamentTest: XCTestCase {
 
     let input1 =
@@ -32,8 +29,6 @@ class TournamentTest: XCTestCase {
             "Devastating Donkeys;Allegoric Alaskians;win\n" +
             "Courageous Californians;Blithering Badgers;loss\n" +
     "Allegoric Alaskians;Courageous Californians;win"
-
-
     let expected1 =
         "Team                           | MP |  W |  D |  L |  P\n" +
             "Devastating Donkeys            |  3 |  2 |  1 |  0 |  7\n" +
@@ -54,8 +49,6 @@ class TournamentTest: XCTestCase {
             "Blithering Badgers             |  2 |  1 |  0 |  1 |  3\n" +
             "Devastating Donkeys            |  1 |  1 |  0 |  0 |  3\n" +
     "Courageous Californians        |  2 |  0 |  0 |  2 |  0"
-
-
 
     func testGoodInput() {
         let tournament = Tournament()

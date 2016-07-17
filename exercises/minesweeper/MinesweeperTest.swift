@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class MinesweeperTest: XCTestCase {
 
     func testTransform1() {

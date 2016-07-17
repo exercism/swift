@@ -59,13 +59,9 @@ struct Dominoes {
         self.doubles = doubles
     }
 }
-
-
 func == (lhs: Bone, rhs: Bone) -> Bool {
     return lhs.value.head == rhs.value.head && lhs.value.tail == rhs.value.tail
 }
-
-
 class Bone: CustomStringConvertible, Equatable {
 
     let value:(head: Int, tail: Int)

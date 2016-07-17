@@ -2,9 +2,6 @@
     import XCTest
 #endif
 
-
-
-
 class SeriesTest: XCTestCase {
 
     func testSimpleSlicesOfOne() {

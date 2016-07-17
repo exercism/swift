@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class SpaceAgeTest: XCTestCase {
 
     func testAgeInSeconds() {

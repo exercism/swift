@@ -16,8 +16,6 @@ class Element<T> {
         self.value = value
         self.next = next
     }
-
-
     func toArray () -> [T] {
         return toA(self)
     }
@@ -36,8 +34,6 @@ class Element<T> {
         return countArray
     }
 
-
-
     class func fromArray(_ input: [T]) -> Element {
         var tempElement = Element<T>()
         for each in Array(input.reversedCustom()) {
@@ -46,11 +42,7 @@ class Element<T> {
         return tempElement
     }
 
-
-
     func reverseElements() -> Element {
         return Element.fromArray(Array(toArray().reversedCustom()))
     }
-
-
 }

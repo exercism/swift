@@ -12,8 +12,6 @@ struct Matrix {
             let elements = item.split(separator: " ").flatMap { Int(String($0)) }
             rows.append(elements)
         }
-
-
         for i in 0 ..< rows[0].count {
             var column = [Int]()
             for row in rows {

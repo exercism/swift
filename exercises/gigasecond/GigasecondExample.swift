@@ -1,7 +1,5 @@
 import Darwin
 
-
-
 private extension tm {
 
     var year: Int32 { return tm_year + 1900 }
@@ -58,8 +56,6 @@ func == (lhs: Gigasecond, rhs: Gigasecond) -> Bool {
 func == (lhs: String, rhs: Gigasecond) -> Bool {
     return lhs == rhs.description
 }
-
-
 struct Gigasecond: Equatable, CustomStringConvertible {
 
     private var startDate: tm!
@@ -74,8 +70,6 @@ struct Gigasecond: Equatable, CustomStringConvertible {
             return nil
         }
     }
-
-
     private func parse(_ input: String) -> tm? {
 
         let dateTime = input.characters.split(separator: "T").map {String($0)}
@@ -99,6 +93,4 @@ struct Gigasecond: Equatable, CustomStringConvertible {
     var description: String {
         return gigasecondDate.description
     }
-
-
 }

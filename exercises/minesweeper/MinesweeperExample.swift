@@ -1,7 +1,5 @@
 import Foundation
 
-
-
 struct Board {
 
     private let validCharacters: [Character] = ["+", "-", "|", "*", " "]
@@ -22,8 +20,6 @@ struct Board {
     func transform() -> [String] {
         var result = [String]()
         let rowsEnumarated = rows.enumerated()
-
-
         for (i, row) in rowsEnumarated {
             var newRow = ""
             let rowCharsEnumarated = row.characters.enumerated()

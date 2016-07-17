@@ -1,7 +1,5 @@
 import Foundation
 
-
-
 enum Plant: String {
     case Grass = "G"
     case Clover = "C"
@@ -28,8 +26,6 @@ struct Garden {
     private static func parse(_ diagram: String, children: [String]) -> [String : [Plant]] {
         let sortedChildren = children.sorted(isOrderedBefore: <)
         let lines = diagram.components(separatedBy: CharacterSet.newlines)
-
-
         var result = [String : [Plant]]()
         var line1 = lines[0].characters.map { String($0) }
         var line2 = lines[1].characters.map { String($0) }

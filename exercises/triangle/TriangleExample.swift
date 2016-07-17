@@ -1,6 +1,4 @@
 let triangleKind = (Equilateral:"Equilateral", Isosceles:"Isosceles", Scalene:"Scalene", ErrorKind:"ErrorKind")
-
-
 struct Triangle {
 
     var a: Double = 0
@@ -22,8 +20,6 @@ struct Triangle {
 
         return tempSet.count
     }
-
-
     func allSidesAreZero() -> Bool {
         return a == 0 && b == 0 && c == 0
     }

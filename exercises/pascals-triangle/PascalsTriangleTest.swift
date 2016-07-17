@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class PascalsTriangleTest: XCTestCase {
 
     func testOneRow() {

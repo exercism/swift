@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class PalindromeProductsTest: XCTestCase {
 
     func testLargestPalindromeFromSingleDigitFactors() {

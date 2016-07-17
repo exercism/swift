@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class AllergiesTest: XCTestCase {
 
     func testBob() {

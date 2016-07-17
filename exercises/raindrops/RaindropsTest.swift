@@ -2,9 +2,6 @@
     import XCTest
 #endif
 
-
-
-
 class RaindropsTest: XCTestCase {
 
     func test1() {

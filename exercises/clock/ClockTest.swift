@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 // Test for Protocols: CustomStringConvertible, Equatable
 
 class ClockTest: XCTestCase {

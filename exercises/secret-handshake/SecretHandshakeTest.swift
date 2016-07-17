@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class SecretHandshakeTest: XCTestCase {
 
     func testHandshake1ToWink() {

@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class RobotNameTest: XCTestCase {
 
     func robotNameIsCorrectlyFormatted(_ name: String) -> Bool {

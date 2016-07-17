@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class StrainTest: XCTestCase {
 
     func testEmptyKeep() {

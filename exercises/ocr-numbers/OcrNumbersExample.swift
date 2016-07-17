@@ -18,12 +18,8 @@ struct OCR {
         case invalidNumberOfLines
         case invalidNumberOfColumns
     }
-
-
     init(_ text: String) throws {
         let lines = text.characters.split(separator: "\n").map { String($0) }
-
-
 
         let rowCount = lines.count
 
@@ -64,8 +60,6 @@ struct OCR {
                     let startIndex = line.characters.index(line.startIndex, offsetBy: columnIndex)
                     let endIndex = line.characters.index(line.startIndex, offsetBy: columnIndex + 2)
                     grouping.append(line[startIndex...endIndex])
-
-
 
                 }
 

@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class LeapTest: XCTestCase {
 
     func testVanillaLeapYear() {

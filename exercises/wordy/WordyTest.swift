@@ -2,10 +2,7 @@
     import XCTest
 #endif
 
-
-
 // Use error handeling
-
 class WordyTest: XCTestCase {
 
     func testAdd1() {

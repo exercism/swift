@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class HammingTest: XCTestCase {
     func testNoDifferenceBetweenEmptyStrands() {
         let result = Hamming.compute("", against: "")!

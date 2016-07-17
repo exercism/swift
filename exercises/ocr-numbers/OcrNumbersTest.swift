@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class OcrNumbersTest: XCTestCase {
 
     func testRecognizeZero() {

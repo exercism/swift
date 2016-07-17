@@ -1,7 +1,5 @@
 import Darwin
 
-
-
 private extension String {
 
     func stripCharacters(_ charToRemove: String) -> String {
@@ -16,11 +14,7 @@ private extension String {
     var stripWhiteSpace: String { return stripCharacters(" ") }
     var stripPunctuations: String { return stripCharacters(",.!?") }
     var stripSymbols: String { return stripCharacters("#$%^&") }
-
-
 }
-
-
 
 struct Crypto {
 
@@ -58,8 +52,6 @@ struct Crypto {
         }
 
         var ciphertextReturn = ""
-
-
         for i in 0 ..< plaintextSegmentsArray[0].count {
             for e in 0 ..< plaintextSegmentsArray.count {
                 if i < plaintextSegmentsArray[e].count {
@@ -77,11 +69,7 @@ struct Crypto {
 
         return segmentSorter(ciphertext, spacing: sizeNormal).joined(separator: " ")
     }
-
-
     var plaintextSegments: [String] { get { return segmentSorter(self.normalizePlaintext, spacing: self.size)}}
-
-
     var textValue: String = ""
     var normalizePlaintext: String = ""
     var size: Int = 0

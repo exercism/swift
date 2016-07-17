@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class AcronymTest: XCTestCase {
 
     func testAcronymAbbreviateTest1() {

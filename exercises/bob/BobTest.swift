@@ -2,8 +2,6 @@
     import XCTest
 #endif
 
-
-
 class BobTest: XCTestCase {
 
     func testStatingSomething() {

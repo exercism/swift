@@ -3,7 +3,6 @@
 #endif
 
 // Use Optionals and Generic Classes
-
 class SimpleLinkedListTest: XCTestCase {
 
     func testConstructorA() {

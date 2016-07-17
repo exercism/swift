@@ -25,6 +25,4 @@ struct Series {
         }
         return tempArrayReturn
     }
-
-
 }

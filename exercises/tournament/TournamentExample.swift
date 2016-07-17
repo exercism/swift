@@ -64,15 +64,11 @@ struct Tournament {
     }
 
     private var teams = Dictionary<String, TeamResult>()
-
-
     private mutating func addResult(team1: String, team2: String, outcome: Outcome) -> Void {
         // Invert outcome for the second team.
         let outcome2: Outcome  = (outcome == Outcome.win) ? Outcome.loss :
             (outcome == Outcome.loss) ? Outcome.win :
             Outcome.draw
-
-
         addTeamOutcome(team1, outcome)
         addTeamOutcome(team2, outcome2)
     }
@@ -119,8 +115,6 @@ struct Tournament {
         let header = formarter("Team", mp: "MP", w: "W", d: "D", l: "L", p: "P")
 
         textOutput += header
-
-
         func sortKeysByValue() -> [String] {
             var sortByValue = [(String, Int)]()
             for each in Array(teams.keys) {
@@ -145,8 +139,6 @@ struct Tournament {
             let d  = result.draws
             let l  = result.losses
             let p  = result.score
-
-
             let line = formarter(team,
                                  mp: "\(mp)",
                                  w: "\(w)",
@@ -190,7 +182,5 @@ struct Tournament {
 
         return tournament.writeResults()
     }
-
-
 
 }
