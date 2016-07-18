@@ -69,12 +69,14 @@
    ,"saddle-points"
    ,"poker"
    ,"dominoes"
+   ,"all-your-base"
   ],
   "deprecated": [
 
   ],
   "ignored": [
     "docs",
+    "img",
     "xcodeProject"
   ],
   "foregone": [
