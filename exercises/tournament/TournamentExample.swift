@@ -1,28 +1,26 @@
 import Darwin
 
-
-
 private extension String {
-    
-    func trimWhiteSpace()-> String{
+
+    func trimWhiteSpace() -> String {
         let removeSpaces = trimCharacters(" ", sourceText: self)
-        if removeSpaces.hasSuffix("\n"){
+        if removeSpaces.hasSuffix("\n") {
             return String(removeSpaces.characters.dropLast())
         }
         return  removeSpaces
-        
+
     }
-    
-    func trimCharacters(charToTrim:Character, sourceText:String) -> String{
+
+    func trimCharacters(_ charToTrim: Character, sourceText: String) -> String {
         var editCharacterView = sourceText.characters
         var editString = String(editCharacterView)
-        
+
         let trimFirst  = sourceText.characters.first == charToTrim
         let trimLast   = sourceText.characters.last == charToTrim
-        
+
         if trimFirst { editCharacterView  = editCharacterView.dropFirst() }
         if trimLast { editCharacterView  = editCharacterView.dropLast() }
-        
+
         if trimFirst || trimLast == true {
             editString = trimCharacters(charToTrim, sourceText: String(editCharacterView))
         }
@@ -30,187 +28,159 @@ private extension String {
     }
 }
 
-struct Tournament
-{
-    enum Outcome
-    {
-        case LOSS
-        case DRAW
-        case WIN
-        case ERR
+struct Tournament {
+    enum Outcome {
+        case loss
+        case draw
+        case win
+        case err
     }
-    
-    struct TeamResult
-    {
-        var Losses:Int = 0
-        var Draws:Int = 0
-        var Wins:Int = 0
-        
-        var Played:Int {
-            return Losses + Draws + Wins
+
+    struct TeamResult {
+        var losses: Int = 0
+        var draws: Int = 0
+        var wins: Int = 0
+
+        var played: Int {
+            return losses + draws + wins
         }
-        
-        var Score:Int {
-            return Wins * 3 + Draws
+
+        var score: Int {
+            return wins * 3 + draws
         }
-        
-        mutating func addOutcome( outcome:Outcome )-> Void
-        {
+
+        mutating func addOutcome( _ outcome: Outcome ) -> Void {
             switch outcome {
-            case .LOSS :
-                Losses += 1
-            case .DRAW :
-                Draws += 1
-            case .WIN :
-                Wins += 1
+            case .loss :
+                losses += 1
+            case .draw :
+                draws += 1
+            case .win :
+                wins += 1
             default :
                 print("Error addOutcome")
             }
         }
     }
-    
+
     private var teams = Dictionary<String, TeamResult>()
-    
-    
-    private mutating func addResult(team1 team1:String, team2:String, outcome:Outcome) -> Void
-    {
+    private mutating func addResult(team1: String, team2: String, outcome: Outcome) -> Void {
         // Invert outcome for the second team.
-        let outcome2:Outcome  = (outcome == Outcome.WIN) ? Outcome.LOSS :
-            (outcome == Outcome.LOSS) ? Outcome.WIN :
-            Outcome.DRAW
-        
-        
+        let outcome2: Outcome  = (outcome == Outcome.win) ? Outcome.loss :
+            (outcome == Outcome.loss) ? Outcome.win :
+            Outcome.draw
         addTeamOutcome(team1, outcome)
         addTeamOutcome(team2, outcome2)
     }
-    
+
     private var teamResult = TeamResult()
-    
-    private mutating func addTeamOutcome(team:String, _ outcome:Outcome) -> Void
-    {
+
+    private mutating func addTeamOutcome(_ team: String, _ outcome: Outcome) -> Void {
         if teams[team] != nil {
             teamResult = teams[team]!
             teamResult.addOutcome(outcome)
             teams[team] = teamResult
-            
+
         } else {
             teamResult = TeamResult()
             teamResult.addOutcome(outcome)
             teams[team] = teamResult
         }
     }
-    
-    private mutating func writeResults()-> String
-    {
-        
-        func formarter (Team:String, MP:String, W:String, D:String, L:String, P:String)->String{
-            
-            func wsChars(text:String, spacing:Int = 31)->String{
-                return Repeat(count:abs(spacing - Array(text.characters).count) , repeatedValue: " ").joinWithSeparator("")
+
+    private mutating func writeResults() -> String {
+
+        func formarter (_ team: String, mp: String, w: String, d: String, l: String, p: String) -> String {
+
+            func wsChars(_ text: String, spacing: Int = 31) -> String {
+                return repeatElement( " ", count: abs(spacing - Array(text.characters).count)).joined(separator: "")
+
             }
-            
-            func spacing(text:String, columnWith:Int = 4)->String{
+
+            func spacing(_ text: String, columnWith: Int = 4) -> String {
                 let textCount = Array(text.characters).count
                 let space = Int(round(Double(textCount) / Double(columnWith)))
-                
+
                 return wsChars(text, spacing: columnWith - space - textCount) + text + wsChars(text, spacing: space )
             }
-            
-            let text = "\(Team)" + wsChars(Team) + "|" + spacing(MP) + "|" + spacing(W) + "|" + spacing(D) + "|" + spacing(L) + "|" + spacing(P)
-            
+
+            let text = "\(team)" + wsChars(team) + "|" + spacing(mp) + "|" + spacing(w) + "|" + spacing(d) + "|" + spacing(l) + "|" + spacing(p)
+
             return text.trimWhiteSpace() + "\n"
-            
+
         }
-        
-        var textOutput:String = ""
-        
-        let header = formarter("Team", MP: "MP", W: "W", D: "D", L: "L", P: "P")
-        
+
+        var textOutput: String = ""
+
+        let header = formarter("Team", mp: "MP", w: "W", d: "D", l: "L", p: "P")
+
         textOutput += header
-        
-        
-        func sortKeysByValue()->[String]
-        {
+        func sortKeysByValue() -> [String] {
             var sortByValue = [(String, Int)]()
-            for each in Array(teams.keys){
+            for each in Array(teams.keys) {
                 let tempVal = teams[each]!
-                sortByValue.append((each, tempVal.Score))
+                sortByValue.append((each, tempVal.score))
             }
-            sortByValue.sortInPlace{$0.1 > $1.1}
+            sortByValue.sort {$0.1 > $1.1}
             var sortedKeys = [String]()
-            for each in sortByValue{
+            for each in sortByValue {
                 sortedKeys.append(each.0)
             }
-            
+
             return sortedKeys
         }
-        
-        for team in sortKeysByValue(){
-            
+
+        for team in sortKeysByValue() {
+
             let result = teams[team]!
-            
-            let MP = result.Played
-            let W  = result.Wins
-            let D  = result.Draws
-            let L  = result.Losses
-            let P  = result.Score
-            
-            
+
+            let mp = result.played
+            let w  = result.wins
+            let d  = result.draws
+            let l  = result.losses
+            let p  = result.score
             let line = formarter(team,
-                MP: "\(MP)",
-                W: "\(W)",
-                D: "\(D)",
-                L: "\(L)",
-                P: "\(P)")
-            
+                                 mp: "\(mp)",
+                                 w: "\(w)",
+                                 d: "\(d)",
+                                 l: "\(l)",
+                                 p: "\(p)")
+
             textOutput += line
         }
         return textOutput.trimWhiteSpace()
     }
-    
-    func tally(inStream:String) -> String
-    {
+
+    func tally(_ inStream: String) -> String {
         // Create New Tournament
         var tournament = Tournament()
-        
-        var outcome:Outcome = Outcome.ERR
-        
+
+        var outcome: Outcome = Outcome.err
+
         // alternative to .componentsSeparatedByString
         let textArrayLines = inStream.characters.split {$0 == "\n"}.map { String($0) }
-        
-        for line in textArrayLines
-        {
-            let parts = line.trimWhiteSpace().componentsSeparatedByString(";")
-            if parts.count == 3
-            {
-                switch parts[2].lowercaseString
-                {
+
+        for line in textArrayLines {
+            let parts = line.trimWhiteSpace().components(separatedBy: ";")
+            if parts.count == 3 {
+                switch parts[2].lowercased() {
                 case "loss":
-                    outcome = Outcome.LOSS
+                    outcome = Outcome.loss
                 case "draw":
-                    outcome = Outcome.DRAW
+                    outcome = Outcome.draw
                 case "win":
-                    outcome = Outcome.WIN
+                    outcome = Outcome.win
                 default:
-                    outcome = Outcome.ERR
+                    outcome = Outcome.err
                 }
-                
-                if outcome != Outcome.ERR
-                {
+
+                if outcome != Outcome.err {
                     tournament.addResult(team1: parts[0], team2: parts[1], outcome: outcome)
                 }
             }
         }
-        
+
         return tournament.writeResults()
     }
-    
-    
-    
+
 }
-
-
-
-
-
-
