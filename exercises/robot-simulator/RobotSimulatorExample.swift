@@ -1,37 +1,33 @@
-// Foundation not needed
-
-
-
 struct SimulatedRobot {
-    
+
     enum Direction {
-        case North
-        case East
-        case South
-        case West
-        
-        static let allValues: [Direction] = [.North, .East, .South, .West]
+        case north
+        case east
+        case south
+        case west
+
+        static let allValues: [Direction] = [.north, .east, .south, .west]
     }
-    
+
     enum Instruction: String {
         case TurnLeft  = "L"
         case TurnRight = "R"
         case Advance   = "A"
     }
-    
-    var bearing: Direction = .North
+
+    var bearing: Direction = .north
     var x: Int = 0
     var y: Int = 0
     var coordinates: [Int] {
         return [x, y]
     }
-    
-    mutating func orient(bearing: Direction) {
+
+    mutating func orient(_ bearing: Direction) {
         self.bearing = bearing
     }
-    
+
     mutating func turnRight() {
-        if let index = Direction.allValues.indexOf(bearing) {
+        if let index = Direction.allValues.index(of: bearing) {
             var newIndex = index + 1
             if newIndex > 3 {
                 newIndex -= 4
@@ -39,9 +35,9 @@ struct SimulatedRobot {
             bearing = Direction.allValues[newIndex]
         }
     }
-    
+
     mutating func turnLeft() {
-        if let index = Direction.allValues.indexOf(bearing) {
+        if let index = Direction.allValues.index(of: bearing) {
             var newIndex = index - 1
             if newIndex < 0 {
                 newIndex += 4
@@ -49,51 +45,48 @@ struct SimulatedRobot {
             bearing = Direction.allValues[newIndex]
         }
     }
-    
-    mutating func at(x x: Int, y: Int) {
+
+    mutating func at(x: Int, y: Int) {
         self.x = x
         self.y = y
     }
-    
+
     mutating func advance() {
         switch bearing {
-            // Note: ++ and -- will be deprecated in Swift 2.2 and removed in Swift 3.0
-            // See https://github.com/apple/swift-evolution/blob/master/proposals/0004-remove-pre-post-inc-decrement.md
-            case .North: y += 1
-            case .East:  x += 1
-            case .South: y -= 1
-            case .West:  x -= 1
+        case .north: y += 1
+        case .east:  x += 1
+        case .south: y -= 1
+        case .west:  x -= 1
         }
     }
-    
-    func instructions(instructions: String) -> [Instruction] {
+
+    func instructions(_ instructions: String) -> [Instruction] {
         var result = [Instruction]()
-        
+
         let characters = instructions.characters.map { String($0) }
-        
+
         for character in characters {
             if let instruction = Instruction(rawValue: character) {
                 result.append(instruction)
             }
         }
-        
+
         return result
     }
-    
-    mutating func place(x x: Int, y: Int, direction: Direction) {
+
+    mutating func place(x: Int, y: Int, direction: Direction) {
         at(x: x, y: y)
         orient(direction)
     }
-    
-    mutating func evaluate(commands: String) {
+
+    mutating func evaluate(_ commands: String) {
         for instruction in instructions(commands) {
             switch instruction {
-                case .TurnLeft:  turnLeft()
-                case .TurnRight: turnRight()
-                case .Advance:   advance()
+            case .TurnLeft:  turnLeft()
+            case .TurnRight: turnRight()
+            case .Advance:   advance()
             }
         }
     }
 
 }
-
