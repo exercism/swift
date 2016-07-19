@@ -125,6 +125,8 @@
 		E90D62001C642EFB00C266D3 /* OcrNumbersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D61FF1C642EFB00C266D3 /* OcrNumbersTest.swift */; };
 		E90D62061C653AC000C266D3 /* PalindromeProductsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D62051C653AC000C266D3 /* PalindromeProductsExample.swift */; };
 		E90D62081C653ADC00C266D3 /* PalindromeProductsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D62071C653ADC00C266D3 /* PalindromeProductsTest.swift */; };
+		E90DE39C1D3E812300F3B881 /* AllYourBaseExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DE39B1D3E812300F3B881 /* AllYourBaseExample.swift */; };
+		E90DE39E1D3E818000F3B881 /* AllYourBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DE39D1D3E818000F3B881 /* AllYourBaseTest.swift */; };
 		E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECD1C510E68009318BB /* BinarySearchExample.swift */; };
 		E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECE1C510E68009318BB /* BinarySearchTest.swift */; };
 		E9AFA1481C593AF5006AD72D /* BinarySearchTreeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */; };
@@ -273,6 +275,8 @@
 		E90D61FF1C642EFB00C266D3 /* OcrNumbersTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = OcrNumbersTest.swift; path = "ocr-numbers/OcrNumbersTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E90D62051C653AC000C266D3 /* PalindromeProductsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PalindromeProductsExample.swift; path = "palindrome-products/PalindromeProductsExample.swift"; sourceTree = "<group>"; };
 		E90D62071C653ADC00C266D3 /* PalindromeProductsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = PalindromeProductsTest.swift; path = "palindrome-products/PalindromeProductsTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E90DE39B1D3E812300F3B881 /* AllYourBaseExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllYourBaseExample.swift; path = "../all-your-base/AllYourBaseExample.swift"; sourceTree = "<group>"; };
+		E90DE39D1D3E818000F3B881 /* AllYourBaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllYourBaseTest.swift; path = "../all-your-base/AllYourBaseTest.swift"; sourceTree = "<group>"; };
 		E94BDECD1C510E68009318BB /* BinarySearchExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchExample.swift; path = "binary-search/BinarySearchExample.swift"; sourceTree = "<group>"; };
 		E94BDECE1C510E68009318BB /* BinarySearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BinarySearchTest.swift; path = "binary-search/BinarySearchTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BinarySearchTreeExample.swift; path = "binary-search-tree/BinarySearchTreeExample.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -314,6 +318,7 @@
 			children = (
 				1E9A62E91C506EFC00E28AE1 /* accumulate */,
 				1E9A62EC1C506EFC00E28AE1 /* acronym */,
+				E90DE3991D3E80F700F3B881 /* all-your-base */,
 				1E9A62EF1C506EFC00E28AE1 /* allergies */,
 				1E9A62F21C506EFC00E28AE1 /* anagram */,
 				1E9A62F51C506EFC00E28AE1 /* atbash-cipher */,
@@ -948,6 +953,16 @@
 			name = "palindrome-products";
 			sourceTree = "<group>";
 		};
+		E90DE3991D3E80F700F3B881 /* all-your-base */ = {
+			isa = PBXGroup;
+			children = (
+				E90DE39B1D3E812300F3B881 /* AllYourBaseExample.swift */,
+				E90DE39D1D3E818000F3B881 /* AllYourBaseTest.swift */,
+			);
+			name = "all-your-base";
+			path = acronym;
+			sourceTree = "<group>";
+		};
 		E94BDECB1C510DF4009318BB /* binary-search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1178,12 +1193,14 @@
 				1E167A111C8AA5D7001EAD90 /* PokerExample.swift in Sources */,
 				1E9A639E1C506EFD00E28AE1 /* EtlExample.swift in Sources */,
 				1EAF95E11C90C587009DDCB6 /* DominoesTest.swift in Sources */,
+				E90DE39C1D3E812300F3B881 /* AllYourBaseExample.swift in Sources */,
 				1E9A63CE1C506EFD00E28AE1 /* RobotSimulatorExample.swift in Sources */,
 				1E9A639D1C506EFD00E28AE1 /* DifferenceOfSquaresTest.swift in Sources */,
 				E9AFA1531C5945C9006AD72D /* HexadecimalTest.swift in Sources */,
 				1E9A63AF1C506EFD00E28AE1 /* LeapTest.swift in Sources */,
 				1E9A63901C506EFD00E28AE1 /* AtbashExample.swift in Sources */,
 				1E9A63C61C506EFD00E28AE1 /* QueenAttackExample.swift in Sources */,
+				E90DE39E1D3E818000F3B881 /* AllYourBaseTest.swift in Sources */,
 				E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */,
 				1E9A63D91C506EFD00E28AE1 /* SieveTest.swift in Sources */,
 				1E9A63AA1C506EFD00E28AE1 /* helloWorldTest.swift in Sources */,
