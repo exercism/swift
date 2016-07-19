@@ -2,44 +2,22 @@
     import XCTest
 #endif
 
-private extension XCTestCase {
-
-    // Workaround unit test liminitaiton on Optional Arrays/Sets
-    private func sameCollection<C: Collection where C.Iterator.Element == String>(_ result: C?, _ expected: [String]?) -> Bool {
-        guard let result = result, expected = expected where similar(result, expected) else { return false }
-        for (index, student) in result.enumerated() {
-            guard index < expected.count && expected.contains(student) else { return false }
-        }
-        return true
-    }
-    private func similar<C: Collection>(_ result: C, _ expected: [String]) -> Bool {
-        return result.count.toIntMax() == IntMax(expected.count)
-    }
-
-    func XCTAssertEqualCollection (_ collectionS: Set<String>?, _ collectionA: [String]? ) {
-        XCTAssert(sameCollection(collectionS, collectionA))
-    }
-
-    func XCTAssertEqualCollection (_ collectionA1: [String]?, _ collectionA2: [String]? ) {
-        XCTAssert(sameCollection(collectionA1, collectionA2))
-    }
-}
 class GradeSchoolTest: XCTestCase {
+    
+    private typealias Roster = [Int : Set<String>]
 
     func testAnEmptySchool() {
         let school   = GradeSchool()
         let result   = school.roster
         XCTAssertTrue(result.isEmpty)
-
     }
 
     func testAddStudent() {
         var school = GradeSchool()
         school.addStudent("Aimee", grade: 2)
         let result = school.roster
-        let expected: Dictionary = [2: ["Aimee"]]
-        XCTAssertEqual(Array(result.keys), Array(expected.keys))
-        XCTAssertEqualCollection(result[2], expected[2])
+        let expected: Roster = [2: ["Aimee"]]
+        XCTAssertEqual(result, expected)
     }
 
     func testAddMoreStudentsInSameClass() {
@@ -47,10 +25,9 @@ class GradeSchoolTest: XCTestCase {
         school.addStudent("Fred", grade: 2)
         school.addStudent("James", grade: 2)
         school.addStudent("Paul", grade: 2)
-        let result   = school.roster
-        let expected = [2: ["Fred", "James", "Paul"]]
-        XCTAssertEqual(Array(result.keys), Array(expected.keys))
-        XCTAssertEqualCollection(result[2], expected[2])
+        let result = school.roster
+        let expected: Roster = [2: ["Fred", "James", "Paul"]]
+        XCTAssertEqual(result, expected)
     }
 
     func testAddStudentsToDifferentGrades() {
@@ -58,10 +35,8 @@ class GradeSchoolTest: XCTestCase {
         school.addStudent("Chelsea", grade:3)
         school.addStudent("Logan", grade: 7)
         let result = school.roster
-        let expected = [3: ["Chelsea"], 7: ["Logan"]]
-        XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
-
-        XCTAssertEqualCollection(result[3], expected[3])
+        let expected: Roster = [3: ["Chelsea"], 7: ["Logan"]]
+        XCTAssertEqual(result, expected)
     }
 
     func testGetStudentsInAGrade() {
@@ -69,17 +44,16 @@ class GradeSchoolTest: XCTestCase {
         school.addStudent("Franklin", grade: 5)
         school.addStudent("Bradley", grade: 5)
         school.addStudent("Jeff", grade: 1)
-        let result   = school.studentsInGrade(5)
-        let expected = ["Franklin", "Bradley"]
-        XCTAssertEqualCollection(result, expected)
+        let result = school.studentsInGrade(5)
+        let expected: Set<String> = ["Franklin", "Bradley"]
+        XCTAssertEqual(result, expected)
     }
 
     func testGetStudentsInANonExistantGrade() {
         let school = GradeSchool()
         let result = school.studentsInGrade(1)
-
-        let expected = [String]()
-        XCTAssertEqualCollection(result, expected)
+        let expected: Set<String> = []
+        XCTAssertEqual(result, expected)
     }
 
     func testSortSchool() {
@@ -90,16 +64,13 @@ class GradeSchoolTest: XCTestCase {
         school.addStudent("Kyle", grade: 3)
         let result = school.sortedRoster
 
-        let expected = [
+        let expected: Roster = [
             3 : ["Kyle"],
             4 : ["Christopher", "Jennifer"],
             6 : ["Kareem"]
         ]
-        XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
-
-        XCTAssertEqualCollection(result[3], expected[3])
-        XCTAssertEqualCollection(result[4], expected[4])
-        XCTAssertEqualCollection(result[6], expected[6])
+        
+        XCTAssertEqual(result, expected)
     }
 
 }

@@ -25,7 +25,7 @@ struct Poker {
         }
 
         guard let topHand = (pokerHandsParsed.sorted(isOrderedBefore: >)).first,
-            indexTop = pokerHandsParsed.index(of: topHand) else {return nil}
+            let indexTop = pokerHandsParsed.index(of: topHand) else {return nil}
 
         return hands[indexTop]
 
@@ -281,7 +281,7 @@ struct PlayingCard {
     init?(_ stringInput: String) {
 
         guard let rank = Rank(stringInput.head()),
-            suit = Suit(stringInput.tail()) else { return nil}
+            let suit = Suit(stringInput.tail()) else { return nil}
 
         self.rank = rank
         self.suit = suit
