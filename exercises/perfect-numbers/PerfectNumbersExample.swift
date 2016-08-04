@@ -1,11 +1,7 @@
-// Foundation not needed
-
-
-
 enum NumberClassification {
-    case Perfect
-    case Abundant
-    case Deficient
+    case perfect
+    case abundant
+    case deficient
 }
 
 struct NumberClassifier {
@@ -16,15 +12,17 @@ struct NumberClassifier {
     var classification: NumberClassification {
         switch (sum) {
         case let sum where sum == number :
-            return NumberClassification.Perfect
+            return NumberClassification.perfect
         case let sum where sum < number :
-            return NumberClassification.Deficient
+            return NumberClassification.deficient
         default:
-            return NumberClassification.Abundant
-            }
+            return NumberClassification.abundant
+        }
     }
-    func aliquotSum (input:Int)->Int {
-            return  Array(1..<(input-1)).filter( {input % $0 == 0} ).reduce(0,combine: +)
+    func aliquotSum (_ input: Int) -> Int {
+        let array = Array(1..<(input-1))
+        
+        return array.filter({input % $0 == 0}).reduce(0, +)
     }
 
     init(number: Int) {
