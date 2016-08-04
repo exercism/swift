@@ -9,8 +9,8 @@ struct Anagram {
         for char in wordToSort.characters {
             characters.append("\(char)")
         }
-        characters = characters.sorted(isOrderedBefore: < )
-        return characters.reduce("", combine: +)
+        characters = characters.sorted(by: <)
+        return characters.reduce("", +)
     }
 
     func match(_ words: [String]) -> [String] {

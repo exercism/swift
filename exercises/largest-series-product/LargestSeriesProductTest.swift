@@ -57,7 +57,7 @@ class LargestSeriesProductTest: XCTestCase {
 
         do {
             let _ = try NumberSeries("123").largestProduct(4)
-        } catch NumberSeries.Error.spanLongerThanStringLength {
+        } catch NumberSeries.NumberSeriesError.spanLongerThanStringLength {
             throwsSpanLongerThanStringLengthError = true
         } catch {
             return
@@ -81,7 +81,7 @@ class LargestSeriesProductTest: XCTestCase {
 
         do {
             let _ = try NumberSeries("").largestProduct(1)
-        } catch NumberSeries.Error.spanLongerThanStringLength {
+        } catch NumberSeries.NumberSeriesError.spanLongerThanStringLength {
             throwsSpanLongerThanStringLengthError = true
         } catch {
             return
@@ -97,7 +97,7 @@ class LargestSeriesProductTest: XCTestCase {
 
         do {
             let _ = try NumberSeries("1234a5").largestProduct(2)
-        } catch NumberSeries.Error.invalidCharacter {
+        } catch NumberSeries.NumberSeriesError.invalidCharacter {
             throwsInvalidCharacterError = true
         } catch {
             return
@@ -113,7 +113,7 @@ class LargestSeriesProductTest: XCTestCase {
 
         do {
             let _ = try NumberSeries("12345").largestProduct(-1)
-        } catch NumberSeries.Error.negativeSpan {
+        } catch NumberSeries.NumberSeriesError.negativeSpan {
             throwsNegativeSpanError = true
         } catch {
             return

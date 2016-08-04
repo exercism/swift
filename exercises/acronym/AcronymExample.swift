@@ -26,13 +26,15 @@ struct Acronym {
 
         var previousLetter: String = ""
 
-        func splitCamelcaseAt(_ currentLetter: String, withString previousLetter: inout String ) -> Bool {
+        func splitCamelcaseAt(_ currentLetter: String, withString previousLetter: inout String) -> Bool {
 
             defer { previousLetter = currentLetter }
 
-            if currentLetter == " " { return false
-            } else if currentLetter.isEmpty { return false
-            } else if (previousLetter.isLowercase && currentLetter.isUppercase) {
+            if currentLetter == " " {
+                return false
+            } else if currentLetter.isEmpty {
+                return false
+            } else if previousLetter.isLowercase && currentLetter.isUppercase {
                 //previousLetter = currentLetter // see defer block
                 return true
             }
@@ -64,11 +66,10 @@ struct Acronym {
         }
 
         func splitStringToArray(_ inString: String) -> [String] {
-
-            return inString.characters.split(isSeparator: { splitAt($0) }).map {String($0)}
+            return inString.characters.split(whereSeparator: { splitAt($0) }).map { String($0) }
         }
 
-        return splitStringToArray(insertSpaceAtCamelcase(inString)).map({$0.uppercased().substringWithRangeInt(start: 0, end: 1)}).joined(separator: "")
+        return splitStringToArray(insertSpaceAtCamelcase(inString)).map {$0.uppercased().substringWithRangeInt(start: 0, end: 1) }.joined(separator: "")
     }
 
 }

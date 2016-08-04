@@ -51,7 +51,7 @@ struct PalindromeProducts {
             }
             results[advanceByIndex] = multiplicationsTemp
         }
-        multiplications = results.flatten().sorted(isOrderedBefore: {$0.0 > $1.0})
+        multiplications = results.flatten().sorted(by: {$0.0 > $1.0})
 
         if let large = multiplications.first, let small = multiplications.last {
             switch upTo {

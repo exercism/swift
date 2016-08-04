@@ -7,8 +7,8 @@ extension Int {
     }
 }
 struct Binary {
-    private var UIntValue: UInt = 0
-    private var toDecimal: Int {get {return Int(UIntValue)}}
+    private var uIntValue: UInt = 0
+    private var toDecimal: Int {get {return Int(uIntValue)}}
     private func bi2Uint(_ input: String) -> UInt? {
         let orderedInput = Array(input.characters.reversed())
         var tempUInt: UInt = 0
@@ -16,7 +16,7 @@ struct Binary {
             if each == "1" {
                 tempUInt += UInt(0x1 << inx)
             }
-            if (each != "0" && each != "1") {
+            if each != "0" && each != "1" {
                 return nil
             }
         }
@@ -25,7 +25,7 @@ struct Binary {
 
     init?(_ input: String) {
         if bi2Uint(input) != nil {
-            self.UIntValue = bi2Uint(input)!
+            self.uIntValue = bi2Uint(input)!
         } else {
             return nil
         }

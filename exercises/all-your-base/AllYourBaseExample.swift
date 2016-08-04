@@ -1,4 +1,4 @@
-enum BaseError: ErrorProtocol {
+enum BaseError: Error {
     case invalidInputBase
     case invalidOutputBase
     case negativeDigit

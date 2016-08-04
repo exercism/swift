@@ -12,8 +12,9 @@ struct TwelveDaysSong {
 
         return string2return
     }
+    
     static func verse(_ number: Int) -> String {
-        switch(number) {
+        switch number {
         case 1:
             return "On the first day of Christmas my true love gave to me, a Partridge in a Pear Tree.\n"
         case 2:

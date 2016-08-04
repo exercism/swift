@@ -9,7 +9,11 @@ struct Dominoes {
         if doubles.isEmpty {
             return success
         } else if success == true {
-            return doubles.count == doubles.filter({each in return result.contains({e in return e.value.head == each.value.head})}).count
+            return doubles.count == doubles.filter { double in
+                result.contains(where: { bone -> Bool in
+                    return double.value.head == bone.value.head
+                })
+            }.count
         } else {
             return false
         }

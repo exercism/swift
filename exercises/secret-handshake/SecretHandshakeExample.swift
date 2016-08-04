@@ -13,7 +13,7 @@ struct SecretHandshake {
 
     private func commandsFunc() -> [String] {
         var commands = [String]()
-        for key in Array(commandValues.keys).sorted( isOrderedBefore: < ) {
+        for key in Array(commandValues.keys).sorted(by: <) {
             if (commandValue & key) != 0 {
                 commands.append(commandValues[key]!)
             }
