@@ -4,7 +4,7 @@
 
 class AllYourBaseTest: XCTestCase {
     
-    func errorThrown<T, U: ErrorProtocol>(byExpression expression: @autoclosure () throws -> T) -> U? {
+    func errorThrown<T, U: Error>(byExpression expression: @autoclosure () throws -> T) -> U? {
         do {
             let _ = try expression()
             return nil

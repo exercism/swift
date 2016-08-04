@@ -24,7 +24,7 @@ struct Garden {
     }
 
     private static func parse(_ diagram: String, children: [String]) -> [String : [Plant]] {
-        let sortedChildren = children.sorted(isOrderedBefore: <)
+        let sortedChildren = children.sorted(by: <)
         let lines = diagram.components(separatedBy: CharacterSet.newlines)
         var result = [String : [Plant]]()
         var line1 = lines[0].characters.map { String($0) }
@@ -40,9 +40,9 @@ struct Garden {
             var pots = [Plant]()
 
             if let plant1 = Plant(rawValue: line1[index]),
-                plant2 = Plant(rawValue: line1[index + 1]),
-                plant3 = Plant(rawValue: line2[index]),
-                plant4 = Plant(rawValue: line2[index + 1]) {
+                let plant2 = Plant(rawValue: line1[index + 1]),
+                let plant3 = Plant(rawValue: line2[index]),
+                let plant4 = Plant(rawValue: line2[index + 1]) {
                 pots = [plant1, plant2, plant3, plant4]
             }
 

@@ -24,8 +24,8 @@ struct Poker {
             pokerHandsParsed.append(pokerHand)
         }
 
-        guard let topHand = (pokerHandsParsed.sorted(isOrderedBefore: >)).first,
-            indexTop = pokerHandsParsed.index(of: topHand) else {return nil}
+        guard let topHand = (pokerHandsParsed.sorted(by: >)).first,
+            let indexTop = pokerHandsParsed.index(of: topHand) else {return nil}
 
         return hands[indexTop]
 
@@ -48,12 +48,12 @@ enum HandRank {
         case .highCard(_): return 1
         case .onePair(_, card1: _, card2: _, card3: _): return 2
         case .twoPair(high: _, low: _, highCard: _): return 3
-        case threeOfAKind(three:_): return 4
-        case straight(high:_): return 5
-        case flush(_, _): return 6
-        case fullHouse(three:_): return 7
-        case fourOfAKind(four:_): return 8
-        case straightFlush(_, _): return 9
+        case .threeOfAKind(three:_): return 4
+        case .straight(high:_): return 5
+        case .flush(_, _): return 6
+        case .fullHouse(three:_): return 7
+        case .fourOfAKind(four:_): return 8
+        case .straightFlush(_, _): return 9
         }
     }
 
@@ -66,7 +66,7 @@ enum HandRank {
                 toReturn[each] = (toReturn[each] ?? 0) + 1
             }
         }
-        let result = toReturn.map({key, value in return (rank:key, count:value)}).sorted(isOrderedBefore: {
+        let result = toReturn.map({key, value in return (rank:key, count:value)}).sorted(by: {
             (one, two) in
             return one.count == two.count ? one.rank > two.rank : one.count > two.count
         })
@@ -83,7 +83,7 @@ enum HandRank {
     }
 
     static func isStraight(_ inputHand: PokerHand)->(bool: Bool, highest: Rank) {
-        let sorted = inputHand.hand.sorted(isOrderedBefore: {$0.rank < $1.rank})
+        let sorted = inputHand.hand.sorted(by: {$0.rank < $1.rank})
         let first = sorted[0].rank.rawValue
         for (index, each) in sorted.enumerated() {
             if (each.rank.rawValue != index + first) {
@@ -281,7 +281,7 @@ struct PlayingCard {
     init?(_ stringInput: String) {
 
         guard let rank = Rank(stringInput.head()),
-            suit = Suit(stringInput.tail()) else { return nil}
+            let suit = Suit(stringInput.tail()) else { return nil }
 
         self.rank = rank
         self.suit = suit

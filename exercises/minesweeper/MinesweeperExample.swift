@@ -5,7 +5,7 @@ struct Board {
     private let validCharacters: [Character] = ["+", "-", "|", "*", " "]
     private let rows: [String]
 
-    enum Error: ErrorProtocol {
+    enum BoardError: Error {
         case differentLength
         case faultyBorder
         case invalidCharacter
@@ -65,12 +65,12 @@ struct Board {
 
     private func validateSize() throws {
         guard let count = rows.first?.characters.count else {
-            throw Error.differentLength
+            throw BoardError.differentLength
         }
 
         try rows.forEach {
             guard $0.characters.count == count else {
-                throw Error.differentLength
+                throw BoardError.differentLength
             }
         }
     }
@@ -79,7 +79,7 @@ struct Board {
         try rows.forEach {
             try $0.characters.forEach {
                 guard validCharacters.contains($0) else {
-                    throw Error.invalidCharacter
+                    throw BoardError.invalidCharacter
                 }
             }
         }
@@ -89,14 +89,14 @@ struct Board {
         let firstAndLast = [rows[0], rows[rows.count - 1]]
         try firstAndLast.forEach {
             guard $0.matchesRegex("^\\+[-]+\\+$") else {
-                throw Error.faultyBorder
+                throw BoardError.faultyBorder
             }
         }
 
         let middleRows = rows[1 ..< rows.count - 2]
         try middleRows.forEach {
             guard $0.matchesRegex("^\\|.+\\|$") else {
-                throw Error.faultyBorder
+                throw BoardError.faultyBorder
             }
         }
     }
@@ -104,8 +104,8 @@ struct Board {
 
 private extension String {
     func matchesRegex(_ pattern: String) -> Bool {
-        let options = RegularExpression.Options.dotMatchesLineSeparators
-        let regex = try? RegularExpression(pattern: pattern, options: options)
+        let options = NSRegularExpression.Options.dotMatchesLineSeparators
+        let regex = try? NSRegularExpression(pattern: pattern, options: options)
         var matches = 0
         if let regex = regex {
             matches = regex.numberOfMatches(in: self,

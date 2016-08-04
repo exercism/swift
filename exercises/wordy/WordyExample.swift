@@ -35,7 +35,7 @@ private extension String {
     }
 
 }
-enum CalculateError: ErrorProtocol {
+enum CalculateError: Error {
     case error
 }
 struct WordProblem {

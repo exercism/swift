@@ -10,13 +10,13 @@ struct Squares {
 
     var squareOfSums: Int {
         let numbers = Array(1...self.max)
-        let sum = numbers.reduce(0, combine: + )
+        let sum = numbers.reduce(0, + )
         return sum * sum
     }
 
     var sumOfSquares: Int {
         let numbers = Array(1...self.max)
-        return numbers.map { return $0*$0 }.reduce(0, combine: + )
+        return numbers.map { return $0*$0 }.reduce(0, + )
     }
 
     var differenceOfSquares: Int {

@@ -4,7 +4,7 @@ struct Luhn {
 
     var number: Int64 = 0
     var addends: [Int] { return addendsFunc(number)}
-    var checksum: Int {return addends.reduce(0, combine: +) }
+    var checksum: Int {return addends.reduce(0, +) }
     var isValid: Bool { return checksum % 10 == 0}
 
     init(_ num: Int64) {

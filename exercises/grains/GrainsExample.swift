@@ -2,7 +2,7 @@ import Darwin
 
 struct Grains {
 
-    enum Error: ErrorProtocol {
+    enum GrainsError: Error {
         case inputTooLow(String)
         case inputTooHigh(String)
     }
@@ -10,12 +10,12 @@ struct Grains {
     static func square(_ num: Int) throws -> UInt64 {
         guard num >= 1 else {
             let message = "Input[\(num)] invalid. Input should be between 1 and 64 (inclusive)"
-            throw Error.inputTooLow(message)
+            throw GrainsError.inputTooLow(message)
         }
 
         guard num <= 64 else {
             let message = "Input[\(num)] invalid. Input should be between 1 and 64 (inclusive)"
-            throw Error.inputTooHigh(message)
+            throw GrainsError.inputTooHigh(message)
         }
 
         let one: UInt64 = 1

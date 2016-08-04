@@ -1,6 +1,6 @@
 extension Array {
 
-    func keep(compare: Bool = true, inputFunc: (Element) -> Bool ) -> Array {
+    func keep(_ compare: Bool = true, inputFunc: (Element) -> Bool ) -> Array {
         var array2Return: Array = []
         for each in self {
             if inputFunc(each) == compare {
@@ -10,6 +10,6 @@ extension Array {
     }
 
     func discard(_ inputFunc: (Element) -> Bool) -> Array {
-        return keep(compare: false, inputFunc: inputFunc)
+        return keep(false, inputFunc: inputFunc)
     }
 }

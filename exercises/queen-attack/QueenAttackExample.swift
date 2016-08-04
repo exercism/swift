@@ -1,5 +1,5 @@
 struct Queens {
-    enum InitError: ErrorProtocol {
+    enum InitError: Error {
         case sameSpace
         case incorrectNumberOfCoordinates
         case invalidCoordinates

@@ -6,7 +6,7 @@ private extension String {
         return self.substring(with: start..<end)
     }
 
-    func substringWithRangeInt(start: Int, end: Int) -> String {
+    func substringWithRangeInt(_ start: Int, end: Int) -> String {
         let range = start..<end
         return self.substringWithRangeInt(range)
     }
@@ -46,11 +46,11 @@ struct Acronym {
 
             for (index, each) in inString.characters.map({String($0)}).enumerated() {
                 if splitCamelcaseAt(each, withString: &previousLetter) {
-                    accumulate += inString.substringWithRangeInt(start: lastIndexAdded, end: index)+" " // inserts a space
+                    accumulate += inString.substringWithRangeInt(lastIndexAdded, end: index)+" " // inserts a space
                     lastIndexAdded = index
                 }
             }
-            let lastStringSection = inString.substringWithRangeInt(start: lastIndexAdded, end: inString.characters.count)
+            let lastStringSection = inString.substringWithRangeInt(lastIndexAdded, end: inString.characters.count)
             return accumulate + lastStringSection
         }
 
@@ -65,10 +65,10 @@ struct Acronym {
 
         func splitStringToArray(_ inString: String) -> [String] {
 
-            return inString.characters.split(isSeparator: { splitAt($0) }).map {String($0)}
+            return inString.characters.split(whereSeparator: { splitAt($0) }).map {String($0)}
         }
 
-        return splitStringToArray(insertSpaceAtCamelcase(inString)).map({$0.uppercased().substringWithRangeInt(start: 0, end: 1)}).joined(separator: "")
+        return splitStringToArray(insertSpaceAtCamelcase(inString)).map({$0.uppercased().substringWithRangeInt(0, end: 1)}).joined(separator: "")
     }
 
 }
