@@ -64,7 +64,7 @@ struct Tournament {
     }
 
     private var teams = Dictionary<String, TeamResult>()
-    private mutating func addResult(team1: String, team2: String, outcome: Outcome) -> Void {
+    private mutating func addResult(_ team1: String, team2: String, outcome: Outcome) -> Void {
         // Invert outcome for the second team.
         let outcome2: Outcome  = (outcome == Outcome.win) ? Outcome.loss :
             (outcome == Outcome.loss) ? Outcome.win :
@@ -121,7 +121,7 @@ struct Tournament {
                 let tempVal = teams[each]!
                 sortByValue.append((each, tempVal.score))
             }
-            sortByValue.sort {$0.1 > $1.1}
+            sortByValue.sort { $0.1 > $1.1 }
             var sortedKeys = [String]()
             for each in sortByValue {
                 sortedKeys.append(each.0)
@@ -175,7 +175,7 @@ struct Tournament {
                 }
 
                 if outcome != Outcome.err {
-                    tournament.addResult(team1: parts[0], team2: parts[1], outcome: outcome)
+                    tournament.addResult(parts[0], team2: parts[1], outcome: outcome)
                 }
             }
         }

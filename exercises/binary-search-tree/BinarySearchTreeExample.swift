@@ -61,6 +61,6 @@ indirect enum BinarySearchTree<Element: Comparable> {
     }
 
     func allData() -> [Element] {
-        return  getAllData().sorted(isOrderedBefore: <)
+        return  getAllData().sorted(by: <)
     }
 }

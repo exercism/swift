@@ -1,6 +1,6 @@
 struct NumberSeries {
 
-    enum Error: ErrorProtocol {
+    enum NumberSeriesError: Error {
         case invalidCharacter
         case spanLongerThanStringLength
         case negativeSpan
@@ -11,7 +11,7 @@ struct NumberSeries {
     init(_ numberString: String) throws {
         self.numbers = try numberString.characters.map {
             guard let intValue = Int(String($0)) else {
-                throw Error.invalidCharacter
+                throw NumberSeriesError.invalidCharacter
             }
             return intValue
         }
@@ -19,12 +19,12 @@ struct NumberSeries {
 
     func largestProduct(_ numberOfDigits: Int) throws -> Int {
         guard numberOfDigits >= 0 else {
-            throw Error.negativeSpan
+            throw NumberSeriesError.negativeSpan
         }
 
         let endIndex = numbers.count - numberOfDigits
         guard endIndex >= 0 else {
-            throw Error.spanLongerThanStringLength
+            throw NumberSeriesError.spanLongerThanStringLength
         }
 
         var result = 0

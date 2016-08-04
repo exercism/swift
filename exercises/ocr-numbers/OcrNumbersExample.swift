@@ -14,7 +14,7 @@ struct OCR {
         [" _ ", "|_|", " _|", "   "] : "9"
     ]
 
-    enum Error: ErrorProtocol {
+    enum OCRError: Error {
         case invalidNumberOfLines
         case invalidNumberOfColumns
     }
@@ -24,18 +24,18 @@ struct OCR {
         let rowCount = lines.count
 
         guard rowCount > 0 && rowCount % 4 == 0 else {
-            throw Error.invalidNumberOfLines
+            throw OCRError.invalidNumberOfLines
         }
 
         let columnCount = lines[0].characters.count
 
         guard columnCount > 0 && columnCount % 3 == 0 else {
-            throw Error.invalidNumberOfColumns
+            throw OCRError.invalidNumberOfColumns
         }
 
         try lines.forEach {
             guard $0.characters.count == columnCount else {
-                throw Error.invalidNumberOfColumns
+                throw OCRError.invalidNumberOfColumns
             }
         }
 

@@ -156,7 +156,7 @@ class OcrNumbersTest: XCTestCase {
                 "    _  _ \n" +
             "  | _| _|"
             let _ = try OCR(text)
-        } catch OCR.Error.invalidNumberOfLines {
+        } catch OCR.OCRError.invalidNumberOfLines {
             throwsInvalidNumberOfLinesError = true
             return
         } catch {
@@ -178,7 +178,7 @@ class OcrNumbersTest: XCTestCase {
                     "  ||_\n" +
             "     "
             let _ = try OCR(text)
-        } catch OCR.Error.invalidNumberOfColumns {
+        } catch OCR.OCRError.invalidNumberOfColumns {
             throwsInvalidNumberOfColumnsError = true
             return
         } catch {

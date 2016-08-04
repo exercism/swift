@@ -6,7 +6,7 @@ private extension XCTestCase {
 
     // Workaround unit test liminitaiton on Optional Arrays/Sets
     private func sameCollection<C: Collection where C.Iterator.Element == String>(_ result: C?, _ expected: [String]?) -> Bool {
-        guard let result = result, expected = expected where similar(result, expected) else { return false }
+        guard let result = result, let expected = expected, similar(result, expected) else { return false }
         for (index, student) in result.enumerated() {
             guard index < expected.count && expected.contains(student) else { return false }
         }
@@ -59,7 +59,7 @@ class GradeSchoolTest: XCTestCase {
         school.addStudent("Logan", grade: 7)
         let result = school.roster
         let expected = [3: ["Chelsea"], 7: ["Logan"]]
-        XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
+        XCTAssertEqual(Array(result.keys).sorted(by: >), Array(expected.keys).sorted(by: >))
 
         XCTAssertEqualCollection(result[3], expected[3])
     }
@@ -95,7 +95,7 @@ class GradeSchoolTest: XCTestCase {
             4 : ["Christopher", "Jennifer"],
             6 : ["Kareem"]
         ]
-        XCTAssertEqual(Array(result.keys).sorted(isOrderedBefore: >), Array(expected.keys).sorted(isOrderedBefore: >))
+        XCTAssertEqual(Array(result.keys).sorted(by: >), Array(expected.keys).sorted(by: >))
 
         XCTAssertEqualCollection(result[3], expected[3])
         XCTAssertEqualCollection(result[4], expected[4])

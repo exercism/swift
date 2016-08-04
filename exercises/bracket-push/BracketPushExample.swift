@@ -13,8 +13,8 @@ struct BracketPush {
             if brackets.values.contains(character) {
                 stack.append(character)
             } else if brackets.keys.contains(character) {
-                guard let last = stack.popLast()
-                    where last == brackets[character] else {
+                guard let last = stack.popLast(),
+                    last == brackets[character] else {
                     return false
                 }
             }

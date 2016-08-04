@@ -13,7 +13,7 @@ class GrainsTest: XCTestCase {
 
         do {
             let _ = try Grains.square(65)
-        } catch Grains.Error.inputTooHigh(let message) {
+        } catch Grains.GrainsError.inputTooHigh(let message) {
             throwsInputTooHighError = true
             XCTAssertTrue(message == "Input[65] invalid. Input should be between 1 and 64 (inclusive)")
         } catch {
@@ -31,7 +31,7 @@ class GrainsTest: XCTestCase {
 
         do {
             let _ = try Grains.square(0)
-        } catch Grains.Error.inputTooLow(let message) {
+        } catch Grains.GrainsError.inputTooLow(let message) {
             throwsInputTooLowError = true
             XCTAssertTrue(message == "Input[0] invalid. Input should be between 1 and 64 (inclusive)")
         } catch {
@@ -48,7 +48,7 @@ class GrainsTest: XCTestCase {
 
         do {
             let _ = try Grains.square(-1)
-        } catch Grains.Error.inputTooLow(let message) {
+        } catch Grains.GrainsError.inputTooLow(let message) {
             throwsInputTooLowError = true
             XCTAssertTrue(message == "Input[-1] invalid. Input should be between 1 and 64 (inclusive)")
         } catch {

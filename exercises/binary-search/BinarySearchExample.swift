@@ -1,4 +1,4 @@
-enum BinarySearchError: ErrorProtocol {
+enum BinarySearchError: Error {
     case unsorted
 }
 
@@ -10,7 +10,7 @@ struct BinarySearch<T: Comparable> {
     }
 
     init(_ list: [T]) throws {
-        guard list == list.sorted(isOrderedBefore: <) else {
+        guard list == list.sorted(by: <) else {
             throw BinarySearchError.unsorted
         }
         self.list = list

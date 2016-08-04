@@ -1,4 +1,4 @@
-enum BaseError: ErrorProtocol {
+enum BaseError: Error {
     case invalidInputBase
     case invalidOutputBase
     case negativeDigit
@@ -16,13 +16,13 @@ struct Base {
             throw BaseError.invalidOutputBase
         }
         
-        let sum = try getSum(digits: inputDigits, base: inputBase)
-        let result = getDigits(sum: sum, base: outputBase)
+        let sum = try getSum(inputDigits, base: inputBase)
+        let result = getDigits(sum, base: outputBase)
         
         return result
     }
     
-    private static func getSum(digits: [Int], base: Int) throws -> Int {
+    private static func getSum(_ digits: [Int], base: Int) throws -> Int {
         var multiplier = 1
         var sum = 0
         
@@ -41,7 +41,7 @@ struct Base {
         return sum
     }
     
-    private static func getDigits(sum: Int, base: Int) -> [Int] {
+    private static func getDigits(_ sum: Int, base: Int) -> [Int] {
         var sum = sum
         var digits = [Int]()
         var multiplier = 1
