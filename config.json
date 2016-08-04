@@ -25,17 +25,14 @@
    ,"triangle"
    ,"scrabble-score"
    ,"roman-numerals"
-   ,"binary"
    ,"prime-factors"
    ,"raindrops"
    ,"bob"
    ,"strain"
    ,"atbash-cipher"
    ,"crypto-square"
-   ,"trinary"
    ,"rna-transcription"
    ,"sieve"
-   ,"octal"
    ,"luhn"
    ,"series"
    ,"pig-latin"
@@ -57,7 +54,6 @@
    ,"queen-attack"
    ,"binary-search"
    ,"binary-search-tree"
-   ,"hexadecimal"
    ,"largest-series-product"
    ,"matrix"
    ,"house"
@@ -69,9 +65,14 @@
    ,"saddle-points"
    ,"poker"
    ,"dominoes"
+   ,"all-your-base"
+   ,"bracket-push"
   ],
   "deprecated": [
-
+    "binary"
+   ,"trinary"
+   ,"octal"
+   ,"hexadecimal"
   ],
   "ignored": [
     "docs",

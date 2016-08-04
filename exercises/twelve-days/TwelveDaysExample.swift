@@ -1,24 +1,20 @@
-// Foundation not needed
-
-
-
 struct TwelveDaysSong {
-    
-    static func sing() -> String{
-        return verses(1,12)
+
+    static func sing() -> String {
+        return verses(1, 12)
     }
-    
-    static func verses(start:Int, _ end:Int) ->String{
+
+    static func verses(_ start: Int, _ end: Int) -> String {
         var string2return = ""
-        for each in start...end{
+        for each in start...end {
             string2return += verse(each) + "\n"
         }
-        
+
         return string2return
     }
-    static func verse(number:Int) ->String{
-        switch(number)
-        {
+    
+    static func verse(_ number: Int) -> String {
+        switch number {
         case 1:
             return "On the first day of Christmas my true love gave to me, a Partridge in a Pear Tree.\n"
         case 2:
@@ -47,5 +43,5 @@ struct TwelveDaysSong {
             return ""
         }
     }
-    
+
 }

@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		9DCE80801BA747050024C69D /* helloWorldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE807F1BA747050024C69D /* helloWorldTest.swift */; };
-		9DCE80881BA748820024C69D /* helloWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE80871BA748820024C69D /* helloWorld.swift */; settings = {ASSET_TAGS = (); }; };
+		9DCE80881BA748820024C69D /* helloWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE80871BA748820024C69D /* helloWorld.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9DCE807D1BA747050024C69D /* helloWorldTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = helloWorldTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DCE807F1BA747050024C69D /* helloWorldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloWorldTest.swift; sourceTree = "<group>"; };
+		9DCE807F1BA747050024C69D /* helloWorldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = helloWorldTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9DCE80811BA747050024C69D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DCE80871BA748820024C69D /* helloWorld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloWorld.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
