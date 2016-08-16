@@ -5,7 +5,7 @@
 private extension XCTestCase {
 
     // Workaround unit test liminitaiton on Optional Arrays/Sets
-    private func sameCollection<C: Collection where C.Iterator.Element == String>(_ result: C?, _ expected: [String]?) -> Bool {
+    private func sameCollection<C: Collection>(_ result: C?, _ expected: [String]?) -> Bool where C.Iterator.Element == String {
         guard let result = result, let expected = expected, similar(result, expected) else { return false }
         for (index, student) in result.enumerated() {
             guard index < expected.count && expected.contains(student) else { return false }

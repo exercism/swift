@@ -2,6 +2,12 @@
     import XCTest
 #endif
 
+private extension XCTest {
+    func XCTAssertEqualMultiArray(_ aArray1: Array<Array<Int>>, _ aArray2: Array<Array<Int>>) {
+        XCTAssertEqual(Array(aArray1.joined()), Array(aArray2.joined()))
+}
+}
+
 class SaddlePointsTest: XCTestCase {
 
     func testExtractARow() {
@@ -36,22 +42,22 @@ class SaddlePointsTest: XCTestCase {
 
     func testNoSaddlePoint() {
         let matrix = SaddlePointsMatrix("2 1\n1 2")
-        XCTAssertEqual([], matrix.saddlePoints)
+        XCTAssertEqualMultiArray([[Int]()], matrix.saddlePoints)
     }
 
     func testASaddlePoint() {
         let matrix = SaddlePointsMatrix("1 2\n3 4")
-        XCTAssertEqual([[0, 1]], matrix.saddlePoints)
+        XCTAssertEqualMultiArray([[0, 1]], matrix.saddlePoints)
     }
 
     func testAnotherSaddlePoint() {
         let matrix = SaddlePointsMatrix("18 3 39 19 91\n38 10 8 77 320\n3 4 8 6 7")
-        XCTAssertEqual([[2, 2]], matrix.saddlePoints)
+        XCTAssertEqualMultiArray([[2, 2]], matrix.saddlePoints)
     }
 
     func testMultipleSaddlePoints() {
         let matrix = SaddlePointsMatrix("4 5 4\n3 5 5\n1 5 4")
-        XCTAssertEqual([[0, 1], [1, 1], [2, 1]], matrix.saddlePoints)
+        XCTAssertEqualMultiArray([[0, 1], [1, 1], [2, 1]], matrix.saddlePoints)
     }
 
 }

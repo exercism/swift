@@ -10,7 +10,7 @@ extension Int {
 
 struct Octal {
     private var stringValue = ""
-    private var toDecimal: Int = 0
+    fileprivate var toDecimal: Int = 0
     private func isValidOctal() -> Bool {
         return (Int(stringValue) ?? -1) > -1 ? true : false
     }

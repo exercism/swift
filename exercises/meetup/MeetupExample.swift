@@ -16,7 +16,7 @@ struct Date {
 
     var descriptionStyle: DateFormatingOption = .yyyy_MM_dd
 
-    private var tmDateBacking: tm = tm()
+    fileprivate var tmDateBacking: tm = tm()
 
     var year: Int32 { return tmDateBacking.tm_year + 1900 }
     var month: Int32 { return tmDateBacking.tm_mon + 1 }
@@ -160,7 +160,7 @@ struct Meetup {
             default: dayIndex = -1
             }
 
-            let first2last = dateMonthWeekDays.filter({$0[1] == Int32(dayOfTheWeek) })[dayIndex][0] ?? 0
+            let first2last = dateMonthWeekDays.filter({$0[1] == Int32(dayOfTheWeek) })[dayIndex][0] 
 
             return Date(from:"\(dateStart.year)-\(dateStart.month)-\(first2last)") ?? Date()
         }

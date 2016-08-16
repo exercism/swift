@@ -1,17 +1,19 @@
+import Foundation
+
 struct OCR {
 
     let lines: [String]
     let patterns =  [
-        [" _ ", "| |", "|_|", "   "] : "0",
-        ["   ", "  |", "  |", "   "] : "1",
-        [" _ ", " _|", "|_ ", "   "] : "2",
-        [" _ ", " _|", " _|", "   "] : "3",
-        ["   ", "|_|", "  |", "   "] : "4",
-        [" _ ", "|_ ", " _|", "   "] : "5",
-        [" _ ", "|_ ", "|_|", "   "] : "6",
-        [" _ ", "  |", "  |", "   "] : "7",
-        [" _ ", "|_|", "|_|", "   "] : "8",
-        [" _ ", "|_|", " _|", "   "] : "9"
+        [" _ ", "| |", "|_|", "   "] ,
+        ["   ", "  |", "  |", "   "] ,
+        [" _ ", " _|", "|_ ", "   "] ,
+        [" _ ", " _|", " _|", "   "] ,
+        ["   ", "|_|", "  |", "   "] ,
+        [" _ ", "|_ ", " _|", "   "] ,
+        [" _ ", "|_ ", "|_|", "   "] ,
+        [" _ ", "  |", "  |", "   "] ,
+        [" _ ", "|_|", "|_|", "   "] ,
+        [" _ ", "|_|", " _|", "   "]
     ]
 
     enum OCRError: Error {
@@ -75,10 +77,10 @@ struct OCR {
     }
 
     func patternForGrouping(_ grouping: [String]) -> String {
-        guard let number = patterns[grouping] else {
+        guard let number = patterns.index(where: {$0 == grouping}) else {
             return "?"
         }
-        return number
+        return "\(number)"
     }
 
 }
