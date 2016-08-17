@@ -153,29 +153,29 @@ func == (lhs: HandRank, rhs: HandRank) -> Bool {
         return lRank == rRank && lSuit == rSuit
     //fourOfAKind(four:Rank)
     case (HandRank.fourOfAKind(four: let lFour),
-        HandRank.fourOfAKind(four: let rFour)):
+          HandRank.fourOfAKind(four: let rFour)):
         return lFour == rFour
     //fullHouse(three:Rank)
     case (HandRank.fullHouse(three: let lThree),
-        HandRank.fullHouse(three: let rThree)):
+          HandRank.fullHouse(three: let rThree)):
         return lThree == rThree
     //flush(Suit)
     case (HandRank.flush(let lRank, let lSuit), HandRank.flush(let rRank, let rSuit)):
         return lSuit == rSuit && lRank == rRank
     //straight(high:Rank)
     case (HandRank.straight(high: let lRank),
-        HandRank.straight(high: let rRank)):
+          HandRank.straight(high: let rRank)):
         return lRank == rRank
     //threeOfAKind(three:Rank)
     case (HandRank.threeOfAKind(three: let lRank),
-        HandRank.threeOfAKind(three: let rRank)):
+          HandRank.threeOfAKind(three: let rRank)):
         return lRank == rRank
     //twoPair(high:Rank,low:Rank, highCard:PlayingCard)
     case (HandRank.twoPair(high: let lHigh, low: let lLow, highCard: let lCard), HandRank.twoPair(high: let rHigh, low: let rLow, highCard: let rCard)):
         return lHigh == rHigh && lLow == rLow && lCard == rCard
     //onePair(Rank)
     case (HandRank.onePair(let lPairRank, card1: let lCard1, card2: let lCard2, card3: let lCard3),
-        HandRank.onePair(let rPairRank, card1: let rCard1, card2: let rCard2, card3: let rCard3)):
+          HandRank.onePair(let rPairRank, card1: let rCard1, card2: let rCard2, card3: let rCard3)):
         return lPairRank == rPairRank && lCard1 == rCard1 && lCard2 == rCard2 && lCard3 == rCard3
     //highCard(PlayingCard)
     case (HandRank.highCard(let lCard), HandRank.highCard(let rCard)):
@@ -196,12 +196,12 @@ func < (lhs: HandRank, rhs: HandRank) -> Bool {
 
     //fourOfAKind(four:Rank)
     case (HandRank.fourOfAKind(four: let lFour),
-        HandRank.fourOfAKind(four: let rFour)):
+          HandRank.fourOfAKind(four: let rFour)):
         return lFour < rFour
 
     //fullHouse(three:Rank)
     case (HandRank.fullHouse(three: let lRank),
-        HandRank.fullHouse(three: let rRank)):
+          HandRank.fullHouse(three: let rRank)):
         return lRank < rRank
 
     //flush(Suit)
@@ -210,12 +210,12 @@ func < (lhs: HandRank, rhs: HandRank) -> Bool {
 
     //straight(high:Rank)
     case (HandRank.straight(high: let lRank),
-        HandRank.straight(high: let rRank)):
+          HandRank.straight(high: let rRank)):
         return lRank < rRank
 
     //threeOfAKind(three:Rank)
     case (HandRank.threeOfAKind(three: let lRank),
-        HandRank.threeOfAKind(three: let rRank)):
+          HandRank.threeOfAKind(three: let rRank)):
         return lRank < rRank
 
     //twoPair(high:Rank,low:Rank, highCard:PlayingCard)
@@ -228,7 +228,7 @@ func < (lhs: HandRank, rhs: HandRank) -> Bool {
 
     //onePair(Rank)
     case (HandRank.onePair(let lPairRank, card1: let lCard1, card2: let lCard2, card3: let lCard3),
-        HandRank.onePair(let rPairRank, card1: let rCard1, card2: let rCard2, card3: let rCard3)):
+          HandRank.onePair(let rPairRank, card1: let rCard1, card2: let rCard2, card3: let rCard3)):
         return lPairRank == rPairRank ? (lCard1 == rCard1 ? (lCard2 == rCard2 ? lCard3 < rCard3 :lCard2 < rCard2):lCard1 < rCard1):lPairRank < rPairRank
 
     //highCard(PlayingCard)

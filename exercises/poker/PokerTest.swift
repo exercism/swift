@@ -59,7 +59,7 @@ class PokerTest: XCTestCase {
                     "4♢ 3♤ 4♤ J♤ K♤",
                     "A♡ K♡ J♢ 10♧ 9♡",
                     "2♢ 8♡ 5♢ 2♡ 8♧",
-                ],
+                    ],
                 best:  "2♢ 8♡ 5♢ 2♡ 8♧"
             ),
             (
@@ -68,7 +68,7 @@ class PokerTest: XCTestCase {
                     "4♢ J♧ 4♤ J♤ K♤",
                     "A♡ K♡ J♢ 10♧ 9♡",
                     "2♢ 8♡ 5♢ 2♡ 8♧",
-                ],
+                    ],
                 best:  "4♢ J♧ 4♤ J♤ K♤"
             ),
             (
@@ -77,7 +77,7 @@ class PokerTest: XCTestCase {
                     "4♢ J♧ 4♤ J♤ K♤",
                     "A♡ K♡ J♢ 10♧ 9♡",
                     "3♢ J♡ 5♢ 3♡ J♢",
-                ],
+                    ],
                 best:  "4♢ J♧ 4♤ J♤ K♤"
             ),
             (
@@ -86,7 +86,7 @@ class PokerTest: XCTestCase {
                     "4♢ J♧ 4♤ J♤ 2♤",
                     "A♡ K♡ J♢ 10♧ 9♡",
                     "4♧ J♡ 5♢ 4♡ J♢",
-                ],
+                    ],
                 best:  "4♧ J♡ 5♢ 4♡ J♢"
             ),
             (
@@ -96,7 +96,7 @@ class PokerTest: XCTestCase {
                     "A♡ K♡ J♢ 10♧ 9♡",
                     "3♡ 8♡ 3♢ 3♧ 8♧",
                     "2♢ 8♡ 5♢ 2♡ 8♧",
-                ],
+                    ],
                 best:  "3♡ 8♡ 3♢ 3♧ 8♧"
             ),
             (
@@ -106,7 +106,7 @@ class PokerTest: XCTestCase {
                     "A♡ K♡ J♢ 10♧ 9♡",
                     "3♢ 8♡ 3♡ 3♧ 9♧",
                     "2♢ 8♡ 5♢ 2♡ 8♧",
-                ],
+                    ],
                 best:  "4♢ 3♤ 4♤ J♤ 4♡"
             ),
             (
@@ -116,7 +116,7 @@ class PokerTest: XCTestCase {
                     "Q♡ K♡ J♢ 10♧ 9♡",
                     "3♡ 8♡ 3♢ 3♧ 9♧",
                     "2♢ 8♡ 5♢ 2♡ 8♧",
-                ],
+                    ],
                 best:  "Q♡ K♡ J♢ 10♧ 9♡"
             ),
             (
@@ -126,7 +126,7 @@ class PokerTest: XCTestCase {
                     "2♤ 3♡ A♤ 5♤ 4♤",
                     "3♢ 8♡ 3♡ 3♧ 9♧",
                     "2♢ 8♡ 5♢ 2♡ 8♧",
-                ],
+                    ],
                 best:  "2♤ 3♡ A♤ 5♤ 4♤"
             ),
             (
@@ -136,7 +136,7 @@ class PokerTest: XCTestCase {
                     "Q♡ K♡ J♢ 10♧ 9♡",
                     "A♢ K♧ 10♢ J♢ Q♢",
                     "2♢ 8♡ 5♢ 2♡ 8♧",
-                ],
+                    ],
                 best:  "A♢ K♧ 10♢ J♢ Q♢"
             ),
             (
@@ -146,7 +146,7 @@ class PokerTest: XCTestCase {
                     "Q♡ K♡ J♢ 10♧ 9♡",
                     "3♢ 8♡ 3♢ 3♧ 9♧",
                     "2♢ 8♡ 5♢ 2♡ 8♧",
-                ],
+                    ],
                 best:  "4♤ 3♤ 8♤ J♤ K♤"
             ),
             (
@@ -156,7 +156,7 @@ class PokerTest: XCTestCase {
                     "Q♡ K♡ J♢ 10♧ 9♡",
                     "3♢ 8♢ A♢ 2♢ 7♢",
                     "2♢ 8♡ 5♢ 2♡ 8♧",
-                ],
+                    ],
                 best:  "3♢ 8♢ A♢ 2♢ 7♢"
             ),
             (
@@ -166,7 +166,7 @@ class PokerTest: XCTestCase {
                     "2♢ 8♡ 8♢ 2♡ 8♧",
                     "Q♡ K♡ J♢ 10♧ 9♡",
                     "3♡ A♡ 3♢ 3♧ A♧",
-                ],
+                    ],
                 best:  "2♢ 8♡ 8♢ 2♡ 8♧"
             ),
             (
@@ -176,7 +176,7 @@ class PokerTest: XCTestCase {
                     "2♢ 8♡ 8♢ 2♡ 8♧",
                     "5♡ 5♢ A♤ 5♧ A♢",
                     "3♡ A♡ 3♢ 3♧ A♧",
-                ],
+                    ],
                 best:  "2♢ 8♡ 8♢ 2♡ 8♧"
             ),
             (
@@ -186,7 +186,7 @@ class PokerTest: XCTestCase {
                     "2♢ 8♡ 8♢ 2♡ 8♧",
                     "Q♡ K♡ J♢ 10♧ 9♡",
                     "3♢ 3♡ 3♤ 3♧ A♧",
-                ],
+                    ],
                 best:  "3♢ 3♡ 3♤ 3♧ A♧"
             ),
             (
@@ -196,7 +196,7 @@ class PokerTest: XCTestCase {
                     "2♢ 2♧ 8♢ 2♡ 2♤",
                     "Q♡ K♡ J♢ 10♧ 9♡",
                     "3♢ 3♡ 3♤ 3♧ A♧",
-                ],
+                    ],
                 best:  "3♢ 3♡ 3♤ 3♧ A♧"
             ),
             (
@@ -206,7 +206,7 @@ class PokerTest: XCTestCase {
                     "2♢ 8♡ 8♢ 2♡ 8♧",
                     "Q♡ K♡ 8♡ 10♡ 9♡",
                     "2♤ 3♤ A♤ 5♤ 4♤",
-                ],
+                    ],
                 best:  "2♤ 3♤ A♤ 5♤ 4♤"
             ),
             (
@@ -216,7 +216,7 @@ class PokerTest: XCTestCase {
                     "2♢ 8♡ 8♢ 2♡ 8♧",
                     "Q♡ K♡ J♡ 10♡ 9♡",
                     "Q♢ K♢ J♢ 10♢ A♢",
-                ],
+                    ],
                 best:  "Q♢ K♢ J♢ 10♢ A♢"
             ),
             (
@@ -231,7 +231,7 @@ class PokerTest: XCTestCase {
                     "A♤ 2♤ 3♤ 4♤ 5♤",
                     "5♧ 4♧ 3♧ 2♧ A♧",
                     "A♢ 2♢ 6♢ 4♢ 5♢",
-                ],
+                    ],
                 best:  "A♤ 2♤ 3♤ 4♤ 5♤"
             ),
         ]
