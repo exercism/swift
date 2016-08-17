@@ -7,7 +7,7 @@ extension Int {
 }
 struct Trinary {
     private var stringValue = ""
-    private var toDecimal: Int = 0
+    fileprivate var toDecimal: Int = 0
     private func isValidTrinary() -> Bool {
         return (Int(stringValue) ?? -1) > -1 ? true : false
     }

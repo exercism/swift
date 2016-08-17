@@ -6,13 +6,13 @@ struct CustomSet<T:Hashable>:Equatable {
 
     typealias Element = T
 
-    private var contents = [Element: Bool]()
+    fileprivate var contents = [Element: Bool]()
 
     var size: Int {return contents.count}
 
     var toSortedArray: [Element] {return Array(contents.keys.sorted {$0.hashValue < $1.hashValue})}
 
-    init<S: Sequence where S.Iterator.Element == Element>(_ sequence: S) {
+    init<S: Sequence>(_ sequence: S) where S.Iterator.Element == Element {
         self.contents = [:]
         _ = sequence.map { self.contents[$0] = true }
     }

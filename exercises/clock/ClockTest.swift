@@ -95,7 +95,7 @@ class ClockTest: XCTestCase {
 
     func testAddMoreThanOneHour() {
         let clock = Clock(hours: 10).add(minutes: 61)
-        XCTAssertEqual("11:01", String(clock))
+        XCTAssertEqual("11:01", String(describing: clock))
     }
 
     func testAddMoreThanTwoHoursWithCarry() {
@@ -105,59 +105,59 @@ class ClockTest: XCTestCase {
 
     func testAddAcrossMidnight() {
         let clock = Clock(hours: 23, minutes: 59).add(minutes: 2)
-        XCTAssertEqual("00:01", String(clock))
+        XCTAssertEqual("00:01", String(describing: clock))
     }
 
     func testAddMoreThanOneDay() {
         // (1500 min = 25 hrs)
         let clock = Clock(hours: 5, minutes: 32).add(minutes: 1500)
-        XCTAssertEqual("06:32", String(clock))
+        XCTAssertEqual("06:32", String(describing: clock))
     }
 
     func testAddMoreThanTwoDays() {
         let clock = Clock(hours: 1, minutes: 1).add(minutes: 3500)
-        XCTAssertEqual("11:21", String(clock))
+        XCTAssertEqual("11:21", String(describing: clock))
     }
 
     func testSubtractMinutes() {
         let clock = Clock(hours: 10, minutes: 3).subtract(minutes: 3)
-        XCTAssertEqual("10:00", String(clock))
+        XCTAssertEqual("10:00", String(describing: clock))
     }
 
     func testSubtractToPreviousHour() {
         let clock = Clock(hours: 10, minutes: 3).subtract(minutes: 30)
-        XCTAssertEqual("09:33", String(clock))
+        XCTAssertEqual("09:33", String(describing: clock))
     }
 
     func testSubtractMoreThanAnHour() {
         let clock = Clock(hours: 10, minutes: 3).subtract(minutes: 70)
-        XCTAssertEqual("08:53", String(clock))
+        XCTAssertEqual("08:53", String(describing: clock))
     }
 
     func testSubtractAcrossMidnight() {
         let clock = Clock(hours: 0, minutes: 3).subtract(minutes: 4)
-        XCTAssertEqual("23:59", String(clock))
+        XCTAssertEqual("23:59", String(describing: clock))
     }
 
     func testSubtractMoreThanTwoHours() {
         let clock = Clock(hours: 0, minutes: 0).subtract(minutes: 160)
-        XCTAssertEqual("21:20", String(clock))
+        XCTAssertEqual("21:20", String(describing: clock))
     }
 
     func testSubtractMoreTHanTwoHoursWithBorrow() {
         let clock = Clock(hours: 6, minutes: 15).subtract(minutes: 160)
-        XCTAssertEqual("03:35", String(clock))
+        XCTAssertEqual("03:35", String(describing: clock))
     }
 
     func testSubtractMoreThanOneDay() {
         // (1500 min = 25 hrs)
         let clock = Clock(hours: 5, minutes: 32).subtract(minutes: 1500)
-        XCTAssertEqual("04:32", String(clock))
+        XCTAssertEqual("04:32", String(describing: clock))
     }
 
     func testSubtractMoreThanTwoDays() {
         let clock = Clock(hours: 2, minutes: 20).subtract(minutes: 3000)
-        XCTAssertEqual("00:20", String(clock))
+        XCTAssertEqual("00:20", String(describing: clock))
     }
 
     // MARK: - Equal: Construct two separate clocks, set times, test if they are equal.

@@ -58,14 +58,14 @@ class PhoneNumberTest: XCTestCase {
         let startingNumber = "1234567890"
         let expected = "(123) 456-7890"
         let number = PhoneNumber(startingNumber)
-        XCTAssertEqual(String(number), expected)
+        XCTAssertEqual(String(describing: number), expected)
     }
 
     func testPrettyPrintWithFullUSPhoneNumber() {
         let startingNumber = "11234567890"
         let expected = "(123) 456-7890"
         let number = PhoneNumber(startingNumber)
-        XCTAssertEqual(String(number), expected)
+        XCTAssertEqual(String(describing: number), expected)
     }
 
 }

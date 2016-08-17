@@ -7,7 +7,7 @@ class AnagramTest: XCTestCase {
     func testNoMatches() {
         let anagram = Anagram(word: "diaper")
         let results = anagram.match(["hello", "world", "zombies", "pants"])
-        let expected = []
+        let expected = [String]()
         XCTAssertEqual(results, expected)
     }
     func testDetectSimpleAnagram() {
@@ -27,7 +27,7 @@ class AnagramTest: XCTestCase {
     func testDoesNotConfuseDifferentDuplicates() {
         let anagram = Anagram(word: "galea")
         let results = anagram.match(["eagle"])
-        let expected = []
+        let expected = [String]()
         XCTAssertEqual(results, expected)
     }
 
@@ -41,14 +41,14 @@ class AnagramTest: XCTestCase {
     func testEliminateAnagramsWithSameChecksum() {
         let anagram = Anagram(word: "mass")
         let results = anagram.match(["last"])
-        let expected = []
+        let expected = [String]()
         XCTAssertEqual(results, expected)
     }
 
     func testEliminateAnagramSubsets() {
         let anagram = Anagram(word: "good")
         let results = anagram.match(["dog", "goody"])
-        let expected = []
+        let expected = [String]()
         XCTAssertEqual(results, expected)
     }
 

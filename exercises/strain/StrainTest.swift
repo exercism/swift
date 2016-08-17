@@ -2,6 +2,12 @@
     import XCTest
 #endif
 
+private extension XCTest {
+    func XCTAssertEqualMultiArray(_ aArray1: Array<Array<Int>>, _ aArray2: Array<Array<Int>>) {
+        XCTAssertEqual(Array(aArray1.joined()), Array(aArray2.joined()))
+}
+}
+
 class StrainTest: XCTestCase {
 
     func testEmptyKeep() {
@@ -23,7 +29,7 @@ class StrainTest: XCTestCase {
 
     func testKeepStrings() {
         let words = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
-        let result = words.keep {each -> Bool in (each as String).hasPrefix("z") ?? false}
+        let result = words.keep {each -> Bool in (each as String).hasPrefix("z")}
         XCTAssertEqual(["zebra", "zombies", "zealot"], result)
     }
 
@@ -38,7 +44,7 @@ class StrainTest: XCTestCase {
             [1, 2, 5]
         ]
         let result = rows.keep { each -> Bool in (each as [Int]).contains(5)}
-        XCTAssertEqual([[5, 5, 5], [5, 1, 2], [1, 5, 2], [1, 2, 5]], result)
+        XCTAssertEqualMultiArray([[5, 5, 5], [5, 1, 2], [1, 5, 2], [1, 2, 5]], result)
     }
 
     func testEmptyDiscard() {
@@ -59,7 +65,7 @@ class StrainTest: XCTestCase {
 
     func testDiscardStrings() {
         let words = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
-        let result = words.discard {each -> Bool in (each as String).hasPrefix("z") ?? false}
+        let result = words.discard {each -> Bool in (each as String).hasPrefix("z") }
         XCTAssertEqual(["apple", "banana", "cherimoya"], result)
     }
 
@@ -74,7 +80,7 @@ class StrainTest: XCTestCase {
             [1, 2, 5]
         ]
         let result = rows.discard { each -> Bool in (each as [Int]).contains(5)}
-        XCTAssertEqual([[1, 2, 3], [2, 1, 2], [2, 2, 1]], result)
+        XCTAssertEqualMultiArray([[1, 2, 3], [2, 1, 2], [2, 2, 1]], result)
     }
 
 }
