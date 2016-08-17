@@ -160,7 +160,7 @@ struct Meetup {
             default: dayIndex = -1
             }
 
-            let first2last = dateMonthWeekDays.filter({$0[1] == Int32(dayOfTheWeek) })[dayIndex][0] 
+            let first2last = dateMonthWeekDays.filter({$0[1] == Int32(dayOfTheWeek) })[dayIndex][0]
 
             return Date(from:"\(dateStart.year)-\(dateStart.month)-\(first2last)") ?? Date()
         }

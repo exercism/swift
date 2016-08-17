@@ -74,8 +74,8 @@ class Bone: CustomStringConvertible, Equatable {
     @discardableResult
     func connect(_ input: Bone) -> Bool {
 
-        if self === input {return false}
-        if self === input.connectedTo {return false}
+        guard self !== input else {return false}
+        guard self !== input.connectedTo else {return false}
 
         var toReturn = false
 

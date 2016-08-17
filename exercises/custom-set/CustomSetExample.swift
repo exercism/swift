@@ -13,8 +13,8 @@ struct CustomSet<T:Hashable>:Equatable {
     var toSortedArray: [Element] {return Array(contents.keys.sorted {$0.hashValue < $1.hashValue})}
 
     init<S: Sequence>(_ sequence: S) where S.Iterator.Element == Element {
-        self.contents = [:]
-        _ = sequence.map { self.contents[$0] = true }
+    self.contents = [:]
+    _ = sequence.map { self.contents[$0] = true }
     }
     mutating func put(_ item: Element) {
         contents[item] = true
@@ -34,7 +34,8 @@ struct CustomSet<T:Hashable>:Equatable {
     func intersection(_ item: CustomSet) -> CustomSet {
         var temp = [Element: Bool]()
         for each in Array(item.contents.keys) {
-            if (contents[each] != nil) { temp[each] = true }
+            guard let _ =  contents[each] else {continue}
+            temp[each] = true
         }
         return CustomSet(temp.keys)
     }

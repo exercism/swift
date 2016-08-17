@@ -77,7 +77,7 @@ enum HandRank {
         let suits = inputHand.hand.map({$0.suit})
         let first = suits[0]
         for each in suits {
-            if (first != each) { return (false, .None)}
+            guard first == each else { return (false, .None)}
         }
         return (true, first)
     }
@@ -86,7 +86,7 @@ enum HandRank {
         let sorted = inputHand.hand.sorted(by: {$0.rank < $1.rank})
         let first = sorted[0].rank.rawValue
         for (index, each) in sorted.enumerated() {
-            if (each.rank.rawValue != index + first) {
+            if each.rank.rawValue != index + first {
                 // checks for Ace as the lowest card
                 guard let aceIndex = inputHand.hand.index(where: {$0.rank.rawValue == 14})else {return (false, .ace)}
                 var replacedAced = inputHand.hand.map({$0.rank.rawValue})
@@ -94,7 +94,7 @@ enum HandRank {
                 replacedAced.sort()
                 let firstVal = replacedAced[0]
                 for (idx, eachVal) in replacedAced.enumerated() {
-                    if (eachVal != firstVal + idx ) { return (false, .ace) }
+                    guard eachVal == firstVal + idx else { return (false, .ace) }
                 }
             }
         }

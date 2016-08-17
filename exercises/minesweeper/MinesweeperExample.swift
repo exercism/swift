@@ -110,7 +110,7 @@ private extension String {
         if let regex = regex {
             matches = regex.numberOfMatches(in: self,
                                             options: [],
-                                            range: NSMakeRange(0, (self as NSString).length))
+                                            range: NSRange(0..<self.utf16.count) )
         }
         return matches > 0
     }

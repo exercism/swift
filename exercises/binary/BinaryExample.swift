@@ -16,7 +16,7 @@ struct Binary {
             if each == "1" {
                 tempUInt += UInt(0x1 << inx)
             }
-            if (each != "0" && each != "1") {
+            if each != "0" && each != "1" {
                 return nil
             }
         }

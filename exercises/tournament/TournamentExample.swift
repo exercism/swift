@@ -90,6 +90,7 @@ struct Tournament {
 
     private mutating func writeResults() -> String {
 
+        // swiftlint:disable:next function_parameter_count
         func formarter (_ team: String, mp: String, w: String, d: String, l: String, p: String) -> String {
 
             func wsChars(_ text: String, spacing: Int = 31) -> String {
