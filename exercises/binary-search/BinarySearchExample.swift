@@ -27,8 +27,8 @@ struct BinarySearch<T: Comparable> {
                 return nil
             }
             guard let binary = try? BinarySearch(sublist) else {
-                    return nil
-                }
+                return nil
+            }
             return binary.searchFor(datum)
         } else {
             let sublist = Array(list[middle..<list.count])
@@ -37,10 +37,10 @@ struct BinarySearch<T: Comparable> {
             }
 
             guard let binary = try? BinarySearch(sublist),
-                  let index = binary.searchFor(datum) else {
+                let index = binary.searchFor(datum) else {
                     return nil
-                }
-                return index + middle
+            }
+            return index + middle
 
         }
     }

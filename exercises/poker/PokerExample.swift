@@ -184,7 +184,7 @@ func == (lhs: HandRank, rhs: HandRank) -> Bool {
         return false
     }
 }
-
+// swiftlint:disable:next cyclomatic_complexity
 func < (lhs: HandRank, rhs: HandRank) -> Bool {
     switch (lhs, rhs) {
     case (_, _) where lhs == rhs:

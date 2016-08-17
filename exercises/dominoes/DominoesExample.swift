@@ -79,16 +79,12 @@ class Bone: CustomStringConvertible, Equatable {
 
         var toReturn = false
 
-        if connected == 1 && input.connected == 0 {
-
-            guard let available = available else { return false }
-
+        func oneZero() {
             if available == input.value.head {
                 self.available = nil
                 input.available = input.value.tail
                 toReturn = true
             }
-
             if available == input.value.tail {
                 self.available = nil
                 input.available = input.value.head
@@ -96,10 +92,7 @@ class Bone: CustomStringConvertible, Equatable {
             }
         }
 
-        if connected == 0 && input.connected == 1 {
-
-            guard let available = input.available else { return false }
-
+        func zeroOne() {
             if available == value.head {
                 input.available = nil
                 self.available = value.tail
@@ -111,11 +104,9 @@ class Bone: CustomStringConvertible, Equatable {
                 self.available = value.head
                 toReturn = true
             }
-
         }
 
-        if connected == 1 && input.connected == 1 {
-
+        func oneOne() {
             if available == input.available {
                 self.available = nil
                 input.available = nil
@@ -123,8 +114,7 @@ class Bone: CustomStringConvertible, Equatable {
             }
         }
 
-        if connected == 0 && input.connected == 0 {
-
+        func zeroZero() {
             if value.head == input.value.head {
                 available = value.tail
                 input.available = input.value.tail
@@ -154,7 +144,23 @@ class Bone: CustomStringConvertible, Equatable {
             }
         }
 
-        if toReturn == true {
+
+        switch (connected, input.connected) {
+        case (1, 0):
+            guard let _ = available else { return false }
+            oneZero()
+        case (0, 1):
+            guard let _ = input.available else { return false }
+            zeroOne()
+        case (1, 1):
+            oneOne()
+        case (0, 0):
+            zeroZero()
+        default:
+            toReturn = false
+        }
+
+        if toReturn {
             connected += 1
             input.connected += 1
             return true
