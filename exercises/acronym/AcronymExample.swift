@@ -32,7 +32,7 @@ struct Acronym {
 
             if currentLetter == " " { return false
             } else if currentLetter.isEmpty { return false
-            } else if (previousLetter.isLowercase && currentLetter.isUppercase) {
+            } else if previousLetter.isLowercase && currentLetter.isUppercase {
                 //previousLetter = currentLetter // see defer block
                 return true
             }

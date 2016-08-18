@@ -34,16 +34,16 @@ struct Triangle {
 
     func Kind() -> String {
 
-        if (allSidesAreZero() || hasImpossibleSides() || violatesTriangleInequality()) {
+        if allSidesAreZero() || hasImpossibleSides() || violatesTriangleInequality() {
             return triangleKind.ErrorKind
         }
 
         let unique = uniqueSides()
 
-        if (unique == 1) {
+        if unique == 1 {
             return triangleKind.Equilateral}
 
-        if (unique == 2) {
+        if unique == 2 {
             return triangleKind.Isosceles}
 
         return triangleKind.Scalene

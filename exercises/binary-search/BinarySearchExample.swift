@@ -26,18 +26,22 @@ struct BinarySearch<T: Comparable> {
             guard sublist != list else {
                 return nil
             }
-            return try! BinarySearch(sublist).searchFor(datum)
+            guard let binary = try? BinarySearch(sublist) else {
+                return nil
+            }
+            return binary.searchFor(datum)
         } else {
             let sublist = Array(list[middle..<list.count])
             guard sublist != list else {
                 return nil
             }
 
-            if let index = try! BinarySearch(sublist).searchFor(datum) {
-                return index + middle
-            } else {
-                return nil
+            guard let binary = try? BinarySearch(sublist),
+                let index = binary.searchFor(datum) else {
+                    return nil
             }
+            return index + middle
+
         }
     }
 

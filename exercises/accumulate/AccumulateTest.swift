@@ -18,7 +18,7 @@ private extension String {
 private extension XCTest {
     func XCTAssertEqualMultiArray(_ aArray1: Array<Array<String>>, _ aArray2: Array<Array<String>>) {
         XCTAssertEqual(Array(aArray1.joined()), Array(aArray2.joined()))
-}
+    }
 }
 
 class AccumulateTest: XCTestCase {

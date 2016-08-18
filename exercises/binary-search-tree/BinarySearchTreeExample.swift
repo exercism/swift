@@ -20,7 +20,7 @@ indirect enum BinarySearchTree<Element: Comparable> {
 
     init(left: BinarySearchTree<Element> = .empty,
          _ value: Element,
-           right: BinarySearchTree<Element>= .empty ) {
+         right: BinarySearchTree<Element>= .empty ) {
         self = .node(left, value, right)
     }
     init() {

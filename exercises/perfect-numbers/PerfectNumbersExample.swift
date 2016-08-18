@@ -10,7 +10,7 @@ struct NumberClassifier {
         return aliquotSum(number)
     }
     var classification: NumberClassification {
-        switch (sum) {
+        switch sum {
         case let sum where sum == number :
             return NumberClassification.perfect
         case let sum where sum < number :
@@ -21,7 +21,7 @@ struct NumberClassifier {
     }
     func aliquotSum (_ input: Int) -> Int {
         let array = Array(1..<(input-1))
-        
+
         return array.filter({input % $0 == 0}).reduce(0, +)
     }
 

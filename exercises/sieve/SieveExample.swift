@@ -19,8 +19,8 @@ struct Sieve {
 
         var primes = [Int]()
         var divisor: Int = 2
-        while (number > 1) {
-            while (number % divisor == 0) {
+        while number > 1 {
+            while number % divisor == 0 {
                 primes.append(divisor)
                 number /= divisor
             }
