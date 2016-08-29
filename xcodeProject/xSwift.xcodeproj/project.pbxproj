@@ -131,6 +131,8 @@
 		E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECE1C510E68009318BB /* BinarySearchTest.swift */; };
 		E951B6BD1D466045009EB5B6 /* BracketPushExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E951B6BC1D466045009EB5B6 /* BracketPushExample.swift */; };
 		E951B6BF1D466058009EB5B6 /* BracketPushTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E951B6BE1D466058009EB5B6 /* BracketPushTest.swift */; };
+		E99365461D6CE2D600799C70 /* BowlingExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99365451D6CE2D600799C70 /* BowlingExample.swift */; };
+		E99365481D6CE2EA00799C70 /* BowlingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99365471D6CE2EA00799C70 /* BowlingTest.swift */; };
 		E9AFA1481C593AF5006AD72D /* BinarySearchTreeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */; };
 		E9AFA1491C593AF5006AD72D /* BinarySearchTreeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1471C593AF5006AD72D /* BinarySearchTreeTest.swift */; };
 		E9AFA1511C5944D0006AD72D /* HexadecimalExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1501C5944D0006AD72D /* HexadecimalExample.swift */; };
@@ -283,6 +285,8 @@
 		E94BDECE1C510E68009318BB /* BinarySearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BinarySearchTest.swift; path = "binary-search/BinarySearchTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E951B6BC1D466045009EB5B6 /* BracketPushExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BracketPushExample.swift; path = "../bracket-push/BracketPushExample.swift"; sourceTree = "<group>"; };
 		E951B6BE1D466058009EB5B6 /* BracketPushTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BracketPushTest.swift; path = "../bracket-push/BracketPushTest.swift"; sourceTree = "<group>"; };
+		E99365451D6CE2D600799C70 /* BowlingExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BowlingExample.swift; path = bowling/BowlingExample.swift; sourceTree = "<group>"; };
+		E99365471D6CE2EA00799C70 /* BowlingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BowlingTest.swift; path = bowling/BowlingTest.swift; sourceTree = "<group>"; };
 		E9AFA1461C593AF5006AD72D /* BinarySearchTreeExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BinarySearchTreeExample.swift; path = "binary-search-tree/BinarySearchTreeExample.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E9AFA1471C593AF5006AD72D /* BinarySearchTreeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BinarySearchTreeTest.swift; path = "binary-search-tree/BinarySearchTreeTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E9AFA1501C5944D0006AD72D /* HexadecimalExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HexadecimalExample.swift; path = hexadecimal/HexadecimalExample.swift; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 				E94BDECB1C510DF4009318BB /* binary-search */,
 				E9B4BE511C585B510080E585 /* binary-search-tree */,
 				1E9A62FB1C506EFC00E28AE1 /* bob */,
+				E99365441D6CE2AF00799C70 /* bowling */,
 				E951B6BA1D466014009EB5B6 /* bracket-push */,
 				1E9A62FE1C506EFC00E28AE1 /* clock */,
 				1E9A63011C506EFC00E28AE1 /* crypto-square */,
@@ -987,6 +992,15 @@
 			path = bob;
 			sourceTree = "<group>";
 		};
+		E99365441D6CE2AF00799C70 /* bowling */ = {
+			isa = PBXGroup;
+			children = (
+				E99365451D6CE2D600799C70 /* BowlingExample.swift */,
+				E99365471D6CE2EA00799C70 /* BowlingTest.swift */,
+			);
+			name = bowling;
+			sourceTree = "<group>";
+		};
 		E9AFA14E1C594423006AD72D /* hexadecimal */ = {
 			isa = PBXGroup;
 			children = (
@@ -1183,6 +1197,7 @@
 				1E9A63D21C506EFD00E28AE1 /* ScrabbleScoreExample.swift in Sources */,
 				1E9A63E31C506EFD00E28AE1 /* SumOfMultiplesTest.swift in Sources */,
 				1E9A63A31C506EFD00E28AE1 /* GradeSchoolTest.swift in Sources */,
+				E99365461D6CE2D600799C70 /* BowlingExample.swift in Sources */,
 				1E9A63B31C506EFD00E28AE1 /* LuhnTest.swift in Sources */,
 				1E9A63DC1C506EFD00E28AE1 /* SimpleLinkedListExample.swift in Sources */,
 				1E9A63B81C506EFD00E28AE1 /* NucleotideCountExample.swift in Sources */,
@@ -1273,6 +1288,7 @@
 				1E9A63EC1C506EFD00E28AE1 /* WordCountExample.swift in Sources */,
 				1E9A63B61C506EFD00E28AE1 /* NthPrimeExample.swift in Sources */,
 				1E9A63D41C506EFD00E28AE1 /* SecretHandshakeExample.swift in Sources */,
+				E99365481D6CE2EA00799C70 /* BowlingTest.swift in Sources */,
 				1E9A63DB1C506EFD00E28AE1 /* SimpleCipherTest.swift in Sources */,
 				1E9A63CF1C506EFD00E28AE1 /* RobotSimulatorTest.swift in Sources */,
 				1E9A63DE1C506EFD00E28AE1 /* SpaceAgeExample.swift in Sources */,
