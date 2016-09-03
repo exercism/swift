@@ -10,7 +10,7 @@ install:
 
 script:
   - swiftlint
-  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' -sdk macosx10.12
+  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' -sdk macosx10.11
   - bin/fetch-configlet
   - bin/configlet .
 sudo: false
