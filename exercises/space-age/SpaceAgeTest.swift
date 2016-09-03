@@ -1,6 +1,9 @@
-import XCTest
+#if swift(>=3.0)
+    import XCTest
+#endif
 
 class SpaceAgeTest: XCTestCase {
+
     func testAgeInSeconds() {
         let age = SpaceAge(1_000_000)
         XCTAssertEqual(1_000_000, age.seconds)
