@@ -60,7 +60,9 @@ class TriangleTest: XCTestCase {
         XCTAssertEqual(triangleKind.ErrorKind,  Triangle(1, 1, 3).kind)
     }
     
- 
+    func testTrianglesViolatingTriangleInequalityAreIllegal2() {
+        XCTAssertEqual(triangleKind.ErrorKind,  Triangle(2, 4, 2).kind)
+    }
     
     func testTrianglesViolatingTriangleInequalityAreIllegal3() {
         XCTAssertEqual(triangleKind.ErrorKind,  Triangle(7, 3, 2).kind)
