@@ -68,6 +68,7 @@
    ,"all-your-base"
    ,"bracket-push"
    ,"bowling"
+   ,"run-length-encoding"
   ],
   "deprecated": [
     "binary"
