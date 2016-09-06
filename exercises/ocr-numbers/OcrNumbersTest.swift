@@ -145,44 +145,25 @@ class OcrNumbersTest: XCTestCase {
     }
 
     func testThrowsInvalidNumberOfLinesError() {
-        var throwsInvalidNumberOfLinesError = false
-
-        defer {
-            XCTAssertTrue(throwsInvalidNumberOfLinesError)
-        }
-
-        do {
-            let text =
-                "    _  _ \n" +
-            "  | _| _|"
-            let _ = try OCR(text)
-        } catch OCR.OCRError.invalidNumberOfLines {
-            throwsInvalidNumberOfLinesError = true
-            return
-        } catch {
-            return
+        let text =
+            "    _  _ \n" +
+        "  | _| _|"
+        
+        XCTAssertThrowsError(_ = try OCR(text)) { error in
+            XCTAssertEqual(error as? OCR.OCRError, .invalidNumberOfLines)
         }
     }
 
     func testThrowsInvalidNumberOfColumnsError() {
-        var throwsInvalidNumberOfColumnsError = false
+        let text =
+            "    _\n" +
+                "  | _\n" +
+                "  ||_\n" +
+        "     "
 
-        defer {
-            XCTAssertTrue(throwsInvalidNumberOfColumnsError)
-        }
-
-        do {
-            let text =
-                "    _\n" +
-                    "  | _\n" +
-                    "  ||_\n" +
-            "     "
-            let _ = try OCR(text)
-        } catch OCR.OCRError.invalidNumberOfColumns {
-            throwsInvalidNumberOfColumnsError = true
-            return
-        } catch {
-            return
+        
+        XCTAssertThrowsError(_ = try OCR(text)) { error in
+            XCTAssertEqual(error as? OCR.OCRError, .invalidNumberOfColumns)
         }
     }
 

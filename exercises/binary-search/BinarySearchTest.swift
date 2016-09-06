@@ -11,18 +11,8 @@ class BinarySearchTest: XCTestCase {
     }
 
     func testThrowsErrorForUnsortedList() {
-        var throwsUnsortedError = false
-
-        defer {
-            XCTAssertTrue(throwsUnsortedError)
-        }
-
-        do {
-            let _ = try BinarySearch([2, 1, 4, 3, 6])
-        } catch BinarySearchError.unsorted {
-            throwsUnsortedError = true
-        } catch {
-            return
+        XCTAssertThrowsError(_ = try BinarySearch([2, 1, 4, 3, 6])) { error in
+            XCTAssertEqual(error as? BinarySearchError, BinarySearchError.unsorted)
         }
     }
 

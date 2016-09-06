@@ -5,15 +5,6 @@
 
 class AllYourBaseTest: XCTestCase {
 
-    func errorThrown<T, U: Error>(byExpression expression: @autoclosure () throws -> T) -> U? {
-        do {
-            let _ = try expression()
-            return nil
-        } catch {
-            return error as? U
-        }
-    }
-
     func testSingleBitOneToDecimal() {
         XCTAssertEqual(try! Base.outputDigits(inputBase: 2, inputDigits: [1], outputBase: 10), [1])
     }
@@ -63,42 +54,50 @@ class AllYourBaseTest: XCTestCase {
     }
 
     func testNegativeDigit() {
-        let error: BaseError? = errorThrown(byExpression: try Base.outputDigits(inputBase: 2, inputDigits: [1, -1, 1, 0, 1, 0], outputBase: 10))
-        XCTAssertTrue(error == .negativeDigit)
+        XCTAssertThrowsError(try Base.outputDigits(inputBase: 2, inputDigits: [1, -1, 1, 0, 1, 0], outputBase: 10)) { error in
+            XCTAssertEqual(error as? BaseError, BaseError.negativeDigit)
+        }
     }
 
     func testInvalidPositiveDigit() {
-        let error: BaseError? = errorThrown(byExpression: try Base.outputDigits(inputBase: 2, inputDigits: [1, 2, 1, 0, 1, 0], outputBase: 10))
-        XCTAssertTrue(error == .invalidPositiveDigit)
+        XCTAssertThrowsError(try Base.outputDigits(inputBase: 2, inputDigits: [1, 2, 1, 0, 1, 0], outputBase: 10)) { error in
+            XCTAssertEqual(error as? BaseError, BaseError.invalidPositiveDigit)
+        }
     }
 
     func testFirstBaseIsOne() {
-        let error: BaseError? = errorThrown(byExpression: try Base.outputDigits(inputBase: 1, inputDigits: [], outputBase: 10))
-        XCTAssertTrue(error == .invalidInputBase)
+        XCTAssertThrowsError(try Base.outputDigits(inputBase: 1, inputDigits: [], outputBase: 10)) { error in
+            XCTAssertEqual(error as? BaseError, BaseError.invalidInputBase)
+        }
     }
 
     func testSecondBaseIsOne() {
-        let error: BaseError? = errorThrown(byExpression: try Base.outputDigits(inputBase: 2, inputDigits: [1, 0, 1, 0, 1, 0], outputBase: 1))
-        XCTAssertTrue(error == .invalidOutputBase)
+        XCTAssertThrowsError(try Base.outputDigits(inputBase: 2, inputDigits: [1, 0, 1, 0, 1, 0], outputBase: 1)) { error in
+            XCTAssertEqual(error as? BaseError, BaseError.invalidOutputBase)
+        }
     }
 
     func testFirstBaseIsZero() {
-        let error: BaseError? = errorThrown(byExpression: try Base.outputDigits(inputBase: 0, inputDigits: [], outputBase: 10))
-        XCTAssertTrue(error == .invalidInputBase)
+        XCTAssertThrowsError(try Base.outputDigits(inputBase: 0, inputDigits: [], outputBase: 10)) { error in
+            XCTAssertEqual(error as? BaseError, BaseError.invalidInputBase)
+        }
     }
 
     func testSecondBaseIsZero() {
-        let error: BaseError? = errorThrown(byExpression: try Base.outputDigits(inputBase: 10, inputDigits: [7], outputBase: 0))
-        XCTAssertTrue(error == .invalidOutputBase)
+        XCTAssertThrowsError(try Base.outputDigits(inputBase: 10, inputDigits: [7], outputBase: 0)) { error in
+            XCTAssertEqual(error as? BaseError, BaseError.invalidOutputBase)
+        }
     }
 
     func testFirstBaseIsNegative() {
-        let error: BaseError? = errorThrown(byExpression: try Base.outputDigits(inputBase: -2, inputDigits: [1], outputBase: 10))
-        XCTAssertTrue(error == .invalidInputBase)
+        XCTAssertThrowsError(try Base.outputDigits(inputBase: -2, inputDigits: [1], outputBase: 10)) { error in
+            XCTAssertEqual(error as? BaseError, BaseError.invalidInputBase)
+        }
     }
 
     func testSecondBaseIsNegative() {
-        let error: BaseError? = errorThrown(byExpression: try Base.outputDigits(inputBase: 2, inputDigits: [1], outputBase: -7))
-        XCTAssertTrue(error == .invalidOutputBase)
+        XCTAssertThrowsError(try Base.outputDigits(inputBase: 2, inputDigits: [1], outputBase: -7)) { error in
+            XCTAssertEqual(error as? BaseError, BaseError.invalidOutputBase)
+        }
     }
 }

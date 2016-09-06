@@ -49,18 +49,8 @@ class LargestSeriesProductTest: XCTestCase {
     }
 
     func testRejectsSpanLongerThanStringLength() {
-        var throwsSpanLongerThanStringLengthError = false
-
-        defer {
-            XCTAssertTrue(throwsSpanLongerThanStringLengthError)
-        }
-
-        do {
-            let _ = try NumberSeries("123").largestProduct(4)
-        } catch NumberSeries.NumberSeriesError.spanLongerThanStringLength {
-            throwsSpanLongerThanStringLengthError = true
-        } catch {
-            return
+        XCTAssertThrowsError(_ = try NumberSeries("123").largestProduct(4)) { error in
+            XCTAssertEqual(error as? NumberSeries.NumberSeriesError, .spanLongerThanStringLength)
         }
     }
 
@@ -73,50 +63,20 @@ class LargestSeriesProductTest: XCTestCase {
     }
 
     func testRejectsEmptyStringAndNonzeroSpan() {
-        var throwsSpanLongerThanStringLengthError = false
-
-        defer {
-            XCTAssertTrue(throwsSpanLongerThanStringLengthError)
-        }
-
-        do {
-            let _ = try NumberSeries("").largestProduct(1)
-        } catch NumberSeries.NumberSeriesError.spanLongerThanStringLength {
-            throwsSpanLongerThanStringLengthError = true
-        } catch {
-            return
+        XCTAssertThrowsError(_ = try NumberSeries("").largestProduct(1)) { error in
+            XCTAssertEqual(error as? NumberSeries.NumberSeriesError, .spanLongerThanStringLength)
         }
     }
 
     func testRejectsInvalidCharacterInDigits() {
-        var throwsInvalidCharacterError = false
-
-        defer {
-            XCTAssertTrue(throwsInvalidCharacterError)
-        }
-
-        do {
-            let _ = try NumberSeries("1234a5").largestProduct(2)
-        } catch NumberSeries.NumberSeriesError.invalidCharacter {
-            throwsInvalidCharacterError = true
-        } catch {
-            return
+        XCTAssertThrowsError(_ = try NumberSeries("1234a5").largestProduct(2)) { error in
+            XCTAssertEqual(error as? NumberSeries.NumberSeriesError, .invalidCharacter)
         }
     }
 
     func testRejectsNegativeSpan() {
-        var throwsNegativeSpanError = false
-
-        defer {
-            XCTAssertTrue(throwsNegativeSpanError)
-        }
-
-        do {
-            let _ = try NumberSeries("12345").largestProduct(-1)
-        } catch NumberSeries.NumberSeriesError.negativeSpan {
-            throwsNegativeSpanError = true
-        } catch {
-            return
+        XCTAssertThrowsError(_ = try NumberSeries("12345").largestProduct(-1)) { error in
+            XCTAssertEqual(error as? NumberSeries.NumberSeriesError, .negativeSpan)
         }
     }
 

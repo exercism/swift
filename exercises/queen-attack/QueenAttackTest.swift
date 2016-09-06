@@ -28,50 +28,20 @@ class QueenAttackTest: XCTestCase {
     }
 
     func testIncorrectNumberOfCoordinates() {
-        var throwsIncorrectNumberOfCoordinates = false
-
-        defer {
-            XCTAssertTrue(throwsIncorrectNumberOfCoordinates)
-        }
-
-        do {
-            let _ = try Queens(white: [1, 2, 3], black: [4, 5])
-        } catch Queens.InitError.incorrectNumberOfCoordinates {
-            throwsIncorrectNumberOfCoordinates = true
-        } catch {
-            return
+        XCTAssertThrowsError(_ = try Queens(white: [1, 2, 3], black: [4, 5])) { error in
+            XCTAssertEqual(error as? Queens.InitError, .incorrectNumberOfCoordinates)
         }
     }
 
     func testInvalidCoordinates() {
-        var throwsInvalidCoordinates = false
-
-        defer {
-            XCTAssertTrue(throwsInvalidCoordinates)
-        }
-
-        do {
-            let _ = try Queens(white: [-3, 0], black: [2, 481])
-        } catch Queens.InitError.invalidCoordinates {
-            throwsInvalidCoordinates = true
-        } catch {
-            return
+        XCTAssertThrowsError(_ = try Queens(white: [-3, 0], black: [2, 481])) { error in
+            XCTAssertEqual(error as? Queens.InitError, .invalidCoordinates)
         }
     }
 
     func testCannotOccupySameSpace() {
-        var throwsSameSpaceError = false
-
-        defer {
-            XCTAssertTrue(throwsSameSpaceError)
-        }
-
-        do {
-            let _ = try Queens(white: [2, 4], black: [2, 4])
-        } catch Queens.InitError.sameSpace {
-            throwsSameSpaceError = true
-        } catch {
-            return
+        XCTAssertThrowsError(_ = try Queens(white: [2, 4], black: [2, 4])) { error in
+            XCTAssertEqual(error as? Queens.InitError, .sameSpace)
         }
     }
 

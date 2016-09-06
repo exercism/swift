@@ -6,54 +6,32 @@
 class GrainsTest: XCTestCase {
 
     func testInvalidInput1() {
-        var throwsInputTooHighError = false
-
-        defer {
-            XCTAssertTrue(throwsInputTooHighError)
+        XCTAssertThrowsError(try Grains.square(65)) { error in
+            if case let Grains.GrainsError.inputTooHigh(message) = error {
+                XCTAssertTrue(message == "Input[65] invalid. Input should be between 1 and 64 (inclusive)")
+            } else {
+                XCTFail()
+            }
         }
-
-        do {
-            let _ = try Grains.square(65)
-        } catch Grains.GrainsError.inputTooHigh(let message) {
-            throwsInputTooHighError = true
-            XCTAssertTrue(message == "Input[65] invalid. Input should be between 1 and 64 (inclusive)")
-        } catch {
-            return
-        }
-
     }
 
     func testInvalidInput2() {
-        var throwsInputTooLowError = false
-
-        defer {
-            XCTAssertTrue(throwsInputTooLowError)
-        }
-
-        do {
-            let _ = try Grains.square(0)
-        } catch Grains.GrainsError.inputTooLow(let message) {
-            throwsInputTooLowError = true
-            XCTAssertTrue(message == "Input[0] invalid. Input should be between 1 and 64 (inclusive)")
-        } catch {
-            return
+        XCTAssertThrowsError(try Grains.square(0)) { error in
+            if case let Grains.GrainsError.inputTooLow(message) = error {
+                XCTAssertTrue(message == "Input[0] invalid. Input should be between 1 and 64 (inclusive)")
+            } else {
+                XCTFail()
+            }
         }
     }
 
     func testInvalidInput3() {
-        var throwsInputTooLowError = false
-
-        defer {
-            XCTAssertTrue(throwsInputTooLowError)
-        }
-
-        do {
-            let _ = try Grains.square(-1)
-        } catch Grains.GrainsError.inputTooLow(let message) {
-            throwsInputTooLowError = true
-            XCTAssertTrue(message == "Input[-1] invalid. Input should be between 1 and 64 (inclusive)")
-        } catch {
-            return
+        XCTAssertThrowsError(try Grains.square(-1)) { error in
+            if case let Grains.GrainsError.inputTooLow(message) = error {
+                XCTAssertTrue(message == "Input[-1] invalid. Input should be between 1 and 64 (inclusive)")
+            } else {
+                XCTFail()
+            }
         }
     }
 
