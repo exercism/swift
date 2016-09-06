@@ -115,52 +115,60 @@ class BowlingTest: XCTestCase {
     }
     
     func testNegativePins() {
-        assertErrorThrown(byExpression: try game.roll(pins: -1),
-                          equals: Bowling.BowlingError.invalidNumberOfPins)
+        XCTAssertThrowsError(try game.roll(pins: -1)) { error in
+            XCTAssertEqual(error as? Bowling.BowlingError, .invalidNumberOfPins)
+        }
     }
     
     func testRollsBetterThanStrike() {
-        assertErrorThrown(byExpression: try game.roll(pins: 11),
-                          equals: Bowling.BowlingError.invalidNumberOfPins)
+        XCTAssertThrowsError(try game.roll(pins: 11)) { error in
+            XCTAssertEqual(error as? Bowling.BowlingError, .invalidNumberOfPins)
+        }
     }
     
     func testTwoNormalRollsBetterThanStrike() {
         try? game.roll(pins: 5)
-        assertErrorThrown(byExpression: try game.roll(pins: 6),
-                          equals: Bowling.BowlingError.tooManyPinsInFrame)
+        XCTAssertThrowsError(try game.roll(pins: 6)) { error in
+            XCTAssertEqual(error as? Bowling.BowlingError, .tooManyPinsInFrame)
+        }
     }
     
     func testTwoNormalRollsBetterThanStrikeInLastFrame() {
         rollNTimes(rolls: 18, pins: 0)
         try? game.roll(pins: 10)
         try? game.roll(pins: 5)
-        assertErrorThrown(byExpression: try game.roll(pins: 6),
-                          equals: Bowling.BowlingError.tooManyPinsInFrame)
+        XCTAssertThrowsError(try game.roll(pins: 6)) { error in
+            XCTAssertEqual(error as? Bowling.BowlingError, .tooManyPinsInFrame)
+        }
     }
     
     func testTakeScoreAtBeginning() {
-        assertErrorThrown(byExpression: try game.score(),
-                          equals: Bowling.BowlingError.gameInProgress)
+        XCTAssertThrowsError(try game.score()) { error in
+            XCTAssertEqual(error as? Bowling.BowlingError, .gameInProgress)
+        }
     }
     
     func testTakeScoreBeforeGameHasEnded() {
         rollNTimes(rolls: 19, pins: 5)
-        assertErrorThrown(byExpression: try game.score(),
-                          equals: Bowling.BowlingError.gameInProgress)
+        XCTAssertThrowsError(try game.score()) { error in
+            XCTAssertEqual(error as? Bowling.BowlingError, .gameInProgress)
+        }
     }
     
     func testRollsAfterTheTenthFrame() {
         rollNTimes(rolls: 20, pins: 0)
-        assertErrorThrown(byExpression: try game.roll(pins: 0),
-                          equals: Bowling.BowlingError.gameIsOver)
+        XCTAssertThrowsError(try game.roll(pins: 0)) { error in
+            XCTAssertEqual(error as? Bowling.BowlingError, .gameIsOver)
+        }
     }
     
     func testCalculateScoreBeforeFillBallsHaveBeenPlayed() {
         rollNTimes(rolls: 10, pins: 10)
-        assertErrorThrown(byExpression: try game.score(),
-                          equals: Bowling.BowlingError.gameInProgress)
+        XCTAssertThrowsError(try game.score()) { error in
+            XCTAssertEqual(error as? Bowling.BowlingError, .gameInProgress)
+        }
     }
-        
+    
     private func rollNTimes(rolls: Int, pins: Int...) {
         for _ in 1...rolls {
             pins.forEach {
@@ -169,17 +177,4 @@ class BowlingTest: XCTestCase {
         }
     }
     
-    private func assertErrorThrown<T, U: Error>(byExpression expression: @autoclosure () throws -> T, equals expectedError: U) where U: Equatable {
-        do {
-            let _ = try expression()
-            XCTFail("Call did not throw.")
-        } catch {
-            guard let error = error as? U else {
-                XCTFail("Could not cast error to expected type.")
-                return
-            }
-            
-            XCTAssertEqual(error, expectedError, "Cast succeeded, but error was \(error) instead of \(expectedError).")
-        }
-    }
 }

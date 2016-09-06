@@ -66,53 +66,26 @@ class MinesweeperTest: XCTestCase {
     }
 
     func testDifferentLength() {
-        var throwsDifferentLengthError = false
-
-        defer {
-            XCTAssertTrue(throwsDifferentLengthError)
-        }
-
         let input = ["+-+", "| |", "|*  |", "|  |", "+-+"]
-        do {
-            let _ = try Board(input)
-        } catch Board.BoardError.differentLength {
-            throwsDifferentLengthError = true
-        } catch {
-            return
+        
+        XCTAssertThrowsError(_ = try Board(input)) { error in
+            XCTAssertEqual(error as? Board.BoardError, .differentLength)
         }
     }
 
     func testFaultyBorder() {
-        var throwsFaultyBorderError = false
-
-        defer {
-            XCTAssertTrue(throwsFaultyBorderError)
-        }
-
         let input = ["+-----+", "*   * |", "+-- --+"]
-        do {
-            let _ = try Board(input)
-        } catch Board.BoardError.faultyBorder {
-            throwsFaultyBorderError = true
-        } catch {
-            return
+        
+        XCTAssertThrowsError(_ = try Board(input)) { error in
+            XCTAssertEqual(error as? Board.BoardError, .faultyBorder)
         }
     }
 
     func testInvalidCharacter() {
-        var throwsInvalidCharacterError = false
-
-        defer {
-            XCTAssertTrue(throwsInvalidCharacterError)
-        }
-
         let input = ["+-----+", "|X  * |", "+-----+"]
-        do {
-            let _ = try Board(input)
-        } catch Board.BoardError.invalidCharacter {
-            throwsInvalidCharacterError = true
-        } catch {
-            return
+        
+        XCTAssertThrowsError(_ = try Board(input)) { error in
+            XCTAssertEqual(error as? Board.BoardError, .invalidCharacter)
         }
     }
 
