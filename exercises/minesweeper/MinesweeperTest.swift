@@ -67,7 +67,7 @@ class MinesweeperTest: XCTestCase {
 
     func testDifferentLength() {
         let input = ["+-+", "| |", "|*  |", "|  |", "+-+"]
-        
+
         XCTAssertThrowsError(_ = try Board(input)) { error in
             XCTAssertEqual(error as? Board.BoardError, .differentLength)
         }
@@ -75,7 +75,7 @@ class MinesweeperTest: XCTestCase {
 
     func testFaultyBorder() {
         let input = ["+-----+", "*   * |", "+-- --+"]
-        
+
         XCTAssertThrowsError(_ = try Board(input)) { error in
             XCTAssertEqual(error as? Board.BoardError, .faultyBorder)
         }
@@ -83,7 +83,7 @@ class MinesweeperTest: XCTestCase {
 
     func testInvalidCharacter() {
         let input = ["+-----+", "|X  * |", "+-----+"]
-        
+
         XCTAssertThrowsError(_ = try Board(input)) { error in
             XCTAssertEqual(error as? Board.BoardError, .invalidCharacter)
         }

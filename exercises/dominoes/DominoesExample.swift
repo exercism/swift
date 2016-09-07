@@ -144,7 +144,6 @@ class Bone: CustomStringConvertible, Equatable {
             }
         }
 
-
         switch (connected, input.connected) {
         case (1, 0):
             guard let _ = available else { return false }

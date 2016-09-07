@@ -1,8 +1,8 @@
 #if swift(>=3.0)
     import XCTest
 #endif
-// swiftlint:disable force_try
 
+// swiftlint:disable force_try
 class QueenAttackTest: XCTestCase {
 
     func testDefaultPositions() {

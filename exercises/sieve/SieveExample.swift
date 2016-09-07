@@ -29,5 +29,4 @@ struct Sieve {
         if primes.count == 1 {return true} else {return false}
     }
 
-
 }

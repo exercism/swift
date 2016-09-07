@@ -140,12 +140,14 @@ struct Tournament {
             let d  = result.draws
             let l  = result.losses
             let p  = result.score
-            let line = formarter(team,
-                                 mp: "\(mp)",
-                                 w: "\(w)",
-                                 d: "\(d)",
-                                 l: "\(l)",
-                                 p: "\(p)")
+            let line = formarter(
+                team,
+                mp: "\(mp)",
+                w: "\(w)",
+                d: "\(d)",
+                l: "\(l)",
+                p: "\(p)"
+            )
 
             textOutput += line
         }
