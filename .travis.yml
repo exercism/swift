@@ -1,10 +1,14 @@
 language: objective-c
-osx_image: xcode7.3
+osx_image: xcode8
 xcode_project: 'xcodeProject/xSwift.xcodeproj'
 xcode_scheme: 'xSwiftTests'
 
+before_install:
+  - brew update
+  - brew outdated swiftlint || brew upgrade swiftlint
+
 script:
-  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' -sdk macosx10.11
+  - swiftlint
+  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests'
   - bin/fetch-configlet
   - bin/configlet .
-sudo: false

@@ -1,35 +1,29 @@
-// Foundation not needed
-
-
-
 struct Anagram {
     var baseWord = ""
     init (word: String) {
         baseWord = word
     }
-    
-    func sortLetters(wordToSort: String) -> String {
+
+    func sortLetters(_ wordToSort: String) -> String {
         var characters: [String] = []
         for char in wordToSort.characters {
             characters.append("\(char)")
         }
-        characters = characters.sort(< )
-        return characters.reduce("", combine: +)
+        characters = characters.sorted(by: < )
+        return characters.reduce("", +)
     }
-    
-    func match(words: [String]) -> [String] {
+
+    func match(_ words: [String]) -> [String] {
         var matches: [String] = []
-        
+
         for candidateWord in words {
-            if sortLetters(baseWord.lowercaseString) == sortLetters(candidateWord.lowercaseString)
-                && baseWord.lowercaseString != candidateWord.lowercaseString {
+            if sortLetters(baseWord.lowercased()) == sortLetters(candidateWord.lowercased())
+                && baseWord.lowercased() != candidateWord.lowercased() {
                 matches.append(candidateWord)
             }
         }
-        
+
         return matches
     }
-    
+
 }
-
-
