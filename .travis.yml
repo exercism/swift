@@ -3,14 +3,12 @@ osx_image: xcode8
 xcode_project: 'xcodeProject/xSwift.xcodeproj'
 xcode_scheme: 'xSwiftTests'
 
-install:
+before_install:
   - brew update
-  - brew unlink swiftlint
-  - brew install swiftlint
+  - brew outdated swiftlint || brew upgrade swiftlint
 
 script:
   - swiftlint
   - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests'
   - bin/fetch-configlet
   - bin/configlet .
-sudo: false
