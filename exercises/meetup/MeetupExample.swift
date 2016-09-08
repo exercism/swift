@@ -137,7 +137,7 @@ struct Meetup {
         month =  month.map {(($0 + 5 + starDay) % 7) + 1  }
 
         for (index, eachDay) in month.enumerated() {
-            dateMonthWeekDays.append([index + 1, eachDay])
+            dateMonthWeekDays.append([Int32(index + 1), eachDay])
             dateWeekDays.append(eachDay)}
 
         func which2date(_ dateInput: String) -> Date {

@@ -1,7 +1,6 @@
 struct WordCount {
 
     func splitStringToArray(_ inString: String) -> [String] {
-
         return inString.characters.split(whereSeparator: { splitAt($0) }).map {String($0)}
     }
 

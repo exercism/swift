@@ -148,7 +148,7 @@ class OcrNumbersTest: XCTestCase {
         let text =
             "    _  _ \n" +
         "  | _| _|"
-        
+
         XCTAssertThrowsError(_ = try OCR(text)) { error in
             XCTAssertEqual(error as? OCR.OCRError, .invalidNumberOfLines)
         }
@@ -161,7 +161,6 @@ class OcrNumbersTest: XCTestCase {
                 "  ||_\n" +
         "     "
 
-        
         XCTAssertThrowsError(_ = try OCR(text)) { error in
             XCTAssertEqual(error as? OCR.OCRError, .invalidNumberOfColumns)
         }
