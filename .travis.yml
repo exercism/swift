@@ -12,3 +12,4 @@ script:
   - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests'
   - bin/fetch-configlet
   - bin/configlet .
+  - bundle exec danger
