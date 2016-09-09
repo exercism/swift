@@ -4,6 +4,7 @@ xcode_project: 'xcodeProject/xSwift.xcodeproj'
 xcode_scheme: 'xSwiftTests'
 
 before_install:
+  - rbenv global 2.3.1 && gem install danger --version '~> 3.0' && danger
   - brew update
   - brew outdated swiftlint || brew upgrade swiftlint
 
@@ -12,4 +13,4 @@ script:
   - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests'
   - bin/fetch-configlet
   - bin/configlet .
-  - bundle exec danger
+  - danger
