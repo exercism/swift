@@ -25,8 +25,9 @@ end
 jsonpath2 = "build/reports/errors.json"
 contents2 = File.read jsonpath2
 json2 = JSON.parse contents2
+firstStrinInArray = json2["tests_summary_messages"][0]
 
-message(contents2)
+message(firstStrinInArray)
 
 #build/reports/errors.json
 #message(message, sticky: true, file: nil, line: nil)
