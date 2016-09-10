@@ -8,7 +8,7 @@ end
 can_merge = github.pr_json["mergeable"]
 warn("This PR cannot be merged yet.", sticky: false) unless can_merge
 
-jsonpath = "build/reports/errors.json"
+jsonpath = "build/reports/lintreport.json"
 contents = File.read jsonpath
 require "json"
 json = JSON.parse contents

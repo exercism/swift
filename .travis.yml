@@ -9,8 +9,11 @@ before_install:
   - brew outdated swiftlint || brew upgrade swiftlint
 
 script:
-  - swiftlint
+  - lint --quiet 2> build/reports/lintreport.json 
   - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' | xcpretty -f `xcpretty-json-formatter`
   - bin/fetch-configlet
   - bin/configlet .
   - danger
+
+after_success:
+  - ls -al
