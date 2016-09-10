@@ -22,7 +22,10 @@ json.each do |object|
    warn(message: object["reason"], file: shortFile, line: object["line"])
 end
 
-message(contents)
+jsonpath2 = "build/reports/errors.json"
+contents2 = File.read jsonpath2
+
+message(contents2)
 
 #build/reports/errors.json
 #message(message, sticky: true, file: nil, line: nil)
