@@ -10,8 +10,8 @@ warn("This PR cannot be merged yet.", sticky: false) unless can_merge
 
 jsonpath = "build/reports/lintreport.json"
 contents = File.read jsonpath
-require "json"
-json = JSON.parse contents
+#require "json"
+#json = JSON.parse contents
 
 message(contents)
 
