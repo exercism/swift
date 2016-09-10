@@ -604,7 +604,8 @@
   "ignored": [
     "docs",
     "img",
-    "xcodeProject"
+    "xcodeProject",
+    "build"
   ],
   "foregone": [
 

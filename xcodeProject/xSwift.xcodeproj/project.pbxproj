@@ -1165,7 +1165,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\ncd ..\necho \"Local Linting Dir\"\necho $PWD\nswiftlint autocorrect --format\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\ncd ..\necho \"Local Linting Dir\"\necho $PWD\nif [ \"$CI\" = true ]; then\nswiftlint\nelse\nswiftlint\nswiftlint autocorrect --format\nfi\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

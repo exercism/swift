@@ -4,11 +4,18 @@ xcode_project: 'xcodeProject/xSwift.xcodeproj'
 xcode_scheme: 'xSwiftTests'
 
 before_install:
+  - gem install danger xcpretty xcpretty-json-formatter
   - brew update
   - brew outdated swiftlint || brew upgrade swiftlint
 
 script:
-  - swiftlint
-  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests'
   - bin/fetch-configlet
   - bin/configlet .
+  - swiftlint lint --quiet >> lintreport.json
+  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' | xcpretty -f `xcpretty-json-formatter`
+  - danger
+
+after_success:
+  - ls -al
+  - python -m json.tool lintreport.json
+  - python -m json.tool build/reports/errors.json

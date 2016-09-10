@@ -29,6 +29,5 @@ struct Binary {
         } else {
             return nil
         }
-
     }
 }
