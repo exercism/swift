@@ -11,8 +11,8 @@ before_install:
 script:
   - bin/fetch-configlet
   - bin/configlet .
-  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' | xcpretty -f `xcpretty-json-formatter`
   - swiftlint lint --quiet >> build/reports/lintreport.json
+  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' | xcpretty -f `xcpretty-json-formatter`
   - danger
 
 after_success:
