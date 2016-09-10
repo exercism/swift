@@ -10,7 +10,7 @@ end
 can_merge = github.pr_json["mergeable"]
 warn("This PR cannot be merged yet.", sticky: false) unless can_merge
 
-xcodebuild = DangerXcodebuild.new
+xcodebuild = DangerXcodebuild.new(nil)
 
 xcodebuild.parse_warnings
 xcodebuild.parse_errors
