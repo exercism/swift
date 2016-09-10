@@ -10,8 +10,16 @@ warn("This PR cannot be merged yet.", sticky: false) unless can_merge
 
 jsonpath = "lintreport.json"
 contents = File.read jsonpath
-#require "json"
-#json = JSON.parse contents
+require "json"
+if contents.to_s == '' 
+	contents = "[]"
+end 
+json = JSON.parse contents
+
+json.each do |object|
+   message(object["reason"], sticky: false, file: object["file"], line: object["line"])
+end
+
 
 message(contents)
 

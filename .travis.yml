@@ -18,3 +18,4 @@ script:
 after_success:
   - ls -al
   - python -m json.tool lintreport.json
+  - python -m json.tool build/reports/errors.json
