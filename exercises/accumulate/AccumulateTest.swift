@@ -15,11 +15,15 @@ private extension String {
     }
 }
 
+
 private extension XCTest {
     func XCTAssertEqualMultiArray(_ aArray1: Array<Array<String>>, _ aArray2: Array<Array<String>>) {
         XCTAssertEqual(Array(aArray1.joined()), Array(aArray2.joined()))
     }
 }
+
+
+
 
 class AccumulateTest: XCTestCase {
 
@@ -46,6 +50,7 @@ class AccumulateTest: XCTestCase {
 
         XCTAssertEqual(expected, result)
     }
+    
     func testAccumulateUpcases() {
 
         let input = ["hello", "world"]
@@ -59,6 +64,7 @@ class AccumulateTest: XCTestCase {
         XCTAssertEqual(expected, result)
 
     }
+    
     func testAccumulateReversedStrings() {
 
         let input =    ["the", "quick", "brown", "fox", "etc"]
