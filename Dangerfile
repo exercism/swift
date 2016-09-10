@@ -24,6 +24,7 @@ end
 
 jsonpath2 = "build/reports/errors.json"
 contents2 = File.read jsonpath2
+json2 = JSON.parse contents2
 
 message(contents2)
 
