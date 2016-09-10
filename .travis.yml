@@ -4,7 +4,7 @@ xcode_project: 'xcodeProject/xSwift.xcodeproj'
 xcode_scheme: 'xSwiftTests'
 
 before_install:
-  - gem install danger danger-xcodebuild xcpretty xcpretty-json-formatter
+  - gem install danger xcpretty xcpretty-json-formatter
   - brew update
   - brew outdated swiftlint || brew upgrade swiftlint
 
