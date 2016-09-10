@@ -17,7 +17,9 @@ end
 json = JSON.parse contents
 
 json.each do |object|
-   message(object["reason"], sticky: false, file: object["file"], line: object["line"])
+   shortFile =  object["file"]
+   shortFile ["/Users/travis/build/exercism/xswift/"] = "/"
+   message(object["reason"], sticky: false, file: shortFile, line: object["line"])
 end
 
 
