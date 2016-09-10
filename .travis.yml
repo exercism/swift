@@ -12,7 +12,7 @@ script:
   - bin/fetch-configlet
   - bin/configlet .
   - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' | xcpretty -f `xcpretty-json-formatter`
-  - swiftlint lint --quiet 2> build/reports/lintreport.json 
+  - swiftlint lint --quiet >> build/reports/lintreport.json
   - danger
 
 after_success:
