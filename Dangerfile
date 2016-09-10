@@ -1,8 +1,6 @@
 message("Thank you for submitting this PR.")
 
-xcodebuild.parse_warnings
-xcodebuild.parse_errors
-xcodebuild.parse_tests
+
 
 # Ensure a clean commits history
 if git.commits.any? { |c| c.message =~ /^Merge branch '#{github.branch_for_base}'/ }
@@ -12,5 +10,8 @@ end
 can_merge = github.pr_json["mergeable"]
 warn("This PR cannot be merged yet.", sticky: false) unless can_merge
 
-xcodebuild.perfect_build if can_merge
+DangerXcodebuild.parse_warnings
+DangerXcodebuild.parse_errors
+DangerXcodebuild.parse_tests
+DangerXcodebuild.perfect_build if can_merge
 
