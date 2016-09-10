@@ -26,8 +26,11 @@ end
 json = JSON.parse contents
 json.each do |object|
    shortFile =  object["file"]
-   shortFile ["/Users/travis/build/exercism/xswift/"] = "/"
-   warn(message: object["reason"].to_s, file: shortFile.to_s, line: object["line"])
+   shortFile.sub! "/Users/travis/build/exercism/xswift/“, "/"
+   shortFile = shortFile.to_s || “”
+   message = object["reason"].to_s || “”
+   line = object["line"] || 1
+   warn(message: message , file: shortFile, line: line)
 end
 
 # Reports if the test passed
