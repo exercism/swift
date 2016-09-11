@@ -29,9 +29,15 @@ json.each do |object|
    shortFile.sub! "/Users/travis/build/exercism/xswift/", '/'
    shortFile = shortFile.to_s || ''
    message = object["reason"].to_s || ''
+   shortFile.sub! ".", " "
    line = object["line"] || 1
+   puts message
+   puts shortFile
+   puts line
    warn(message: message , file: shortFile, line: line)
 end
+
+warn(message: message , file: shortFile, line: line)
 
 # Reports if the test passed
 jsonpath2 = "build/reports/errors.json"

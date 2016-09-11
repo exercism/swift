@@ -34,6 +34,16 @@ class AccumulateTest: XCTestCase {
         XCTAssertTrue(result.isEmpty)
     }
 
+
+
+
+
+
+
+
+
+
+
     func testAccumulateSquares() {
 
         let input = [1, 2, 3, 4]
