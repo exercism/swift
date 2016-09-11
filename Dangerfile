@@ -32,6 +32,7 @@ json.each do |object|
    line = object["line"] || 1
    #only warn for files that were edited in this PR. 
    if git.modified_files.include? shortFile
+   	shortFile.prepend("/")  # get away from doing inline comments since they are buggy as of Sep-2016
    	warn(msg, file: shortFile, line: line)
    else
    	message(msg, file: shortFile, line: line)
