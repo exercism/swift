@@ -34,7 +34,7 @@ json.each do |object|
    puts message
    puts shortFile
    puts line
-   message(message: message , file: shortFile, line: line)
+   warm(message, file: shortFile, line: line)
 end
 
 # Reports when the test passed
