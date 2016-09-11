@@ -10,6 +10,7 @@ enum Allergen: UInt {
 }
 
 struct Allergies {
+
     let score: UInt
 
     init(_ score: UInt) {

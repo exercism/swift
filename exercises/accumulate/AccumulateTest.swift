@@ -46,6 +46,7 @@ class AccumulateTest: XCTestCase {
 
         XCTAssertEqual(expected, result)
     }
+
     func testAccumulateUpcases() {
 
         let input = ["hello", "world"]
@@ -59,6 +60,7 @@ class AccumulateTest: XCTestCase {
         XCTAssertEqual(expected, result)
 
     }
+
     func testAccumulateReversedStrings() {
 
         let input =    ["the", "quick", "brown", "fox", "etc"]

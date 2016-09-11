@@ -4,6 +4,9 @@ variable_name:
         error: 0
 
 force_try: warning
+
+opt_in_rules:
+  - vertical_whitespace
     
 disabled_rules: # rule identifiers to exclude from running
   - function_body_length
