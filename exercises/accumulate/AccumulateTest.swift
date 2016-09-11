@@ -1,7 +1,7 @@
 #if swift(>=3.0)
     import XCTest
 #endif
-        
+
 private extension String {
 
     var length: Int {return self.characters.count}
