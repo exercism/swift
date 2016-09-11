@@ -29,7 +29,7 @@ json.each do |object|
    shortFile.sub! "/Users/travis/build/exercism/xswift/", '/'
    shortFile = shortFile.to_s || ''
    message = object["reason"].to_s || ''
-   shortFile.sub! ".", " "
+   message.sub! ".", " "
    line = object["line"] || 1
    puts message
    puts shortFile
