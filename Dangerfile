@@ -26,11 +26,16 @@ end
 json = JSON.parse contents
 json.each do |object|
    shortFile =  object["file"]
-   shortFile.sub! "/Users/travis/build/exercism/xswift/", '/'
+   shortFile.sub! "/Users/travis/build/exercism/xswift/", ''
    shortFile = shortFile.to_s || ''
-   message = object["reason"].to_s || ''
+   msg = object["reason"].to_s || ''
    line = object["line"] || 1
-   warn(message, file: shortFile, line: line)
+   #only warn for files that were edited in this PR. 
+   if git.modified_files.include? shortFile
+   	warn(msg, file: shortFile, line: line)
+   else
+   	message(msg, file: shortFile, line: line)
+   end
 end
 
 # Reports when the test passed
