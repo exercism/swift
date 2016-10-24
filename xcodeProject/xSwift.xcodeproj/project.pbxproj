@@ -131,6 +131,8 @@
 		E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECE1C510E68009318BB /* BinarySearchTest.swift */; };
 		E951B6BD1D466045009EB5B6 /* BracketPushExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E951B6BC1D466045009EB5B6 /* BracketPushExample.swift */; };
 		E951B6BF1D466058009EB5B6 /* BracketPushTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E951B6BE1D466058009EB5B6 /* BracketPushTest.swift */; };
+		E95606C31DB9270D00EED2F5 /* PangramExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95606C21DB9270D00EED2F5 /* PangramExample.swift */; };
+		E95606C51DB9271E00EED2F5 /* PangramTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95606C41DB9271E00EED2F5 /* PangramTest.swift */; };
 		E99365461D6CE2D600799C70 /* BowlingExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99365451D6CE2D600799C70 /* BowlingExample.swift */; };
 		E99365481D6CE2EA00799C70 /* BowlingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99365471D6CE2EA00799C70 /* BowlingTest.swift */; };
 		E99909621D792446002A2B6E /* RunLengthEncodingExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99909611D792446002A2B6E /* RunLengthEncodingExample.swift */; };
@@ -287,6 +289,8 @@
 		E94BDECE1C510E68009318BB /* BinarySearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BinarySearchTest.swift; path = "binary-search/BinarySearchTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E951B6BC1D466045009EB5B6 /* BracketPushExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BracketPushExample.swift; path = "../bracket-push/BracketPushExample.swift"; sourceTree = "<group>"; };
 		E951B6BE1D466058009EB5B6 /* BracketPushTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BracketPushTest.swift; path = "../bracket-push/BracketPushTest.swift"; sourceTree = "<group>"; };
+		E95606C21DB9270D00EED2F5 /* PangramExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PangramExample.swift; path = pangram/PangramExample.swift; sourceTree = "<group>"; };
+		E95606C41DB9271E00EED2F5 /* PangramTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PangramTest.swift; path = pangram/PangramTest.swift; sourceTree = "<group>"; };
 		E99365451D6CE2D600799C70 /* BowlingExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BowlingExample.swift; path = bowling/BowlingExample.swift; sourceTree = "<group>"; };
 		E99365471D6CE2EA00799C70 /* BowlingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BowlingTest.swift; path = bowling/BowlingTest.swift; sourceTree = "<group>"; };
 		E99909611D792446002A2B6E /* RunLengthEncodingExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunLengthEncodingExample.swift; path = "run-length-encoding/RunLengthEncodingExample.swift"; sourceTree = "<group>"; };
@@ -367,6 +371,7 @@
 				E90D61FB1C642E9900C266D3 /* ocr-numbers */,
 				1E9A63371C506EFC00E28AE1 /* octal */,
 				E90D62031C653A5400C266D3 /* palindrome-products */,
+				E95606C01DB926E100EED2F5 /* pangram */,
 				E908CD511C6D7A86005D081E /* pascals-triangle */,
 				1E9A633A1C506EFC00E28AE1 /* perfect-numbers */,
 				1E9A633D1C506EFC00E28AE1 /* phone-number */,
@@ -997,6 +1002,15 @@
 			path = bob;
 			sourceTree = "<group>";
 		};
+		E95606C01DB926E100EED2F5 /* pangram */ = {
+			isa = PBXGroup;
+			children = (
+				E95606C21DB9270D00EED2F5 /* PangramExample.swift */,
+				E95606C41DB9271E00EED2F5 /* PangramTest.swift */,
+			);
+			name = pangram;
+			sourceTree = "<group>";
+		};
 		E99365441D6CE2AF00799C70 /* bowling */ = {
 			isa = PBXGroup;
 			children = (
@@ -1199,6 +1213,7 @@
 				E9AFA16B1C5EF4DA006AD72D /* MatrixExample.swift in Sources */,
 				1E9A63EE1C506EFD00E28AE1 /* WordyExample.swift in Sources */,
 				1E9A63C11C506EFD00E28AE1 /* PigLatinTest.swift in Sources */,
+				E95606C31DB9270D00EED2F5 /* PangramExample.swift in Sources */,
 				1E9A63B91C506EFD00E28AE1 /* NucleotideCountTest.swift in Sources */,
 				1E9A63BF1C506EFD00E28AE1 /* PhoneNumberTest.swift in Sources */,
 				E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */,
@@ -1260,6 +1275,7 @@
 				E90D62061C653AC000C266D3 /* PalindromeProductsExample.swift in Sources */,
 				1E9A63E91C506EFD00E28AE1 /* TrinaryTest.swift in Sources */,
 				1E9A63A11C506EFD00E28AE1 /* GigasecondTest.swift in Sources */,
+				E95606C51DB9271E00EED2F5 /* PangramTest.swift in Sources */,
 				1E9A63911C506EFD00E28AE1 /* AtbashTest.swift in Sources */,
 				1E9A63CD1C506EFD00E28AE1 /* RobotNameTest.swift in Sources */,
 				1E4CC79F1C90D48300C8BBEB /* DominoesExample.swift in Sources */,
