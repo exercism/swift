@@ -78,7 +78,7 @@ struct Bowling {
         if isLastFrame {
             let lastRollWasStrike = scoreCard[currentFrame]?.last == 10
 
-            if lastRollWasStrike {
+            if lastRollWasStrike || isSpare() {
                 return true
             }
         }
@@ -94,7 +94,7 @@ struct Bowling {
 
     private func frameComplete() -> Bool {
         if isLastFrame {
-            return frameFilled(rolls: 3) || isOpenFrame() && frameFilled()
+            return isOpenFrame() && frameFilled() || frameFilled(rolls: 3)
         }
 
         return frameFilled() || isStrike()
