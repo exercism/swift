@@ -30,6 +30,8 @@ struct PalindromeProducts {
 
         //Multithreaded code
         var results = [[Palindrome]](repeating: [Palindrome](), count: rangeOuter.count)
+        // use this queue to read and write from results
+        let resultsRWQueue = DispatchQueue.init(label: "exercism.resultsRWQueue")
 
         DispatchQueue.concurrentPerform(iterations: rangeOuter.count) {
             advanceByIndex in
@@ -44,10 +46,16 @@ struct PalindromeProducts {
                     multiplicationsTemp.append((multiplied, [each, eaInside]))
                 }
             }
-            results[advanceByIndex] = multiplicationsTemp
+            // prevent data race conditions
+            resultsRWQueue.async {
+                results[advanceByIndex] = multiplicationsTemp
+            }
         }
-        let multiplications = results.joined().sorted(by: { $0.value > $1.value })
-
+        var multiplications = [Palindrome]()
+        // prevent data race conditions
+        resultsRWQueue.sync {
+            multiplications = results.joined().sorted(by: { $0.value > $1.value })
+        }
         if let large = multiplications.first, let small = multiplications.last {
             switch upTo {
             case .max: return large
