@@ -2,14 +2,10 @@ import Foundation
 
 private extension String {
 
-    var length: Int {return self.characters.count}
+    var length: Int { return self.characters.count }
 
     func reverse() -> String {
-        var result: String = ""
-        for char in self.characters {
-            result = "\(char)\(result)"
-        }
-        return result
+        return characters.reversed().map { String($0) }.joined()
     }
 }
 
@@ -19,8 +15,8 @@ struct PalindromeProducts {
     private let maxFactor: Int
     private let minFactor: Int
 
-    var largest: Palindrome {return calculate(.max)}
-    var smallest: Palindrome {return calculate(.min)}
+    var largest: Palindrome { return calculate(.max) }
+    var smallest: Palindrome { return calculate(.min) }
 
     init(maxFactor: Int, minFactor: Int = 1) {
         self.maxFactor = maxFactor
@@ -31,7 +27,6 @@ struct PalindromeProducts {
     private func calculate(_ upTo: Mode) -> Palindrome {
 
         let rangeOuter = minFactor...maxFactor
-        var multiplications = [Palindrome]()
 
         //Multithreaded code
         var results = [[Palindrome]](repeating: [Palindrome](), count: rangeOuter.count)
@@ -51,17 +46,17 @@ struct PalindromeProducts {
             }
             results[advanceByIndex] = multiplicationsTemp
         }
-        multiplications = results.joined().sorted(by: {$0.0 > $1.0})
+        let multiplications = results.joined().sorted(by: { $0.value > $1.value })
 
         if let large = multiplications.first, let small = multiplications.last {
             switch upTo {
-            case .max : return large
-            case .min : return small
+            case .max: return large
+            case .min: return small
             }
         } else {
             switch upTo {
-            case .max : return (self.maxFactor, [self.maxFactor, 1])
-            case .min : return (self.minFactor, [self.minFactor, 1])
+            case .max: return (maxFactor, [maxFactor, 1])
+            case .min: return (minFactor, [minFactor, 1])
             }
         }
     }
