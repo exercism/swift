@@ -5,7 +5,13 @@ if git.commits.any? { |c| c.message =~ /^Merge branch '#{github.branch_for_base}
   fail('Please rebase to get rid of the merge commits in this PR')
 end
 can_merge = github.pr_json["mergeable"]
-warn("This PR cannot be merged yet.", sticky: false) unless can_merge
+is_merged = github.pr_json["merged"]
+
+if is_merged
+  warn("This PR was merged before CI was done.", sticky: false)
+else
+  warn("This PR cannot be merged yet.", sticky: false) unless can_merge
+end
 
 # Make it more obvious that a PR is a work in progress and shouldn't be merged yet
 warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
@@ -20,9 +26,9 @@ warn("Please provide a summary in the Pull Request description") if github.pr_bo
 jsonpath = "lintreport.json"
 contents = File.read jsonpath
 require "json"
-if contents.to_s == '' 
+if contents.to_s == ''
 	contents = "[]"
-end 
+end
 json = JSON.parse contents
 json.each do |object|
    shortFile =  object["file"]
@@ -30,7 +36,7 @@ json.each do |object|
    shortFile = shortFile.to_s || ''
    msg = object["reason"].to_s || ''
    line = object["line"] || 1
-   #only warn for files that were edited in this PR. 
+   #only warn for files that were edited in this PR.
    if git.modified_files.include? shortFile
    	shortFile.prepend("/")  # get away from doing inline comments since they are buggy as of Sep-2016
    	warn(msg, file: shortFile, line: line)
@@ -45,6 +51,3 @@ contents2 = File.read jsonpath2
 json2 = JSON.parse contents2
 firstStrinInArray = json2["tests_summary_messages"][0]
 message(firstStrinInArray)
-
-
-
