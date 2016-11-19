@@ -30,7 +30,7 @@ These steps will use the `bob` exercise as an example. If you are not working on
 
 <img src="https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/Art/twx-runtst-6_2x.png" width="250">
 
-* Some notes: XCTestCase is the XCTest subclass that contains our tests methods and XCTAssert lines are the expected results, with different types depending on what are you testing. Learn more about XCTAssert Methods and XCTesting itself here and here.
+* Some notes: XCTestCase is the XCTest subclass that contains our tests methods and XCTAssert lines are the expected results, with different types depending on what are you testing. Learn more about XCTAssert Methods and XCTesting itself <a href="http://rshankar.com/assertions-supported-in-xctest/" target="_blank">here</a> and <a href="http://nshipster.com/xctestcase/" target="_blank">here</a>.
 
 * Now run the tests, and happy coding!
 
