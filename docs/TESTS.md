@@ -26,9 +26,9 @@ These steps will use the `bob` exercise as an example. If you are not working on
 
 * Don't write code or modify the BobTest.swift file, this file is only to verify if the code you wrote in your Bob.swift file is right. Neither add in your working file anything from the testing file, just take it as a reference to figure out how to solve the exercise. _If you prefer, you can also work in an independent Playground file and then copy your final code into your working file (Bob.swift) and continue with the testing._
 
-* Then you just need to go to the Test Navigator (see image below) and click on the grey play button next to the main test (BobTest in this case). If the tests passed, they will show you a green checkmark, if not, a red x mark. Modify your code on your working file (Bob.swift) until all the tests succeed.
+* Then you just need to go to the Test Navigator _[see image below]_ and click on the grey play button next to the main test (BobTest in this case). If the tests passed, they will show you a green checkmark, if not, a red x mark. Modify your code on your working file (Bob.swift) until all the tests succeed.
 
-<img src="https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/Art/twx-runtst-6_2x.png" width="250">
+<img width="256" alt="twx-runtst-6_2x" src="https://cloud.githubusercontent.com/assets/22910264/20458849/b8cd18ce-aeb0-11e6-833d-eb97aac2cb36.png">
 
 * Some notes: XCTestCase is the XCTest subclass that contains our tests methods and XCTAssert lines are the expected results, with different types depending on what are you testing. Learn more about XCTAssert Methods and XCTesting itself <a href="http://rshankar.com/assertions-supported-in-xctest/" target="_blank">here</a> and <a href="http://nshipster.com/xctestcase/" target="_blank">here</a>.
 
