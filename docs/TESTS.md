@@ -18,7 +18,7 @@ These steps will use the `bob` exercise as an example. If you are not working on
 
 ![screen shot 2016-02-29 at 1 50 48 pm](https://cloud.githubusercontent.com/assets/1554169/13405240/7f1aadfc-deeb-11e5-8aa5-3ca7e1a12312.png)
 
-* Create the working file/class (in this case, `Bob.swift`), and save **in the same folder as the Exercism test file**: _[see first image]_ Then, in Xcode, drag this file inside the bob-swift folder _[see second image]_.
+* Create the working file/class (in this case, `Bob.swift`), and save **in the same folder as the Exercism test file**: _[see first image]_. Then, in Xcode, drag this file inside the bob-swift folder _[see second image]_.
 
 * Select `Bob.swift` and in the File Inspector make sure that both `bob-swift` and `bob-swiftTests` are checked in the Target Membership area.
 
@@ -27,7 +27,8 @@ These steps will use the `bob` exercise as an example. If you are not working on
 * Don't write code or modify the BobTest.swift file, this file is only to verify if the code you wrote in your Bob.swift file is right. Neither add in your working file anything from the testing file, just take it as a reference to figure out how to solve the exercise. _If you prefer, you can also work in an independent Playground file and then copy your final code into your working file (Bob.swift) and continue with the testing._
 
 * Then you just need to go to the Test Navigator (see image below) and click on the grey play button next to the main test (BobTest in this case). If the tests passed, they will show you a green checkmark, if not, a red x mark. Modify your code on your working file (Bob.swift) until all the tests succeed.
-![testing_with_xcode](https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/Art/twx-runtst-6_2x.png)
+
+<img src="https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/Art/twx-runtst-6_2x.png" width="250">
 
 * Some notes: XCTestCase is the XCTest subclass that contains our tests methods and XCTAssert lines are the expected results, with different types depending on what are you testing. Learn more about XCTAssert Methods and XCTesting itself here and here.
 
