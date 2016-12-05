@@ -64,12 +64,13 @@ struct Crypto {
     }
 
     var normalizeCiphertext: String {
-
         let sizeNormal: Int = (ciphertext.characters.count == self.size * self.size ) ? getSquareSize(self.ciphertext) : getSquareSize(self.ciphertext, floorNoCeling: true)
 
         return segmentSorter(ciphertext, spacing: sizeNormal).joined(separator: " ")
     }
-    var plaintextSegments: [String] { get { return segmentSorter(self.normalizePlaintext, spacing: self.size)}}
+    var plaintextSegments: [String] {
+        return segmentSorter(self.normalizePlaintext, spacing: self.size)
+    }
     var textValue: String = ""
     var normalizePlaintext: String = ""
     var size: Int = 0

@@ -57,7 +57,7 @@ enum HandRank {
         }
     }
 
-    static func parsePairs(_ inputHand: PokerHand)->[(rank: Rank, count: Int)] {
+    static func parsePairs(_ inputHand: PokerHand) -> [(rank: Rank, count: Int)] {
         let ranks = inputHand.hand.map({$0.rank})
         let rankSet = Set(ranks)
         var toReturn = [Rank:Int]()
@@ -73,7 +73,7 @@ enum HandRank {
         return result
     }
 
-    static func isFlush(_ inputHand: PokerHand)->(bool: Bool, suit: Suit) {
+    static func isFlush(_ inputHand: PokerHand) -> (bool: Bool, suit: Suit) {
         let suits = inputHand.hand.map({$0.suit})
         let first = suits[0]
         for each in suits {
@@ -82,7 +82,7 @@ enum HandRank {
         return (true, first)
     }
 
-    static func isStraight(_ inputHand: PokerHand)->(bool: Bool, highest: Rank) {
+    static func isStraight(_ inputHand: PokerHand) -> (bool: Bool, highest: Rank) {
         let sorted = inputHand.hand.sorted(by: {$0.rank < $1.rank})
         let first = sorted[0].rank.rawValue
         for (index, each) in sorted.enumerated() {
