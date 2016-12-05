@@ -493,6 +493,14 @@
         ]
     },
     {
+        "difficulty": 6,
+        "slug": "transpose",
+        "topics": [
+            "Strings",
+            "Transforming"
+        ]
+    },
+    {
         "difficulty": 7,
         "slug": "bracket-push",
         "topics": [
