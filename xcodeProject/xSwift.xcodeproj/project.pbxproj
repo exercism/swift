@@ -115,6 +115,8 @@
 		1E9A63EE1C506EFD00E28AE1 /* WordyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63861C506EFC00E28AE1 /* WordyExample.swift */; };
 		1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63871C506EFC00E28AE1 /* WordyTest.swift */; };
 		1EAF95E11C90C587009DDCB6 /* DominoesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */; };
+		A026F80A1DF69391001EC117 /* Beer-song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A026F8091DF69391001EC117 /* Beer-song.swift */; };
+		A026F80C1DF693A7001EC117 /* BeerSongTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A026F80B1DF693A7001EC117 /* BeerSongTest.swift */; };
 		E908CD461C6AD05F005D081E /* FoodChainExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD451C6AD05F005D081E /* FoodChainExample.swift */; };
 		E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD471C6AD076005D081E /* FoodChainTest.swift */; };
 		E908CD541C6D7AD1005D081E /* PascalsTriangleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */; };
@@ -273,6 +275,8 @@
 		1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DominoesTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9D3155D21BA12FB1009A3991 /* xSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3155D51BA12FB1009A3991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A026F8091DF69391001EC117 /* Beer-song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Beer-song.swift"; path = "../xcodeProject/Beer-song.swift"; sourceTree = "<group>"; };
+		A026F80B1DF693A7001EC117 /* BeerSongTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeerSongTest.swift; path = ../xcodeProject/BeerSongTest.swift; sourceTree = "<group>"; };
 		E908CD451C6AD05F005D081E /* FoodChainExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodChainExample.swift; path = "food-chain/FoodChainExample.swift"; sourceTree = "<group>"; };
 		E908CD471C6AD076005D081E /* FoodChainTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = FoodChainTest.swift; path = "food-chain/FoodChainTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PascalsTriangleExample.swift; path = "pascals-triangle/PascalsTriangleExample.swift"; sourceTree = "<group>"; };
@@ -339,6 +343,7 @@
 				1E9A62F21C506EFC00E28AE1 /* anagram */,
 				1E9A62F51C506EFC00E28AE1 /* atbash-cipher */,
 				1E9A62F81C506EFC00E28AE1 /* binary */,
+				A016F7A31DF0418D005640FF /* beer-song */,
 				E94BDECB1C510DF4009318BB /* binary-search */,
 				E9B4BE511C585B510080E585 /* binary-search-tree */,
 				1E9A62FB1C506EFC00E28AE1 /* bob */,
@@ -928,6 +933,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A016F7A31DF0418D005640FF /* beer-song */ = {
+			isa = PBXGroup;
+			children = (
+				A026F8091DF69391001EC117 /* Beer-song.swift */,
+				A026F80B1DF693A7001EC117 /* BeerSongTest.swift */,
+			);
+			name = "beer-song";
+			sourceTree = "<group>";
+		};
 		E908CD431C6AD03C005D081E /* food-chain */ = {
 			isa = PBXGroup;
 			children = (
@@ -1188,6 +1202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A026F80C1DF693A7001EC117 /* BeerSongTest.swift in Sources */,
+				A026F80A1DF69391001EC117 /* Beer-song.swift in Sources */,
 				E908CD461C6AD05F005D081E /* FoodChainExample.swift in Sources */,
 				1E9A63C41C506EFD00E28AE1 /* PythagoreanTripletExample.swift in Sources */,
 				1E9A63941C506EFD00E28AE1 /* BobExample.swift in Sources */,
