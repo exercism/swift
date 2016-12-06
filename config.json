@@ -5,6 +5,16 @@
   "active": true,
   "exercises": [
     {
+       "difficulty": 1,
+        "slug": "beer-song",
+        "topics": [
+            "Looping",
+            "Conditionals"
+        ]
+
+
+    },
+    {
         "difficulty": 1,
         "slug": "hello-world",
         "topics": [
