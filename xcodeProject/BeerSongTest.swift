@@ -12,23 +12,20 @@ import XCTest
 
 class BeerSongTest: XCTestCase {
     
-    var beerSong:BeerSong!
+    var beerSong :BeerSong!
     override func setUp() {
         
-            
         beerSong = BeerSong()
-        
-            
     }
     
-    func testGenerateSongVerses(){
+    func testGenerateSongVerses() {
         
         beerSong.generateVersesOfBeerSong()
     }
     
-    override func tearDown(){
+    override func tearDown() {
         
         beerSong = nil
     }
     
-    }
+}
