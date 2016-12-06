@@ -16,7 +16,7 @@ private extension String {
 }
 
 private extension XCTest {
-    func XCTAssertEqualMultiArray(_ aArray1: Array<Array<String>>, _ aArray2: Array<Array<String>>) {
+    func XCTAssertEqualMultiArray(_ aArray1: [[String]], _ aArray2: [[String]]) {
         XCTAssertEqual(Array(aArray1.joined()), Array(aArray2.joined()))
     }
 }

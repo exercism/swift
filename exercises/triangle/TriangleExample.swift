@@ -5,7 +5,9 @@ struct Triangle {
     var b: Double = 0
     var c: Double = 0
 
-    var kind: String { get { return self.Kind() }}
+    var kind: String {
+        return self.Kind()
+    }
 
     init(_ a: Double, _ b: Double, _ c: Double) {
         (self.a, self.b, self.c) = (a, b, c)
@@ -41,10 +43,12 @@ struct Triangle {
         let unique = uniqueSides()
 
         if unique == 1 {
-            return triangleKind.Equilateral}
+            return triangleKind.Equilateral
+        }
 
         if unique == 2 {
-            return triangleKind.Isosceles}
+            return triangleKind.Isosceles
+        }
 
         return triangleKind.Scalene
     }
