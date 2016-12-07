@@ -23,7 +23,7 @@ Select macOS and Cocoa Application. (iOS Single View Application can also be use
 #### Save The Project
 ![004-saveproject](https://cloud.githubusercontent.com/assets/5385825/20957617/c77d5976-bc05-11e6-837d-1dacfe5e17c8.png)
 
-1. Choose a location to save the project. Anyhwere will work, but a good choice is inside the root folder of the current exercise.
+1. Choose a location to save the project. Anywhere will work, but a good choice is inside the root folder of the current exercise.
 2. For example, the Exercism CLI will fetch an exercise into a folder named for the exercise. Typically that folder contains a readme file and a source file with unit tests. 
 3. Create your project as shown in the above image. 
 4. Once complete the files on disk should look like this (except we don't have a playground yet!):
