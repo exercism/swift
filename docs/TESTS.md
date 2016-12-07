@@ -9,7 +9,7 @@ _As far as housekeeping chores go, you are closer to the finish line than it app
 ### Create A New Xcode Project
 ![001-splash](https://cloud.githubusercontent.com/assets/5385825/20957611/c756745a-bc05-11e6-8631-e9e738ad464b.png)
 
-Select macOS and Cocoa Application. (iOS Single View Application can also be used, but choosing macOS avoids the time needed to launch the iOS simulator each time a test is run.)
+Select macOS from the row of buttons at the top of the dialog, then choose the Cocoa Application icon. 
 
 ![002-templatechooser](https://cloud.githubusercontent.com/assets/5385825/20957613/c770da16-bc05-11e6-82e1-7da6c2ca6de0.png)
 
