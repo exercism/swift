@@ -1,6 +1,6 @@
-class BeerSong {
+struct BeerSong {
 
-    let numberOfBeerBottles = 99
+    var numberOfBeerBottles = 0
     func generateVersesOfBeerSong() -> String {
         var verses = ""
         var numberOfBottlesOfBeer = numberOfBeerBottles
@@ -20,7 +20,7 @@ class BeerSong {
             verses.append("Take one down and pass it around, no more bottles of beer on the wall.\n\n")
 
             case 0:verses.append("No more bottles of beer on the wall, no more bottles of beer.\n")
-            numberOfBottlesOfBeer += numberOfBeerBottles
+            numberOfBottlesOfBeer = 99
             verses.append("Go to the store and buy some more, \(numberOfBottlesOfBeer) bottles of beer on the wall.")
             default:break
             }
