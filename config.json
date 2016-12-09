@@ -121,6 +121,14 @@
         ]
     },
     {
+        "difficulty": 2,
+        "slug": "isogram",
+        "topics": [
+            "Strings",
+            "Filtering"
+        ]
+    },
+    {
         "difficulty": 3,
         "slug": "clock",
         "topics": [

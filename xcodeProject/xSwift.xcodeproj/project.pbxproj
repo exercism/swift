@@ -127,6 +127,8 @@
 		E90D62081C653ADC00C266D3 /* PalindromeProductsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D62071C653ADC00C266D3 /* PalindromeProductsTest.swift */; };
 		E90DE39C1D3E812300F3B881 /* AllYourBaseExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DE39B1D3E812300F3B881 /* AllYourBaseExample.swift */; };
 		E90DE39E1D3E818000F3B881 /* AllYourBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DE39D1D3E818000F3B881 /* AllYourBaseTest.swift */; };
+		E92EA8F91DFB5CF200C5CFF7 /* IsogramExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EA8F81DFB5CF200C5CFF7 /* IsogramExample.swift */; };
+		E92EA8FB1DFB5D0200C5CFF7 /* IsogramTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EA8FA1DFB5D0200C5CFF7 /* IsogramTest.swift */; };
 		E9443F251DF5C02700A468B7 /* TransposeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9443F241DF5C02700A468B7 /* TransposeExample.swift */; };
 		E9443F271DF5C04000A468B7 /* TransposeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9443F261DF5C04000A468B7 /* TransposeTest.swift */; };
 		E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECD1C510E68009318BB /* BinarySearchExample.swift */; };
@@ -287,6 +289,8 @@
 		E90D62071C653ADC00C266D3 /* PalindromeProductsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = PalindromeProductsTest.swift; path = "palindrome-products/PalindromeProductsTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E90DE39B1D3E812300F3B881 /* AllYourBaseExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllYourBaseExample.swift; path = "../all-your-base/AllYourBaseExample.swift"; sourceTree = "<group>"; };
 		E90DE39D1D3E818000F3B881 /* AllYourBaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllYourBaseTest.swift; path = "../all-your-base/AllYourBaseTest.swift"; sourceTree = "<group>"; };
+		E92EA8F81DFB5CF200C5CFF7 /* IsogramExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IsogramExample.swift; path = isogram/IsogramExample.swift; sourceTree = "<group>"; };
+		E92EA8FA1DFB5D0200C5CFF7 /* IsogramTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IsogramTest.swift; path = isogram/IsogramTest.swift; sourceTree = "<group>"; };
 		E9443F241DF5C02700A468B7 /* TransposeExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransposeExample.swift; path = ../transpose/TransposeExample.swift; sourceTree = "<group>"; };
 		E9443F261DF5C04000A468B7 /* TransposeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransposeTest.swift; path = ../transpose/TransposeTest.swift; sourceTree = "<group>"; };
 		E94BDECD1C510E68009318BB /* BinarySearchExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchExample.swift; path = "binary-search/BinarySearchExample.swift"; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 				1E9A63191C506EFC00E28AE1 /* hello-world */,
 				E9AFA14E1C594423006AD72D /* hexadecimal */,
 				E9AFA1751C614D6A006AD72D /* house */,
+				E92EA8F61DFB5CCF00C5CFF7 /* isogram */,
 				1E9A63221C506EFC00E28AE1 /* kindergarten-garden */,
 				E9AFA15D1C5BFB55006AD72D /* largest-series-product */,
 				1E9A63251C506EFC00E28AE1 /* leap */,
@@ -988,6 +993,15 @@
 			path = acronym;
 			sourceTree = "<group>";
 		};
+		E92EA8F61DFB5CCF00C5CFF7 /* isogram */ = {
+			isa = PBXGroup;
+			children = (
+				E92EA8F81DFB5CF200C5CFF7 /* IsogramExample.swift */,
+				E92EA8FA1DFB5D0200C5CFF7 /* IsogramTest.swift */,
+			);
+			name = isogram;
+			sourceTree = "<group>";
+		};
 		E9443F201DF5BFBF00A468B7 /* transpose */ = {
 			isa = PBXGroup;
 			children = (
@@ -1222,6 +1236,7 @@
 				1E9A63BC1C506EFD00E28AE1 /* PerfectNumbersExample.swift in Sources */,
 				E99909621D792446002A2B6E /* RunLengthEncodingExample.swift in Sources */,
 				1E9A63BB1C506EFD00E28AE1 /* OctalTest.swift in Sources */,
+				E92EA8FB1DFB5D0200C5CFF7 /* IsogramTest.swift in Sources */,
 				1E9A63ED1C506EFD00E28AE1 /* WordCountTest.swift in Sources */,
 				1E9A63951C506EFD00E28AE1 /* BobTest.swift in Sources */,
 				1E9A63BE1C506EFD00E28AE1 /* PhoneNumberExample.swift in Sources */,
@@ -1248,6 +1263,7 @@
 				1E9A63B81C506EFD00E28AE1 /* NucleotideCountExample.swift in Sources */,
 				1E9A63881C506EFC00E28AE1 /* AccumulateExample.swift in Sources */,
 				E9AFA1491C593AF5006AD72D /* BinarySearchTreeTest.swift in Sources */,
+				E92EA8F91DFB5CF200C5CFF7 /* IsogramExample.swift in Sources */,
 				E908CD541C6D7AD1005D081E /* PascalsTriangleExample.swift in Sources */,
 				1E9A63D61C506EFD00E28AE1 /* SeriesExample.swift in Sources */,
 				1E9A638B1C506EFD00E28AE1 /* AcronymTest.swift in Sources */,
