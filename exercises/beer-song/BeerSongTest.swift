@@ -11,11 +11,8 @@ class BeerSongTest: XCTestCase {
 
     func testGenerateVerseForZeroBeerBottles() {
 
-        var beerSongForZeroBeerBottles = BeerSong(numberOfBeerBottles: 0)
+        let beerSongForZeroBeerBottles = BeerSong(numberOfBeerBottles: 0)
         let expectedVerses = "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall."
-        XCTAssertEqual(expectedVerses, beerSongForZeroBeerBottles.generateVersesOfBeerSong())
-
-        beerSongForZeroBeerBottles = BeerSong()
         XCTAssertEqual(expectedVerses, beerSongForZeroBeerBottles.generateVersesOfBeerSong())
 
     }

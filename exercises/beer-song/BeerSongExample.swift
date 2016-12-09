@@ -1,6 +1,6 @@
 struct BeerSong {
 
-    var numberOfBeerBottles = 0
+    var numberOfBeerBottles: Int
     func generateVersesOfBeerSong() -> String {
         var verses = ""
         var numberOfBottlesOfBeer = numberOfBeerBottles
