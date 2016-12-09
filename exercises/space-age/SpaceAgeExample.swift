@@ -11,7 +11,7 @@ struct SpaceAge {
     var onSaturn: Float { return round((seconds / 929_596_608.0) * 100) / 100 }
     var onUranus: Float { return round((seconds / 2_661_041_808.0) * 100) / 100 }
     var onNeptune: Float { return round((seconds / 5_200_418_592.0) * 100) / 100 }
-    
+
     init(_ input: Float) {
         self.seconds = input
     }
