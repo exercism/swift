@@ -20,7 +20,7 @@ To complete an Exercism exercise, you will work primarily with three files:
 
 When you reach the end of this tutorial, the file inspector in Xcode will look like this.
 
-![009-finallayoutexample](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/009-finalLayoutExample.png?raw=true)
+![009-finallayoutexample](/img/docs/tests/009-finalLayoutExample.png)
 
 ### Create A New Xcode Project
 ![001-splash](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/001-splash.png?raw=true)
