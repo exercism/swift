@@ -23,44 +23,44 @@ When you reach the end of this tutorial, the file inspector in Xcode will look l
 ![009-finallayoutexample](/img/docs/tests/009-finalLayoutExample.png)
 
 ### Create A New Xcode Project
-![001-splash](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/001-splash.png?raw=true)
+![001-splash](/img/docs/tests/001-splash.png?raw=true)
 
 Select macOS from the row of buttons at the top of the dialog, then choose the Cocoa Application icon as shown in this image: 
 
-![002-templatechooser](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/002-templateChooser.png?raw=true)
+![002-templatechooser](/img/docs/tests/002-templateChooser.png?raw=true)
 
 #### Name The Project
-![003-nameproject](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/003-nameProject.png?raw=true)
+![003-nameproject](/img/docs/tests/003-nameProject.png?raw=true)
 
 1. Enter `Hello-World` as the Product Name to name the project. _For other exercises, replace the string `Hello-World` with the exercise name._
 2. Fill in the Organization Name and Bundle Identifier. The Organization Name field will appear in each source file you create. The Bundle Identifier is not used in this context but should not be left blank.
 3. The Language popup should be Swift, the Include Unit Tests checkbox should be selected. All other checkboxes should be deselected.
 
 #### Save The Project
-![004-saveproject](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/004-saveProject.png?raw=true)
+![004-saveproject](/img/docs/tests/004-saveProject.png?raw=true)
 
 1. Choose a location to save the project. Anywhere will work, but a good choice is inside the root folder of the current exercise.
 2. For example, the Exercism CLI will fetch an exercise into a folder named for the exercise. Typically that folder contains a readme file and a Test Source file. 
 3. Create your project as shown in the above image. 
 4. Once complete the files on disk should look like the image below. Essentially it added a new folder to the root folder named Hello-World (highlighted in this example), which contains the entire Xcode project.
 
-![005-folderlayout](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/005-folderLayout.png?raw=true)
+![005-folderlayout](/img/docs/tests/005-folderLayout.png?raw=true)
 
 ### Configure The Project
 
 At this point the project's file inspector should look similar to the image on the left. (Note that items in file inspector do not correspond to the files on disk.) Many of these files are not needed, so let's move them out of the way so that Xcode matches the image on the right. If you are new to Xcode, step by step instructions continue below.
 
-![006-newprojectinitial](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/006-newProjectInitial.png?raw=true)
+![006-newprojectinitial](/img/docs/tests/006-newProjectInitial.png?raw=true)
 
 Create a new group folder 'Support' inside the main group then drag the unused files into it. As with many tasks in Xcode, there is a shortcut. In this case you could also Command-Click to select all the unneeded files, and choose `File -> New -> Group from Selection` from the contextual menu as shown below:
 
-![007-newGroupFromSelection](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/007-newGroupFromSelection.png?raw=true)
+![007-newGroupFromSelection](/img/docs/tests/007-newGroupFromSelection.png?raw=true)
 
 Next, create a new playground document as shown in the righthand image below.
 
 Xcode provides several different menus that will accomplish this task, but in order for this step to work properly use the main menu, `File -> New -> File...` (or Command-N) and choose Playground from the template chooser. (Other menu options will create the playground outside the project file.)
 
-![006-newprojectinitial](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/006-newProjectInitial.png?raw=true)
+![006-newprojectinitial](/img/docs/tests/006-newProjectInitial.png?raw=true)
 
 Once again in the file inspector image on the left, note the file `Hello-WorldTests.swift` that Xcode provided inside the `Hello-WorldTests` folder. This file is unnecessary and should be deleted. The Exercism files tend to use an identical or similar name to the boilerplate file provided by Xcode. Deleting it will avoid confusion.
 
@@ -70,7 +70,7 @@ Right-Click (or Control-Click) on the `Hello-WorldTests` folder and choose `Add 
 
 Add the line `@testable import Hello_World`. (When the Xcode project name contains a hyphen, replace it with an underscore.) The image below shows what the document may look like after import. Red is likely, and normal. Here the red icons indicate failed tests. In other exercises some of the code itself might be underlined in red, which usually means missing code objects. Red is your main clue, once you interpret what the red is complaining about, you can write code that will make it disappear.
 
-![008-testsimportexample](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/008-testsImportExample.png?raw=true)
+![008-testsimportexample](/img/docs/tests/008-testsImportExample.png?raw=true)
 
 #### Make A New Source File For Your Code
 
@@ -78,7 +78,7 @@ Right-Click (or Control-Click) on the `Hello-World` group folder and choose `New
 
 Here is how the file inspector should look now:
 
-![009-finallayoutexample](https://github.com/bobdel/xswift/blob/TESTS.md-rewrite/img/docs/tests/009-finalLayoutExample.png?raw=true)
+![009-finallayoutexample](/img/docs/tests/009-finalLayoutExample.png?raw=true)
 
 The housekeeping is finished and Xcode is ready! To review:
 
