@@ -2,7 +2,7 @@
     import XCTest
 #endif
 
-class  HelloWorldTest: XCTestCase {
+class HelloWorldTest: XCTestCase {
 
     func testNoName() {
         let expected = "Hello, World!"
