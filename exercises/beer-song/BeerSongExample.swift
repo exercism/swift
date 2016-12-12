@@ -10,7 +10,7 @@ struct BeerSong {
             verses.append("Take one down and pass it around, \(numberOfBottlesOfBeer) bottles of beer on the wall.\n\n")
         }
         while numberOfBottlesOfBeer <= 2 {
-            switch(numberOfBottlesOfBeer) {
+            switch numberOfBottlesOfBeer {
             case 2:verses.append("\(numberOfBottlesOfBeer) bottles of beer on the wall, \(numberOfBottlesOfBeer) bottles of beer.\n")
             numberOfBottlesOfBeer -= 1
             verses.append("Take one down and pass it around, \(numberOfBottlesOfBeer) bottle of beer on the wall.\n\n")

@@ -5,16 +5,6 @@
   "active": true,
   "exercises": [
     {
-       "difficulty": 1,
-        "slug": "beer-song",
-        "topics": [
-            "Looping",
-            "Conditionals"
-        ]
-
-
-    },
-    {
         "difficulty": 1,
         "slug": "hello-world",
         "topics": [
@@ -250,6 +240,17 @@
             "Filtering"
         ]
     },
+    {
+       "difficulty": 4,
+        "slug": "beer-song",
+        "topics": [
+            "Looping",
+            "Conditionals",
+            "Strings"
+        ]
+
+    },
+
     {
         "difficulty": 4,
         "slug": "twelve-days",
