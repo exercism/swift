@@ -5,113 +5,67 @@ struct SubList {
     var firstList: [Int]
     var secondList: [Int]
 
-    func checkSubList(list_one: [Int], list_two: [Int]) -> String {
+    func checkSubList(listOne: [Int], listTwo: [Int]) -> String {
 
-        if list_one.isEmpty && list_two.isEmpty {
+        if  listOne == listTwo {
 
             return "equal"
-        } else if list_one.isEmpty && !list_two.isEmpty {
+        } else if listOne.isEmpty || listTwo.isEmpty {
 
-            return "sublist"
+            if listOne.isEmpty {
 
-        } else if !list_one.isEmpty && list_two.isEmpty {
-
+                return "sublist"
+            }
             return "superlist"
-        } else {
 
-            if list_one.count == list_two.count {
+        } else if listOne.count != listTwo.count {
 
-                if list_one == list_two {
+            var i = 0
+            var count = 0
+            var smallerList = [Int]()
 
-                    return "equal"
+            var iterations = 0
+            iterations = max(listOne.count, listTwo.count) - (min(listOne.count, listTwo.count) - 1)
+
+            while iterations > 0 {
+
+                var j = i
+                while count <= min(listOne.count, listTwo.count) - 1 {
+
+                    if listOne.count > listTwo.count {
+
+                        smallerList.append(listOne[j])
+
+                    } else {
+
+                        smallerList.append(listTwo[j])
+                    }
+
+                    j+=1
+                    count+=1
+                }
+
+                if smallerList == listTwo {
+
+                    return "superlist"
+
+                } else if smallerList == listOne {
+
+                    return "sublist"
+
                 } else {
 
-                    return "unequal"
+                    smallerList.removeAll()
+                    i+=1
+                    count = 0
                 }
-            } else {
 
-                var i = 0
-                var count = 0
-                var smallerList = [Int]()
+                iterations-=1
 
-                var iterations = 0
-
-                if list_one.count > list_two.count {
-
-                    var isSuperList = false
-                    iterations = list_one.count - (list_two.count - 1)
-
-                    while iterations > 0 {
-
-                        var j = i
-                        while count <= list_two.count - 1 {
-
-                            smallerList.append(list_one[j])
-                            j+=1
-                            count+=1
-                        }
-
-                        if smallerList == list_two {
-
-                            isSuperList=true
-                            break
-                        } else {
-
-                            smallerList.removeAll()
-                            i+=1
-                            count = 0
-                        }
-
-                        iterations-=1
-
-                    }
-                    if isSuperList {
-
-                        return "superlist"
-                    } else {
-
-                        return "unequal"
-                    }
-
-                } else if list_two.count > list_one.count {
-
-                    var isSubList = false
-                    iterations = list_two.count - (list_one.count - 1)
-                    while iterations > 0 {
-
-                        var j = i
-                        while count <= list_one.count - 1 {
-
-                            smallerList.append(list_two[j])
-                            j+=1
-                            count+=1
-                        }
-
-                        if smallerList == list_one {
-
-                            isSubList=true
-                            break
-                        } else {
-
-                            smallerList.removeAll()
-                            i+=1
-                            count = 0
-                        }
-
-                        iterations-=1
-                    }
-                    if isSubList {
-
-                        return "sublist"
-                    } else {
-
-                        return "unequal"
-                    }
-
-                }
             }
+
         }
-        return ""
+        return "unequal"
     }
 
 }
