@@ -74,11 +74,11 @@ At this stage, the File Inspector should appear like this:
 
 #### Import The Exercism Test Source File
 
-In the Finder, locate the root folder `hello-world` for this exercise. Drag the file `HelloWorldTests.swift` into the File Inspector so that it inserts into the `HelloWorldTests` group. When the import dialog appears, it should be set up like this:
+In the Finder, locate the root folder `hello-world` for this exercise. Drag the file `HelloWorldTest.swift` into the File Inspector so that it inserts into the `HelloWorldTests` group. When the import dialog appears, it should be set up like this:
 
 ![009-importTestSource](/img/page_assets/009-importTestSource.png)
 
-Select the newly imported file in the File Inspector to open the source code. Add the line `@testable import HelloWorld` above the class declaration. (When the Xcode project name contains a hyphen, replace it with an underscore. (For example, `Word-Count` would become `Word-Count`) The image below shows how the document should appear. Red errors are likely at this stage, and normal.
+Select the newly imported file in the File Inspector to open the source code. Add the line `@testable import HelloWorld` above the class declaration. (When the Xcode project name contains a hyphen, replace it with an underscore. For example, `Word-Count` would become `Word-Count`.) The image below shows how the document should appear. Red errors are likely at this stage, and normal.
 
 ![010-testsImportExample](/img/page_assets/010-testsImportExample.png)
 
@@ -110,7 +110,7 @@ Once all the tests are marked with a green icon, congratulations, you have succe
 
 ### Submission
 
-1. In the Terminal, navigate to the folder that contains the application source file. In this example, the path would be `~/exercism/Swift/hello-world/HelloWorld/HelloWorld/`
+1. In the Terminal, navigate to the folder that contains the application source file. In this example, the path would be `~/exercism/swift/hello-world/HelloWorld/HelloWorld/`
 2. To submit, type `exercism submit HelloWorld.swift` (_Alternatively, you can submit by using the file name with the full path from any directory. A second alternative is to locate the file you need to submit in the Finder. Open the Terminal, type exercism submit followed by a space, then drag the file from the Finder into the Terminal and press return._)
 3. Once uploaded, a URL will appear that reveals your solution on the Exercism web site.
 4. The Exercism CLI allows files to be submitted more than once, and each successive iteration will be added alongside the original.
