@@ -215,6 +215,14 @@
         ]
     },
     {
+       "difficulty": 3,
+        "slug": "sub-list",
+        "topics": [
+            "Looping",
+            "Lists"
+        ]
+    },
+    {
         "difficulty": 3,
         "slug": "secret-handshake",
         "topics": [
