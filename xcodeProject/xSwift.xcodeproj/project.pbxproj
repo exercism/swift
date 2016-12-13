@@ -336,7 +336,6 @@
 		1E9A62E81C506EFC00E28AE1 /* exercises */ = {
 			isa = PBXGroup;
 			children = (
-				A039F3BF1DFECAAC0091A2DF /* sub-list */,
 				1E9A62E91C506EFC00E28AE1 /* accumulate */,
 				1E9A62EC1C506EFC00E28AE1 /* acronym */,
 				E90DE3991D3E80F700F3B881 /* all-your-base */,
@@ -400,6 +399,7 @@
 				1E9A636A1C506EFC00E28AE1 /* simple-linked-list */,
 				1E9A636D1C506EFC00E28AE1 /* space-age */,
 				1E9A63701C506EFC00E28AE1 /* strain */,
+				A039F3BF1DFECAAC0091A2DF /* sub-list */,
 				1E9A63731C506EFC00E28AE1 /* sum-of-multiples */,
 				1E9A63761C506EFC00E28AE1 /* tournament */,
 				1E9A63791C506EFC00E28AE1 /* triangle */,
