@@ -117,7 +117,9 @@
 		1EAF95E11C90C587009DDCB6 /* DominoesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */; };
 		A039F3C21DFECAE10091A2DF /* SublistExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039F3C11DFECAE10091A2DF /* SublistExample.swift */; };
 		A039F3C41DFECB020091A2DF /* SubListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039F3C31DFECB020091A2DF /* SubListTest.swift */; };
-		E908CD461C6AD05F005D081E /* FoodChainExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD451C6AD05F005D081E /* FoodChainExample.swift */; };
+		A004DFC31DF8068A00800271 /* BeerSongExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A004DFC11DF8068A00800271 /* BeerSongExample.swift */; };
+		A004DFC41DF8068A00800271 /* BeerSongTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A004DFC21DF8068A00800271 /* BeerSongTest.swift */; };
+        E908CD461C6AD05F005D081E /* FoodChainExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD451C6AD05F005D081E /* FoodChainExample.swift */; };
 		E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD471C6AD076005D081E /* FoodChainTest.swift */; };
 		E908CD541C6D7AD1005D081E /* PascalsTriangleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */; };
 		E908CD561C6D7AF6005D081E /* PascalsTriangleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD551C6D7AF6005D081E /* PascalsTriangleTest.swift */; };
@@ -129,6 +131,10 @@
 		E90D62081C653ADC00C266D3 /* PalindromeProductsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D62071C653ADC00C266D3 /* PalindromeProductsTest.swift */; };
 		E90DE39C1D3E812300F3B881 /* AllYourBaseExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DE39B1D3E812300F3B881 /* AllYourBaseExample.swift */; };
 		E90DE39E1D3E818000F3B881 /* AllYourBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DE39D1D3E818000F3B881 /* AllYourBaseTest.swift */; };
+		E92EA8F91DFB5CF200C5CFF7 /* IsogramExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EA8F81DFB5CF200C5CFF7 /* IsogramExample.swift */; };
+		E92EA8FB1DFB5D0200C5CFF7 /* IsogramTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EA8FA1DFB5D0200C5CFF7 /* IsogramTest.swift */; };
+		E9443F251DF5C02700A468B7 /* TransposeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9443F241DF5C02700A468B7 /* TransposeExample.swift */; };
+		E9443F271DF5C04000A468B7 /* TransposeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9443F261DF5C04000A468B7 /* TransposeTest.swift */; };
 		E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECD1C510E68009318BB /* BinarySearchExample.swift */; };
 		E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94BDECE1C510E68009318BB /* BinarySearchTest.swift */; };
 		E951B6BD1D466045009EB5B6 /* BracketPushExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E951B6BC1D466045009EB5B6 /* BracketPushExample.swift */; };
@@ -275,8 +281,11 @@
 		1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DominoesTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9D3155D21BA12FB1009A3991 /* xSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3155D51BA12FB1009A3991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A039F3C11DFECAE10091A2DF /* SublistExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SublistExample.swift; sourceTree = "<group>"; };
+        A039F3C11DFECAE10091A2DF /* SublistExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SublistExample.swift; sourceTree = "<group>"; };
 		A039F3C31DFECB020091A2DF /* SubListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubListTest.swift; sourceTree = "<group>"; };
+
+		A004DFC11DF8068A00800271 /* BeerSongExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerSongExample.swift; path = "beer-song/BeerSongExample.swift"; sourceTree = "<group>"; };
+		A004DFC21DF8068A00800271 /* BeerSongTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerSongTest.swift; path = "beer-song/BeerSongTest.swift"; sourceTree = "<group>"; };
 		E908CD451C6AD05F005D081E /* FoodChainExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodChainExample.swift; path = "food-chain/FoodChainExample.swift"; sourceTree = "<group>"; };
 		E908CD471C6AD076005D081E /* FoodChainTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = FoodChainTest.swift; path = "food-chain/FoodChainTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PascalsTriangleExample.swift; path = "pascals-triangle/PascalsTriangleExample.swift"; sourceTree = "<group>"; };
@@ -289,6 +298,10 @@
 		E90D62071C653ADC00C266D3 /* PalindromeProductsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = PalindromeProductsTest.swift; path = "palindrome-products/PalindromeProductsTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E90DE39B1D3E812300F3B881 /* AllYourBaseExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllYourBaseExample.swift; path = "../all-your-base/AllYourBaseExample.swift"; sourceTree = "<group>"; };
 		E90DE39D1D3E818000F3B881 /* AllYourBaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllYourBaseTest.swift; path = "../all-your-base/AllYourBaseTest.swift"; sourceTree = "<group>"; };
+		E92EA8F81DFB5CF200C5CFF7 /* IsogramExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IsogramExample.swift; path = isogram/IsogramExample.swift; sourceTree = "<group>"; };
+		E92EA8FA1DFB5D0200C5CFF7 /* IsogramTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IsogramTest.swift; path = isogram/IsogramTest.swift; sourceTree = "<group>"; };
+		E9443F241DF5C02700A468B7 /* TransposeExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransposeExample.swift; path = ../transpose/TransposeExample.swift; sourceTree = "<group>"; };
+		E9443F261DF5C04000A468B7 /* TransposeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransposeTest.swift; path = ../transpose/TransposeTest.swift; sourceTree = "<group>"; };
 		E94BDECD1C510E68009318BB /* BinarySearchExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchExample.swift; path = "binary-search/BinarySearchExample.swift"; sourceTree = "<group>"; };
 		E94BDECE1C510E68009318BB /* BinarySearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BinarySearchTest.swift; path = "binary-search/BinarySearchTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E951B6BC1D466045009EB5B6 /* BracketPushExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BracketPushExample.swift; path = "../bracket-push/BracketPushExample.swift"; sourceTree = "<group>"; };
@@ -343,6 +356,7 @@
 				1E9A62F21C506EFC00E28AE1 /* anagram */,
 				1E9A62F51C506EFC00E28AE1 /* atbash-cipher */,
 				1E9A62F81C506EFC00E28AE1 /* binary */,
+				A016F7A31DF0418D005640FF /* beer-song */,
 				E94BDECB1C510DF4009318BB /* binary-search */,
 				E9B4BE511C585B510080E585 /* binary-search-tree */,
 				1E9A62FB1C506EFC00E28AE1 /* bob */,
@@ -362,6 +376,7 @@
 				1E9A63191C506EFC00E28AE1 /* hello-world */,
 				E9AFA14E1C594423006AD72D /* hexadecimal */,
 				E9AFA1751C614D6A006AD72D /* house */,
+				E92EA8F61DFB5CCF00C5CFF7 /* isogram */,
 				1E9A63221C506EFC00E28AE1 /* kindergarten-garden */,
 				E9AFA15D1C5BFB55006AD72D /* largest-series-product */,
 				1E9A63251C506EFC00E28AE1 /* leap */,
@@ -402,6 +417,7 @@
 				A039F3BF1DFECAAC0091A2DF /* sub-list */,
 				1E9A63731C506EFC00E28AE1 /* sum-of-multiples */,
 				1E9A63761C506EFC00E28AE1 /* tournament */,
+				E9443F201DF5BFBF00A468B7 /* transpose */,
 				1E9A63791C506EFC00E28AE1 /* triangle */,
 				1E9A637C1C506EFC00E28AE1 /* trinary */,
 				1E9A637F1C506EFC00E28AE1 /* twelve-days */,
@@ -933,6 +949,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+
 		A039F3BF1DFECAAC0091A2DF /* sub-list */ = {
 			isa = PBXGroup;
 			children = (
@@ -940,7 +957,16 @@
 				A039F3C31DFECB020091A2DF /* SubListTest.swift */,
 			);
 			name = "sub-list";
-			sourceTree = "<group>";
+            sourceTree = "<group>";
+     };
+		A016F7A31DF0418D005640FF /* beer-song */ = {
+			isa = PBXGroup;
+			children = (
+				A004DFC11DF8068A00800271 /* BeerSongExample.swift */,
+				A004DFC21DF8068A00800271 /* BeerSongTest.swift */,
+			);
+			name = "beer-song";
+            sourceTree = "<group>";
 		};
 		E908CD431C6AD03C005D081E /* food-chain */ = {
 			isa = PBXGroup;
@@ -995,6 +1021,25 @@
 			);
 			name = "all-your-base";
 			path = acronym;
+			sourceTree = "<group>";
+		};
+		E92EA8F61DFB5CCF00C5CFF7 /* isogram */ = {
+			isa = PBXGroup;
+			children = (
+				E92EA8F81DFB5CF200C5CFF7 /* IsogramExample.swift */,
+				E92EA8FA1DFB5D0200C5CFF7 /* IsogramTest.swift */,
+			);
+			name = isogram;
+			sourceTree = "<group>";
+		};
+		E9443F201DF5BFBF00A468B7 /* transpose */ = {
+			isa = PBXGroup;
+			children = (
+				E9443F241DF5C02700A468B7 /* TransposeExample.swift */,
+				E9443F261DF5C04000A468B7 /* TransposeTest.swift */,
+			);
+			name = transpose;
+			path = tournament;
 			sourceTree = "<group>";
 		};
 		E94BDECB1C510DF4009318BB /* binary-search */ = {
@@ -1222,6 +1267,7 @@
 				1E9A63BC1C506EFD00E28AE1 /* PerfectNumbersExample.swift in Sources */,
 				E99909621D792446002A2B6E /* RunLengthEncodingExample.swift in Sources */,
 				1E9A63BB1C506EFD00E28AE1 /* OctalTest.swift in Sources */,
+				E92EA8FB1DFB5D0200C5CFF7 /* IsogramTest.swift in Sources */,
 				1E9A63ED1C506EFD00E28AE1 /* WordCountTest.swift in Sources */,
 				1E9A63951C506EFD00E28AE1 /* BobTest.swift in Sources */,
 				1E9A63BE1C506EFD00E28AE1 /* PhoneNumberExample.swift in Sources */,
@@ -1234,6 +1280,7 @@
 				E94BDED01C510E68009318BB /* BinarySearchTest.swift in Sources */,
 				1E9A63961C506EFD00E28AE1 /* ClockExample.swift in Sources */,
 				1E9A63BD1C506EFD00E28AE1 /* PerfectNumbersTest.swift in Sources */,
+				A004DFC31DF8068A00800271 /* BeerSongExample.swift in Sources */,
 				1E9A63E51C506EFD00E28AE1 /* TournamentTest.swift in Sources */,
 				1E9A63A41C506EFD00E28AE1 /* GrainsExample.swift in Sources */,
 				1E9A63DA1C506EFD00E28AE1 /* SimpleCipherExample.swift in Sources */,
@@ -1248,6 +1295,7 @@
 				1E9A63B81C506EFD00E28AE1 /* NucleotideCountExample.swift in Sources */,
 				1E9A63881C506EFC00E28AE1 /* AccumulateExample.swift in Sources */,
 				E9AFA1491C593AF5006AD72D /* BinarySearchTreeTest.swift in Sources */,
+				E92EA8F91DFB5CF200C5CFF7 /* IsogramExample.swift in Sources */,
 				E908CD541C6D7AD1005D081E /* PascalsTriangleExample.swift in Sources */,
 				1E9A63D61C506EFD00E28AE1 /* SeriesExample.swift in Sources */,
 				1E9A638B1C506EFD00E28AE1 /* AcronymTest.swift in Sources */,
@@ -1285,6 +1333,7 @@
 				1E9A63D01C506EFD00E28AE1 /* RomanNumeralsExample.swift in Sources */,
 				1E9A63971C506EFD00E28AE1 /* ClockTest.swift in Sources */,
 				1E9A63C21C506EFD00E28AE1 /* PrimeFactorsExample.swift in Sources */,
+				A004DFC41DF8068A00800271 /* BeerSongTest.swift in Sources */,
 				1E9A63AD1C506EFD00E28AE1 /* KindergartenGardenTest.swift in Sources */,
 				1E9A638D1C506EFD00E28AE1 /* AllergiesTest.swift in Sources */,
 				E90D62061C653AC000C266D3 /* PalindromeProductsExample.swift in Sources */,
@@ -1303,12 +1352,14 @@
 				E9AFA17A1C614DA0006AD72D /* HouseTest.swift in Sources */,
 				1E9A63B11C506EFD00E28AE1 /* LinkedListTest.swift in Sources */,
 				1E9A63921C506EFD00E28AE1 /* BinaryExample.swift in Sources */,
+				E9443F271DF5C04000A468B7 /* TransposeTest.swift in Sources */,
 				1E9A638F1C506EFD00E28AE1 /* AnagramTest.swift in Sources */,
 				1E9A63D51C506EFD00E28AE1 /* SecretHandshakeTest.swift in Sources */,
 				1E9A63BA1C506EFD00E28AE1 /* OctalExample.swift in Sources */,
 				1E9A63C81C506EFD00E28AE1 /* RaindropsExample.swift in Sources */,
 				E951B6BF1D466058009EB5B6 /* BracketPushTest.swift in Sources */,
 				E9AFA1601C5BFC57006AD72D /* LargestSeriesProductExample.swift in Sources */,
+				E9443F251DF5C02700A468B7 /* TransposeExample.swift in Sources */,
 				E9AFA16D1C5EF4EA006AD72D /* MatrixTest.swift in Sources */,
 				1E9A638E1C506EFD00E28AE1 /* AnagramExample.swift in Sources */,
 				1E9A63A01C506EFD00E28AE1 /* GigasecondExample.swift in Sources */,

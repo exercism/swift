@@ -121,6 +121,14 @@
         ]
     },
     {
+        "difficulty": 2,
+        "slug": "isogram",
+        "topics": [
+            "Strings",
+            "Filtering"
+        ]
+    },
+    {
         "difficulty": 3,
         "slug": "clock",
         "topics": [
@@ -248,6 +256,17 @@
             "Filtering"
         ]
     },
+    {
+       "difficulty": 4,
+        "slug": "beer-song",
+        "topics": [
+            "Looping",
+            "Conditionals",
+            "Strings"
+        ]
+
+    },
+
     {
         "difficulty": 4,
         "slug": "twelve-days",
@@ -495,6 +514,14 @@
     {
         "difficulty": 6,
         "slug": "pig-latin",
+        "topics": [
+            "Strings",
+            "Transforming"
+        ]
+    },
+    {
+        "difficulty": 6,
+        "slug": "transpose",
         "topics": [
             "Strings",
             "Transforming"

@@ -18,7 +18,7 @@ warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
 warn("Big PR") if git.lines_of_code > 500
 
 #ENSURE THERE IS A SUMMARY FOR A PR
-warn("Please provide a summary in the Pull Request description") if github.pr_body.length < 5
+warn("Please provide a summary in the Pull Request description. See more info <a href=\"http\://tinyletter.com/exercism/letters/exercism-pull-requests\">here.</a>") if github.pr_body.length < 5
 
 # LINT Comments in for each Line
 jsonpath = "lintreport.json"

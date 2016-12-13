@@ -20,10 +20,10 @@ class Element<T> {
         return toA(self)
     }
 
-    private var countArray: Array<T> = []
+    private var countArray: [T] = []
 
     @discardableResult
-    private func toA(_ input: Element, _ tempArray: Array<T> = []) -> [T] {
+    private func toA(_ input: Element, _ tempArray: [T] = []) -> [T] {
         if tempArray.isEmpty && input.value != nil {
             countArray.append(input.value!)
         }
