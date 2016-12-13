@@ -42,10 +42,7 @@
 		1E9A63A51C506EFD00E28AE1 /* GrainsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63151C506EFC00E28AE1 /* GrainsTest.swift */; };
 		1E9A63A61C506EFD00E28AE1 /* HammingExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63171C506EFC00E28AE1 /* HammingExample.swift */; };
 		1E9A63A71C506EFD00E28AE1 /* HammingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63181C506EFC00E28AE1 /* HammingTest.swift */; };
-		1E9A63A81C506EFD00E28AE1 /* helloWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A631A1C506EFC00E28AE1 /* helloWorld.swift */; };
 		1E9A63A91C506EFD00E28AE1 /* helloWorldExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A631E1C506EFC00E28AE1 /* helloWorldExample.swift */; };
-		1E9A63AA1C506EFD00E28AE1 /* helloWorldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63201C506EFC00E28AE1 /* helloWorldTest.swift */; };
-		1E9A63AB1C506EFD00E28AE1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E9A63211C506EFC00E28AE1 /* Info.plist */; };
 		1E9A63AC1C506EFD00E28AE1 /* KindergartenGardenExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63231C506EFC00E28AE1 /* KindergartenGardenExample.swift */; };
 		1E9A63AD1C506EFD00E28AE1 /* KindergartenGardenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63241C506EFC00E28AE1 /* KindergartenGardenTest.swift */; };
 		1E9A63AE1C506EFD00E28AE1 /* LeapExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63261C506EFC00E28AE1 /* LeapExample.swift */; };
@@ -115,11 +112,12 @@
 		1E9A63EE1C506EFD00E28AE1 /* WordyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63861C506EFC00E28AE1 /* WordyExample.swift */; };
 		1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63871C506EFC00E28AE1 /* WordyTest.swift */; };
 		1EAF95E11C90C587009DDCB6 /* DominoesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */; };
-		A039F3C21DFECAE10091A2DF /* SublistExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039F3C11DFECAE10091A2DF /* SublistExample.swift */; };
-		A039F3C41DFECB020091A2DF /* SubListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039F3C31DFECB020091A2DF /* SubListTest.swift */; };
 		A004DFC31DF8068A00800271 /* BeerSongExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A004DFC11DF8068A00800271 /* BeerSongExample.swift */; };
 		A004DFC41DF8068A00800271 /* BeerSongTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A004DFC21DF8068A00800271 /* BeerSongTest.swift */; };
-        E908CD461C6AD05F005D081E /* FoodChainExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD451C6AD05F005D081E /* FoodChainExample.swift */; };
+		A0DBCBF81E0000B800E0DFBF /* helloWorldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBCBF71E0000B800E0DFBF /* helloWorldTest.swift */; };
+		A0DBCBFB1E00017E00E0DFBF /* SublistExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBCBF91E00017E00E0DFBF /* SublistExample.swift */; };
+		A0DBCBFC1E00017E00E0DFBF /* SubListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBCBFA1E00017E00E0DFBF /* SubListTest.swift */; };
+		E908CD461C6AD05F005D081E /* FoodChainExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD451C6AD05F005D081E /* FoodChainExample.swift */; };
 		E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD471C6AD076005D081E /* FoodChainTest.swift */; };
 		E908CD541C6D7AD1005D081E /* PascalsTriangleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */; };
 		E908CD561C6D7AF6005D081E /* PascalsTriangleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD551C6D7AF6005D081E /* PascalsTriangleTest.swift */; };
@@ -159,16 +157,6 @@
 		E9AFA1871C624FD5006AD72D /* MinesweeperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AFA1861C624FD5006AD72D /* MinesweeperTest.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		1E9A63F11C506EFD00E28AE1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1E9A631B1C506EFC00E28AE1 /* helloWorld.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9DCE807D1BA747050024C69D;
-			remoteInfo = helloWorldTest;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1E167A0F1C8AA5D7001EAD90 /* PokerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerExample.swift; sourceTree = "<group>"; };
 		1E167A101C8AA5D7001EAD90 /* PokerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PokerTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -205,11 +193,7 @@
 		1E9A63151C506EFC00E28AE1 /* GrainsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GrainsTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1E9A63171C506EFC00E28AE1 /* HammingExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HammingExample.swift; sourceTree = "<group>"; };
 		1E9A63181C506EFC00E28AE1 /* HammingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HammingTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		1E9A631A1C506EFC00E28AE1 /* helloWorld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloWorld.swift; sourceTree = "<group>"; };
-		1E9A631B1C506EFC00E28AE1 /* helloWorld.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = helloWorld.xcodeproj; sourceTree = "<group>"; };
 		1E9A631E1C506EFC00E28AE1 /* helloWorldExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloWorldExample.swift; sourceTree = "<group>"; };
-		1E9A63201C506EFC00E28AE1 /* helloWorldTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = helloWorldTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		1E9A63211C506EFC00E28AE1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E9A63231C506EFC00E28AE1 /* KindergartenGardenExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = KindergartenGardenExample.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1E9A63241C506EFC00E28AE1 /* KindergartenGardenTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = KindergartenGardenTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1E9A63261C506EFC00E28AE1 /* LeapExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeapExample.swift; sourceTree = "<group>"; };
@@ -281,11 +265,11 @@
 		1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DominoesTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9D3155D21BA12FB1009A3991 /* xSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3155D51BA12FB1009A3991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        A039F3C11DFECAE10091A2DF /* SublistExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SublistExample.swift; sourceTree = "<group>"; };
-		A039F3C31DFECB020091A2DF /* SubListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubListTest.swift; sourceTree = "<group>"; };
-
 		A004DFC11DF8068A00800271 /* BeerSongExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerSongExample.swift; path = "beer-song/BeerSongExample.swift"; sourceTree = "<group>"; };
 		A004DFC21DF8068A00800271 /* BeerSongTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerSongTest.swift; path = "beer-song/BeerSongTest.swift"; sourceTree = "<group>"; };
+		A0DBCBF71E0000B800E0DFBF /* helloWorldTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloWorldTest.swift; sourceTree = "<group>"; };
+		A0DBCBF91E00017E00E0DFBF /* SublistExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SublistExample.swift; path = "sub-list/SublistExample.swift"; sourceTree = "<group>"; };
+		A0DBCBFA1E00017E00E0DFBF /* SubListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubListTest.swift; path = "sub-list/SubListTest.swift"; sourceTree = "<group>"; };
 		E908CD451C6AD05F005D081E /* FoodChainExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodChainExample.swift; path = "food-chain/FoodChainExample.swift"; sourceTree = "<group>"; };
 		E908CD471C6AD076005D081E /* FoodChainTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = FoodChainTest.swift; path = "food-chain/FoodChainTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PascalsTriangleExample.swift; path = "pascals-triangle/PascalsTriangleExample.swift"; sourceTree = "<group>"; };
@@ -575,29 +559,10 @@
 		1E9A63191C506EFC00E28AE1 /* hello-world */ = {
 			isa = PBXGroup;
 			children = (
-				1E9A631A1C506EFC00E28AE1 /* helloWorld.swift */,
-				1E9A631B1C506EFC00E28AE1 /* helloWorld.xcodeproj */,
 				1E9A631E1C506EFC00E28AE1 /* helloWorldExample.swift */,
-				1E9A631F1C506EFC00E28AE1 /* helloWorldTest */,
+				A0DBCBF71E0000B800E0DFBF /* helloWorldTest.swift */,
 			);
 			path = "hello-world";
-			sourceTree = "<group>";
-		};
-		1E9A631C1C506EFC00E28AE1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1E9A63F21C506EFD00E28AE1 /* helloWorldTest.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		1E9A631F1C506EFC00E28AE1 /* helloWorldTest */ = {
-			isa = PBXGroup;
-			children = (
-				1E9A63201C506EFC00E28AE1 /* helloWorldTest.swift */,
-				1E9A63211C506EFC00E28AE1 /* Info.plist */,
-			);
-			path = helloWorldTest;
 			sourceTree = "<group>";
 		};
 		1E9A63221C506EFC00E28AE1 /* kindergarten-garden */ = {
@@ -949,16 +914,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-
-		A039F3BF1DFECAAC0091A2DF /* sub-list */ = {
-			isa = PBXGroup;
-			children = (
-				A039F3C11DFECAE10091A2DF /* SublistExample.swift */,
-				A039F3C31DFECB020091A2DF /* SubListTest.swift */,
-			);
-			name = "sub-list";
-            sourceTree = "<group>";
-     };
 		A016F7A31DF0418D005640FF /* beer-song */ = {
 			isa = PBXGroup;
 			children = (
@@ -966,7 +921,16 @@
 				A004DFC21DF8068A00800271 /* BeerSongTest.swift */,
 			);
 			name = "beer-song";
-            sourceTree = "<group>";
+			sourceTree = "<group>";
+		};
+		A039F3BF1DFECAAC0091A2DF /* sub-list */ = {
+			isa = PBXGroup;
+			children = (
+				A0DBCBF91E00017E00E0DFBF /* SublistExample.swift */,
+				A0DBCBFA1E00017E00E0DFBF /* SubListTest.swift */,
+			);
+			name = "sub-list";
+			sourceTree = "<group>";
 		};
 		E908CD431C6AD03C005D081E /* food-chain */ = {
 			isa = PBXGroup;
@@ -1192,12 +1156,6 @@
 			mainGroup = 9D3155BB1BA12DC1009A3991;
 			productRefGroup = 9D3155C51BA12DC2009A3991 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1E9A631C1C506EFC00E28AE1 /* Products */;
-					ProjectRef = 1E9A631B1C506EFC00E28AE1 /* helloWorld.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				9D3155D11BA12FB1009A3991 /* xSwiftTests */,
@@ -1205,22 +1163,11 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		1E9A63F21C506EFD00E28AE1 /* helloWorldTest.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = helloWorldTest.xctest;
-			remoteRef = 1E9A63F11C506EFD00E28AE1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		9D3155D01BA12FB1009A3991 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E9A63AB1C506EFD00E28AE1 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1252,7 +1199,6 @@
 				1E9A63941C506EFD00E28AE1 /* BobExample.swift in Sources */,
 				1E9A63DD1C506EFD00E28AE1 /* SimpleLinkedListTest.swift in Sources */,
 				1E9A63B01C506EFD00E28AE1 /* LinkedListExample.swift in Sources */,
-				A039F3C21DFECAE10091A2DF /* SublistExample.swift in Sources */,
 				1E9A63CA1C506EFD00E28AE1 /* RnaTranscriptionExample.swift in Sources */,
 				E9AFA1781C614D8D006AD72D /* HouseExample.swift in Sources */,
 				1E9A63D31C506EFD00E28AE1 /* ScrabbleScoreTest.swift in Sources */,
@@ -1262,6 +1208,7 @@
 				E90D62081C653ADC00C266D3 /* PalindromeProductsTest.swift in Sources */,
 				E90D62001C642EFB00C266D3 /* OcrNumbersTest.swift in Sources */,
 				1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */,
+				A0DBCBF81E0000B800E0DFBF /* helloWorldTest.swift in Sources */,
 				1E9A63EA1C506EFD00E28AE1 /* TwelveDaysExample.swift in Sources */,
 				E951B6BD1D466045009EB5B6 /* BracketPushExample.swift in Sources */,
 				1E9A63BC1C506EFD00E28AE1 /* PerfectNumbersExample.swift in Sources */,
@@ -1304,7 +1251,6 @@
 				1E9A63DF1C506EFD00E28AE1 /* SpaceAgeTest.swift in Sources */,
 				1E9A63B21C506EFD00E28AE1 /* LuhnExample.swift in Sources */,
 				1E9A63991C506EFD00E28AE1 /* CryptoSquareTest.swift in Sources */,
-				1E9A63A81C506EFD00E28AE1 /* helloWorld.swift in Sources */,
 				1E9A63E81C506EFD00E28AE1 /* TrinaryExample.swift in Sources */,
 				1E9A63C01C506EFD00E28AE1 /* PigLatinExample.swift in Sources */,
 				1E9A63A21C506EFD00E28AE1 /* GradeSchoolExample.swift in Sources */,
@@ -1324,11 +1270,11 @@
 				E9AFA1531C5945C9006AD72D /* HexadecimalTest.swift in Sources */,
 				1E9A63AF1C506EFD00E28AE1 /* LeapTest.swift in Sources */,
 				1E9A63901C506EFD00E28AE1 /* AtbashExample.swift in Sources */,
+				A0DBCBFB1E00017E00E0DFBF /* SublistExample.swift in Sources */,
 				1E9A63C61C506EFD00E28AE1 /* QueenAttackExample.swift in Sources */,
 				E90DE39E1D3E818000F3B881 /* AllYourBaseTest.swift in Sources */,
 				E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */,
 				1E9A63D91C506EFD00E28AE1 /* SieveTest.swift in Sources */,
-				1E9A63AA1C506EFD00E28AE1 /* helloWorldTest.swift in Sources */,
 				1E9A63A71C506EFD00E28AE1 /* HammingTest.swift in Sources */,
 				1E9A63D01C506EFD00E28AE1 /* RomanNumeralsExample.swift in Sources */,
 				1E9A63971C506EFD00E28AE1 /* ClockTest.swift in Sources */,
@@ -1346,6 +1292,7 @@
 				1E9A63B51C506EFD00E28AE1 /* MeetupTest.swift in Sources */,
 				1E9A639C1C506EFD00E28AE1 /* DifferenceOfSquaresExample.swift in Sources */,
 				E94BDECF1C510E68009318BB /* BinarySearchExample.swift in Sources */,
+				A0DBCBFC1E00017E00E0DFBF /* SubListTest.swift in Sources */,
 				1E9A639F1C506EFD00E28AE1 /* EtlTest.swift in Sources */,
 				E9AFA17E1C61B162006AD72D /* LargestSeriesProductTest.swift in Sources */,
 				E9AFA1851C624FB7006AD72D /* MinesweeperExample.swift in Sources */,
@@ -1388,7 +1335,6 @@
 				1E9A63D41C506EFD00E28AE1 /* SecretHandshakeExample.swift in Sources */,
 				E99365481D6CE2EA00799C70 /* BowlingTest.swift in Sources */,
 				1E9A63DB1C506EFD00E28AE1 /* SimpleCipherTest.swift in Sources */,
-				A039F3C41DFECB020091A2DF /* SubListTest.swift in Sources */,
 				1E9A63CF1C506EFD00E28AE1 /* RobotSimulatorTest.swift in Sources */,
 				1E9A63DE1C506EFD00E28AE1 /* SpaceAgeExample.swift in Sources */,
 				1E9A63E71C506EFD00E28AE1 /* TriangleTest.swift in Sources */,
