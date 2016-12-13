@@ -249,6 +249,17 @@
         ]
     },
     {
+       "difficulty": 4,
+        "slug": "beer-song",
+        "topics": [
+            "Looping",
+            "Conditionals",
+            "Strings"
+        ]
+
+    },
+
+    {
         "difficulty": 4,
         "slug": "twelve-days",
         "topics": [
