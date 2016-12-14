@@ -4,125 +4,92 @@ class SubListTest: XCTestCase {
 
     func testEmptyLists() {
 
-        let sublists = SubList(firstList: [], secondList: [])
-        let expected = "equal"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.equal, classifier(listOne: [], listTwo: []) )
     }
 
     func testEmptyListWithinNonEmptyList() {
 
-        let sublists = SubList(firstList: [], secondList: [1, 2, 3])
-        let expected = "sublist"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.sublist, classifier(listOne: [], listTwo: [1, 2, 3]))
     }
 
     func testNonEmptyListContainingEmptyList() {
 
-        let sublists = SubList(firstList: [1, 2, 3], secondList: [])
-        let expected = "superlist"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.superlist, classifier(listOne: [1, 2, 3], listTwo: []))
     }
 
     func testEqualLists() {
 
-        let sublists = SubList(firstList: [1, 2, 3], secondList: [1, 2, 3])
-        let expected = "equal"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.equal, classifier(listOne: [1, 2, 3], listTwo: [1, 2, 3]))
     }
 
     func testDifferentLists() {
 
-        let sublists = SubList(firstList: [1, 2, 3], secondList: [2, 3, 4])
-        let expected = "unequal"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.unequal, classifier(listOne: [1, 2, 3], listTwo: [2, 3, 4]))
     }
 
     func testFalseStart() {
 
-        let sublists = SubList(firstList: [1, 2, 5], secondList: [0, 1, 2, 3, 1, 2, 5, 6])
-        let expected = "sublist"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.sublist, classifier(listOne: [1, 2, 5], listTwo: [0, 1, 2, 3, 1, 2, 5, 6]))
     }
 
     func testConsecutive() {
 
-        let sublists = SubList(firstList: [1, 1, 2], secondList: [0, 1, 1, 1, 2, 1, 2])
-        let expected = "sublist"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.sublist, classifier(listOne: [1, 1, 2], listTwo: [0, 1, 1, 1, 2, 1, 2]))
 
     }
 
     func testSublistAtStart() {
 
-        let sublists = SubList(firstList: [0, 1, 2], secondList: [0, 1, 2, 3, 4, 5])
-        let expected = "sublist"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.sublist, classifier(listOne: [0, 1, 2], listTwo: [0, 1, 2, 3, 4, 5]))
     }
 
     func testSublistInMiddle() {
 
-        let sublists = SubList(firstList: [2, 3, 4], secondList: [0, 1, 2, 3, 4, 5])
-        let expected = "sublist"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.sublist, classifier(listOne: [2, 3, 4], listTwo: [0, 1, 2, 3, 4, 5]))
 
     }
 
     func testSublistAtEnd() {
 
-        let sublists = SubList(firstList: [3, 4, 5], secondList: [0, 1, 2, 3, 4, 5])
-        let expected = "sublist"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.sublist, classifier(listOne: [3, 4, 5], listTwo: [0, 1, 2, 3, 4, 5]))
+
     }
 
     func testAtStartOfSuperList() {
 
-        let sublists = SubList(firstList: [0, 1, 2, 3, 4, 5], secondList: [0, 1, 2])
-        let expected = "superlist"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.superlist, classifier(listOne: [0, 1, 2, 3, 4, 5], listTwo: [0, 1, 2]))
 
     }
 
     func testInMiddleOfSuperList() {
 
-        let sublists = SubList(firstList: [0, 1, 2, 3, 4, 5], secondList: [ 2, 3])
-        let expected = "superlist"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.superlist, classifier(listOne: [0, 1, 2, 3, 4, 5], listTwo: [2, 3]))
     }
 
     func testAtEndOfSuperList() {
 
-        let sublists = SubList(firstList: [0, 1, 2, 3, 4, 5], secondList: [3, 4, 5])
-        let expected = "superlist"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.superlist, classifier(listOne: [0, 1, 2, 3, 4, 5], listTwo: [3, 4, 5]))
     }
 
     func testFirstListMissingElementFromSecondList() {
 
-        let sublists = SubList(firstList: [1, 3], secondList: [1, 2, 3])
-        let expected = "unequal"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.unequal, classifier(listOne: [1, 3], listTwo: [1, 2, 3]))
 
     }
 
     func testSecondListMissingElementFromFirstList() {
 
-        let sublists = SubList(firstList: [1, 2, 3], secondList: [1, 3])
-        let expected = "unequal"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.unequal, classifier(listOne: [1, 2, 3], listTwo: [1, 3]))
     }
 
     func testOrderMattersToAList() {
 
-        let sublists = SubList(firstList: [1, 2, 3], secondList: [3, 2, 1])
-        let expected = "unequal"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.unequal, classifier(listOne: [1, 2, 3], listTwo: [3, 2, 1]))
 
     }
 
     func testSameDigitsButDifferentNumbers() {
 
-        let sublists = SubList(firstList: [1, 0, 1], secondList: [10, 1])
-        let expected = "unequal"
-        XCTAssertEqual(expected, sublists.checkSubList(listOne: sublists.firstList, listTwo: sublists.secondList))
+        XCTAssertEqual(SublistKind.unequal, classifier(listOne: [1, 0, 1], listTwo: [10, 1]))
     }
 }
