@@ -1,6 +1,6 @@
 # xSwift
 
-Exercism exercises in Swift
+[Exercism](exercism.io) exercises in Swift
 
 ## Contributing Guide
 
