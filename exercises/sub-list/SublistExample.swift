@@ -1,6 +1,6 @@
 import Foundation
 
-enum SublistKind: String {
+enum SublistKind {
 
     case sublist
     case superlist
