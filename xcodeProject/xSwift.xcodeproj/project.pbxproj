@@ -268,8 +268,8 @@
 		A004DFC11DF8068A00800271 /* BeerSongExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerSongExample.swift; path = "beer-song/BeerSongExample.swift"; sourceTree = "<group>"; };
 		A004DFC21DF8068A00800271 /* BeerSongTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerSongTest.swift; path = "beer-song/BeerSongTest.swift"; sourceTree = "<group>"; };
 		A0DBCBF71E0000B800E0DFBF /* helloWorldTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloWorldTest.swift; sourceTree = "<group>"; };
-		A0DBCBF91E00017E00E0DFBF /* SublistExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SublistExample.swift; path = "sub-list/SublistExample.swift"; sourceTree = "<group>"; };
-		A0DBCBFA1E00017E00E0DFBF /* SubListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubListTest.swift; path = "sub-list/SubListTest.swift"; sourceTree = "<group>"; };
+		A0DBCBF91E00017E00E0DFBF /* SublistExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SublistExample.swift; path = "sublist/SublistExample.swift"; sourceTree = "<group>"; };
+		A0DBCBFA1E00017E00E0DFBF /* SubListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubListTest.swift; path = "sublist/SubListTest.swift"; sourceTree = "<group>"; };
 		E908CD451C6AD05F005D081E /* FoodChainExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodChainExample.swift; path = "food-chain/FoodChainExample.swift"; sourceTree = "<group>"; };
 		E908CD471C6AD076005D081E /* FoodChainTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = FoodChainTest.swift; path = "food-chain/FoodChainTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PascalsTriangleExample.swift; path = "pascals-triangle/PascalsTriangleExample.swift"; sourceTree = "<group>"; };
@@ -398,7 +398,7 @@
 				1E9A636A1C506EFC00E28AE1 /* simple-linked-list */,
 				1E9A636D1C506EFC00E28AE1 /* space-age */,
 				1E9A63701C506EFC00E28AE1 /* strain */,
-				A039F3BF1DFECAAC0091A2DF /* sub-list */,
+				A039F3BF1DFECAAC0091A2DF /* sublist */,
 				1E9A63731C506EFC00E28AE1 /* sum-of-multiples */,
 				1E9A63761C506EFC00E28AE1 /* tournament */,
 				E9443F201DF5BFBF00A468B7 /* transpose */,
@@ -923,13 +923,13 @@
 			name = "beer-song";
 			sourceTree = "<group>";
 		};
-		A039F3BF1DFECAAC0091A2DF /* sub-list */ = {
+		A039F3BF1DFECAAC0091A2DF /* sublist */ = {
 			isa = PBXGroup;
 			children = (
 				A0DBCBF91E00017E00E0DFBF /* SublistExample.swift */,
 				A0DBCBFA1E00017E00E0DFBF /* SubListTest.swift */,
 			);
-			name = "sub-list";
+			name = "sublist";
 			sourceTree = "<group>";
 		};
 		E908CD431C6AD03C005D081E /* food-chain */ = {
