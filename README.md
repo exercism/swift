@@ -1,6 +1,6 @@
 # xSwift
 
-Exercism exercises in Swift
+[Exercism](exercism.io) exercises in Swift
 
 ## Contributing Guide
 
@@ -14,4 +14,4 @@ We use Travis CI to automatically run all the unit tests on the code that is goi
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Katrina Owen, _@kytrinyx.com
+Copyright (c) 2017 Katrina Owen, _@kytrinyx.com
