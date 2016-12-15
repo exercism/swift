@@ -224,7 +224,7 @@
     },
     {
        "difficulty": 3,
-        "slug": "sub-list",
+        "slug": "sublist",
         "topics": [
             "Looping",
             "Lists"
