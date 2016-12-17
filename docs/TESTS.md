@@ -18,39 +18,39 @@ To complete an Exercism exercise, you will work primarily with three files:
 
 When you reach the end of this tutorial, the file inspector in Xcode will look like this.
 
-![011-finalLayoutExample](/img/page_assets/011-finalLayoutExample.png)
+![tests_011-finalLayoutExample](/docs/img/tests_011-finalLayoutExample.png)
 
 ### Create A New Xcode Project
 
-![001-splash](/img/page_assets/001-splash.png)
+![tests_001-splash](/docs/img/tests_001-splash.png)
 
 1. Choose the second item in the list shown above to create a new project, or press Command-Shift-N.
 2. Select macOS from the row of buttons at the top of the dialog, then choose the Cocoa Application icon as shown in this image:
 
-![002-templatechooser](/img/page_assets/002-templateChooser.png)
+![tests_002-templatechooser](/docs/img/tests_002-templateChooser.png)
 
 #### Name The Project
-![003-nameproject](/img/page_assets/003-nameProject.jpg)
+![tests_003-nameproject](/docs/img/tests_003-nameProject.jpg)
 
 1. Enter `HelloWorld` as the Product Name for the project. Spaces and some punctuation symbols are acceptable, but it is better to avoid them early on. _For other exercises, replace the string `HelloWorld` with the exercise name._
 2. Fill in the Organization Name and Bundle Identifier. The Organization Name field will appear in each source file you create. The Bundle Identifier is not used in this context but should not be left blank.
 3. The Language popup should be Swift, the Include Unit Tests checkbox should be selected. All other checkboxes should be deselected.
 
 #### Save The Project
-![004-saveproject](/img/page_assets/004-saveProject.jpg)
+![tests_004-saveproject](/docs/img/tests_004-saveProject.jpg)
 
 1. Choose a location to save the project. Anywhere is fine, but a good choice is inside the root folder of the current exercise.
 2. In this example, the Exercism CLI fetched an exercise into a newly created root folder named `hello-world`. The fetched contents include a readme file `README.md` and a Test Source file `HelloWorldTest.swift`. 
 3. Create your project as shown in the above image, inside the root folder `hello-world`. 
 4. The contents displayed inside the Xcode File Inspector do not match the arrangement of the files on the disk. This is confusing at first, but it makes sense as projects become more complex. You will need a general idea of how the layout is different in order to import files later in this tutorial. If you switch to the Finder to explore the file hierarchy now, the files on disk should look like the image below. Essentially Xcode added a new project folder named `HelloWorld` (highlighted) to the root folder `hello-world`.
 
-![005-folderlayout](/img/page_assets/005-folderLayout.png)
+![tests_005-folderlayout](/docs/img/tests_005-folderLayout.png)
 
 #### Configure the Initial Files in the Project
 
 At this point the project's file inspector should look similar to the image on the left. If the `HelloWorldTests` folder is closed, click on the disclosure triangle to reveal its contents. Many of these files are not needed, so let's move them out of the way.
 
-![006-newprojectinitial](/img/page_assets/006-newProjectInitial.jpg)
+![tests_006-newprojectinitial](/docs/img/tests_006-newProjectInitial.jpg)
 
 1. Create a new group folder 'Support' inside the main group then drag the unused files into it. As with many tasks in Xcode, there is a shortcut. In this case you could also Command-Click to select all the unneeded files, and choose `File -> New -> Group from Selection` from the contextual menu.
 2. Look at the image above on the right, note the file `HelloWorldTests.swift`. This file was provided by Xcode. Because Exercism supplies its own test file - often with a similar name - the default Xcode file is unnecessary and should be deleted. To delete the file, select it in the File Inspector and press the Delete key. In the confirmation dialog that appears, move the file to the trash.
@@ -59,11 +59,11 @@ At this point the project's file inspector should look similar to the image on t
 
 At this stage, the File Inspector should appear like this:
 
-![007-fileInspectorUpdate](/img/page_assets/007-fileInspectorUpdate.png)
+![tests_007-fileInspectorUpdate](/docs/img/tests_007-fileInspectorUpdate.png)
 
 #### Make A New Swift Source File For Your Code
 
-![008-templateChooserSwift](/img/page_assets/008-templateChooserSwift.png)
+![tests_008-templateChooserSwift](/docs/img/tests_008-templateChooserSwift.png)
 
 1. Press Command-N to open the template chooser. Select macOS the Swift File icon, as shown above. 
 2. Near the bottom of the Save As dialog that appears next, set the Group to `HelloWorld` and select only `HelloWorld` from the Targets list.
@@ -76,15 +76,15 @@ At this stage, the File Inspector should appear like this:
 
 In the Finder, locate the root folder `hello-world` for this exercise. Drag the file `HelloWorldTest.swift` into the File Inspector so that it inserts into the `HelloWorldTests` group. When the import dialog appears, it should be set up like this:
 
-![009-importTestSource](/img/page_assets/009-importTestSource.png)
+![tests_009-importTestSource](/docs/img/tests_009-importTestSource.png)
 
 Select the newly imported file in the File Inspector to open the source code. Add the line `@testable import HelloWorld` above the class declaration. (When the Xcode project name contains a hyphen, replace it with an underscore. For example, `Word-Count` would become `Word-Count`.) The image below shows how the document should appear. Red errors are likely at this stage, and normal.
 
-![010-testsImportExample](/img/page_assets/010-testsImportExample.png)
+![tests_010-testsImportExample](/docs/img/tests_010-testsImportExample.png)
 
 Here is how the file inspector should look now:
 
-![011-finallayoutexample](/img/page_assets/011-finalLayoutExample.png)
+![011-finallayoutexample](/docs/img/011-finalLayoutExample.png)
 
 The housekeeping is finished and Xcode is ready! To review:
 
