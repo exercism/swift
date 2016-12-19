@@ -29,9 +29,8 @@ private extension String {
 
     }
 
-    func componentsSeparatedByStringCustom(_ input: String)->Array<String> {
+    func componentsSeparatedByStringCustom(_ input: String) -> [String] {
         return components(separatedBy: input)
-
     }
 
 }
