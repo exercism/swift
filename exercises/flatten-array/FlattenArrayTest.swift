@@ -1,11 +1,3 @@
-//
-//  FlattenArrayTest.swift
-//  xSwift
-//
-//  Created by Alwyn Savio Concessao on 19/12/16.
-//  Copyright © 2016 exercism.io. All rights reserved.
-//
-
 import XCTest
 
 class FlattenArrayTest: XCTestCase {
