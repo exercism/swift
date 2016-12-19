@@ -223,6 +223,16 @@
         ]
     },
     {
+        "difficulty": 3,
+        "slug": "flatten-array",
+        "topics": [
+            "Searching",
+            "Looping",
+            "Lists"
+        ]
+    },
+
+    {
        "difficulty": 3,
         "slug": "sublist",
         "topics": [
