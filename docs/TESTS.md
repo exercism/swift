@@ -2,7 +2,7 @@
 
 This guide explains how to create and configure a Swift-based Xcode project for Exercism.
 
-Apple does not support user-defined project templates in Xcode, and the default templates are more elaborate than what is needed for Exercism. This guide bridges that gap.
+Apple does not support user-defined project templates in Xcode, and the default templates are more elaborate than those needed for Exercism. This guide bridges that gap.
 
 These instructions are written with the expectation that some readers will be very new to Xcode. Therefore each step is described in excruciating detail. However, after a few projects, setting up a fresh project should only take a minute.
 
@@ -78,13 +78,13 @@ In the Finder, locate the root folder `hello-world` for this exercise. Drag the 
 
 ![tests_009-importTestSource](/docs/img/tests_009-importTestSource.png)
 
-Select the newly imported file in the File Inspector to open the source code. Add the line `@testable import HelloWorld` above the class declaration. (When the Xcode project name contains a hyphen, replace it with an underscore. For example, `Word-Count` would become `Word-Count`.) The image below shows how the document should appear. Red errors are likely at this stage, and normal.
+Select the newly imported file in the File Inspector to open the source code. Add the line `@testable import HelloWorld` above the class declaration. (When the Xcode project name contains a hyphen, replace it with an underscore. For example, `Word-Count` would become `Word_Count`.) The image below shows how the document should appear. Red errors are likely at this stage, and normal.
 
 ![tests_010-testsImportExample](/docs/img/tests_010-testsImportExample.png)
 
 Here is how the file inspector should look now:
 
-![011-finallayoutexample](/docs/img/011-finalLayoutExample.png)
+![011-finallayoutexample](/docs/img/tests_011-finalLayoutExample.png)
 
 The housekeeping is finished and Xcode is ready! To review:
 
