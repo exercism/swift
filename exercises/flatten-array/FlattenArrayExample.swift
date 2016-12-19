@@ -1,10 +1,10 @@
 import Foundation
 
-func flattenArray(list:[Any?])-> [Any] {
+func flattenArray(list: [Any?]) -> [Any] {
 
     var anyArray = [Any]()
 
-    func extractArrayElements(array:[Any?]) {
+    func extractArrayElements(array: [Any?]) {
 
         for element in array {
 
@@ -12,9 +12,9 @@ func flattenArray(list:[Any?])-> [Any] {
 
                 let anyObjectArray = j as? [Any?]
 
-                if let forceUnwrapAnyArray = anyObjectArray {
+                if let forceUnwrappedArray = anyObjectArray {
 
-                    extractArrayElements(array: forceUnwrapAnyArray)
+                    extractArrayElements(array: forceUnwrappedArray)
 
                 }
 
