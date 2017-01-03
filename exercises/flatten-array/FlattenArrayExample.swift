@@ -1,8 +1,13 @@
 import Foundation
 
-func flattenArray(list: [Any?]) -> [Any] {
+func constructList(elements: Any?...) -> [Any?] {
 
-    var anyArray = [Any]()
+    return elements
+}
+
+func flattenArray<T>(_ list: [Any?]) -> [T] {
+
+    var flattenedArray = [T]()
 
     func extractArrayElements(array: [Any?]) {
 
@@ -12,17 +17,17 @@ func flattenArray(list: [Any?]) -> [Any] {
 
                 let anyObjectArray = j as? [Any?]
 
-                if let forceUnwrappedArray = anyObjectArray {
+                if let unwrappedArray = anyObjectArray {
 
-                    extractArrayElements(array: forceUnwrappedArray)
+                    extractArrayElements(array: unwrappedArray)
 
                 }
 
-                let integerValue = j as? Int
+                let value = j as? T
 
-                if let i = integerValue {
+                if let i = value {
 
-                    anyArray.append(i)
+                    flattenedArray.append(i)
                 }
 
             }
@@ -32,6 +37,6 @@ func flattenArray(list: [Any?]) -> [Any] {
 
     extractArrayElements(array: list)
 
-    return anyArray
+    return flattenedArray
 
 }
