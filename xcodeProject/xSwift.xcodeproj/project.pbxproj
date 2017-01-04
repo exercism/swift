@@ -112,11 +112,14 @@
 		1E9A63EE1C506EFD00E28AE1 /* WordyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63861C506EFC00E28AE1 /* WordyExample.swift */; };
 		1E9A63EF1C506EFD00E28AE1 /* WordyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A63871C506EFC00E28AE1 /* WordyTest.swift */; };
 		1EAF95E11C90C587009DDCB6 /* DominoesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */; };
-		A004DFC31DF8068A00800271 /* BeerSongExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A004DFC11DF8068A00800271 /* BeerSongExample.swift */; };
+		A0405CB61E07FFE500B6C662 /* FlattenArrayExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0405CB51E07FFE500B6C662 /* FlattenArrayExample.swift */; };
+		A0405CB81E07FFF500B6C662 /* FlattenArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0405CB71E07FFF500B6C662 /* FlattenArrayTest.swift */; };
+        A004DFC31DF8068A00800271 /* BeerSongExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A004DFC11DF8068A00800271 /* BeerSongExample.swift */; };
 		A004DFC41DF8068A00800271 /* BeerSongTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A004DFC21DF8068A00800271 /* BeerSongTest.swift */; };
 		A0DBCBF81E0000B800E0DFBF /* helloWorldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBCBF71E0000B800E0DFBF /* helloWorldTest.swift */; };
 		A0DBCBFB1E00017E00E0DFBF /* SublistExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBCBF91E00017E00E0DFBF /* SublistExample.swift */; };
 		A0DBCBFC1E00017E00E0DFBF /* SubListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBCBFA1E00017E00E0DFBF /* SubListTest.swift */; };
+
 		E908CD461C6AD05F005D081E /* FoodChainExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD451C6AD05F005D081E /* FoodChainExample.swift */; };
 		E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD471C6AD076005D081E /* FoodChainTest.swift */; };
 		E908CD541C6D7AD1005D081E /* PascalsTriangleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */; };
@@ -265,11 +268,15 @@
 		1EAF95E01C90C587009DDCB6 /* DominoesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DominoesTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9D3155D21BA12FB1009A3991 /* xSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3155D51BA12FB1009A3991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A004DFC11DF8068A00800271 /* BeerSongExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerSongExample.swift; path = "beer-song/BeerSongExample.swift"; sourceTree = "<group>"; };
+
+		A0405CB51E07FFE500B6C662 /* FlattenArrayExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlattenArrayExample.swift; path = "flatten-array/FlattenArrayExample.swift"; sourceTree = "<group>"; };
+		A0405CB71E07FFF500B6C662 /* FlattenArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlattenArrayTest.swift; path = "flatten-array/FlattenArrayTest.swift"; sourceTree = "<group>"; };
+        A004DFC11DF8068A00800271 /* BeerSongExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerSongExample.swift; path = "beer-song/BeerSongExample.swift"; sourceTree = "<group>"; };
 		A004DFC21DF8068A00800271 /* BeerSongTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerSongTest.swift; path = "beer-song/BeerSongTest.swift"; sourceTree = "<group>"; };
 		A0DBCBF71E0000B800E0DFBF /* helloWorldTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helloWorldTest.swift; sourceTree = "<group>"; };
 		A0DBCBF91E00017E00E0DFBF /* SublistExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SublistExample.swift; path = "sublist/SublistExample.swift"; sourceTree = "<group>"; };
 		A0DBCBFA1E00017E00E0DFBF /* SubListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubListTest.swift; path = "sublist/SubListTest.swift"; sourceTree = "<group>"; };
+
 		E908CD451C6AD05F005D081E /* FoodChainExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodChainExample.swift; path = "food-chain/FoodChainExample.swift"; sourceTree = "<group>"; };
 		E908CD471C6AD076005D081E /* FoodChainTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = FoodChainTest.swift; path = "food-chain/FoodChainTest.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E908CD531C6D7AD1005D081E /* PascalsTriangleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PascalsTriangleExample.swift; path = "pascals-triangle/PascalsTriangleExample.swift"; sourceTree = "<group>"; };
@@ -352,6 +359,7 @@
 				1E9A63071C506EFC00E28AE1 /* difference-of-squares */,
 				1EAF95DF1C90C587009DDCB6 /* dominoes */,
 				1E9A630A1C506EFC00E28AE1 /* etl */,
+				A0405CB41E07FF0C00B6C662 /* flatten-array */,
 				E908CD431C6AD03C005D081E /* food-chain */,
 				1E9A630D1C506EFC00E28AE1 /* gigasecond */,
 				1E9A63101C506EFC00E28AE1 /* grade-school */,
@@ -914,6 +922,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+
+		A0405CB41E07FF0C00B6C662 /* flatten-array */ = {
+			isa = PBXGroup;
+			children = (
+				A0405CB51E07FFE500B6C662 /* FlattenArrayExample.swift */,
+				A0405CB71E07FFF500B6C662 /* FlattenArrayTest.swift */,
+			);
+			name = "flatten-array";
+            sourceTree = "<group>";
+
+};
 		A016F7A31DF0418D005640FF /* beer-song */ = {
 			isa = PBXGroup;
 			children = (
@@ -930,6 +949,7 @@
 				A0DBCBFA1E00017E00E0DFBF /* SubListTest.swift */,
 			);
 			name = "sublist";
+
 			sourceTree = "<group>";
 		};
 		E908CD431C6AD03C005D081E /* food-chain */ = {
@@ -1257,6 +1277,7 @@
 				1E9A63A91C506EFD00E28AE1 /* helloWorldExample.swift in Sources */,
 				E9AFA1871C624FD5006AD72D /* MinesweeperTest.swift in Sources */,
 				1E9A63A51C506EFD00E28AE1 /* GrainsTest.swift in Sources */,
+				A0405CB81E07FFF500B6C662 /* FlattenArrayTest.swift in Sources */,
 				1E167A121C8AA5D7001EAD90 /* PokerTest.swift in Sources */,
 				1E9A63E11C506EFD00E28AE1 /* StrainTest.swift in Sources */,
 				1E9A63B71C506EFD00E28AE1 /* NthPrimeTest.swift in Sources */,
@@ -1270,7 +1291,10 @@
 				E9AFA1531C5945C9006AD72D /* HexadecimalTest.swift in Sources */,
 				1E9A63AF1C506EFD00E28AE1 /* LeapTest.swift in Sources */,
 				1E9A63901C506EFD00E28AE1 /* AtbashExample.swift in Sources */,
+
+				A0405CB61E07FFE500B6C662 /* FlattenArrayExample.swift in Sources */,
 				A0DBCBFB1E00017E00E0DFBF /* SublistExample.swift in Sources */,
+
 				1E9A63C61C506EFD00E28AE1 /* QueenAttackExample.swift in Sources */,
 				E90DE39E1D3E818000F3B881 /* AllYourBaseTest.swift in Sources */,
 				E908CD481C6AD076005D081E /* FoodChainTest.swift in Sources */,
