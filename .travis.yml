@@ -16,6 +16,5 @@ script:
 
 after_success:
   - danger
-  - ls -al
   - python -m json.tool lintreport.json
   - python -m json.tool build/reports/errors.json
