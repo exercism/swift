@@ -91,9 +91,9 @@ class GradeSchoolTest: XCTestCase {
         let result = school.sortedRoster
 
         let expected = [
-            3 : ["Kyle"],
-            4 : ["Christopher", "Jennifer"],
-            6 : ["Kareem"]
+            3: ["Kyle"],
+            4: ["Christopher", "Jennifer"],
+            6: ["Kareem"]
         ]
         XCTAssertEqual(Array(result.keys).sorted(by: >), Array(expected.keys).sorted(by: >))
 

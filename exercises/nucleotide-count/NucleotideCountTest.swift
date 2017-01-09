@@ -53,7 +53,7 @@ class NucleotideCountTest: XCTestCase {
         let longStrand = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
         let dna = DNA(strand: longStrand)!
         let results = dna.counts()
-        let expected = [ "A": 20, "T": 21, "C": 12, "G" : 17 ]
+        let expected = [ "A": 20, "T": 21, "C": 12, "G": 17 ]
         XCTAssertEqual(results, expected)
     }
 }
