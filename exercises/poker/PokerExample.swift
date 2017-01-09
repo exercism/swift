@@ -60,7 +60,7 @@ enum HandRank {
     static func parsePairs(_ inputHand: PokerHand) -> [(rank: Rank, count: Int)] {
         let ranks = inputHand.hand.map({$0.rank})
         let rankSet = Set(ranks)
-        var toReturn = [Rank:Int]()
+        var toReturn = [Rank: Int]()
         for each in ranks {
             if rankSet.contains(each) {
                 toReturn[each] = (toReturn[each] ?? 0) + 1

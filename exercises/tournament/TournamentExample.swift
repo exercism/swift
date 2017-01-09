@@ -63,7 +63,7 @@ struct Tournament {
         }
     }
 
-    private var teams = [String : TeamResult]()
+    private var teams = [String: TeamResult]()
     private mutating func addResult(_ team1: String, team2: String, outcome: Outcome) -> Void {
         // Invert outcome for the second team.
         let outcome2: Outcome  = (outcome == Outcome.win) ? Outcome.loss :

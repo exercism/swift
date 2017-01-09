@@ -45,10 +45,10 @@ struct WordProblem {
     }
 
     private let operans =
-        ["plus" : "+",
-         "minus" : "-",
-         "multiplied by" : "*",
-         "divided by" : "/"]
+        ["plus": "+",
+         "minus": "-",
+         "multiplied by": "*",
+         "divided by": "/"]
 
     private let funcs =
         ["+": {(a: Int, b: Int) -> Int in return a + b},
