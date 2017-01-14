@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import foodChain
 
-class FoodChainTest: XCTestCase {
+class foodChainTests: XCTestCase {
 
     func testVerse1() {
         let expected =
@@ -109,4 +108,14 @@ class FoodChainTest: XCTestCase {
         XCTAssertEqual(expected, FoodChain.song())
     }
 
+    static var allTests: [(String, (foodChainTests) -> () throws -> Void)] {
+        return [
+            ("testVerse1", testVerse1),
+            ("testVerse2", testVerse2),
+            ("testVerse5", testVerse5),
+            ("testVerse7", testVerse7),
+            ("testVerse8", testVerse8),
+            ("testWholeSong", testWholeSong),
+        ]
+    }
 }
