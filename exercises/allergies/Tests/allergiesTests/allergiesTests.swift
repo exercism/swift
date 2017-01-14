@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import allergies
 
-class AllergiesTest: XCTestCase {
+class allergiesTests: XCTestCase {
 
     func testBob() {
 
@@ -43,5 +42,14 @@ class AllergiesTest: XCTestCase {
         XCTAssertTrue(allergies.hasAllergy(.pollen))
         XCTAssertTrue(allergies.hasAllergy(.cats))
 
+    }
+
+    static var allTests: [(String, (allergiesTests) -> () throws -> Void)] {
+        return [
+            ("testBob", testBob),
+            ("testEggsNcats", testEggsNcats),
+            ("testNone", testNone),
+            ("testAll", testAll),
+        ]
     }
 }
