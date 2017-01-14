@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import anagram
 
-class AnagramTest: XCTestCase {
+class anagramTests: XCTestCase {
 
     func testNoMatches() {
         let anagram = Anagram(word: "diaper")
@@ -73,4 +72,18 @@ class AnagramTest: XCTestCase {
         XCTAssertEqual(results, expected)
     }
 
+    static var allTests: [(String, (anagramTests) -> () throws -> Void)] {
+        return [
+            ("testNoMatches", testNoMatches),
+            ("testDetectSimpleAnagram", testDetectSimpleAnagram),
+            ("testDetectMultipleAnagrams", testDetectMultipleAnagrams),
+            ("testDoesNotConfuseDifferentDuplicates", testDoesNotConfuseDifferentDuplicates),
+            ("testIdenticalWordIsNotAnagram", testIdenticalWordIsNotAnagram),
+            ("testEliminateAnagramsWithSameChecksum", testEliminateAnagramsWithSameChecksum),
+            ("testEliminateAnagramSubsets", testEliminateAnagramSubsets),
+            ("testDetectAnagram", testDetectAnagram),
+            ("testMultipleAnagrams", testMultipleAnagrams),
+            ("testAnagramsAreCaseInsensitive", testAnagramsAreCaseInsensitive),
+        ]
+    }
 }
