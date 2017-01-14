@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import BeerSong
 
-class BeerSongTest: XCTestCase {
+class BeerSongTests: XCTestCase {
 
     func testGenerateVerseForZeroBeerBottles() {
 
@@ -41,4 +40,13 @@ class BeerSongTest: XCTestCase {
         XCTAssertEqual(expectedVerses, beerSong.generateVersesOfBeerSong())
     }
 
+    static var allTests: [(String, (BeerSongTests) -> () throws -> Void)] {
+        return [
+            ("testGenerateVerseForZeroBeerBottles", testGenerateVerseForZeroBeerBottles),
+            ("testGenerateVerseForOneBeerBottle", testGenerateVerseForOneBeerBottle),
+            ("testGenerateVersesForTwoBeerBottles", testGenerateVersesForTwoBeerBottles),
+            ("testGenerateVersesForFiftyEightBeerBottles", testGenerateVersesForFiftyEightBeerBottles),
+            ("testGenerateAllSongVerses", testGenerateAllSongVerses),
+        ]
+    }
 }
