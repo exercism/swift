@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import gradeSchool
 
-private extension XCTestCase {
+class gradeSchoolTests: XCTestCase {
 
     // Workaround unit test liminitaiton on Optional Arrays/Sets
     private func sameCollection<C: Collection>(_ result: C?, _ expected: [String]?) -> Bool where C.Iterator.Element == String {
@@ -23,8 +22,6 @@ private extension XCTestCase {
     func XCTAssertEqualCollection (_ collectionA1: [String]?, _ collectionA2: [String]? ) {
         XCTAssert(sameCollection(collectionA1, collectionA2))
     }
-}
-class GradeSchoolTest: XCTestCase {
 
     func testAnEmptySchool() {
         let school   = GradeSchool()
@@ -91,9 +88,9 @@ class GradeSchoolTest: XCTestCase {
         let result = school.sortedRoster
 
         let expected = [
-            3 : ["Kyle"],
-            4 : ["Christopher", "Jennifer"],
-            6 : ["Kareem"]
+            3: ["Kyle"],
+            4: ["Christopher", "Jennifer"],
+            6: ["Kareem"]
         ]
         XCTAssertEqual(Array(result.keys).sorted(by: >), Array(expected.keys).sorted(by: >))
 
@@ -102,4 +99,15 @@ class GradeSchoolTest: XCTestCase {
         XCTAssertEqualCollection(result[6], expected[6])
     }
 
+    static var allTests: [(String, (gradeSchoolTests) -> () throws -> Void)] {
+        return [
+            ("testAnEmptySchool", testAnEmptySchool),
+            ("testAddStudent", testAddStudent),
+            ("testAddMoreStudentsInSameClass", testAddMoreStudentsInSameClass),
+            ("testAddStudentsToDifferentGrades", testAddStudentsToDifferentGrades),
+            ("testGetStudentsInAGrade", testGetStudentsInAGrade),
+            ("testGetStudentsInANonExistantGrade", testGetStudentsInANonExistantGrade),
+            ("testSortSchool", testSortSchool),
+        ]
+    }
 }
