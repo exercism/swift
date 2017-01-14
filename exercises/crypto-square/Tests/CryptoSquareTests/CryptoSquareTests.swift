@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import CryptoSquare
 
-class CryptoSquareTest: XCTestCase {
+class CryptoSquareTests: XCTestCase {
 
     func testNormalizeStrangeCharacters() {
         let crypto = Crypto("s#$%^&plunk")
@@ -82,5 +81,25 @@ class CryptoSquareTest: XCTestCase {
         let crypto = Crypto("Have a nice day. Feed the dog & chill out!")
         let expected = "hifei acedl veeol eddgo aatcu nyhht"
         XCTAssertEqual(expected, crypto.normalizeCiphertext)
+    }
+
+    static var allTests: [(String, (CryptoSquareTests) -> () throws -> Void)] {
+        return [
+            ("testNormalizeStrangeCharacters", testNormalizeStrangeCharacters),
+            ("testNormalizeUppercaseCharacters", testNormalizeUppercaseCharacters),
+            ("testNormalizeWithNumbers", testNormalizeWithNumbers),
+            ("testSizeOfSmallSquare", testSizeOfSmallSquare),
+            ("testSizeOfSlightlyLargerSquare", testSizeOfSlightlyLargerSquare),
+            ("testSizeOfNonPerfectSquare", testSizeOfNonPerfectSquare),
+            ("testSizeIsDeterminedByNormalizedPlaintext", testSizeIsDeterminedByNormalizedPlaintext),
+            ("testPlaintextSegments", testPlaintextSegments),
+            ("testOtherPlaintextSegments", testOtherPlaintextSegments),
+            ("testCiphertext", testCiphertext),
+            ("testAnotherCiphertext", testAnotherCiphertext),
+            ("testNormalizedCiphertext", testNormalizedCiphertext),
+            ("testNormalizedCiphertextSpillsIntoShortSegment", testNormalizedCiphertextSpillsIntoShortSegment),
+            ("testAnotherNormalizedCiphertext", testAnotherNormalizedCiphertext),
+            ("testNormalizedCiphertextWithPunctuation", testNormalizedCiphertextWithPunctuation),
+        ]
     }
 }

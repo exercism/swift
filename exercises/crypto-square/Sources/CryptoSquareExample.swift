@@ -1,4 +1,4 @@
-import Darwin
+import Foundation
 
 private extension String {
 
@@ -32,7 +32,7 @@ struct Crypto {
 
     func getSquareSize(_ text: String, floorNoCeling: Bool = false) -> Int {
         let tempDouble = Double(text.characters.count)
-        let tempRoot = sqrt(tempDouble)
+        let tempRoot = tempDouble.squareRoot()
         let tempCeil = ceil(tempRoot)
         let tempFloor = floor(tempRoot)
         if floorNoCeling { return Int(tempFloor)} else {
