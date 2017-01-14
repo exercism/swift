@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import grains
 
-// swiftlint:disable force_try
-class GrainsTest: XCTestCase {
+class grainsTests: XCTestCase {
 
     func testInvalidInput1() {
         XCTAssertThrowsError(try Grains.square(65)) { error in
@@ -65,5 +63,21 @@ class GrainsTest: XCTestCase {
 
     func testTotalGrains() {
         XCTAssertEqual(Grains.total, 18_446_744_073_709_551_615)
+    }
+
+    static var allTests: [(String, (grainsTests) -> () throws -> Void)] {
+        return [
+            ("testInvalidInput1", testInvalidInput1),
+            ("testInvalidInput2", testInvalidInput2),
+            ("testInvalidInput3", testInvalidInput3),
+            ("testSquare1", testSquare1),
+            ("testSquare2", testSquare2),
+            ("testSquare3", testSquare3),
+            ("testSquare4", testSquare4),
+            ("testSquare16", testSquare16),
+            ("testSquare32", testSquare32),
+            ("testSquare64", testSquare64),
+            ("testTotalGrains", testTotalGrains),
+        ]
     }
 }
