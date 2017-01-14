@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import BinarySearchTree
 
-class BinarySearchTreeTest: XCTestCase {
+class BinarySearchTreeTests: XCTestCase {
 
     func testDataIsRetained() {
         XCTAssertEqual(4, BinarySearchTree(4).data)
@@ -73,4 +72,17 @@ class BinarySearchTreeTest: XCTestCase {
         XCTAssertEqual([1, 2, 3, 4, 5, 6, 7], four.allData())
     }
 
+    static var allTests: [(String, (BinarySearchTreeTests) -> () throws -> Void)] {
+        return [
+            ("testDataIsRetained", testDataIsRetained),
+            ("testInsertingLess", testInsertingLess),
+            ("testInsertingSame", testInsertingSame),
+            ("testInsertingRight", testInsertingRight),
+            ("testComplexTree", testComplexTree),
+            ("testAllDataForOneElement", testAllDataForOneElement),
+            ("testAllDataForSmallerElement", testAllDataForSmallerElement),
+            ("testAllDataForLargerElement", testAllDataForLargerElement),
+            ("testAllDataForComplexTree", testAllDataForComplexTree),
+        ]
+    }
 }
