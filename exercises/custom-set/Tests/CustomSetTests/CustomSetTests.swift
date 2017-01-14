@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import CustomSet
 
-class CustomSetTest: XCTestCase {
-
+class CustomSetTests: XCTestCase {
     let emptyTypedArray = [Int]()
 
     func testEqual() {
@@ -108,5 +106,23 @@ class CustomSetTest: XCTestCase {
                        CustomSet([2]).union(CustomSet(emptyTypedArray)))
         XCTAssertEqual(CustomSet(emptyTypedArray),
                        CustomSet(emptyTypedArray).union(CustomSet(emptyTypedArray)))
+    }
+
+    static var allTests: [(String, (CustomSetTests) -> () throws -> Void)] {
+        return [
+            ("testEqual", testEqual),
+            ("testNoDuplicates", testNoDuplicates),
+            ("testDeleteMethod", testDeleteMethod),
+            ("testDifference", testDifference),
+            ("testDisjoint", testDisjoint),
+            ("testEmptyMethod", testEmptyMethod),
+            ("testIntersection", testIntersection),
+            ("testMember", testMember),
+            ("testPutMethod", testPutMethod),
+            ("testSize", testSize),
+            ("testSubsetMethod", testSubsetMethod),
+            ("testToA", testToA),
+            ("testUnion", testUnion),
+        ]
     }
 }
