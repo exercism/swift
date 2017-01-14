@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import dominoes
 
-class DominoesTest: XCTestCase {
+class dominoesTests: XCTestCase {
 
     func testEmptyInputEmptyOutput() {
         let input = [(Int, Int)]()
@@ -64,4 +63,20 @@ class DominoesTest: XCTestCase {
         XCTAssertTrue(Dominoes(input).chained)
     }
 
+    static var allTests: [(String, (dominoesTests) -> () throws -> Void)] {
+        return [
+            ("testEmptyInputEmptyOutput", testEmptyInputEmptyOutput),
+            ("testSingletonInputSingletonOutput", testSingletonInputSingletonOutput),
+            ("testSingletonThatCantBeChained", testSingletonThatCantBeChained),
+            ("testNoRepeatNumbers", testNoRepeatNumbers),
+            ("testCanReverseDominoes", testCanReverseDominoes),
+            ("testInvalidInput", testInvalidInput),
+            ("testDisconnectedSimple", testDisconnectedSimple),
+            ("testDisconnectedDoubleLoop", testDisconnectedDoubleLoop),
+            ("testDisconnectedSingleIsolated", testDisconnectedSingleIsolated),
+            ("testNeedBacktrack", testNeedBacktrack),
+            ("testSeparateLoops", testSeparateLoops),
+            ("testTenElements", testTenElements),
+        ]
+    }
 }
