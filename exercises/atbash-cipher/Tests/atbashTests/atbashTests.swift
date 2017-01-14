@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import atbash
 
-class AtbashTest: XCTestCase {
+class atbashTests: XCTestCase {
 
     func testEncodeNo() {
         XCTAssertEqual("ml", Atbash.encode("no") )
@@ -39,4 +38,16 @@ class AtbashTest: XCTestCase {
         XCTAssertEqual(cipher, Atbash.encode(plaintext) )
     }
 
+    static var allTests: [(String, (atbashTests) -> () throws -> Void)] {
+        return [
+            ("testEncodeNo", testEncodeNo),
+            ("testEncodeYes", testEncodeYes),
+            ("testEncodeOMG", testEncodeOMG),
+            ("testEncodeOMGWithSpaces", testEncodeOMGWithSpaces),
+            ("testEncodeLongWord", testEncodeLongWord),
+            ("testEncodeNumbers", testEncodeNumbers),
+            ("testEncodeSentence", testEncodeSentence),
+            ("testEncodeAllTheThings", testEncodeAllTheThings),
+        ]
+    }
 }
