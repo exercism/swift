@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
-// swiftlint:disable force_try
+import XCTest
+@testable import BinarySearch
 
-class BinarySearchTest: XCTestCase {
+class BinarySearchTests: XCTestCase {
 
     func testHasListData() {
         let binary = try! BinarySearch([1, 3, 4, 6, 8, 9, 11])
@@ -40,5 +38,17 @@ class BinarySearchTest: XCTestCase {
         let binary = try! BinarySearch([1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377])
         XCTAssertEqual(5, binary.searchFor(21))
         XCTAssertEqual(6, binary.searchFor(34))
+    }
+
+    static var allTests: [(String, (BinarySearchTests) -> () throws -> Void)] {
+        return [
+            ("testHasListData", testHasListData),
+            ("testThrowsErrorForUnsortedList", testThrowsErrorForUnsortedList),
+            ("testNilForDataNotInList", testNilForDataNotInList),
+            ("testFindsPositionOfMiddleItem", testFindsPositionOfMiddleItem),
+            ("testFindsPositionOfSearchData", testFindsPositionOfSearchData),
+            ("testFindsPositionInALargerList", testFindsPositionInALargerList),
+            ("testFindsCorrectPositionInAListWithAnEvenNumberOfElements", testFindsCorrectPositionInAListWithAnEvenNumberOfElements),
+        ]
     }
 }
