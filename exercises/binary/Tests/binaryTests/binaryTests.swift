@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import binary
 
-class BinaryTest: XCTestCase {
+class binaryTests: XCTestCase {
 
     func testBinary0IsDecimal0() {
         XCTAssertEqual( 0, Int(Binary("0")))
@@ -51,4 +50,19 @@ class BinaryTest: XCTestCase {
 
     }
 
+    static var allTests: [(String, (binaryTests) -> () throws -> Void)] {
+        return [
+            ("testBinary0IsDecimal0", testBinary0IsDecimal0),
+            ("testBinary1isDecimal1", testBinary1isDecimal1),
+            ("testBinary10isDecimal2", testBinary10isDecimal2),
+            ("testBinary11isDecimal3", testBinary11isDecimal3),
+            ("testBinary100isDecimal4", testBinary100isDecimal4),
+            ("testBinary1001isDecimal9", testBinary1001isDecimal9),
+            ("testBinary11010isDecimal26", testBinary11010isDecimal26),
+            ("testBinary10001101000isDecimal1128", testBinary10001101000isDecimal1128),
+            ("testBinaryIgnoresLeadingZeros", testBinaryIgnoresLeadingZeros),
+            ("testInvalidBinaryIsDecimal0", testInvalidBinaryIsDecimal0),
+            ("testInvalidBinaryNumbers", testInvalidBinaryNumbers),
+        ]
+    }
 }
