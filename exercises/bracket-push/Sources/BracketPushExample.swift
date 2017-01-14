@@ -1,9 +1,9 @@
 struct BracketPush {
 
     private static let brackets: [Character : Character] = [
-        ")" : "(",
-        "]" : "[",
-        "}" : "{"
+        ")": "(",
+        "]": "[",
+        "}": "{"
     ]
 
     static func paired(text: String) -> Bool {
