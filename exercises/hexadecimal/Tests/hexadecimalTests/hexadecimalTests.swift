@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import hexadecimal
 
-class HexadecimalTest: XCTestCase {
+class hexadecimalTests: XCTestCase {
 
     func testHex1IsDecimal1() {
         XCTAssertEqual(1, Int(Hexadecimal("1")))
@@ -44,4 +43,18 @@ class HexadecimalTest: XCTestCase {
         XCTAssertEqual(16_776_960, Int(Hexadecimal("ffff00")))
     }
 
+    static var allTests: [(String, (hexadecimalTests) -> () throws -> Void)] {
+        return [
+            ("testHex1IsDecimal1", testHex1IsDecimal1),
+            ("testHexCIsDecimal12", testHexCIsDecimal12),
+            ("testHex10IsDecimal16", testHex10IsDecimal16),
+            ("testHexAFIsDecimal175", testHexAFIsDecimal175),
+            ("testHex100IsDecimal256", testHex100IsDecimal256),
+            ("testHex19aceIsDecimal105166", testHex19aceIsDecimal105166),
+            ("testInvalidHexIsNil", testInvalidHexIsNil),
+            ("testBlack", testBlack),
+            ("testWhite", testWhite),
+            ("testYellow", testYellow),
+        ]
+    }
 }
