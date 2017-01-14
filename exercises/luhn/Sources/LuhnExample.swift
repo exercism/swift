@@ -1,4 +1,4 @@
-import Darwin
+import Foundation
 
 struct Luhn {
 

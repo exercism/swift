@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import luhn
 
-class LuhnTest: XCTestCase {
+class luhnTests: XCTestCase {
 
     func testAddends() {
         let luhn = Luhn(12_121)
@@ -49,4 +48,17 @@ class LuhnTest: XCTestCase {
         XCTAssertEqual(8_372_637_564, number)
     }
 
+    static var allTests: [(String, (luhnTests) -> () throws -> Void)] {
+        return [
+            ("testAddends", testAddends),
+            ("testTooLargeAddend", testTooLargeAddend),
+            ("testChecksum", testChecksum),
+            ("testChecksumAgain", testChecksumAgain),
+            ("testInvalidNumber", testInvalidNumber),
+            ("testValidNumber", testValidNumber),
+            ("testCreateValidNumber", testCreateValidNumber),
+            ("testCreateOtherValidNumber", testCreateOtherValidNumber),
+            ("testCreateYetAnotherValidNumber", testCreateYetAnotherValidNumber),
+        ]
+    }
 }
