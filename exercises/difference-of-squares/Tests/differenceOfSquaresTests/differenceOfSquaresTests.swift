@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import differenceOfSquares
 
-class DifferenceOfSquaresTest: XCTestCase {
+class differenceOfSquaresTests: XCTestCase {
 
     func testSquareOfSumsTo5() {
         XCTAssertEqual(225, Squares(5).squareOfSums)
@@ -40,4 +39,17 @@ class DifferenceOfSquaresTest: XCTestCase {
         XCTAssertEqual(25_164_150, Squares(100).differenceOfSquares)
     }
 
+    static var allTests: [(String, (differenceOfSquaresTests) -> () throws -> Void)] {
+        return [
+            ("testSquareOfSumsTo5", testSquareOfSumsTo5),
+            ("testSumOfSquaresTo5", testSumOfSquaresTo5),
+            ("testDifferenceOfSquaresOfSumsTo5", testDifferenceOfSquaresOfSumsTo5),
+            ("testSquareOfSumsTo10", testSquareOfSumsTo10),
+            ("testSumOfSquaresTo10", testSumOfSquaresTo10),
+            ("testDifferenceOfSquaresOfSumsTo10", testDifferenceOfSquaresOfSumsTo10),
+            ("testSquareOfSumsTo100", testSquareOfSumsTo100),
+            ("testSumOfSquaresTo100", testSumOfSquaresTo100),
+            ("testDifferenceOfSquaresOfSumsTo100", testDifferenceOfSquaresOfSumsTo100),
+        ]
+    }
 }
