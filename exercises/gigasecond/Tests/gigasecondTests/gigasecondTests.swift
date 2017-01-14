@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import gigasecond
 
-class GigasecondTest: XCTestCase {
+class gigasecondTests: XCTestCase {
 
     func test1 () {
         let gs = Gigasecond(from: "2011-04-25T00:00:00")?.description
@@ -32,5 +31,16 @@ class GigasecondTest: XCTestCase {
     func testFullTimeWithDayRollOver () {
         let gs = Gigasecond(from: "2015-01-24T23:59:59")?.description
         XCTAssertEqual("2046-10-03T01:46:39", gs)
+    }
+
+    static var allTests: [(String, (gigasecondTests) -> () throws -> Void)] {
+        return [
+            ("test1 ", test1 ),
+            ("test2 ", test2 ),
+            ("test3 ", test3 ),
+            ("testTimeWithSeconds ", testTimeWithSeconds ),
+            ("testFullTimeSpecified ", testFullTimeSpecified ),
+            ("testFullTimeWithDayRollOver ", testFullTimeWithDayRollOver ),
+        ]
     }
 }
