@@ -1,10 +1,9 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import clock
 
 // Test for Protocols: CustomStringConvertible, Equatable
 
-class ClockTest: XCTestCase {
+class clockTests: XCTestCase {
 
     // MARK: - Create: Test creating a new clock with an initial time.
 
@@ -252,4 +251,56 @@ class ClockTest: XCTestCase {
         XCTAssertEqual(clock1, clock2)
     }
 
+    static var allTests: [(String, (clockTests) -> () throws -> Void)] {
+        return [
+            ("testOnTheHour", testOnTheHour),
+            ("testPastTheHour", testPastTheHour),
+            ("testMidnightIsZeroHours", testMidnightIsZeroHours),
+            ("testHourRollsOver", testHourRollsOver),
+            ("testHourRollsOverContinuously", testHourRollsOverContinuously),
+            ("testSixtyMinutesIsNextHour", testSixtyMinutesIsNextHour),
+            ("testMinutesRollOver", testMinutesRollOver),
+            ("testMinutesRollOverContinuously", testMinutesRollOverContinuously),
+            ("testHoursAndMinutesRollOver", testHoursAndMinutesRollOver),
+            ("testHoursAndMinutesRollOverToExactlyMidnight", testHoursAndMinutesRollOverToExactlyMidnight),
+            ("testNegativeHour", testNegativeHour),
+            ("testNegativeHourRollsOver", testNegativeHourRollsOver),
+            ("testNegativeHourRollsOverContinuously", testNegativeHourRollsOverContinuously),
+            ("testNegativeMinutes", testNegativeMinutes),
+            ("testNegativeMinutesRollOver", testNegativeMinutesRollOver),
+            ("testNegativeMinutesRollOverContinuously", testNegativeMinutesRollOverContinuously),
+            ("testNegativeHoursAndMinutesBothRollOverContinuously", testNegativeHoursAndMinutesBothRollOverContinuously),
+            ("testAddMinutes", testAddMinutes),
+            ("testAddNoMinutes", testAddNoMinutes),
+            ("testAddToNextHour", testAddToNextHour),
+            ("testAddMoreThanOneHour", testAddMoreThanOneHour),
+            ("testAddMoreThanTwoHoursWithCarry", testAddMoreThanTwoHoursWithCarry),
+            ("testAddAcrossMidnight", testAddAcrossMidnight),
+            ("testAddMoreThanOneDay", testAddMoreThanOneDay),
+            ("testAddMoreThanTwoDays", testAddMoreThanTwoDays),
+            ("testSubtractMinutes", testSubtractMinutes),
+            ("testSubtractToPreviousHour", testSubtractToPreviousHour),
+            ("testSubtractMoreThanAnHour", testSubtractMoreThanAnHour),
+            ("testSubtractAcrossMidnight", testSubtractAcrossMidnight),
+            ("testSubtractMoreThanTwoHours", testSubtractMoreThanTwoHours),
+            ("testSubtractMoreTHanTwoHoursWithBorrow", testSubtractMoreTHanTwoHoursWithBorrow),
+            ("testSubtractMoreThanOneDay", testSubtractMoreThanOneDay),
+            ("testSubtractMoreThanTwoDays", testSubtractMoreThanTwoDays),
+            ("testClocksWithSameTime", testClocksWithSameTime),
+            ("testClocksAMinuteApart", testClocksAMinuteApart),
+            ("testClocksAnHourApart", testClocksAnHourApart),
+            ("testClocksWithHourOverflow", testClocksWithHourOverflow),
+            ("testClocksWithHourOverflowBySeveralDays", testClocksWithHourOverflowBySeveralDays),
+            ("testClocksWithNegativeHour", testClocksWithNegativeHour),
+            ("testClocksWithNegativeHourThatWraps", testClocksWithNegativeHourThatWraps),
+            ("testClocksWithNegativeHourThatWrapsMultipleTimes", testClocksWithNegativeHourThatWrapsMultipleTimes),
+            ("testClocksWithMinuteOverflow", testClocksWithMinuteOverflow),
+            ("testClocksWithMinuteOverflowBySeveralDays", testClocksWithMinuteOverflowBySeveralDays),
+            ("testClocksWithNegativeMinute", testClocksWithNegativeMinute),
+            ("testClocksWithNegativeMinuteThatWraps", testClocksWithNegativeMinuteThatWraps),
+            ("testClocksWithNegativeMinuteThatWrapsMultipleTimes", testClocksWithNegativeMinuteThatWrapsMultipleTimes),
+            ("testClocksWithNegativeHoursAndMinutes", testClocksWithNegativeHoursAndMinutes),
+            ("testClocksWithNegativeHoursAndMinutesThatWrap", testClocksWithNegativeHoursAndMinutesThatWrap),
+        ]
+    }
 }
