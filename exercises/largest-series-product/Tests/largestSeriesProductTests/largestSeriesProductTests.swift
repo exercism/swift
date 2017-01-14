@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import largestSeriesProduct
 
-class LargestSeriesProductTest: XCTestCase {
+class largestSeriesProductTests: XCTestCase {
 
     func testCanFindTheLargestProductOf2WithNumbersInOrder() {
         XCTAssertEqual(72, try? NumberSeries("0123456789").largestProduct(2))
@@ -80,4 +79,25 @@ class LargestSeriesProductTest: XCTestCase {
         }
     }
 
+    static var allTests: [(String, (largestSeriesProductTests) -> () throws -> Void)] {
+        return [
+            ("testCanFindTheLargestProductOf2WithNumbersInOrder", testCanFindTheLargestProductOf2WithNumbersInOrder),
+            ("testCanFindTheLargestProductOf2", testCanFindTheLargestProductOf2),
+            ("testFindsTheLargestProductIfSpanEqualsLength", testFindsTheLargestProductIfSpanEqualsLength),
+            ("testCanFindTheLargestProductOf3WithNumbersInOrder", testCanFindTheLargestProductOf3WithNumbersInOrder),
+            ("testCanFindTheLargestProductOf3", testCanFindTheLargestProductOf3),
+            ("testCanFindTheLargestProductOf5WithNumbersInOrder", testCanFindTheLargestProductOf5WithNumbersInOrder),
+            ("testCanGetTheLargestProductOfABigNumber", testCanGetTheLargestProductOfABigNumber),
+            ("testCanGetTheLargestProductOfAnotherBigNumber", testCanGetTheLargestProductOfAnotherBigNumber),
+            ("testCanGetTheLargestProductOfABigNumberProjectEuler", testCanGetTheLargestProductOfABigNumberProjectEuler),
+            ("testReportsZeroIfTheOnlyDigitsAreZero", testReportsZeroIfTheOnlyDigitsAreZero),
+            ("testReportsZeroIfAllSpansIncludeZero", testReportsZeroIfAllSpansIncludeZero),
+            ("testRejectsSpanLongerThanStringLength", testRejectsSpanLongerThanStringLength),
+            ("testReports1ForEmptyStringAndEmptyProduct0Span", testReports1ForEmptyStringAndEmptyProduct0Span),
+            ("testReports1ForNonemptyStringAndEmptyProduct0Span", testReports1ForNonemptyStringAndEmptyProduct0Span),
+            ("testRejectsEmptyStringAndNonzeroSpan", testRejectsEmptyStringAndNonzeroSpan),
+            ("testRejectsInvalidCharacterInDigits", testRejectsInvalidCharacterInDigits),
+            ("testRejectsNegativeSpan", testRejectsNegativeSpan),
+        ]
+    }
 }
