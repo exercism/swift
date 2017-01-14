@@ -1,3 +1,5 @@
+import Foundation
+
 private extension String {
 
     func trimWhiteSpace() -> String {

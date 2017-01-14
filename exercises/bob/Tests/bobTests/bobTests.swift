@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import bob
 
-class BobTest: XCTestCase {
+class bobTests: XCTestCase {
 
     func testStatingSomething() {
         let input = "Tom-ay-to, tom-aaaah-to."
@@ -123,4 +122,25 @@ class BobTest: XCTestCase {
         XCTAssertEqual(expected, result)
     }
 
+    static var allTests: [(String, (bobTests) -> () throws -> Void)] {
+        return [
+            ("testStatingSomething", testStatingSomething),
+            ("testShouting", testShouting),
+            ("testAskingAQustion", testAskingAQustion),
+            ("testTalkingForcefully", testTalkingForcefully),
+            ("testUsingAcronyms", testUsingAcronyms),
+            ("testForcefulQuestions", testForcefulQuestions),
+            ("testShoutingNumbers", testShoutingNumbers),
+            ("testOnlyNumbers", testOnlyNumbers),
+            ("testQuestionWithOnlyNumbers", testQuestionWithOnlyNumbers),
+            ("testShoutingWithSpecialCharacters", testShoutingWithSpecialCharacters),
+            ("testShoutingWithUmlautsCharacters", testShoutingWithUmlautsCharacters),
+            ("testCalmlySpeakingAboutUmlauts", testCalmlySpeakingAboutUmlauts),
+            ("testShoutingWithNoExclamationmark", testShoutingWithNoExclamationmark),
+            ("testStatementContainingQuestionsMark", testStatementContainingQuestionsMark),
+            ("testPrattlingOn", testPrattlingOn),
+            ("testSilence", testSilence),
+            ("testProlongedSilence", testProlongedSilence),
+        ]
+    }
 }
