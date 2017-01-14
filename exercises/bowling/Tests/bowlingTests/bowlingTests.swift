@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import bowling
 
-class BowlingTest: XCTestCase {
-
+class bowlingTests: XCTestCase {
     var game: Bowling!
 
     override func setUp() {
@@ -168,4 +166,32 @@ class BowlingTest: XCTestCase {
         }
     }
 
+    static var allTests: [(String, (bowlingTests) -> () throws -> Void)] {
+        return [
+            ("testAllZeros", testAllZeros),
+            ("testNoStrikesOrSpares", testNoStrikesOrSpares),
+            ("testSpareFollowedByZeros", testSpareFollowedByZeros),
+            ("testPointsScoredInRollAfterSpare", testPointsScoredInRollAfterSpare),
+            ("testConsecutiveSpares", testConsecutiveSpares),
+            ("testSpareInLastFrame", testSpareInLastFrame),
+            ("testStrikeWithSingleRoll", testStrikeWithSingleRoll),
+            ("testTwoRollsAfterAStrike", testTwoRollsAfterAStrike),
+            ("testConsecutiveStrikes", testConsecutiveStrikes),
+            ("testStrikeInLastFrame", testStrikeInLastFrame),
+            ("testSpareWithTwoRollBonus", testSpareWithTwoRollBonus),
+            ("testStrikesWithTwoRollBonus", testStrikesWithTwoRollBonus),
+            ("testStrikeAfterSpareInLastFrame", testStrikeAfterSpareInLastFrame),
+            ("testAllStrikes", testAllStrikes),
+            ("testNegativePoints", testNegativePoints),
+            ("testNoMoreThan10PinsPerRoll", testNoMoreThan10PinsPerRoll),
+            ("testTwoRollsGreaterThan10", testTwoRollsGreaterThan10),
+            ("testTwoBonusRollsAfterStrike", testTwoBonusRollsAfterStrike),
+            ("testUnstartedGameCanNotBeScored", testUnstartedGameCanNotBeScored),
+            ("testIncompleteGameCanNotBeScored", testIncompleteGameCanNotBeScored),
+            ("testMoreThanTenFrames", testMoreThanTenFrames),
+            ("testBonusRollsNotRolled", testBonusRollsNotRolled),
+            ("testSecondBonusRollNotRolled", testSecondBonusRollNotRolled),
+            ("testBonusRollForSpareNotRolled", testBonusRollForSpareNotRolled),
+        ]
+    }
 }

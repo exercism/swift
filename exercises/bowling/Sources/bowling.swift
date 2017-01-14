@@ -9,7 +9,7 @@ struct Bowling {
 
     private let minPins = 0
     private let maxPins = 10
-    private var scoreCard = [Int : [Int]]()
+    private var scoreCard = [Int: [Int]]()
 
     private var currentFrame: Int {
         return scoreCard.keys.max() ?? 1
