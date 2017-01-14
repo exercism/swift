@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import house
 
-class HouseTest: XCTestCase {
+class houseTests: XCTestCase {
 
     func testRhyme() {
         let expected =
@@ -97,5 +96,11 @@ class HouseTest: XCTestCase {
         "that lay in the house that Jack built."
 
         XCTAssertEqual(expected, House.recite())
+    }
+
+    static var allTests: [(String, (houseTests) -> () throws -> Void)] {
+        return [
+            ("testRhyme", testRhyme),
+        ]
     }
 }
