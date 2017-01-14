@@ -1,10 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
-// swiftlint:disable force_try
+import XCTest
+@testable import AllYourBase
 
-class AllYourBaseTest: XCTestCase {
-
+class AllYourBaseTests: XCTestCase {
     func testSingleBitOneToDecimal() {
         XCTAssertEqual(try! Base.outputDigits(inputBase: 2, inputDigits: [1], outputBase: 10), [1])
     }
@@ -99,5 +96,29 @@ class AllYourBaseTest: XCTestCase {
         XCTAssertThrowsError(try Base.outputDigits(inputBase: 2, inputDigits: [1], outputBase: -7)) { error in
             XCTAssertEqual(error as? BaseError, BaseError.invalidOutputBase)
         }
+    }
+
+    static var allTests: [(String, (AllYourBaseTests) -> () throws -> Void)] {
+        return [
+            ("testSingleBitOneToDecimal", testSingleBitOneToDecimal),
+            ("testBinaryToSingleDecimal", testBinaryToSingleDecimal),
+            ("testSingleDecimalToBinary", testSingleDecimalToBinary),
+            ("testBinaryToMultipleDecimal", testBinaryToMultipleDecimal),
+            ("testDecimalToBinary", testDecimalToBinary),
+            ("testTrinaryToHexadecimal", testTrinaryToHexadecimal),
+            ("testHexadecimalToTrinary", testHexadecimalToTrinary),
+            ("test15BitInteger", test15BitInteger),
+            ("testSingleZero", testSingleZero),
+            ("testMultipleZeros", testMultipleZeros),
+            ("testLeadingZeros", testLeadingZeros),
+            ("testNegativeDigit", testNegativeDigit),
+            ("testInvalidPositiveDigit", testInvalidPositiveDigit),
+            ("testFirstBaseIsOne", testFirstBaseIsOne),
+            ("testSecondBaseIsOne", testSecondBaseIsOne),
+            ("testFirstBaseIsZero", testFirstBaseIsZero),
+            ("testSecondBaseIsZero", testSecondBaseIsZero),
+            ("testFirstBaseIsNegative", testFirstBaseIsNegative),
+            ("testSecondBaseIsNegative", testSecondBaseIsNegative),
+        ]
     }
 }
