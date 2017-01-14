@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import helloWorld
 
-class HelloWorldTest: XCTestCase {
+class helloWorldTests: XCTestCase {
 
     func testNoName() {
         let expected = "Hello, World!"
@@ -24,4 +23,12 @@ class HelloWorldTest: XCTestCase {
         XCTAssertEqual(HelloWorld.hello(""), expected, "When given an empty string, it is strange, but should have a space and punctuation")
     }
 
+    static var allTests: [(String, (helloWorldTests) -> () throws -> Void)] {
+        return [
+            ("testNoName", testNoName),
+            ("testSampleName", testSampleName),
+            ("testOtherSampleName", testOtherSampleName),
+            ("testNoStrangeName", testNoStrangeName),
+        ]
+    }
 }
