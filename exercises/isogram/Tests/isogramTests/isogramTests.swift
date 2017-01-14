@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import isogram
 
-class IsogramTest: XCTestCase {
+class isogramTests: XCTestCase {
 
     func testEmptyString() {
         XCTAssertTrue(Isogram.isIsogram(""))
@@ -34,5 +33,18 @@ class IsogramTest: XCTestCase {
 
     func testMadeUpNameThatIsAnIsogram() {
         XCTAssertTrue(Isogram.isIsogram("Emily Jung Schwartzkopf"))
+    }
+
+    static var allTests: [(String, (isogramTests) -> () throws -> Void)] {
+        return [
+            ("testEmptyString", testEmptyString),
+            ("testIsogramWithOnlyLowerCaseCharacters", testIsogramWithOnlyLowerCaseCharacters),
+            ("testWordWithOneDuplicatedCharacter", testWordWithOneDuplicatedCharacter),
+            ("testLongestReportedEnglishIsogram", testLongestReportedEnglishIsogram),
+            ("testWordWithDuplicatedCharacterInMixedCase", testWordWithDuplicatedCharacterInMixedCase),
+            ("testHypotheticalIsogrammicWordWithHyphen", testHypotheticalIsogrammicWordWithHyphen),
+            ("testIsogramWithDuplicatedNonLetterCharacter", testIsogramWithDuplicatedNonLetterCharacter),
+            ("testMadeUpNameThatIsAnIsogram", testMadeUpNameThatIsAnIsogram),
+        ]
     }
 }
