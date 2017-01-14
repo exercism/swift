@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import linkedList
 
-class LinkedListTest: XCTestCase {
+class linkedListTests: XCTestCase {
 
     func testPushPop() {
         let deque = Deque<Int>()
@@ -50,4 +49,13 @@ class LinkedListTest: XCTestCase {
         XCTAssertEqual(30, deque.shift() ?? 0 )
     }
 
+    static var allTests: [(String, (linkedListTests) -> () throws -> Void)] {
+        return [
+            ("testPushPop", testPushPop),
+            ("testPushShift", testPushShift),
+            ("testUnshiftShift", testUnshiftShift),
+            ("testUnshiftPop", testUnshiftPop),
+            ("testExampleMethodLength", testExampleMethodLength),
+        ]
+    }
 }
