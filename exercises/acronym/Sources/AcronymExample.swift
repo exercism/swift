@@ -1,3 +1,5 @@
+import Foundation
+
 private extension String {
 
     func substringWithRangeInt(_ intRange: CountableRange<Int>) -> String {
