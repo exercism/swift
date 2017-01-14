@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import kindergartenGarden
 
-class KindergartenGardenTest: XCTestCase {
-
+class kindergartenGardenTests: XCTestCase {
     private let fullGarden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
     private let disorderedGarden = Garden("VCRRGVRG\nRVGCCGCV", children: ["Samantha", "Patricia", "Xander", "Roger"])
     private static let diagram = "VCRRGVRG\nRVGCCGCV"
@@ -108,4 +106,29 @@ class KindergartenGardenTest: XCTestCase {
         XCTAssertEqual([.Radishes, .Radishes, .Grass, .Clover], garden2.plantsForChild("Charlie"))
     }
 
+    static var allTests: [(String, (kindergartenGardenTests) -> () throws -> Void)] {
+        return [
+            ("testAlicesGarden", testAlicesGarden),
+            ("testDifferentGardenForAlice", testDifferentGardenForAlice),
+            ("testBobsGarden", testBobsGarden),
+            ("testBobAndCharliesGardens", testBobAndCharliesGardens),
+            ("testAlice", testAlice),
+            ("testBob", testBob),
+            ("testCharlie", testCharlie),
+            ("testDavid", testDavid),
+            ("testEve", testEve),
+            ("testFred", testFred),
+            ("testGinny", testGinny),
+            ("testHarriet", testHarriet),
+            ("testIleana", testIleana),
+            ("testJoseph", testJoseph),
+            ("testKincaid", testKincaid),
+            ("testLarry", testLarry),
+            ("testPatricia", testPatricia),
+            ("testRoger", testRoger),
+            ("testSamantha", testSamantha),
+            ("testXander", testXander),
+            ("testBobAndCharliePerGarden", testBobAndCharliePerGarden),
+        ]
+    }
 }
