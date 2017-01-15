@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import runLengthEncoding
 
-class RunLengthEncodingTest: XCTestCase {
-
+class runLengthEncodingTests: XCTestCase {
     func testEncodeSimple() {
         XCTAssertEqual(RunLengthEncoding.encode("AABBBCCCC"), "2A3B4C")
     }
@@ -30,5 +28,17 @@ class RunLengthEncodingTest: XCTestCase {
 
     func testDecodeUnicode() {
         XCTAssertEqual(RunLengthEncoding.decode("⏰3⚽2⭐⏰"), "⏰⚽⚽⚽⭐⭐⏰")
+    }
+
+    static var allTests: [(String, (runLengthEncodingTests) -> () throws -> Void)] {
+        return [
+            ("testEncodeSimple", testEncodeSimple),
+            ("testDecodeSimple", testDecodeSimple),
+            ("testEncodeWithSingleValues", testEncodeWithSingleValues),
+            ("testDecodeWithSingleValues", testDecodeWithSingleValues),
+            ("testDecodeEncodeCombination", testDecodeEncodeCombination),
+            ("testEncodeUnicode", testEncodeUnicode),
+            ("testDecodeUnicode", testDecodeUnicode),
+        ]
     }
 }
