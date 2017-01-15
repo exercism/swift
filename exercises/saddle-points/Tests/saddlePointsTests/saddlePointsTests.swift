@@ -1,6 +1,5 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import saddlePoints
 
 private extension XCTest {
     func XCTAssertEqualMultiArray(_ aArray1: [[Int]], _ aArray2: [[Int]]) {
@@ -8,8 +7,7 @@ private extension XCTest {
     }
 }
 
-class SaddlePointsTest: XCTestCase {
-
+class saddlePointsTests: XCTestCase {
     func testExtractARow() {
         let matrix = SaddlePointsMatrix("1 2\n10 20")
         XCTAssertEqual([1, 2], matrix.rows[0])
@@ -60,4 +58,18 @@ class SaddlePointsTest: XCTestCase {
         XCTAssertEqualMultiArray([[0, 1], [1, 1], [2, 1]], matrix.saddlePoints)
     }
 
+    static var allTests: [(String, (saddlePointsTests) -> () throws -> Void)] {
+        return [
+            ("testExtractARow", testExtractARow),
+            ("testExtractSameRowAgain", testExtractSameRowAgain),
+            ("testExtractOtherRow", testExtractOtherRow),
+            ("testExtractOtherRowAgain", testExtractOtherRowAgain),
+            ("testExtractAColumn", testExtractAColumn),
+            ("testExtractAnotherColumn", testExtractAnotherColumn),
+            ("testNoSaddlePoint", testNoSaddlePoint),
+            ("testASaddlePoint", testASaddlePoint),
+            ("testAnotherSaddlePoint", testAnotherSaddlePoint),
+            ("testMultipleSaddlePoints", testMultipleSaddlePoints),
+        ]
+    }
 }
