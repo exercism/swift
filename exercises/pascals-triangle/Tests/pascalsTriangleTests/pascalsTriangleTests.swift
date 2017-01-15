@@ -1,6 +1,5 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import pascalsTriangle
 
 private extension XCTest {
     func XCTAssertEqualMultiArray(_ aArray1: [[Int]], _ aArray2: [[Int]]) {
@@ -8,8 +7,7 @@ private extension XCTest {
     }
 }
 
-class PascalsTriangleTest: XCTestCase {
-
+class pascalsTriangleTests: XCTestCase {
     func testOneRow() {
         let triangle = PascalsTriangle(1)
         XCTAssertEqualMultiArray([[1]], triangle.rows)
@@ -44,4 +42,14 @@ class PascalsTriangleTest: XCTestCase {
         XCTAssertEqual(expected, triangle.rows.last!)
     }
 
+    static var allTests: [(String, (pascalsTriangleTests) -> () throws -> Void)] {
+        return [
+            ("testOneRow", testOneRow),
+            ("testTwoRows", testTwoRows),
+            ("testThreeRows", testThreeRows),
+            ("testFourthRow", testFourthRow),
+            ("testFifthRow", testFifthRow),
+            ("testTwentiethRow", testTwentiethRow),
+        ]
+    }
 }
