@@ -1,11 +1,16 @@
-#if swift(>=3.0)
-    import XCTest
+import XCTest
+import Foundation
+@testable import robotName
+
+#if os(Linux)
+    typealias Regex = RegularExpression
+#elseif os(OSX)
+    typealias Regex = NSRegularExpression
 #endif
 
-class RobotNameTest: XCTestCase {
-
+class robotNameTests: XCTestCase {
     func robotNameIsCorrectlyFormatted(_ name: String) -> Bool {
-        let robotNameRegex = try? NSRegularExpression(pattern: "\\A\\w{2}\\d{3}\\z", options: NSRegularExpression.Options.caseInsensitive)
+        let robotNameRegex = try? Regex(pattern: "\\A\\w{2}\\d{3}\\z", options: Regex.Options.caseInsensitive)
         guard let matches = robotNameRegex?.matches(in: name, options: .withoutAnchoringBounds, range: NSRange(0..<name.utf16.count)) else { return false }
 
         return matches.count > 0
@@ -34,5 +39,14 @@ class RobotNameTest: XCTestCase {
         robot.resetName()
         let secondName = robot.name
         XCTAssertNotEqual(firstName, secondName)
+    }
+
+    static var allTests: [(String, (robotNameTests) -> () throws -> Void)] {
+        return [
+            ("testHasName", testHasName),
+            ("testNameSticks", testNameSticks),
+            ("testDifferentRobotsHaveDifferentNames", testDifferentRobotsHaveDifferentNames),
+            ("testResetName", testResetName),
+        ]
     }
 }
