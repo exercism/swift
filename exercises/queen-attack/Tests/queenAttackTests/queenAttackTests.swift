@@ -1,10 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import queenAttack
 
-// swiftlint:disable force_try
-class QueenAttackTest: XCTestCase {
-
+class queenAttackTests: XCTestCase {
     func testDefaultPositions() {
         let queens = try! Queens()
         XCTAssertEqual([0, 3], queens.white)
@@ -117,5 +114,26 @@ class QueenAttackTest: XCTestCase {
     func testCanAttackOnADiagonalSlantedTheOtherWay() {
         let queens = try! Queens(white: [6, 1], black: [1, 6])
         XCTAssertTrue(queens.canAttack)
+    }
+
+    static var allTests: [(String, (queenAttackTests) -> () throws -> Void)] {
+        return [
+            ("testDefaultPositions", testDefaultPositions),
+            ("testSpecificPlacement", testSpecificPlacement),
+            ("testMultipleBoardsSimultaneously", testMultipleBoardsSimultaneously),
+            ("testIncorrectNumberOfCoordinates", testIncorrectNumberOfCoordinates),
+            ("testInvalidCoordinates", testInvalidCoordinates),
+            ("testCannotOccupySameSpace", testCannotOccupySameSpace),
+            ("testStringRepresentation", testStringRepresentation),
+            ("testAnotherStringRepresentation", testAnotherStringRepresentation),
+            ("testYetAnotherStringRepresentation", testYetAnotherStringRepresentation),
+            ("testCannotAttack", testCannotAttack),
+            ("testCanAttackOnSameRow", testCanAttackOnSameRow),
+            ("testCanAttackOnSameColumn", testCanAttackOnSameColumn),
+            ("testCanAttackOnDiagonal", testCanAttackOnDiagonal),
+            ("testCanAttackOnOtherDiagonal", testCanAttackOnOtherDiagonal),
+            ("testCanAttackOnYetAnotherDiagonal", testCanAttackOnYetAnotherDiagonal),
+            ("testCanAttackOnADiagonalSlantedTheOtherWay", testCanAttackOnADiagonalSlantedTheOtherWay),
+        ]
     }
 }
