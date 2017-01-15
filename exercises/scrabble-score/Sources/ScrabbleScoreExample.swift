@@ -1,3 +1,5 @@
+import Foundation
+
 private extension String {
 
     func containsCustom(_ input: Character) -> Bool {

@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import scrabbleScore
 
-class ScrabbleScoreTest: XCTestCase {
-
+class scrabbleScoreTests: XCTestCase {
     func testEmptyWordScoresZero() {
         XCTAssertEqual( 0, Scrabble("").score)
     }
@@ -40,4 +38,17 @@ class ScrabbleScoreTest: XCTestCase {
         XCTAssertEqual( 13, Scrabble.score("alacrity"))
     }
 
+    static var allTests: [(String, (scrabbleScoreTests) -> () throws -> Void)] {
+        return [
+            ("testEmptyWordScoresZero", testEmptyWordScoresZero),
+            ("testWhitespaceScoresZero", testWhitespaceScoresZero),
+            ("testNilScoresZero", testNilScoresZero),
+            ("testScoresVeryShortWord", testScoresVeryShortWord),
+            ("testScoresOtherVeryShortWord", testScoresOtherVeryShortWord),
+            ("testSimpleWordScoresTheNumberOfLetters", testSimpleWordScoresTheNumberOfLetters),
+            ("testComplicatedWordScoresMore", testComplicatedWordScoresMore),
+            ("testScoresAreCaseInsensitive", testScoresAreCaseInsensitive),
+            ("testConvenientScoring", testConvenientScoring),
+        ]
+    }
 }
