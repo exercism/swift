@@ -1,5 +1,11 @@
 import Foundation
 
+#if os(Linux)
+    typealias Regex = RegularExpression
+#else
+    typealias Regex = NSRegularExpression
+#endif
+
 struct Board {
 
     private let validCharacters: [Character] = ["+", "-", "|", "*", " "]
@@ -104,8 +110,8 @@ struct Board {
 
 private extension String {
     func matchesRegex(_ pattern: String) -> Bool {
-        let options = NSRegularExpression.Options.dotMatchesLineSeparators
-        let regex = try? NSRegularExpression(pattern: pattern, options: options)
+        let options = Regex.Options.dotMatchesLineSeparators
+        let regex = try? Regex(pattern: pattern, options: options)
         var matches = 0
         if let regex = regex {
             matches = regex.numberOfMatches(in: self,

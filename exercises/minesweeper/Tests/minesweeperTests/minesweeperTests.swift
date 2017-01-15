@@ -1,10 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
-// swiftlint:disable force_try
+import XCTest
+@testable import minesweeper
 
-class MinesweeperTest: XCTestCase {
-
+class minesweeperTests: XCTestCase {
     func testTransform1() {
         let input = ["+------+", "| *  * |", "|  *   |", "|    * |", "|   * *|",
                      "| *  * |", "|      |", "+------+"]
@@ -89,4 +86,20 @@ class MinesweeperTest: XCTestCase {
         }
     }
 
+    static var allTests: [(String, (minesweeperTests) -> () throws -> Void)] {
+        return [
+            ("testTransform1", testTransform1),
+            ("testTransform2", testTransform2),
+            ("testTransform3", testTransform3),
+            ("test_transform4", test_transform4),
+            ("testTransform5", testTransform5),
+            ("testTransform6", testTransform6),
+            ("testTransform7", testTransform7),
+            ("testTransform8", testTransform8),
+            ("testTransform9", testTransform9),
+            ("testDifferentLength", testDifferentLength),
+            ("testFaultyBorder", testFaultyBorder),
+            ("testInvalidCharacter", testInvalidCharacter),
+        ]
+    }
 }
