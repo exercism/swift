@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import pythagoreanTriplet
 
-class PythagoreanTripletTest: XCTestCase {
+class pythagoreanTripletTests: XCTestCase {
     func testSum() {
         XCTAssertEqual(12, Triplet(3, 4, 5).sum)
     }
@@ -35,5 +34,17 @@ class PythagoreanTripletTest: XCTestCase {
         let triplets = Triplet.Where( maxFactor: 100, sum: 180)
         let products = triplets.map {$0.product}.sorted(by: <)
         XCTAssertEqual([118_080, 168_480, 202_500], products)
+    }
+
+    static var allTests: [(String, (pythagoreanTripletTests) -> () throws -> Void)] {
+        return [
+            ("testSum", testSum),
+            ("testProduct", testProduct),
+            ("testPythagorean", testPythagorean),
+            ("testNotPythagorean", testNotPythagorean),
+            ("testTripletsUpTo10", testTripletsUpTo10),
+            ("testTripletsFrom11UpTo20", testTripletsFrom11UpTo20),
+            ("testTripletsWhereSumX", testTripletsWhereSumX),
+        ]
     }
 }
