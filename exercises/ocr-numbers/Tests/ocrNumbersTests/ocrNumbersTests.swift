@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import ocrNumbers
 
-class OcrNumbersTest: XCTestCase {
-
+class ocrNumbersTests: XCTestCase {
     func testRecognizeZero() {
         let text =  " _ \n" +
             "| |\n" +
@@ -166,4 +164,26 @@ class OcrNumbersTest: XCTestCase {
         }
     }
 
+    static var allTests: [(String, (ocrNumbersTests) -> () throws -> Void)] {
+        return [
+            ("testRecognizeZero", testRecognizeZero),
+            ("testRecognizeOne", testRecognizeOne),
+            ("testRecognizeTwo", testRecognizeTwo),
+            ("testRecognizeThree", testRecognizeThree),
+            ("testRecognizeFour", testRecognizeFour),
+            ("testRecognizeFive", testRecognizeFive),
+            ("testRecognizeSix", testRecognizeSix),
+            ("testRecognizeSeven", testRecognizeSeven),
+            ("testRecognizeEight", testRecognizeEight),
+            ("testRecognizeNine", testRecognizeNine),
+            ("testIdentifyGarble", testIdentifyGarble),
+            ("testIdentify10", testIdentify10),
+            ("testIdentify110101100", testIdentify110101100),
+            ("testIdentifyWithGarble", testIdentifyWithGarble),
+            ("testIdentify1234567890", testIdentify1234567890),
+            ("testIdentify123_456_789", testIdentify123_456_789),
+            ("testThrowsInvalidNumberOfLinesError", testThrowsInvalidNumberOfLinesError),
+            ("testThrowsInvalidNumberOfColumnsError", testThrowsInvalidNumberOfColumnsError),
+        ]
+    }
 }
