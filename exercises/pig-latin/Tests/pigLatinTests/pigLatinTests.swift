@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import pigLatin
 
-class PigLatinTest: XCTestCase {
+class pigLatinTests: XCTestCase {
     func testWordBeginningWithA() {
         XCTAssertEqual("appleay", PigLatin.translate("apple"))
     }
@@ -63,4 +62,23 @@ class PigLatinTest: XCTestCase {
         XCTAssertEqual("ickquay astfay unray", PigLatin.translate("quick fast run"))
     }
 
+    static var allTests: [(String, (pigLatinTests) -> () throws -> Void)] {
+        return [
+            ("testWordBeginningWithA", testWordBeginningWithA),
+            ("test_otherWordBeginningE", test_otherWordBeginningE),
+            ("testWordBeginningWithP", testWordBeginningWithP),
+            ("testWordBeginningWithK", testWordBeginningWithK),
+            ("testWordBeginningWithCh", testWordBeginningWithCh),
+            ("testWordBeginningWithQu", testWordBeginningWithQu),
+            ("testWordWithConsonantPrecedingQu", testWordWithConsonantPrecedingQu),
+            ("testWordBeginningWithTh", testWordBeginningWithTh),
+            ("testWordBeginningWithThr", testWordBeginningWithThr),
+            ("testWordBeginningWithSch", testWordBeginningWithSch),
+            ("testWordBeginningWithYe", testWordBeginningWithYe),
+            ("testWordBeginningWithYt", testWordBeginningWithYt),
+            ("testWordBeginningWithXe", testWordBeginningWithXe),
+            ("testWordBeginningWithXr", testWordBeginningWithXr),
+            ("testTranslatesPhrase", testTranslatesPhrase),
+        ]
+    }
 }

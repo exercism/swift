@@ -1,3 +1,5 @@
+import Foundation
+
 private extension String {
     func substringFromIndexInt(_ indx: Int) -> String {
         let index = self.characters.index(self.startIndex, offsetBy: indx)
