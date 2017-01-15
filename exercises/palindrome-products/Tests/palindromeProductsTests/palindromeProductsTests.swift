@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import palindromeProducts
 
-class PalindromeProductsTest: XCTestCase {
-
+class palindromeProductsTests: XCTestCase {
     func testLargestPalindromeFromSingleDigitFactors() {
         let palindromes = PalindromeProducts(maxFactor: 9)
         let largest = palindromes.largest
@@ -39,4 +37,13 @@ class PalindromeProductsTest: XCTestCase {
         XCTAssertEqual(Set([101, 101]), Set(smallest.factor))
     }
 
+    static var allTests: [(String, (palindromeProductsTests) -> () throws -> Void)] {
+        return [
+            ("testLargestPalindromeFromSingleDigitFactors", testLargestPalindromeFromSingleDigitFactors),
+            ("testLargestPalindromeFromDoubleDigitFactors", testLargestPalindromeFromDoubleDigitFactors),
+            ("testSmallestPalindromeFromDoubleDigitFactors", testSmallestPalindromeFromDoubleDigitFactors),
+            ("testLargestPalindromeFromTripleDigitFactors", testLargestPalindromeFromTripleDigitFactors),
+            ("testSmallestPalindromeFromTripleDigitFactors", testSmallestPalindromeFromTripleDigitFactors),
+        ]
+    }
 }
