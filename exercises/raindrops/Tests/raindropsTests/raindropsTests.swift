@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import raindrops
 
-class RaindropsTest: XCTestCase {
-
+class raindropsTests: XCTestCase {
     func test1() {
         XCTAssertEqual("1", Raindrops(1).sounds)
     }
@@ -68,4 +66,24 @@ class RaindropsTest: XCTestCase {
         XCTAssertEqual("12121", Raindrops(12_121).sounds)
     }
 
+    static var allTests: [(String, (raindropsTests) -> () throws -> Void)] {
+        return [
+            ("test1", test1),
+            ("test3", test3),
+            ("test5", test5),
+            ("test7", test7),
+            ("test6", test6),
+            ("test9", test9),
+            ("test10", test10),
+            ("test14", test14),
+            ("test15", test15),
+            ("test21", test21),
+            ("test25", test25),
+            ("test35", test35),
+            ("test49", test49),
+            ("test52", test52),
+            ("test105", test105),
+            ("test12121", test12121),
+        ]
+    }
 }
