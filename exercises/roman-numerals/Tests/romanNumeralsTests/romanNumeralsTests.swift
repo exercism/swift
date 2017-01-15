@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import romanNumerals
 
-class  RomanNumeralsTest: XCTestCase {
-
+class romanNumeralsTests: XCTestCase {
     func test1() {
         XCTAssertEqual("I", String(RomanNumeral(1)))
     }
@@ -76,4 +74,26 @@ class  RomanNumeralsTest: XCTestCase {
         XCTAssertEqual("MMM", String(RomanNumeral(3000)))
     }
 
+    static var allTests: [(String, (romanNumeralsTests) -> () throws -> Void)] {
+        return [
+            ("test1", test1),
+            ("test2", test2),
+            ("test3", test3),
+            ("test4", test4),
+            ("test5", test5),
+            ("test6", test6),
+            ("test9", test9),
+            ("test27", test27),
+            ("test48", test48),
+            ("test59", test59),
+            ("test93", test93),
+            ("test141", test141),
+            ("test163", test163),
+            ("test402", test402),
+            ("test575", test575),
+            ("test911", test911),
+            ("test1024", test1024),
+            ("test3000", test3000),
+        ]
+    }
 }
