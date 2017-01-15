@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import matrix
 
-class MatrixTest: XCTestCase {
-
+class matrixTests: XCTestCase {
     func testExtractARow() {
         let matrix = Matrix("1 2\n10 20")
         XCTAssertEqual([1, 2], matrix.rows[0])
@@ -34,4 +32,14 @@ class MatrixTest: XCTestCase {
         XCTAssertEqual([1903, 3, 4], matrix.columns[1])
     }
 
+    static var allTests: [(String, (matrixTests) -> () throws -> Void)] {
+        return [
+            ("testExtractARow", testExtractARow),
+            ("testExtractSameRowAgain", testExtractSameRowAgain),
+            ("testExtractOtherRow", testExtractOtherRow),
+            ("testExtractOtherRowAgain", testExtractOtherRowAgain),
+            ("testExtractAColumn", testExtractAColumn),
+            ("testExtractAnotherColumn", testExtractAnotherColumn),
+        ]
+    }
 }
