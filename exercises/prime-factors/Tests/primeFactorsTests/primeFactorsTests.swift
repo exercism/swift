@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import primeFactors
 
-class PrimeFactorsTest: XCTestCase {
-
+class primeFactorsTests: XCTestCase {
     func test1() {
         XCTAssertEqual([], PrimeFactors(1).toArray)
     }
@@ -48,4 +46,19 @@ class PrimeFactorsTest: XCTestCase {
         XCTAssertEqual([11, 9539, 894_119], PrimeFactors(93_819_012_551).toArray)
     }
 
+    static var allTests: [(String, (primeFactorsTests) -> () throws -> Void)] {
+        return [
+            ("test1", test1),
+            ("test2", test2),
+            ("test3", test3),
+            ("test4", test4),
+            ("test6", test6),
+            ("test8", test8),
+            ("test9", test9),
+            ("test27", test27),
+            ("test625", test625),
+            ("test901255", test901255),
+            ("test93819012551", test93819012551),
+        ]
+    }
 }
