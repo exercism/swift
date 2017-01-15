@@ -1,6 +1,5 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import series
 
 private extension XCTest {
     func XCTAssertEqualMultiArray(_ aArray1: [[Int]], _ aArray2: [[Int]]) {
@@ -8,8 +7,7 @@ private extension XCTest {
     }
 }
 
-class SeriesTest: XCTestCase {
-
+class seriesTests: XCTestCase {
     func testSimpleSlicesOfOne() {
         let series = Series("01234")
         XCTAssertEqualMultiArray([[0], [1], [2], [3], [4]], series.slices(1))
@@ -83,4 +81,22 @@ class SeriesTest: XCTestCase {
         XCTAssertEqualMultiArray([], series.slices(12))
     }
 
+    static var allTests: [(String, (seriesTests) -> () throws -> Void)] {
+        return [
+            ("testSimpleSlicesOfOne", testSimpleSlicesOfOne),
+            ("testSimpleSlicesOfOneAgain", testSimpleSlicesOfOneAgain),
+            ("testSimpleSlicesOfTwo", testSimpleSlicesOfTwo),
+            ("testOtherSlicesOfTwo", testOtherSlicesOfTwo),
+            ("testSimpleSlicesOfTwoAgain", testSimpleSlicesOfTwoAgain),
+            ("testSimpleSlicesOfThree", testSimpleSlicesOfThree),
+            ("testSimpleSlicesOfThreeAgain", testSimpleSlicesOfThreeAgain),
+            ("testOtherSlicesOfThree", testOtherSlicesOfThree),
+            ("testSimpleSlicesOfFour", testSimpleSlicesOfFour),
+            ("testSimpleSlicesOfFourAgain", testSimpleSlicesOfFourAgain),
+            ("testSimpleSlicesOfFive", testSimpleSlicesOfFive),
+            ("testSimpleSlicesOfFiveAgain", testSimpleSlicesOfFiveAgain),
+            ("testSimpleSliceThatBlowsUp", testSimpleSliceThatBlowsUp),
+            ("testMoreComplicatedSliceThatBlowsUp", testMoreComplicatedSliceThatBlowsUp),
+        ]
+    }
 }
