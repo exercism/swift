@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import poker
 
-class PokerTest: XCTestCase {
-
+class pokerTests: XCTestCase {
     var validTestCases:[(name: String, hands: [String], best: String)] = []
     var invalidTestCases:[(name: String, hand: String)] = []
 
@@ -280,5 +278,12 @@ class PokerTest: XCTestCase {
                 )
         ]
 
+    }
+
+    static var allTests: [(String, (pokerTests) -> () throws -> Void)] {
+        return [
+            ("testInvalidCases", testInvalidCases),
+            ("testAllValid", testAllValid),
+        ]
     }
 }
