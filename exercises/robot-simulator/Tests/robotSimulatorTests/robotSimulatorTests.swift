@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import robotSimulator
 
-class RobotSimulatorTest: XCTestCase {
-
+class robotSimulatorTests: XCTestCase {
     var robot = SimulatedRobot()
 
     func testRobotBearingEast() {
@@ -158,4 +156,32 @@ class RobotSimulatorTest: XCTestCase {
         XCTAssertEqual([.north], [robot3.bearing])
     }
 
+    static var allTests: [(String, (robotSimulatorTests) -> () throws -> Void)] {
+        return [
+            ("testRobotBearingEast", testRobotBearingEast),
+            ("testRobotBearingWest", testRobotBearingWest),
+            ("testRobotBearingNorth", testRobotBearingNorth),
+            ("testRobotBearingSouth", testRobotBearingSouth),
+            ("testTurnRightFromNorth", testTurnRightFromNorth),
+            ("testTurnRightFromEast", testTurnRightFromEast),
+            ("testTurnRightFromSouth", testTurnRightFromSouth),
+            ("testTurnRightFromWest", testTurnRightFromWest),
+            ("testTurnLeftFromNorth", testTurnLeftFromNorth),
+            ("testTurnLeftFromEast", testTurnLeftFromEast),
+            ("testTurnLeftFromSouth", testTurnLeftFromSouth),
+            ("testTurnLeftFromWest", testTurnLeftFromWest),
+            ("testRobotCoordinates", testRobotCoordinates),
+            ("testOtherRobotCoordinates", testOtherRobotCoordinates),
+            ("testAdvanceWhenFacingNorth", testAdvanceWhenFacingNorth),
+            ("testAdvanceWhenFacingEast", testAdvanceWhenFacingEast),
+            ("testAdvanceWhenFacingSouth", testAdvanceWhenFacingSouth),
+            ("testAdvanceWhenFacingWest", testAdvanceWhenFacingWest),
+            ("testInstructionForTurningLeft", testInstructionForTurningLeft),
+            ("testInstructionForTurningRight", testInstructionForTurningRight),
+            ("testInstructionForAdvancing", testInstructionForAdvancing),
+            ("testSeriesOfInstructions", testSeriesOfInstructions),
+            ("testInstructRobot", testInstructRobot),
+            ("testInstructManyRobots", testInstructManyRobots),
+        ]
+    }
 }
