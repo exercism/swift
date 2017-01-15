@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import secretHandshake
 
-class SecretHandshakeTest: XCTestCase {
-
+class secretHandshakeTests: XCTestCase {
     func testHandshake1ToWink() {
         let handshake = SecretHandshake(1)
         XCTAssertEqual(["wink"], handshake.commands)
@@ -45,4 +43,16 @@ class SecretHandshakeTest: XCTestCase {
         XCTAssertEqual([], handshake.commands)
     }
 
+    static var allTests: [(String, (secretHandshakeTests) -> () throws -> Void)] {
+        return [
+            ("testHandshake1ToWink", testHandshake1ToWink),
+            ("testHandshake10ToDoubleBlink", testHandshake10ToDoubleBlink),
+            ("testHandshake100ToCloseYourEyes", testHandshake100ToCloseYourEyes),
+            ("testHandshake1000ToJump", testHandshake1000ToJump),
+            ("testHandshake11ToWinkAndDoubleBlink", testHandshake11ToWinkAndDoubleBlink),
+            ("testHandshake10011ToDoubleBlinkAndWink", testHandshake10011ToDoubleBlinkAndWink),
+            ("testHandshake11111ToDoubleBlinkAndWink", testHandshake11111ToDoubleBlinkAndWink),
+            ("testNonValidHandshake", testNonValidHandshake),
+        ]
+    }
 }
