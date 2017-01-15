@@ -1,4 +1,8 @@
-import Darwin
+#if os(Linux)
+    import Glibc
+#elseif os(OSX)
+    import Darwin
+#endif
 
 struct Prime {
     static func nth(_ nth: Int) -> Int? {
