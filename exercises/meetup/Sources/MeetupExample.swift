@@ -1,4 +1,4 @@
-import Darwin
+import Foundation
 
 func == (lhs: String, rhs: Date) -> Bool {
     return lhs == rhs.description

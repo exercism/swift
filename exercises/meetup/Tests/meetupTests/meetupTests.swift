@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import meetup
 
-class  MeetupTest: XCTestCase {
-
+class meetupTests: XCTestCase {
     let dayOfWeek = (Sunday:1, Monday:2, Tuesday:3, Wednesday:4, Thursday:5, Friday:6, Saturday:7)
 
     let whichOptions = (first:"1st", second:"2nd", third:"3rd", fourth:"4th", last:"last", teenth:"teenth")
@@ -51,5 +49,19 @@ class  MeetupTest: XCTestCase {
     func testFirstFridayOfDecember2012() {
         let meetUp = Meetup(year: 2012, month: 12)
         XCTAssertEqual("2012-12-07", meetUp.day(dayOfWeek.Friday, which: whichOptions.first).description)
+    }
+
+    static var allTests: [(String, (meetupTests) -> () throws -> Void)] {
+        return [
+            ("testMonteenthOfMay2013", testMonteenthOfMay2013),
+            ("testSaturteenthOfFebruary2013", testSaturteenthOfFebruary2013),
+            ("testFirstTuesdayOfMay2013", testFirstTuesdayOfMay2013),
+            ("testSecondMondayOfApril2013", testSecondMondayOfApril2013),
+            ("testThirdThursdayOfSeptember2013", testThirdThursdayOfSeptember2013),
+            ("testFourthSundayOfMarch2013", testFourthSundayOfMarch2013),
+            ("testLastThursdayOfOctober2013", testLastThursdayOfOctober2013),
+            ("testLastWednesdayOfFebruary2012", testLastWednesdayOfFebruary2012),
+            ("testFirstFridayOfDecember2012", testFirstFridayOfDecember2012),
+        ]
     }
 }
