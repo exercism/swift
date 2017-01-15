@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import phoneNumber
 
-class PhoneNumberTest: XCTestCase {
-
+class phoneNumberTests: XCTestCase {
     func testValidWithTenDigits() {
         let startingNumber = "1234567890"
         let expected = "1234567890"
@@ -68,4 +66,17 @@ class PhoneNumberTest: XCTestCase {
         XCTAssertEqual(String(describing: number), expected)
     }
 
+    static var allTests: [(String, (phoneNumberTests) -> () throws -> Void)] {
+        return [
+            ("testValidWithTenDigits", testValidWithTenDigits),
+            ("testCleansNumber", testCleansNumber),
+            ("testCleansNumberWithDots", testCleansNumberWithDots),
+            ("testValidWithElevenDigitsAndFirstIsOne", testValidWithElevenDigitsAndFirstIsOne),
+            ("testInvalidWhenElevenDigits", testInvalidWhenElevenDigits),
+            ("testInvalidWhenNineDigits", testInvalidWhenNineDigits),
+            ("testAreaCode", testAreaCode),
+            ("testPrettyPrint", testPrettyPrint),
+            ("testPrettyPrintWithFullUSPhoneNumber", testPrettyPrintWithFullUSPhoneNumber),
+        ]
+    }
 }
