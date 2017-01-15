@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import pangram
 
-class PangramTest: XCTestCase {
-
+class pangramTests: XCTestCase {
     func testSentenceEmpty() {
         XCTAssertFalse(Pangram.isPangram(""))
     }
@@ -40,4 +38,17 @@ class PangramTest: XCTestCase {
         XCTAssertTrue(Pangram.isPangram("Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich."))
     }
 
+    static var allTests: [(String, (pangramTests) -> () throws -> Void)] {
+        return [
+            ("testSentenceEmpty", testSentenceEmpty),
+            ("test_pangram_with_only_lower_case", test_pangram_with_only_lower_case),
+            ("testMissingCharacterX", testMissingCharacterX),
+            ("testAnotherMissingCharacterX", testAnotherMissingCharacterX),
+            ("testPangramWithUnderscores", testPangramWithUnderscores),
+            ("testPangramWithNumbers", testPangramWithNumbers),
+            ("testMissingLettersReplacedByNumbers", testMissingLettersReplacedByNumbers),
+            ("testPangramWithMixedCaseAndPunctuation", testPangramWithMixedCaseAndPunctuation),
+            ("testPangramWithNonAsciiCharacters", testPangramWithNonAsciiCharacters),
+        ]
+    }
 }
