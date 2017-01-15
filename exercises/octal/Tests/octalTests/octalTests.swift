@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import octal
 
-class OctalTest: XCTestCase {
-
+class octalTests: XCTestCase {
     func testOctal1IsDecimal1() {
         XCTAssertEqual(1, Int(Octal("1")))
     }
@@ -58,5 +56,24 @@ class OctalTest: XCTestCase {
 
     func testvalidOctalformattedstring011IsDecimal9() {
         XCTAssertEqual(9, Int(Octal("011")))
+    }
+
+    static var allTests: [(String, (octalTests) -> () throws -> Void)] {
+        return [
+            ("testOctal1IsDecimal1", testOctal1IsDecimal1),
+            ("testOctal10IsDecimal8", testOctal10IsDecimal8),
+            ("testOctal17IsDecimal15", testOctal17IsDecimal15),
+            ("testOctal11IsDecimal9", testOctal11IsDecimal9),
+            ("testOctal130IsDecimal88", testOctal130IsDecimal88),
+            ("testOctal2047IsDecimal1063", testOctal2047IsDecimal1063),
+            ("testOctal7777IsDecimal4095", testOctal7777IsDecimal4095),
+            ("testOctal1234567IsDecimal342391", testOctal1234567IsDecimal342391),
+            ("testInvalidOctalIsDecimal0", testInvalidOctalIsDecimal0),
+            ("test8IsseenasInvalidandreturns0", test8IsseenasInvalidandreturns0),
+            ("test9IsseenasInvalidandreturns0", test9IsseenasInvalidandreturns0),
+            ("test6789IsseenasInvalidandreturns0", test6789IsseenasInvalidandreturns0),
+            ("testabc1zIsseenasInvalidandreturns0", testabc1zIsseenasInvalidandreturns0),
+            ("testvalidOctalformattedstring011IsDecimal9", testvalidOctalformattedstring011IsDecimal9),
+        ]
     }
 }
