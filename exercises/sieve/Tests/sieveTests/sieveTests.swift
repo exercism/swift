@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import sieve
 
-class SieveTest: XCTestCase {
-
+class sieveTests: XCTestCase {
     func testAFewPrimes() {
         let expected = [2, 3, 5, 7]
         XCTAssertEqual(expected, Sieve(10).primes)
@@ -29,4 +27,10 @@ class SieveTest: XCTestCase {
         XCTAssertEqual(expected, Sieve(1000).primes)
     }
 
+    static var allTests: [(String, (sieveTests) -> () throws -> Void)] {
+        return [
+            ("testAFewPrimes", testAFewPrimes),
+            ("testPrimes", testPrimes),
+        ]
+    }
 }
