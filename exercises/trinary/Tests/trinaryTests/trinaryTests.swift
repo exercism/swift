@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import trinary
 
-class TrinaryTest: XCTestCase {
-
+class trinaryTests: XCTestCase {
     func testTrinary1IsDecimal1() {
         XCTAssertEqual(1, Int(Trinary("1")))
     }
@@ -38,5 +36,19 @@ class TrinaryTest: XCTestCase {
 
     func testInvalidTrinaryIsDecimal0() {
         XCTAssertEqual(0, Int(Trinary("carrot")))
+    }
+
+    static var allTests: [(String, (trinaryTests) -> () throws -> Void)] {
+        return [
+            ("testTrinary1IsDecimal1", testTrinary1IsDecimal1),
+            ("testTrinary2IsDecimal2", testTrinary2IsDecimal2),
+            ("testTrinary10IsDecimal3", testTrinary10IsDecimal3),
+            ("testTrinary11IsDecimal4", testTrinary11IsDecimal4),
+            ("testTrinary100IsDecimal9", testTrinary100IsDecimal9),
+            ("testTrinary112IsDecimal14", testTrinary112IsDecimal14),
+            ("testTrinary222Is26", testTrinary222Is26),
+            ("testTrinary1122000120Is32091", testTrinary1122000120Is32091),
+            ("testInvalidTrinaryIsDecimal0", testInvalidTrinaryIsDecimal0),
+        ]
     }
 }
