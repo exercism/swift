@@ -1,9 +1,20 @@
-import Darwin
+import Foundation
+
+#if os(Linux)
+    import Glibc
+#elseif os(OSX)
+    import Darwin
+#endif
 
 func arc4random_uniform(_ input: Int) -> Int {
-    let temp = UInt32(input)
-    return Int(arc4random_uniform(temp))
+    #if os(Linux)
+        return random() % input
+    #elseif os(OSX)
+        let temp = UInt32(input)
+        return Int(arc4random_uniform(temp))
+    #endif
 }
+
 public struct Cipher {
     private let abc = "abcdefghijklmnopqrstuvwxyz"
     private var alphabet: [Character] { return Array(abc.characters) }

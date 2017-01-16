@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import simpleCipher
 
-class SimpleCipherTest: XCTestCase {
-
+class simpleCipherTests: XCTestCase {
     func testCipherEncode() {
         let cipher = Cipher()
         let plaintext = "aaaaaaaaaa"
@@ -96,4 +94,23 @@ class SimpleCipherTest: XCTestCase {
         XCTAssertEqual(plaintext, cipherPseudo.decode(cipherPseudo.encode(plaintext)))
     }
 
+    static var allTests: [(String, (simpleCipherTests) -> () throws -> Void)] {
+        return [
+            ("testCipherEncode", testCipherEncode),
+            ("testCipherDecode", testCipherDecode),
+            ("testCipherReversible", testCipherReversible),
+            ("testCipherWithCapsKey", testCipherWithCapsKey),
+            ("testCipherWithNumericKey", testCipherWithNumericKey),
+            ("testCipherWithEmptyKey", testCipherWithEmptyKey),
+            ("testCipherKeyIsAsSubmitted", testCipherKeyIsAsSubmitted),
+            ("testCipherEncodeSubstitution", testCipherEncodeSubstitution),
+            ("testCipherDecodeSubstitution", testCipherDecodeSubstitution),
+            ("testCipherReversibleSubstitution", testCipherReversibleSubstitution),
+            ("testDoubleShiftEncode", testDoubleShiftEncode),
+            ("testCipherEncodeWrap", testCipherEncodeWrap),
+            ("testCipherEncodePseudo", testCipherEncodePseudo),
+            ("testCipherDecodePseudo", testCipherDecodePseudo),
+            ("testCipherReversiblePseudo", testCipherReversiblePseudo),
+        ]
+    }
 }
