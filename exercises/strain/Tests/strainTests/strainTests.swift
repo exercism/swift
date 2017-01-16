@@ -1,6 +1,6 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+import Foundation
+@testable import strain
 
 private extension XCTest {
     func XCTAssertEqualMultiArray(_ aArray1: [[Int]], _ aArray2: [[Int]]) {
@@ -8,8 +8,7 @@ private extension XCTest {
     }
 }
 
-class StrainTest: XCTestCase {
-
+class strainTests: XCTestCase {
     func testEmptyKeep() {
 
         XCTAssertTrue ([].keep {each -> Bool in each < 10}.isEmpty)
@@ -83,4 +82,20 @@ class StrainTest: XCTestCase {
         XCTAssertEqualMultiArray([[1, 2, 3], [2, 1, 2], [2, 2, 1]], result)
     }
 
+    static var allTests: [(String, (strainTests) -> () throws -> Void)] {
+        return [
+            ("testEmptyKeep", testEmptyKeep),
+            ("testKeepEverything", testKeepEverything),
+            ("testKeepFirstAndLast", testKeepFirstAndLast),
+            ("testKeepNeitherFirstNorLast", testKeepNeitherFirstNorLast),
+            ("testKeepStrings", testKeepStrings),
+            ("testKeepArrays ", testKeepArrays ),
+            ("testEmptyDiscard", testEmptyDiscard),
+            ("testDiscardNothing", testDiscardNothing),
+            ("testDiscardFirstAndLast", testDiscardFirstAndLast),
+            ("testDiscardNeitherFirstNorLast", testDiscardNeitherFirstNorLast),
+            ("testDiscardStrings", testDiscardStrings),
+            ("testDiscardArrays ", testDiscardArrays ),
+        ]
+    }
 }
