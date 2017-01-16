@@ -1,8 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import twelveDays
 
-class TwelveDaysTest: XCTestCase {
+class twelveDaysTests: XCTestCase {
     func testVerse1() {
         let expected = "On the first day of Christmas my true love gave to me, a Partridge in a Pear Tree.\n"
         let result = TwelveDaysSong.verse(1)
@@ -90,4 +89,22 @@ class TwelveDaysTest: XCTestCase {
 
     }
 
+    static var allTests: [(String, (twelveDaysTests) -> () throws -> Void)] {
+        return [
+            ("testVerse1", testVerse1),
+            ("testVerse2", testVerse2),
+            ("testVerse3", testVerse3),
+            ("testVerse4", testVerse4),
+            ("testVerse5", testVerse5),
+            ("testVerse6", testVerse6),
+            ("testVerse7", testVerse7),
+            ("testVerse8", testVerse8),
+            ("testVerse9", testVerse9),
+            ("testVerse10", testVerse10),
+            ("testVerse11", testVerse11),
+            ("testVerse12", testVerse12),
+            ("testMultipleVerses", testMultipleVerses),
+            ("testTheWholeSong", testTheWholeSong),
+        ]
+    }
 }
