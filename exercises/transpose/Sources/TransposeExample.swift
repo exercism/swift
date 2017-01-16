@@ -1,3 +1,5 @@
+import Foundation
+
 struct Transpose {
     static func transpose(_ input: [String]) -> [String] {
         let maxLineLength = input.map { $0.characters.count }.max()

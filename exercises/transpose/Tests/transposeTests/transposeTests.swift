@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import transpose
 
-class TransposeTest: XCTestCase {
-
+class transposeTests: XCTestCase {
     func testEmptyInput() {
         XCTAssertEqual(Transpose.transpose([]), [])
     }
@@ -132,4 +130,19 @@ class TransposeTest: XCTestCase {
         XCTAssertEqual(Transpose.transpose(input), expected)
     }
 
+    static var allTests: [(String, (transposeTests) -> () throws -> Void)] {
+        return [
+            ("testEmptyInput", testEmptyInput),
+            ("testTwoCharactersInARow", testTwoCharactersInARow),
+            ("testTwoCharactersInAColumn", testTwoCharactersInAColumn),
+            ("testSimple", testSimple),
+            ("testSingleLine", testSingleLine),
+            ("testFirstLineLongerThanSecondLine", testFirstLineLongerThanSecondLine),
+            ("testSecondLineLongerThanFirstLine", testSecondLineLongerThanFirstLine),
+            ("testSquare", testSquare),
+            ("testRectangle", testRectangle),
+            ("testTriangle", testTriangle),
+            ("testManyLines", testManyLines),
+        ]
+    }
 }
