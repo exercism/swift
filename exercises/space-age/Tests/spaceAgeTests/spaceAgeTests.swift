@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import spaceAge
 
-class SpaceAgeTest: XCTestCase {
-
+class spaceAgeTests: XCTestCase {
     func testAgeInSeconds() {
         let age = SpaceAge(1_000_000)
         XCTAssertEqual(1_000_000, age.seconds)
@@ -54,5 +52,19 @@ class SpaceAgeTest: XCTestCase {
         let age = SpaceAge(8_210_123_456)
         XCTAssertEqual(260.16, age.onEarth)
         XCTAssertEqual(1.58, age.onNeptune)
+    }
+
+    static var allTests: [(String, (spaceAgeTests) -> () throws -> Void)] {
+        return [
+            ("testAgeInSeconds", testAgeInSeconds),
+            ("testAgeInEarthYears", testAgeInEarthYears),
+            ("testAgeInMercuryYears", testAgeInMercuryYears),
+            ("testAgeInVenusYears", testAgeInVenusYears),
+            ("testAgeOnMars", testAgeOnMars),
+            ("testAgeOnJupiter", testAgeOnJupiter),
+            ("testAgeOnSaturn", testAgeOnSaturn),
+            ("testAgeOnUranus", testAgeOnUranus),
+            ("testAgeOnNeptune", testAgeOnNeptune),
+        ]
     }
 }
