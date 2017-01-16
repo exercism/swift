@@ -1,6 +1,6 @@
 import XCTest
-@testable import queenAttackTests
+@testable import QueenAttackTests
 
 XCTMain([
-    testCase(queenAttackTests.allTests),
+    testCase(QueenAttackTests.allTests),
     ])

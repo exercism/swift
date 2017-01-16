@@ -1,6 +1,6 @@
 import XCTest
-@testable import clockTests
+@testable import ClockTests
 
 XCTMain([
-    testCase(clockTests.allTests),
+    testCase(ClockTests.allTests),
     ])

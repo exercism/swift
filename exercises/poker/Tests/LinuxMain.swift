@@ -1,6 +1,6 @@
 import XCTest
-@testable import pokerTests
+@testable import PokerTests
 
 XCTMain([
-    testCase(pokerTests.allTests),
+    testCase(PokerTests.allTests),
     ])

@@ -1,6 +1,6 @@
 import XCTest
-@testable import sieveTests
+@testable import SieveTests
 
 XCTMain([
-    testCase(sieveTests.allTests),
+    testCase(SieveTests.allTests),
     ])

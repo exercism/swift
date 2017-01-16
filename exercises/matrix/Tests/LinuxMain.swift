@@ -1,6 +1,6 @@
 import XCTest
-@testable import matrixTests
+@testable import MatrixTests
 
 XCTMain([
-    testCase(matrixTests.allTests),
+    testCase(MatrixTests.allTests),
     ])

@@ -1,6 +1,6 @@
 import XCTest
-@testable import primeFactorsTests
+@testable import PrimeFactorsTests
 
 XCTMain([
-    testCase(primeFactorsTests.allTests),
+    testCase(PrimeFactorsTests.allTests),
     ])

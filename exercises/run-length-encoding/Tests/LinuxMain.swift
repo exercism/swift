@@ -1,6 +1,6 @@
 import XCTest
-@testable import runLengthEncodingTests
+@testable import RunLengthEncodingTests
 
 XCTMain([
-    testCase(runLengthEncodingTests.allTests),
+    testCase(RunLengthEncodingTests.allTests),
     ])

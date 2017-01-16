@@ -1,6 +1,6 @@
 import XCTest
-@testable import saddlePointsTests
+@testable import SaddlePointsTests
 
 XCTMain([
-    testCase(saddlePointsTests.allTests),
+    testCase(SaddlePointsTests.allTests),
     ])

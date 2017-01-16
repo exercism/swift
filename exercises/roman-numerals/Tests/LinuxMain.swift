@@ -1,6 +1,6 @@
 import XCTest
-@testable import romanNumeralsTests
+@testable import RomanNumeralsTests
 
 XCTMain([
-    testCase(romanNumeralsTests.allTests),
+    testCase(RomanNumeralsTests.allTests),
     ])

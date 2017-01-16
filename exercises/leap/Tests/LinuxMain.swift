@@ -1,6 +1,6 @@
 import XCTest
-@testable import leapTests
+@testable import LeapTests
 
 XCTMain([
-    testCase(leapTests.allTests),
+    testCase(LeapTests.allTests),
     ])

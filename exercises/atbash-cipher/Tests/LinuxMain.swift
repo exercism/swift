@@ -1,6 +1,6 @@
 import XCTest
-@testable import atbashTests
+@testable import AtbashTests
 
 XCTMain([
-    testCase(atbashTests.allTests),
+    testCase(AtbashTests.allTests),
     ])

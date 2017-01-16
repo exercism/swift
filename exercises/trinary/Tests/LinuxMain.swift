@@ -1,6 +1,6 @@
 import XCTest
-@testable import trinaryTests
+@testable import TrinaryTests
 
 XCTMain([
-    testCase(trinaryTests.allTests),
+    testCase(TrinaryTests.allTests),
     ])

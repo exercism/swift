@@ -1,6 +1,6 @@
 import XCTest
-@testable import acronymTests
+@testable import AcronymTests
 
 XCTMain([
-    testCase(acronymTests.allTests),
+    testCase(AcronymTests.allTests),
     ])

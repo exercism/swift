@@ -1,6 +1,6 @@
 import XCTest
-@testable import pigLatinTests
+@testable import PigLatinTests
 
 XCTMain([
-    testCase(pigLatinTests.allTests),
+    testCase(PigLatinTests.allTests),
     ])

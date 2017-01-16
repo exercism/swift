@@ -1,6 +1,6 @@
 import XCTest
-@testable import robotSimulatorTests
+@testable import RobotSimulatorTests
 
 XCTMain([
-    testCase(robotSimulatorTests.allTests),
+    testCase(RobotSimulatorTests.allTests),
     ])

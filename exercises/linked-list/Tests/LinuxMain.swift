@@ -1,6 +1,6 @@
 import XCTest
-@testable import linkedListTests
+@testable import LinkedListTests
 
 XCTMain([
-    testCase(linkedListTests.allTests),
+    testCase(LinkedListTests.allTests),
     ])

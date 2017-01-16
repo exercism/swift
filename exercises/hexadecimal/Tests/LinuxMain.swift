@@ -1,6 +1,6 @@
 import XCTest
-@testable import hexadecimalTests
+@testable import HexadecimalTests
 
 XCTMain([
-    testCase(hexadecimalTests.allTests),
+    testCase(HexadecimalTests.allTests),
     ])

@@ -1,6 +1,6 @@
 import XCTest
-@testable import secretHandshakeTests
+@testable import SecretHandshakeTests
 
 XCTMain([
-    testCase(secretHandshakeTests.allTests),
+    testCase(SecretHandshakeTests.allTests),
     ])

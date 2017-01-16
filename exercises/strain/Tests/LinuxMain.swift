@@ -1,6 +1,6 @@
 import XCTest
-@testable import strainTests
+@testable import StrainTests
 
 XCTMain([
-    testCase(strainTests.allTests),
+    testCase(StrainTests.allTests),
     ])

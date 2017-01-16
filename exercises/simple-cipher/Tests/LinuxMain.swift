@@ -1,6 +1,6 @@
 import XCTest
-@testable import simpleCipherTests
+@testable import SimpleCipherTests
 
 XCTMain([
-    testCase(simpleCipherTests.allTests),
+    testCase(SimpleCipherTests.allTests),
     ])

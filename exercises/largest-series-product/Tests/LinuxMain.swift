@@ -1,6 +1,6 @@
 import XCTest
-@testable import largestSeriesProductTests
+@testable import LargestSeriesProductTests
 
 XCTMain([
-    testCase(largestSeriesProductTests.allTests),
+    testCase(LargestSeriesProductTests.allTests),
     ])

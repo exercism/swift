@@ -1,6 +1,6 @@
 import XCTest
-@testable import transposeTests
+@testable import TransposeTests
 
 XCTMain([
-    testCase(transposeTests.allTests),
+    testCase(TransposeTests.allTests),
     ])

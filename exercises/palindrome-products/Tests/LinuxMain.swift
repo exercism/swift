@@ -1,6 +1,6 @@
 import XCTest
-@testable import palindromeProductsTests
+@testable import PalindromeProductsTests
 
 XCTMain([
-    testCase(palindromeProductsTests.allTests),
+    testCase(PalindromeProductsTests.allTests),
     ])

@@ -1,6 +1,6 @@
 import XCTest
-@testable import isogramTests
+@testable import IsogramTests
 
 XCTMain([
-    testCase(isogramTests.allTests),
+    testCase(IsogramTests.allTests),
     ])

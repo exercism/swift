@@ -1,6 +1,6 @@
 import XCTest
-@testable import hammingTests
+@testable import HammingTests
 
 XCTMain([
-    testCase(hammingTests.allTests),
+    testCase(HammingTests.allTests),
     ])

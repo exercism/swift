@@ -1,6 +1,6 @@
 import XCTest
-@testable import pascalsTriangleTests
+@testable import PascalsTriangleTests
 
 XCTMain([
-    testCase(pascalsTriangleTests.allTests),
+    testCase(PascalsTriangleTests.allTests),
     ])

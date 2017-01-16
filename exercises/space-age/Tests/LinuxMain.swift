@@ -1,6 +1,6 @@
 import XCTest
-@testable import spaceAgeTests
+@testable import SpaceAgeTests
 
 XCTMain([
-    testCase(spaceAgeTests.allTests),
+    testCase(SpaceAgeTests.allTests),
     ])

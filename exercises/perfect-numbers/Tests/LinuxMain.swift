@@ -1,6 +1,6 @@
 import XCTest
-@testable import perfectNumbersTests
+@testable import PerfectNumbersTests
 
 XCTMain([
-    testCase(perfectNumbersTests.allTests),
+    testCase(PerfectNumbersTests.allTests),
     ])

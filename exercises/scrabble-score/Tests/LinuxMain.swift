@@ -1,6 +1,6 @@
 import XCTest
-@testable import scrabbleScoreTests
+@testable import ScrabbleScoreTests
 
 XCTMain([
-    testCase(scrabbleScoreTests.allTests),
+    testCase(ScrabbleScoreTests.allTests),
     ])

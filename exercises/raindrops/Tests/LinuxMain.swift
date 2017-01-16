@@ -1,6 +1,6 @@
 import XCTest
-@testable import raindropsTests
+@testable import RaindropsTests
 
 XCTMain([
-    testCase(raindropsTests.allTests),
+    testCase(RaindropsTests.allTests),
     ])

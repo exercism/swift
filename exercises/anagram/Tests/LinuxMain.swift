@@ -1,6 +1,6 @@
 import XCTest
-@testable import anagramTests
+@testable import AnagramTests
 
 XCTMain([
-    testCase(anagramTests.allTests),
+    testCase(AnagramTests.allTests),
     ])

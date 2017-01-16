@@ -1,6 +1,6 @@
 import XCTest
-@testable import sumOfMultiplesTests
+@testable import SumOfMultiplesTests
 
 XCTMain([
-    testCase(sumOfMultiplesTests.allTests),
+    testCase(SumOfMultiplesTests.allTests),
     ])

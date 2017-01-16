@@ -1,5 +1,5 @@
 import PackageDescription
 
 let package = Package(
-    name: "ocrNumbers"
+    name: "OcrNumbers"
 )

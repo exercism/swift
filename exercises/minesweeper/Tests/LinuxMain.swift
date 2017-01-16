@@ -1,6 +1,6 @@
 import XCTest
-@testable import minesweeperTests
+@testable import MinesweeperTests
 
 XCTMain([
-    testCase(minesweeperTests.allTests),
+    testCase(MinesweeperTests.allTests),
     ])

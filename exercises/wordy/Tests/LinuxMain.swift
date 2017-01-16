@@ -1,6 +1,6 @@
 import XCTest
-@testable import wordyTests
+@testable import WordyTests
 
 XCTMain([
-    testCase(wordyTests.allTests),
+    testCase(WordyTests.allTests),
     ])

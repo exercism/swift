@@ -1,6 +1,6 @@
 import XCTest
-@testable import pythagoreanTripletTests
+@testable import PythagoreanTripletTests
 
 XCTMain([
-    testCase(pythagoreanTripletTests.allTests),
+    testCase(PythagoreanTripletTests.allTests),
     ])

@@ -1,6 +1,6 @@
 import XCTest
-@testable import etlTests
+@testable import EtlTests
 
 XCTMain([
-    testCase(etlTests.allTests),
+    testCase(EtlTests.allTests),
     ])

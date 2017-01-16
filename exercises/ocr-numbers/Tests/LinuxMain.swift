@@ -1,6 +1,6 @@
 import XCTest
-@testable import ocrNumbersTests
+@testable import OcrNumbersTests
 
 XCTMain([
-    testCase(ocrNumbersTests.allTests),
+    testCase(OcrNumbersTests.allTests),
     ])

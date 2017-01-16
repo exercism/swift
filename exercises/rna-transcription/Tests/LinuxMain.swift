@@ -1,6 +1,6 @@
 import XCTest
-@testable import rnaTranscriptionTests
+@testable import RnaTranscriptionTests
 
 XCTMain([
-    testCase(rnaTranscriptionTests.allTests),
+    testCase(RnaTranscriptionTests.allTests),
     ])

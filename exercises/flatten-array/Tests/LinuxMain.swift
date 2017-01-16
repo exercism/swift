@@ -1,6 +1,6 @@
 import XCTest
-@testable import flattenArrayTests
+@testable import FlattenArrayTests
 
 XCTMain([
-    testCase(flattenArrayTests.allTests),
+    testCase(FlattenArrayTests.allTests),
     ])

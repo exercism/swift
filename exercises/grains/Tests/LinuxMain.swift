@@ -1,6 +1,6 @@
 import XCTest
-@testable import grainsTests
+@testable import GrainsTests
 
 XCTMain([
-    testCase(grainsTests.allTests),
+    testCase(GrainsTests.allTests),
     ])

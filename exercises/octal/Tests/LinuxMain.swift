@@ -1,6 +1,6 @@
 import XCTest
-@testable import octalTests
+@testable import OctalTests
 
 XCTMain([
-    testCase(octalTests.allTests),
+    testCase(OctalTests.allTests),
     ])

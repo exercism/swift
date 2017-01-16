@@ -1,6 +1,6 @@
 import XCTest
-@testable import foodChainTests
+@testable import FoodChainTests
 
 XCTMain([
-    testCase(foodChainTests.allTests),
+    testCase(FoodChainTests.allTests),
     ])

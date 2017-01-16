@@ -1,6 +1,6 @@
 import XCTest
-@testable import gradeSchoolTests
+@testable import GradeSchoolTests
 
 XCTMain([
-    testCase(gradeSchoolTests.allTests),
+    testCase(GradeSchoolTests.allTests),
     ])

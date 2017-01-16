@@ -1,6 +1,6 @@
 import XCTest
-@testable import pangramTests
+@testable import PangramTests
 
 XCTMain([
-    testCase(pangramTests.allTests),
+    testCase(PangramTests.allTests),
     ])

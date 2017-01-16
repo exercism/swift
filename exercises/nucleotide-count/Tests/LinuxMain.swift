@@ -1,6 +1,6 @@
 import XCTest
-@testable import nucleotideCountTests
+@testable import NucleotideCountTests
 
 XCTMain([
-    testCase(nucleotideCountTests.allTests),
+    testCase(NucleotideCountTests.allTests),
     ])
