@@ -1,7 +1,7 @@
 import XCTest
+@testable import sublist
 
-class SubListTest: XCTestCase {
-
+class sublistTests: XCTestCase {
     func testEmptyLists() {
 
         XCTAssertEqual(.equal, classifier(listOne: [], listTwo: []) )
@@ -91,5 +91,27 @@ class SubListTest: XCTestCase {
     func testSameDigitsButDifferentNumbers() {
 
         XCTAssertEqual(.unequal, classifier(listOne: [1, 0, 1], listTwo: [10, 1]))
+    }
+
+    static var allTests: [(String, (sublistTests) -> () throws -> Void)] {
+        return [
+            ("testEmptyLists", testEmptyLists),
+            ("testEmptyListWithinNonEmptyList", testEmptyListWithinNonEmptyList),
+            ("testNonEmptyListContainingEmptyList", testNonEmptyListContainingEmptyList),
+            ("testEqualLists", testEqualLists),
+            ("testDifferentLists", testDifferentLists),
+            ("testFalseStart", testFalseStart),
+            ("testConsecutive", testConsecutive),
+            ("testSublistAtStart", testSublistAtStart),
+            ("testSublistInMiddle", testSublistInMiddle),
+            ("testSublistAtEnd", testSublistAtEnd),
+            ("testAtStartOfSuperList", testAtStartOfSuperList),
+            ("testInMiddleOfSuperList", testInMiddleOfSuperList),
+            ("testAtEndOfSuperList", testAtEndOfSuperList),
+            ("testFirstListMissingElementFromSecondList", testFirstListMissingElementFromSecondList),
+            ("testSecondListMissingElementFromFirstList", testSecondListMissingElementFromFirstList),
+            ("testOrderMattersToAList", testOrderMattersToAList),
+            ("testSameDigitsButDifferentNumbers", testSameDigitsButDifferentNumbers),
+        ]
     }
 }
