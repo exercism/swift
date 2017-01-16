@@ -20,7 +20,7 @@ struct WordCount {
     }
 
     func count() -> [String: Int] {
-        var dict = [String:Int]()
+        var dict = [String: Int]()
         let cleanArray = splitStringToArray(words)
 
         cleanArray.forEach { string in
