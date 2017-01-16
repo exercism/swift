@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import wordy
 
-class WordyTest: XCTestCase {
-
+class wordyTests: XCTestCase {
     func testAdd1() {
         XCTAssertEqual(2, try? WordProblem("What is 1 plus 1?").answer())
     }
@@ -69,4 +67,24 @@ class WordyTest: XCTestCase {
     func testIrrelevant() {
         XCTAssertNil(try? WordProblem("Who is the president of the United States?").answer()) }
 
+    static var allTests: [(String, (wordyTests) -> () throws -> Void)] {
+        return [
+            ("testAdd1", testAdd1),
+            ("testAdd2", testAdd2),
+            ("testAddNegativeNumbers", testAddNegativeNumbers),
+            ("testAddMoreDigits", testAddMoreDigits),
+            ("testSubtract", testSubtract),
+            ("testMultiply", testMultiply),
+            ("testDivide", testDivide),
+            ("testAddTwice", testAddTwice),
+            ("testAddThenSubtract", testAddThenSubtract),
+            ("testSubtractTwice", testSubtractTwice),
+            ("testSubtractThenAdd", testSubtractThenAdd),
+            ("testMultiplyTwice", testMultiplyTwice),
+            ("testAddThenMultiply", testAddThenMultiply),
+            ("testDivideTwice", testDivideTwice),
+            ("testTooAdvanced", testTooAdvanced),
+            ("testIrrelevant", testIrrelevant),
+        ]
+    }
 }
