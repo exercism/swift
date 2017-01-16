@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import tournament
 
-class TournamentTest: XCTestCase {
-
+class tournamentTests: XCTestCase {
     let input1 =
         "Allegoric Alaskians;Blithering Badgers;win\n" +
             "Devastating Donkeys;Courageous Californians;draw\n" +
@@ -14,7 +12,7 @@ class TournamentTest: XCTestCase {
 
     let input2 =
         "Allegoric Alaskians;Blithering Badgers;win\n" +
-            "Devastating Donkeys_Courageous Californians;draw\n" +
+            "Devastating Donkeys;Courageous Californians;draw\n" +
             "Devastating Donkeys;Allegoric Alaskians;win\n" +
             "\n" +
             "Courageous Californians;Blithering Badgers;loss\n" +
@@ -65,4 +63,11 @@ class TournamentTest: XCTestCase {
         XCTAssertEqual(tournament.tally(input3), expected3)
     }
 
+    static var allTests: [(String, (tournamentTests) -> () throws -> Void)] {
+        return [
+            ("testGoodInput", testGoodInput),
+            ("testIgnoreBadlines", testIgnoreBadlines),
+            ("testinCompleteCompetition", testinCompleteCompetition),
+        ]
+    }
 }
