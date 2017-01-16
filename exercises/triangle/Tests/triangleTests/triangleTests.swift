@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import triangle
 
-class TriangleTest: XCTestCase {
-
+class triangleTests: XCTestCase {
     let triangleKind = (Equilateral:"Equilateral", Isosceles:"Isosceles", Scalene:"Scalene", ErrorKind:"ErrorKind")
     func testEquilateralTrianglesHaveEqualSides() {
         XCTAssertEqual(triangleKind.Equilateral, Triangle(2, 2, 2).kind)
@@ -59,5 +57,24 @@ class TriangleTest: XCTestCase {
 
     func testTrianglesViolatingTriangleInequalityAreIllegal3() {
         XCTAssertEqual(triangleKind.ErrorKind, Triangle(7, 3, 2).kind)
+    }
+
+    static var allTests: [(String, (triangleTests) -> () throws -> Void)] {
+        return [
+            ("testEquilateralTrianglesHaveEqualSides", testEquilateralTrianglesHaveEqualSides),
+            ("testLargerEquilateralTrianglesAlsoHaveEqualSides", testLargerEquilateralTrianglesAlsoHaveEqualSides),
+            ("testIsoscelesTrianglesHaveLastTwoSidesEqual", testIsoscelesTrianglesHaveLastTwoSidesEqual),
+            ("testIsoscelesTrianglesHaveFirstAndLastSidesEqual", testIsoscelesTrianglesHaveFirstAndLastSidesEqual),
+            ("testIsoscelesTrianglesHaveTwoFirstSidesEqual", testIsoscelesTrianglesHaveTwoFirstSidesEqual),
+            ("testIsoscelesTrianglesHaveInFactExactlyTwoSidesEqual", testIsoscelesTrianglesHaveInFactExactlyTwoSidesEqual),
+            ("testScaleneTrianglesHaveNoEqualSides", testScaleneTrianglesHaveNoEqualSides),
+            ("testScaleneTrianglesHaveNoEqualSidesAtALargerScaleToo", testScaleneTrianglesHaveNoEqualSidesAtALargerScaleToo),
+            ("testScaleneTrianglesHaveNoEqualSidesInDescendingOrderEither", testScaleneTrianglesHaveNoEqualSidesInDescendingOrderEither),
+            ("testVerySmallTrianglesAreLegal", testVerySmallTrianglesAreLegal),
+            ("testTrianglesWithNoSizeAreIllegal", testTrianglesWithNoSizeAreIllegal),
+            ("testTrianglesWithNegativeSidesAreIllegal", testTrianglesWithNegativeSidesAreIllegal),
+            ("testTrianglesViolatingTriangleInequalityAreIllegal", testTrianglesViolatingTriangleInequalityAreIllegal),
+            ("testTrianglesViolatingTriangleInequalityAreIllegal3", testTrianglesViolatingTriangleInequalityAreIllegal3),
+        ]
     }
 }
