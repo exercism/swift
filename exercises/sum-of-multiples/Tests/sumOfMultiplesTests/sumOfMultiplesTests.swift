@@ -1,9 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import sumOfMultiples
 
-class SumOfMultiplesTest: XCTestCase {
-
+class sumOfMultiplesTests: XCTestCase {
     func testSumTo1() {
         XCTAssertEqual(0, SumOfMultiples.toLimit(1, inMultiples: [3, 5]))
     }
@@ -48,4 +46,19 @@ class SumOfMultiplesTest: XCTestCase {
         XCTAssertEqual(45, SumOfMultiples.toLimit(10, inMultiples: [0, 1]))
     }
 
+    static var allTests: [(String, (sumOfMultiplesTests) -> () throws -> Void)] {
+        return [
+            ("testSumTo1", testSumTo1),
+            ("testSumTo3", testSumTo3),
+            ("testSumTo10", testSumTo10),
+            ("testSumTo100", testSumTo100),
+            ("testSumTo1000", testSumTo1000),
+            ("testConfigurable_7_13_17_to_20", testConfigurable_7_13_17_to_20),
+            ("testConfigurable_4_6_to_15", testConfigurable_4_6_to_15),
+            ("testConfigurable_5_6_8_to_150", testConfigurable_5_6_8_to_150),
+            ("testConfigurable_43_47_to_10000", testConfigurable_43_47_to_10000),
+            ("testConfigurable_0_to_10", testConfigurable_0_to_10),
+            ("testConfigurable_0_1_to_10", testConfigurable_0_1_to_10),
+        ]
+    }
 }
