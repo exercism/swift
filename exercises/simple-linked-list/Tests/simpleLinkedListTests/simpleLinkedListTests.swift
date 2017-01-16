@@ -1,10 +1,7 @@
-#if swift(>=3.0)
-    import XCTest
-#endif
+import XCTest
+@testable import simpleLinkedList
 
-// Use Optionals and Generic Classes
-class SimpleLinkedListTest: XCTestCase {
-
+class simpleLinkedListTests: XCTestCase {
     func testConstructorA() {
         let one = Element(1, nil)
         let two = Element(2, one)
@@ -80,4 +77,17 @@ class SimpleLinkedListTest: XCTestCase {
         XCTAssertEqual(Array(1...10), Element.fromArray(Array(1...10)).toArray())
     }
 
+    static var allTests: [(String, (simpleLinkedListTests) -> () throws -> Void)] {
+        return [
+            ("testConstructorA", testConstructorA),
+            ("testConstructorB", testConstructorB),
+            ("testToA", testToA),
+            ("testReverseOne", testReverseOne),
+            ("testReverseTwo", testReverseTwo),
+            ("testFromAOne", testFromAOne),
+            ("testFromATwo", testFromATwo),
+            ("testFromATen", testFromATen),
+            ("testRoundtrip", testRoundtrip),
+        ]
+    }
 }
