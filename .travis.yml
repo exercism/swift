@@ -1,12 +1,10 @@
 language: generic
 
 before_install:
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then  
-        gem install danger
-        && brew update
-        && brew outdated swiftlint || brew upgrade swiftlint
-    ; fi
-        
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then gem install danger ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew outdated swiftlint || brew upgrade swiftlint ; fi
+    
 matrix:
   include:
     - script: 
@@ -25,11 +23,8 @@ matrix:
       services: docker
 
 after_success:
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-        danger 
-        && ls -al 
-        &&  python -m json.tool lintreport.json
-    ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then danger  ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ls -al   ; fi
 
 
 
