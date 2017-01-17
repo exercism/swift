@@ -4,6 +4,10 @@ This guide explains how to run unit tests for Exercism Swift exercises, and opti
 
 Exercism uses [Swift Package Manager](https://github.com/apple/swift-package-manager/tree/master/Documentation) to package files and tests for Swift.
 
+For experienced users:
+	1. `swift test` runs tests
+	2. `swift package generate-xcodeproj` creates an Xcode project
+
 These instructions are written with the expectation that some readers will be very new to Xcode. Therefore each step is described in excruciating detail.
 
 ### Overview
