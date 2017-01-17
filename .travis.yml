@@ -1,21 +1,30 @@
-language: objective-c
-osx_image: xcode8
-xcode_project: 'xcodeProject/xSwift.xcodeproj'
-xcode_scheme: 'xSwiftTests'
+language: generic
 
 before_install:
-  - gem install danger xcpretty xcpretty-json-formatter
-  - brew update
-  - brew outdated swiftlint || brew upgrade swiftlint
-
-script:
-  - bin/fetch-configlet
-  - bin/configlet .
-  - swiftlint lint --quiet >> lintreport.json
-  - xcodebuild test -project 'xcodeProject/xSwift.xcodeproj' -scheme 'xSwiftTests' | xcpretty -f `xcpretty-json-formatter`
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then gem install danger ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew outdated swiftlint || brew upgrade swiftlint ; fi
+    
+matrix:
+  include:
+    - script: 
+        - bin/fetch-configlet
+        - bin/configlet .
+        - swiftlint lint --quiet >> lintreport.json
+        - ls
+        - swift test
+      env: JOB=SPM
+      os: osx
+      osx_image: xcode8.2
+    - script:
+        - docker run -v `pwd`:/xswift norionomura/sourcekit:302 bash -c "cd /xswift && swift build"
+      env: JOB=Linux
+      sudo: required
+      services: docker
 
 after_success:
-  - danger
-  - ls -al
-  - python -m json.tool lintreport.json
-  - python -m json.tool build/reports/errors.json
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then danger  ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ls -al   ; fi
+
+
+
