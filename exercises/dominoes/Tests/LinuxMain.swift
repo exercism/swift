@@ -1,5 +1,5 @@
 import XCTest
-@testable import dominoesTests
+@testable import DominoesTests
 
 XCTMain([
     testCase(DominoesTests.allTests),
