@@ -1,5 +1,5 @@
 import XCTest
-@testable import binaryTests
+@testable import BinaryTests
 
 XCTMain([
     testCase(BinaryTests.allTests),
