@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for d in ./exercises/*/ ; do
+    swift test -C $d
+done
