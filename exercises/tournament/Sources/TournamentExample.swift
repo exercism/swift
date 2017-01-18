@@ -185,5 +185,4 @@ struct Tournament {
 
         return tournament.writeResults()
     }
-
 }
