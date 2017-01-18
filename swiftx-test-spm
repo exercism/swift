@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for d in ./exercises/*/ ; do
+    echo "$d"
+    cd "$d"
+    swift test
+    cd .
+done
