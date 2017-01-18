@@ -8,7 +8,7 @@ These instructions are written with the expectation that some readers will be ve
 
 _As far as housekeeping chores go, you are closer to the finish line than it appears._
 
-###Overview
+### Overview
 
 To complete an Exercism exercise, you will work primarily with three files:
 
