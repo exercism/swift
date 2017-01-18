@@ -117,12 +117,12 @@ struct Tournament {
 
         textOutput += header
         func sortKeysByValue() -> [String] {
-            var sortByValue = [(String, Int)]()
+            var sortByValue = [(team : String, score: Int, mp: Int)]()
             for each in Array(teams.keys) {
                 let tempVal = teams[each]!
-                sortByValue.append((each, tempVal.score))
+                sortByValue.append((each, tempVal.score, tempVal.played))
             }
-            sortByValue.sort { $0.1 > $1.1 }
+            sortByValue.sort { $0.score == $1.score ? $0.mp > $1.mp : $0.score > $1.score  }
             var sortedKeys = [String]()
             for each in sortByValue {
                 sortedKeys.append(each.0)
