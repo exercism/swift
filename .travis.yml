@@ -12,12 +12,12 @@ matrix:
         - bin/configlet .
         - swiftlint lint --quiet >> lintreport.json
         - ls
-        - xswift-test-spm
+        - bin/xswift-test-spm
       env: JOB=SPM
       os: osx
       osx_image: xcode8.2
     - script:
-        - docker run -v `pwd`:/xswift norionomura/sourcekit:302 bash -c "cd /xswift && xswift-test-spm"
+        - docker run -v `pwd`:/xswift norionomura/sourcekit:302 bash -c "cd /xswift && bin/xswift-test-spm"
       env: JOB=Linux
       sudo: required
       services: docker
