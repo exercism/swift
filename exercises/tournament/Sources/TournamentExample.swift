@@ -49,7 +49,7 @@ struct Tournament {
             return wins * 3 + draws
         }
 
-        mutating func addOutcome( _ outcome: Outcome ) -> Void {
+        mutating func addOutcome( _ outcome: Outcome ) {
             switch outcome {
             case .loss :
                 losses += 1
@@ -63,8 +63,8 @@ struct Tournament {
         }
     }
 
-    private var teams = [String : TeamResult]()
-    private mutating func addResult(_ team1: String, team2: String, outcome: Outcome) -> Void {
+    private var teams = [String: TeamResult]()
+    private mutating func addResult(_ team1: String, team2: String, outcome: Outcome) {
         // Invert outcome for the second team.
         let outcome2: Outcome  = (outcome == Outcome.win) ? Outcome.loss :
             (outcome == Outcome.loss) ? Outcome.win :
@@ -75,7 +75,7 @@ struct Tournament {
 
     private var teamResult = TeamResult()
 
-    private mutating func addTeamOutcome(_ team: String, _ outcome: Outcome) -> Void {
+    private mutating func addTeamOutcome(_ team: String, _ outcome: Outcome) {
         if teams[team] != nil {
             teamResult = teams[team]!
             teamResult.addOutcome(outcome)

@@ -8,8 +8,6 @@ before_install:
 matrix:
   include:
     - script: 
-        - bin/fetch-configlet
-        - bin/configlet .
         - swiftlint lint --quiet >> lintreport.json
         - ls
         - ./xswift-test-spm
@@ -17,6 +15,8 @@ matrix:
       os: osx
       osx_image: xcode8.2
     - script:
+        - bin/fetch-configlet
+        - bin/configlet .
         - docker run -v `pwd`:/xswift norionomura/sourcekit:302 bash -c "cd /xswift && ./xswift-test-spm"
       env: JOB=Linux
       sudo: required

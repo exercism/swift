@@ -19,7 +19,7 @@ class TournamentTests: XCTestCase {
             "Bla;Bla;Bla\n" +
             "Blithering Badgers;Devastating Donkeys;loss\n" +
             "# Yackity yackity yack\n" +
-            "Allegoric Alaskians;Courageous Californians;win\n" 
+            "Allegoric Alaskians;Courageous Californians;win\n"
 
     let input3 =
         "Allegoric Alaskians;Blithering Badgers;win\n" +

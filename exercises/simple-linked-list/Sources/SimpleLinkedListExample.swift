@@ -7,8 +7,8 @@ private extension Array {
 }
 
 class Element<T> {
-    var value: T? = nil
-    var next: Element? = nil
+    var value: T?
+    var next: Element?
 
     init() { }
 
