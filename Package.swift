@@ -10,7 +10,7 @@ if
     let jsonDict = json as? [String: Any],
     let exercisesDict = jsonDict["exercises"] as? [[String:Any]],
     let exercises = exercisesDict.map({$0["slug"]}) as? [String],
-    let deprecated = jsonDict["deprecated"] as? [String]{
+    let deprecated = jsonDict["deprecated"] as? [String] {
 
     allProblems += exercises
     allProblems += deprecated
@@ -18,11 +18,9 @@ if
     print("Could not parse config.json at \(path)")
 }
 
-let dependencies = allProblems.map{ Package.Dependency.Package(url: "./exercises/\($0)/", majorVersion: 1) }
-
+let dependencies = allProblems.map { Package.Dependency.Package(url: "./exercises/\($0)/", majorVersion: 1) }
 
 let package = Package(
     name: "xswift",
     dependencies: dependencies
     )
-

@@ -1,7 +1,7 @@
 class Node<T> {
-    var value: T? = nil
-    var next: Node? = nil
-    var prev: Node? = nil
+    var value: T?
+    var next: Node?
+    var prev: Node?
 
     init() {
     }

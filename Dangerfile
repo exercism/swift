@@ -42,10 +42,3 @@ json.each do |object|
    	message(msg, file: shortFile, line: line)
    end
 end
-
-# Reports when the test passed
-jsonpath2 = "build/reports/errors.json"
-contents2 = File.read jsonpath2
-json2 = JSON.parse contents2
-firstStrinInArray = json2["tests_summary_messages"][0]
-message(firstStrinInArray)
