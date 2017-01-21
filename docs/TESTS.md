@@ -32,21 +32,21 @@ Optionally, Xcode can create a third file for experimentation:
 3. At this point the project's file inspector should look similar to the following image. If the `HelloWorldTests` folder is closed, click on the disclosure triangle to reveal its contents.
 4. The items Package.swift, Configs, and Products are boilerplate that do not need modification.
 
-![file inspector](img/file-inspector.png)
+![file inspector](/docs/img/file-inspector.png)
 
 ### Running Tests with Xcode
 
 Select the test file from the file inspector. You can trigger tests by clicking on one of the diamonds in the gutter of the Tests Source file. The diamond next to the class definition will run all the tests, whereas the diamond next to each individual test will run only that test.
 
-![tests](img/tests.png)
+![tests](/docs/img/tests.png)
 
 Tests can also be invoked with Command-U, from the Test Inspector (Command-5), or from the sub-menu under the play button in the top bar. Red errors are normal at this stage.
 
-![failing tests](img/tests-fail.png)
+![failing tests](/docs/img/tests-fail.png)
 
 Once all the tests are marked with a green icon, congratulations, you have successfully completed the exercise! Now submit it to the Exercism website for review. If you are impossibly stuck, submit the exercise before it is complete to view how other users solved the exercise.
 
-![passing tests](img/tests-pass.png)
+![passing tests](/docs/img/tests-pass.png)
 
 *The Hello-World exercise is a very simple coding problem, but the complexity of Xcode can make even simple exercises complex. We can ignore most of this complexity, because we only need to edit one file. You can always regenerate the Xcode project if something goes wrong.*
 
