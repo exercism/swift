@@ -3,4 +3,4 @@ machine:
     version: "8.2"
 test:
   override:
-    - xswift-test-spm
+    - ./xswift-test-spm
