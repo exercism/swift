@@ -16,13 +16,13 @@ private extension String {
 struct PigLatin {
 
     static func translate (_ word: String) -> String {
-        return word.components(separatedBy: " ").map {self.translateWord($0)}.joined(separator: " ")
+        return word.components(separatedBy: " ").map { self.translateWord($0) }.joined(separator: " ")
     }
 
     static func translateWord(_ word: String) -> String {
 
         func wordStartsWithPrefixes(_ word: String, prefixes: [String]) -> Bool {
-            return 0 < prefixes.filter {word.hasPrefix($0)}.count
+            return 0 < prefixes.filter { word.hasPrefix($0) }.count
         }
 
         func wordStartsWithVowelLike(_ word: String) -> Bool {
@@ -34,7 +34,7 @@ struct PigLatin {
             return word.substring(from: index).hasPrefix("qu")
         }
 
-        if wordStartsWithVowelLike(word) {return word + "ay"}
+        if wordStartsWithVowelLike(word) { return word + "ay" }
         if wordStartsWithPrefixes(word, prefixes: ["thr", "sch"]) {
             return (word.substringFromIndexInt(3) + word.substringWithRangeInt(0..<3) + "ay") }
 

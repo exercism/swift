@@ -22,7 +22,7 @@ struct NumberClassifier {
     func aliquotSum (_ input: Int) -> Int {
         let array = Array(1..<(input-1))
 
-        return array.filter({input % $0 == 0}).reduce(0, +)
+        return array.filter({ input % $0 == 0 }).reduce(0, +)
     }
 
     init(number: Int) {

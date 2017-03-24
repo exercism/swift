@@ -24,7 +24,7 @@ struct Octal {
         var tempInt: Int = 0
         for (inx, each) in orderedInput.enumerated() {
             let tempCharInt = Int("\(each)") ?? 0
-            if tempCharInt > 7 {return 0}
+            if tempCharInt > 7 { return 0 }
             let tempOctPower = Int(pow(Double(8), Double(inx)))
             tempInt += tempOctPower * tempCharInt
         }

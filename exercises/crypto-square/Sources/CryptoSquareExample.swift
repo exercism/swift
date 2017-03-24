@@ -35,7 +35,7 @@ struct Crypto {
         let tempRoot = tempDouble.squareRoot()
         let tempCeil = ceil(tempRoot)
         let tempFloor = floor(tempRoot)
-        if floorNoCeling { return Int(tempFloor)} else {
+        if floorNoCeling { return Int(tempFloor) } else {
             return Int(tempCeil)}
     }
 

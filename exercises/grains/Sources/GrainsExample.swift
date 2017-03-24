@@ -27,7 +27,7 @@ struct Grains {
         let numbers = (1...64).map { $0 }
 
         return numbers.reduce(UInt64(0)) {
-            guard let squared = try? square($1) else {return $0}
+            guard let squared = try? square($1) else { return $0 }
             return $0 + squared
         }
     }

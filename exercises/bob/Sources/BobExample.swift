@@ -41,8 +41,8 @@ private extension String {
     private func containsLetters(_ input: String) -> Bool {
         let abc = "abcdefghijklmnopqrstuvwxyz"
         var contains = false
-        let inputStringCollection = input.characters.map({String($0)})
-        let abcStringCollection = abc.characters.map({String($0)})
+        let inputStringCollection = input.characters.map({ String($0) })
+        let abcStringCollection = abc.characters.map({ String($0) })
 
         for each in inputStringCollection {
             abcStringCollection.forEach({

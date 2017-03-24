@@ -53,10 +53,10 @@ struct WordProblem {
          "divided by": "/"]
 
     private let funcs =
-        ["+": {(a: Int, b: Int) -> Int in return a + b},
-         "-": {(a: Int, b: Int) -> Int in return a - b},
-         "*": {(a: Int, b: Int) -> Int in return a * b},
-         "/": {(a: Int, b: Int) -> Int in return a / b}]
+        ["+": { (a: Int, b: Int) -> Int in return a + b },
+         "-": { (a: Int, b: Int) -> Int in return a - b },
+         "*": { (a: Int, b: Int) -> Int in return a * b },
+         "/": { (a: Int, b: Int) -> Int in return a / b }]
     func answer() throws -> Int {
         guard let toReturn = calculate(textIn) else {
             throw CalculateError.error
@@ -111,7 +111,7 @@ struct WordProblem {
 
         var newTextIn =  Array(textInp.characters)
         newTextIn = newTextIn.filter(checkCharInSet)
-        let newTextInString: [String] = newTextIn.map {String($0)}
+        let newTextInString: [String] = newTextIn.map { String($0) }
         return newTextInString.joined(separator: "").trimWhiteSpace()
 
     }

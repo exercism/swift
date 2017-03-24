@@ -37,13 +37,13 @@ private extension tm {
         }
         if addZero {
             return "0\(input)"
-        } else {return String(input)}
+        } else { return String(input) }
 
     }
 
     var description: String {
 
-        let date = [year, month, day, time.hour, time.mins, time.secs].map {addLeadingZero($0)}
+        let date = [year, month, day, time.hour, time.mins, time.secs].map { addLeadingZero($0) }
 
         return date[0] + "-" + date[1] + "-" + date[2] + "T" + date[3] + ":" + date[4] + ":" + date[5]
     }
@@ -72,10 +72,10 @@ struct Gigasecond: Equatable, CustomStringConvertible {
     }
     private func parse(_ input: String) -> tm? {
 
-        let dateTime = input.characters.split(separator: "T").map {String($0)}
+        let dateTime = input.characters.split(separator: "T").map { String($0) }
         if dateTime.count > 1 {
-            let date = dateTime[0].characters.split(separator: "-").map {String($0)}
-            let time = dateTime[1].characters.split(separator: ":").map {String($0)}
+            let date = dateTime[0].characters.split(separator: "-").map { String($0) }
+            let time = dateTime[1].characters.split(separator: ":").map { String($0) }
             if date.count == 3 && time.count == date.count {
 
                 let year = Int32(date[0]) ?? 0

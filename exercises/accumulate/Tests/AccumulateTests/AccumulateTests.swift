@@ -2,7 +2,7 @@ import XCTest
 @testable import Accumulate
 
 private extension String {
-    var length: Int {return self.characters.count}
+    var length: Int { return self.characters.count }
 
     func reverse() -> String {
         var result: String = ""

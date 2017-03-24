@@ -3,9 +3,9 @@ import Foundation
 struct Luhn {
 
     var number: Int64 = 0
-    var addends: [Int] { return addendsFunc(number)}
-    var checksum: Int {return addends.reduce(0, +) }
-    var isValid: Bool { return checksum % 10 == 0}
+    var addends: [Int] { return addendsFunc(number) }
+    var checksum: Int { return addends.reduce(0, +) }
+    var isValid: Bool { return checksum % 10 == 0 }
 
     init(_ num: Int64) {
         self.number = num
@@ -54,7 +54,7 @@ struct Luhn {
 
         let tempString = "\(num)"
 
-        return oddIndexInt64Minus9(Array(tempString.characters).map {char2Int($0)})
+        return oddIndexInt64Minus9(Array(tempString.characters).map { char2Int($0) })
     }
 
 }
