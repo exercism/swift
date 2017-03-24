@@ -7,9 +7,9 @@ struct SecretHandshake {
         self.commandValue = commandValue
     }
 
-    var shouldReverse: Bool {return (commandValue & 16) != 0}
+    var shouldReverse: Bool { return (commandValue & 16) != 0 }
 
-    var commands: [String] {return commandsFunc()}
+    var commands: [String] { return commandsFunc() }
 
     private func commandsFunc() -> [String] {
         var commands = [String]()

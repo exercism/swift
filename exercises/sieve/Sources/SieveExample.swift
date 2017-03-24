@@ -4,13 +4,13 @@ struct Sieve {
         self.value = num
     }
 
-    var primes: [Int] {return primesFunc(self.value ) }
+    var primes: [Int] { return primesFunc(self.value ) }
 
     func primesFunc(_ limit: Int) -> [Int] {
 
-        if limit < 2 { return []} else {
+        if limit < 2 { return [] } else {
             let tempArray =  Array(2...limit)
-            return tempArray.filter {Sieve.onlyDivisorSelf($0)}
+            return tempArray.filter { Sieve.onlyDivisorSelf($0) }
         }
     }
 
@@ -26,7 +26,7 @@ struct Sieve {
             }
             divisor += 1
         }
-        if primes.count == 1 {return true} else {return false}
+        if primes.count == 1 { return true } else { return false }
     }
 
 }

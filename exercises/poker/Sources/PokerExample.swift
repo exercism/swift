@@ -27,7 +27,7 @@ struct Poker {
         }
 
         guard let topHand = (pokerHandsParsed.sorted(by: >)).first,
-            let indexTop = pokerHandsParsed.index(of: topHand) else {return nil}
+            let indexTop = pokerHandsParsed.index(of: topHand) else { return nil }
 
         return hands[indexTop]
 
@@ -60,7 +60,7 @@ enum HandRank {
     }
 
     static func parsePairs(_ inputHand: PokerHand) -> [(rank: Rank, count: Int)] {
-        let ranks = inputHand.hand.map({$0.rank})
+        let ranks = inputHand.hand.map({ $0.rank })
         let rankSet = Set(ranks)
         var toReturn = [Rank: Int]()
         for each in ranks {
@@ -68,7 +68,7 @@ enum HandRank {
                 toReturn[each] = (toReturn[each] ?? 0) + 1
             }
         }
-        let result = toReturn.map({key, value in return (rank:key, count:value)}).sorted(by: {
+        let result = toReturn.map({ key, value in return (rank:key, count:value) }).sorted(by: {
             (one, two) in
             return one.count == two.count ? one.rank > two.rank : one.count > two.count
         })
@@ -76,22 +76,22 @@ enum HandRank {
     }
 
     static func isFlush(_ inputHand: PokerHand) -> (bool: Bool, suit: Suit) {
-        let suits = inputHand.hand.map({$0.suit})
+        let suits = inputHand.hand.map({ $0.suit })
         let first = suits[0]
         for each in suits {
-            guard first == each else { return (false, .None)}
+            guard first == each else { return (false, .None) }
         }
         return (true, first)
     }
 
     static func isStraight(_ inputHand: PokerHand) -> (bool: Bool, highest: Rank) {
-        let sorted = inputHand.hand.sorted(by: {$0.rank < $1.rank})
+        let sorted = inputHand.hand.sorted(by: { $0.rank < $1.rank })
         let first = sorted[0].rank.rawValue
         for (index, each) in sorted.enumerated() {
             if each.rank.rawValue != index + first {
                 // checks for Ace as the lowest card
-                guard let aceIndex = inputHand.hand.index(where: {$0.rank.rawValue == 14})else {return (false, .ace)}
-                var replacedAced = inputHand.hand.map({$0.rank.rawValue})
+                guard let aceIndex = inputHand.hand.index(where: { $0.rank.rawValue == 14 })else { return (false, .ace) }
+                var replacedAced = inputHand.hand.map({ $0.rank.rawValue })
                 replacedAced[aceIndex] = 1 // swaps ace value to lowest
                 replacedAced.sort()
                 let firstVal = replacedAced[0]
@@ -255,11 +255,11 @@ struct PokerHand {
         var handParsed: [PlayingCard] = []
 
         for each in stringHand.split(" ") {
-            guard let card = PlayingCard(each) else {return nil}
+            guard let card = PlayingCard(each) else { return nil }
             handParsed.append(card)
         }
 
-        if handParsed.count == 5 {self.hand = handParsed } else {return nil}
+        if handParsed.count == 5 { self.hand = handParsed } else { return nil }
     }
 }
 extension PokerHand : Equatable, Comparable {}

@@ -14,11 +14,11 @@ struct Triplet {
         self.c = c
     }
 
-    var sum: Int {return a + b + c }
+    var sum: Int { return a + b + c }
 
-    var product: Int {return a * b * c }
+    var product: Int { return a * b * c }
 
-    var isPythagorean: Bool {return pow(Double(a), 2) + pow(Double(b), 2) == pow(Double(c), 2)}
+    var isPythagorean: Bool { return pow(Double(a), 2) + pow(Double(b), 2) == pow(Double(c), 2) }
 
     static func Where(_ minFactor: Int = 1, maxFactor: Int, sum: Int = 0) -> [Triplet] {
 

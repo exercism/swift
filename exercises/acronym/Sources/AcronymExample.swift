@@ -46,7 +46,7 @@ struct Acronym {
             var accumulate  = ""
             var lastIndexAdded = 0
 
-            for (index, each) in inString.characters.map({String($0)}).enumerated() {
+            for (index, each) in inString.characters.map({ String($0) }).enumerated() {
                 if splitCamelcaseAt(each, withString: &previousLetter) {
                     accumulate += inString.substringWithRangeInt(lastIndexAdded, end: index)+" " // inserts a space
                     lastIndexAdded = index
@@ -67,10 +67,10 @@ struct Acronym {
 
         func splitStringToArray(_ inString: String) -> [String] {
 
-            return inString.characters.split(whereSeparator: { splitAt($0) }).map {String($0)}
+            return inString.characters.split(whereSeparator: { splitAt($0) }).map { String($0) }
         }
 
-        return splitStringToArray(insertSpaceAtCamelcase(inString)).map({$0.uppercased().substringWithRangeInt(0, end: 1)}).joined(separator: "")
+        return splitStringToArray(insertSpaceAtCamelcase(inString)).map({ $0.uppercased().substringWithRangeInt(0, end: 1) }).joined(separator: "")
     }
 
 }

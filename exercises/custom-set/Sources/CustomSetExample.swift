@@ -1,5 +1,5 @@
 func == <T> (lh: CustomSet<T>, rh: CustomSet<T>) -> Bool {
-    return lh.contents.keys.sorted {$0.hashValue < $1.hashValue} == rh.contents.keys.sorted {$0.hashValue < $1.hashValue}
+    return lh.contents.keys.sorted { $0.hashValue < $1.hashValue } == rh.contents.keys.sorted { $0.hashValue < $1.hashValue }
 
 }
 struct CustomSet<T:Hashable>:Equatable {
@@ -8,9 +8,9 @@ struct CustomSet<T:Hashable>:Equatable {
 
     fileprivate var contents = [Element: Bool]()
 
-    var size: Int {return contents.count}
+    var size: Int { return contents.count }
 
-    var toSortedArray: [Element] {return Array(contents.keys.sorted {$0.hashValue < $1.hashValue})}
+    var toSortedArray: [Element] { return Array(contents.keys.sorted { $0.hashValue < $1.hashValue }) }
 
     init<S: Sequence>(_ sequence: S) where S.Iterator.Element == Element {
         self.contents = [:]
@@ -34,7 +34,7 @@ struct CustomSet<T:Hashable>:Equatable {
     func intersection(_ item: CustomSet) -> CustomSet {
         var temp = [Element: Bool]()
         for each in Array(item.contents.keys) {
-            guard let _ =  contents[each] else {continue}
+            guard let _ =  contents[each] else { continue }
             temp[each] = true
         }
         return CustomSet(temp.keys)
@@ -56,7 +56,7 @@ struct CustomSet<T:Hashable>:Equatable {
     }
     func isSupersetOf (_ item: CustomSet) -> Bool {
 
-        return item.contents.count == item.contents.filter {self.contents.keys.contains($0.0)}.count
+        return item.contents.count == item.contents.filter { self.contents.keys.contains($0.0) }.count
 
     }
     func isDisjoint(_ item: CustomSet) -> Bool {

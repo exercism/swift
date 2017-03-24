@@ -4,12 +4,12 @@ struct Dominoes {
     let doubles: [Bone]
 
     var chained: Bool {
-        if singles.isEmpty && doubles.count == 1 {return true }
+        if singles.isEmpty && doubles.count == 1 { return true }
         let (success, result) = chainning(swapDuplicate(singles))
         if doubles.isEmpty {
             return success
         } else if success == true {
-            return doubles.count == doubles.filter({each in return result.contains(where: {e in return e.value.head == each.value.head})}).count
+            return doubles.count == doubles.filter({ each in return result.contains(where: { e in return e.value.head == each.value.head }) }).count
         } else {
             return false
         }
@@ -31,7 +31,7 @@ struct Dominoes {
     private func chainning(_ input: [Bone]) -> (Bool, [Bone]) {
         var matched = input
 
-        guard !matched.isEmpty else {return (false, [])}
+        guard !matched.isEmpty else { return (false, []) }
 
         let total = matched.count - 1
 
@@ -40,7 +40,7 @@ struct Dominoes {
                 matched[index].connect(matched[innerIndex])
             }
         }
-        return (matched.filter({$0.connected >= 2}).count == matched.count) ?
+        return (matched.filter({ $0.connected >= 2 }).count == matched.count) ?
             (true, matched) :  (false, [])
     }
 
@@ -74,8 +74,8 @@ class Bone: CustomStringConvertible, Equatable {
     @discardableResult
     func connect(_ input: Bone) -> Bool {
 
-        guard self !== input else {return false}
-        guard self !== input.connectedTo else {return false}
+        guard self !== input else { return false }
+        guard self !== input.connectedTo else { return false }
 
         var toReturn = false
 

@@ -67,7 +67,7 @@ extension Date:CustomStringConvertible {
 
     var description: String {
 
-        let date = [year, month, day, hour, mins, secs].map {addLeadingZero($0)}
+        let date = [year, month, day, hour, mins, secs].map { addLeadingZero($0) }
 
         let dateOnly = date[0] + "-" + date[1] + "-" + date[2]
         let dateTime = dateOnly + "T" + date[3] + ":" + date[4] + ":" + date[5]
@@ -97,8 +97,8 @@ extension Date {
         var minute = Int32()
         var second = Int32()
 
-        let dateTime = input.characters.split(separator: "T").map {String($0)}
-        let date = dateTime[0].characters.split(separator: "-").map {String($0)}
+        let dateTime = input.characters.split(separator: "T").map { String($0) }
+        let date = dateTime[0].characters.split(separator: "-").map { String($0) }
         if date.count == 3 {
             year = Int32(date[0]) ?? 0
             month = Int32(date[1]) ?? 0
@@ -106,7 +106,7 @@ extension Date {
         }
 
         if dateTime.count == 2 {
-            let time = dateTime[1].characters.split(separator: ":").map {String($0)}
+            let time = dateTime[1].characters.split(separator: ":").map { String($0) }
             if time.count == 3 {
                 hour = Int32(time[0]) ?? 0
                 minute = Int32(time[1]) ?? 0
@@ -134,7 +134,7 @@ struct Meetup {
 
         let starDay = dateStart.weekday
         var month = Array(dateStart.day ... dateEnd.day)
-        month =  month.map {(($0 + 5 + starDay) % 7) + 1  }
+        month =  month.map { (($0 + 5 + starDay) % 7) + 1 }
 
         for (index, eachDay) in month.enumerated() {
             dateMonthWeekDays.append([Int32(index + 1), eachDay])
@@ -144,11 +144,11 @@ struct Meetup {
 
             if which == "teenth" {
                 let teenthRange = Array(dateMonthWeekDays[13...19])
-                let teenth = teenthRange.filter({$0[1] == Int32(dayOfTheWeek) })[0][0]
+                let teenth = teenthRange.filter({ $0[1] == Int32(dayOfTheWeek) })[0][0]
                 return Date(from: "\(dateStart.year)-\(dateStart.month)-\(teenth)") ?? Date()
 
             }
-            let count =  dateMonthWeekDays.filter({$0[1] == Int32(dayOfTheWeek) }).count
+            let count =  dateMonthWeekDays.filter({ $0[1] == Int32(dayOfTheWeek) }).count
             var dayIndex: Int = 0
             switch dateInput {
             case "1st": dayIndex = 0
@@ -160,7 +160,7 @@ struct Meetup {
             default: dayIndex = -1
             }
 
-            let first2last = dateMonthWeekDays.filter({$0[1] == Int32(dayOfTheWeek) })[dayIndex][0]
+            let first2last = dateMonthWeekDays.filter({ $0[1] == Int32(dayOfTheWeek) })[dayIndex][0]
 
             return Date(from:"\(dateStart.year)-\(dateStart.month)-\(first2last)") ?? Date()
         }

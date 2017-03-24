@@ -9,7 +9,7 @@ if
     let json = try? JSONSerialization.jsonObject(with: jsonData, options: [])  ,
     let jsonDict = json as? [String: Any],
     let exercisesDict = jsonDict["exercises"] as? [[String:Any]],
-    let exercises = exercisesDict.map({$0["slug"]}) as? [String],
+    let exercises = exercisesDict.map({ $0["slug"] }) as? [String],
     let deprecated = jsonDict["deprecated"] as? [String] {
 
     allProblems += exercises

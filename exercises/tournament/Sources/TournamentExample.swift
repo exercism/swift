@@ -122,7 +122,7 @@ struct Tournament {
                 let tempVal = teams[each]!
                 sortByValue.append((each, tempVal.score, tempVal.played))
             }
-            sortByValue.sort { $0.score == $1.score ? $0.mp > $1.mp : $0.score > $1.score  }
+            sortByValue.sort { $0.score == $1.score ? $0.mp > $1.mp : $0.score > $1.score }
             var sortedKeys = [String]()
             for each in sortByValue {
                 sortedKeys.append(each.0)
@@ -161,7 +161,7 @@ struct Tournament {
         var outcome: Outcome = Outcome.err
 
         // alternative to .componentsSeparatedByString
-        let textArrayLines = inStream.characters.split {$0 == "\n"}.map { String($0) }
+        let textArrayLines = inStream.characters.split { $0 == "\n" }.map { String($0) }
 
         for line in textArrayLines {
             let parts = line.trimWhiteSpace().components(separatedBy: ";")
