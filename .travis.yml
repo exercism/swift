@@ -8,8 +8,9 @@ before_install:
 matrix:
   include:
     - script: 
-        - swiftlint lint --quiet >> lintreport.json
+        - swiftlint lint --quiet >> lintreport.json || true # Dont crash on errors
         - ls
+        - python -m json.tool lintreport.json
         - ./xswift-test-spm
       env: JOB=SPM
       os: osx
