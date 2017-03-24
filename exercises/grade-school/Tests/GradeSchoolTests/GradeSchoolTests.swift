@@ -15,7 +15,7 @@ class GradeSchoolTests: XCTestCase {
         return result.count.toIntMax() == IntMax(expected.count)
     }
 
-    func XCTAssertEqualCollection (_ collectionS: Set<String>?, _ collectionA: [String]? ) {
+    func XCTAssertEqualCollection<C:Collection> (_ collectionS: C?, _ collectionA: [String]? ) where C.Iterator.Element == String {
         XCTAssert(sameCollection(collectionS, collectionA))
     }
 
