@@ -111,19 +111,19 @@ class RobotSimulatorTests: XCTestCase {
     }
 
     func testInstructionForTurningLeft() {
-        XCTAssertEqual([.TurnLeft], robot.instructions("L"))
+        XCTAssertEqual([.turnLeft], robot.instructions("L"))
     }
 
     func testInstructionForTurningRight() {
-        XCTAssertEqual([.TurnRight], robot.instructions("R"))
+        XCTAssertEqual([.turnRight], robot.instructions("R"))
     }
 
     func testInstructionForAdvancing() {
-        XCTAssertEqual([.Advance], robot.instructions("A"))
+        XCTAssertEqual([.advance], robot.instructions("A"))
     }
 
     func testSeriesOfInstructions() {
-        XCTAssertEqual([.TurnRight, .Advance, .Advance, .TurnLeft], robot.instructions("RAAL"))
+        XCTAssertEqual([.turnRight, .advance, .advance, .turnLeft], robot.instructions("RAAL"))
     }
 
     func testInstructRobot() {
