@@ -40,14 +40,14 @@ class BobTests: XCTestCase {
 
     func testForcefulQuestions() {
         let input = "WHAT THE HELL WERE YOU THINKING?"
-        let expected = "Woah, chill out!"
+        let expected = "Whoa, chill out!"
         let result = Bob.hey(input)
         XCTAssertEqual(expected, result)
     }
 
     func testShoutingNumbers() {
         let input = "1, 2, 3 GO!"
-        let expected = "Woah, chill out!"
+        let expected = "Whoa, chill out!"
         let result = Bob.hey(input)
         XCTAssertEqual(expected, result)
     }
@@ -68,14 +68,14 @@ class BobTests: XCTestCase {
 
     func testShoutingWithSpecialCharacters() {
         let input = "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"
-        let expected = "Woah, chill out!"
+        let expected = "Whoa, chill out!"
         let result = Bob.hey(input)
         XCTAssertEqual(expected, result)
     }
 
     func testShoutingWithUmlautsCharacters() {
         let input = "ÄMLÄTS!"
-        let expected = "Woah, chill out!"
+        let expected = "Whoa, chill out!"
         let result = Bob.hey(input)
         XCTAssertEqual(expected, result)
     }
@@ -89,7 +89,7 @@ class BobTests: XCTestCase {
 
     func testShoutingWithNoExclamationmark() {
         let input = "I HATE YOU"
-        let expected = "Woah, chill out!"
+        let expected = "Whoa, chill out!"
         let result = Bob.hey(input)
         XCTAssertEqual(expected, result)
     }
@@ -117,7 +117,7 @@ class BobTests: XCTestCase {
 
     func testProlongedSilence() {
         let input = "     "
-        let expected = "Fine, be that way."
+        let expected = "Fine. Be that way!"
         let result = Bob.hey(input)
         XCTAssertEqual(expected, result)
     }
