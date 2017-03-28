@@ -10,100 +10,100 @@ class KindergartenGardenTests: XCTestCase {
 
     func testAlicesGarden() {
         let garden = Garden("RC\nGG")
-        XCTAssertEqual([.Radishes, .Clover, .Grass, .Grass], garden.plantsForChild("Alice"))
+        XCTAssertEqual([.radishes, .clover, .grass, .grass], garden.plantsForChild("Alice"))
     }
 
     func testDifferentGardenForAlice() {
         let garden = Garden("VC\nRC")
-        XCTAssertEqual([.Violets, .Clover, .Radishes, .Clover], garden.plantsForChild("Alice"))
+        XCTAssertEqual([.violets, .clover, .radishes, .clover], garden.plantsForChild("Alice"))
     }
 
     func testBobsGarden() {
         let garden = Garden("VVCG\nVVRC")
-        XCTAssertEqual([.Clover, .Grass, .Radishes, .Clover], garden.plantsForChild("Bob"))
+        XCTAssertEqual([.clover, .grass, .radishes, .clover], garden.plantsForChild("Bob"))
     }
 
     func testBobAndCharliesGardens() {
         let garden = Garden("VVCCGG\nVVCCGG")
-        XCTAssertEqual([.Clover, .Clover, .Clover, .Clover], garden.plantsForChild("Bob"))
-        XCTAssertEqual([.Grass, .Grass, .Grass, .Grass], garden.plantsForChild("Charlie"))
+        XCTAssertEqual([.clover, .clover, .clover, .clover], garden.plantsForChild("Bob"))
+        XCTAssertEqual([.grass, .grass, .grass, .grass], garden.plantsForChild("Charlie"))
     }
 
     // MARK: - Test full garden
 
     func testAlice() {
-        XCTAssertEqual([.Violets, .Radishes, .Violets, .Radishes], fullGarden.plantsForChild("Alice"))
+        XCTAssertEqual([.violets, .radishes, .violets, .radishes], fullGarden.plantsForChild("Alice"))
     }
 
     func testBob() {
-        XCTAssertEqual([.Clover, .Grass, .Clover, .Clover], fullGarden.plantsForChild("Bob"))
+        XCTAssertEqual([.clover, .grass, .clover, .clover], fullGarden.plantsForChild("Bob"))
     }
 
     func testCharlie() {
-        XCTAssertEqual([.Violets, .Violets, .Clover, .Grass], fullGarden.plantsForChild("Charlie"))
+        XCTAssertEqual([.violets, .violets, .clover, .grass], fullGarden.plantsForChild("Charlie"))
     }
 
     func testDavid() {
-        XCTAssertEqual([.Radishes, .Violets, .Clover, .Radishes], fullGarden.plantsForChild("David"))
+        XCTAssertEqual([.radishes, .violets, .clover, .radishes], fullGarden.plantsForChild("David"))
     }
 
     func testEve() {
-        XCTAssertEqual([.Clover, .Grass, .Radishes, .Grass], fullGarden.plantsForChild("Eve"))
+        XCTAssertEqual([.clover, .grass, .radishes, .grass], fullGarden.plantsForChild("Eve"))
     }
 
     func testFred() {
-        XCTAssertEqual([.Grass, .Clover, .Violets, .Clover], fullGarden.plantsForChild("Fred"))
+        XCTAssertEqual([.grass, .clover, .violets, .clover], fullGarden.plantsForChild("Fred"))
     }
 
     func testGinny() {
-        XCTAssertEqual([.Clover, .Grass, .Grass, .Clover], fullGarden.plantsForChild("Ginny"))
+        XCTAssertEqual([.clover, .grass, .grass, .clover], fullGarden.plantsForChild("Ginny"))
     }
 
     func testHarriet() {
-        XCTAssertEqual([.Violets, .Radishes, .Radishes, .Violets], fullGarden.plantsForChild("Harriet"))
+        XCTAssertEqual([.violets, .radishes, .radishes, .violets], fullGarden.plantsForChild("Harriet"))
     }
 
     func testIleana() {
-        XCTAssertEqual([.Grass, .Clover, .Violets, .Clover], fullGarden.plantsForChild("Ileana"))
+        XCTAssertEqual([.grass, .clover, .violets, .clover], fullGarden.plantsForChild("Ileana"))
     }
 
     func testJoseph() {
-        XCTAssertEqual([.Violets, .Clover, .Violets, .Grass], fullGarden.plantsForChild("Joseph"))
+        XCTAssertEqual([.violets, .clover, .violets, .grass], fullGarden.plantsForChild("Joseph"))
     }
 
     func testKincaid() {
-        XCTAssertEqual([.Grass, .Clover, .Clover, .Grass], fullGarden.plantsForChild("Kincaid"))
+        XCTAssertEqual([.grass, .clover, .clover, .grass], fullGarden.plantsForChild("Kincaid"))
     }
 
     func testLarry() {
-        XCTAssertEqual([.Grass, .Violets, .Clover, .Violets], fullGarden.plantsForChild("Larry"))
+        XCTAssertEqual([.grass, .violets, .clover, .violets], fullGarden.plantsForChild("Larry"))
     }
 
     // MARK: - Test disordered garden
 
     func testPatricia() {
-        XCTAssertEqual([.Violets, .Clover, .Radishes, .Violets], disorderedGarden.plantsForChild("Patricia"))
+        XCTAssertEqual([.violets, .clover, .radishes, .violets], disorderedGarden.plantsForChild("Patricia"))
     }
 
     func testRoger() {
-        XCTAssertEqual([.Radishes, .Radishes, .Grass, .Clover], disorderedGarden.plantsForChild("Roger"))
+        XCTAssertEqual([.radishes, .radishes, .grass, .clover], disorderedGarden.plantsForChild("Roger"))
     }
 
     func testSamantha() {
-        XCTAssertEqual([.Grass, .Violets, .Clover, .Grass], disorderedGarden.plantsForChild("Samantha"))
+        XCTAssertEqual([.grass, .violets, .clover, .grass], disorderedGarden.plantsForChild("Samantha"))
     }
 
     func testXander() {
-        XCTAssertEqual([.Radishes, .Grass, .Clover, .Violets], disorderedGarden.plantsForChild("Xander"))
+        XCTAssertEqual([.radishes, .grass, .clover, .violets], disorderedGarden.plantsForChild("Xander"))
     }
 
     // MARK: - Test two gardens, different students
 
     func testBobAndCharliePerGarden() {
-        XCTAssertEqual([.Radishes, .Radishes, .Grass, .Clover], garden1.plantsForChild("Bob"))
-        XCTAssertEqual([.Violets, .Clover, .Radishes, .Violets], garden2.plantsForChild("Bob"))
-        XCTAssertEqual([.Grass, .Violets, .Clover, .Grass], garden1.plantsForChild("Charlie"))
-        XCTAssertEqual([.Radishes, .Radishes, .Grass, .Clover], garden2.plantsForChild("Charlie"))
+        XCTAssertEqual([.radishes, .radishes, .grass, .clover], garden1.plantsForChild("Bob"))
+        XCTAssertEqual([.violets, .clover, .radishes, .violets], garden2.plantsForChild("Bob"))
+        XCTAssertEqual([.grass, .violets, .clover, .grass], garden1.plantsForChild("Charlie"))
+        XCTAssertEqual([.radishes, .radishes, .grass, .clover], garden2.plantsForChild("Charlie"))
     }
 
     static var allTests: [(String, (KindergartenGardenTests) -> () throws -> Void)] {

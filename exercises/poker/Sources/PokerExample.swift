@@ -68,8 +68,7 @@ enum HandRank {
                 toReturn[each] = (toReturn[each] ?? 0) + 1
             }
         }
-        let result = toReturn.map({ key, value in return (rank:key, count:value) }).sorted(by: {
-            (one, two) in
+        let result = toReturn.map({ key, value in return (rank:key, count:value) }).sorted(by: { (one, two) in
             return one.count == two.count ? one.rank > two.rank : one.count > two.count
         })
         return result
@@ -79,7 +78,7 @@ enum HandRank {
         let suits = inputHand.hand.map({ $0.suit })
         let first = suits[0]
         for each in suits {
-            guard first == each else { return (false, .None) }
+            guard first == each else { return (false, .none) }
         }
         return (true, first)
     }
@@ -88,7 +87,7 @@ enum HandRank {
         let sorted = inputHand.hand.sorted(by: { $0.rank < $1.rank })
         let first = sorted[0].rank.rawValue
         for (index, each) in sorted.enumerated() {
-            if each.rank.rawValue != index + first {
+            guard each.rank.rawValue != index + first else { continue }
                 // checks for Ace as the lowest card
                 guard let aceIndex = inputHand.hand.index(where: { $0.rank.rawValue == 14 })else { return (false, .ace) }
                 var replacedAced = inputHand.hand.map({ $0.rank.rawValue })
@@ -98,7 +97,6 @@ enum HandRank {
                 for (idx, eachVal) in replacedAced.enumerated() {
                     guard eachVal == firstVal + idx else { return (false, .ace) }
                 }
-            }
         }
         let last = sorted[sorted.count - 1].rank
         return (true, last)
@@ -318,16 +316,16 @@ enum Rank: Int {
 }
 
 enum Suit: String {
-    case Spades, Hearts, Diamonds, Clubs
-    case None
+    case spades, hearts, diamonds, clubs
+    case none
 
     init?(_ suit: String) {
 
         switch suit {
-        case "♡": self = .Hearts
-        case "♢": self = .Diamonds
-        case "♧": self = .Clubs
-        case "♤": self = .Spades
+        case "♡": self = .hearts
+        case "♢": self = .diamonds
+        case "♧": self = .clubs
+        case "♤": self = .spades
         case _  : return nil
         }
     }
@@ -350,9 +348,9 @@ func < (lhs: Suit, rhs: Suit) -> Bool {
     switch (lhs, rhs) {
     case (_, _) where lhs == rhs:
         return false
-    case (.Spades, _),
-         (.Hearts, .Diamonds), (.Hearts, .Clubs),
-         (.Diamonds, .Clubs):
+    case (.spades, _),
+         (.hearts, .diamonds), (.hearts, .clubs),
+         (.diamonds, .clubs):
         return false
     default:
         return true
