@@ -59,9 +59,9 @@ private extension String {
 struct Bob {
     static func hey(_ input: String) -> String {
         if input.trimWhiteSpace().isEmpty {
-            return "Fine, be that way."
+            return "Fine. Be that way!"
         } else if input.isShouting {
-            return "Woah, chill out!"
+            return "Whoa, chill out!"
         } else if input.isQuestion {
             return "Sure."
         } else {
