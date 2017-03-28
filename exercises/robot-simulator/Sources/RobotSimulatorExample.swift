@@ -10,9 +10,9 @@ struct SimulatedRobot {
     }
 
     enum Instruction: String {
-        case TurnLeft  = "L"
-        case TurnRight = "R"
-        case Advance   = "A"
+        case turnLeft  = "L"
+        case turnRight = "R"
+        case advance   = "A"
     }
 
     var bearing: Direction = .north
@@ -82,9 +82,9 @@ struct SimulatedRobot {
     mutating func evaluate(_ commands: String) {
         for instruction in instructions(commands) {
             switch instruction {
-            case .TurnLeft:  turnLeft()
-            case .TurnRight: turnRight()
-            case .Advance:   advance()
+            case .turnLeft:  turnLeft()
+            case .turnRight: turnRight()
+            case .advance:   advance()
             }
         }
     }

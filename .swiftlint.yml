@@ -3,10 +3,12 @@ identifier_name:
         warning: 1
         error: 0
 
+large_tuple:
+    warning: 5
+    error: 6
+
 colon:
   apply_to_dictionaries: false
-
-force_try: warning
 
 opt_in_rules:
   - vertical_whitespace

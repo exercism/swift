@@ -10,11 +10,11 @@ func == (lhs: Date, rhs: Date) -> Bool {
 struct Date {
 
     enum DateFormatingOption {
-        case yyyy_MM_dd
-        case yyyy_MM_dd_T_HH_mm_ss
+        case yyyyMMdd
+        case yyyyMMddTHHmmss
     }
 
-    var descriptionStyle: DateFormatingOption = .yyyy_MM_dd
+    var descriptionStyle: DateFormatingOption = .yyyyMMdd
 
     fileprivate var tmDateBacking: tm = tm()
 
@@ -73,8 +73,8 @@ extension Date:CustomStringConvertible {
         let dateTime = dateOnly + "T" + date[3] + ":" + date[4] + ":" + date[5]
 
         switch descriptionStyle {
-        case .yyyy_MM_dd            : return dateOnly
-        case .yyyy_MM_dd_T_HH_mm_ss : return dateTime
+        case .yyyyMMdd            : return dateOnly
+        case .yyyyMMddTHHmmss : return dateTime
         }
     }
 }
@@ -85,7 +85,7 @@ extension Date {
         guard let date = Date.dateFromString(from) else { return nil }
         tmDateBacking = date.tmDateBacking
         if from.characters.count > 10 {
-            self.descriptionStyle = .yyyy_MM_dd_T_HH_mm_ss
+            self.descriptionStyle = .yyyyMMddTHHmmss
         }
     }
 

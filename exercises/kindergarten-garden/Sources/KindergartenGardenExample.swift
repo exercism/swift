@@ -1,10 +1,10 @@
 import Foundation
 
 enum Plant: String {
-    case Grass = "G"
-    case Clover = "C"
-    case Radishes = "R"
-    case Violets = "V"
+    case grass = "G"
+    case clover = "C"
+    case radishes = "R"
+    case violets = "V"
 }
 
 struct Garden {
