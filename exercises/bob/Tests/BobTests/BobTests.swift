@@ -110,7 +110,7 @@ class BobTests: XCTestCase {
 
     func testSilence() {
         let input = ""
-        let expected = "Fine, be that way."
+        let expected = "Fine. Be that way!"
         let result = Bob.hey(input)
         XCTAssertEqual(expected, result)
     }
