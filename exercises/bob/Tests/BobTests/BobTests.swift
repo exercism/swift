@@ -12,7 +12,7 @@ class BobTests: XCTestCase {
 
     func testShouting() {
         let input = "WATCH OUT!"
-        let expected = "Woah, chill out!"
+        let expected = "Whoa, chill out!"
         let result = Bob.hey(input)
         XCTAssertEqual(expected, result)
     }
