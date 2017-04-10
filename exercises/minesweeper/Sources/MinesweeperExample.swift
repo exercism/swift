@@ -1,10 +1,6 @@
 import Foundation
 
-#if os(Linux)
-    typealias Regex = RegularExpression
-#else
-    typealias Regex = NSRegularExpression
-#endif
+typealias Regex = NSRegularExpression
 
 struct Board {
 
