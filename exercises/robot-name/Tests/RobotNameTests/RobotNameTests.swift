@@ -3,7 +3,9 @@ import Foundation
 @testable import RobotName
 
 #if os(Linux)
-#if swift(<3.1)
+#if swift(>=3.1)
+    typealias Regex = NSRegularExpression
+#else
     typealias Regex = RegularExpression
 #endif
 #else
