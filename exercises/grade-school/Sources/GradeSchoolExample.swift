@@ -1,25 +1,24 @@
 struct GradeSchool {
-    var roster = [Int: Set<String>]()
+    var roster = [Int: Array<String>]()
 
     mutating func addStudent(_ name: String, grade: Int) {
         if let students = roster[grade] {
             var students = students
-            students.insert(name)
+            students.append(name)
             roster[grade] = students
         } else {
-            roster[grade] = Set(arrayLiteral: name)
+            roster[grade] = [name]
         }
     }
 
-    func studentsInGrade(_ grade: Int) -> Set<String> {
-        return roster[grade] ?? Set<String>()
+    func studentsInGrade(_ grade: Int) -> Array<String> {
+        return roster[grade] ?? Array<String>()
     }
 
-    var sortedRoster: [Int: Set<String>] {
-        var sortedRoster = [Int: Set<String>](minimumCapacity: roster.count)
+    var sortedRoster: [Int: Array<String>] {
+        var sortedRoster = [Int: Array<String>](minimumCapacity: roster.count)
         for (grade, students) in roster {
-            sortedRoster[grade] = Set(students.sorted())
-
+            sortedRoster[grade] = students.sorted()
         }
         return sortedRoster
     }
