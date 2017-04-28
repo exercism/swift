@@ -1,5 +1,5 @@
 struct GradeSchool {
-    var roster = [Int: Array<String>]()
+    var roster = [Int: [String]]()
 
     mutating func addStudent(_ name: String, grade: Int) {
         if let students = roster[grade] {
@@ -11,12 +11,12 @@ struct GradeSchool {
         }
     }
 
-    func studentsInGrade(_ grade: Int) -> Array<String> {
-        return roster[grade] ?? Array<String>()
+    func studentsInGrade(_ grade: Int) -> [String] {
+        return roster[grade] ?? [String]()
     }
 
-    var sortedRoster: [Int: Array<String>] {
-        var sortedRoster = [Int: Array<String>](minimumCapacity: roster.count)
+    var sortedRoster: [Int: [String]] {
+        var sortedRoster = [Int: [String]](minimumCapacity: roster.count)
         for (grade, students) in roster {
             sortedRoster[grade] = students.sorted()
         }
