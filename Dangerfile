@@ -38,7 +38,7 @@ json.each do |object|
    line = object["line"] || 1
    #only warn for files that were edited in this PR.
    if isError
-    fail(msg, file: "/" + shortFile, line: line) if isError
+    warn(msg, file: "/" + shortFile, line: line) if isError
    elsif git.modified_files.include? shortFile
    	warn(msg, file: "/" + shortFile, line: line) unless isError
    else
