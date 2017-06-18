@@ -30,7 +30,7 @@ end
 json = JSON.parse contents
 json.each do |object|
    shortFile =  object["file"]
-   shortFile.sub! "/Users/travis/build/exercism/xswift/", ''
+   shortFile.sub! "/Users/travis/build/exercism/swift/", ''
    shortFile = shortFile.to_s || ''
    msg = object["reason"].to_s || ''
    severity = object["severity"].to_s || ''
