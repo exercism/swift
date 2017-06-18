@@ -1,7 +1,7 @@
 {
   "slug": "swift",
   "language": "Swift",
-  "repository": "https://github.com/exercism/xswift",
+  "repository": "https://github.com/exercism/swift",
   "active": true,
   "exercises": [
     {
