@@ -15,7 +15,7 @@ struct Transpose {
                 if let start = line.index(line.startIndex, offsetBy: i, limitedBy: line.endIndex),
                     let end = line.index(start, offsetBy: 1, limitedBy: line.endIndex) {
                     let character = line[start..<end]
-                    result[i].append(character)
+                    result[i].append(String(character))
                 } else {
                     result[i].append(" ")
                 }
