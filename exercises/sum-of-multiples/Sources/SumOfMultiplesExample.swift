@@ -11,11 +11,9 @@ struct SumOfMultiples {
 
         for each in 1..<limit {
             var lastAdded = 0
-            for multiple in multiples where each % multiple == 0 {
-                if lastAdded != each {
-                    itemToReturn += each
-                    lastAdded = each
-                }
+            for multiple in multiples where ((each % multiple == 0) && (lastAdded != each)) {
+                itemToReturn += each
+                lastAdded = each
             }
         }
 
