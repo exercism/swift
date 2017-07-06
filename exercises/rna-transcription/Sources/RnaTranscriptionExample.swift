@@ -1,6 +1,6 @@
 struct Nucleotide {
 
-    var complementOfDNA: String { return transcribe(dnaToRna) }
+    var complementOfDNA: String? { return transcribe(dnaToRna) }
 
     private let value: String
 
@@ -10,9 +10,12 @@ struct Nucleotide {
 
     private let dnaToRna: [Character:String] = [ "G": "C", "C": "G", "T": "A", "A": "U" ]
 
-    private func transcribe(_ dict: [Character : String]) -> String {
+    private func transcribe(_ dict: [Character : String]) -> String? {
         var tempText = ""
         for each in self.value.characters {
+            if (dict[each] == nil) {
+                return nil
+            }
             tempText += dict[each] ?? ""
         }
         return tempText
