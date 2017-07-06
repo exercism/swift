@@ -21,7 +21,19 @@ class RnaTranscriptionTests: XCTestCase {
     func testRnaComplement() {
         XCTAssertEqual("UGCACCAGAAUU", Nucleotide("ACGTGGTCTTAA").complementOfDNA)
     }
-
+    
+    func testInvalidRnaComplementOfUracil() {
+        XCTAssertEqual(nil, Nucleotide("U").complementOfDNA)
+    }
+    
+    func testInvalidRnaComplementOfXXX() {
+        XCTAssertEqual(nil, Nucleotide("XXX").complementOfDNA)
+    }
+    
+    func testInvalidRnaComplementOfACGTXXXCTTAA() {
+        XCTAssertEqual(nil, Nucleotide("ACGTXXXCTTAA").complementOfDNA)
+    }
+    
     static var allTests: [(String, (RnaTranscriptionTests) -> () throws -> Void)] {
         return [
             ("testRnaComplementOfCytosineIsGuanine", testRnaComplementOfCytosineIsGuanine),
@@ -29,6 +41,9 @@ class RnaTranscriptionTests: XCTestCase {
             ("testRnaComplementOfThymineIsAdenine", testRnaComplementOfThymineIsAdenine),
             ("testRnaComplementOfAdenineIsUracil", testRnaComplementOfAdenineIsUracil),
             ("testRnaComplement", testRnaComplement),
+            ("testInvalidRnaComplementOfUracil", testInvalidRnaComplementOfUracil),
+            ("testInvalidRnaComplementOfXXX", testInvalidRnaComplementOfXXX),
+            ("testInvalidRnaComplementOfACGTXXXCTTAA", testInvalidRnaComplementOfACGTXXXCTTAA)
         ]
     }
 }
