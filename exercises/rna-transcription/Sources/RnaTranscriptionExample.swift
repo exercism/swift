@@ -1,6 +1,11 @@
-struct Nucleotide {
+enum TranscriptionError: Error {
+    case InvalidNucleotide
+}
 
-    var complementOfDNA: String? { return transcribe(dnaToRna) }
+struct Nucleotide {
+    func complementOfDNA() throws -> String {
+        return try transcribe(dnaToRna)
+    }
 
     private let value: String
 
@@ -10,11 +15,11 @@ struct Nucleotide {
 
     private let dnaToRna: [Character:String] = [ "G": "C", "C": "G", "T": "A", "A": "U" ]
 
-    private func transcribe(_ dict: [Character : String]) -> String? {
+    private func transcribe(_ dict: [Character : String]) throws -> String {
         var tempText = ""
         for each in self.value.characters {
             if (dict[each] == nil) {
-                return nil
+                throw TranscriptionError.InvalidNucleotide
             }
             tempText += dict[each] ?? ""
         }
