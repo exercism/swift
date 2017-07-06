@@ -45,22 +45,20 @@ enum HandRank {
     case fourOfAKind(four:Rank)
     case straightFlush(Rank, Suit)
 
-// swiftlint:disable:next empty_enum_arguments
     func order() -> Int {
         switch self {
         case .highCard: return 1
-        case .onePair(_, card1: _, card2: _, card3: _): return 2
-        case .twoPair(high: _, low: _, highCard: _): return 3
-        case .threeOfAKind(three:_): return 4
-        case .straight(high:_): return 5
-        case .flush(_, _): return 6
-        case .fullHouse(three:_): return 7
-        case .fourOfAKind(four:_): return 8
-        case .straightFlush(_, _): return 9
+        case .onePair: return 2
+        case .twoPair: return 3
+        case .threeOfAKind: return 4
+        case .straight: return 5
+        case .flush: return 6
+        case .fullHouse: return 7
+        case .fourOfAKind: return 8
+        case .straightFlush: return 9
         }
     }
-// swiftlint:enable:next empty_enum_arguments
-
+    
     static func parsePairs(_ inputHand: PokerHand) -> [(rank: Rank, count: Int)] {
         let ranks = inputHand.hand.map({ $0.rank })
         let rankSet = Set(ranks)
