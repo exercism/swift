@@ -23,7 +23,7 @@ class RnaTranscriptionTests: XCTestCase {
     }
     
     func testInvalidRnaComplementOfUracil() {
-        XCTAssertThrowsError(try Nucleotide("XXX").complementOfDNA())
+        XCTAssertThrowsError(try Nucleotide("U").complementOfDNA())
         
 //        XCTAssertThrowsError(try Nucleotide("U").complementOfDNA() { (error) -> Void in
 //                XCTAssertEqual(error as? TranscriptionError, TranscriptionError.InvalidNucleotide)
