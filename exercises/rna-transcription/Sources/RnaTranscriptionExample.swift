@@ -18,7 +18,7 @@ struct Nucleotide {
     private func transcribe(_ dict: [Character : String]) throws -> String {
         var tempText = ""
         for each in self.value.characters {
-            if (dict[each] == nil) {
+            if dict[each] == nil {
                 throw TranscriptionError.InvalidNucleotide
             }
             tempText += dict[each] ?? ""

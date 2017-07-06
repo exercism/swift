@@ -21,34 +21,34 @@ class RnaTranscriptionTests: XCTestCase {
     func testRnaComplement() {
         XCTAssertEqual("UGCACCAGAAUU", try Nucleotide("ACGTGGTCTTAA").complementOfDNA())
     }
-    
+
     func testInvalidRnaComplementOfUracil() {
         XCTAssertThrowsError(try Nucleotide("U").complementOfDNA())
-        
+
         // Uncomment to see more specific error handling
 //        XCTAssertThrowsError(try Nucleotide("U").complementOfDNA(), "This didn't work") { (error) in
 //            XCTAssertEqual(error as? RnaTranscription.TranscriptionError, RnaTranscription.TranscriptionError.InvalidNucleotide)
 //        }
     }
-    
+
     func testInvalidRnaComplementOfXXX() {
         XCTAssertThrowsError(try Nucleotide("XXX").complementOfDNA())
-        
+
         // Uncomment to see more specific error handling
 //        XCTAssertThrowsError(try Nucleotide("XXX").complementOfDNA(), "This didn't work") { (error) in
 //            XCTAssertEqual(error as? RnaTranscription.TranscriptionError, RnaTranscription.TranscriptionError.InvalidNucleotide)
 //        }
     }
-    
+
     func testInvalidRnaComplementOfACGTXXXCTTAA() {
         XCTAssertThrowsError(try Nucleotide("ACGTXXXCTTAA").complementOfDNA())
-        
+
         // Uncomment to see more specific error handling
 //        XCTAssertThrowsError(try Nucleotide("ACGTXXXCTTAA").complementOfDNA(), "This didn't work") { (error) in
 //            XCTAssertEqual(error as? RnaTranscription.TranscriptionError, RnaTranscription.TranscriptionError.InvalidNucleotide)
 //        }
     }
-    
+
     static var allTests: [(String, (RnaTranscriptionTests) -> () throws -> Void)] {
         return [
             ("testRnaComplementOfCytosineIsGuanine", testRnaComplementOfCytosineIsGuanine),
