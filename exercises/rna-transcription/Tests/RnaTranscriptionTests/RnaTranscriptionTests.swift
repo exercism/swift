@@ -27,7 +27,7 @@ class RnaTranscriptionTests: XCTestCase {
 
         // Uncomment to see more specific error handling
 //        XCTAssertThrowsError(try Nucleotide("U").complementOfDNA(), "This didn't work") { (error) in
-//            XCTAssertEqual(error as? RnaTranscription.TranscriptionError, RnaTranscription.TranscriptionError.InvalidNucleotide)
+//            XCTAssertEqual(error as? RnaTranscription.TranscriptionError, RnaTranscription.TranscriptionError.invalidNucleotide)
 //        }
     }
 
@@ -36,7 +36,7 @@ class RnaTranscriptionTests: XCTestCase {
 
         // Uncomment to see more specific error handling
 //        XCTAssertThrowsError(try Nucleotide("XXX").complementOfDNA(), "This didn't work") { (error) in
-//            XCTAssertEqual(error as? RnaTranscription.TranscriptionError, RnaTranscription.TranscriptionError.InvalidNucleotide)
+//            XCTAssertEqual(error as? RnaTranscription.TranscriptionError, RnaTranscription.TranscriptionError.invalidNucleotide)
 //        }
     }
 
@@ -45,7 +45,7 @@ class RnaTranscriptionTests: XCTestCase {
 
         // Uncomment to see more specific error handling
 //        XCTAssertThrowsError(try Nucleotide("ACGTXXXCTTAA").complementOfDNA(), "This didn't work") { (error) in
-//            XCTAssertEqual(error as? RnaTranscription.TranscriptionError, RnaTranscription.TranscriptionError.InvalidNucleotide)
+//            XCTAssertEqual(error as? RnaTranscription.TranscriptionError, RnaTranscription.TranscriptionError.invalidNucleotide)
 //        }
     }
 
