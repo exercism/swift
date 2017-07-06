@@ -34,8 +34,7 @@ struct PalindromeProducts {
         // use this queue to read and write from results
         let resultsRWQueue = DispatchQueue.init(label: "exercism.resultsRWQueue")
 
-        DispatchQueue.concurrentPerform(iterations: rangeOuter.count) {
-            advanceByIndex in
+        DispatchQueue.concurrentPerform(iterations: rangeOuter.count) { advanceByIndex in
             var multiplicationsTemp = [Palindrome]()
             let each = rangeOuter.lowerBound + advanceByIndex
             let innerRangeCustom = each...rangeOuter.upperBound
