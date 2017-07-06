@@ -19,19 +19,19 @@ class PythagoreanTripletTests: XCTestCase {
     }
 
     func testTripletsUpTo10() {
-        let triplets = Triplet.Where(maxFactor: 10)
+        let triplets = Triplet.fromWhere(maxFactor: 10)
         let products = triplets.map { $0.product }.sorted(by: <)
         XCTAssertEqual([60, 480], products)
     }
 
     func testTripletsFrom11UpTo20() {
-        let triplets = Triplet.Where(11, maxFactor: 20)
+        let triplets = Triplet.fromWhere(11, maxFactor: 20)
         let products = triplets.map { $0.product }.sorted(by: <)
         XCTAssertEqual([3840], products)
     }
 
     func testTripletsWhereSumX() {
-        let triplets = Triplet.Where( maxFactor: 100, sum: 180)
+        let triplets = Triplet.fromWhere( maxFactor: 100, sum: 180)
         let products = triplets.map { $0.product }.sorted(by: <)
         XCTAssertEqual([118_080, 168_480, 202_500], products)
     }
