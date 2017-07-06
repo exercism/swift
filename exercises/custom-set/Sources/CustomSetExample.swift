@@ -34,7 +34,7 @@ struct CustomSet<T:Hashable>:Equatable {
     func intersection(_ item: CustomSet) -> CustomSet {
         var temp = [Element: Bool]()
         for each in Array(item.contents.keys) {
-            guard let _ =  contents[each] else { continue }
+            guard contents[each] != nil else { continue }
             temp[each] = true
         }
         return CustomSet(temp.keys)

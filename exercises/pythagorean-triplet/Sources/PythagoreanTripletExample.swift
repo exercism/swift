@@ -20,7 +20,7 @@ struct Triplet {
 
     var isPythagorean: Bool { return pow(Double(a), 2) + pow(Double(b), 2) == pow(Double(c), 2) }
 
-    static func Where(_ minFactor: Int = 1, maxFactor: Int, sum: Int = 0) -> [Triplet] {
+    static func fromWhere(_ minFactor: Int = 1, maxFactor: Int, sum: Int = 0) -> [Triplet] {
 
         func shouldIncludeTriplet(_ sum: Int, triplet: Triplet) -> Bool {
             return triplet.isPythagorean && (sum == 0 || triplet.sum == sum)

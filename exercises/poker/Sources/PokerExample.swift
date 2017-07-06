@@ -47,7 +47,7 @@ enum HandRank {
 
     func order() -> Int {
         switch self {
-        case .highCard(_): return 1
+        case .highCard: return 1
         case .onePair(_, card1: _, card2: _, card3: _): return 2
         case .twoPair(high: _, low: _, highCard: _): return 3
         case .threeOfAKind(three:_): return 4

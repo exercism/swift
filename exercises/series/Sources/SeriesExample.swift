@@ -15,13 +15,11 @@ struct Series {
 
         let enumarated = (0..<(count)).enumerated()
 
-        for (_, _) in enumarated {
-            if end < count+1 {
-                let tempArray = Array(numberStringArray[start ..< end])
-                tempArrayReturn.append(tempArray)
-                start += 1
-                end += 1
-            }
+        for (_, _) in enumarated where end < (count + 1) {
+            let tempArray = Array(numberStringArray[start ..< end])
+            tempArrayReturn.append(tempArray)
+            start += 1
+            end += 1
         }
         return tempArrayReturn
     }

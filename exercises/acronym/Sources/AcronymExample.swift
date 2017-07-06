@@ -57,10 +57,8 @@ struct Acronym {
         }
 
         func splitAt(_ characterToCompare: Character, charToSplitAt: String = " ,-:") -> Bool {
-            for each in charToSplitAt.characters {
-                if each == characterToCompare {
-                    return true
-                }
+            for each in charToSplitAt.characters where each == characterToCompare {
+                return true
             }
             return false
         }

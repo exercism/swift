@@ -53,10 +53,8 @@ struct Crypto {
 
         var ciphertextReturn = ""
         for i in 0 ..< plaintextSegmentsArray[0].count {
-            for e in 0 ..< plaintextSegmentsArray.count {
-                if i < plaintextSegmentsArray[e].count {
-                    ciphertextReturn.append(plaintextSegmentsArray[e][i])
-                }
+            for e in 0 ..< plaintextSegmentsArray.count where i < plaintextSegmentsArray[e].count {
+                ciphertextReturn.append(plaintextSegmentsArray[e][i])
             }}
 
         return ciphertextReturn

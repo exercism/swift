@@ -30,10 +30,8 @@ struct Prime {
             return true
         }
 
-        for i in 2...Int(ceil(sqrt(Double(number)))) {
-            if number % i == 0 {
-                return false
-            }
+        for i in 2...Int(ceil(sqrt(Double(number)))) where number % i == 0 {
+            return false
         }
 
         return true
