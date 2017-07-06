@@ -6,7 +6,7 @@ struct Triangle {
     var c: Double = 0
 
     var kind: String {
-        return self.Kind()
+        return self.kindOfTriangle()
     }
 
     init(_ a: Double, _ b: Double, _ c: Double) {
@@ -34,7 +34,7 @@ struct Triangle {
         return a + b < c || a + c < b || b + c < a
     }
 
-    func Kind() -> String {
+    func kindOfTriangle() -> String {
 
         if allSidesAreZero() || hasImpossibleSides() || violatesTriangleInequality() {
             return triangleKind.ErrorKind
