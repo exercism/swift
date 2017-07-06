@@ -24,7 +24,7 @@ struct Luhn {
         if luhn.isValid {
             return Double(zeroCheckDigitNumber)}
 
-        return Double((zeroCheckDigitNumber) + createCheckDigit(luhn.checksum))
+        return Double((zeroCheckDigitNumber) + Int64(createCheckDigit(luhn.checksum)))
 
     }
 

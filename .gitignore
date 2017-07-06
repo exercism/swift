@@ -23,3 +23,7 @@ DerivedData
 
 #Idea IDE
 .idea
+
+# All Projects
+allProjects
+allProjects.xcworkspace
