@@ -61,7 +61,7 @@ struct OCR {
                 for line in selectedLines {
                     let startIndex = line.characters.index(line.startIndex, offsetBy: columnIndex)
                     let endIndex = line.characters.index(line.startIndex, offsetBy: columnIndex + 2)
-                    grouping.append(line[startIndex...endIndex])
+                    grouping.append(String(line[startIndex...endIndex]))
 
                 }
 
