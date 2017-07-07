@@ -58,7 +58,7 @@ enum HandRank {
         case .straightFlush: return 9
         }
     }
-    
+
     static func parsePairs(_ inputHand: PokerHand) -> [(rank: Rank, count: Int)] {
         let ranks = inputHand.hand.map({ $0.rank })
         let rankSet = Set(ranks)
@@ -185,7 +185,6 @@ func == (lhs: HandRank, rhs: HandRank) -> Bool {
     }
 }
 // swiftlint:disable:next cyclomatic_complexity
-// swiftlint:disable:next empty_enum_arguments
 func < (lhs: HandRank, rhs: HandRank) -> Bool {
     switch (lhs, rhs) {
     case (_, _) where lhs == rhs:
@@ -241,7 +240,6 @@ func < (lhs: HandRank, rhs: HandRank) -> Bool {
     }
 
 }
-// swiftlint:enable:next empty_enum_arguments
 
 struct PokerHand {
     let hand: [PlayingCard]
