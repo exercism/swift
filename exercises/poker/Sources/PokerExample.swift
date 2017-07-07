@@ -58,7 +58,7 @@ enum HandRank {
         case .straightFlush: return 9
         }
     }
-    
+
     static func parsePairs(_ inputHand: PokerHand) -> [(rank: Rank, count: Int)] {
         let ranks = inputHand.hand.map({ $0.rank })
         let rankSet = Set(ranks)
