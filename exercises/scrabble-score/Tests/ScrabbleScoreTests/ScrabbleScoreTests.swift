@@ -34,7 +34,7 @@ class ScrabbleScoreTests: XCTestCase {
         XCTAssertEqual( 41, Scrabble("OXYPHENBUTAZONE").score)
     }
 
-    func testConvenientScoring() {
+    func testScoringUtility() {
         XCTAssertEqual( 13, Scrabble.score("alacrity"))
     }
 
