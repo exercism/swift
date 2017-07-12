@@ -48,7 +48,7 @@ class ScrabbleScoreTests: XCTestCase {
             ("testSimpleWordScoresTheNumberOfLetters", testSimpleWordScoresTheNumberOfLetters),
             ("testComplicatedWordScoresMore", testComplicatedWordScoresMore),
             ("testScoresAreCaseInsensitive", testScoresAreCaseInsensitive),
-            ("testConvenientScoring", testConvenientScoring),
+            ("testScoringUtility", testScoringUtility),
         ]
     }
 }
