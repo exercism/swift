@@ -542,6 +542,14 @@
       ]
     },
     {
+      "slug": "rotational-cipher",
+      "difficulty": 4,
+      "topics": [
+        "Strings",
+        "Transforming"
+      ]
+    }
+    {
       "uuid": "942d0c4b-eaef-4576-b3f8-383757c53768",
       "slug": "roman-numerals",
       "core": false,
