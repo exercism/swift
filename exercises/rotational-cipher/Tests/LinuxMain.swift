@@ -1,5 +1,5 @@
 import XCTest
-@testable import rotational_cipherTests
+@testable import RotationalCipherTests
 
 XCTMain([
      testCase(RotationalCipherTests.allTests),

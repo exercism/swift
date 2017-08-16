@@ -1,5 +1,5 @@
 import PackageDescription
 
 let package = Package(
-    name: "rotational-cipher"
+    name: "RotationalCipher"  //"rotational-cipher"
 )
