@@ -542,7 +542,10 @@
       ]
     },
     {
+      "uuid": "f6b157cb-ddb0-4c40-baa3-9fc6b58de7ff",
       "slug": "rotational-cipher",
+      "core": false,
+      "unlocked_by": null,
       "difficulty": 4,
       "topics": [
         "Strings",
