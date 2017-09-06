@@ -19,13 +19,18 @@ class AllergiesTests: XCTestCase {
         XCTAssertTrue(allergies.hasAllergy(.eggs))
         XCTAssertTrue(allergies.hasAllergy(.cats))
         XCTAssertFalse(allergies.hasAllergy(.chocolate))
-
     }
 
     func testNone() {
         let allergies = Allergies(0)
 
         XCTAssertFalse(allergies.hasAllergy(.pollen))
+    }
+
+    func testOtherAllergies() {
+        let allergies = Allergies(257)
+
+        XCTAssertTrue(allergies.hasAllergy(.eggs))
     }
 
     func testAll() {
@@ -49,6 +54,7 @@ class AllergiesTests: XCTestCase {
             ("testBob", testBob),
             ("testEggsNcats", testEggsNcats),
             ("testNone", testNone),
+            ("testOtherAllergies", testOtherAllergies),
             ("testAll", testAll),
         ]
     }
