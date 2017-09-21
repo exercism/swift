@@ -14,12 +14,12 @@ matrix:
         - ./xswift-test-spm
       env: JOB=SPM
       os: osx
-      osx_image: xcode8.3
+      osx_image: xcode9
     - script:
         - bin/fetch-configlet
         - bin/configlet lint .
-        - docker run -v `pwd`:/swift norionomura/sourcekit:302 bash -c "cd /swift && ./xswift-test-spm"
-      env: JOB=Linux302
+        - docker run -v `pwd`:/swift norionomura/swift:4020170908a swift bash -c "cd /swift && ./xswift-test-spm"
+      env: JOB=Linux40
       sudo: required
       services: docker
     - script:
