@@ -46,6 +46,10 @@ class SumOfMultiplesTests: XCTestCase {
         XCTAssertEqual(45, SumOfMultiples.toLimit(10, inMultiples: [0, 1]))
     }
 
+    func testConfigurable_0_27_to_0() {
+        XCTAssertEqual(0, SumOfMultiples.toLimit(0, inMultiples: [0, 27]))
+    }
+
     static var allTests: [(String, (SumOfMultiplesTests) -> () throws -> Void)] {
         return [
             ("testSumTo1", testSumTo1),
@@ -59,6 +63,7 @@ class SumOfMultiplesTests: XCTestCase {
             ("testConfigurable_43_47_to_10000", testConfigurable_43_47_to_10000),
             ("testConfigurable_0_to_10", testConfigurable_0_to_10),
             ("testConfigurable_0_1_to_10", testConfigurable_0_1_to_10),
+            ("testConfigurable_0_27_to_0", testConfigurable_0_27_to_0)
         ]
     }
 }
