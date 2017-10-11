@@ -3,32 +3,25 @@ import Foundation
 struct Luhn {
 
     var number: Int64 = 0
-    var addends: [Int] { return addendsFunc(number) }
+    var numberString: String = ""
+    var addends: [Int] { return addendsFunc(numberString) }
     var checksum: Int { return addends.reduce(0, +) }
-    var isValid: Bool { return checksum % 10 == 0 }
+    var isValid: Bool = false
 
-    init(_ num: Int64) {
-        self.number = num
-    }
-
-    static func create (_ num: Int64) -> Double {
-
-        func createCheckDigit(_ value: Int) -> Int {
-            let nearestTen = Int(ceil((Double(value) / 10.00)) * 10)
-            return nearestTen - value
+    init(_ num: String ) {
+        self.numberString = num.replacingOccurrences(of: " ", with: "")
+        let num = Int64(numberString)
+        if self.numberString.utf16.count <= 1 {
+            self.isValid = false
+        } else if num == nil {
+            isValid = false
+        } else {
+            self.number = num!
+            isValid = checksum % 10 == 0
         }
-
-        let zeroCheckDigitNumber = num * 10
-        let luhn = Luhn(zeroCheckDigitNumber)
-
-        if luhn.isValid {
-            return Double(zeroCheckDigitNumber)}
-
-        return Double((zeroCheckDigitNumber) + Int64(createCheckDigit(luhn.checksum)))
-
     }
 
-    func addendsFunc(_ num: Int64) -> [Int] {
+    func addendsFunc(_ num: String) -> [Int] {
         func oddIndexInt64Minus9( _ input: [Int]) -> [Int] {
             var input = input
             input = Array(input.reversed())
@@ -37,7 +30,7 @@ struct Luhn {
                 var tempEach: Int = each
                 if (inx+1) % 2 == 0 {
                     tempEach *= 2
-                    if tempEach > 10 {
+                    if tempEach >= 10 {
                         tempEach -= 9
                     }
                     tempArray.insert(tempEach, at: 0)
@@ -52,9 +45,7 @@ struct Luhn {
             return tempInt
         }
 
-        let tempString = "\(num)"
-
-        return oddIndexInt64Minus9(Array(tempString.characters).map { char2Int($0) })
+        return oddIndexInt64Minus9(Array(num.characters).map { char2Int($0) })
     }
 
 }
