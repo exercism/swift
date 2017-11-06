@@ -339,6 +339,17 @@
     },
     {
       "core": false,
+      "difficulty": 3,
+      "slug": "collatz-conjecture",
+      "topics": [
+        "integers",
+        "mathematics"
+      ],
+      "unlocked_by": null,
+      "uuid": "899bd49a-0970-9a80-5e6b-2adf5bfd0bf79f480ba"
+    },
+    {
+      "core": false,
       "difficulty": 4,
       "slug": "word-count",
       "topics": [
