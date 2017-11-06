@@ -8,7 +8,7 @@ class GrainsTests: XCTestCase {
             if case let Grains.GrainsError.inputTooHigh(message) = error {
                 XCTAssertTrue(message == "Input[65] invalid. Input should be between 1 and 64 (inclusive)")
             } else {
-                XCTFail()
+                XCTFail("Expected error not thrown")
             }
         }
     }
@@ -18,7 +18,7 @@ class GrainsTests: XCTestCase {
             if case let Grains.GrainsError.inputTooLow(message) = error {
                 XCTAssertTrue(message == "Input[0] invalid. Input should be between 1 and 64 (inclusive)")
             } else {
-                XCTFail()
+                XCTFail("Expected error not thrown")
             }
         }
     }
@@ -28,7 +28,7 @@ class GrainsTests: XCTestCase {
             if case let Grains.GrainsError.inputTooLow(message) = error {
                 XCTAssertTrue(message == "Input[-1] invalid. Input should be between 1 and 64 (inclusive)")
             } else {
-                XCTFail()
+                XCTFail("Expected error not thrown")
             }
         }
     }

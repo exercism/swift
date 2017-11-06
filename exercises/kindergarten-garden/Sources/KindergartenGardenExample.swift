@@ -10,7 +10,7 @@ enum Plant: String {
 struct Garden {
     static private let defaultChildren = ["Alice", "Bob", "Charlie", "David", "Eve", "Fred", "Ginny", "Harriet", "Ileana", "Joseph", "Kincaid", "Larry"]
 
-    private let pots: [String : [Plant]]
+    private let pots: [String: [Plant]]
 
     init(_ diagram: String, children: [String] = defaultChildren) {
         self.pots = Garden.parse(diagram, children: children)
@@ -23,7 +23,7 @@ struct Garden {
         return plants
     }
 
-    private static func parse(_ diagram: String, children: [String]) -> [String : [Plant]] {
+    private static func parse(_ diagram: String, children: [String]) -> [String: [Plant]] {
         let sortedChildren = children.sorted(by: <)
         let lines = diagram.components(separatedBy: CharacterSet.newlines)
         var result = [String: [Plant]]()

@@ -1,6 +1,6 @@
 struct BracketPush {
 
-    private static let brackets: [Character : Character] = [
+    private static let brackets: [Character: Character] = [
         ")": "(",
         "]": "[",
         "}": "{"

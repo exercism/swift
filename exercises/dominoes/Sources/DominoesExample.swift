@@ -69,7 +69,7 @@ class Bone: CustomStringConvertible, Equatable {
     var available: Int?
     var connectedTo: Bone?
     var description: String {
-        return "\(value)|\(connected)|\(available) "
+        return "\(value)|\(connected)|\(String(describing: available)) "
     }
     @discardableResult
     func connect(_ input: Bone) -> Bool {
@@ -146,10 +146,10 @@ class Bone: CustomStringConvertible, Equatable {
 
         switch (connected, input.connected) {
         case (1, 0):
-            guard let _ = available else { return false }
+            guard available != nil else { return false }
             oneZero()
         case (0, 1):
-            guard let _ = input.available else { return false }
+            guard input.available != nil else { return false }
             zeroOne()
         case (1, 1):
             oneOne()

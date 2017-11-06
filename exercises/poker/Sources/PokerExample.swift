@@ -88,15 +88,15 @@ enum HandRank {
         let first = sorted[0].rank.rawValue
         for (index, each) in sorted.enumerated() {
             guard each.rank.rawValue != index + first else { continue }
-                // checks for Ace as the lowest card
-                guard let aceIndex = inputHand.hand.index(where: { $0.rank.rawValue == 14 })else { return (false, .ace) }
-                var replacedAced = inputHand.hand.map({ $0.rank.rawValue })
-                replacedAced[aceIndex] = 1 // swaps ace value to lowest
-                replacedAced.sort()
-                let firstVal = replacedAced[0]
-                for (idx, eachVal) in replacedAced.enumerated() {
-                    guard eachVal == firstVal + idx else { return (false, .ace) }
-                }
+            // checks for Ace as the lowest card
+            guard let aceIndex = inputHand.hand.index(where: { $0.rank.rawValue == 14 })else { return (false, .ace) }
+            var replacedAced = inputHand.hand.map({ $0.rank.rawValue })
+            replacedAced[aceIndex] = 1 // swaps ace value to lowest
+            replacedAced.sort()
+            let firstVal = replacedAced[0]
+            for (idx, eachVal) in replacedAced.enumerated() {
+                guard eachVal == firstVal + idx else { return (false, .ace) }
+            }
         }
         let last = sorted[sorted.count - 1].rank
         return (true, last)
@@ -144,104 +144,103 @@ enum HandRank {
     }
 }
 
-extension HandRank : Equatable, Comparable {}
-
-func == (lhs: HandRank, rhs: HandRank) -> Bool {
-    switch (lhs, rhs) {
-    //straightFlush(Rank,Suit)
-    case (HandRank.straightFlush(let lRank, let lSuit), HandRank.straightFlush(let rRank, let rSuit)):
-        return lRank == rRank && lSuit == rSuit
-    //fourOfAKind(four:Rank)
-    case (HandRank.fourOfAKind(four: let lFour),
-          HandRank.fourOfAKind(four: let rFour)):
-        return lFour == rFour
-    //fullHouse(three:Rank)
-    case (HandRank.fullHouse(three: let lThree),
-          HandRank.fullHouse(three: let rThree)):
-        return lThree == rThree
-    //flush(Suit)
-    case (HandRank.flush(let lRank, let lSuit), HandRank.flush(let rRank, let rSuit)):
-        return lSuit == rSuit && lRank == rRank
-    //straight(high:Rank)
-    case (HandRank.straight(high: let lRank),
-          HandRank.straight(high: let rRank)):
-        return lRank == rRank
-    //threeOfAKind(three:Rank)
-    case (HandRank.threeOfAKind(three: let lRank),
-          HandRank.threeOfAKind(three: let rRank)):
-        return lRank == rRank
-    //twoPair(high:Rank,low:Rank, highCard:PlayingCard)
-    case (HandRank.twoPair(high: let lHigh, low: let lLow, highCard: let lCard), HandRank.twoPair(high: let rHigh, low: let rLow, highCard: let rCard)):
-        return lHigh == rHigh && lLow == rLow && lCard == rCard
-    //onePair(Rank)
-    case (HandRank.onePair(let lPairRank, card1: let lCard1, card2: let lCard2, card3: let lCard3),
-          HandRank.onePair(let rPairRank, card1: let rCard1, card2: let rCard2, card3: let rCard3)):
-        return lPairRank == rPairRank && lCard1 == rCard1 && lCard2 == rCard2 && lCard3 == rCard3
-    //highCard(PlayingCard)
-    case (HandRank.highCard(let lCard), HandRank.highCard(let rCard)):
-        return lCard == rCard
-    default:
-        return false
-    }
-}
-// swiftlint:disable:next cyclomatic_complexity
-// swiftlint:disable:next empty_enum_arguments
-func < (lhs: HandRank, rhs: HandRank) -> Bool {
-    switch (lhs, rhs) {
-    case (_, _) where lhs == rhs:
-        return false
-
-    //straightFlush(Rank,Suit)
-    case (HandRank.straightFlush(let lRank, let lSuit), HandRank.straightFlush(let rRank, let rSuit)):
-        return lRank == rRank ? lSuit < rSuit : lRank < rRank
-
-    //fourOfAKind(four:Rank)
-    case (HandRank.fourOfAKind(four: let lFour),
-          HandRank.fourOfAKind(four: let rFour)):
-        return lFour < rFour
-
-    //fullHouse(three:Rank)
-    case (HandRank.fullHouse(three: let lRank),
-          HandRank.fullHouse(three: let rRank)):
-        return lRank < rRank
-
-    //flush(Suit)
-    case (HandRank.flush(let lRank, let lSuit), HandRank.flush(let rRank, let rSuit)):
-        return lRank == rRank ? lSuit < rSuit : lRank < rRank
-
-    //straight(high:Rank)
-    case (HandRank.straight(high: let lRank),
-          HandRank.straight(high: let rRank)):
-        return lRank < rRank
-
-    //threeOfAKind(three:Rank)
-    case (HandRank.threeOfAKind(three: let lRank),
-          HandRank.threeOfAKind(three: let rRank)):
-        return lRank < rRank
-
-    //twoPair(high:Rank,low:Rank, highCard:PlayingCard)
-    case (HandRank.twoPair(high: let lHigh, low: let lLow, highCard: let lCard), HandRank.twoPair(high: let rHigh, low: let rLow, highCard: let rCard)):
-        if lHigh == rHigh && lLow == rLow {
-            return lCard < rCard
-        } else {
-            return lHigh < rHigh
+extension HandRank: Equatable {
+    static func == (lhs: HandRank, rhs: HandRank) -> Bool {
+        switch (lhs, rhs) {
+        //straightFlush(Rank,Suit)
+        case (HandRank.straightFlush(let lRank, let lSuit), HandRank.straightFlush(let rRank, let rSuit)):
+            return lRank == rRank && lSuit == rSuit
+        //fourOfAKind(four:Rank)
+        case (HandRank.fourOfAKind(four: let lFour),
+              HandRank.fourOfAKind(four: let rFour)):
+            return lFour == rFour
+        //fullHouse(three:Rank)
+        case (HandRank.fullHouse(three: let lThree),
+              HandRank.fullHouse(three: let rThree)):
+            return lThree == rThree
+        //flush(Suit)
+        case (HandRank.flush(let lRank, let lSuit), HandRank.flush(let rRank, let rSuit)):
+            return lSuit == rSuit && lRank == rRank
+        //straight(high:Rank)
+        case (HandRank.straight(high: let lRank),
+              HandRank.straight(high: let rRank)):
+            return lRank == rRank
+        //threeOfAKind(three:Rank)
+        case (HandRank.threeOfAKind(three: let lRank),
+              HandRank.threeOfAKind(three: let rRank)):
+            return lRank == rRank
+        //twoPair(high:Rank,low:Rank, highCard:PlayingCard)
+        case (HandRank.twoPair(high: let lHigh, low: let lLow, highCard: let lCard), HandRank.twoPair(high: let rHigh, low: let rLow, highCard: let rCard)):
+            return lHigh == rHigh && lLow == rLow && lCard == rCard
+        //onePair(Rank)
+        case (HandRank.onePair(let lPairRank, card1: let lCard1, card2: let lCard2, card3: let lCard3),
+              HandRank.onePair(let rPairRank, card1: let rCard1, card2: let rCard2, card3: let rCard3)):
+            return lPairRank == rPairRank && lCard1 == rCard1 && lCard2 == rCard2 && lCard3 == rCard3
+        //highCard(PlayingCard)
+        case (HandRank.highCard(let lCard), HandRank.highCard(let rCard)):
+            return lCard == rCard
+        default:
+            return false
         }
-
-    //onePair(Rank)
-    case (HandRank.onePair(let lPairRank, card1: let lCard1, card2: let lCard2, card3: let lCard3),
-          HandRank.onePair(let rPairRank, card1: let rCard1, card2: let rCard2, card3: let rCard3)):
-        return lPairRank == rPairRank ? (lCard1 == rCard1 ? (lCard2 == rCard2 ? lCard3 < rCard3 :lCard2 < rCard2):lCard1 < rCard1):lPairRank < rPairRank
-
-    //highCard(PlayingCard)
-    case (HandRank.highCard(let lCard), HandRank.highCard(let rCard)):
-        return lCard < rCard
-
-    default:
-        return lhs.order() < rhs.order()
     }
-
 }
-// swiftlint:enable:next empty_enum_arguments
+
+extension HandRank: Comparable {
+    static func < (lhs: HandRank, rhs: HandRank) -> Bool {
+        switch (lhs, rhs) {
+        case (_, _) where lhs == rhs:
+            return false
+
+        //straightFlush(Rank,Suit)
+        case (HandRank.straightFlush(let lRank, let lSuit), HandRank.straightFlush(let rRank, let rSuit)):
+            return lRank == rRank ? lSuit < rSuit : lRank < rRank
+
+        //fourOfAKind(four:Rank)
+        case (HandRank.fourOfAKind(four: let lFour),
+              HandRank.fourOfAKind(four: let rFour)):
+            return lFour < rFour
+
+        //fullHouse(three:Rank)
+        case (HandRank.fullHouse(three: let lRank),
+              HandRank.fullHouse(three: let rRank)):
+            return lRank < rRank
+
+        //flush(Suit)
+        case (HandRank.flush(let lRank, let lSuit), HandRank.flush(let rRank, let rSuit)):
+            return lRank == rRank ? lSuit < rSuit : lRank < rRank
+
+        //straight(high:Rank)
+        case (HandRank.straight(high: let lRank),
+              HandRank.straight(high: let rRank)):
+            return lRank < rRank
+
+        //threeOfAKind(three:Rank)
+        case (HandRank.threeOfAKind(three: let lRank),
+              HandRank.threeOfAKind(three: let rRank)):
+            return lRank < rRank
+
+        //twoPair(high:Rank,low:Rank, highCard:PlayingCard)
+        case (HandRank.twoPair(high: let lHigh, low: let lLow, highCard: let lCard), HandRank.twoPair(high: let rHigh, low: let rLow, highCard: let rCard)):
+            if lHigh == rHigh && lLow == rLow {
+                return lCard < rCard
+            } else {
+                return lHigh < rHigh
+            }
+
+        //onePair(Rank)
+        case (HandRank.onePair(let lPairRank, card1: let lCard1, card2: let lCard2, card3: let lCard3),
+              HandRank.onePair(let rPairRank, card1: let rCard1, card2: let rCard2, card3: let rCard3)):
+            return lPairRank == rPairRank ? (lCard1 == rCard1 ? (lCard2 == rCard2 ? lCard3 < rCard3 :lCard2 < rCard2):lCard1 < rCard1):lPairRank < rPairRank
+
+        //highCard(PlayingCard)
+        case (HandRank.highCard(let lCard), HandRank.highCard(let rCard)):
+            return lCard < rCard
+
+        default:
+            return lhs.order() < rhs.order()
+        }
+    }
+}
 
 struct PokerHand {
     let hand: [PlayingCard]
@@ -262,15 +261,19 @@ struct PokerHand {
         if handParsed.count == 5 { self.hand = handParsed } else { return nil }
     }
 }
-extension PokerHand : Equatable, Comparable {}
 
-func == (lhs: PokerHand, rhs: PokerHand) -> Bool {
-    return lhs.hand == rhs.hand
+extension PokerHand: Equatable {
+    static func == (lhs: PokerHand, rhs: PokerHand) -> Bool {
+        return lhs.hand == rhs.hand
+    }
 }
 
-func < (lhs: PokerHand, rhs: PokerHand) -> Bool {
-    return lhs.handRank() < rhs.handRank()
+extension PokerHand: Comparable {
+    static func < (lhs: PokerHand, rhs: PokerHand) -> Bool {
+        return lhs.handRank() < rhs.handRank()
+    }
 }
+
 struct PlayingCard {
     let rank: Rank
     let suit: Suit
@@ -290,15 +293,18 @@ struct PlayingCard {
     }
 }
 
-extension PlayingCard : Equatable, Comparable {}
-
-func == (lhs: PlayingCard, rhs: PlayingCard) -> Bool {
-    return lhs.rank == rhs.rank && lhs.suit == rhs.suit
+extension PlayingCard: Equatable {
+    static func == (lhs: PlayingCard, rhs: PlayingCard) -> Bool {
+        return lhs.rank == rhs.rank && lhs.suit == rhs.suit
+    }
 }
 
-func < (lhs: PlayingCard, rhs: PlayingCard) -> Bool {
-    return lhs.rank == rhs.rank ? lhs.suit < rhs.suit : lhs.rank < rhs.rank
+extension PlayingCard: Comparable {
+    static func < (lhs: PlayingCard, rhs: PlayingCard) -> Bool {
+        return lhs.rank == rhs.rank ? lhs.suit < rhs.suit : lhs.rank < rhs.rank
+    }
 }
+
 enum Rank: Int {
     case two = 2
     case three, four, five, six, seven, eight, nine, ten
@@ -333,28 +339,28 @@ enum Suit: String {
     }
 }
 
-extension Rank : Comparable {}
-
-func < (lhs: Rank, rhs: Rank) -> Bool {
-    switch (lhs, rhs) {
-    case (_, _) where lhs == rhs:
-        return false
-    default:
-        return lhs.rawValue < rhs.rawValue
+extension Rank: Comparable {
+    static func < (lhs: Rank, rhs: Rank) -> Bool {
+        switch (lhs, rhs) {
+        case (_, _) where lhs == rhs:
+            return false
+        default:
+            return lhs.rawValue < rhs.rawValue
+        }
     }
 }
 
-extension Suit: Comparable {}
-
-func < (lhs: Suit, rhs: Suit) -> Bool {
-    switch (lhs, rhs) {
-    case (_, _) where lhs == rhs:
-        return false
-    case (.spades, _),
-         (.hearts, .diamonds), (.hearts, .clubs),
-         (.diamonds, .clubs):
-        return false
-    default:
-        return true
+extension Suit: Comparable {
+    static func < (lhs: Suit, rhs: Suit) -> Bool {
+        switch (lhs, rhs) {
+        case (_, _) where lhs == rhs:
+            return false
+        case (.spades, _),
+             (.hearts, .diamonds), (.hearts, .clubs),
+             (.diamonds, .clubs):
+            return false
+        default:
+            return true
+        }
     }
 }

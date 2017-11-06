@@ -7,7 +7,7 @@ enum Nucleobase: Character {
 
 struct DNA {
 
-    var nucleotideCounts: [Nucleobase:Int] = [ .adenine: 0, .thymine: 0, .cytosine: 0, .guanine: 0 ]
+    var nucleotideCounts: [Nucleobase: Int] = [ .adenine: 0, .thymine: 0, .cytosine: 0, .guanine: 0 ]
 
     init?(strand: String) {
         let enumarated = strand.characters.enumerated()
@@ -26,7 +26,7 @@ struct DNA {
     }
 
     func counts() -> [String: Int] {
-        var nCounts: [String:Int] = [:]
+        var nCounts: [String: Int] = [:]
         for (k, v) in nucleotideCounts {
             nCounts[String(k.rawValue)] = v
         }
