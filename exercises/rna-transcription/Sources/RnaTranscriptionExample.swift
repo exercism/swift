@@ -13,9 +13,9 @@ struct Nucleotide {
         self.value = nucleotide
     }
 
-    private let dnaToRna: [Character:String] = [ "G": "C", "C": "G", "T": "A", "A": "U" ]
+    private let dnaToRna: [Character: String] = [ "G": "C", "C": "G", "T": "A", "A": "U" ]
 
-    private func transcribe(_ dict: [Character : String]) throws -> String {
+    private func transcribe(_ dict: [Character: String]) throws -> String {
         var tempText = ""
         for each in self.value.characters {
             if dict[each] == nil {

@@ -58,7 +58,7 @@ struct Date {
 
 }
 
-extension Date:CustomStringConvertible {
+extension Date: CustomStringConvertible {
     private func addLeadingZero(_ input: Int32) -> String {
 
         if (0...9).contains(input) {
