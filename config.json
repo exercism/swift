@@ -346,7 +346,17 @@
         "mathematics"
       ],
       "unlocked_by": null,
-      "uuid": "899bd49a-0970-9a80-5e6b-2adf5bfd0bf79f480ba"
+      "uuid": "1b068d66-c8de-42a8-a566-03848c9c7941"
+    },
+    {
+      "core": false,
+      "difficulty": 3,
+      "slug": "diamond",
+      "topics": [
+        "strings"
+      ],
+      "unlocked_by": null,
+      "uuid": "6d70fd81-76a4-4e44-a64a-9a070e07e83d"
     },
     {
       "core": false,
