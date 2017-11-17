@@ -574,6 +574,19 @@
     },
     {
       "core": false,
+      "difficulty": 4,
+      "slug": "say",
+      "topics": [
+        "loops",
+        "parsing",
+        "transforming",
+        "text_formatting"
+      ],
+      "unlocked_by": null,
+      "uuid": "0f840c37-a8c0-42da-93f9-d215cb044d53"
+    },
+    {
+      "core": false,
       "difficulty": 5,
       "slug": "roman-numerals",
       "topics": [
