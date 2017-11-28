@@ -360,6 +360,19 @@
     },
     {
       "core": false,
+      "difficulty": 3,
+      "slug": "isbn-verifier",
+      "topics": [
+        "conditionals",
+        "loops",
+        "pattern_matching",
+        "strings"
+      ],
+      "unlocked_by": null,
+      "uuid": "5854447a-ff9f-4321-bd5c-430555b91fc6"
+    },
+    {
+      "core": false,
       "difficulty": 4,
       "slug": "word-count",
       "topics": [
