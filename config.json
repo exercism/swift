@@ -15,6 +15,17 @@
     {
       "core": false,
       "difficulty": 1,
+      "slug": "two-fer",
+      "topics": [
+        "optional_values",
+        "text_formatting"
+      ],
+      "unlocked_by": null,
+      "uuid": "ed859c29-fae0-4a32-9074-ac3c3cf324c2"
+    },
+    {
+      "core": false,
+      "difficulty": 1,
       "slug": "leap",
       "topics": [
         "integers"
