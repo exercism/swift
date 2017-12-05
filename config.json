@@ -384,6 +384,19 @@
     },
     {
       "core": false,
+      "difficulty": 3,
+      "slug": "protein-translation",
+      "topics": [
+        "control-flow-(conditionals)",
+        "control-flow-(loops)",
+        "strings",
+        "algorithms"
+      ],
+      "unlocked_by": null,
+      "uuid": "72bd3b46-c3ed-4399-a925-9b616cfa1e9b"
+    },
+    {
+      "core": false,
       "difficulty": 4,
       "slug": "word-count",
       "topics": [
