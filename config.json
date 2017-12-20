@@ -185,6 +185,22 @@
       "uuid": "066d2666-deeb-4d99-8314-36d72fbf9afd"
     },
     {
+      "uuid": "cf91efe6-0c6f-4c6f-b3da-e828dff03ad9",
+      "slug": "list-ops",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "variables",
+        "lists",
+        "loops",
+        "filtering",
+        "searching",
+        "conditionals",
+        "functional_programming"
+      ]
+    },
+    {
       "core": false,
       "difficulty": 3,
       "slug": "clock",
