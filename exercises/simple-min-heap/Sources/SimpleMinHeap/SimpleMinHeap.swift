@@ -13,7 +13,7 @@ private extension Array {
 
 extension SimpleMinHeap: CustomStringConvertible {
     public var description: String {
-        return array.description
+        return arrayView().description
     }
 }
 
