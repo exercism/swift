@@ -1,6 +1,23 @@
-machine:
-  xcode:
-    version: "9.0"
-test:
-  override:
-    - ./xswift-test-spm
+version: 2
+
+jobs:
+  xcodewithdanger:
+    macos:
+      xcode: "9.0"
+    steps:
+      - checkout
+      - run: gem install danger
+      - run: brew update
+      - run: brew outdated swiftlint || brew upgrade swiftlint
+      - run: swiftlint lint --quiet >> lintreport.json || true # Dont crash on errors
+      - run: python -m json.tool lintreport.json
+      - run: ./xswift-test-spm
+      - run: danger && ls -al
+      - run: ls
+
+
+  workflows:
+    version: 2
+      workflow:
+       jobs:
+        - xcodewithdanger
