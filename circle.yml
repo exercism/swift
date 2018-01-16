@@ -9,7 +9,7 @@ jobs:
       - run: sudo gem install danger
       - run: brew update
       - run: brew outdated swiftlint || brew upgrade swiftlint
-      - run: swiftlint lint --quiet >> lintreport.json || true # Dont crash on errors
+      - run: swiftlint lint --quiet | tee lintreport.json || true # Dont crash on errors
       - run: ./xswift-test-spm
       - run: 
           name: Danger Systems
