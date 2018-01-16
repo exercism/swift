@@ -413,6 +413,21 @@
     },
     {
       "core": false,
+      "difficulty": 3,
+      "slug": "circular-buffer",
+      "topics": [
+        "arrays",
+        "control-flow-(conditionals)",
+        "control-flow-(loops)",
+        "data-structures",
+        "exception-handling",
+        "lists"
+      ],
+      "unlocked_by": null,
+      "uuid": "f5499564-62b9-47ab-9ba2-8be6ba453269"
+    },
+    {
+      "core": false,
       "difficulty": 4,
       "slug": "word-count",
       "topics": [
