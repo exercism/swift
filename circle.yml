@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  xcodewithdanger:
+  build:
     macos:
       xcode: "9.0"
     steps:
@@ -14,10 +14,3 @@ jobs:
       - run: ./xswift-test-spm
       - run: danger && ls -al
       - run: ls
-
-
-  workflows:
-    version: 2
-      workflow:
-       jobs:
-        - xcodewithdanger
