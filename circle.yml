@@ -14,4 +14,4 @@ jobs:
       - run: 
           name: Danger Systems
           when: on_success
-          command: danger
+          command: danger || true # Dont fail build on non zero exit codes
