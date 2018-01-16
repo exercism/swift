@@ -13,5 +13,5 @@ jobs:
       - run: ./xswift-test-spm
       - run: 
           name: Danger Systems
-          when: on_success || true # Dont fail build on non zero exit codes
-          command: danger
+          when: on_success
+          command: danger || true # Dont fail build on non zero exit codes
