@@ -65,7 +65,7 @@ class SimpleMinHeapTests: XCTestCase {
         XCTAssertEqual("Z", heap.pop())
     }
 
-    func testHeapify(){
+    func testHeapify() {
         var heap = SimpleMinHeap<String>()
         heap.heapify(["Z", "C", "M", "A", "B", "D"])
         XCTAssertEqual("A", heap.pop())
@@ -78,10 +78,10 @@ class SimpleMinHeapTests: XCTestCase {
 
     static var allTests = [
         ("testEmpty", testSingleRoot),
-        ("testMultiplePush",testMultiplePush),
-        ("testMultipleValues",testMultipleValues),
-        ("testMultiplePushAndPop",testMultiplePushAndPop),
-        ("testMultipleStringValues",testMultipleStringValues),
+        ("testMultiplePush", testMultiplePush),
+        ("testMultipleValues", testMultipleValues),
+        ("testMultiplePushAndPop", testMultiplePushAndPop),
+        ("testMultipleStringValues", testMultipleStringValues),
         ("testHeapify", testHeapify)
     ]
 }

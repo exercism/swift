@@ -1,5 +1,3 @@
-
-
 #if swift(>=4.0)
 // Compatability for Swift < 4
 #else
@@ -13,22 +11,22 @@ private extension Array {
 }
 #endif
 
-extension SimpleMinHeap:CustomStringConvertible {
+extension SimpleMinHeap: CustomStringConvertible {
     public var description: String {
         return array.description
     }
 }
 
-public struct SimpleMinHeap<T> where T:Comparable {
+public struct SimpleMinHeap<T> where T: Comparable {
 
     private var array = [T]()
 
     // View into the array represenation of the heap
-    func arrayView() ->[T] { return array }
+    func arrayView() -> [T] { return array }
 
     // This adds a element to the end and moves it to the correct spot
-    mutating func push(_ item:T) {
-        array.append(item);
+    mutating func push(_ item: T) {
+        array.append(item)
         // Moves the element to the correct location
         siftUp()
     }
@@ -55,26 +53,25 @@ public struct SimpleMinHeap<T> where T:Comparable {
         return root
     }
 
-
     // Takes the root element and sifts it down into the correct location
     // Assuming that the root has a least one child (at least 2 elements present).
-    private mutating func siftDown(){
+    private mutating func siftDown() {
         var index = 0
-        while(index < array.count){
+        while(index < array.count) {
             let leftChildIndex = (2 * index) + 1
             guard leftChildIndex < array.count, index != array.count - 1
                 else { break } // No more children or current item is the last in the array
             let rightChildIndex = leftChildIndex + 1
 
             // There is a right child with the name parent node
-            if(rightChildIndex < array.count &&  ((rightChildIndex - 1)/2) == index ){
+            if(rightChildIndex < array.count &&  ((rightChildIndex - 1)/2) == index ) {
                 let left = array[leftChildIndex]
                 let right = array[rightChildIndex]
                 let minChildIndex = left < right ? leftChildIndex : rightChildIndex
                 if (array[minChildIndex] < array[index]) {
                     array.swapAt(minChildIndex, index)
-                    index = minChildIndex;
-                } else { break}
+                    index = minChildIndex
+                } else { break }
             } else if (array[leftChildIndex] < array[index] ) {
                 array.swapAt(leftChildIndex, index)
                 index = leftChildIndex
@@ -85,26 +82,26 @@ public struct SimpleMinHeap<T> where T:Comparable {
 
     // Takes the last element inserted and sift it up to the correct location
     // We assume that array is not empty here
-    private mutating func siftUp(){
+    private mutating func siftUp() {
         guard !array.isEmpty
-            else { fatalError("Array is empty")}
+            else { fatalError("Array is empty") }
 
         guard array.count > 0 else { return }
 
-        var elementIndex = array.count - 1;
+        var elementIndex = array.count - 1
         var parentIndex = (elementIndex - 1 ) / 2
 
         while (array[parentIndex] > array[elementIndex]) {
             array.swapAt(elementIndex, parentIndex)
             elementIndex = parentIndex
             parentIndex = (elementIndex - 1 ) / 2
-            if (elementIndex == 0){
+            if (elementIndex == 0) {
                 break // We reached the root node
             }
         }
     }
     // Convinience function that takes in a array converts it into a heap
-    mutating func heapify(_ input: [T]){
+    mutating func heapify(_ input: [T]) {
         for each in input {
             push(each)
         }
