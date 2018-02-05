@@ -68,10 +68,10 @@ Go through the project setup instructions for Xcode using Swift:
 
 http://exercism.io/languages/swift
 
+
 ## Source
 
 A variation on JavaRanch CattleDrive, exercise 4a [http://www.javaranch.com/say.jsp](http://www.javaranch.com/say.jsp)
 
 ## Submitting Incomplete Solutions
-
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
