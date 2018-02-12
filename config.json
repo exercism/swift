@@ -427,6 +427,18 @@
       "uuid": "f5499564-62b9-47ab-9ba2-8be6ba453269"
     },
     {
+      "uuid": "1c9dfe22-de66-4437-862b-8921dc7eb25e",
+      "slug": "scale-generator",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "strings",
+        "pattern_matching",
+        "loops"
+      ]
+    },
+    {
       "core": false,
       "difficulty": 4,
       "slug": "word-count",
