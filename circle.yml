@@ -1,9 +1,9 @@
 version: 2
 
 jobs:
-  build:
+  build920:
     macos:
-      xcode: "9.0"
+      xcode: "9.2.0"
     steps:
       - checkout
       - run: sudo gem install danger
@@ -15,3 +15,22 @@ jobs:
           name: Danger Systems
           when: on_success
           command: danger || true # Dont fail build on non zero exit codes
+  build910:
+    macos:
+      xcode: "9.1.0"
+    steps:
+      - checkout
+      - run: ./xswift-test-spm
+  build901:
+    macos:
+      xcode: "9.0.1"
+    steps:
+      - checkout
+      - run: ./xswift-test-spm
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build901
+      - build910
+      - build920
