@@ -11,7 +11,7 @@ jobs:
       - run: brew outdated swiftlint || brew upgrade swiftlint
       - run: swiftlint lint --quiet | tee lintreport.json || true # Dont crash on errors
       - run: ./xswift-test-spm
-      - run: 
+      - run:
           name: Danger Systems
           when: on_success
           command: danger || true # Dont fail build on non zero exit codes
