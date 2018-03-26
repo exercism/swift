@@ -20,6 +20,18 @@ warn("Big PR") if git.lines_of_code > 500
 #ENSURE THERE IS A SUMMARY FOR A PR
 warn("Please provide a summary in the Pull Request description. See more info <a href=\"http\://tinyletter.com/exercism/letters/exercism-pull-requests\">here.</a>") if github.pr_body.length < 5
 
+# Ensure that .gitignore is included in new exercises
+(git.modified_files + git.added_files)
+  .map { |path|
+    match = %r{^(?<dir>exercises/[^/]+).*$}i.match(path) || {}
+    match[:dir]
+  }
+  .uniq
+  .reject(&:nil?)
+  .each { |dir|
+    warn "Missing `#{dir}/.gitignore`" unless File.exists? "#{dir}/.gitignore"
+  }
+
 # LINT Comments in for each Line
 jsonpath = "lintreport.json"
 contents = File.read jsonpath
