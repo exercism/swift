@@ -1,7 +1,7 @@
 import XCTest
 @testable import ComplexNumbers
 
-class ComplexNumbersTest: XCTestCase {
+class ComplexNumbersTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -278,7 +278,7 @@ class ComplexNumbersTest: XCTestCase {
         XCTAssertEqual([expectedResult.realComponent, expectedResult.imaginaryComponent], [round(actualResult.realComponent), Double(String(format: "%.1f", actualResult.imaginaryComponent))!])
     }
 
-    static var allTests: [(String, (ComplexNumbersTest) -> () throws -> Void)] {
+    static var allTests: [(String, (ComplexNumbersTests) -> () throws -> Void)] {
         return [
             ("testRealPartOfPurelyRealNumber", testRealPartOfPurelyRealNumber),
             ("testRealPartOfPurelyImaginaryNumber", testRealPartOfPurelyImaginaryNumber),
