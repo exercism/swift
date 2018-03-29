@@ -855,6 +855,17 @@
     },
     {
       "core": false,
+      "difficulty": 6,
+      "slug": "complex-numbers",
+      "topics": [
+        "mathematics",
+        "tuples"
+      ],
+      "unlocked_by": "leap",
+      "uuid": "5a918ed8-e840-46b8-b824-291d872d2224"
+    },
+    {
+      "core": false,
       "difficulty": 7,
       "slug": "bracket-push",
       "topics": [
