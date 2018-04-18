@@ -1,22 +1,22 @@
 import Foundation
 
-struct ProverbExample {
+struct Proverb {
 
-    func recite(pieces: [String]) -> String {
+    func recite(_ pieces: [String]) -> String {
 
     var saying = String()
 
-    if !pieces.isEmpty {
+    if let firstPiece = pieces.first {
 
         for (position, piece) in pieces.enumerated() {
 
-            if position != pieces.index(pieces.endIndex, offsetBy: -1) {
+            if position != pieces.count - 1 {
 
                 let nextPiece = pieces[position + 1]
                 saying.append("For want of a \(piece) the \(nextPiece) was lost.\n")
             } else {
 
-                saying.append("And all for the want of a \(pieces.first!).")
+                saying.append("And all for the want of a \(firstPiece).")
             }
 
         }
