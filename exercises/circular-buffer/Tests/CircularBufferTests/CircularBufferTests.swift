@@ -2,7 +2,7 @@ import XCTest
 @testable import CircularBuffer
 
 class CircularBufferTests: XCTestCase {
-    
+
     func testReadEmptyBufferThrowsBufferEmptyException() {
         var buffer = CircularBuffer<Int>(capacity: 1)
 

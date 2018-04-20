@@ -440,6 +440,17 @@
     },
     {
       "core": false,
+      "difficulty": 3,
+      "slug": "proverb",
+      "topics": [
+        "algorithms",
+        "strings"
+      ],
+      "unlocked_by": null,
+      "uuid": "9604f1ef-4925-4c28-9c59-b986c1a42c7e"
+    },
+    {
+      "core": false,
       "difficulty": 4,
       "slug": "word-count",
       "topics": [
