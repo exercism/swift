@@ -1,18 +1,18 @@
 import Foundation
 
-struct Proverb {
+extension Array where Element == String {
 
-    func recite(_ pieces: [String]) -> String {
+    func recite() -> String {
 
     var saying = ""
 
-    if let firstPiece = pieces.first {
+    if let firstPiece = self.first {
 
-        for (position, piece) in pieces.enumerated() {
+        for (position, piece) in self.enumerated() {
 
-            if position != pieces.count - 1 {
+            if position != self.count - 1 {
 
-                let nextPiece = pieces[position + 1]
+                let nextPiece = self[position + 1]
                 saying.append("For want of a \(piece) the \(nextPiece) was lost.\n")
             } else {
 
