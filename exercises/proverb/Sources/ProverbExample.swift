@@ -4,7 +4,7 @@ struct Proverb {
 
     func recite(_ pieces: [String]) -> String {
 
-    var saying = String()
+    var saying = ""
 
     if let firstPiece = pieces.first {
 
