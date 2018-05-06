@@ -2,6 +2,10 @@ import XCTest
 @testable import IsbnVerifier
 
 class IsbnVerifierTests: XCTestCase {
+    
+    func testEmptyString() {
+        XCTAssertFalse(IsbnVerifier.isValid(""))
+    }
 
     func testValidIsbnNumber() {
         XCTAssertTrue(IsbnVerifier.isValid("3-598-21508-8"))
@@ -57,6 +61,7 @@ class IsbnVerifierTests: XCTestCase {
 
     static var allTests: [(String, (IsbnVerifierTests) -> () throws -> Void)] {
         return [
+            ("testEmptyString", testEmptyString),
             ("testValidIsbnNumber", testValidIsbnNumber),
             ("testInvalidIsbnCheckDigit", testInvalidIsbnCheckDigit),
             ("testValidIsbnNumberWithACheckDigitOf10", testValidIsbnNumberWithACheckDigitOf10),
