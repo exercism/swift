@@ -14,7 +14,7 @@ import Foundation
 
 class RobotNameTests: XCTestCase {
     func robotNameIsCorrectlyFormatted(_ name: String) -> Bool {
-        let robotNameRegex = try? Regex(pattern: "\\A\\w{2}\\d{3}\\z", options: Regex.Options.caseInsensitive)
+        let robotNameRegex = try? Regex(pattern: "\\A[A-Z]{2}\\d{3}\\z")
         guard let matches = robotNameRegex?.matches(in: name, options: .withoutAnchoringBounds, range: NSRange(0..<name.utf16.count)) else { return false }
 
         return matches.count > 0
