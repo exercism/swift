@@ -39,13 +39,15 @@ XCTMain([
 \(allTestCases.joined(separator: "\n"))
     ])
 """
-let linuxMainPath = FileManager.default.currentDirectoryPath + "/Tests/LinuxMain.swift"
+let linuxMainPath = FileManager.default.currentDirectoryPath + "/Tests"
+let linuxMainFilePath = linuxMainPath + "/LinuxMain.swift"
 
 do {
-    try linuxMainText.write(to: URL(fileURLWithPath: linuxMainPath), atomically: false, encoding: .utf8)
+    try FileManager.default.createDirectory(atPath: linuxMainPath, withIntermediateDirectories: true, attributes: nil)
+    try linuxMainText.write(to: URL(fileURLWithPath: linuxMainFilePath), atomically: false, encoding: .utf8)
 }
 catch {
-    print("Could not write \(linuxMainPath)")
+    print("Could not write \(linuxMainFilePath)")
 }
 
 //Load packages
