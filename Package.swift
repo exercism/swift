@@ -26,6 +26,28 @@ if
 }
 let allProblemsCamelCase = allProblems.map{ $0.PascalCased}
 
+// Create ./Tests/LinuxMain.swift
+let allTestImports = allProblemsCamelCase.map{ "@testable import \($0)Tests"}
+let allTestCases = allProblemsCamelCase.map{ "testCase(\($0)Tests.allTests),"}    	
+
+let linuxMainText = 	"""
+		    	import XCTest
+			\(allTestImports.joined(separator: "\n"))
+			
+			XCTMain([
+			\(allTestCases.joined(separator: "\n"))
+			    ])
+			"""
+
+do {
+    let linuxMainPath = FileManager.default.currentDirectoryPath + "/Tests/LinuxMain.swift"
+    try linuxMainText.write(to: URL(fileURLWithPath: linuxMainPath), atomically: false, encoding: .utf8)
+}
+catch {
+    print("Could not write \(linuxMainPath)")
+}
+
+//Load packages
 let packageDependencies:[Package.Dependency] = allProblems.map { .package(path: "./exercises/\($0)/") }
 let targetDependencies:[Target.Dependency] = allProblemsCamelCase.map { .byNameItem(name:"\($0)") }
 
