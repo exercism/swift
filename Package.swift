@@ -54,8 +54,8 @@ catch {
 let packageDependencies:[Package.Dependency] = allProblems.map { .package(path: "./exercises/\($0)/") }
 let targetDependencies:[Target.Dependency] = allProblemsCamelCase.map { .byNameItem(name:"\($0)") }
 
-let sources  = allProblems.map { "./\($0)/Sources" }
-let testSources  = allProblems.map { "./\($0)/Tests" }
+let sources  = allProblems.map { "./exercises/\($0)/Sources" }
+let testSources  = allProblems.map { "./exercises/\($0)/Tests" }
 
 let package = Package(
     name: "xswift",
@@ -69,13 +69,13 @@ let package = Package(
         .target(
             name: "xswift",
             dependencies: targetDependencies, 
-            path: "./exercises", 
+            path: "./", 
             sources: sources
             ),
         .testTarget(
             name: "xswiftTests",
             dependencies: ["xswift"], 
-            path: "./exercises", 
+            path: "./", 
             sources: testSources
             ),
         ]
