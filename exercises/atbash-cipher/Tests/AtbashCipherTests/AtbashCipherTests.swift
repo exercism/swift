@@ -1,44 +1,44 @@
 import XCTest
-@testable import Atbash
+@testable import AtbashCipher
 
-class AtbashTests: XCTestCase {
+class AtbashCipherTests: XCTestCase {
 
     func testEncodeNo() {
-        XCTAssertEqual("ml", Atbash.encode("no") )
+        XCTAssertEqual("ml", AtbashCipher.encode("no") )
     }
 
     func testEncodeYes() {
-        XCTAssertEqual("bvh", Atbash.encode("yes") )
+        XCTAssertEqual("bvh", AtbashCipher.encode("yes") )
     }
 
     func testEncodeOMG() {
-        XCTAssertEqual("lnt", Atbash.encode("OMG") )
+        XCTAssertEqual("lnt", AtbashCipher.encode("OMG") )
     }
 
     func testEncodeOMGWithSpaces() {
-        XCTAssertEqual("lnt", Atbash.encode("O M G") )
+        XCTAssertEqual("lnt", AtbashCipher.encode("O M G") )
     }
 
     func testEncodeLongWord() {
-        XCTAssertEqual("nrmwy oldrm tob", Atbash.encode("mindblowingly") )
+        XCTAssertEqual("nrmwy oldrm tob", AtbashCipher.encode("mindblowingly") )
     }
 
     func testEncodeNumbers() {
         XCTAssertEqual("gvhgr mt123 gvhgr mt",
-                       Atbash.encode("Testing, 1 2 3, testing.") )
+                       AtbashCipher.encode("Testing, 1 2 3, testing.") )
     }
 
     func testEncodeSentence() {
-        XCTAssertEqual("gifgs rhurx grlm", Atbash.encode("Truth is fiction.") )
+        XCTAssertEqual("gifgs rhurx grlm", AtbashCipher.encode("Truth is fiction.") )
     }
 
     func testEncodeAllTheThings() {
         let plaintext = "The quick brown fox jumps over the lazy dog."
         let cipher = "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
-        XCTAssertEqual(cipher, Atbash.encode(plaintext) )
+        XCTAssertEqual(cipher, AtbashCipher.encode(plaintext) )
     }
 
-    static var allTests: [(String, (AtbashTests) -> () throws -> Void)] {
+    static var allTests: [(String, (AtbashCipherTests) -> () throws -> Void)] {
         return [
             ("testEncodeNo", testEncodeNo),
             ("testEncodeYes", testEncodeYes),
