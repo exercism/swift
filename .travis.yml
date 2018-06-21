@@ -12,7 +12,7 @@ matrix:
     - script:
         - bin/fetch-configlet
         - bin/configlet lint .
-        - docker run -v `pwd`:/swift norionomura/swift:swift-4.2-branch bash -c "cd /swift && swift test"
+        - docker run -v `pwd`:/swift norionomura/swift:swift-4.2-branch bash -c "cd /swift && swift test --verbose"
       env: JOB=Linux42x
       sudo: required
       services: docker
