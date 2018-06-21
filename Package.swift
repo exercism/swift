@@ -39,9 +39,9 @@ XCTMain([
 \(allTestCases.joined(separator: "\n"))
     ])
 """
+let linuxMainPath = FileManager.default.currentDirectoryPath + "/Tests/LinuxMain.swift"
 
 do {
-    let linuxMainPath = FileManager.default.currentDirectoryPath + "/Tests/LinuxMain.swift"
     try linuxMainText.write(to: URL(fileURLWithPath: linuxMainPath), atomically: false, encoding: .utf8)
 }
 catch {
