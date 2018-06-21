@@ -12,6 +12,13 @@ matrix:
     - script:
         - bin/fetch-configlet
         - bin/configlet lint .
+        - docker run -v `pwd`:/swift norionomura/swift:swift-4.2-branch bash -c "cd /swift && swift test"
+      env: JOB=Linux42x
+      sudo: required
+      services: docker
+    - script:
+        - bin/fetch-configlet
+        - bin/configlet lint .
         - docker run -v `pwd`:/swift norionomura/swift:swift-4.1-branch bash -c "cd /swift && ./xswift-test-spm"
       env: JOB=Linux41x
       sudo: required
