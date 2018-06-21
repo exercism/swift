@@ -30,14 +30,15 @@ let allProblemsCamelCase = allProblems.map{ $0.PascalCased}
 let allTestImports = allProblemsCamelCase.map{ "@testable import \($0)Tests"}
 let allTestCases = allProblemsCamelCase.map{ "testCase(\($0)Tests.allTests),"}    	
 
-let linuxMainText = 	"""
-		    	import XCTest
-			\(allTestImports.joined(separator: "\n"))
-			
-			XCTMain([
-			\(allTestCases.joined(separator: "\n"))
-			    ])
-			"""
+let linuxMainText = 	
+"""
+import XCTest
+\(allTestImports.joined(separator: "\n"))
+
+XCTMain([
+\(allTestCases.joined(separator: "\n"))
+    ])
+"""
 
 do {
     let linuxMainPath = FileManager.default.currentDirectoryPath + "/Tests/LinuxMain.swift"
