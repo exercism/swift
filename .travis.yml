@@ -20,6 +20,7 @@ matrix:
         - bin/fetch-configlet
         - bin/configlet lint .
         - docker run -v `pwd`:/swift norionomura/swift:swift-4.1-branch bash -c "cd /swift && ./xswift-test-spm"
+        - cat ./Tests/LinuxMain.swift
       env: JOB=Linux41x
       sudo: required
       services: docker
