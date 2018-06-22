@@ -26,6 +26,7 @@ if
 }
 let allProblemsCamelCase = allProblems.map{ $0.PascalCased}
 
+#if os(Linux)
 // Create ./Tests/LinuxMain.swift
 let allTestImports = allProblemsCamelCase.map{ "@testable import \($0)Tests"}
 let allTestCases = allProblemsCamelCase.map{ "testCase(\($0)Tests.allTests),"}    	
@@ -43,12 +44,18 @@ let linuxMainPath = FileManager.default.currentDirectoryPath + "/Tests"
 let linuxMainFilePath = linuxMainPath + "/LinuxMain.swift"
 
 do {
-    try FileManager.default.createDirectory(atPath: linuxMainPath, withIntermediateDirectories: true, attributes: nil)
+    if !FileManager.default.fileExists(atPath:linuxMainPath) {
+        try FileManager.default.createDirectory(atPath: linuxMainPath, withIntermediateDirectories: true, attributes: nil)
+    }
+    if FileManager.default.fileExists(atPath:linuxMainFilePath) {
+        try FileManager.default.removeItem(atPath: linuxMainFilePath)
+    }
     try linuxMainText.write(to: URL(fileURLWithPath: linuxMainFilePath), atomically: false, encoding: .utf8)
 }
-catch {
-    print("Could not write \(linuxMainFilePath)")
+catch let fileError {
+    print("Could not write file. \(fileError)")
 }
+#endif
 
 //Load packages
 let packageDependencies:[Package.Dependency] = allProblems.map { .package(path: "./exercises/\($0)/") }
