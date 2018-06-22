@@ -1,6 +1,6 @@
 import Foundation
 
-struct Atbash {
+struct AtbashCipher {
 
     private static func stripWhiteSpaceAndPunctuations(_ input: String) -> String {
         var returnString = ""
