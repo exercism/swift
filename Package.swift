@@ -9,12 +9,12 @@ extension String {
 		return items.reduce("", { $0 + $1.capitalized })
 	}
 }
-
-let path = FileManager.default.currentDirectoryPath + "/config.json"
+let currentDirectory = FileManager.default.currentDirectoryPath
+let configPath = currentDirectory + "/config.json"
 var allProblems = [String]()
 
 if
-    let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path), options: Data.ReadingOptions.mappedIfSafe),
+    let jsonData = try? Data(contentsOf: URL(fileURLWithPath: configPath), options: Data.ReadingOptions.mappedIfSafe),
     let json = try? JSONSerialization.jsonObject(with: jsonData, options: []),
     let jsonDict = json as? [String: Any],
     let exercisesDict = jsonDict["exercises"] as? [[String: Any]],
@@ -22,12 +22,39 @@ if
 {
     allProblems += exercises
 } else {
-    print("Could not parse config.json at \(path)")
+    print("Could not parse config.json at \(configPath)")
 }
-let allProblemsCamelCase = allProblems.map{ $0.PascalCased}
+let allProblemsPascalCase = allProblems.map{ $0.PascalCased}
+
+#if os(Linux)
+// Create ./Tests/LinuxMain.swift
+let allTestCases = allProblemsPascalCase.map{ "testCase(\($0)Tests.allTests),"}
+
+let linuxMainText = 	
+"""
+import XCTest
+@testable import xswiftTests 
+
+XCTMain([
+\(allTestCases.joined(separator: "\n"))
+    ])
+"""
+
+let linuxMainFilePath = currentDirectory + "/LinuxMain.swift"
+
+do {
+    if FileManager.default.fileExists(atPath:linuxMainFilePath) {
+        try FileManager.default.removeItem(atPath: linuxMainFilePath)
+    }
+    try linuxMainText.write(to: URL(fileURLWithPath: linuxMainFilePath), atomically: false, encoding: .utf8)
+}
+catch let fileError {
+    print("Could not write file. \(fileError)")
+}
+#endif
 
 let packageDependencies:[Package.Dependency] = allProblems.map { .package(path: "./exercises/\($0)/") }
-let targetDependencies:[Target.Dependency] = allProblemsCamelCase.map { .byNameItem(name:"\($0)") }
+let targetDependencies:[Target.Dependency] = allProblemsPascalCase.map { .byNameItem(name:"\($0)") }
 
 let sources  = allProblems.map { "./\($0)/Sources" }
 let testSources  = allProblems.map { "./\($0)/Tests" }
@@ -37,7 +64,8 @@ let package = Package(
     products: [
         .library(
             name: "xswift",
-            targets: ["xswift"]),
+            targets: ["xswift"]
+            )
     ],
     dependencies: packageDependencies,
     targets: [
