@@ -16,5 +16,12 @@ matrix:
       env: JOB=Linux41x
       sudo: required
       services: docker
-
+    - script:
+        - bin/fetch-configlet
+        - bin/configlet lint .
+        - docker run -v `pwd`:/swift norionomura/swift:swift-4.2-branch bash -c "cd /swift && swift test --verbose"
+        - cat LinuxMain.swift
+      env: JOB=Linux42x
+      sudo: required
+      services: docker   
 

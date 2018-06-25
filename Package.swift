@@ -1,26 +1,85 @@
+// swift-tools-version:4.2
+
 import PackageDescription
 import Foundation
 
-let path = FileManager.default.currentDirectoryPath + "/config.json"
+extension String {
+	var PascalCased: String {
+		let items = self.components(separatedBy: "-")
+		return items.reduce("", { $0 + $1.capitalized })
+	}
+}
+let currentDirectory = FileManager.default.currentDirectoryPath
+let configPath = currentDirectory + "/config.json"
 var allProblems = [String]()
 
 if
-    let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path), options: Data.ReadingOptions.mappedIfSafe) ,
-    let json = try? JSONSerialization.jsonObject(with: jsonData, options: [])  ,
+    let jsonData = try? Data(contentsOf: URL(fileURLWithPath: configPath), options: Data.ReadingOptions.mappedIfSafe),
+    let json = try? JSONSerialization.jsonObject(with: jsonData, options: []),
     let jsonDict = json as? [String: Any],
     let exercisesDict = jsonDict["exercises"] as? [[String: Any]],
-    let exercises = exercisesDict.map({ $0["slug"] }) as? [String],
-    let deprecated = jsonDict["deprecated"] as? [String] {
-
+    let exercises = exercisesDict.map({ $0["slug"] }) as? [String]
+{
     allProblems += exercises
-    allProblems += deprecated
 } else {
-    print("Could not parse config.json at \(path)")
+    print("Could not parse config.json at \(configPath)")
 }
+let allProblemsPascalCase = allProblems.map{ $0.PascalCased}
 
-let dependencies = allProblems.map { Package.Dependency.Package(url: "./exercises/\($0)/", majorVersion: 1) }
+#if os(Linux)
+// Create ./Tests/LinuxMain.swift
+let allTestCases = allProblemsPascalCase.map{ "testCase(\($0)Tests.allTests),"}
+
+let linuxMainText = 	
+"""
+import XCTest
+@testable import xswiftTests 
+
+XCTMain([
+\(allTestCases.joined(separator: "\n"))
+    ])
+"""
+
+let linuxMainFilePath = currentDirectory + "/LinuxMain.swift"
+
+do {
+    if FileManager.default.fileExists(atPath:linuxMainFilePath) {
+        try FileManager.default.removeItem(atPath: linuxMainFilePath)
+    }
+    try linuxMainText.write(to: URL(fileURLWithPath: linuxMainFilePath), atomically: false, encoding: .utf8)
+}
+catch let fileError {
+    print("Could not write file. \(fileError)")
+}
+#endif
+
+let packageDependencies:[Package.Dependency] = allProblems.map { .package(path: "./exercises/\($0)/") }
+let targetDependencies:[Target.Dependency] = allProblemsPascalCase.map { .byNameItem(name:"\($0)") }
+
+let sources  = allProblems.map { "./\($0)/Sources" }
+let testSources  = allProblems.map { "./\($0)/Tests" }
 
 let package = Package(
     name: "xswift",
-    dependencies: dependencies
+    products: [
+        .library(
+            name: "xswift",
+            targets: ["xswift"]
+            )
+    ],
+    dependencies: packageDependencies,
+    targets: [
+        .target(
+            name: "xswift",
+            dependencies: targetDependencies, 
+            path: "./exercises", 
+            sources: sources
+            ),
+        .testTarget(
+            name: "xswiftTests",
+            dependencies: ["xswift"], 
+            path: "./exercises", 
+            sources: testSources
+            ),
+        ]
     )
