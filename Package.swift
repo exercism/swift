@@ -54,7 +54,7 @@ catch let fileError {
 #endif
 
 let packageDependencies:[Package.Dependency] = allProblems.map { .package(path: "./exercises/\($0)/") }
-let targetDependencies:[Target.Dependency] = allProblemsPascalCase.map { .byNameItem(name:"\($0)") }
+let targetDependencies:[Target.Dependency] = allProblemsPascalCase.map { .byName(name:"\($0)") }
 
 let sources  = allProblems.map { "./\($0)/Sources" }
 let testSources  = allProblems.map { "./\($0)/Tests" }
