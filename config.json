@@ -1,7 +1,7 @@
 {
   "language": "Swift",
   "active": true,
-  "blurb": "",
+  "blurb": "Swift is a modern open source programming language that runs on macOS, Linux and on Windows using a linux subsystem.",
   "exercises": [
     {
       "slug": "hello-world",
