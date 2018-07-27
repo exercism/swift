@@ -101,5 +101,5 @@ There is a lot more to learn more about Test Driven Development, XCTAssert Metho
 
 A list of [Assertions supported in XCTest](http://rshankar.com/assertions-supported-in-xctest/).
 
-[Getting Started with TDD in Swift 2.0](https://medium.com/@ynzc/getting-started-with-tdd-in-swift-2fab3e07204b#.589p6ao6y)
+[Getting Started with TDD in Swift 3.0](https://medium.com/@ynzc/getting-started-with-tdd-in-swift-2fab3e07204b#.589p6ao6y)
 
