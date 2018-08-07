@@ -1,5 +1,5 @@
 enum TranscriptionError: Error {
-    case invalidNucleotide
+    case invalidNucleotide(String)
 }
 
 struct Nucleotide {
@@ -19,7 +19,7 @@ struct Nucleotide {
         var tempText = ""
         for each in self.value.characters {
             if dict[each] == nil {
-                throw TranscriptionError.invalidNucleotide
+                throw TranscriptionError.invalidNucleotide("\(each) is not a valid Nucleotide")
             }
             tempText += dict[each] ?? ""
         }
