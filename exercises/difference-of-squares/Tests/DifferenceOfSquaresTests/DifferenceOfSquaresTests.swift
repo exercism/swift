@@ -3,53 +3,53 @@ import XCTest
 
 class DifferenceOfSquaresTests: XCTestCase {
 
-    func testSquareOfSumsTo5() {
-        XCTAssertEqual(225, Squares(5).squareOfSums)
+    func testSquareOfSumTo5() {
+        XCTAssertEqual(225, Squares(5).squareOfSum)
     }
 
     func testSumOfSquaresTo5() {
         XCTAssertEqual(55, Squares(5).sumOfSquares)
     }
 
-    func testDifferenceOfSquaresOfSumsTo5() {
+    func testDifferenceOfSquaresOfSumTo5() {
         XCTAssertEqual(170, Squares(5).differenceOfSquares)
     }
 
-    func testSquareOfSumsTo10() {
-        XCTAssertEqual(3025, Squares(10).squareOfSums)
+    func testSquareOfSumTo10() {
+        XCTAssertEqual(3025, Squares(10).squareOfSum)
     }
 
     func testSumOfSquaresTo10() {
         XCTAssertEqual(385, Squares(10).sumOfSquares)
     }
 
-    func testDifferenceOfSquaresOfSumsTo10() {
+    func testDifferenceOfSquaresOfSumTo10() {
         XCTAssertEqual(2640, Squares(10).differenceOfSquares)
     }
 
-    func testSquareOfSumsTo100() {
-        XCTAssertEqual(25_502_500, Squares(100).squareOfSums)
+    func testSquareOfSumTo100() {
+        XCTAssertEqual(25_502_500, Squares(100).squareOfSum)
     }
 
     func testSumOfSquaresTo100() {
         XCTAssertEqual(338_350, Squares(100).sumOfSquares)
     }
 
-    func testDifferenceOfSquaresOfSumsTo100() {
+    func testDifferenceOfSquaresOfSumTo100() {
         XCTAssertEqual(25_164_150, Squares(100).differenceOfSquares)
     }
 
     static var allTests: [(String, (DifferenceOfSquaresTests) -> () throws -> Void)] {
         return [
-            ("testSquareOfSumsTo5", testSquareOfSumsTo5),
+            ("testSquareOfSumTo5", testSquareOfSumTo5),
             ("testSumOfSquaresTo5", testSumOfSquaresTo5),
-            ("testDifferenceOfSquaresOfSumsTo5", testDifferenceOfSquaresOfSumsTo5),
-            ("testSquareOfSumsTo10", testSquareOfSumsTo10),
+            ("testDifferenceOfSquaresOfSumTo5", testDifferenceOfSquaresOfSumTo5),
+            ("testSquareOfSumTo10", testSquareOfSumTo10),
             ("testSumOfSquaresTo10", testSumOfSquaresTo10),
-            ("testDifferenceOfSquaresOfSumsTo10", testDifferenceOfSquaresOfSumsTo10),
-            ("testSquareOfSumsTo100", testSquareOfSumsTo100),
+            ("testDifferenceOfSquaresOfSumTo10", testDifferenceOfSquaresOfSumTo10),
+            ("testSquareOfSumTo100", testSquareOfSumTo100),
             ("testSumOfSquaresTo100", testSumOfSquaresTo100),
-            ("testDifferenceOfSquaresOfSumsTo100", testDifferenceOfSquaresOfSumsTo100),
+            ("testDifferenceOfSquaresOfSumTo100", testDifferenceOfSquaresOfSumTo100),
         ]
     }
 }
