@@ -8,7 +8,7 @@ struct Squares {
         }
     }
 
-    var squareOfSums: Int {
+    var squareOfSum: Int {
         let numbers = Array(1...self.max)
         let sum = numbers.reduce(0, + )
         return sum * sum
@@ -20,6 +20,6 @@ struct Squares {
     }
 
     var differenceOfSquares: Int {
-        return squareOfSums - sumOfSquares
+        return squareOfSum - sumOfSquares
     }
 }
