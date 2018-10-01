@@ -2,13 +2,13 @@ import Foundation
 
 private extension String {
     func substringFromIndexInt(_ indx: Int) -> String {
-        let index = self.characters.index(self.startIndex, offsetBy: indx)
+        let index = self.index(self.startIndex, offsetBy: indx)
         return self.substring(from: index)
     }
 
     func substringWithRangeInt(_ intRange: Range<Int>) -> String {
-        let start = self.characters.index(self.startIndex, offsetBy: intRange.lowerBound)
-        let end = self.characters.index(self.startIndex, offsetBy: intRange.upperBound)
+        let start = self.index(self.startIndex, offsetBy: intRange.lowerBound)
+        let end = self.index(self.startIndex, offsetBy: intRange.upperBound)
         return self.substring(with: start..<end)
     }
 }
@@ -30,7 +30,7 @@ struct PigLatin {
         }
 
         func wordStartsWithConsonantAndQu(_ word: String) -> Bool {
-            let index = word.characters.index(word.startIndex, offsetBy: 1)
+            let index = word.index(word.startIndex, offsetBy: 1)
             return word.substring(from: index).hasPrefix("qu")
         }
 

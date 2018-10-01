@@ -20,7 +20,7 @@ struct Octal {
     }
 
     private func oct2int(_ input: String) -> Int {
-        let orderedInput = Array(input.characters.reversed())
+        let orderedInput = Array(input.reversed())
         var tempInt: Int = 0
         for (inx, each) in orderedInput.enumerated() {
             let tempCharInt = Int("\(each)") ?? 0

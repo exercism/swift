@@ -27,8 +27,8 @@ struct Garden {
         let sortedChildren = children.sorted(by: <)
         let lines = diagram.components(separatedBy: CharacterSet.newlines)
         var result = [String: [Plant]]()
-        var line1 = lines[0].characters.map { String($0) }
-        var line2 = lines[1].characters.map { String($0) }
+        var line1 = lines[0].map { String($0) }
+        var line2 = lines[1].map { String($0) }
 
         var index = 0
 

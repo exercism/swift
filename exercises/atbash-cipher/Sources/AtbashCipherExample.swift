@@ -4,7 +4,7 @@ struct AtbashCipher {
 
     private static func stripWhiteSpaceAndPunctuations(_ input: String) -> String {
         var returnString = ""
-        input.characters.forEach {
+        input.forEach {
             if !" ,.".contains(String($0)) {
                 returnString.append($0)
             }
@@ -20,7 +20,7 @@ struct AtbashCipher {
 
         var text2return = ""
 
-        for each in value.characters {
+        for each in value {
             text2return.append(cipherDictApply[each] ?? each )
         }
         return insertSpace5th(text2return)
@@ -29,7 +29,7 @@ struct AtbashCipher {
     static func insertSpace5th(_ value: String) -> String {
         var tempCounter = 0
         var tempString: String = ""
-        for each in value.characters {
+        for each in value {
             if tempCounter % 5 == 0 && tempCounter != 0 {
                 tempString += " \(each)"
             } else { tempString += "\(each)" }

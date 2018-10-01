@@ -3,10 +3,10 @@ struct RunLengthEncoding {
     static func encode(_ input: String) -> String {
         var result = ""
 
-        var lastCharacter = input.characters.first!
+        var lastCharacter = input.first!
         var count = 0
 
-        for (index, character) in input.characters.enumerated() {
+        for (index, character) in input.enumerated() {
             if character == lastCharacter {
                 count += 1
             }
@@ -26,7 +26,7 @@ struct RunLengthEncoding {
                 addCharacter()
             }
 
-            let isFinal = index == input.characters.count - 1
+            let isFinal = index == input.count - 1
 
             if isFinal {
                 addCharacter()
@@ -41,7 +41,7 @@ struct RunLengthEncoding {
 
         var multiplier: Int?
 
-        for character in input.characters {
+        for character in input {
             if let number = Int(String(character)) {
                 if let currentMultiplier = multiplier {
                     multiplier = currentMultiplier * 10 + number

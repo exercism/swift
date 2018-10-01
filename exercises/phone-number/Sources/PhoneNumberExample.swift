@@ -3,8 +3,8 @@ import Foundation
 private extension String {
     subscript (range: CountableClosedRange<Int>) -> String {
         get {
-            let start = characters.index(startIndex, offsetBy: range.lowerBound)
-            let end = characters.index(start, offsetBy: range.upperBound - range.lowerBound)
+            let start = index(startIndex, offsetBy: range.lowerBound)
+            let end = index(start, offsetBy: range.upperBound - range.lowerBound)
 
             return String(self[start...end])
         }
@@ -17,7 +17,7 @@ private extension String {
 
 private extension Character {
     var isDigit: Bool {
-        return "0123456789".characters.contains(self)
+        return "0123456789".contains(self)
     }
 }
 
@@ -27,7 +27,7 @@ struct PhoneNumber: CustomStringConvertible {
     init(_ startingNumber: String) {
         let digits = startingNumber.onlyDigits
 
-        switch digits.characters.count {
+        switch digits.count {
         case 10:
             number = digits
         case 11 where digits.hasPrefix("1"):

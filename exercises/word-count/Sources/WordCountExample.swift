@@ -1,11 +1,11 @@
 struct WordCount {
 
     func splitStringToArray(_ inString: String) -> [String] {
-        return inString.characters.split(whereSeparator: { splitAt($0) }).map { String($0) }
+        return inString.split(whereSeparator: { splitAt($0) }).map { String($0) }
     }
 
     func splitAt(_ characterToCompare: Character, charToSplitAt: String = " !&$%^&,:") -> Bool {
-        for each in charToSplitAt.characters where each == characterToCompare {
+        for each in charToSplitAt where each == characterToCompare {
             return true
         }
         return false

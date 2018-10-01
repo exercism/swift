@@ -3,8 +3,8 @@ import Foundation
 private extension String {
 
     func substringWithRangeInt(_ intRange: CountableRange<Int>) -> String {
-        let start = self.characters.index(self.startIndex, offsetBy: intRange.lowerBound)
-        let end = self.characters.index(self.startIndex, offsetBy: intRange.upperBound)
+        let start = self.index(self.startIndex, offsetBy: intRange.lowerBound)
+        let end = self.index(self.startIndex, offsetBy: intRange.upperBound)
         return self.substring(with: start..<end)
     }
 
@@ -46,18 +46,18 @@ struct Acronym {
             var accumulate  = ""
             var lastIndexAdded = 0
 
-            for (index, each) in inString.characters.map({ String($0) }).enumerated() {
+            for (index, each) in inString.map({ String($0) }).enumerated() {
                 if splitCamelcaseAt(each, withString: &previousLetter) {
                     accumulate += inString.substringWithRangeInt(lastIndexAdded, end: index)+" " // inserts a space
                     lastIndexAdded = index
                 }
             }
-            let lastStringSection = inString.substringWithRangeInt(lastIndexAdded, end: inString.characters.count)
+            let lastStringSection = inString.substringWithRangeInt(lastIndexAdded, end: inString.count)
             return accumulate + lastStringSection
         }
 
         func splitAt(_ characterToCompare: Character, charToSplitAt: String = " ,-:") -> Bool {
-            for each in charToSplitAt.characters where each == characterToCompare {
+            for each in charToSplitAt where each == characterToCompare {
                 return true
             }
             return false
@@ -65,7 +65,7 @@ struct Acronym {
 
         func splitStringToArray(_ inString: String) -> [String] {
 
-            return inString.characters.split(whereSeparator: { splitAt($0) }).map { String($0) }
+            return inString.split(whereSeparator: { splitAt($0) }).map { String($0) }
         }
 
         return splitStringToArray(insertSpaceAtCamelcase(inString)).map({ $0.uppercased().substringWithRangeInt(0, end: 1) }).joined(separator: "")

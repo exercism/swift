@@ -5,21 +5,21 @@ private extension String {
     func trimWhiteSpace() -> String {
         let removeSpaces = trimCharacters(" ", sourceText: self)
         if removeSpaces.hasSuffix("\n") {
-            return String(removeSpaces.characters.dropLast())
+            return String(removeSpaces.dropLast())
         }
         return removeSpaces
 
     }
 
     func trimCharacters(_ charToTrim: Character, sourceText: String) -> String {
-        var editCharacterView = sourceText.characters
+        var editCharacterView = Array(sourceText)
         var editString = String(editCharacterView)
 
-        let trimFirst  = sourceText.characters.first == charToTrim
-        let trimLast   = sourceText.characters.last == charToTrim
+        let trimFirst  = sourceText.first == charToTrim
+        let trimLast   = sourceText.last == charToTrim
 
-        if trimFirst { editCharacterView  = editCharacterView.dropFirst() }
-        if trimLast { editCharacterView  = editCharacterView.dropLast() }
+        if trimFirst { editCharacterView  = Array(editCharacterView.dropFirst()) }
+        if trimLast { editCharacterView  = Array(editCharacterView.dropLast()) }
 
         if trimFirst || trimLast == true {
             editString = trimCharacters(charToTrim, sourceText: String(editCharacterView))
@@ -94,12 +94,12 @@ struct Tournament {
         func formarter (_ team: String, mp: String, w: String, d: String, l: String, p: String) -> String {
 
             func wsChars(_ text: String, spacing: Int = 31) -> String {
-                return repeatElement( " ", count: abs(spacing - Array(text.characters).count)).joined(separator: "")
+                return repeatElement( " ", count: abs(spacing - Array(text).count)).joined(separator: "")
 
             }
 
             func spacing(_ text: String, columnWith: Int = 4) -> String {
-                let textCount = Array(text.characters).count
+                let textCount = Array(text).count
                 let space = Int(round(Double(textCount) / Double(columnWith)))
 
                 return wsChars(text, spacing: columnWith - space - textCount) + text + wsChars(text, spacing: space )
@@ -161,7 +161,7 @@ struct Tournament {
         var outcome: Outcome = Outcome.err
 
         // alternative to .componentsSeparatedByString
-        let textArrayLines = inStream.characters.split { $0 == "\n" }.map { String($0) }
+        let textArrayLines = inStream.split { $0 == "\n" }.map { String($0) }
 
         for line in textArrayLines {
             let parts = line.trimWhiteSpace().components(separatedBy: ";")

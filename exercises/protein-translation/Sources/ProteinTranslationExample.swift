@@ -40,13 +40,13 @@ struct ProteinTranslation {
         var result = [String]()
 
         while !strand.isEmpty {
-            let codon = String(strand.characters.prefix(3))
+            let codon = String(strand.prefix(3))
             let translation = try translationOfCodon(codon)
             if translation == "STOP" {
                 return result
             }
             result.append(translation)
-            strand = String(strand.characters.dropFirst(3))
+            strand = String(strand.dropFirst(3))
         }
 
         return result

@@ -45,7 +45,7 @@ struct Luhn {
             return tempInt
         }
 
-        return oddIndexInt64Minus9(Array(num.characters).map { char2Int($0) })
+        return oddIndexInt64Minus9(Array(num).map { char2Int($0) })
     }
 
 }

@@ -5,20 +5,20 @@ private extension String {
     func trimWhiteSpace() -> String {
         let removeSpaces = trimCharacters(" ", sourceText: self)
         if removeSpaces.hasSuffix("\n") {
-            return String(removeSpaces.characters.dropLast())
+            return String(removeSpaces.dropLast())
         }
         return  removeSpaces
     }
 
     func trimCharacters(_ charToTrim: Character, sourceText: String) -> String {
-        var editCharacterView = sourceText.characters
+        var editCharacterView = Array(sourceText)
         var editString = String(editCharacterView)
 
-        let trimFirst  = sourceText.characters.first == charToTrim
-        let trimLast   = sourceText.characters.last == charToTrim
+        let trimFirst  = sourceText.first == charToTrim
+        let trimLast   = sourceText.last == charToTrim
 
-        if trimFirst { editCharacterView  = editCharacterView.dropFirst() }
-        if trimLast { editCharacterView  = editCharacterView.dropLast() }
+        if trimFirst { editCharacterView  = Array(editCharacterView.dropFirst()) }
+        if trimLast { editCharacterView  = Array(editCharacterView.dropLast()) }
 
         if trimFirst || trimLast == true {
             editString = trimCharacters(charToTrim, sourceText: String(editCharacterView))
@@ -101,7 +101,7 @@ struct WordProblem {
         }
 
         func checkCharInSet(_ input: Character) -> Bool {
-            let temp = " 0987654321+-*/".characters.index(of: input)
+            let temp = " 0987654321+-*/".index(of: input)
 
             if temp == nil {
                 return false
@@ -109,7 +109,7 @@ struct WordProblem {
                 return true}
         }
 
-        var newTextIn =  Array(textInp.characters)
+        var newTextIn =  Array(textInp)
         newTextIn = newTextIn.filter(checkCharInSet)
         let newTextInString: [String] = newTextIn.map { String($0) }
         return newTextInString.joined(separator: "").trimWhiteSpace()

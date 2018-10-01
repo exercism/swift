@@ -21,7 +21,7 @@ struct OCR {
         case invalidNumberOfColumns
     }
     init(_ text: String) throws {
-        let lines = text.characters.split(separator: "\n").map { String($0) }
+        let lines = text.split(separator: "\n").map { String($0) }
 
         let rowCount = lines.count
 
@@ -29,14 +29,14 @@ struct OCR {
             throw OCRError.invalidNumberOfLines
         }
 
-        let columnCount = lines[0].characters.count
+        let columnCount = lines[0].count
 
         guard columnCount > 0 && columnCount % 3 == 0 else {
             throw OCRError.invalidNumberOfColumns
         }
 
         try lines.forEach {
-            guard $0.characters.count == columnCount else {
+            guard $0.count == columnCount else {
                 throw OCRError.invalidNumberOfColumns
             }
         }
@@ -55,12 +55,12 @@ struct OCR {
 
             var columnIndex = 0
 
-            while columnIndex < lines[0].characters.count {
+            while columnIndex < lines[0].count {
                 var grouping = [String]()
 
                 for line in selectedLines {
-                    let startIndex = line.characters.index(line.startIndex, offsetBy: columnIndex)
-                    let endIndex = line.characters.index(line.startIndex, offsetBy: columnIndex + 2)
+                    let startIndex = line.index(line.startIndex, offsetBy: columnIndex)
+                    let endIndex = line.index(line.startIndex, offsetBy: columnIndex + 2)
                     grouping.append(String(line[startIndex...endIndex]))
 
                 }

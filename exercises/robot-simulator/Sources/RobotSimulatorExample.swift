@@ -63,7 +63,7 @@ struct SimulatedRobot {
     func instructions(_ instructions: String) -> [Instruction] {
         var result = [Instruction]()
 
-        let characters = instructions.characters.map { String($0) }
+        let characters = instructions.map { String($0) }
 
         for character in characters {
             if let instruction = Instruction(rawValue: character) {

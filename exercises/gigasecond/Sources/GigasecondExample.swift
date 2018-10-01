@@ -72,10 +72,10 @@ struct Gigasecond: Equatable, CustomStringConvertible {
     }
     private func parse(_ input: String) -> tm? {
 
-        let dateTime = input.characters.split(separator: "T").map { String($0) }
+        let dateTime = input.split(separator: "T").map { String($0) }
         if dateTime.count > 1 {
-            let date = dateTime[0].characters.split(separator: "-").map { String($0) }
-            let time = dateTime[1].characters.split(separator: ":").map { String($0) }
+            let date = dateTime[0].split(separator: "-").map { String($0) }
+            let time = dateTime[1].split(separator: ":").map { String($0) }
             if date.count == 3 && time.count == date.count {
 
                 let year = Int32(date[0]) ?? 0

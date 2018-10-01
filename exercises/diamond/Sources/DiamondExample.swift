@@ -1,5 +1,5 @@
 struct Diamond {
-    static let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.map { $0 }
+    static let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".map { $0 }
 
     static func makeDiamond(letter: Character) -> [String] {
         guard let index = alphabet.index(of: letter) else {

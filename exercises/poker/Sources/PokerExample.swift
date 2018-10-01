@@ -7,11 +7,11 @@ private extension String {
     }
     // Returns the Rank part of the card
     func head() -> String {
-        return self.substring(to: self.characters.index(before: self.endIndex))
+        return self.substring(to: self.index(before: self.endIndex))
     }
     // Return the Suit part of the card
     func tail() -> String {
-        return self.substring(from: self.characters.index(before: self.endIndex))
+        return self.substring(from: self.index(before: self.endIndex))
     }
 }
 
