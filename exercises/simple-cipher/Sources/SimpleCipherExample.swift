@@ -17,9 +17,9 @@ func arc4random_uniform(_ input: Int) -> Int {
 
 public struct Cipher {
     private let abc = "abcdefghijklmnopqrstuvwxyz"
-    private var alphabet: [Character] { return Array(abc.characters) }
+    private var alphabet: [Character] { return Array(abc) }
     private(set) var key: String = ""
-    private var keyArray: [Character] { return Array(key.characters) }
+    private var keyArray: [Character] { return Array(key) }
     private func randomKeySet() -> String {
         var tempKey = ""
         for _ in (0..<100).enumerated() {
@@ -43,7 +43,7 @@ public struct Cipher {
     }
     func isLowerCaseAlfabet(_ inkey: String) -> Bool {
         var valid = true
-        inkey.characters.forEach {
+        inkey.forEach {
 
             if "abcdefghijklmnopqrstuvwxyz".contains(String($0)) == false {
                 valid = false
@@ -52,7 +52,7 @@ public struct Cipher {
         return valid
     }
     func encode(_ plaintext: String) -> String {
-        let plainTextArray = Array(plaintext.characters)
+        let plainTextArray = Array(plaintext)
 
         func encodeCharacter(_ plaintext: String, idx: Int) -> Character {
             //let plainTextArray = Array(plaintext) // hack for subscript support for Strings
@@ -73,7 +73,7 @@ public struct Cipher {
     }
 
     func decode(_ ciphertext: String) -> String {
-        let cipherTextArray = Array(ciphertext.characters)
+        let cipherTextArray = Array(ciphertext)
 
         func decodeCharacter(_ ciphertext: String, idx: Int) -> Character {
             //let cipherTextArray = Array(ciphertext) // no native subscript for String

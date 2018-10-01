@@ -7,10 +7,10 @@ struct SaddlePointsMatrix {
     init(_ matrix: String) {
         var rows = [[Int]]()
 
-        let rowItems = matrix.characters.split(separator: "\n").map { String($0) }
+        let rowItems = matrix.split(separator: "\n").map { String($0) }
 
         for row in rowItems {
-            let rowItems = row.characters.split(separator: " ").map { Int(String($0)) ?? 0 }
+            let rowItems = row.split(separator: " ").map { Int(String($0)) ?? 0 }
             rows.append(rowItems)
         }
 

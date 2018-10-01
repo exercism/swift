@@ -32,7 +32,7 @@ struct Board {
         let rowsEnumarated = rows.enumerated()
         for (i, row) in rowsEnumarated {
             var newRow = ""
-            let rowCharsEnumarated = row.characters.enumerated()
+            let rowCharsEnumarated = row.enumerated()
 
             for (j, character) in rowCharsEnumarated {
                 if character != " " {
@@ -74,12 +74,12 @@ struct Board {
     }
 
     private func validateSize() throws {
-        guard let count = rows.first?.characters.count else {
+        guard let count = rows.first?.count else {
             throw BoardError.differentLength
         }
 
         try rows.forEach {
-            guard $0.characters.count == count else {
+            guard $0.count == count else {
                 throw BoardError.differentLength
             }
         }
@@ -87,7 +87,7 @@ struct Board {
 
     private func validateData() throws {
         try rows.forEach {
-            try $0.characters.forEach {
+            try $0.forEach {
                 guard validCharacters.contains($0) else {
                     throw BoardError.invalidCharacter
                 }
@@ -124,8 +124,7 @@ private extension String {
         }
         return matches > 0
     }
-    subscript(index: Int) -> Character {
-        let index = characters.index(startIndex, offsetBy: index)
-        return self[index]
+    subscript(idx: Int) -> Character {
+        return self[index(startIndex, offsetBy: idx)]
     }
 }

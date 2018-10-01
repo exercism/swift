@@ -9,7 +9,7 @@ struct BracketPush {
     static func paired(text: String) -> Bool {
         var stack = [Character]()
 
-        for character in text.characters {
+        for character in text {
             if brackets.values.contains(character) {
                 stack.append(character)
             } else if brackets.keys.contains(character) {

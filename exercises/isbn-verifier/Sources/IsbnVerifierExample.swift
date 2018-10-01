@@ -2,15 +2,15 @@ struct IsbnVerifier {
 
     static func isValid(_ string: String) -> Bool {
         // This will be considerably less awkward after Swift 3 support is dropped
-        let cleanedString = string.characters.split(separator: "-").map(String.init).joined()
+        let cleanedString = string.split(separator: "-").map(String.init).joined()
 
-        guard cleanedString.characters.count == 10 else {
+        guard cleanedString.count == 10 else {
             return false
         }
 
         var digits = [Int]()
 
-        for character in cleanedString.characters.dropLast() {
+        for character in cleanedString.dropLast() {
             if let digit = Int(String(character)) {
                 digits.append(digit)
             } else {
@@ -18,9 +18,9 @@ struct IsbnVerifier {
             }
         }
 
-        if cleanedString.characters.last == "X" {
+        if cleanedString.last == "X" {
             digits.append(10)
-        } else if let last = cleanedString.characters.last, let digit = Int(String(last)) {
+        } else if let last = cleanedString.last, let digit = Int(String(last)) {
             digits.append(digit)
         } else {
             return false

@@ -6,7 +6,7 @@ struct Anagram {
 
     func sortLetters(_ wordToSort: String) -> String {
         var characters: [String] = []
-        for char in wordToSort.characters {
+        for char in wordToSort {
             characters.append("\(char)")
         }
         characters = characters.sorted(by: < )

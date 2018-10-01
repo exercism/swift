@@ -3,10 +3,11 @@ import Dispatch
 
 private extension String {
 
-    var length: Int { return self.characters.count }
+    var length: Int { return self.count }
 
     func reverse() -> String {
-        return characters.reversed().map { String($0) }.joined()
+        return reversed().map { String($0) }.joined()
+        return String(reversed())
     }
 }
 

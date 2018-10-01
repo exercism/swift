@@ -21,7 +21,7 @@ struct Robot {
 
 private func convertStringToStringArray(_ input: String) -> [String] {
     var characterArray: [String] = []
-    for character in input.characters {
+    for character in input {
         characterArray.append("\(character)")
     }
     return characterArray

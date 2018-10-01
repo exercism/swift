@@ -14,7 +14,7 @@ private extension String {
 
     private func stripCharacters(_ charsToRemove: String) -> String {
         var returnString = ""
-        self.characters.forEach {
+        self.forEach {
             if !charsToRemove.containsCustom($0) {
                 returnString.append($0)
             }}
@@ -40,7 +40,7 @@ struct Scrabble {
         }
 
         var count: Int = 0
-        for each in input.lowercasedCustom().characters {
+        for each in input.lowercasedCustom() {
             count += letterScores[String(each)] ?? 0
         }
         return count

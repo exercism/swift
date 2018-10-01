@@ -2,7 +2,7 @@ import Foundation
 
 struct Transpose {
     static func transpose(_ input: [String]) -> [String] {
-        let maxLineLength = input.map { $0.characters.count }.max()
+        let maxLineLength = input.map { $0.count }.max()
 
         guard let maxLength = maxLineLength else {
             return []

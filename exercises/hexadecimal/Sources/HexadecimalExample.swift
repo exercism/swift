@@ -31,7 +31,7 @@ struct Hexadecimal {
         var result = 0
         var multiplier = 1
 
-        let digits = hexString.characters.map { String($0).lowercased() }.reversed()
+        let digits = hexString.map { String($0).lowercased() }.reversed()
 
         for digit in digits {
             guard let intValue = hexDigits[digit] else {

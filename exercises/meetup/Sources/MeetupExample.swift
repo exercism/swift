@@ -84,7 +84,7 @@ extension Date {
     init?(from: String) {
         guard let date = Date.dateFromString(from) else { return nil }
         tmDateBacking = date.tmDateBacking
-        if from.characters.count > 10 {
+        if from.count > 10 {
             self.descriptionStyle = .yyyyMMddTHHmmss
         }
     }
@@ -97,8 +97,8 @@ extension Date {
         var minute = Int32()
         var second = Int32()
 
-        let dateTime = input.characters.split(separator: "T").map { String($0) }
-        let date = dateTime[0].characters.split(separator: "-").map { String($0) }
+        let dateTime = input.split(separator: "T").map { String($0) }
+        let date = dateTime[0].split(separator: "-").map { String($0) }
         if date.count == 3 {
             year = Int32(date[0]) ?? 0
             month = Int32(date[1]) ?? 0
@@ -106,7 +106,7 @@ extension Date {
         }
 
         if dateTime.count == 2 {
-            let time = dateTime[1].characters.split(separator: ":").map { String($0) }
+            let time = dateTime[1].split(separator: ":").map { String($0) }
             if time.count == 3 {
                 hour = Int32(time[0]) ?? 0
                 minute = Int32(time[1]) ?? 0

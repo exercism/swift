@@ -13,7 +13,7 @@ struct Binary {
     }
 
     private func bi2Uint(_ input: String) -> UInt? {
-        let orderedInput = Array(input.characters.reversed())
+        let orderedInput = Array(input.reversed())
         var tempUInt: UInt = 0
         for (inx, each) in orderedInput.enumerated() {
             if each == "1" {

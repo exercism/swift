@@ -9,7 +9,7 @@ struct NumberSeries {
     let numbers: [Int]
 
     init(_ numberString: String) throws {
-        self.numbers = try numberString.characters.map {
+        self.numbers = try numberString.map {
             guard let intValue = Int(String($0)) else {
                 throw NumberSeriesError.invalidCharacter
             }

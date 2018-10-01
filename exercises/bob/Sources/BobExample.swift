@@ -5,20 +5,20 @@ private extension String {
     func trimWhiteSpace() -> String {
         let removeSpaces = trimCharacters(" ", sourceText: self)
         if removeSpaces.hasSuffix("\n") {
-            return String(removeSpaces.characters.dropLast())
+            return String(removeSpaces.dropLast())
         }
         return  removeSpaces
     }
 
     func trimCharacters(_ charToTrim: Character, sourceText: String) -> String {
-        var editCharacterView = sourceText.characters
+        var editCharacterView = Array(sourceText)
         var editString = String(editCharacterView)
 
-        let trimFirst  = sourceText.characters.first == charToTrim
-        let trimLast   = sourceText.characters.last == charToTrim
+        let trimFirst  = sourceText.first == charToTrim
+        let trimLast   = sourceText.last == charToTrim
 
-        if trimFirst { editCharacterView  = editCharacterView.dropFirst() }
-        if trimLast { editCharacterView  = editCharacterView.dropLast() }
+        if trimFirst { editCharacterView  = Array(editCharacterView.dropFirst()) }
+        if trimLast { editCharacterView  = Array(editCharacterView.dropLast()) }
 
         if trimFirst || trimLast == true {
             editString = trimCharacters(charToTrim, sourceText: String(editCharacterView))
@@ -41,8 +41,8 @@ private extension String {
     private func containsLetters(_ input: String) -> Bool {
         let abc = "abcdefghijklmnopqrstuvwxyz"
         var contains = false
-        let inputStringCollection = input.characters.map({ String($0) })
-        let abcStringCollection = abc.characters.map({ String($0) })
+        let inputStringCollection = input.map({ String($0) })
+        let abcStringCollection = abc.map({ String($0) })
 
         for each in inputStringCollection {
             abcStringCollection.forEach({

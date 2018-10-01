@@ -17,7 +17,7 @@ struct Hamming {
 private func convertStringToArray(_ input: String) -> [Character] {
     var characterArray: [Character] = []
 
-    for character in input.characters {
+    for character in input {
         characterArray.append(character)
     }
 

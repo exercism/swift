@@ -4,7 +4,7 @@ private extension String {
 
     func stripCharacters(_ charToRemove: String) -> String {
         var returnString = ""
-        self.characters.forEach {
+        self.forEach {
             if !charToRemove.contains(String($0)) {
                 returnString.append($0)
             }}
@@ -21,7 +21,7 @@ struct Crypto {
     func segmentSorter(_ value: String, spacing: Int) -> [String] {
         var tempCounter = 0
         var tempString: String = ""
-        for each in value.characters {
+        for each in value {
             if tempCounter % spacing == 0 && tempCounter != 0 {
                 tempString += " \(each)"
             } else { tempString += "\(each)" }
@@ -31,7 +31,7 @@ struct Crypto {
     }
 
     func getSquareSize(_ text: String, floorNoCeling: Bool = false) -> Int {
-        let tempDouble = Double(text.characters.count)
+        let tempDouble = Double(text.count)
         let tempRoot = tempDouble.squareRoot()
         let tempCeil = ceil(tempRoot)
         let tempFloor = floor(tempRoot)
@@ -48,7 +48,7 @@ struct Crypto {
         var plaintextSegmentsArray = [[Character]]()
 
         for each in plaintextSegments {
-            plaintextSegmentsArray.append(Array(each.characters))
+            plaintextSegmentsArray.append(Array(each))
         }
 
         var ciphertextReturn = ""
@@ -62,7 +62,7 @@ struct Crypto {
     }
 
     var normalizeCiphertext: String {
-        let sizeNormal: Int = (ciphertext.characters.count == self.size * self.size ) ? getSquareSize(self.ciphertext) : getSquareSize(self.ciphertext, floorNoCeling: true)
+        let sizeNormal: Int = (ciphertext.count == self.size * self.size ) ? getSquareSize(self.ciphertext) : getSquareSize(self.ciphertext, floorNoCeling: true)
 
         return segmentSorter(ciphertext, spacing: sizeNormal).joined(separator: " ")
     }
