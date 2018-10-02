@@ -1,9 +1,9 @@
 version: 2
 
 jobs:
-  build10:
+  build100:
     macos:
-      xcode: "10.0"
+      xcode: "10.0.0"
     steps:
       - checkout
       - run: sudo gem install danger
@@ -19,4 +19,4 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - build10
+      - build100
