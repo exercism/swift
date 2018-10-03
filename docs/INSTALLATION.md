@@ -2,7 +2,7 @@
 
 ### macOS
 
-In order to use the Swift exercises, install Xcode version 8.0 or greater. On the first launch of Xcode, install the command line tools when prompted.
+In order to use the Swift exercises, install Xcode version 10.0 or greater. On the first launch of Xcode, install the command line tools when prompted.
 
 The current release version is available at the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). 
 
