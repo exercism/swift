@@ -8,7 +8,7 @@ The current release version is available at the [Mac App Store](https://itunes.a
 
 Additional versions of Xcode (including the most recent beta) are available at [Apple's developer center](https://developer.apple.com/xcode/downloads/).
 
-All exercises have been tested with Xcode 8.0 using Swift 3.
+All exercises have been tested with Xcode 10.0 using Swift 4.2.
 
 ### Linux
 
