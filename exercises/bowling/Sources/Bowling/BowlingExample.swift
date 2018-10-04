@@ -47,11 +47,11 @@ struct Bowling {
 
     private func scoreFrame(_ frame: [Int], index: Int) -> Int {
         let strikeOrSpare = [frame.first, frame.reduce(0, +)]
-            .flatMap { $0 }
+            .compactMap { $0 }
             .contains(maxPins)
 
         if strikeOrSpare {
-            let scores = [scoreCard[index], scoreCard[index + 1], scoreCard[index + 2]].flatMap { $0 }.flatMap { $0 }
+            let scores = [scoreCard[index], scoreCard[index + 1], scoreCard[index + 2]].compactMap { $0 }.flatMap { $0 }
             let firstThree = scores[0...2]
 
             return firstThree.reduce(0, +)

@@ -9,7 +9,7 @@ struct Matrix {
 
         let rowItems = stringRepresentation.split(separator: "\n")
         for item in rowItems {
-            let elements = item.split(separator: " ").flatMap { Int(String($0)) }
+            let elements = item.split(separator: " ").compactMap { Int(String($0)) }
             rows.append(elements)
         }
         for i in 0 ..< rows[0].count {

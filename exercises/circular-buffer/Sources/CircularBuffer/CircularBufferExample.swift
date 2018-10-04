@@ -12,11 +12,11 @@ struct CircularBuffer<T: Equatable> {
     var readPoint = 0
 
     private var isFull: Bool {
-        return buffer.flatMap { $0 }.count >= capacity
+        return buffer.compactMap { $0 }.count >= capacity
     }
 
     private var isEmpty: Bool {
-        return buffer.flatMap { $0 }.isEmpty
+        return buffer.compactMap { $0 }.isEmpty
     }
 
     init(capacity: Int) {
