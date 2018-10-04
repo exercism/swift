@@ -3,7 +3,7 @@ func == <T> (lh: CustomSet<T>, rh: CustomSet<T>) -> Bool {
 
 }
 
-extension CustomSet where T:Comparable {
+extension CustomSet where T: Comparable {
 
     var toSortedArray: [Element] { return Array(contents.keys.sorted { $0 < $1 }) }
 }

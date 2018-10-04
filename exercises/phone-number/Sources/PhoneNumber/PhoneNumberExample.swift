@@ -2,12 +2,10 @@ import Foundation
 
 private extension String {
     subscript (range: CountableClosedRange<Int>) -> String {
-        get {
-            let start = index(startIndex, offsetBy: range.lowerBound)
-            let end = index(start, offsetBy: range.upperBound - range.lowerBound)
+        let start = index(startIndex, offsetBy: range.lowerBound)
+        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
 
-            return String(self[start...end])
-        }
+        return String(self[start...end])
     }
 
     var onlyDigits: String {

@@ -11,7 +11,6 @@ private extension String {
     }
     // Return the Suit part of the card
     func tail() -> String {
-        //return self.substring(from: ))
         return String(self[index(before: endIndex)..<endIndex])
     }
 }
@@ -187,6 +186,7 @@ extension HandRank: Equatable {
 }
 
 extension HandRank: Comparable {
+    // swiftlint:disable cyclomatic_complexity
     static func < (lhs: HandRank, rhs: HandRank) -> Bool {
         switch (lhs, rhs) {
         case (_, _) where lhs == rhs:

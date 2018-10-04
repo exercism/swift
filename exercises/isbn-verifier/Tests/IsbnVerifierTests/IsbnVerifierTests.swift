@@ -2,7 +2,7 @@ import XCTest
 @testable import IsbnVerifier
 
 class IsbnVerifierTests: XCTestCase {
-    
+
     func testEmptyString() {
         XCTAssertFalse(IsbnVerifier.isValid(""))
     }
