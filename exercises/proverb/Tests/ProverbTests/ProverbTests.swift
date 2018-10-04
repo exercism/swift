@@ -45,7 +45,7 @@ class ProverbTests: XCTestCase {
         let actualResult = ["pin", "gun", "soldier", "battle"].recite()
         XCTAssertEqual(expectedResult, actualResult)
     }
-    
+
     static var allTests: [(String, (ProverbTests) -> () throws -> Void)] {
         return [
             ("testZeroPiecesOfProverb", testZeroPiecesOfProverb),
@@ -54,7 +54,7 @@ class ProverbTests: XCTestCase {
             ("testThreePiecesOfProverb", testThreePiecesOfProverb),
             ("testFullProverb", testFullProverb),
             ("testFourPiecesOfProverbModernized", testFourPiecesOfProverbModernized),
-            
+
         ]
     }
 

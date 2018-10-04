@@ -4,7 +4,7 @@ import PackageDescription
 import Foundation
 
 extension String {
-	var PascalCased: String {
+	var pascalCased: String {
 		let items = self.components(separatedBy: "-")
 		return items.reduce("", { $0 + $1.capitalized })
 	}
@@ -18,22 +18,21 @@ if
     let json = try? JSONSerialization.jsonObject(with: jsonData, options: []),
     let jsonDict = json as? [String: Any],
     let exercisesDict = jsonDict["exercises"] as? [[String: Any]],
-    let exercises = exercisesDict.map({ $0["slug"] }) as? [String]
-{
+    let exercises = exercisesDict.map({ $0["slug"] }) as? [String] {
     allProblems += exercises
 } else {
     print("Could not parse config.json at \(configPath)")
 }
-let allProblemsPascalCase = allProblems.map{ $0.PascalCased}
+let allProblemsPascalCase = allProblems.map { $0.pascalCased }
 
 #if os(Linux)
 // Create ./Tests/LinuxMain.swift
-let allTestCases = allProblemsPascalCase.map{ "testCase(\($0)Tests.allTests),"}
+let allTestCases = allProblemsPascalCase.map { "testCase(\($0)Tests.allTests)," }
 
-let linuxMainText = 	
+let linuxMainText =
 """
 import XCTest
-@testable import xswiftTests 
+@testable import xswiftTests
 
 XCTMain([
 \(allTestCases.joined(separator: "\n"))
@@ -43,18 +42,17 @@ XCTMain([
 let linuxMainFilePath = currentDirectory + "/LinuxMain.swift"
 
 do {
-    if FileManager.default.fileExists(atPath:linuxMainFilePath) {
+    if FileManager.default.fileExists(atPath: linuxMainFilePath) {
         try FileManager.default.removeItem(atPath: linuxMainFilePath)
     }
     try linuxMainText.write(to: URL(fileURLWithPath: linuxMainFilePath), atomically: false, encoding: .utf8)
-}
-catch let fileError {
+} catch let fileError {
     print("Could not write file. \(fileError)")
 }
 #endif
 
-let packageDependencies:[Package.Dependency] = allProblems.map { .package(path: "./exercises/\($0)/") }
-let targetDependencies:[Target.Dependency] = allProblemsPascalCase.map { .byName(name:"\($0)") }
+let packageDependencies: [Package.Dependency] = allProblems.map { .package(path: "./exercises/\($0)/") }
+let targetDependencies: [Target.Dependency] = allProblemsPascalCase.map { .byName(name:"\($0)") }
 
 let sources  = allProblems.map { "./\($0)/Sources" }
 let testSources  = allProblems.map { "./\($0)/Tests" }
@@ -71,14 +69,14 @@ let package = Package(
     targets: [
         .target(
             name: "xswift",
-            dependencies: targetDependencies, 
-            path: "./exercises", 
+            dependencies: targetDependencies,
+            path: "./exercises",
             sources: sources
             ),
         .testTarget(
             name: "xswiftTests",
-            dependencies: ["xswift"], 
-            path: "./exercises", 
+            dependencies: ["xswift"],
+            path: "./exercises",
             sources: testSources
             ),
         ]
