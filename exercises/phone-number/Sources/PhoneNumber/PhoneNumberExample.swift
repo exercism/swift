@@ -11,7 +11,7 @@ private extension String {
     }
 
     var onlyDigits: String {
-        return String(characters.filter { $0.isDigit })
+        return String(filter({ $0.isDigit }))
     }
 }
 

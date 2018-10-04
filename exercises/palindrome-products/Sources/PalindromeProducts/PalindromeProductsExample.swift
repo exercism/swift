@@ -6,7 +6,6 @@ private extension String {
     var length: Int { return self.count }
 
     func reverse() -> String {
-        return reversed().map { String($0) }.joined()
         return String(reversed())
     }
 }

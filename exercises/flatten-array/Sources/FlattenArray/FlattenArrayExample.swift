@@ -6,7 +6,7 @@ func flattenArray<T>(_ list: [Any?]) -> [T] {
 
     func extractArrayElements(array: [Any?]) {
 
-        for element in array.flatMap({ $0 }) {
+        for element in array.compactMap({ $0 }) {
 
             let anyObjectArray = element as? [Any?]
 
