@@ -8,8 +8,8 @@ or environment.
 
 The objectives are simple:
 
-- Write a function that returns the string "Hello, World!".
-- Run the test suite and make sure that it succeeds.
+- Write a function which takes a name, say Alice, and returns the string with the given name, in this case "Hello, Alice!". If no name is passed in, then the function returns the string "Hello, World!". The function should be called `hello`.
+- Run the test suite and make sure that it succeeds. Check out the test cases and expected results in `HelloWorldTests.swift`.
 - Submit your solution and check it at the website.
 
 If everything goes well, you will be ready to fetch your first real exercise.
