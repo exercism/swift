@@ -1,188 +1,101 @@
-import Foundation
-
-private extension String {
-
-    func trimWhiteSpace() -> String {
-        let removeSpaces = trimCharacters(" ", sourceText: self)
-        if removeSpaces.hasSuffix("\n") {
-            return String(removeSpaces.dropLast())
-        }
-        return removeSpaces
-
-    }
-
-    func trimCharacters(_ charToTrim: Character, sourceText: String) -> String {
-        var editCharacterView = Array(sourceText)
-        var editString = String(editCharacterView)
-
-        let trimFirst  = sourceText.first == charToTrim
-        let trimLast   = sourceText.last == charToTrim
-
-        if trimFirst { editCharacterView  = Array(editCharacterView.dropFirst()) }
-        if trimLast { editCharacterView  = Array(editCharacterView.dropLast()) }
-
-        if trimFirst || trimLast == true {
-            editString = trimCharacters(charToTrim, sourceText: String(editCharacterView))
-        }
-        return editString
-    }
-}
-
 struct Tournament {
-    enum Outcome {
-        case loss
-        case draw
+
+    private enum Outcome: String {
         case win
-        case err
+        case draw
+        case loss
     }
 
-    struct TeamResult {
-        var losses: Int = 0
-        var draws: Int = 0
+    private struct Team {
+        let name: String
         var wins: Int = 0
+        var draws: Int = 0
+        var losses: Int = 0
 
-        var played: Int {
-            return losses + draws + wins
+        init(name: String) {
+            self.name = name
         }
 
-        var score: Int {
+        var matchesPlayed: Int {
+            return wins + draws + losses
+        }
+
+        var points: Int {
             return wins * 3 + draws
         }
+    }
 
-        mutating func addOutcome( _ outcome: Outcome ) {
+    private func parseInputIntoTeams(_ input: String) -> [Team] {
+        let lines = input.split(separator: "\n")
+
+        var teams = [String: Team]()
+
+        for line in lines {
+            let components = line.split(separator: ";").map { String($0) }
+
+            guard components.count == 3 else { continue }
+
+            let name1 = components[0]
+            let name2 = components[1]
+
+            guard let outcome = Outcome(rawValue: components[2]) else {
+                continue
+            }
+
+            var team1 = teams[name1] ?? Team(name: name1)
+            var team2 = teams[name2] ?? Team(name: name2)
+
             switch outcome {
-            case .loss :
-                losses += 1
-            case .draw :
-                draws += 1
-            case .win :
-                wins += 1
-            default :
-                print("Error addOutcome")
+            case .win:
+                team1.wins += 1
+                team2.losses += 1
+            case .draw:
+                team1.draws += 1
+                team2.draws += 1
+            case .loss:
+                team1.losses += 1
+                team2.wins += 1
             }
+
+            teams[name1] = team1
+            teams[name2] = team2
         }
+
+        return teams.map { $0.value }
     }
 
-    private var teams = [String: TeamResult]()
-    private mutating func addResult(_ team1: String, team2: String, outcome: Outcome) {
-        // Invert outcome for the second team.
-        let outcome2: Outcome  = (outcome == Outcome.win) ? Outcome.loss :
-            (outcome == Outcome.loss) ? Outcome.win :
-            Outcome.draw
-        addTeamOutcome(team1, outcome)
-        addTeamOutcome(team2, outcome2)
-    }
-
-    private var teamResult = TeamResult()
-
-    private mutating func addTeamOutcome(_ team: String, _ outcome: Outcome) {
-        if teams[team] != nil {
-            teamResult = teams[team]!
-            teamResult.addOutcome(outcome)
-            teams[team] = teamResult
-
-        } else {
-            teamResult = TeamResult()
-            teamResult.addOutcome(outcome)
-            teams[team] = teamResult
-        }
-    }
-
-    private mutating func writeResults() -> String {
-
-        // swiftlint:disable:next function_parameter_count
-        func formarter (_ team: String, mp: String, w: String, d: String, l: String, p: String) -> String {
-
-            func wsChars(_ text: String, spacing: Int = 31) -> String {
-                return repeatElement( " ", count: abs(spacing - Array(text).count)).joined(separator: "")
-
-            }
-
-            func spacing(_ text: String, columnWith: Int = 4) -> String {
-                let textCount = Array(text).count
-                let space = Int(round(Double(textCount) / Double(columnWith)))
-
-                return wsChars(text, spacing: columnWith - space - textCount) + text + wsChars(text, spacing: space )
-            }
-
-            let text = "\(team)" + wsChars(team) + "|" + spacing(mp) + "|" + spacing(w) + "|" + spacing(d) + "|" + spacing(l) + "|" + spacing(p)
-
-            return text.trimWhiteSpace() + "\n"
-
-        }
-
-        var textOutput: String = ""
-
-        let header = formarter("Team", mp: "MP", w: "W", d: "D", l: "L", p: "P")
-
-        textOutput += header
-        func sortKeysByValue() -> [String] {
-            var sortByValue = [(team : String, score: Int, mp: Int)]()
-            for each in Array(teams.keys) {
-                let tempVal = teams[each]!
-                sortByValue.append((each, tempVal.score, tempVal.played))
-            }
-            sortByValue.sort { $0.score == $1.score ? $0.mp > $1.mp : $0.score > $1.score }
-            var sortedKeys = [String]()
-            for each in sortByValue {
-                sortedKeys.append(each.0)
-            }
-
-            return sortedKeys
-        }
-
-        for team in sortKeysByValue() {
-
-            let result = teams[team]!
-
-            let mp = result.played
-            let w  = result.wins
-            let d  = result.draws
-            let l  = result.losses
-            let p  = result.score
-            let line = formarter(
-                team,
-                mp: "\(mp)",
-                w: "\(w)",
-                d: "\(d)",
-                l: "\(l)",
-                p: "\(p)"
-            )
-
-            textOutput += line
-        }
-        return textOutput.trimWhiteSpace()
-    }
-
-    func tally(_ inStream: String) -> String {
-        // Create New Tournament
-        var tournament = Tournament()
-
-        var outcome: Outcome = Outcome.err
-
-        // alternative to .componentsSeparatedByString
-        let textArrayLines = inStream.split { $0 == "\n" }.map { String($0) }
-
-        for line in textArrayLines {
-            let parts = line.trimWhiteSpace().components(separatedBy: ";")
-            if parts.count == 3 {
-                switch parts[2].lowercased() {
-                case "loss":
-                    outcome = Outcome.loss
-                case "draw":
-                    outcome = Outcome.draw
-                case "win":
-                    outcome = Outcome.win
-                default:
-                    outcome = Outcome.err
+    private func sortTeams(_ teams: [Team]) -> [Team] {
+        let sorted = teams.sorted { team1, team2 -> Bool in
+            if team1.points == team2.points {
+                if team1.wins == team2.wins {
+                    return team1.name < team2.name
+                } else {
+                    return team1.wins > team2.wins
                 }
-
-                if outcome != Outcome.err {
-                    tournament.addResult(parts[0], team2: parts[1], outcome: outcome)
-                }
+            } else {
+                return team1.points > team2.points
             }
         }
 
-        return tournament.writeResults()
+        return sorted
+    }
+
+    func tally(_ input: String) -> String {
+        let teams = parseInputIntoTeams(input)
+        let sortedTeams = sortTeams(teams)
+
+        var result = "Team                           | MP |  W |  D |  L |  P"
+
+        for team in sortedTeams {
+            let name = team.name
+            result += "\n\(name)"
+            let numberOfSpaces = 31 - name.count
+            for _ in 1...numberOfSpaces {
+                result += " "
+            }
+            result += "|  \(team.matchesPlayed) |  \(team.wins) |  \(team.draws) |  \(team.losses) |  \(team.points)"
+        }
+
+        return result
     }
 }
