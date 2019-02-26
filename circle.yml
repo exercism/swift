@@ -29,9 +29,24 @@ jobs:
           name: Danger Systems
           when: on_success
           command: danger || true # Dont fail build on non zero exit codes
+  build102:
+    macos:
+      xcode: "10.2.0"
+    steps:
+      - checkout
+      - run: sudo gem install danger
+      - run: brew update
+      - run: brew ls --versions swiftlint && brew upgrade swiftlint || brew install swiftlint
+      - run: swiftlint lint --quiet | tee lintreport.json || true # Dont crash on errors
+      - run: ./xswift-test-spm
+      - run:
+          name: Danger Systems
+          when: on_success
+          command: danger || true # Dont fail build on non zero exit codes
 workflows:
   version: 2
   workflow:
     jobs:
       - build100
       - build101
+      - build102
