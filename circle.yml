@@ -11,6 +11,7 @@ jobs:
       - run: brew ls --versions swiftlint && brew upgrade swiftlint || brew install swiftlint
       - run: swiftlint lint --quiet | tee lintreport.json || true # Dont crash on errors
       - run: ./xswift-test-spm
+      - run: swift package generate-xcodeproj
       - run:
           name: Danger Systems
           when: on_success
@@ -20,12 +21,14 @@ jobs:
       xcode: "10.1.0"
     steps:
       - checkout
+      - run: swift package generate-xcodeproj
       - run: ./xswift-test-spm
   build102:
     macos:
       xcode: "10.2.0"
     steps:
       - checkout
+      - run: swift package generate-xcodeproj
       - run: ./xswift-test-spm
 workflows:
   version: 2
