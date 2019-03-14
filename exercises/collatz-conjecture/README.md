@@ -31,6 +31,11 @@ Resulting in 9 steps. So for input n = 12, the return value would be 9.
 Go through the project setup instructions for Xcode using Swift:
 
 http://exercism.io/languages/swift
+http://exercism.io/languages/swift/tests
+
+Notably from the source directory:
+`swift test` runs tests
+`swift package generate-xcodeproj` creates an Xcode project
 
 
 ## Source

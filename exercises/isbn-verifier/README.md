@@ -45,6 +45,11 @@ Now, it's even trickier since the check digit of an ISBN-10 may be 'X' (represen
 Go through the project setup instructions for Xcode using Swift:
 
 http://exercism.io/languages/swift
+http://exercism.io/languages/swift/tests
+
+Notably from the source directory:
+`swift test` runs tests
+`swift package generate-xcodeproj` creates an Xcode project
 
 
 ## Source
