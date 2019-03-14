@@ -14,12 +14,12 @@ output: [1,2,3,4,5]
 
 Go through the project setup instructions for Xcode using Swift:
 
-http://exercism.io/languages/swift
+http://exercism.io/languages/swift  
 http://exercism.io/languages/swift/tests
 
 Notably from the source directory:
 
-`swift test` runs tests
+`swift test` runs tests  
 `swift package generate-xcodeproj` creates an Xcode project
 
 
