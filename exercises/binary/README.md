@@ -34,7 +34,13 @@ So: `101 => 1*2^2 + 0*2^1 + 1*2^0 => 1*4 + 0*2 + 1*1 => 4 + 1 => 5 base 10`.
 
 Go through the project setup instructions for Xcode using Swift:
 
-http://exercism.io/languages/swift
+http://exercism.io/languages/swift  
+http://exercism.io/languages/swift/tests
+
+Notably from the source directory:
+
+`swift test` runs tests  
+`swift package generate-xcodeproj` creates an Xcode project
 
 
 ## Source

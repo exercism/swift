@@ -20,6 +20,18 @@ addition, subtraction, multiplication and division of two complex numbers,
 conjugate, absolute value, exponent of a given complex number.
 Assume the programming language you are using does not have an implementation of complex numbers.
 
+## Setup
+
+Go through the project setup instructions for Xcode using Swift:
+
+http://exercism.io/languages/swift  
+http://exercism.io/languages/swift/tests
+
+Notably from the source directory:
+
+`swift test` runs tests  
+`swift package generate-xcodeproj` creates an Xcode project
+
 ## Source
 
 Wikipedia https://en.wikipedia.org/wiki/Complex_number
