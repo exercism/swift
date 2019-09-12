@@ -216,21 +216,6 @@ class PokerTests: XCTestCase {
                     "Q♢ K♢ J♢ 10♢ A♢"
                 ],
                 best:  "Q♢ K♢ J♢ 10♢ A♢"
-            ),
-            (
-                name:  "tie for best pair: brake tide by suit",
-                hands: ["4♡ 2♡ 5♧ 4♢ 10♡", "4♧ 10♢ 5♤ 2♤ 4♤"],
-                best:  "4♡ 2♡ 5♧ 4♢ 10♡"
-            ),
-            (
-                name: "tie of three: brake tide by suit",
-                hands: [
-                    "A♡ 2♡ 3♡ 4♡ 5♡",
-                    "A♤ 2♤ 3♤ 4♤ 5♤",
-                    "5♧ 4♧ 3♧ 2♧ A♧",
-                    "A♢ 2♢ 6♢ 4♢ 5♢"
-                ],
-                best:  "A♤ 2♤ 3♤ 4♤ 5♤"
             )
         ]
 
