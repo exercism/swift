@@ -216,7 +216,7 @@ class PokerTests: XCTestCase {
                     "Q♢ K♢ J♢ 10♢ A♢"
                 ],
                 best:  "Q♢ K♢ J♢ 10♢ A♢"
-            ),
+            )
         ]
 
         invalidTestCases  =
