@@ -59,8 +59,6 @@ class NucleotideCountTests: XCTestCase {
         XCTAssertNil(DNA(strand: "CATTAX"), "All characters in a strand need to be valid nucleotides.")
     }
 
-
-    
     func testCountsAllNucleotides() throws {
         let longStrand = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
         let dna = try XCTUnwrap(DNA(strand: longStrand))
