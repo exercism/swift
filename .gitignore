@@ -3,6 +3,7 @@ bin/configlet.exe
 
 # Xcode
 #
+.swiftpm
 build/
 *.pbxuser
 !default.pbxuser
