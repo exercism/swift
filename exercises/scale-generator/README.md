@@ -22,7 +22,10 @@ A, Bb, B, C, Db, D, Eb, E, F, Gb, G, Ab
 The major and minor scale and modes are subsets of this twelve-pitch
 collection. They have seven pitches, and are called diatonic scales.
 The collection of notes in these scales is written with either sharps or
-flats, depending on the tonic. Major scales are indicated by the word "major" or by the tonic in upper-case (e.g., `Eb`). Minor scales are indicated by the word "minor" or by the tonic in lower-case (e.g., `eb`). Here is a list of which are which:
+flats, depending on the tonic. Major scales are indicated by the word
+"major" or by the tonic in upper-case (e.g., `Eb`). Minor scales are
+ndicated by the word "minor" or by the tonic in lower-case (e.g., `eb`).
+Here is a list of which are which:
 
 No Accidentals:
 ```text
