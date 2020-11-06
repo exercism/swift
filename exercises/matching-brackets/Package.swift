@@ -3,19 +3,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "BracketPush",
+    name: "MatchingBrackets",
     products: [
         .library(
-            name: "BracketPush",
-            targets: ["BracketPush"]),
+            name: "MatchingBrackets",
+            targets: ["MatchingBrackets"]),
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "BracketPush",
+            name: "MatchingBrackets",
             dependencies: []),
         .testTarget(
-            name: "BracketPushTests",
-            dependencies: ["BracketPush"]),
+            name: "MatchingBracketsTests",
+            dependencies: ["MatchingBrackets"]),
     ]
 )

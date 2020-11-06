@@ -1,4 +1,4 @@
-struct BracketPush {
+struct MatchingBrackets {
 
     private static let brackets: [Character: Character] = [
         ")": "(",
