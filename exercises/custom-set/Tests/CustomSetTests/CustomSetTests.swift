@@ -40,15 +40,16 @@ class CustomSetTests: XCTestCase {
         XCTAssertFalse(CustomSet([1.0, 2.0]).isDisjoint(CustomSet([2.0, 3.0])))
     }
 
-    func testEmptyMethod() {
+    func testRemoveAllMethod() {
         var expected1 = CustomSet([1, 2])
         expected1.removeAll()
-        XCTAssertEqual(CustomSet(emptyTypedArray ), expected1 )
+        XCTAssertEqual(CustomSet(emptyTypedArray), expected1)
 
-        var expected2 = CustomSet(emptyTypedArray )
+        var expected2 = CustomSet(emptyTypedArray)
         expected2.removeAll()
-        XCTAssertEqual(CustomSet(emptyTypedArray ), expected2 )
+        XCTAssertEqual(CustomSet(emptyTypedArray), expected2)
     }
+
     func testIntersection() {
         XCTAssertEqual(CustomSet(["a", "c"]),
                        CustomSet(["a", "b", "c"]).intersection(CustomSet(["a", "c", "d"])))
@@ -115,7 +116,7 @@ class CustomSetTests: XCTestCase {
             ("testDeleteMethod", testDeleteMethod),
             ("testDifference", testDifference),
             ("testDisjoint", testDisjoint),
-            ("testEmptyMethod", testEmptyMethod),
+            ("testRemoveAllMethod", testRemoveAllMethod),
             ("testIntersection", testIntersection),
             ("testMember", testMember),
             ("testPutMethod", testPutMethod),
