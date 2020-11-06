@@ -30,9 +30,8 @@ struct CustomSet<T: Hashable>: Equatable {
         return false
     }
 
-    mutating func put(_ item: Element) {
+    mutating func add(_ item: Element) {
         contents[item] = true
-
     }
 
     mutating func delete(_ item: Element) {

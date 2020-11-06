@@ -76,6 +76,25 @@ class CustomSetTests: XCTestCase {
         XCTAssertNotEqual(CustomSet([1, 2, 3]), CustomSet([1, 2, 3, 4]))
     }
 
+    func testAddToEmptySet() {
+        let expected = CustomSet([3])
+        var actual = CustomSet(emptyTypedArray)
+        actual.add(3)
+        XCTAssertEqual(expected, actual)
+    }
+    func testAddToNonEmptySet() {
+        let expected = CustomSet([1, 2, 3, 4])
+        var actual = CustomSet([1, 2, 4])
+        actual.add(3)
+        XCTAssertEqual(expected, actual)
+    }
+    func testAddingAnExistingElementDoesNotChangeTheSet() {
+        let expected = CustomSet([1, 2, 3])
+        var actual = CustomSet([1, 2, 3])
+        actual.add(3)
+        XCTAssertEqual(expected, actual)
+    }
+
     func testNoDuplicates() {
         XCTAssertEqual(CustomSet([1, 1]), CustomSet([1]))
     }
@@ -115,20 +134,6 @@ class CustomSetTests: XCTestCase {
 
         XCTAssertEqual(CustomSet([3.0]),
                        CustomSet([1.0, 2.0, 3.0]).intersection(CustomSet([3.0])))
-    }
-
-
-
-    func testPutMethod() {
-        var expected1 = CustomSet([1, 2, 4])
-        expected1.put(3)
-        XCTAssertEqual(CustomSet([1, 2, 3, 4]),
-                       expected1)
-
-        var expected2 = CustomSet([1, 2, 3])
-        expected2.put(3)
-        XCTAssertEqual(CustomSet([1, 2, 3]),
-                       expected2)
     }
 
     func testSize() {
@@ -179,12 +184,14 @@ class CustomSetTests: XCTestCase {
             ("testSetsWithTheSameElementsAreEqual", testSetsWithTheSameElementsAreEqual),
             ("testSetsWithDifferentElementsAreNotEqual", testSetsWithDifferentElementsAreNotEqual),
             ("testSetIsNotEqualToLargerSetWithSameElements", testSetIsNotEqualToLargerSetWithSameElements),
+            ("testAddToEmptySet", testAddToEmptySet),
+            ("testAddToNonEmptySet", testAddToNonEmptySet),
+            ("testAddingAnExistingElementDoesNotChangeTheSet", testAddingAnExistingElementDoesNotChangeTheSet),
             ("testNoDuplicates", testNoDuplicates),
             ("testDeleteMethod", testDeleteMethod),
             ("testDifference", testDifference),
             ("testRemoveAllMethod", testRemoveAllMethod),
             ("testIntersection", testIntersection),
-            ("testPutMethod", testPutMethod),
             ("testSize", testSize),
             ("testToA", testToA),
             ("testUnion", testUnion),
