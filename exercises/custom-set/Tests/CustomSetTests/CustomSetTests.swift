@@ -95,10 +95,6 @@ class CustomSetTests: XCTestCase {
         XCTAssertEqual(expected, actual)
     }
 
-    func testNoDuplicates() {
-        XCTAssertEqual(CustomSet([1, 1]), CustomSet([1]))
-    }
-
     func testDeleteMethod() {
 
         var expected1 = CustomSet([3, 2, 1])
@@ -187,7 +183,6 @@ class CustomSetTests: XCTestCase {
             ("testAddToEmptySet", testAddToEmptySet),
             ("testAddToNonEmptySet", testAddToNonEmptySet),
             ("testAddingAnExistingElementDoesNotChangeTheSet", testAddingAnExistingElementDoesNotChangeTheSet),
-            ("testNoDuplicates", testNoDuplicates),
             ("testDeleteMethod", testDeleteMethod),
             ("testDifference", testDifference),
             ("testRemoveAllMethod", testRemoveAllMethod),
