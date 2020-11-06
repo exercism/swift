@@ -21,6 +21,14 @@ struct CustomSet<T: Hashable>: Equatable {
         self.contents = [:]
         _ = sequence.map { self.contents[$0] = true }
     }
+
+    func contains(_ item: Element) -> Bool {
+        if contents[item] != nil {
+            return true
+        }
+        return false
+    }
+
     mutating func put(_ item: Element) {
         contents[item] = true
 
@@ -73,11 +81,4 @@ struct CustomSet<T: Hashable>: Equatable {
         }
         return true
     }
-
-    func containsMember(_ item: Element) -> Bool {
-        if contents[item] != nil {
-            return true}
-        return false
-    }
-
 }

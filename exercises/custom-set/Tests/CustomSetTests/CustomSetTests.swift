@@ -12,6 +12,16 @@ class CustomSetTests: XCTestCase {
         XCTAssertFalse(CustomSet([1]).isEmpty)
     }
 
+    func testNothingIsContainedInAnEmptySet() {
+        XCTAssertFalse(CustomSet(emptyTypedArray).contains(1))
+    }
+    func testWhenTheElementIsInTheSet() {
+        XCTAssertTrue(CustomSet([1, 2, 3]).contains(1))
+    }
+    func testWhenTheElementIsNotInTheSet() {
+        XCTAssertFalse(CustomSet([1, 2, 3]).contains(4))
+    }
+
     func testEqual() {
         XCTAssertEqual(CustomSet([1, 3]), CustomSet([3, 1]))
         XCTAssertNotEqual(CustomSet([1, 3]), CustomSet([3, 1, 5]))
@@ -66,11 +76,7 @@ class CustomSetTests: XCTestCase {
                        CustomSet([1.0, 2.0, 3.0]).intersection(CustomSet([3.0])))
     }
 
-    func testMember() {
-        XCTAssertTrue(CustomSet([1, 2, 3]).containsMember(2))
-        XCTAssertTrue(CustomSet([1, 2, 3]).containsMember(3))
-        XCTAssertFalse(CustomSet([1, 2, 3]).containsMember(4))
-    }
+
 
     func testPutMethod() {
         var expected1 = CustomSet([1, 2, 4])
@@ -121,6 +127,9 @@ class CustomSetTests: XCTestCase {
         return [
             ("testSetsWithNoElementsAreEmpty", testSetsWithNoElementsAreEmpty),
             ("testSetsWithElementsAreNotEmpty", testSetsWithElementsAreNotEmpty),
+            ("testNothingIsContainedInAnEmptySet", testNothingIsContainedInAnEmptySet),
+            ("testWhenTheElementIsInTheSet", testWhenTheElementIsInTheSet),
+            ("testWhenTheElementIsNotInTheSet", testWhenTheElementIsNotInTheSet),
             ("testEqual", testEqual),
             ("testNoDuplicates", testNoDuplicates),
             ("testDeleteMethod", testDeleteMethod),
@@ -128,7 +137,6 @@ class CustomSetTests: XCTestCase {
             ("testDisjoint", testDisjoint),
             ("testRemoveAllMethod", testRemoveAllMethod),
             ("testIntersection", testIntersection),
-            ("testMember", testMember),
             ("testPutMethod", testPutMethod),
             ("testSize", testSize),
             ("testSubsetMethod", testSubsetMethod),
