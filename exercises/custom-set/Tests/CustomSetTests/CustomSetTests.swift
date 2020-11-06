@@ -22,6 +22,25 @@ class CustomSetTests: XCTestCase {
         XCTAssertFalse(CustomSet([1, 2, 3]).contains(4))
     }
 
+    func testEmptySetIsASubsetOfAnotherEmptySet() {
+        XCTAssertTrue(CustomSet(emptyTypedArray).isSubsetOf(CustomSet([])))
+    }
+    func testEmptySetIsASubsetOfNonEmptySet() {
+        XCTAssertTrue(CustomSet(emptyTypedArray).isSubsetOf(CustomSet([1])))
+    }
+    func testNonEmptySetIsNotASubsetOfEmptySet() {
+        XCTAssertFalse(CustomSet([1]).isSubsetOf(CustomSet(emptyTypedArray)))
+    }
+    func testSetIsASubsetOfSetWithExactSameElements() {
+        XCTAssertTrue(CustomSet([1, 2, 3]).isSubsetOf(CustomSet([1, 2, 3])))
+    }
+    func testSetIsASubsetOfLargerSetWithSameElements() {
+        XCTAssertTrue(CustomSet([1, 2, 3]).isSubsetOf(CustomSet([4, 1, 2, 3])))
+    }
+    func testSetIsNotASubsetOfSetThatDoesNotContainItsElements() {
+        XCTAssertFalse(CustomSet([1, 2, 3]).isSubsetOf(CustomSet([4, 1, 3])))
+    }
+
     func testEqual() {
         XCTAssertEqual(CustomSet([1, 3]), CustomSet([3, 1]))
         XCTAssertNotEqual(CustomSet([1, 3]), CustomSet([3, 1, 5]))
@@ -96,15 +115,6 @@ class CustomSetTests: XCTestCase {
         XCTAssertEqual(3, CustomSet([1, 2, 3, 2]).size)
     }
 
-    func testSubsetMethod() {
-        XCTAssertTrue(CustomSet([1, 2, 3]).isSupersetOf(CustomSet([1, 2, 3])))
-        XCTAssertTrue(CustomSet([4, 1, 2, 3]).isSupersetOf(CustomSet([1, 2, 3])))
-        XCTAssertFalse(CustomSet([4, 1, 3]).isSupersetOf(CustomSet([1, 2, 3])))
-        XCTAssertFalse(CustomSet([1, 2, 3, 4]).isSupersetOf(CustomSet([1, 2, 5])))
-        XCTAssertTrue(CustomSet([4, 1, 3]).isSupersetOf(CustomSet(emptyTypedArray)))
-        XCTAssertTrue(CustomSet(emptyTypedArray).isSupersetOf(CustomSet(emptyTypedArray)))
-    }
-
     func testToA() {
         XCTAssertEqual([1, 2, 3], CustomSet([3, 1, 2]).toSortedArray)
         XCTAssertEqual([1, 2, 3], CustomSet([3, 1, 2, 1]).toSortedArray)
@@ -130,6 +140,12 @@ class CustomSetTests: XCTestCase {
             ("testNothingIsContainedInAnEmptySet", testNothingIsContainedInAnEmptySet),
             ("testWhenTheElementIsInTheSet", testWhenTheElementIsInTheSet),
             ("testWhenTheElementIsNotInTheSet", testWhenTheElementIsNotInTheSet),
+            ("testEmptySetIsASubsetOfAnotherEmptySet", testEmptySetIsASubsetOfAnotherEmptySet),
+            ("testEmptySetIsASubsetOfNonEmptySet", testEmptySetIsASubsetOfNonEmptySet),
+            ("testNonEmptySetIsNotASubsetOfEmptySet", testNonEmptySetIsNotASubsetOfEmptySet),
+            ("testSetIsASubsetOfSetWithExactSameElements", testSetIsASubsetOfSetWithExactSameElements),
+            ("testSetIsASubsetOfLargerSetWithSameElements", testSetIsASubsetOfLargerSetWithSameElements),
+            ("testSetIsNotASubsetOfSetThatDoesNotContainItsElements", testSetIsNotASubsetOfSetThatDoesNotContainItsElements),
             ("testEqual", testEqual),
             ("testNoDuplicates", testNoDuplicates),
             ("testDeleteMethod", testDeleteMethod),
@@ -139,7 +155,6 @@ class CustomSetTests: XCTestCase {
             ("testIntersection", testIntersection),
             ("testPutMethod", testPutMethod),
             ("testSize", testSize),
-            ("testSubsetMethod", testSubsetMethod),
             ("testToA", testToA),
             ("testUnion", testUnion),
         ]

@@ -67,11 +67,16 @@ struct CustomSet<T: Hashable>: Equatable {
         }
         return CustomSet(temp.keys)
     }
-    func isSupersetOf (_ item: CustomSet) -> Bool {
 
-        return item.contents.count == item.contents.filter { self.contents.keys.contains($0.0) }.count
-
+    func isSubsetOf(_ other: CustomSet) -> Bool {
+        for elem in Array(self.contents.keys) {
+            if !other.contents.keys.contains(elem) {
+                return false
+            }
+        }
+        return true
     }
+
     func isDisjoint(_ item: CustomSet) -> Bool {
 
         for each in Array(item.contents.keys) {
