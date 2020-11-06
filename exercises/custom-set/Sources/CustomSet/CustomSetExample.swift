@@ -53,12 +53,13 @@ struct CustomSet<T: Hashable>: Equatable {
         return intersect
     }
 
-    func difference(_ item: CustomSet) -> CustomSet {
-        var temp = contents
-        for each in Array(item.contents.keys) {
-            temp[each] = nil
+    func difference(_ other: CustomSet) -> CustomSet {
+        var diff = CustomSet([Element]())
+        for elem in Array(contents.keys) {
+            guard other.contents[elem] != true else { continue }
+            diff.add(elem)
         }
-        return CustomSet(temp.keys)
+        return diff
     }
 
     func union(_ item: CustomSet) -> CustomSet {
