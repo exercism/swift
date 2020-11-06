@@ -44,14 +44,15 @@ struct CustomSet<T: Hashable>: Equatable {
 
     }
 
-    func intersection(_ item: CustomSet) -> CustomSet {
-        var temp = [Element: Bool]()
-        for each in Array(item.contents.keys) {
-            guard contents[each] != nil else { continue }
-            temp[each] = true
+    func intersection(_ other: CustomSet) -> CustomSet {
+        var intersect = CustomSet([Element]())
+        for elem in Array(other.contents.keys) {
+            guard contents[elem] != nil else { continue }
+            intersect.add(elem)
         }
-        return CustomSet(temp.keys)
+        return intersect
     }
+
     func difference(_ item: CustomSet) -> CustomSet {
         var temp = contents
         for each in Array(item.contents.keys) {
