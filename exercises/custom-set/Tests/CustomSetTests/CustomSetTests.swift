@@ -4,6 +4,14 @@ import XCTest
 class CustomSetTests: XCTestCase {
     let emptyTypedArray = [Int]()
 
+    func testSetsWithNoElementsAreEmpty() {
+        XCTAssertTrue(CustomSet(emptyTypedArray).isEmpty)
+    }
+
+    func testSetsWithElementsAreNotEmpty() {
+        XCTAssertFalse(CustomSet([1]).isEmpty)
+    }
+
     func testEqual() {
         XCTAssertEqual(CustomSet([1, 3]), CustomSet([3, 1]))
         XCTAssertNotEqual(CustomSet([1, 3]), CustomSet([3, 1, 5]))
@@ -111,6 +119,8 @@ class CustomSetTests: XCTestCase {
 
     static var allTests: [(String, (CustomSetTests) -> () throws -> Void)] {
         return [
+            ("testSetsWithNoElementsAreEmpty", testSetsWithNoElementsAreEmpty),
+            ("testSetsWithElementsAreNotEmpty", testSetsWithElementsAreNotEmpty),
             ("testEqual", testEqual),
             ("testNoDuplicates", testNoDuplicates),
             ("testDeleteMethod", testDeleteMethod),

@@ -14,6 +14,7 @@ struct CustomSet<T: Hashable>: Equatable {
 
     fileprivate var contents = [Element: Bool]()
 
+    var isEmpty: Bool { return contents.count == 0 }
     var size: Int { return contents.count }
 
     init<S: Sequence>(_ sequence: S) where S.Iterator.Element == Element {
