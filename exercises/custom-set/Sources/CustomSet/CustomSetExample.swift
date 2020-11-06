@@ -78,9 +78,8 @@ struct CustomSet<T: Hashable>: Equatable {
     }
 
     func isDisjoint(_ item: CustomSet) -> Bool {
-
-        for each in Array(item.contents.keys) {
-            if contents.keys.contains(each) {
+        for elem in Array(item.contents.keys) {
+            if contents.keys.contains(elem) {
                 return false
             }
         }

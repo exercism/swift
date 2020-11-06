@@ -41,6 +41,22 @@ class CustomSetTests: XCTestCase {
         XCTAssertFalse(CustomSet([1, 2, 3]).isSubsetOf(CustomSet([4, 1, 3])))
     }
 
+    func testTheEmptySetIsDisjointWithItself() {
+        XCTAssertTrue(CustomSet(emptyTypedArray).isDisjoint(CustomSet(emptyTypedArray)))
+    }
+    func testEmptySetIsDisjointWithNonEmptySet() {
+        XCTAssertTrue(CustomSet(emptyTypedArray).isDisjoint(CustomSet([1])))
+    }
+    func testNonEmptySetIsDisjointWithEmptySet() {
+        XCTAssertTrue(CustomSet([1]).isDisjoint(CustomSet(emptyTypedArray)))
+    }
+    func testSetsAreNotDisjointIfTheyShareAnElement() {
+        XCTAssertFalse(CustomSet([1, 2]).isDisjoint(CustomSet([2, 3])))
+    }
+    func testSetsAreDisjointIfTheyShareNoElements() {
+        XCTAssertTrue(CustomSet([1, 2]).isDisjoint(CustomSet([3, 4])))
+    }
+
     func testEqual() {
         XCTAssertEqual(CustomSet([1, 3]), CustomSet([3, 1]))
         XCTAssertNotEqual(CustomSet([1, 3]), CustomSet([3, 1, 5]))
@@ -69,12 +85,6 @@ class CustomSetTests: XCTestCase {
         XCTAssertEqual(CustomSet([2, 3]),
                        CustomSet([1, 2, 3, 4]).difference(CustomSet([1, 4])))
 
-    }
-
-    func testDisjoint() {
-        XCTAssertTrue(CustomSet([1, 2]).isDisjoint(CustomSet([3, 4])))
-        XCTAssertFalse(CustomSet([1, 2]).isDisjoint(CustomSet([2, 3])))
-        XCTAssertFalse(CustomSet([1.0, 2.0]).isDisjoint(CustomSet([2.0, 3.0])))
     }
 
     func testRemoveAllMethod() {
@@ -146,11 +156,15 @@ class CustomSetTests: XCTestCase {
             ("testSetIsASubsetOfSetWithExactSameElements", testSetIsASubsetOfSetWithExactSameElements),
             ("testSetIsASubsetOfLargerSetWithSameElements", testSetIsASubsetOfLargerSetWithSameElements),
             ("testSetIsNotASubsetOfSetThatDoesNotContainItsElements", testSetIsNotASubsetOfSetThatDoesNotContainItsElements),
+            ("testTheEmptySetIsDisjointWithItself", testTheEmptySetIsDisjointWithItself),
+            ("testEmptySetIsDisjointWithNonEmptySet", testEmptySetIsDisjointWithNonEmptySet),
+            ("testNonEmptySetIsDisjointWithEmptySet", testNonEmptySetIsDisjointWithEmptySet),
+            ("testSetsAreNotDisjointIfTheyShareAnElement", testSetsAreNotDisjointIfTheyShareAnElement),
+            ("testSetsAreDisjointIfTheyShareNoElements", testSetsAreDisjointIfTheyShareNoElements),
             ("testEqual", testEqual),
             ("testNoDuplicates", testNoDuplicates),
             ("testDeleteMethod", testDeleteMethod),
             ("testDifference", testDifference),
-            ("testDisjoint", testDisjoint),
             ("testRemoveAllMethod", testRemoveAllMethod),
             ("testIntersection", testIntersection),
             ("testPutMethod", testPutMethod),
