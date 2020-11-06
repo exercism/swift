@@ -121,6 +121,27 @@ class CustomSetTests: XCTestCase {
         XCTAssertEqual(expected, actual)
     }
 
+    func testDifferenceOfTwoEmptySetsIsAnEmptySet() {
+        let expected = CustomSet(emptyTypedArray)
+        let actual = CustomSet(emptyTypedArray).difference(CustomSet(emptyTypedArray))
+        XCTAssertEqual(expected, actual)
+    }
+    func testDifferenceOfEmptySetAndNonEmptySetIsAnEmptySet() {
+        let expected = CustomSet(emptyTypedArray)
+        let actual = CustomSet(emptyTypedArray).difference(CustomSet([3, 2, 5]))
+        XCTAssertEqual(expected, actual)
+    }
+    func testDifferenceOfANonEmptySetAndAnEmptySetIsTheNonEmptySet() {
+        let expected = CustomSet([1, 2, 3, 4])
+        let actual = CustomSet([1, 2, 3, 4]).difference(CustomSet(emptyTypedArray))
+        XCTAssertEqual(expected, actual)
+    }
+    func testDifferenceOfTwoNonEmptySetsIsASetOfElementsThatAreOnlyInTheFirstSet() {
+        let expected = CustomSet([1, 3])
+        let actual = CustomSet([3, 2, 1]).difference(CustomSet([2, 4]))
+        XCTAssertEqual(expected, actual)
+    }
+
     func testDeleteMethod() {
 
         var expected1 = CustomSet([3, 2, 1])
@@ -130,14 +151,6 @@ class CustomSetTests: XCTestCase {
         var expected2 = CustomSet([3, 2, 1])
         expected2.delete(4)
         XCTAssertEqual(CustomSet([1, 2, 3]), expected2)
-    }
-
-    func testDifference() {
-        XCTAssertEqual(CustomSet([1, 3]),
-                       CustomSet([1, 2, 3]).difference(CustomSet([2, 4])))
-        XCTAssertEqual(CustomSet([2, 3]),
-                       CustomSet([1, 2, 3, 4]).difference(CustomSet([1, 4])))
-
     }
 
     func testRemoveAllMethod() {
@@ -206,8 +219,11 @@ class CustomSetTests: XCTestCase {
             ("testIntersectionOfANonEmptySetAndAnEmptySetIsAnEmptySet", testIntersectionOfANonEmptySetAndAnEmptySetIsAnEmptySet),
             ("testIntersectionOfTwoSetsWithNoSharedElementsIsAnEmptySet", testIntersectionOfTwoSetsWithNoSharedElementsIsAnEmptySet),
             ("testIntersectionOfTwoSetsWithSharedElementsIsASetOfTheSharedElements", testIntersectionOfTwoSetsWithSharedElementsIsASetOfTheSharedElements),
+            ("testDifferenceOfTwoEmptySetsIsAnEmptySet", testDifferenceOfTwoEmptySetsIsAnEmptySet),
+            ("testDifferenceOfEmptySetAndNonEmptySetIsAnEmptySet", testDifferenceOfEmptySetAndNonEmptySetIsAnEmptySet),
+            ("testDifferenceOfANonEmptySetAndAnEmptySetIsTheNonEmptySet", testDifferenceOfANonEmptySetAndAnEmptySetIsTheNonEmptySet),
+            ("testDifferenceOfTwoNonEmptySetsIsASetOfElementsThatAreOnlyInTheFirstSet", testDifferenceOfTwoNonEmptySetsIsASetOfElementsThatAreOnlyInTheFirstSet),
             ("testDeleteMethod", testDeleteMethod),
-            ("testDifference", testDifference),
             ("testRemoveAllMethod", testRemoveAllMethod),
             ("testSize", testSize),
             ("testToA", testToA),
