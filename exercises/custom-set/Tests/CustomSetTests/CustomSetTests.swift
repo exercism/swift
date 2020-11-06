@@ -142,6 +142,27 @@ class CustomSetTests: XCTestCase {
         XCTAssertEqual(expected, actual)
     }
 
+    func testUnionOfEmptySetsIsAnEmptySet() {
+        let expected = CustomSet(emptyTypedArray)
+        let actual = CustomSet(emptyTypedArray).union(CustomSet(emptyTypedArray))
+        XCTAssertEqual(expected, actual)
+    }
+    func testUnionOfAnEmptySetAndNonEmptySetIsTheNonEmptySet() {
+        let expected = CustomSet([2])
+        let actual = CustomSet(emptyTypedArray).union(CustomSet([2]))
+        XCTAssertEqual(expected, actual)
+    }
+    func testUnionOfANonEmptySetAndEmptySetIsTheNonEmptySet() {
+        let expected = CustomSet([1, 3])
+        let actual = CustomSet([1, 3]).union(CustomSet(emptyTypedArray))
+        XCTAssertEqual(expected, actual)
+    }
+    func testUnionOfNonEmptySetsContainsAllUniqueElements() {
+        let expected = CustomSet([3, 2, 1])
+        let actual = CustomSet([1, 3]).union(CustomSet([2, 3]))
+        XCTAssertEqual(expected, actual)
+    }
+
     func testDeleteMethod() {
 
         var expected1 = CustomSet([3, 2, 1])
@@ -172,19 +193,6 @@ class CustomSetTests: XCTestCase {
     func testToA() {
         XCTAssertEqual([1, 2, 3], CustomSet([3, 1, 2]).toSortedArray)
         XCTAssertEqual([1, 2, 3], CustomSet([3, 1, 2, 1]).toSortedArray)
-    }
-
-    func testUnion() {
-        XCTAssertEqual(CustomSet([3, 2, 1]),
-                       CustomSet([1, 3]).union(CustomSet([2])))
-        XCTAssertEqual(CustomSet([3.0, 3, 2, 1]),
-                       CustomSet([1, 3]).union(CustomSet([2, 3.0])))
-        XCTAssertEqual(CustomSet([3, 1]),
-                       CustomSet([1, 3]).union(CustomSet(emptyTypedArray)))
-        XCTAssertEqual(CustomSet([2]),
-                       CustomSet([2]).union(CustomSet(emptyTypedArray)))
-        XCTAssertEqual(CustomSet(emptyTypedArray),
-                       CustomSet(emptyTypedArray).union(CustomSet(emptyTypedArray)))
     }
 
     static var allTests: [(String, (CustomSetTests) -> () throws -> Void)] {
@@ -223,11 +231,14 @@ class CustomSetTests: XCTestCase {
             ("testDifferenceOfEmptySetAndNonEmptySetIsAnEmptySet", testDifferenceOfEmptySetAndNonEmptySetIsAnEmptySet),
             ("testDifferenceOfANonEmptySetAndAnEmptySetIsTheNonEmptySet", testDifferenceOfANonEmptySetAndAnEmptySetIsTheNonEmptySet),
             ("testDifferenceOfTwoNonEmptySetsIsASetOfElementsThatAreOnlyInTheFirstSet", testDifferenceOfTwoNonEmptySetsIsASetOfElementsThatAreOnlyInTheFirstSet),
+            ("testUnionOfEmptySetsIsAnEmptySet", testUnionOfEmptySetsIsAnEmptySet),
+            ("testUnionOfAnEmptySetAndNonEmptySetIsTheNonEmptySet", testUnionOfAnEmptySetAndNonEmptySetIsTheNonEmptySet),
+            ("testUnionOfANonEmptySetAndEmptySetIsTheNonEmptySet", testUnionOfANonEmptySetAndEmptySetIsTheNonEmptySet),
+            ("testUnionOfNonEmptySetsContainsAllUniqueElements", testUnionOfNonEmptySetsContainsAllUniqueElements),
             ("testDeleteMethod", testDeleteMethod),
             ("testRemoveAllMethod", testRemoveAllMethod),
             ("testSize", testSize),
             ("testToA", testToA),
-            ("testUnion", testUnion),
         ]
     }
 }
