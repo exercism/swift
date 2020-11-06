@@ -14,11 +14,11 @@ So given a string with embedded newlines like:
 representing this matrix:
 
 ```text
-    0  1  2
+    1  2  3
   |---------
-0 | 9  8  7
-1 | 5  3  2
-2 | 6  6  7
+1 | 9  8  7
+2 | 5  3  2
+3 | 6  6  7
 ```
 
 your code should be able to spit out:
@@ -47,7 +47,7 @@ Go through the project setup instructions for Xcode using Swift:
 http://exercism.io/languages/swift  
 http://exercism.io/languages/swift/tests
 
-Notably from the source directory:
+Notably, from the source directory:
 
 `swift test` runs tests  
 `swift package generate-xcodeproj` creates an Xcode project

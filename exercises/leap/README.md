@@ -13,9 +13,6 @@ on every year that is evenly divisible by 4
 For example, 1997 is not a leap year, but 1996 is.  1900 is not a leap
 year, but 2000 is.
 
-If your language provides a method in the standard library that does
-this look-up, pretend it doesn't exist and implement it yourself.
-
 ## Notes
 
 Though our exercise adopts some very simple rules, there is more to
@@ -33,7 +30,7 @@ Go through the project setup instructions for Xcode using Swift:
 http://exercism.io/languages/swift  
 http://exercism.io/languages/swift/tests
 
-Notably from the source directory:
+Notably, from the source directory:
 
 `swift test` runs tests  
 `swift package generate-xcodeproj` creates an Xcode project

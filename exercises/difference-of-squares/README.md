@@ -12,6 +12,10 @@ Hence the difference between the square of the sum of the first
 ten natural numbers and the sum of the squares of the first ten
 natural numbers is 3025 - 385 = 2640.
 
+You are not expected to discover an efficient solution to this yourself from
+first principles; research is allowed, indeed, encouraged. Finding the best
+algorithm for the problem is a key skill in software engineering.
+
 ## Setup
 
 Go through the project setup instructions for Xcode using Swift:
@@ -19,7 +23,7 @@ Go through the project setup instructions for Xcode using Swift:
 http://exercism.io/languages/swift  
 http://exercism.io/languages/swift/tests
 
-Notably from the source directory:
+Notably, from the source directory:
 
 `swift test` runs tests  
 `swift package generate-xcodeproj` creates an Xcode project

@@ -28,7 +28,7 @@ Go through the project setup instructions for Xcode using Swift:
 http://exercism.io/languages/swift  
 http://exercism.io/languages/swift/tests
 
-Notably from the source directory:
+Notably, from the source directory:
 
 `swift test` runs tests  
 `swift package generate-xcodeproj` creates an Xcode project
@@ -36,7 +36,7 @@ Notably from the source directory:
 
 ## Source
 
-Inspired by 'Data Structures and Algorithms with Object-Oriented Design Patterns in Ruby', singly linked-lists. [http://www.brpreiss.com/books/opus8/html/page96.html#SECTION004300000000000000000](http://www.brpreiss.com/books/opus8/html/page96.html#SECTION004300000000000000000)
+Inspired by 'Data Structures and Algorithms with Object-Oriented Design Patterns in Ruby', singly linked-lists. [https://web.archive.org/web/20160731005714/http://brpreiss.com/books/opus8/html/page96.html](https://web.archive.org/web/20160731005714/http://brpreiss.com/books/opus8/html/page96.html)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

@@ -40,6 +40,7 @@ Now, it's even trickier since the check digit of an ISBN-10 may be 'X' (represen
 * Generate a valid ISBN-13 from the input ISBN-10 (and maybe verify it again with a derived verifier).
 
 * Generate valid ISBN, maybe even from a given starting ISBN.
+
 ## Setup
 
 Go through the project setup instructions for Xcode using Swift:
@@ -47,7 +48,7 @@ Go through the project setup instructions for Xcode using Swift:
 http://exercism.io/languages/swift  
 http://exercism.io/languages/swift/tests
 
-Notably from the source directory:
+Notably, from the source directory:
 
 `swift test` runs tests  
 `swift package generate-xcodeproj` creates an Xcode project
