@@ -57,11 +57,23 @@ class CustomSetTests: XCTestCase {
         XCTAssertTrue(CustomSet([1, 2]).isDisjoint(CustomSet([3, 4])))
     }
 
-    func testEqual() {
-        XCTAssertEqual(CustomSet([1, 3]), CustomSet([3, 1]))
-        XCTAssertNotEqual(CustomSet([1, 3]), CustomSet([3, 1, 5]))
-        XCTAssertNotEqual(CustomSet([1, 3, 5]), CustomSet([3, 1]))
-        XCTAssertNotEqual(CustomSet([1, 3]), CustomSet([2, 1]))
+    func testEmptySetsAreEqual() {
+        XCTAssertEqual(CustomSet(emptyTypedArray), CustomSet(emptyTypedArray))
+    }
+    func testEmptySetIsNotEqualToNonEmptySet() {
+        XCTAssertNotEqual(CustomSet(emptyTypedArray), CustomSet([1, 2, 3]))
+    }
+    func testNonEmptySetIsNotEqualToEmptySet() {
+        XCTAssertNotEqual(CustomSet([1, 2, 3]), CustomSet(emptyTypedArray))
+    }
+    func testSetsWithTheSameElementsAreEqual() {
+        XCTAssertEqual(CustomSet([1, 2]), CustomSet([2, 1]))
+    }
+    func testSetsWithDifferentElementsAreNotEqual() {
+        XCTAssertNotEqual(CustomSet([1, 2, 3]), CustomSet([1, 2, 4]))
+    }
+    func testSetIsNotEqualToLargerSetWithSameElements() {
+        XCTAssertNotEqual(CustomSet([1, 2, 3]), CustomSet([1, 2, 3, 4]))
     }
 
     func testNoDuplicates() {
@@ -161,7 +173,12 @@ class CustomSetTests: XCTestCase {
             ("testNonEmptySetIsDisjointWithEmptySet", testNonEmptySetIsDisjointWithEmptySet),
             ("testSetsAreNotDisjointIfTheyShareAnElement", testSetsAreNotDisjointIfTheyShareAnElement),
             ("testSetsAreDisjointIfTheyShareNoElements", testSetsAreDisjointIfTheyShareNoElements),
-            ("testEqual", testEqual),
+            ("testEmptySetsAreEqual", testEmptySetsAreEqual),
+            ("testEmptySetIsNotEqualToNonEmptySet", testEmptySetIsNotEqualToNonEmptySet),
+            ("testNonEmptySetIsNotEqualToEmptySet", testNonEmptySetIsNotEqualToEmptySet),
+            ("testSetsWithTheSameElementsAreEqual", testSetsWithTheSameElementsAreEqual),
+            ("testSetsWithDifferentElementsAreNotEqual", testSetsWithDifferentElementsAreNotEqual),
+            ("testSetIsNotEqualToLargerSetWithSameElements", testSetIsNotEqualToLargerSetWithSameElements),
             ("testNoDuplicates", testNoDuplicates),
             ("testDeleteMethod", testDeleteMethod),
             ("testDifference", testDifference),
