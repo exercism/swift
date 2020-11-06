@@ -95,6 +95,32 @@ class CustomSetTests: XCTestCase {
         XCTAssertEqual(expected, actual)
     }
 
+    func testIntersectionOfTwoEmptySetsIsAnEmptySet() {
+        let expected = CustomSet(emptyTypedArray)
+        let actual = CustomSet(emptyTypedArray).intersection(CustomSet(emptyTypedArray))
+        XCTAssertEqual(expected, actual)
+    }
+    func testIntersectionOfAnEmptySetAndNonEmptySetIsAnEmptySet() {
+        let expected = CustomSet(emptyTypedArray)
+        let actual = CustomSet(emptyTypedArray).intersection(CustomSet([3, 2, 5]))
+        XCTAssertEqual(expected, actual)
+    }
+    func testIntersectionOfANonEmptySetAndAnEmptySetIsAnEmptySet() {
+        let expected = CustomSet(emptyTypedArray)
+        let actual = CustomSet([1, 2, 3, 4]).intersection(CustomSet(emptyTypedArray))
+        XCTAssertEqual(expected, actual)
+    }
+    func testIntersectionOfTwoSetsWithNoSharedElementsIsAnEmptySet() {
+        let expected = CustomSet(emptyTypedArray)
+        let actual = CustomSet([1, 2, 3]).intersection(CustomSet([4, 5, 6]))
+        XCTAssertEqual(expected, actual)
+    }
+    func testIntersectionOfTwoSetsWithSharedElementsIsASetOfTheSharedElements() {
+        let expected = CustomSet([2, 3])
+        let actual = CustomSet([1, 2, 3, 4]).intersection(CustomSet([3, 2, 5]))
+        XCTAssertEqual(expected, actual)
+    }
+
     func testDeleteMethod() {
 
         var expected1 = CustomSet([3, 2, 1])
@@ -122,14 +148,6 @@ class CustomSetTests: XCTestCase {
         var expected2 = CustomSet(emptyTypedArray)
         expected2.removeAll()
         XCTAssertEqual(CustomSet(emptyTypedArray), expected2)
-    }
-
-    func testIntersection() {
-        XCTAssertEqual(CustomSet(["a", "c"]),
-                       CustomSet(["a", "b", "c"]).intersection(CustomSet(["a", "c", "d"])))
-
-        XCTAssertEqual(CustomSet([3.0]),
-                       CustomSet([1.0, 2.0, 3.0]).intersection(CustomSet([3.0])))
     }
 
     func testSize() {
@@ -183,10 +201,14 @@ class CustomSetTests: XCTestCase {
             ("testAddToEmptySet", testAddToEmptySet),
             ("testAddToNonEmptySet", testAddToNonEmptySet),
             ("testAddingAnExistingElementDoesNotChangeTheSet", testAddingAnExistingElementDoesNotChangeTheSet),
+            ("testIntersectionOfTwoEmptySetsIsAnEmptySet", testIntersectionOfTwoEmptySetsIsAnEmptySet),
+            ("testIntersectionOfAnEmptySetAndNonEmptySetIsAnEmptySet", testIntersectionOfAnEmptySetAndNonEmptySetIsAnEmptySet),
+            ("testIntersectionOfANonEmptySetAndAnEmptySetIsAnEmptySet", testIntersectionOfANonEmptySetAndAnEmptySetIsAnEmptySet),
+            ("testIntersectionOfTwoSetsWithNoSharedElementsIsAnEmptySet", testIntersectionOfTwoSetsWithNoSharedElementsIsAnEmptySet),
+            ("testIntersectionOfTwoSetsWithSharedElementsIsASetOfTheSharedElements", testIntersectionOfTwoSetsWithSharedElementsIsASetOfTheSharedElements),
             ("testDeleteMethod", testDeleteMethod),
             ("testDifference", testDifference),
             ("testRemoveAllMethod", testRemoveAllMethod),
-            ("testIntersection", testIntersection),
             ("testSize", testSize),
             ("testToA", testToA),
             ("testUnion", testUnion),
