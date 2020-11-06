@@ -1,8 +1,3 @@
-func == <T> (lh: CustomSet<T>, rh: CustomSet<T>) -> Bool {
-    return lh.contents.keys.sorted { $0.hashValue < $1.hashValue } == rh.contents.keys.sorted { $0.hashValue < $1.hashValue }
-
-}
-
 extension CustomSet where T: Comparable {
 
     var toSortedArray: [Element] { return Array(contents.keys.sorted { $0 < $1 }) }
@@ -20,6 +15,12 @@ struct CustomSet<T: Hashable>: Equatable {
     init<S: Sequence>(_ sequence: S) where S.Iterator.Element == Element {
         self.contents = [:]
         _ = sequence.map { self.contents[$0] = true }
+    }
+
+    static func == <T>(lh: CustomSet<T>, rh: CustomSet<T>) -> Bool {
+        return lh.size == rh.size &&
+            lh.contents.keys.sorted { $0.hashValue < $1.hashValue } ==
+            rh.contents.keys.sorted { $0.hashValue < $1.hashValue }
     }
 
     func contains(_ item: Element) -> Bool {
