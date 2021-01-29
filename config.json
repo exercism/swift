@@ -10,6 +10,10 @@
   },
   "blurb": "Swift is a modern open-source language with the aim of making programming simple things easy, and difficult things possible while still being fast and safe by design. Swift can run in scripting mode in the included REPL or it can be compiled with full support for C and Objective-C interoperability.",
   "version": 3,
+  "online_editor": {
+    "indent_style": "space",
+    "indent_size": 2
+  },
   "exercises": [
     {
       "slug": "hello-world",
