@@ -1,5 +1,6 @@
 {
   "language": "Swift",
+  "slug": "swift",
   "active": true,
   "status": {
     "concept_exercises": false,
