@@ -165,12 +165,12 @@ If you have any questions regarding implementing the exercise, please post them 
 [example-project-file]: ../exercises/concept/strings/Package.swift
 -->
 
-[how-to-implement-a-concept-exercise]: ../../../docs/maintainers/generic-how-to-implement-a-concept-exercise.md
-[docs-concept-exercises]: ../../../docs/concept-exercises.md
-[docs-rationale-for-v3]: ../../../docs/rationale-for-v3.md
-[docs-features-of-v3]: ../../../docs/features-of-v3.md
+[how-to-implement-a-concept-exercise]: https://github.com/exercism/v3/blob/main/docs/maintainers/generic-how-to-implement-a-concept-exercise.md
+[docs-concept-exercises]: https://github.com/exercism/v3/blob/main/docs/concept-exercises.md
+[docs-rationale-for-v3]: https://github.com/exercism/v3/blob/main/docs/rationale-for-v3.md
+[docs-features-of-v3]: https://github.com/exercism/v3/blob/main/docs/features-of-v3.md
 [anatomy-of-a-concept-exercise]: https://www.youtube.com/watch?v=gkbBqd7hPrA
-[reference]: ../../../reference
+[reference]: https://github.com/exercism/v3/blob/main/reference
 [swift-format]: https://github.com/apple/swift-format
 [allowing-fork-pr-changes]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork
 [video-stub-file]: https://www.youtube.com/watch?v=gkbBqd7hPrA&t=1171
@@ -190,9 +190,9 @@ If you have any questions regarding implementing the exercise, please post them 
 <!--[todo]: ../exercises/concept/basics/Sources/Basics/Basics.swift
 -->
 
-[stub-file]: ../../../docs/concept-exercises.md#stub-implementation-file
-[tests-file]: ../../../docs/concept-exercises.md#tests-file
-[example-file]: ../../../docs/concept-exercises.md#example-implementation-file
+[stub-file]: https://github.com/exercism/v3/blob/main/docs/concept-exercises.md#stub-implementation-file
+[tests-file]: https://github.com/exercism/v3/blob/main/docs/concept-exercises.md#tests-file
+[example-file]: https://github.com/exercism/v3/blob/main/docs/concept-exercises.md#example-implementation-file
 [video-stub-file]: https://www.youtube.com/watch?v=gkbBqd7hPrA&t=1171
 [video-tests-file]: https://www.youtube.com/watch?v=gkbBqd7hPrA&t=1255
 [video-example-file]: https://www.youtube.com/watch?v=gkbBqd7hPrA&t=781
