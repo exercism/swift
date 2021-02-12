@@ -1,3 +1,5 @@
+# Introduction
+
 Enums in Swift are a mechanism of creating new types which are inhabited by a finite number of named values which may carry additional associated information, and can have properties and methods attached to them.
 
 ### Defining Enums

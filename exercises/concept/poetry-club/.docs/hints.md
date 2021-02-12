@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Split a string into individual lines
 
 - Swift has a [method][nsstring-components-docs] for splitting up a string into an array of strings using a supplied delimiter.

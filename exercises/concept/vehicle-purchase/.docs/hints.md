@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - There are three primary types of conditionals in Swift, `if` statements, `switch` statements, and `guard` statements.

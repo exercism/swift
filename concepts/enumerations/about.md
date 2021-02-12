@@ -1,3 +1,5 @@
+# About
+
 The built-in Swift types have a number of problems when used to model something with a moderate number of possible states or values, like the 63 official HTTP status codes, or the 8 buttons of the NES controller.
 
 For example, one may try to use existing types like strings or ints to represent their values, similar to what was done with the HTTP status codes, but this leads to a few different issues. One issue is that, while a computer may be fine processing valid values like 103, 226, and 505, the program itself also has to constantly check that it doesn't receive invalid values like 213, 427, 512, or 601. At the same time the _programmer_ is responsible for ensuring that every valid value is checked when examining a code to act upon, so a valid code isn't missed.

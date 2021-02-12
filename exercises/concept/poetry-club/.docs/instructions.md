@@ -1,3 +1,5 @@
+# Instructions
+
 A new poetry club has opened in town, and you're thinking of attending. Because there have been incidents in the past, the club has a very specific door policy which you'll need to master, before attempting entry.
 
 There are two doors at the poetry club, both are guarded. In order to gain entry, you'll need to work out the password of that day:

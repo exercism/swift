@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - Read about basic arithmetic operators in [A Tour of Swift: Arithmetic Operators][arithmeticoperators].

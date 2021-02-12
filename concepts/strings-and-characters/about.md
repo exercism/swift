@@ -1,3 +1,5 @@
+# About
+
 [Strings][strings-and-characters] in Swift are a collection of characters, where characters are, more or less, a single printable element. So strings in swift are able to contain Unicode characters and emoji.
 
 Strings are easily created in Swift through string literals. String literals are similar to those seen in many other programming languages, characters enclosed between a pair of double quotation marks (`"`). String literals can include the following special characters:

@@ -1,4 +1,4 @@
-## In-out parameters
+# In-out parameters
 
 Within the body of a function, parameters are treated as constants, not variables; trying to modify the value of a parameter will raise a compile-time error. If a function wishes to modify the value of a parameter, it must use an [_in-out parameter_][in-out-parameters] to make this mutability explicit.
 

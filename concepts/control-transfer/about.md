@@ -1,3 +1,5 @@
+# About
+
 The normal control flow of loops in Swift can be altered using [Swift's control transfer keywords][control-transfer]. One of these keywords, `return` has been seen before in the basics concept exercise. With the use of `return`, if the loop is inside a function, the function will exit at that point, returning whatever value is specified, just as it would at any other point in a function. Two more control transfer keywords that are often used with loops are `continue` and `break`.
 
 ### continue

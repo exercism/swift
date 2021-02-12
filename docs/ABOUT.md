@@ -1,3 +1,5 @@
+# About
+
 Swift is a modern open source programming language that runs on macOS, Linux and on Windows using a linux subsystem. 
 
 Swift was developed initially by Apple to interoperate with their key frameworks, Cocoa and CocoaTouch, both of which are mostly implemented in Objective-C. 

@@ -1,3 +1,5 @@
+# Design
+
 This concept exercise should convey a basic understanding of how to work with closures in Swift.
 
 ## Learning objectives

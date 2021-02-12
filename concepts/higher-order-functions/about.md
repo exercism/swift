@@ -1,3 +1,5 @@
+# About
+
 ### Function types
 
 We have seen before how function signatures are defined using a function name followed by comma-separated list of parameter labels along with their types, followed by `->` and the type of the values returned by the function.

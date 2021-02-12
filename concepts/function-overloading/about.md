@@ -1,4 +1,4 @@
-## Function overloading
+# Function overloading
 
 We have seen in the Lasagna exercise how functions in Swift are defined using the `func` keyword followed by parentheses enclosed list of parameter names where these names include an optional argument label and a parameter name followed by a type annotation and the body of the function enclosed in curly braces. E.g.
 

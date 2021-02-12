@@ -1,3 +1,5 @@
+# Design
+
 The goal of this exercise is to teach the student the basics of the String type [Swift][strings].
 
 ## Learning objectives

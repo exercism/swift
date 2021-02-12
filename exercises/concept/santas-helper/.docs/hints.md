@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - The individual components of a tuple can be accessed by appending a _.n_ to the name of the tuple, where _n_ is the index of the component, starting with 0.

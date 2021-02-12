@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Allow changing the expected oven time
 
 - [Default parameter values][default-parameter-values] can be specified in the function's signature.

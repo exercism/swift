@@ -1,3 +1,5 @@
+# About
+
 The `guard` statement in Swift is used for early returns from Swift functions when a necessary condition which needs to be met for further processing to continue is not met, e.g.:
 
 ```swift

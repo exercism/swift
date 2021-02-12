@@ -1,4 +1,4 @@
-## Nested functions
+# Nested functions
 
 Functions may be defined [inside of other functions][nested-functions]. This is commonly used to create helper functions which are only useful to their enclosing function and so don't need to pollute the outside namespace.
 

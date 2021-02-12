@@ -1,3 +1,5 @@
+# About
+
 ### Trailing Closures
 
 Swift offers one other variation of its syntax when dealing with closures, known as [trailing closures][trailing-closures]. Trailing closures arise when the last parameter in a function's list of parameters has a function type. In this case, if one is passing in a closure, the closure can be written _after_ the closing parenthesis and the argument label is omitted. Note that if there is only one parameter for the function, the parentheses may be omitted entirely.

@@ -1,4 +1,4 @@
-## Default parameter values
+# Default parameter values
 
 [Default parameter values][default-parameter-values] can be supplied for any of a function's parameters by assigning a value to the parameter in the parameter list following the parameter's type annotation. When a default parameter value is specified, the caller of the function can omit that parameter when calling the function and the default value will be used instead.
 

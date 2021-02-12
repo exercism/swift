@@ -1,4 +1,4 @@
-## Installing Swift
+# Installing Swift
 
 ### macOS
 

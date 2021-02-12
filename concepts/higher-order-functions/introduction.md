@@ -1,3 +1,5 @@
+# Introduction
+
 ### Function types
 
 If one were to remove all of the names and labels from a Swift function signature, they would be left with the type of the function.

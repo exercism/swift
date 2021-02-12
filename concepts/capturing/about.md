@@ -1,3 +1,5 @@
+# About
+
 In Swift, closures and functions (which are just special cases of closures) are able to access the parameters and variables of their surrounding environment. Additionally, they are able to maintain access to these values after the enclosing function terminates. This action of obtaining and maintaining access is known as [_capturing_][capturing-values].
 
 ```swift
