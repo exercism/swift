@@ -2,7 +2,7 @@
 
 Enums in Swift are a mechanism of creating new types which are inhabited by a finite number of named values which may carry additional associated information, and can have properties and methods attached to them.
 
-### Defining Enums
+## Defining Enums
 
 The most basic enums are defined as seen below.
 
@@ -29,7 +29,7 @@ enum NESButton {
 
 This defines a new type named `NESButtons` with possible values `up`, `down`, `left`, `right`, `a`, `b`, `select`, and `start`. These values can be referred to by following the name of the type with a dot (`.`) and the value. In cases where the type name can be inferred, only the dot and value are needed.
 
-### Methods
+## Methods
 
 Like other types in Swift, enums may contain methods which allow the enum to provide functionality based on the current value of the enum.
 
@@ -37,7 +37,7 @@ Methods are analogous to functions, only they are defined inside the body of the
 
 Inside the method, the enum value can be referred to as `self`, and in the type signature, if one is accepting as a parameter or returning a value of the the enum they can refer to the type as `Self`.
 
-#### Initializers
+### Initializers
 
 Initializers are special methods that are used to set up a value of the enum. Their definition looks a lot like that of a method only there is no `func` keyword, no return type, and the name must be `init` and the initializer _must_ assign a value of the enum to `self`. Initializers are called either via dot notation or by passing the initializer's parameters to the name of the enum.
 

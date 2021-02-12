@@ -1,6 +1,6 @@
 # Installing Swift
 
-### macOS
+## macOS
 
 In order to use the Swift exercises, install Xcode version 10.0 or greater. On the first launch of Xcode, install the command line tools when prompted.
 
@@ -10,7 +10,7 @@ Additional versions of Xcode (including the most recent beta) are available at [
 
 All exercises have been tested with Xcode 10.0 using Swift 4.2.
 
-### Linux
+## Linux
 
 The latest release is available on [Swift.org](https://swift.org/download/#releases).
 

@@ -2,7 +2,7 @@
 
 We've seen how to build up strings in previous exercises. Here we will see some of the ways to break strings apart.
 
-### Breaking strings apart
+## Breaking strings apart
 
 In addition to building up strings out of components, strings may also be taken apart and broken into individual components. This is useful for tasks such as breaking apart a list of comma separated values into an array of the individual entities. Note that not all of these functions are in Swift's standard library and will require the importing of additional libraries. In this example we are making use of the `components(separatedBy:)` method which requires importing the `Foundation` module. Once `Foundation` is imported, this method and many others become available to the `String` type.
 
@@ -14,7 +14,7 @@ let fruit = csv.components(separatedBy: ",")
 // => ["apple", "pear", "peach", "orange", "cherry", "lime", "goosberry"]
 ```
 
-### Accessing individual characters
+## Accessing individual characters
 
 Accessing individual characters in strings is both like and unlike accessing individual elements of an array. The first and last elements are easily accessed using the `first` and `last` properties of the string respectively. Note that, as a string may not have a first or last character, these properties return optional Characters which will need to be unwrapped if they are to be used.
 
@@ -30,7 +30,7 @@ empty.first
 // => nil
 ```
 
-### Accessing internal characters
+## Accessing internal characters
 
 In Swift, strings are treated more as something that is to be traversed, rather than randomly accessed, though that can be done. There are two main reasons for this:
 

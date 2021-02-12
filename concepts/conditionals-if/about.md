@@ -14,7 +14,7 @@ With this structure, if the Boolean expression following the `if` evaluates as `
 
 There are two variants of this pattern that are available in Swift, the else-if and the no-else variants.
 
-### else-if
+## else-if
 
 In cases where the second block of code would just be another `if` statement, the else-if allows us to clean up the code and remove some indentation from our code by moving the `if` up next to the previous `else` and getting rid of a layer of parentheses.
 
@@ -32,7 +32,7 @@ if str == "apple" {
 }
 ```
 
-### no-else
+## no-else
 
 And if any if-statement only needs to perform code for one of the cases, the else branch can be left out entirely. So for example, if you are writing software that diagnoses patients and you need to log certain symptoms, like elevated heart rate, instead of writing:
 

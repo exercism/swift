@@ -4,14 +4,14 @@
 
 This guide explains how to run unit tests for the Exercism Swift exercises using either macOS or Linux. It assumes you have already successfully installed the Exercism client and fetched the first exercise. If not, [do that now](http://exercism.io/languages/swift).
 
-#### For experienced users:
+### For experienced users:
 
 	1. `swift test` runs tests
 	2. `swift package generate-xcodeproj` creates an Xcode project
 	
 To run the tests from the command line, first `cd` to the exercise directory (for example, ~/exercism/swift/exercises/hello-world/), then execute `swift test`. This will compile the files in the Sources directory and execute the tests in the Tests directory. Alternatively, open the Xcode project and press Command-U.
 
-#### For new users:
+### For new users:
 
 The rest of this page explains how Xcode is structured, and how to get set up to complete the exercise and run the tests.
 

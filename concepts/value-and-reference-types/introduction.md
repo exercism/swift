@@ -6,7 +6,7 @@ There are many similarities between structs and classes in Swift. Among other si
 
 They each provide some additional functionality, which is out of scope for this exercise.
 
-### Defining structs and classes
+## Defining structs and classes
 
 Both structs and classes are defined in roughly the same way. They start with the appropriate keyword followed by the type name that is being defined, then the body of the struct/class follows, placed between curly braces.
 
@@ -28,7 +28,7 @@ class GameCharacter {
 }
 ```
 
-### Instances
+## Instances
 
 As noted above, defining a struct or class is just defining a new _type_. It is just the blueprint for what the values of that type will look like, but it does not actually create any values of that type for you to work with.
 
@@ -47,7 +47,7 @@ With structs, Swift automatically provides something called a _memberwise initia
 let differentStats = CharacterStats(health: 100.0, speed: 6, strength: 18)
 ```
 
-### Accessing properties
+## Accessing properties
 
 Struct and class properties can be accessed using _dot notation_ where the name of the value is followed by a dot (`.`) and the name of the property. If a property of a struct or class has properties of its own, this dot notation can be used to access these nested properties as well.
 
@@ -70,7 +70,7 @@ someCharacter.id  = "new id"
 // Error: Cannot assign to property: 'id' is a 'let' constant
 ```
 
-### Methods
+## Methods
 
 Like properties, which store data in your structs and classes, you may also define _methods_ which store functions in your struct or class.
 
@@ -130,7 +130,7 @@ myChar.active
 // => false
 ```
 
-### Self
+## Self
 
 Instances of structs and classes each have an implicit value named `self` which refers to the instance itself. There are multiple uses for `self`, but it is most commonly used to disambiguate the names of properties and methods of the struct/class when there may be some confusion.
 

@@ -1,6 +1,6 @@
 # About
 
-### Function types
+## Function types
 
 We have seen before how function signatures are defined using a function name followed by comma-separated list of parameter labels along with their types, followed by `->` and the type of the values returned by the function.
 
@@ -50,7 +50,7 @@ stringAndIntToString = printShoppingList
 // Error: Cannot assign value of type '(String) -> ()' to type '(String, Int) -> String'
 ```
 
-### Function types as parameter types
+## Function types as parameter types
 
 As function types can be used anywhere other types can be used, it follows that [they can be used as parameter types][functions-as-parameters] and passed into other functions and called from within those functions.
 
@@ -83,7 +83,7 @@ apply(functions: [shoppingList, repeater], to: "carrots")
 // => ["You need to buy 3 carrots.", "carrotscarrotscarrots"]
 ```
 
-### Function types as return types
+## Function types as return types
 
 Similarly, [function types may be used as return types][functions-as-returns] for functions. In other words, one can write functions that create and return other functions. When creating these functions, the function that is returned can use the other parameters passed into the function or the local variables created inside the parent function.
 
@@ -109,11 +109,11 @@ subtract20(5)
 // => -15
 ```
 
-### Capturing values
+## Capturing values
 
 As seen with the `makeAdder(base:)` function above, nested functions are able to access the parameters and variables of their surrounding functions. Additionally, they are able to maintain access to these values after the enclosing function terminates. This action of obtaining and maintaining access is known as [_capturing_][capturing-values].
 
-### Higher-order functions
+## Higher-order functions
 
 Functions that take functions as parameters and/or return functions are known as higher order functions. Swift has many higher-order functions in its various libraries. For example, the `sorted(by:)` method available on Swift collections such as `Array` which for an array with elements of type `T` takes a function of type `(T, T) -> Bool` that determines which of two values should come before the other in a sorted Array, returning `true` if the left-hand value should appear first and `false` if the right-hand value should appear first.
 

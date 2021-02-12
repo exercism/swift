@@ -1,6 +1,6 @@
 # About
 
-### Escaping functions
+## Escaping functions
 
 There are times that a higher-order function takes another function as a parameter and uses it in a way that the passed-in function is called _after_ the higher-order function terminates. This is known as escaping the higher-order function, and the passed-in function is referred to as an [escaping function][escaping].
 

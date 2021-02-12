@@ -35,7 +35,7 @@ Additionally, note that if multiple cases of a switch statement match the input 
 
 Unlike in some other languages, `switch` cases in Swift do not fall through to the next case unless that behavior is explicitly called for with the `fallthrough` keyword. this is the opposite behavior from C which requires explicit `break` statements to prevent fallthrough.
 
-### Binding and where statements
+## Binding and where statements
 
 The values being matched in `switch` statements can also be bound to names which can be used in the body of the case. They can also be used in `where` clauses, which are additional boolean expressions that must evaluate as `true` for the case to match.
 

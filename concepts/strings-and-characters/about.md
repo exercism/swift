@@ -29,7 +29,7 @@ let badChar: Character = "Too many characters"
 
 Like other constructs in Swift, characters and strings are immutable if defined using `let` and mutable if defined using `var`. So in the above examples, `hello` and `sausage` are immutable strings while `fam` and `empty`, and `aChar` are mutable.
 
-### Type conversion
+## Type conversion
 
 Type conversion allows us to get the string representation of many different types in Swift, including `Int`s, `Double`s and `Character`s.
 
@@ -52,7 +52,7 @@ String(3735928559, radix: 16)
 // => "deadbeef"
 ```
 
-### Building strings from smaller parts
+## Building strings from smaller parts
 
 A character or string can be appended to a string through the string's `append(_:)` method:
 
@@ -97,7 +97,7 @@ let areYouHappy = "Happy" + String(question)
 
 Strings may also be built up out of values of other types in two other ways: format strings, or string interpolation.
 
-### Format strings
+## Format strings
 
 Format strings are similar to those seen in other languages, where a [string with special tokens inside][string-format-specifiers] is followed by a list of components that are inserted into the string at the location of the tokens, formatted as directed by the tokens:
 
@@ -110,7 +110,7 @@ String(
 // => "The unsigned decimal integer 3735928559 is 0xDEADBEEF in hexadecimal"
 ```
 
-### String interpolation
+## String interpolation
 
 The most common way to build up strings in Swift is [_string interpolation_][string-interpolation]. String interpolation is similar in spirit to format strings, though less fussy and with somewhat less control over the appearance of the string. To insert a value into a string using string interpolation, you place an expression or value in parentheses which are preceded by a backslash character.
 
@@ -122,7 +122,7 @@ let interp = "The area of a circle with radius \(radius) is \(Double.pi * radius
 
 As noted above, string interpolation will insert the default string representation of the given value into the constructed string (this is the same as what is output if one uses `print(value)`), and this may not be what is wanted or expected. Any additional formatting will need to be applied to the value itself, before string interpolation can build a string out of it. With Swift 5, it is now possible to add custom formatting by extending string interpolation, but that is well beyond the scope of this exercise.
 
-### String and Character equality
+## String and Character equality
 
 Strings and Characters can be compared for equality (or lack thereof) using the `==` operator (or `!=` for not-equal).
 
@@ -140,7 +140,7 @@ Note that, with Unicode, there are a number of ways to represent some symbols. F
 
 The reverse can also be true. For example, the characters "В" and "B" look the same, but are not considered equal in Swift, as the first one is the Cyrillic letter "В" which has a different linguistic meaning than the second character, which is the Latin letter "B", despite their having the same appearance.
 
-### String and Character properties
+## String and Character properties
 
 Strings and characters have a few different _properties_ which can be queried to get information about the string or character. These are queried by placing a ._propertyName_ after the string or character in question For example, one can check to see if a string is empty by querying it's `isEmpty` property, and the count of characters in a string can be retrieved using its `count` property.
 
