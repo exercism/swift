@@ -14,6 +14,20 @@
     "indent_style": "space",
     "indent_size": 2
   },
+  "files": {
+    "solution": [
+      "Sources/%{pascal_slug}/%{pascal_slug}.swift"
+    ],
+    "test": [
+      "Tests/%{pascal_slug}Tests/%{pascal_slug}Tests.swift"
+    ],
+    "example": [
+      "Sources/%{pascal_slug}/%{pascal_slug}Example.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
+  },
   "exercises": {
     "concept": [
       {
