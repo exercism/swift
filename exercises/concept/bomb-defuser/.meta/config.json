@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for bomb-defuser exercise",
   "authors": [
     {
       "github_username": "wneumann",
@@ -6,9 +7,15 @@
     }
   ],
   "files": {
-    "solution": ["Sources/BombDefuser/BombDefuser.swift"],
-    "test": ["Tests/BombDefuserTests/BombDefuserTests.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "solution": [
+      "Sources/BombDefuser/BombDefuser.swift"
+    ],
+    "test": [
+      "Tests/BombDefuserTests/BombDefuserTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
   },
   "contributors": [],
   "forked_from": []

@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for poetry-club exercise",
   "authors": [
     {
       "github_username": "wneumann",
@@ -6,9 +7,17 @@
     }
   ],
   "files": {
-    "solution": ["Sources/PoetryClub/PoetryClub.swift"],
-    "test": ["Tests/PoetryClubTests/PoetryClubTests.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "solution": [
+      "Sources/PoetryClub/PoetryClub.swift"
+    ],
+    "test": [
+      "Tests/PoetryClubTests/PoetryClubTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
   },
-  "forked_from": ["javascript/strings"]
+  "forked_from": [
+    "javascript/strings"
+  ]
 }

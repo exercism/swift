@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for log-lines exercise",
   "authors": [
     {
       "github_username": "wneumann",
@@ -6,9 +7,17 @@
     }
   ],
   "files": {
-    "solution": ["Sources/LogLines/LogLines.swift"],
-    "test": ["Tests/LogLinesTests/LogLinesTests.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "solution": [
+      "Sources/LogLines/LogLines.swift"
+    ],
+    "test": [
+      "Tests/LogLinesTests/LogLinesTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
   },
-  "forked_from": ["csharp/enums"]
+  "forked_from": [
+    "csharp/enums"
+  ]
 }

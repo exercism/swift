@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for santas-helper exercise",
   "authors": [
     {
       "github_username": "wneumann",
@@ -6,8 +7,14 @@
     }
   ],
   "files": {
-    "solution": ["Sources/SantasHelper/SantasHelper.swift"],
-    "test": ["Tests/SantasHelperTests/SantasHelperTests.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "solution": [
+      "Sources/SantasHelper/SantasHelper.swift"
+    ],
+    "test": [
+      "Tests/SantasHelperTests/SantasHelperTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
   }
 }

@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for high-score-board exercise",
   "authors": [
     {
       "github_username": "wneumann",
@@ -6,9 +7,17 @@
     }
   ],
   "files": {
-    "solution": ["Sources/HighScoreBoard/HighScoreBoard.swift"],
-    "test": ["Tests/HighScoreBoardTests/HighScoreBoardTests.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "solution": [
+      "Sources/HighScoreBoard/HighScoreBoard.swift"
+    ],
+    "test": [
+      "Tests/HighScoreBoardTests/HighScoreBoardTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
   },
-  "forked_from": ["elixir/maps"]
+  "forked_from": [
+    "elixir/maps"
+  ]
 }

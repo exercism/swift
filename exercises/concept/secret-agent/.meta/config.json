@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for secret-agent exercise",
   "authors": [
     {
       "github_username": "wneumann",
@@ -6,8 +7,14 @@
     }
   ],
   "files": {
-    "solution": ["Sources/SecretAgent/SecretAgent.swift"],
-    "test": ["Tests/SecretAgentTests/SecretAgentTests.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "solution": [
+      "Sources/SecretAgent/SecretAgent.swift"
+    ],
+    "test": [
+      "Tests/SecretAgentTests/SecretAgentTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
   }
 }
