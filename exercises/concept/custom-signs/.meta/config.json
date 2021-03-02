@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for custom-signs exercise",
   "authors": [
     {
       "github_username": "wneumann",
@@ -6,8 +7,14 @@
     }
   ],
   "files": {
-    "solution": ["Sources/CustomSigns/CustomSigns.swift"],
-    "test": ["Tests/CustomSignsTests/CustomSignsTests.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "solution": [
+      "Sources/CustomSigns/CustomSigns.swift"
+    ],
+    "test": [
+      "Tests/CustomSignsTests/CustomSignsTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
   }
 }

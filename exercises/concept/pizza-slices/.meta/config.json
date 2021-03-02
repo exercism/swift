@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for pizza-slices exercise",
   "authors": [
     {
       "github_username": "wneumann",
@@ -6,8 +7,14 @@
     }
   ],
   "files": {
-    "solution": ["Sources/PizzaSlices/PizzaSlices.swift"],
-    "test": ["Tests/PizzaSlicesTests/PizzaSlicesTests.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "solution": [
+      "Sources/PizzaSlices/PizzaSlices.swift"
+    ],
+    "test": [
+      "Tests/PizzaSlicesTests/PizzaSlicesTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
   }
 }

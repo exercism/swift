@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for vehicle-purchase exercise",
   "authors": [
     {
       "github_username": "wneumann",
@@ -6,9 +7,15 @@
     }
   ],
   "files": {
-    "solution": ["Sources/VehiclePurchase/VehiclePurchase.swift"],
-    "test": ["Tests/VehiclePurchaseTests/VehiclePurchaseTests.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "solution": [
+      "Sources/VehiclePurchase/VehiclePurchase.swift"
+    ],
+    "test": [
+      "Tests/VehiclePurchaseTests/VehiclePurchaseTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
   },
   "contributors": [],
   "forked_from": []

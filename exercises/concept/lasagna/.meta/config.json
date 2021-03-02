@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for lasagna exercise",
   "authors": [
     {
       "github_username": "wneumann",
@@ -6,10 +7,18 @@
     }
   ],
   "files": {
-    "solution": ["Sources/Lasagna/Lasagna.swift"],
-    "test": ["Tests/LasagnaTests/LasagnaTests.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "solution": [
+      "Sources/Lasagna/Lasagna.swift"
+    ],
+    "test": [
+      "Tests/LasagnaTests/LasagnaTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
   },
-  "forked_from": ["fsharp/basics"],
+  "forked_from": [
+    "fsharp/basics"
+  ],
   "language_versions": ">=4.0"
 }
