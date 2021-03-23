@@ -1,10 +1,7 @@
 {
   "blurb": "TODO: add blurb for log-lines exercise",
   "authors": [
-    {
-      "github_username": "wneumann",
-      "exercism_username": "wneumann"
-    }
+    "wneumann"
   ],
   "files": {
     "solution": [
