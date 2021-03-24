@@ -1,6 +1,13 @@
 {
   "blurb": "Write a robot simulator.",
   "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/RobotSimulator/RobotSimulator.swift"

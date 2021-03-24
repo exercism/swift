@@ -1,6 +1,14 @@
 {
   "blurb": "Output the nursery rhyme 'This is the House that Jack Built'.",
   "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/House/House.swift"

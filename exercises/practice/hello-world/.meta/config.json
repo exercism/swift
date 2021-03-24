@@ -1,6 +1,18 @@
 {
   "blurb": "The classical introductory exercise. Just say \"Hello, World!\"",
-  "authors": [],
+  "authors": [
+    "masters3d"
+  ],
+  "contributors": [
+    "AlwynC",
+    "bhargavg",
+    "bobdel",
+    "hankturowski",
+    "jonallured",
+    "lyuha",
+    "namratabandekar",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/HelloWorld/HelloWorld.swift"

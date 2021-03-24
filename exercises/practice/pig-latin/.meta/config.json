@@ -1,6 +1,17 @@
 {
   "blurb": "Implement a program that translates from English to Pig Latin",
-  "authors": [],
+  "authors": [
+    "masters3d"
+  ],
+  "contributors": [
+    "bhargavg",
+    "hankturowski",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "nickkjordan",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/PigLatin/PigLatin.swift"

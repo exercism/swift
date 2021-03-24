@@ -1,6 +1,15 @@
 {
   "blurb": "Compute Pascal's triangle up to a given number of rows.",
   "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/PascalsTriangle/PascalsTriangle.swift"

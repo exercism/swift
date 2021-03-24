@@ -1,6 +1,16 @@
 {
   "blurb": "Detect palindrome products in a given range.",
   "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "samkrishna",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/PalindromeProducts/PalindromeProducts.swift"

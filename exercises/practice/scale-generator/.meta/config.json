@@ -1,6 +1,15 @@
 {
   "blurb": "Generate musical scales, given a starting note and a set of intervals. ",
-  "authors": [],
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "bcylin",
+    "bhargavg",
+    "masters3d",
+    "paiv",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/ScaleGenerator/ScaleGenerator.swift"
