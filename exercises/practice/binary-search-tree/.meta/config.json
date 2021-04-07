@@ -2,9 +2,15 @@
   "blurb": "Insert and search for numbers in a binary tree.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "Sources/BinarySearchTree/BinarySearchTree.swift"
+    ],
+    "test": [
+      "Tests/BinarySearchTreeTests/BinarySearchTreeTests.swift"
+    ],
+    "example": [
+      "Sources/BinarySearchTree/BinarySearchTreeExample.swift"
+    ]
   },
   "source": "Josh Cheek",
   "source_url": "https://twitter.com/josh_cheek"

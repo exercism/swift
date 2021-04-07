@@ -2,9 +2,15 @@
   "blurb": "Implement a clock that handles times without dates.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "Sources/Clock/Clock.swift"
+    ],
+    "test": [
+      "Tests/ClockTests/ClockTests.swift"
+    ],
+    "example": [
+      "Sources/Clock/ClockExample.swift"
+    ]
   },
   "source": "Pairing session with Erin Drummond",
   "source_url": "https://twitter.com/ebdrummond"

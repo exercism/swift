@@ -2,9 +2,15 @@
   "blurb": "Write a function to convert from normal numbers to Roman Numerals.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "Sources/RomanNumerals/RomanNumerals.swift"
+    ],
+    "test": [
+      "Tests/RomanNumeralsTests/RomanNumeralsTests.swift"
+    ],
+    "example": [
+      "Sources/RomanNumerals/RomanNumeralsExample.swift"
+    ]
   },
   "source": "The Roman Numeral Kata",
   "source_url": "http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals"

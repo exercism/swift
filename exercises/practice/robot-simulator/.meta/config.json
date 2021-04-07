@@ -2,9 +2,15 @@
   "blurb": "Write a robot simulator.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "Sources/RobotSimulator/RobotSimulator.swift"
+    ],
+    "test": [
+      "Tests/RobotSimulatorTests/RobotSimulatorTests.swift"
+    ],
+    "example": [
+      "Sources/RobotSimulator/RobotSimulatorExample.swift"
+    ]
   },
   "source": "Inspired by an interview question at a famous company.",
   "source_url": ""
