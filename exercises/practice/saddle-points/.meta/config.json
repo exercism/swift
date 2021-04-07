@@ -2,9 +2,15 @@
   "blurb": "Detect saddle points in a matrix.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "Sources/SaddlePoints/SaddlePoints.swift"
+    ],
+    "test": [
+      "Tests/SaddlePointsTests/SaddlePointsTests.swift"
+    ],
+    "example": [
+      "Sources/SaddlePoints/SaddlePointsExample.swift"
+    ]
   },
   "source": "J Dalbey's Programming Practice problems",
   "source_url": "http://users.csc.calpoly.edu/~jdalbey/103/Projects/ProgrammingPractice.html"

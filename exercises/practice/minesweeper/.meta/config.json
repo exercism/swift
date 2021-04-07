@@ -2,8 +2,14 @@
   "blurb": "Add the numbers to a minesweeper board",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "Sources/Minesweeper/Minesweeper.swift"
+    ],
+    "test": [
+      "Tests/MinesweeperTests/MinesweeperTests.swift"
+    ],
+    "example": [
+      "Sources/Minesweeper/MinesweeperExample.swift"
+    ]
   }
 }

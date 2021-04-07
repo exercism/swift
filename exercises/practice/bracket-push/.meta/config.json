@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "Sources/BracketPush/BracketPush.swift"
+    ],
+    "test": [
+      "Tests/BracketPushTests/BracketPushTests.swift"
+    ],
+    "example": [
+      "Sources/BracketPush/BracketPushExample.swift"
+    ]
   }
 }

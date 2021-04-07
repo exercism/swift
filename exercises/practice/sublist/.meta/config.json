@@ -2,8 +2,14 @@
   "blurb": "Write a function to determine if a list is a sublist of another list.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "Sources/Sublist/Sublist.swift"
+    ],
+    "test": [
+      "Tests/SublistTests/SublistTests.swift"
+    ],
+    "example": [
+      "Sources/Sublist/SublistExample.swift"
+    ]
   }
 }

@@ -2,9 +2,15 @@
   "blurb": "Implement a doubly linked list",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "Sources/LinkedList/LinkedList.swift"
+    ],
+    "test": [
+      "Tests/LinkedListTests/LinkedListTests.swift"
+    ],
+    "example": [
+      "Sources/LinkedList/LinkedListExample.swift"
+    ]
   },
   "source": "Classic computer science topic"
 }

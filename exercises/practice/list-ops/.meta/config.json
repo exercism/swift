@@ -2,8 +2,14 @@
   "blurb": "Implement basic list operations",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "Sources/ListOps/ListOps.swift"
+    ],
+    "test": [
+      "Tests/ListOpsTests/ListOpsTests.swift"
+    ],
+    "example": [
+      "Sources/ListOps/ListOpsExample.swift"
+    ]
   }
 }
