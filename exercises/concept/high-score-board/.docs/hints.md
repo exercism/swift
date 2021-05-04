@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Define a new high score dictionary
 
 - Empty dictionaries can be initialized by following the type name with a pair of empty parentheses or, if the type can be determined from context, by using the empty dictionary literal.

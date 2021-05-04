@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Create LogLevel enum
 
 - You will need to define an initializer and a method along with your enum cases.

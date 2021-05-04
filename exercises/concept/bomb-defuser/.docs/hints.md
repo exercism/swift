@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - The syntax for defining a closure is `{ (parameter list) -> ReturnType in bodyOfClosure }`

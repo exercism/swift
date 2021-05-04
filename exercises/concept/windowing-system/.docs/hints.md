@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [Structs and classes][structs-and-classes] share similar definition syntax.

@@ -1,3 +1,5 @@
+# About
+
 The built-in Swift types have a number of problems when used to model something with a moderate number of possible states or values, like the 63 official HTTP status codes, or the 8 buttons of the NES controller.
 
 For example, one may try to use existing types like strings or ints to represent their values, similar to what was done with the HTTP status codes, but this leads to a few different issues. One issue is that, while a computer may be fine processing valid values like 103, 226, and 505, the program itself also has to constantly check that it doesn't receive invalid values like 213, 427, 512, or 601. At the same time the _programmer_ is responsible for ensuring that every valid value is checked when examining a code to act upon, so a valid code isn't missed.
@@ -10,7 +12,7 @@ As an approach to solving this problem, Swift, like many modern languages offers
 
 Enums in Swift are a mechanism of creating new types which are inhabited by a finite number of named values which may carry additional associated information, and which can be checked at compile time for completeness and accuracy of use. Additionally, enums can have properties and methods attached to them, providing additional information and functionality based on the current value of the enum.
 
-### Defining Enums
+## Defining Enums
 
 The most basic enums are defined in Swift by the `enum` keyword followed by the name of the type and then the body of the enum enclosed in curly braces, which includes a list of the values of the enum, introduced with the `case` keyword. Following the [Swift style guide][api-design-guidelines], the name of the type should be in UpperCamelCase while the values should be in lowerCamelCase.
 
@@ -48,7 +50,7 @@ let konamiCode = [NESButton.up, .up, .down, .down, .left, .right, .left, .right,
 
 Notice that, since all of the elements of an array must be of the same type, we only need to supply the type name for one of the elements, the rest can be just the values. The type name wouldn't be required for any of them if the constant was given the proper type annotation, e.g. `let konamiCode: [NESButton] = …`.
 
-### Enums and switch statements
+## Enums and switch statements
 
 Enums are frequently used [alongside `switch` statements][enums-and-switches] which are used to determine the action to take based on the value of the enum.
 
@@ -113,7 +115,7 @@ lastPressed = .selcet
 // Error: Type 'NESButton' has no member 'selcet'
 ```
 
-### Methods
+## Methods
 
 Like other types in Swift, enums may contain methods which allow the enum to provide functionality based on the current value of the enum.
 
@@ -121,7 +123,7 @@ Methods are analogous to functions, only they are defined inside the body of the
 
 Inside the method, the enum value can be referred to as `self`, and in the type signature, if one is accepting as a parameter or returning a value of the the enum they can refer to the type as `Self`.
 
-#### Initializers
+### Initializers
 
 Initializers are special methods that are used to set up a value of the enum. Their definition looks a lot like that of a method only there is no `func` keyword, no return type, and the name must be `init` and the initializer _must_ assign a value of the enum to `self`. Initializers are called either via dot notation or by passing the initializer's parameters to the name of the enum.
 

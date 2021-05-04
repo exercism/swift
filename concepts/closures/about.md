@@ -1,3 +1,5 @@
+# About
+
 [Closures][closures] in Swift are self-contained blocks of code that can be passed parameters to trigger their computation and return values. Closures also capture values from their environment and use them in their computations. As they are self contained, they may be passed around in a program like other values or assigned to constants and variables.
 
 Closures may sound a lot like Swift functions; they do, and for good reason. Functions in swift are just special cases of closures which are required to have a name and are defined using a slightly different syntax.
@@ -46,7 +48,7 @@ func makeAdder(base: Int) -> (Int) -> Int {
 }
 ```
 
-### Inferring closure types
+## Inferring closure types
 
 When the return type or parameter types can be [inferred from context][inferring-closure-types], they can be omitted from the closure expression. Additionally, if the parameter types can be omitted, so can the parentheses around the parameter names:
 
@@ -64,7 +66,7 @@ func makeAdder(base: Int) -> (Int) -> Int {
 - In the second, the compiler knows from the definition of `makeAdder` that `base` is an int and that the returned function must be of type `(Int) -> Int`. From there, it can verify that if `x` is an `Int` then the closure will have type `(Int) -> Int`, and thus we can omit they type signature in the closure as `(Int) -> Int` is the only possible valid signature the closure may have.
 - The third example is similar, but the compiler needs get some of the type information from the array that the method is being used with. It knows that the `sorted(by:)` method takes as a parameter a closure with two parameters that are the same type as the elements of the collection being sorted, and which returns a `Bool`, so the compiler can infer that the return type of the closure must be `Bool`. And since the method is being used with a String array, it can determine that the types of the parameters `s1`, and `s2` must both be `String`.
 
-### Limitations of closures
+## Limitations of closures
 
 As mentioned above, functions and closures are very similar in Swift, but there are some important differences:
 

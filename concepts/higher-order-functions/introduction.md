@@ -1,4 +1,6 @@
-### Function types
+# Introduction
+
+## Function types
 
 If one were to remove all of the names and labels from a Swift function signature, they would be left with the type of the function.
 
@@ -42,7 +44,7 @@ stringAndIntToString = printShoppingList
 // Error: Cannot assign value of type '(String) -> ()' to type '(String, Int) -> String'
 ```
 
-### Function types as parameter types
+## Function types as parameter types
 
 As function types can be used anywhere other types can be used, it follows that they can be used as parameter types and passed into other functions and called from within those functions.
 
@@ -59,7 +61,7 @@ apply3(to: "eggs", function: repeater)
 // => "eggseggseggs"
 ```
 
-### Function types as return types
+## Function types as return types
 
 Similarly, function types may be used as return types for functions. In other words, one can write functions that create and return other functions. When creating these functions, the function that is returned can use the other parameters passed into the function or the local variables created inside the parent function.
 

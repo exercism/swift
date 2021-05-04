@@ -1,4 +1,4 @@
-## Variadic parameters
+# Variadic parameters
 
 [_Variadic parameters_][variadic-parameters] in Swift allow zero or more values of the same type to be passed into a single parameter in a function. This is indicated by appending `...` to the type annotation of the parameter.
 

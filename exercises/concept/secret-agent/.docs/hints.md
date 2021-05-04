@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Generate a combination to open their safe:
 
 - The room number is not a part of the combination.

@@ -1,3 +1,5 @@
+# Instructions
+
 You have a number of pizza slice shops in your town and you want to write a webapp that will let you compare two different pizza configurations to let you know who will give you the bigger slice.
 
 ## 1. Write a function to compute slice sizes which returns nil for invalid input.

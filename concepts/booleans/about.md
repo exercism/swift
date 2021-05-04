@@ -1,3 +1,5 @@
+# About
+
 One of Swift's basic types is the [Boolean type][booleans], called `Bool`. Swift provides two Boolean constant values, `true` and `false`:
 
 ```swift

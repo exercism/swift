@@ -1,3 +1,5 @@
+# Design
+
 This concept exercise should convey a basic understanding of how to work with higher order functions in Swift.
 
 ## Learning objectives

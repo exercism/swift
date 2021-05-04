@@ -1,3 +1,5 @@
+# Instructions
+
 Hello again, Agent Double-Null0111.
 
 The forces of UMBRA are acting up again, and it is up to you to foil their latest scheme. Our intel branch informs us that those Minions are planning to set off a stink-bomb at the Governor's ball.

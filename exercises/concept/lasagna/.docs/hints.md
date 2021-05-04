@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - An [integer value](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID323) can be defined as one or more consecutive digits.

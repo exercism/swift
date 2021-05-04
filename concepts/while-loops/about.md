@@ -1,3 +1,5 @@
+# About
+
 [While loops][while-loops] in Swift have the following structure:
 
 ```swift
@@ -23,7 +25,7 @@ print("Liftoff!")
 // Liftoff!
 ```
 
-### Optional binding loops
+## Optional binding loops
 
 One common variant of while loops in Swift is the optional binding while loop. These loops repeat as long as the call to some function that yields an optional value returns a non-`nil` value. That (non-optional) value is then boud to a name of your choice and can be used in the body of the loop.
 

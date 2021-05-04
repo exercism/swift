@@ -1,6 +1,8 @@
+# About
+
 The normal control flow of loops in Swift can be altered using [Swift's control transfer keywords][control-transfer]. One of these keywords, `return` has been seen before in the basics concept exercise. With the use of `return`, if the loop is inside a function, the function will exit at that point, returning whatever value is specified, just as it would at any other point in a function. Two more control transfer keywords that are often used with loops are `continue` and `break`.
 
-### continue
+## continue
 
 When the `continue` keyword is executed inside a loop, it tells the loop to skip immediately to the next iteration of the loop, skipping any lines of code that may lie between it and the end of the body of the loop. Note that execution resumes with the next evaluation of the Boolean expression for while and repeat-while loops, and not directly to the start of the loop body. So this loop:
 
@@ -29,7 +31,7 @@ rather than:
 6
 ```
 
-### break
+## break
 
 When the `break` keyword is executed inside a loop, it tells the loop to jump immediately out of the loop and to resume execution with the first statement following the body of the loop, skipping any lines of code that may lie between it and the end of the body of the loop and not attempting to start another iteration of the loop.
 
@@ -44,7 +46,7 @@ for fruit in ["banana", "grapes", "apple", "strawberry", "kiwi", "lemon"] {
 // grapes
 ```
 
-### labels
+## labels
 
 When loops are nested, there are times when one may want to use `break` or `continue` to exit or restart the outer loops that contain the loop in which the `break` or `continue` are used. In cases like these, [labels may be used][labeled-statements] to specify the loop to be exited or restarted. A loop can be labeled by putting a name followed by a colon before the `while`, `repeat`, or `for` that starts the loop.
 

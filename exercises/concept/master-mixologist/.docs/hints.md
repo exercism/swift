@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Determine how long it takes to make an order
 
 - A [for-in loop][for-in-loops] can be used to look at one drink at a time.

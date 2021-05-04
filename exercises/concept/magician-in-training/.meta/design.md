@@ -1,3 +1,5 @@
+# Design
+
 Of the primary Swift collection types, we chose to use the `Array` collection type as the first collection type students will be taught for the following reasons:
 
 - Arrays are a common data type in many languages.

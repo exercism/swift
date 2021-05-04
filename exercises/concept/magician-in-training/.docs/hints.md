@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - Arrays in Swift use zero-based indices. The first index in an Array is `0`.

@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - Read about [optionals][optionals]and about [conditionals][conditionals] in Apple's _A Tour of Swift_ .

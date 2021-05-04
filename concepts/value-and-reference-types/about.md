@@ -1,3 +1,5 @@
+# About
+
 While Swift has many different types, each of these types fall into one of two different classifications, _value types_ and _reference types_. In Swift, [structs are value types][structs-are-value-types] while [classes are reference types][classes-are-reference-types].
 
 The primary difference between value types and reference types is that, when value types are assigned to a variable or constant, or when passed into a function, it is actually a copy of the value that is assigned or passed, not that particular value. Modifying one copy of a struct will not affect other copies. With reference types, a reference to that value is assigned or passed, so two different names can refer to the same instance of a class. This can lead to modification of the original instance when accessed under a different name.
@@ -120,7 +122,7 @@ A summary of what may be changed with structs and classes defined with `let` or 
 | **let** | _Cannot_ assign a new struct to the name.</br>_Cannot_ modify any properties of the struct. | _Cannot_ assign a new class to the name.</br>_Can_ modify mutable properties of the class. |
 | **var** | _Can_ assign a new struct to the name.</br>_Can_ modify mutable properties of the struct.   | _Can_ assign a new class to the name.</br>_Can_ modify mutable properties of the class.    |
 
-### Identity
+## Identity
 
 Because two different names may hold a reference to the same instance of class, it is sometimes useful to test if this is the case. Swift uses the `===` _identical_ operator to test for this (along with its negation, `!==`).
 

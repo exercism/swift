@@ -1,3 +1,5 @@
+# About
+
 Swift is a type-safe, statically typed language, which means that the types of all values are known at compile time and that one type cannot be used in your program where a different type is expected. This will prevent you from, e.g. passing an `Int` to a function that expects a floating point value. Type safety helps you catch and fix type errors as early as possible in the development process.
 
 In addition, Swift also offers [type inference][type inference], which means that the compiler will attempt to determine the type of a value or expression from the program itself, rather than needing to be told explicitly what the type should be.

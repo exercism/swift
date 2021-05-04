@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Create a set of useful strings
 
 - [Strings][strings-and-characters] are defined as literals by enclosing zero or more of characters between double quotation marks (`"`).
