@@ -1,6 +1,20 @@
 {
   "blurb": "Given a decimal number, convert it to the appropriate sequence of events for a secret handshake.",
-  "authors": [],
+  "authors": [
+    "masters3d"
+  ],
+  "contributors": [
+    "bhargavg",
+    "hankturowski",
+    "harquail",
+    "jonallured",
+    "kytrinyx",
+    "lyuha",
+    "nickkjordan",
+    "robtimp",
+    "samkrishna",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/SecretHandshake/SecretHandshake.swift"

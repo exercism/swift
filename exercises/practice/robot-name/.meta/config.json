@@ -1,6 +1,19 @@
 {
   "blurb": "Manage robot factory settings.",
-  "authors": [],
+  "authors": [
+    "hankturowski"
+  ],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "nickkjordan",
+    "paiv",
+    "robtimp",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/RobotName/RobotName.swift"

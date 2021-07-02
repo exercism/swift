@@ -1,6 +1,15 @@
 {
   "blurb": "Implement basic list operations",
-  "authors": [],
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "bcylin",
+    "bhargavg",
+    "kytrinyx",
+    "masters3d",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/ListOps/ListOps.swift"

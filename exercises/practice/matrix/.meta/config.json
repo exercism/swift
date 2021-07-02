@@ -1,6 +1,15 @@
 {
   "blurb": "Given a string representing a matrix of numbers, return the rows and columns of that matrix.",
   "authors": [],
+  "contributors": [
+    "bhargavg",
+    "ericrosko",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/Matrix/Matrix.swift"

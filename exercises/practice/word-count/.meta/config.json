@@ -1,6 +1,18 @@
 {
   "blurb": "Given a phrase, count the occurrences of each word in that phrase.",
-  "authors": [],
+  "authors": [
+    "hankturowski"
+  ],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "samkrishna",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/WordCount/WordCount.swift"

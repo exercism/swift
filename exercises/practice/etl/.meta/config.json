@@ -1,6 +1,17 @@
 {
   "blurb": "We are going to do the `Transform` step of an Extract-Transform-Load.",
-  "authors": [],
+  "authors": [
+    "hankturowski"
+  ],
+  "contributors": [
+    "bhargavg",
+    "edasque",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/Etl/Etl.swift"

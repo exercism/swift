@@ -1,6 +1,16 @@
 {
   "blurb": "Take input text and output it transposed.",
-  "authors": [],
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/Transpose/Transpose.swift"

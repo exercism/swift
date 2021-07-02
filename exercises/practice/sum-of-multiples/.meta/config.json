@@ -1,6 +1,19 @@
 {
   "blurb": "Given a number, find the sum of all the multiples of particular numbers up to but not including that number.",
-  "authors": [],
+  "authors": [
+    "masters3d"
+  ],
+  "contributors": [
+    "bhargavg",
+    "duffn",
+    "hankturowski",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "nickkjordan",
+    "samkrishna",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/SumOfMultiples/SumOfMultiples.swift"

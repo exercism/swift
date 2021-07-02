@@ -1,6 +1,18 @@
 {
   "blurb": "Tally the results of a small football competition.",
-  "authors": [],
+  "authors": [
+    "masters3d"
+  ],
+  "contributors": [
+    "bhargavg",
+    "hankturowski",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "nickkjordan",
+    "robtimp",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/Tournament/Tournament.swift"

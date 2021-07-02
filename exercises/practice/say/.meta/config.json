@@ -1,6 +1,15 @@
 {
   "blurb": "Given a number from 0 to 999,999,999,999, spell out that number in English.",
-  "authors": [],
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "bcylin",
+    "bhargavg",
+    "kytrinyx",
+    "masters3d",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/Say/Say.swift"

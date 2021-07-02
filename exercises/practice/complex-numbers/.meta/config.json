@@ -1,6 +1,13 @@
 {
   "blurb": "Implement complex numbers.",
-  "authors": [],
+  "authors": [
+    "AlwynC"
+  ],
+  "contributors": [
+    "bhargavg",
+    "masters3d",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/ComplexNumbers/ComplexNumbers.swift"

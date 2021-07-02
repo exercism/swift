@@ -1,6 +1,18 @@
 {
   "blurb": "Convert a long phrase to its acronym",
-  "authors": [],
+  "authors": [
+    "masters3d"
+  ],
+  "contributors": [
+    "bhargavg",
+    "hankturowski",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "robtimp",
+    "samkrishna",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/Acronym/Acronym.swift"

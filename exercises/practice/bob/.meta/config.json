@@ -1,6 +1,18 @@
 {
   "blurb": "Bob is a lackadaisical teenager. In conversation, his responses are very limited.",
-  "authors": [],
+  "authors": [
+    "hankturowski"
+  ],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "jonallured",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/Bob/Bob.swift"

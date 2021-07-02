@@ -1,6 +1,14 @@
 {
   "blurb": "Implement a binary search algorithm.",
   "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/BinarySearch/BinarySearch.swift"

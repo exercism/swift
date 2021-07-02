@@ -1,6 +1,15 @@
 {
   "blurb": "Detect saddle points in a matrix.",
   "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/SaddlePoints/SaddlePoints.swift"

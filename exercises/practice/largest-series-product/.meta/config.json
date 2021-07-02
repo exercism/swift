@@ -1,6 +1,14 @@
 {
   "blurb": "Given a string of digits, calculate the largest product for a contiguous substring of digits of length n.",
   "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/LargestSeriesProduct/LargestSeriesProduct.swift"

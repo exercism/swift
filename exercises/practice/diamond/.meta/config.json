@@ -1,6 +1,15 @@
 {
   "blurb": "Given a letter, print a diamond starting with 'A' with the supplied letter at the widest point.",
-  "authors": [],
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "bcylin",
+    "bhargavg",
+    "kytrinyx",
+    "masters3d",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/Diamond/Diamond.swift"

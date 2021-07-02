@@ -1,6 +1,19 @@
 {
   "blurb": "Given a word, compute the Scrabble score for that word.",
-  "authors": [],
+  "authors": [
+    "masters3d"
+  ],
+  "contributors": [
+    "bhargavg",
+    "hankturowski",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "nickkjordan",
+    "robtimp",
+    "samkrishna",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/ScrabbleScore/ScrabbleScore.swift"

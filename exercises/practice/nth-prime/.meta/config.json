@@ -1,6 +1,14 @@
 {
   "blurb": "Given a number n, determine what the nth prime is.",
   "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "lyuha",
+    "masters3d",
+    "samkrishna",
+    "ThomasHaz"
+  ],
   "files": {
     "solution": [
       "Sources/NthPrime/NthPrime.swift"
