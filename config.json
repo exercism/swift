@@ -3,7 +3,7 @@
   "slug": "swift",
   "active": true,
   "status": {
-    "concept_exercises": false,
+    "concept_exercises": true,
     "test_runner": false,
     "representer": false,
     "analyzer": false
