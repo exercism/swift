@@ -1,1 +1,3 @@
-//Solution goes in Sources
+func hello() -> String {
+  return "Goodbye, Mars!"
+}

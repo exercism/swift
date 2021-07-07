@@ -1,9 +1,3 @@
-//
-// HelloWorld.swift
-//
-
-struct HelloWorld {
-    static func hello(_ text: String = "World") -> String {
-        return "Hello, \(text)!"
-    }
+func hello() -> String {
+  return "Hello, World!"
 }
