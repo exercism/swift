@@ -17,8 +17,9 @@ if
     let jsonData = try? Data(contentsOf: URL(fileURLWithPath: configPath), options: Data.ReadingOptions.mappedIfSafe),
     let json = try? JSONSerialization.jsonObject(with: jsonData, options: []),
     let jsonDict = json as? [String: Any],
-    let exercisesDict = jsonDict["exercises"] as? [[String: Any]],
-    let exercises = exercisesDict.map({ $0["slug"] }) as? [String] {
+    let exercisesDict = jsonDict["exercises"] as? [String: Any],
+    let practiceExercisesDict = exercisesDict["practice"] as? [[String: Any]],
+    let exercises = practiceExercisesDict.map({ $0["slug"] }) as? [String] {
     allProblems += exercises
 } else {
     print("Could not parse config.json at \(configPath)")
