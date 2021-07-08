@@ -51,7 +51,7 @@ do {
 }
 #endif
 
-let packageDependencies: [Package.Dependency] = allProblems.map { .package(path: "./exercises/\($0)/") }
+let packageDependencies: [Package.Dependency] = allProblems.map { .package(path: "./exercises/practice/\($0)/") }
 let targetDependencies: [Target.Dependency] = allProblemsPascalCase.map { .byName(name:"\($0)") }
 
 let sources  = allProblems.map { "./\($0)/Sources" }
@@ -70,13 +70,13 @@ let package = Package(
         .target(
             name: "xswift",
             dependencies: targetDependencies,
-            path: "./exercises",
+            path: "./exercises/practice",
             sources: sources
             ),
         .testTarget(
             name: "xswiftTests",
             dependencies: ["xswift"],
-            path: "./exercises",
+            path: "./exercises/practice",
             sources: testSources
             ),
         ]
