@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for initializers concept",
+  "blurb": "Initializers are special methods that are used to set up a value of the enum.",
   "authors": [
     "wneumann"
   ],

@@ -27,7 +27,7 @@ func printString(line: String) {
 // printString: (String) -> ()
 ```
 
-Notice how the types of the first two functions are the same, `(String, Int) -> String`, even though the two functions work veery differently. They both take a `String` and an `Int` as input and return a `String`. And, as one can see from the third function's type, even though the function doesn't appear to return anything, it actually returns `()`, the only value of type `Void`. Note that `()` and `Void` are interchangeable as type names, so the type of `printString` could also be written as `String) -> Void`.
+Notice how the types of the first two functions are the same, `(String, Int) -> String`, even though the two functions work very differently. They both take a `String` and an `Int` as input and return a `String`. And, as one can see from the third function's type, even though the function doesn't appear to return anything, it actually returns `()`, the only value of type `Void`. Note that `()` and `Void` are interchangeable as type names, so the type of `printString` could also be written as `String) -> Void`.
 
 These types can be used in the same manner as any other type in Swift, for example, they can be used in the declaration of variables or constants. And since functions are values in Swift, already existing functions can be assigned to these constants/variables:
 

@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for capturing concept",
+  "blurb": "Captures allow closures and functions to access the parameters and variables of their surrounding environment.",
   "authors": [
     "wneumann"
   ],

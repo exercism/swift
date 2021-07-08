@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for while-loops concept",
+  "blurb": "While loops allow repeatedly executing a bit of code while a condition evaluates to true.",
   "authors": [
     "wneumann"
   ],

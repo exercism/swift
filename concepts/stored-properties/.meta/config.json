@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for stored-properties concept",
+  "blurb": "Struct and classes can define _stored properties_, which are defined and behave just like regular constants or variables and are stored as part of an instance of that struct/class.",
   "authors": [
     "wneumann"
   ],

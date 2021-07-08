@@ -1,94 +1,52 @@
 # Introduction
 
-TODO: the content below is copied from the exercise introduction and probably needs rewriting to a proper concept introduction
+There are times that a higher-order function takes another function as a parameter and uses it in a way that the passed-in function is called _after_ the higher-order function terminates. This is known as escaping the higher-order function, and the passed-in function is referred to as an _escaping function_.
 
-## escaping-functions
-
-## higher-order-functions
-
-### Function types
-
-If one were to remove all of the names and labels from a Swift function signature, they would be left with the type of the function.
+This happens most often in asynchronous code, but it can occur in higher-order functions where the passed-in function (or a function that calls it) is returned from the higher-order function. For example:
 
 ```swift
-func shoppingList(item: String, quantity: Int) -> String {
-  "You need to buy \(quantity) \(item)."
+func emptyKitchen(_ order: String) -> String {
+  "Sorry, we're all out of \(order)."
 }
-// shoppingList: (String, Int) -> String
 
-func repeater(_ phrase: String, times: Int) -> String {
-  var result = ""
-  for _ in 1...times {
-    result += phrase
+func prepare(order: String, kitchen: (String) -> String) -> (String) -> String {
+  func newKitchen(_ newOrder: String) -> String {
+    if newOrder == order {
+      return "One \(order) coming up!"
+    } else {
+      return kitchen(newOrder)
+    }
   }
-  return result
+  return newKitchen
 }
-// repeater: (String, Int) -> String
-
-func printString(line: String) {
-  print(line)
-}
-// printString: (String) -> ()
 ```
 
-Notice that the types of the first two functions are the same, `(String, Int) -> String`, even though the two signatures are different and the two functions work very differently. They both take a `String` and an `Int` as input and return a `String`. And, as one can see from the third function's type, even though the function body doesn't appear to return anything, it actually implicitly returns `()`, the only value of type `Void`.
+Here, the function `prepare` accepts a function for its `kitchen` parameter, then constructs a new function `newKitchen` which may call `kitchen`. This `newKitchen` function is then returned to the caller. Trying to write this function in Swift results in the error: _Escaping local function captures non-escaping parameter 'kitchen'_
 
-These function types can be used in the same manner as any other type in Swift, for example, they can be used in the declaration of variables or constants. And since functions are values in Swift, already existing functions can be assigned to these constants/variables:
-
-```swift
-var stringAndIntToString: (String, Int) -> String
-
-stringAndIntToString = shoppingList
-stringAndIntToString("carrots", 3)
-// => "You need to buy 3 carrots."
-```
-
-As with other variables/constants, the value you assign to it must be of the correct type:
+Swift raises an error in this case because there are situations where the nested or passed-in function may capture a value that can lead to memory leaks. How this happens and how to prevent these leaks are beyond the scope of this exercise. However, this error can be satisfied by placing the `@escaping` attribute before the passed-in function's type signature.
 
 ```swift
-stringAndIntToString = printShoppingList
-// Error: Cannot assign value of type '(String) -> ()' to type '(String, Int) -> String'
-```
-
-### Function types as parameter types
-
-As function types can be used anywhere other types can be used, it follows that they can be used as parameter types and passed into other functions and called from within those functions.
-
-```swift
-func apply3(to str: String, function f: (String, Int) -> String) -> String {
-  f(str,3)
-}
-// apply3: ([String], (String, Int) -> String) -> [String]
-
-apply3(to: "eggs", function: shoppingList)
-// => "You need to buy 3 eggs."
-
-apply3(to: "eggs", function: repeater)
-// => "eggseggseggs"
-```
-
-### Function types as return types
-
-Similarly, function types may be used as return types for functions. In other words, one can write functions that create and return other functions. When creating these functions, the function that is returned can use the other parameters passed into the function or the local variables created inside the parent function.
-
-```swift
-func makeAdder(base: Int) -> (Int) -> Int {
-  func adder(_ i: Int) -> Int {
-    base + i
+func prepare(order: String, kitchen: @escaping (String) -> String) -> (String) -> String {
+  func newKitchen(_ newOrder: String) -> String {
+    if newOrder == order {
+      return "One \(order) coming up!"
+    } else {
+      return kitchen(newOrder)
+    }
   }
-  return adder
+  return newKitchen
 }
-// makeAdder: (Int) -> (Int) -> Int
 
-let add10 = makeAdder(base: 10)
-// add10: (Int) -> Int
+let restaurant =
+  prepare(order: "sandwich",
+          kitchen: prepare(order: "chicken",
+                           kitchen: prepare(order: "steak",
+                                            kitchen: emptyKitchen)))
 
-let subtract20 = makeAdder(base: -20)
-// subtract10: (Int) -> Int
-
-add10(5)
-// => 15
-
-subtract20(5)
-// => -15
+restaurant("pork chop")
+// => "Sorry, we're all out of pork chop."
+restaurant("chicken")
+// => "One chicken coming up!"
 ```
+
+This attribute signals to the Swift compiler that the author is aware that memory leaks may occur by allowing this function to escape.

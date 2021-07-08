@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for conditionals-guard concept",
+  "blurb": "The guard statement in Swift is used for early returns from Swift functions when a required condition is not met.",
   "authors": [
     "wneumann"
   ],

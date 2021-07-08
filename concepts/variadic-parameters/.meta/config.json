@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for variadic-parameters concept",
+  "blurb": "Variadic parameters allow zero or more values of the same type to be passed into a single parameter in a function.",
   "authors": [
     "wneumann"
   ],

@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for string-indexing concept",
+  "blurb": "Individual string characters are indexed via an index.",
   "authors": [
     "wneumann"
   ],

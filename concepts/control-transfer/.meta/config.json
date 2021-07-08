@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for control-transfer concept",
+  "blurb": "Control transfer allows modifiying the control flow inside loops.",
   "authors": [
     "wneumann"
   ],

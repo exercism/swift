@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for importing concept",
+  "blurb": "Importing modules is done using the import keyword followed by the name of the module.",
   "authors": [
     "wneumann"
   ],

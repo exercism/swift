@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for tuples concept",
+  "blurb": "Tuples are used to combine multiple values into a single compound value where each of the values may have a different type.",
   "authors": [
     "wneumann"
   ],
