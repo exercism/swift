@@ -1,3 +1,13 @@
 # Introduction
 
-There are three primary conditional statements that are used in Swift, `if` statements, `switch` statements, and `guard` statements. The `if` and `switch` statements are similar to those seen in a number of other languages, and `guard` should feel familiar to users of other languages with early exit statements.
+The ternary operator is an operator that takes, as the name implies, three inputs. The first input is a `Boolean` expression, and the other two inputs are expressions of the same type. The structure of the ternary operator is:
+
+```swift
+Boolean-expression ? expression1 : expression2
+```
+
+The ternary operator evaluates _Boolean-expression_ then, if the expression evaluates to `true`, evaluates _expression1_, returning its value, otherwise it evaluates _expression2_ and returns its value. For example, the following expression assigns the larger of the two values `a` and `b` to `bigger`.
+
+```swift
+let bigger = a > b ? a : b
+```
