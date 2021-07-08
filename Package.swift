@@ -17,8 +17,9 @@ if
     let jsonData = try? Data(contentsOf: URL(fileURLWithPath: configPath), options: Data.ReadingOptions.mappedIfSafe),
     let json = try? JSONSerialization.jsonObject(with: jsonData, options: []),
     let jsonDict = json as? [String: Any],
-    let exercisesDict = jsonDict["exercises"] as? [[String: Any]],
-    let exercises = exercisesDict.map({ $0["slug"] }) as? [String] {
+    let exercisesDict = jsonDict["exercises"] as? [String: Any],
+    let practiceExercisesDict = exercisesDict["practice"] as? [[String: Any]],
+    let exercises = practiceExercisesDict.map({ $0["slug"] }) as? [String] {
     allProblems += exercises
 } else {
     print("Could not parse config.json at \(configPath)")
@@ -51,7 +52,7 @@ do {
 }
 #endif
 
-let packageDependencies: [Package.Dependency] = allProblems.map { .package(path: "./exercises/\($0)/") }
+let packageDependencies: [Package.Dependency] = allProblems.map { .package(path: "./exercises/practice/\($0)/") }
 let targetDependencies: [Target.Dependency] = allProblemsPascalCase.map { .byName(name:"\($0)") }
 
 let sources  = allProblems.map { "./\($0)/Sources" }
@@ -70,13 +71,13 @@ let package = Package(
         .target(
             name: "xswift",
             dependencies: targetDependencies,
-            path: "./exercises",
+            path: "./exercises/practice",
             sources: sources
             ),
         .testTarget(
             name: "xswiftTests",
             dependencies: ["xswift"],
-            path: "./exercises",
+            path: "./exercises/practice",
             sources: testSources
             ),
         ]
