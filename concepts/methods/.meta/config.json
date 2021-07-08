@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for methods concept",
+  "blurb": "Methods are functions that are directly linked to a struct or class.",
   "authors": [
     "wneumann"
   ],

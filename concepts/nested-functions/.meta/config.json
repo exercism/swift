@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for nested-functions concept",
+  "blurb": "Nested functions are functions that are defined inside another function.",
   "authors": [
     "wneumann"
   ],

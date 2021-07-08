@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for variables concept",
+  "blurb": "Variables are used to assigning a value to a name and which value can be changed at any time.",
   "authors": [
     "wneumann"
   ],

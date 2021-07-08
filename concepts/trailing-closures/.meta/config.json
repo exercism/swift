@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for trailing-closures concept",
+  "blurb": "Trailing closures arise when the last parameter in a function's list of parameters has a function type.",
   "authors": [
     "wneumann"
   ],

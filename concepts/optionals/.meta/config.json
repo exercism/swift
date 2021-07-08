@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for optionals concept",
+  "blurb": "Optionals can be used to represent the possible absence of a value.",
   "authors": [
     "wneumann"
   ],

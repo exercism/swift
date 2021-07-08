@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for enumerations concept",
+  "blurb": "Enumerations allow for a declarative way of associating a fixed set of constant name/value pairs.",
   "authors": [
     "wneumann"
   ],

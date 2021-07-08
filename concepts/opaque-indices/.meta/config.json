@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for opaque-indices concept",
+  "blurb": "Opaque indices are indices that are only used to access data, they don't offer any value by themselves.",
   "authors": [
     "wneumann"
   ],

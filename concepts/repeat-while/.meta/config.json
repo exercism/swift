@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for repeat-while concept",
+  "blurb": "Repeat-while loops are loops that execute code while a conditional evaluates to true. That condition is evaluated after the body of the loop is executed.",
   "authors": [
     "wneumann"
   ],

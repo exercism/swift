@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for default-parameters concept",
+  "blurb": "Default parameter values can be used to give a parameter a default value, which means that the caller doesn't need to provide a value for that parameter.",
   "authors": [
     "wneumann"
   ],
