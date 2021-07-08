@@ -1,20 +1,8 @@
 # Introduction
 
-## loops
-
-## for-loops
-
-## while-loops
-
-## repeat-while
-
-## control-transfer
-
-## Loops
-
 There are three primary types of loop constructs in Swift: while loops, repeat-while loops, and for-in loops.
 
-### while loops
+## while loops
 
 While loops in Swift have the following structure:
 
@@ -41,7 +29,7 @@ print("Liftoff!")
 // Liftoff!
 ```
 
-### repeat-while loops
+## repeat-while loops
 
 Repeat-while loops are similar to while loops, however, these loops differ in that the Boolean expression appears, and is evaluated, _after_ the body of the loop is executed. As a result, these loops always execute at least once.
 
@@ -56,7 +44,7 @@ print("Loop done")
 // Loop done
 ```
 
-### for-in loops
+## for-in loops
 
 For-in loops are used to iterate over a sequence of values, taking each element in turn, binding it to a variable or constant name of the developer's choosing, then executes a block of code that may refer to the element. When every element of the sequence has been iterated over, the loop exits and execution begins with the first line following the body of the loop.
 

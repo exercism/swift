@@ -1,10 +1,6 @@
 # Introduction
 
-## escaping-functions
-
-## Higher Order Functions
-
-### Function types
+## Function types
 
 If one were to remove all of the names and labels from a Swift function signature, they would be left with the type of the function.
 
@@ -65,7 +61,7 @@ apply3(to: "eggs", function: repeater)
 // => "eggseggseggs"
 ```
 
-### Function types as return types
+## Function types as return types
 
 Similarly, function types may be used as return types for functions. In other words, one can write functions that create and return other functions. When creating these functions, the function that is returned can use the other parameters passed into the function or the local variables created inside the parent function.
 
