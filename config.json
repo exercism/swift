@@ -46,7 +46,7 @@
           "higher-order-functions",
           "loops"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "custom-signs",
@@ -58,7 +58,7 @@
         "prerequisites": [
           "basics"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "freelancer-rates",
@@ -70,7 +70,7 @@
         "prerequisites": [
           "basics"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "high-score-board",
@@ -83,7 +83,7 @@
           "functions",
           "optionals"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "lasagna",
@@ -97,7 +97,7 @@
           "variables"
         ],
         "prerequisites": [],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "lasagna-master",
@@ -116,7 +116,7 @@
           "conditionals",
           "tuples"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "log-lines",
@@ -129,7 +129,7 @@
           "string-components",
           "structs-and-classes"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "master-mixologist",
@@ -147,7 +147,7 @@
           "optionals",
           "tuples"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "magician-in-training",
@@ -159,7 +159,7 @@
         "prerequisites": [
           "conditionals"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "pizza-slices",
@@ -172,7 +172,7 @@
           "tuples",
           "conditionals"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "poetry-club",
@@ -187,7 +187,7 @@
           "arrays",
           "optionals"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "santas-helper",
@@ -200,7 +200,7 @@
           "arrays",
           "strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "secret-agent",
@@ -213,7 +213,7 @@
         "prerequisites": [
           "functions"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "vehicle-purchase",
@@ -229,7 +229,7 @@
         "prerequisites": [
           "basics"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "windowing-system",
@@ -245,7 +245,7 @@
           "functions",
           "function-overloading"
         ],
-        "status": "wip"
+        "status": "active"
       }
     ],
     "practice": [
