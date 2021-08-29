@@ -4,6 +4,7 @@
     "robtimp"
   ],
   "contributors": [
+    "thomchop",
     "bhargavg",
     "harquail",
     "lyuha",
@@ -12,13 +13,13 @@
   ],
   "files": {
     "solution": [
-      "Sources/BracketPush/BracketPush.swift"
+      "Sources/MatchingBrackets/MatchingBrackets.swift"
     ],
     "test": [
-      "Tests/BracketPushTests/BracketPushTests.swift"
+      "Tests/MatchingBracketsTests/MatchingBracketsTests.swift"
     ],
     "example": [
-      "Sources/BracketPush/BracketPushExample.swift"
+      "Sources/MatchingBrackets/MatchingBracketsExample.swift"
     ]
   }
 }
