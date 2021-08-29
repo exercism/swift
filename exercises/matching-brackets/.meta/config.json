@@ -1,0 +1,25 @@
+{
+  "blurb": "Make sure the brackets and braces all match.",  
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "thomchop",
+    "bhargavg",
+    "harquail",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/BracketPush/BracketPush.swift"
+    ],
+    "test": [
+      "Tests/BracketPushTests/BracketPushTests.swift"
+    ],
+    "example": [
+      "Sources/BracketPush/BracketPushExample.swift"
+    ]
+  }
+}
