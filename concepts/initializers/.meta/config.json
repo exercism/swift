@@ -1,0 +1,7 @@
+{
+  "blurb": "Initializers are special methods that are used to set up a value of the enum.",
+  "authors": [
+    "wneumann"
+  ],
+  "contributors": []
+}

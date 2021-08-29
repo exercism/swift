@@ -1,0 +1,7 @@
+{
+  "blurb": "Instances of structs and classes each have an implicit value named self which refers to the instance itself.",
+  "authors": [
+    "wneumann"
+  ],
+  "contributors": []
+}

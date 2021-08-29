@@ -1,0 +1,28 @@
+{
+  "blurb": "We are going to do the `Transform` step of an Extract-Transform-Load.",
+  "authors": [
+    "hankturowski"
+  ],
+  "contributors": [
+    "bhargavg",
+    "edasque",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/Etl/Etl.swift"
+    ],
+    "test": [
+      "Tests/EtlTests/EtlTests.swift"
+    ],
+    "example": [
+      "Sources/Etl/EtlExample.swift"
+    ]
+  },
+  "source": "The Jumpstart Lab team",
+  "source_url": "http://jumpstartlab.com"
+}

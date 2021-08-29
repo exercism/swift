@@ -1,0 +1,24 @@
+{
+  "blurb": "Implement complex numbers.",
+  "authors": [
+    "AlwynC"
+  ],
+  "contributors": [
+    "bhargavg",
+    "masters3d",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/ComplexNumbers/ComplexNumbers.swift"
+    ],
+    "test": [
+      "Tests/ComplexNumbersTests/ComplexNumbersTests.swift"
+    ],
+    "example": [
+      "Sources/ComplexNumbers/ComplexNumbersExample.swift"
+    ]
+  },
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Complex_number"
+}

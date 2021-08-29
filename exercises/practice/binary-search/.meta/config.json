@@ -1,0 +1,25 @@
+{
+  "blurb": "Implement a binary search algorithm.",
+  "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/BinarySearch/BinarySearch.swift"
+    ],
+    "test": [
+      "Tests/BinarySearchTests/BinarySearchTests.swift"
+    ],
+    "example": [
+      "Sources/BinarySearch/BinarySearchExample.swift"
+    ]
+  },
+  "source": "Wikipedia",
+  "source_url": "http://en.wikipedia.org/wiki/Binary_search_algorithm"
+}

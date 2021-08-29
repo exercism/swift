@@ -1,0 +1,24 @@
+{
+  "blurb": "Implement basic list operations",
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "bcylin",
+    "bhargavg",
+    "kytrinyx",
+    "masters3d",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/ListOps/ListOps.swift"
+    ],
+    "test": [
+      "Tests/ListOpsTests/ListOpsTests.swift"
+    ],
+    "example": [
+      "Sources/ListOps/ListOpsExample.swift"
+    ]
+  }
+}

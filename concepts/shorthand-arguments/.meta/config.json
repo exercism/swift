@@ -1,0 +1,7 @@
+{
+  "blurb": "When omitting parameters from a closure, they can instead be referred to using a special shorthand syntax.",
+  "authors": [
+    "wneumann"
+  ],
+  "contributors": []
+}

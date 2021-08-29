@@ -1,13 +1,21 @@
+# Tests
+
 ## Testing Tutorial
 
 This guide explains how to run unit tests for the Exercism Swift exercises using either macOS or Linux. It assumes you have already successfully installed the Exercism client and fetched the first exercise. If not, [do that now](http://exercism.io/languages/swift).
 
-#### For experienced users:
+### For experienced users:
 
 	1. `swift test` runs tests
 	2. `swift package generate-xcodeproj` creates an Xcode project
 	
 To run the tests from the command line, first `cd` to the exercise directory (for example, ~/exercism/swift/exercises/hello-world/), then execute `swift test`. This will compile the files in the Sources directory and execute the tests in the Tests directory. Alternatively, open the Xcode project and press Command-U.
+
+### For new users:
+
+The rest of this page explains how Xcode is structured, and how to get set up to complete the exercise and run the tests.
+
+To skip to step by step instructions, scroll down to the section titled **"Configuring Xcode"** and **"Running tests with Xcode"**.
 
 ### Overview
 
@@ -28,8 +36,8 @@ Optionally, Xcode can create a third file for experimentation:
 
 
 ### Configuring Xcode
-1. In the Terminal `cd` to the directory for an exercise (for example, ~/exercism/swift/exercises/hello-world/), then execute `swift package generate-xcodeproj`. This creates an Xcode project in the current directory with the same name as the package. (The generated project is ideal for unit tests. It does not include the overhead of launching the iOS simulator or a target application.)
-2. Open the newly generated project file.
+1. In the Terminal `cd` to the directory for an exercise (for example, ~/exercism/swift/exercises/hello-world/), then type `swift package generate-xcodeproj` and press enter. This creates an Xcode project in the current directory with the same name as the package. When you run this command, Terminal prints out a statement showing you the name of the xcode project it has created. For the HelloWorld exercise, you will see: `generated: ./HelloWorld.xcodeproj`. (The generated project is ideal for unit tests. It does not include the overhead of launching the iOS simulator or a target application.)
+2. Open the newly generated project file. You can do this on the command line by typing `open HelloWorld.xcodeproj`. You will need to change the exercise name from "HelloWorld" to whichever exercise you are working on. You will find the relevant name of the exercise from the `generated` statement on your screen in step 1.
 3. At this point the project's file inspector should look similar to the image below. If the `HelloWorldTests` folder is closed, click on the disclosure triangle to reveal its contents.
 4. When Xcode opens a project, typically it will build automatically. If there is an initial build error, press Shift-Command-K to clean the project followed by Command-B to build again. (Cleaning is a useful Xcode troubleshooting technique for all sorts of error conditions.)
 5. The items Package.swift, Configs, and Products are boilerplate that do not need modification.

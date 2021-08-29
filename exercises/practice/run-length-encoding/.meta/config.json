@@ -1,0 +1,27 @@
+{
+  "blurb": "Implement run-length encoding and decoding.",
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/RunLengthEncoding/RunLengthEncoding.swift"
+    ],
+    "test": [
+      "Tests/RunLengthEncodingTests/RunLengthEncodingTests.swift"
+    ],
+    "example": [
+      "Sources/RunLengthEncoding/RunLengthEncodingExample.swift"
+    ]
+  },
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Run-length_encoding"
+}

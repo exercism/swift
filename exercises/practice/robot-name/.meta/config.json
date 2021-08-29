@@ -1,0 +1,29 @@
+{
+  "blurb": "Manage robot factory settings.",
+  "authors": [
+    "hankturowski"
+  ],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "nickkjordan",
+    "paiv",
+    "robtimp",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/RobotName/RobotName.swift"
+    ],
+    "test": [
+      "Tests/RobotNameTests/RobotNameTests.swift"
+    ],
+    "example": [
+      "Sources/RobotName/RobotNameExample.swift"
+    ]
+  },
+  "source": "A debugging session with Paul Blackwell at gSchool."
+}

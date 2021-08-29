@@ -1,0 +1,19 @@
+{
+  "blurb": "Learn about booleans and conditionals while preparing for your next vehicle purchase",
+  "authors": [
+    "wneumann"
+  ],
+  "files": {
+    "solution": [
+      "Sources/VehiclePurchase/VehiclePurchase.swift"
+    ],
+    "test": [
+      "Tests/VehiclePurchaseTests/VehiclePurchaseTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
+  },
+  "contributors": [],
+  "forked_from": []
+}

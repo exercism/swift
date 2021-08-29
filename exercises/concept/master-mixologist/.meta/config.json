@@ -1,0 +1,17 @@
+{
+  "blurb": "Learn about loops by making tasty drinks for the public to enjoy on their nights out.",
+  "authors": [
+    "wneumann"
+  ],
+  "files": {
+    "solution": [
+      "Sources/MasterMixologist/MasterMixologist.swift"
+    ],
+    "test": [
+      "Tests/MasterMixologistTests/MasterMixologistTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
+  }
+}

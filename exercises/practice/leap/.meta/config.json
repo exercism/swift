@@ -1,0 +1,28 @@
+{
+  "blurb": "Given a year, report if it is a leap year.",
+  "authors": [
+    "hankturowski"
+  ],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/Leap/Leap.swift"
+    ],
+    "test": [
+      "Tests/LeapTests/LeapTests.swift"
+    ],
+    "example": [
+      "Sources/Leap/LeapExample.swift"
+    ]
+  },
+  "source": "JavaRanch Cattle Drive, exercise 3",
+  "source_url": "http://www.javaranch.com/leap.jsp"
+}

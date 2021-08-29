@@ -1,0 +1,20 @@
+{
+  "blurb": "Help Elyse with her Enchantments and learn about arrays in the process.",
+  "authors": [
+    "wneumann"
+  ],
+  "files": {
+    "solution": [
+      "Sources/MagicianInTraining/MagicianInTraining.swift"
+    ],
+    "test": [
+      "Tests/MagicianInTrainingTests/MagicianInTrainingTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
+  },
+  "forked_from": [
+    "go/card-tricks"
+  ]
+}

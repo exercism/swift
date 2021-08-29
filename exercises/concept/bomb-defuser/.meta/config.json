@@ -1,0 +1,19 @@
+{
+  "blurb": "Learn about closures by preventing a bomb from exploding at the Governor's ball.",
+  "authors": [
+    "wneumann"
+  ],
+  "files": {
+    "solution": [
+      "Sources/BombDefuser/BombDefuser.swift"
+    ],
+    "test": [
+      "Tests/BombDefuserTests/BombDefuserTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
+  },
+  "contributors": [],
+  "forked_from": []
+}

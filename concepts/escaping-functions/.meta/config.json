@@ -1,0 +1,7 @@
+{
+  "blurb": "When a higher-order function takes another function as a parameter and uses it in a way that the passed-in function is called after the higher-order function terminates. This is referred to as an escaping function.",
+  "authors": [
+    "wneumann"
+  ],
+  "contributors": []
+}

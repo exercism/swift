@@ -1,0 +1,26 @@
+{
+  "blurb": "Given a string representing a matrix of numbers, return the rows and columns of that matrix.",
+  "authors": [],
+  "contributors": [
+    "bhargavg",
+    "ericrosko",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/Matrix/Matrix.swift"
+    ],
+    "test": [
+      "Tests/MatrixTests/MatrixTests.swift"
+    ],
+    "example": [
+      "Sources/Matrix/MatrixExample.swift"
+    ]
+  },
+  "source": "Warmup to the `saddle-points` warmup.",
+  "source_url": "http://jumpstartlab.com"
+}

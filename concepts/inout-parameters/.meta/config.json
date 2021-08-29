@@ -1,0 +1,7 @@
+{
+  "blurb": "In-out parameters are use to allow a function to modify the value of a parameter.",
+  "authors": [
+    "wneumann"
+  ],
+  "contributors": []
+}

@@ -1,0 +1,30 @@
+{
+  "blurb": "Given a string of digits, output all the contiguous substrings of length `n` in that string.",
+  "authors": [
+    "masters3d"
+  ],
+  "contributors": [
+    "bhargavg",
+    "hankturowski",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "nickkjordan",
+    "robtimp",
+    "samkrishna",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/Series/Series.swift"
+    ],
+    "test": [
+      "Tests/SeriesTests/SeriesTests.swift"
+    ],
+    "example": [
+      "Sources/Series/SeriesExample.swift"
+    ]
+  },
+  "source": "A subset of the Problem 8 at Project Euler",
+  "source_url": "http://projecteuler.net/problem=8"
+}

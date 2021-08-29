@@ -1,0 +1,26 @@
+{
+  "blurb": "Given a diagram, determine which plants each child in the kindergarten class is responsible for.",
+  "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/KindergartenGarden/KindergartenGarden.swift"
+    ],
+    "test": [
+      "Tests/KindergartenGardenTests/KindergartenGardenTests.swift"
+    ],
+    "example": [
+      "Sources/KindergartenGarden/KindergartenGardenExample.swift"
+    ]
+  },
+  "source": "Random musings during airplane trip.",
+  "source_url": "http://jumpstartlab.com"
+}

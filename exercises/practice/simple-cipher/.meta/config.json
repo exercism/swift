@@ -1,0 +1,28 @@
+{
+  "blurb": "Implement a simple shift cipher like Caesar and a more secure substitution cipher",
+  "authors": [
+    "masters3d"
+  ],
+  "contributors": [
+    "bhargavg",
+    "hankturowski",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "nickkjordan",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/SimpleCipher/SimpleCipher.swift"
+    ],
+    "test": [
+      "Tests/SimpleCipherTests/SimpleCipherTests.swift"
+    ],
+    "example": [
+      "Sources/SimpleCipher/SimpleCipherExample.swift"
+    ]
+  },
+  "source": "Substitution Cipher at Wikipedia",
+  "source_url": "http://en.wikipedia.org/wiki/Substitution_cipher"
+}

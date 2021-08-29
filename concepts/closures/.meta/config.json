@@ -1,0 +1,7 @@
+{
+  "blurb": "Closures in Swift are self-contained blocks of code that can be passed parameters to trigger their computation and return values.",
+  "authors": [
+    "wneumann"
+  ],
+  "contributors": []
+}

@@ -1,0 +1,17 @@
+{
+  "blurb": "Learn about tuples by upgrading the system software of Santa's logistics division.",
+  "authors": [
+    "wneumann"
+  ],
+  "files": {
+    "solution": [
+      "Sources/SantasHelper/SantasHelper.swift"
+    ],
+    "test": [
+      "Tests/SantasHelperTests/SantasHelperTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
+  }
+}

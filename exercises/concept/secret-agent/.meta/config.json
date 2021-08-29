@@ -1,0 +1,17 @@
+{
+  "blurb": "Learn about higher-order functions by becoming a spy and infiltrate the secret UMBRA headquarters",
+  "authors": [
+    "wneumann"
+  ],
+  "files": {
+    "solution": [
+      "Sources/SecretAgent/SecretAgent.swift"
+    ],
+    "test": [
+      "Tests/SecretAgentTests/SecretAgentTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
+  }
+}

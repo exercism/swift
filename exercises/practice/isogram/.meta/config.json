@@ -1,0 +1,27 @@
+{
+  "blurb": "Determine if a word or phrase is an isogram.",
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/Isogram/Isogram.swift"
+    ],
+    "test": [
+      "Tests/IsogramTests/IsogramTests.swift"
+    ],
+    "example": [
+      "Sources/Isogram/IsogramExample.swift"
+    ]
+  },
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Isogram"
+}

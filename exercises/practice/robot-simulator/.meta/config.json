@@ -1,0 +1,24 @@
+{
+  "blurb": "Write a robot simulator.",
+  "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "lyuha",
+    "masters3d",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/RobotSimulator/RobotSimulator.swift"
+    ],
+    "test": [
+      "Tests/RobotSimulatorTests/RobotSimulatorTests.swift"
+    ],
+    "example": [
+      "Sources/RobotSimulator/RobotSimulatorExample.swift"
+    ]
+  },
+  "source": "Inspired by an interview question at a famous company.",
+  "source_url": ""
+}

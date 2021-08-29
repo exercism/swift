@@ -1,0 +1,25 @@
+{
+  "blurb": "Given a number n, determine what the nth prime is.",
+  "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "lyuha",
+    "masters3d",
+    "samkrishna",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/NthPrime/NthPrime.swift"
+    ],
+    "test": [
+      "Tests/NthPrimeTests/NthPrimeTests.swift"
+    ],
+    "example": [
+      "Sources/NthPrime/NthPrimeExample.swift"
+    ]
+  },
+  "source": "A variation on Problem 7 at Project Euler",
+  "source_url": "http://projecteuler.net/problem=7"
+}

@@ -1,0 +1,20 @@
+{
+  "blurb": "Learn about dictionaries by tracking high scores of an arcade game.",
+  "authors": [
+    "wneumann"
+  ],
+  "files": {
+    "solution": [
+      "Sources/HighScoreBoard/HighScoreBoard.swift"
+    ],
+    "test": [
+      "Tests/HighScoreBoardTests/HighScoreBoardTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
+  },
+  "forked_from": [
+    "elixir/high-score"
+  ]
+}

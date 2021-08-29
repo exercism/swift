@@ -1,0 +1,26 @@
+{
+  "blurb": "Given a number from 0 to 999,999,999,999, spell out that number in English.",
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "bcylin",
+    "bhargavg",
+    "kytrinyx",
+    "masters3d",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/Say/Say.swift"
+    ],
+    "test": [
+      "Tests/SayTests/SayTests.swift"
+    ],
+    "example": [
+      "Sources/Say/SayExample.swift"
+    ]
+  },
+  "source": "A variation on JavaRanch CattleDrive, exercise 4a",
+  "source_url": "http://www.javaranch.com/say.jsp"
+}

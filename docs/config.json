@@ -1,0 +1,32 @@
+{
+  "docs": [
+    {
+      "uuid": "05a34b99-9343-4d2d-bd64-6f83bf13f23f",
+      "slug": "installation",
+      "path": "docs/INSTALLATION.md",
+      "title": "Installing Swift locally",
+      "blurb": "Learn how to install Swift locally to solve Exercism's exercises on your own machine"
+    },
+    {
+      "uuid": "9f05410a-eb97-4268-be46-f4c0cd620610",
+      "slug": "learning",
+      "path": "docs/LEARNING.md",
+      "title": "How to learn Swift",
+      "blurb": "An overview of how to get started from scratch with Swift"
+    },
+    {
+      "uuid": "7278a051-83c7-403c-b7ee-eec2d3909076",
+      "slug": "tests",
+      "path": "docs/TESTS.md",
+      "title": "Testing on the Swift track",
+      "blurb": "Learn how to test your Swift exercises on Exercism"
+    },
+    {
+      "uuid": "1fd86dd4-97fa-430e-a208-89399c1a1601",
+      "slug": "resources",
+      "path": "docs/RESOURCES.md",
+      "title": "Useful Swift resources",
+      "blurb": "A collection of useful resources to help you master Swift"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "blurb": "Create a custom set type.",
+  "authors": [
+    "masters3d"
+  ],
+  "contributors": [
+    "bhargavg",
+    "hankturowski",
+    "harquail",
+    "lyuha",
+    "robtimp",
+    "samkrishna",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/CustomSet/CustomSet.swift"
+    ],
+    "test": [
+      "Tests/CustomSetTests/CustomSetTests.swift"
+    ],
+    "example": [
+      "Sources/CustomSet/CustomSetExample.swift"
+    ]
+  }
+}

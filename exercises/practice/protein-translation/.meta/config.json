@@ -1,0 +1,25 @@
+{
+  "blurb": "Translate RNA sequences into proteins.",
+  "authors": [
+    "robtimp"
+  ],
+  "contributors": [
+    "bcylin",
+    "bhargavg",
+    "kytrinyx",
+    "masters3d",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/ProteinTranslation/ProteinTranslation.swift"
+    ],
+    "test": [
+      "Tests/ProteinTranslationTests/ProteinTranslationTests.swift"
+    ],
+    "example": [
+      "Sources/ProteinTranslation/ProteinTranslationExample.swift"
+    ]
+  },
+  "source": "Tyler Long"
+}

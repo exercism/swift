@@ -1,0 +1,26 @@
+{
+  "blurb": "Compute Pascal's triangle up to a given number of rows.",
+  "authors": [],
+  "contributors": [
+    "bhargavg",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/PascalsTriangle/PascalsTriangle.swift"
+    ],
+    "test": [
+      "Tests/PascalsTriangleTests/PascalsTriangleTests.swift"
+    ],
+    "example": [
+      "Sources/PascalsTriangle/PascalsTriangleExample.swift"
+    ]
+  },
+  "source": "Pascal's Triangle at Wolfram Math World",
+  "source_url": "http://mathworld.wolfram.com/PascalsTriangle.html"
+}

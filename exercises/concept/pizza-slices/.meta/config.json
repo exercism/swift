@@ -1,0 +1,17 @@
+{
+  "blurb": "Learn about optionals by finding the pizza configuration to give you the largest slice.",
+  "authors": [
+    "wneumann"
+  ],
+  "files": {
+    "solution": [
+      "Sources/PizzaSlices/PizzaSlices.swift"
+    ],
+    "test": [
+      "Tests/PizzaSlicesTests/PizzaSlicesTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.swift"
+    ]
+  }
+}

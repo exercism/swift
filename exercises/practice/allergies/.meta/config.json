@@ -1,0 +1,30 @@
+{
+  "blurb": "Given a person's allergy score, determine whether or not they're allergic to a given item, and their full list of allergies.",
+  "authors": [
+    "ahalls"
+  ],
+  "contributors": [
+    "bhargavg",
+    "davidahouse",
+    "hankturowski",
+    "harquail",
+    "kytrinyx",
+    "lyuha",
+    "masters3d",
+    "nickkjordan",
+    "ThomasHaz"
+  ],
+  "files": {
+    "solution": [
+      "Sources/Allergies/Allergies.swift"
+    ],
+    "test": [
+      "Tests/AllergiesTests/AllergiesTests.swift"
+    ],
+    "example": [
+      "Sources/Allergies/AllergiesExample.swift"
+    ]
+  },
+  "source": "Jumpstart Lab Warm-up",
+  "source_url": "http://jumpstartlab.com"
+}
