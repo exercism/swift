@@ -23,7 +23,7 @@
       "Tests/SecretHandshakeTests/SecretHandshakeTests.swift"
     ],
     "example": [
-      "Sources/SecretHandshake/SecretHandshakeExample.swift"
+      ".meta/Sources/SecretHandshake/SecretHandshakeExample.swift"
     ]
   },
   "source": "Bert, in Mary Poppins",

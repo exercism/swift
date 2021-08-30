@@ -17,7 +17,7 @@
       "Tests/HouseTests/HouseTests.swift"
     ],
     "example": [
-      "Sources/House/HouseExample.swift"
+      ".meta/Sources/House/HouseExample.swift"
     ]
   },
   "source": "British nursery rhyme",

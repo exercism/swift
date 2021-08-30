@@ -21,7 +21,7 @@
       "Tests/AcronymTests/AcronymTests.swift"
     ],
     "example": [
-      "Sources/Acronym/AcronymExample.swift"
+      ".meta/Sources/Acronym/AcronymExample.swift"
     ]
   },
   "source": "Julien Vanier",

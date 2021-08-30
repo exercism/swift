@@ -19,7 +19,7 @@
       "Tests/TransposeTests/TransposeTests.swift"
     ],
     "example": [
-      "Sources/Transpose/TransposeExample.swift"
+      ".meta/Sources/Transpose/TransposeExample.swift"
     ]
   },
   "source": "Reddit r/dailyprogrammer challenge #270 [Easy].",

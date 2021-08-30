@@ -22,7 +22,7 @@
       "Tests/PhoneNumberTests/PhoneNumberTests.swift"
     ],
     "example": [
-      "Sources/PhoneNumber/PhoneNumberExample.swift"
+      ".meta/Sources/PhoneNumber/PhoneNumberExample.swift"
     ]
   },
   "source": "Event Manager by JumpstartLab",

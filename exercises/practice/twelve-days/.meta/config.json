@@ -21,7 +21,7 @@
       "Tests/TwelveDaysTests/TwelveDaysTests.swift"
     ],
     "example": [
-      "Sources/TwelveDays/TwelveDaysExample.swift"
+      ".meta/Sources/TwelveDays/TwelveDaysExample.swift"
     ]
   },
   "source": "Wikipedia",

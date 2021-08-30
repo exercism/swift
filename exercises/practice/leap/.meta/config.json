@@ -20,7 +20,7 @@
       "Tests/LeapTests/LeapTests.swift"
     ],
     "example": [
-      "Sources/Leap/LeapExample.swift"
+      ".meta/Sources/Leap/LeapExample.swift"
     ]
   },
   "source": "JavaRanch Cattle Drive, exercise 3",

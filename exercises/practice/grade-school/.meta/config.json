@@ -23,7 +23,7 @@
       "Tests/GradeSchoolTests/GradeSchoolTests.swift"
     ],
     "example": [
-      "Sources/GradeSchool/GradeSchoolExample.swift"
+      ".meta/Sources/GradeSchool/GradeSchoolExample.swift"
     ]
   },
   "source": "A pairing session with Phil Battos at gSchool",

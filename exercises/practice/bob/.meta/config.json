@@ -21,7 +21,7 @@
       "Tests/BobTests/BobTests.swift"
     ],
     "example": [
-      "Sources/Bob/BobExample.swift"
+      ".meta/Sources/Bob/BobExample.swift"
     ]
   },
   "source": "Inspired by the 'Deaf Grandma' exercise in Chris Pine's Learn to Program tutorial.",

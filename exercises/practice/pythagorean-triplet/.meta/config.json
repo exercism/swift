@@ -22,7 +22,7 @@
       "Tests/PythagoreanTripletTests/PythagoreanTripletTests.swift"
     ],
     "example": [
-      "Sources/PythagoreanTriplet/PythagoreanTripletExample.swift"
+      ".meta/Sources/PythagoreanTriplet/PythagoreanTripletExample.swift"
     ]
   },
   "source": "Problem 9 at Project Euler",

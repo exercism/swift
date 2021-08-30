@@ -22,7 +22,7 @@
       "Tests/SumOfMultiplesTests/SumOfMultiplesTests.swift"
     ],
     "example": [
-      "Sources/SumOfMultiples/SumOfMultiplesExample.swift"
+      ".meta/Sources/SumOfMultiples/SumOfMultiplesExample.swift"
     ]
   },
   "source": "A variation on Problem 1 at Project Euler",

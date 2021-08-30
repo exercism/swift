@@ -22,7 +22,7 @@
       "Tests/ScrabbleScoreTests/ScrabbleScoreTests.swift"
     ],
     "example": [
-      "Sources/ScrabbleScore/ScrabbleScoreExample.swift"
+      ".meta/Sources/ScrabbleScore/ScrabbleScoreExample.swift"
     ]
   },
   "source": "Inspired by the Extreme Startup game",

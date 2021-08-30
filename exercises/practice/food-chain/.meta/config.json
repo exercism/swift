@@ -17,7 +17,7 @@
       "Tests/FoodChainTests/FoodChainTests.swift"
     ],
     "example": [
-      "Sources/FoodChain/FoodChainExample.swift"
+      ".meta/Sources/FoodChain/FoodChainExample.swift"
     ]
   },
   "source": "Wikipedia",

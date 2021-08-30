@@ -19,7 +19,7 @@
       "Tests/IsbnVerifierTests/IsbnVerifierTests.swift"
     ],
     "example": [
-      "Sources/IsbnVerifier/IsbnVerifierExample.swift"
+      ".meta/Sources/IsbnVerifier/IsbnVerifierExample.swift"
     ]
   },
   "source": "Converting a string into a number and some basic processing utilizing a relatable real world example.",

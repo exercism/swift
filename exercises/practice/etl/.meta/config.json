@@ -20,7 +20,7 @@
       "Tests/EtlTests/EtlTests.swift"
     ],
     "example": [
-      "Sources/Etl/EtlExample.swift"
+      ".meta/Sources/Etl/EtlExample.swift"
     ]
   },
   "source": "The Jumpstart Lab team",

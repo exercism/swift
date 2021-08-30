@@ -18,7 +18,7 @@
       "Tests/CollatzConjectureTests/CollatzConjectureTests.swift"
     ],
     "example": [
-      "Sources/CollatzConjecture/CollatzConjectureExample.swift"
+      ".meta/Sources/CollatzConjecture/CollatzConjectureExample.swift"
     ]
   },
   "source": "An unsolved problem in mathematics named after mathematician Lothar Collatz",

@@ -21,7 +21,7 @@
       "Tests/GrainsTests/GrainsTests.swift"
     ],
     "example": [
-      "Sources/Grains/GrainsExample.swift"
+      ".meta/Sources/Grains/GrainsExample.swift"
     ]
   },
   "source": "JavaRanch Cattle Drive, exercise 6",

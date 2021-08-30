@@ -20,7 +20,7 @@
       "Tests/SimpleCipherTests/SimpleCipherTests.swift"
     ],
     "example": [
-      "Sources/SimpleCipher/SimpleCipherExample.swift"
+      ".meta/Sources/SimpleCipher/SimpleCipherExample.swift"
     ]
   },
   "source": "Substitution Cipher at Wikipedia",

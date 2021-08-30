@@ -17,7 +17,7 @@
       "Tests/MinesweeperTests/MinesweeperTests.swift"
     ],
     "example": [
-      "Sources/Minesweeper/MinesweeperExample.swift"
+      ".meta/Sources/Minesweeper/MinesweeperExample.swift"
     ]
   }
 }

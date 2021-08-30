@@ -21,7 +21,7 @@
       "Tests/WordCountTests/WordCountTests.swift"
     ],
     "example": [
-      "Sources/WordCount/WordCountExample.swift"
+      ".meta/Sources/WordCount/WordCountExample.swift"
     ]
   },
   "source": "This is a classic toy problem, but we were reminded of it by seeing it in the Go Tour."

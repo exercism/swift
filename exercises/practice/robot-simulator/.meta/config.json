@@ -16,7 +16,7 @@
       "Tests/RobotSimulatorTests/RobotSimulatorTests.swift"
     ],
     "example": [
-      "Sources/RobotSimulator/RobotSimulatorExample.swift"
+      ".meta/Sources/RobotSimulator/RobotSimulatorExample.swift"
     ]
   },
   "source": "Inspired by an interview question at a famous company.",

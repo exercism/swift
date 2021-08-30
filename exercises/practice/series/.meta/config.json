@@ -22,7 +22,7 @@
       "Tests/SeriesTests/SeriesTests.swift"
     ],
     "example": [
-      "Sources/Series/SeriesExample.swift"
+      ".meta/Sources/Series/SeriesExample.swift"
     ]
   },
   "source": "A subset of the Problem 8 at Project Euler",

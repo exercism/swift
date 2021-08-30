@@ -20,7 +20,7 @@
       "Tests/PrimeFactorsTests/PrimeFactorsTests.swift"
     ],
     "example": [
-      "Sources/PrimeFactors/PrimeFactorsExample.swift"
+      ".meta/Sources/PrimeFactors/PrimeFactorsExample.swift"
     ]
   },
   "source": "The Prime Factors Kata by Uncle Bob",

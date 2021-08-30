@@ -20,7 +20,7 @@
       "Tests/LinkedListTests/LinkedListTests.swift"
     ],
     "example": [
-      "Sources/LinkedList/LinkedListExample.swift"
+      ".meta/Sources/LinkedList/LinkedListExample.swift"
     ]
   },
   "source": "Classic computer science topic"

@@ -22,7 +22,7 @@
       "Tests/RobotNameTests/RobotNameTests.swift"
     ],
     "example": [
-      "Sources/RobotName/RobotNameExample.swift"
+      ".meta/Sources/RobotName/RobotNameExample.swift"
     ]
   },
   "source": "A debugging session with Paul Blackwell at gSchool."

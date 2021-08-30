@@ -20,7 +20,7 @@
       "Tests/CustomSetTests/CustomSetTests.swift"
     ],
     "example": [
-      "Sources/CustomSet/CustomSetExample.swift"
+      ".meta/Sources/CustomSet/CustomSetExample.swift"
     ]
   }
 }

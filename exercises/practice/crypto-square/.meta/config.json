@@ -22,7 +22,7 @@
       "Tests/CryptoSquareTests/CryptoSquareTests.swift"
     ],
     "example": [
-      "Sources/CryptoSquare/CryptoSquareExample.swift"
+      ".meta/Sources/CryptoSquare/CryptoSquareExample.swift"
     ]
   },
   "source": "J Dalbey's Programming Practice problems",

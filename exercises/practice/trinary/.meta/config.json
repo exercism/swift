@@ -21,7 +21,7 @@
       "Tests/TrinaryTests/TrinaryTests.swift"
     ],
     "example": [
-      "Sources/Trinary/TrinaryExample.swift"
+      ".meta/Sources/Trinary/TrinaryExample.swift"
     ]
   },
   "source": "All of Computer Science",

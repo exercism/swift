@@ -18,7 +18,7 @@
       "Tests/MatrixTests/MatrixTests.swift"
     ],
     "example": [
-      "Sources/Matrix/MatrixExample.swift"
+      ".meta/Sources/Matrix/MatrixExample.swift"
     ]
   },
   "source": "Warmup to the `saddle-points` warmup.",

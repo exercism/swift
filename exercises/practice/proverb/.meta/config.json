@@ -16,7 +16,7 @@
       "Tests/ProverbTests/ProverbTests.swift"
     ],
     "example": [
-      "Sources/Proverb/ProverbExample.swift"
+      ".meta/Sources/Proverb/ProverbExample.swift"
     ]
   },
   "source": "Wikipedia",

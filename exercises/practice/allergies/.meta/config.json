@@ -22,7 +22,7 @@
       "Tests/AllergiesTests/AllergiesTests.swift"
     ],
     "example": [
-      "Sources/Allergies/AllergiesExample.swift"
+      ".meta/Sources/Allergies/AllergiesExample.swift"
     ]
   },
   "source": "Jumpstart Lab Warm-up",

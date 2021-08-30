@@ -20,7 +20,7 @@
       "Tests/PokerTests/PokerTests.swift"
     ],
     "example": [
-      "Sources/Poker/PokerExample.swift"
+      ".meta/Sources/Poker/PokerExample.swift"
     ]
   },
   "source": "Inspired by the training course from Udacity.",

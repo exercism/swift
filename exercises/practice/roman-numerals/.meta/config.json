@@ -21,7 +21,7 @@
       "Tests/RomanNumeralsTests/RomanNumeralsTests.swift"
     ],
     "example": [
-      "Sources/RomanNumerals/RomanNumeralsExample.swift"
+      ".meta/Sources/RomanNumerals/RomanNumeralsExample.swift"
     ]
   },
   "source": "The Roman Numeral Kata",

@@ -21,7 +21,7 @@
       "Tests/MeetupTests/MeetupTests.swift"
     ],
     "example": [
-      "Sources/Meetup/MeetupExample.swift"
+      ".meta/Sources/Meetup/MeetupExample.swift"
     ]
   },
   "source": "Jeremy Hinegardner mentioned a Boulder meetup that happens on the Wednesteenth of every month",

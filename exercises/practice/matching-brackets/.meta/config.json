@@ -1,5 +1,5 @@
 {
-  "blurb": "Make sure the brackets and braces all match.",  
+  "blurb": "Make sure the brackets and braces all match.",
   "authors": [
     "robtimp"
   ],
@@ -19,7 +19,7 @@
       "Tests/MatchingBracketsTests/MatchingBracketsTests.swift"
     ],
     "example": [
-      "Sources/MatchingBrackets/MatchingBracketsExample.swift"
+      ".meta/Sources/MatchingBrackets/MatchingBracketsExample.swift"
     ]
   }
 }

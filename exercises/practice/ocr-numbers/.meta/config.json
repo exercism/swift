@@ -18,7 +18,7 @@
       "Tests/OcrNumbersTests/OcrNumbersTests.swift"
     ],
     "example": [
-      "Sources/OcrNumbers/OcrNumbersExample.swift"
+      ".meta/Sources/OcrNumbers/OcrNumbersExample.swift"
     ]
   },
   "source": "Inspired by the Bank OCR kata",

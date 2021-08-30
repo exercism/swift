@@ -22,7 +22,7 @@
       "Tests/LuhnTests/LuhnTests.swift"
     ],
     "example": [
-      "Sources/Luhn/LuhnExample.swift"
+      ".meta/Sources/Luhn/LuhnExample.swift"
     ]
   },
   "source": "The Luhn Algorithm on Wikipedia",

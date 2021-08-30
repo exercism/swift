@@ -22,7 +22,7 @@
       "Tests/NucleotideCountTests/NucleotideCountTests.swift"
     ],
     "example": [
-      "Sources/NucleotideCount/NucleotideCountExample.swift"
+      ".meta/Sources/NucleotideCount/NucleotideCountExample.swift"
     ]
   },
   "source": "The Calculating DNA Nucleotides_problem at Rosalind",

@@ -17,7 +17,7 @@
       "Tests/NthPrimeTests/NthPrimeTests.swift"
     ],
     "example": [
-      "Sources/NthPrime/NthPrimeExample.swift"
+      ".meta/Sources/NthPrime/NthPrimeExample.swift"
     ]
   },
   "source": "A variation on Problem 7 at Project Euler",
