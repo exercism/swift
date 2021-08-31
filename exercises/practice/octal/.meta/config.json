@@ -21,7 +21,7 @@
       "Tests/OctalTests/OctalTests.swift"
     ],
     "example": [
-      "Sources/Octal/OctalExample.swift"
+      ".meta/Sources/Octal/OctalExample.swift"
     ]
   },
   "source": "All of Computer Science",

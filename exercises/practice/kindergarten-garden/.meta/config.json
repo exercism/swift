@@ -18,7 +18,7 @@
       "Tests/KindergartenGardenTests/KindergartenGardenTests.swift"
     ],
     "example": [
-      "Sources/KindergartenGarden/KindergartenGardenExample.swift"
+      ".meta/Sources/KindergartenGarden/KindergartenGardenExample.swift"
     ]
   },
   "source": "Random musings during airplane trip.",

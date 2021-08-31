@@ -19,7 +19,7 @@
       "Tests/FlattenArrayTests/FlattenArrayTests.swift"
     ],
     "example": [
-      "Sources/FlattenArray/FlattenArrayExample.swift"
+      ".meta/Sources/FlattenArray/FlattenArrayExample.swift"
     ]
   },
   "source": "Interview Question",

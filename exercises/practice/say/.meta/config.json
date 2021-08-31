@@ -18,7 +18,7 @@
       "Tests/SayTests/SayTests.swift"
     ],
     "example": [
-      "Sources/Say/SayExample.swift"
+      ".meta/Sources/Say/SayExample.swift"
     ]
   },
   "source": "A variation on JavaRanch CattleDrive, exercise 4a",

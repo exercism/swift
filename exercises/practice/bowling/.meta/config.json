@@ -19,7 +19,7 @@
       "Tests/BowlingTests/BowlingTests.swift"
     ],
     "example": [
-      "Sources/Bowling/BowlingExample.swift"
+      ".meta/Sources/Bowling/BowlingExample.swift"
     ]
   },
   "source": "The Bowling Game Kata at but UncleBob",

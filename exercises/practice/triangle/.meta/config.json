@@ -22,7 +22,7 @@
       "Tests/TriangleTests/TriangleTests.swift"
     ],
     "example": [
-      "Sources/Triangle/TriangleExample.swift"
+      ".meta/Sources/Triangle/TriangleExample.swift"
     ]
   },
   "source": "The Ruby Koans triangle project, parts 1 & 2",

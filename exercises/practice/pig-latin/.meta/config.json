@@ -20,7 +20,7 @@
       "Tests/PigLatinTests/PigLatinTests.swift"
     ],
     "example": [
-      "Sources/PigLatin/PigLatinExample.swift"
+      ".meta/Sources/PigLatin/PigLatinExample.swift"
     ]
   },
   "source": "The Pig Latin exercise at Test First Teaching by Ultrasaurus",

@@ -18,7 +18,7 @@
       "Tests/CircularBufferTests/CircularBufferTests.swift"
     ],
     "example": [
-      "Sources/CircularBuffer/CircularBufferExample.swift"
+      ".meta/Sources/CircularBuffer/CircularBufferExample.swift"
     ]
   },
   "source": "Wikipedia",

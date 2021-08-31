@@ -21,7 +21,7 @@
       "Tests/HelloWorldTests/HelloWorldTests.swift"
     ],
     "example": [
-      "Sources/HelloWorld/HelloWorldExample.swift"
+      ".meta/Sources/HelloWorld/HelloWorldExample.swift"
     ]
   },
   "source": "This is an exercise to introduce users to using Exercism",

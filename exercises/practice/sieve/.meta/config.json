@@ -20,7 +20,7 @@
       "Tests/SieveTests/SieveTests.swift"
     ],
     "example": [
-      "Sources/Sieve/SieveExample.swift"
+      ".meta/Sources/Sieve/SieveExample.swift"
     ]
   },
   "source": "Sieve of Eratosthenes at Wikipedia",

@@ -21,7 +21,7 @@
       "Tests/WordyTests/WordyTests.swift"
     ],
     "example": [
-      "Sources/Wordy/WordyExample.swift"
+      ".meta/Sources/Wordy/WordyExample.swift"
     ]
   },
   "source": "Inspired by one of the generated questions in the Extreme Startup game.",

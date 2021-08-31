@@ -18,7 +18,7 @@
       "Tests/ScaleGeneratorTests/ScaleGeneratorTests.swift"
     ],
     "example": [
-      "Sources/ScaleGenerator/ScaleGeneratorExample.swift"
+      ".meta/Sources/ScaleGenerator/ScaleGeneratorExample.swift"
     ]
   }
 }

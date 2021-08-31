@@ -20,7 +20,7 @@
       "Tests/DominoesTests/DominoesTests.swift"
     ],
     "example": [
-      "Sources/Dominoes/DominoesExample.swift"
+      ".meta/Sources/Dominoes/DominoesExample.swift"
     ]
   }
 }

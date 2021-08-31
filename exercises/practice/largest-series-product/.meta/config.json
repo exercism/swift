@@ -17,7 +17,7 @@
       "Tests/LargestSeriesProductTests/LargestSeriesProductTests.swift"
     ],
     "example": [
-      "Sources/LargestSeriesProduct/LargestSeriesProductExample.swift"
+      ".meta/Sources/LargestSeriesProduct/LargestSeriesProductExample.swift"
     ]
   },
   "source": "A variation on Problem 8 at Project Euler",

@@ -18,7 +18,7 @@
       "Tests/ProteinTranslationTests/ProteinTranslationTests.swift"
     ],
     "example": [
-      "Sources/ProteinTranslation/ProteinTranslationExample.swift"
+      ".meta/Sources/ProteinTranslation/ProteinTranslationExample.swift"
     ]
   },
   "source": "Tyler Long"

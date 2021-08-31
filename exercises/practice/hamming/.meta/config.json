@@ -22,7 +22,7 @@
       "Tests/HammingTests/HammingTests.swift"
     ],
     "example": [
-      "Sources/Hamming/HammingExample.swift"
+      ".meta/Sources/Hamming/HammingExample.swift"
     ]
   },
   "source": "The Calculating Point Mutations problem at Rosalind",

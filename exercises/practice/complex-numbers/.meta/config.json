@@ -16,7 +16,7 @@
       "Tests/ComplexNumbersTests/ComplexNumbersTests.swift"
     ],
     "example": [
-      "Sources/ComplexNumbers/ComplexNumbersExample.swift"
+      ".meta/Sources/ComplexNumbers/ComplexNumbersExample.swift"
     ]
   },
   "source": "Wikipedia",

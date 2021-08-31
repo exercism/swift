@@ -23,7 +23,7 @@
       "Tests/DifferenceOfSquaresTests/DifferenceOfSquaresTests.swift"
     ],
     "example": [
-      "Sources/DifferenceOfSquares/DifferenceOfSquaresExample.swift"
+      ".meta/Sources/DifferenceOfSquares/DifferenceOfSquaresExample.swift"
     ]
   },
   "source": "Problem 6 at Project Euler",

@@ -18,7 +18,7 @@
       "Tests/PascalsTriangleTests/PascalsTriangleTests.swift"
     ],
     "example": [
-      "Sources/PascalsTriangle/PascalsTriangleExample.swift"
+      ".meta/Sources/PascalsTriangle/PascalsTriangleExample.swift"
     ]
   },
   "source": "Pascal's Triangle at Wolfram Math World",

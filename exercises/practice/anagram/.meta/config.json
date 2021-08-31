@@ -20,7 +20,7 @@
       "Tests/AnagramTests/AnagramTests.swift"
     ],
     "example": [
-      "Sources/Anagram/AnagramExample.swift"
+      ".meta/Sources/Anagram/AnagramExample.swift"
     ]
   },
   "source": "Inspired by the Extreme Startup game",

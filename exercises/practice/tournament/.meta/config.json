@@ -21,7 +21,7 @@
       "Tests/TournamentTests/TournamentTests.swift"
     ],
     "example": [
-      "Sources/Tournament/TournamentExample.swift"
+      ".meta/Sources/Tournament/TournamentExample.swift"
     ]
   }
 }

@@ -21,7 +21,7 @@
       "Tests/SimpleLinkedListTests/SimpleLinkedListTests.swift"
     ],
     "example": [
-      "Sources/SimpleLinkedList/SimpleLinkedListExample.swift"
+      ".meta/Sources/SimpleLinkedList/SimpleLinkedListExample.swift"
     ]
   },
   "source": "Inspired by 'Data Structures and Algorithms with Object-Oriented Design Patterns in Ruby', singly linked-lists.",

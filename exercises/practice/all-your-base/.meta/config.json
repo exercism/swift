@@ -18,7 +18,7 @@
       "Tests/AllYourBaseTests/AllYourBaseTests.swift"
     ],
     "example": [
-      "Sources/AllYourBase/AllYourBaseExample.swift"
+      ".meta/Sources/AllYourBase/AllYourBaseExample.swift"
     ]
   }
 }

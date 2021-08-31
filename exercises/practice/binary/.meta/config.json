@@ -22,7 +22,7 @@
       "Tests/BinaryTests/BinaryTests.swift"
     ],
     "example": [
-      "Sources/Binary/BinaryExample.swift"
+      ".meta/Sources/Binary/BinaryExample.swift"
     ]
   },
   "source": "All of Computer Science",

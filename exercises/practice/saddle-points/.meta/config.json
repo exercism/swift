@@ -18,7 +18,7 @@
       "Tests/SaddlePointsTests/SaddlePointsTests.swift"
     ],
     "example": [
-      "Sources/SaddlePoints/SaddlePointsExample.swift"
+      ".meta/Sources/SaddlePoints/SaddlePointsExample.swift"
     ]
   },
   "source": "J Dalbey's Programming Practice problems",

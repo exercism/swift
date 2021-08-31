@@ -19,7 +19,7 @@
       "Tests/IsogramTests/IsogramTests.swift"
     ],
     "example": [
-      "Sources/Isogram/IsogramExample.swift"
+      ".meta/Sources/Isogram/IsogramExample.swift"
     ]
   },
   "source": "Wikipedia",

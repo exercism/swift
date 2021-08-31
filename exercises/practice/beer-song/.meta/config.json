@@ -19,7 +19,7 @@
       "Tests/BeerSongTests/BeerSongTests.swift"
     ],
     "example": [
-      "Sources/BeerSong/BeerSongExample.swift"
+      ".meta/Sources/BeerSong/BeerSongExample.swift"
     ]
   },
   "source": "Learn to Program by Chris Pine",

@@ -16,7 +16,7 @@
       "Tests/HexadecimalTests/HexadecimalTests.swift"
     ],
     "example": [
-      "Sources/Hexadecimal/HexadecimalExample.swift"
+      ".meta/Sources/Hexadecimal/HexadecimalExample.swift"
     ]
   },
   "source": "All of Computer Science",

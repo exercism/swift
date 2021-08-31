@@ -20,7 +20,7 @@
       "Tests/GigasecondTests/GigasecondTests.swift"
     ],
     "example": [
-      "Sources/Gigasecond/GigasecondExample.swift"
+      ".meta/Sources/Gigasecond/GigasecondExample.swift"
     ]
   },
   "source": "Chapter 9 in Chris Pine's online Learn to Program tutorial.",

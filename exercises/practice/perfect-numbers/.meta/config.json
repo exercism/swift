@@ -21,7 +21,7 @@
       "Tests/PerfectNumbersTests/PerfectNumbersTests.swift"
     ],
     "example": [
-      "Sources/PerfectNumbers/PerfectNumbersExample.swift"
+      ".meta/Sources/PerfectNumbers/PerfectNumbersExample.swift"
     ]
   },
   "source": "Taken from Chapter 2 of Functional Thinking by Neal Ford.",

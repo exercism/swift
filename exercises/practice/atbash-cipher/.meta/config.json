@@ -21,7 +21,7 @@
       "Tests/AtbashCipherTests/AtbashCipherTests.swift"
     ],
     "example": [
-      "Sources/AtbashCipher/AtbashCipherExample.swift"
+      ".meta/Sources/AtbashCipher/AtbashCipherExample.swift"
     ]
   },
   "source": "Wikipedia",

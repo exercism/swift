@@ -23,7 +23,7 @@
       "Tests/RnaTranscriptionTests/RnaTranscriptionTests.swift"
     ],
     "example": [
-      "Sources/RnaTranscription/RnaTranscriptionExample.swift"
+      ".meta/Sources/RnaTranscription/RnaTranscriptionExample.swift"
     ]
   },
   "source": "Hyperphysics",

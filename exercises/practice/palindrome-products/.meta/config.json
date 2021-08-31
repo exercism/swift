@@ -19,7 +19,7 @@
       "Tests/PalindromeProductsTests/PalindromeProductsTests.swift"
     ],
     "example": [
-      "Sources/PalindromeProducts/PalindromeProductsExample.swift"
+      ".meta/Sources/PalindromeProducts/PalindromeProductsExample.swift"
     ]
   },
   "source": "Problem 4 at Project Euler",

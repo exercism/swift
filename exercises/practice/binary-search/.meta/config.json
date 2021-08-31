@@ -17,7 +17,7 @@
       "Tests/BinarySearchTests/BinarySearchTests.swift"
     ],
     "example": [
-      "Sources/BinarySearch/BinarySearchExample.swift"
+      ".meta/Sources/BinarySearch/BinarySearchExample.swift"
     ]
   },
   "source": "Wikipedia",

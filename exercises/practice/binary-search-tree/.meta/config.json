@@ -17,7 +17,7 @@
       "Tests/BinarySearchTreeTests/BinarySearchTreeTests.swift"
     ],
     "example": [
-      "Sources/BinarySearchTree/BinarySearchTreeExample.swift"
+      ".meta/Sources/BinarySearchTree/BinarySearchTreeExample.swift"
     ]
   },
   "source": "Josh Cheek",

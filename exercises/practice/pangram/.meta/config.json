@@ -17,7 +17,7 @@
       "Tests/PangramTests/PangramTests.swift"
     ],
     "example": [
-      "Sources/Pangram/PangramExample.swift"
+      ".meta/Sources/Pangram/PangramExample.swift"
     ]
   },
   "source": "Wikipedia",
