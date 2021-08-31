@@ -55,7 +55,7 @@ do {
 let packageDependencies: [Package.Dependency] = allProblems.map { .package(path: "./exercises/practice/\($0)/") }
 let targetDependencies: [Target.Dependency] = allProblemsPascalCase.map { .byName(name:"\($0)") }
 
-let sources  = allProblems.map { "./\($0)/Sources" }
+let sources  = allProblems.map { "./\($0)/.meta/Sources" }
 let testSources  = allProblems.map { "./\($0)/Tests" }
 
 let package = Package(
