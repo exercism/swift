@@ -1,5 +1,6 @@
 {
-  "blurb": "Learn about strings by parsing application logs",
+  "blurb": "Learn about strings by parsing application logs",  
+  "icon": "logs-logs-logs",
   "authors": [
     "wneumann"
   ],
