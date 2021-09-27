@@ -11,7 +11,7 @@
       "Tests/LasagnaMasterTests/LasagnaMasterTests.swift"
     ],
     "exemplar": [
-      ".meta/Exemplar.swift"
+      ".meta/ExemplarSources/LasagnaMaster.swift"
     ]
   }
 }

@@ -11,7 +11,7 @@
       "Tests/PizzaSlicesTests/PizzaSlicesTests.swift"
     ],
     "exemplar": [
-      ".meta/Exemplar.swift"
+      ".meta/ExemplarSources/PizzaSlices.swift"
     ]
   }
 }

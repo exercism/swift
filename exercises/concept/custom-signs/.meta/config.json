@@ -11,7 +11,7 @@
       "Tests/CustomSignsTests/CustomSignsTests.swift"
     ],
     "exemplar": [
-      ".meta/Exemplar.swift"
+      ".meta/ExemplarSources/CustomSigns.swift"
     ]
   }
 }

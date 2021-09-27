@@ -11,7 +11,7 @@
       "Tests/PoetryClubTests/PoetryClubTests.swift"
     ],
     "exemplar": [
-      ".meta/Exemplar.swift"
+      ".meta/ExemplarSources/PoetryClub.swift"
     ]
   },
   "forked_from": [

@@ -11,7 +11,7 @@
       "Tests/WindowingSystemTests/WindowingSystemTests.swift"
     ],
     "exemplar": [
-      ".meta/Exemplar.swift"
+      ".meta/ExemplarSources/WindowingSystem.swift"
     ]
   }
 }

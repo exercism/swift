@@ -11,7 +11,7 @@
       "Tests/SantasHelperTests/SantasHelperTests.swift"
     ],
     "exemplar": [
-      ".meta/Exemplar.swift"
+      ".meta/ExemplarSources/SantasHelper.swift"
     ]
   }
 }

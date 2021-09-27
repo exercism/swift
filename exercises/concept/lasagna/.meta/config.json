@@ -11,7 +11,7 @@
       "Tests/LasagnaTests/LasagnaTests.swift"
     ],
     "exemplar": [
-      ".meta/Exemplar.swift"
+      ".meta/ExemplarSources/Lasagna.swift"
     ]
   },
   "forked_from": [

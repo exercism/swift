@@ -11,7 +11,7 @@
       "Tests/HighScoreBoardTests/HighScoreBoardTests.swift"
     ],
     "exemplar": [
-      ".meta/Exemplar.swift"
+      ".meta/ExemplarSources/HighScoreBoard.swift"
     ]
   },
   "forked_from": [

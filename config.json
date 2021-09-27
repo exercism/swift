@@ -22,7 +22,7 @@
     "solution": ["Sources/%{pascal_slug}/%{pascal_slug}.swift"],
     "test": ["Tests/%{pascal_slug}Tests/%{pascal_slug}Tests.swift"],
     "example": ["Sources/%{pascal_slug}/%{pascal_slug}Example.swift"],
-    "exemplar": [".meta/Exemplar.swift"]
+    "exemplar": [".meta/ExemplarSources/%{pascal_slug}.swift"]
   },
   "exercises": {
     "concept": [
