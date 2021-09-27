@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.3
 
 import PackageDescription
 import Foundation
@@ -9,76 +9,64 @@ extension String {
 		return items.reduce("", { $0 + $1.capitalized })
 	}
 }
+
 let currentDirectory = FileManager.default.currentDirectoryPath
 let configPath = currentDirectory + "/config.json"
-var allProblems = [String]()
+var conceptExercises = [String]()
+var practiceExercises = [String]()
 
 if
     let jsonData = try? Data(contentsOf: URL(fileURLWithPath: configPath), options: Data.ReadingOptions.mappedIfSafe),
     let json = try? JSONSerialization.jsonObject(with: jsonData, options: []),
     let jsonDict = json as? [String: Any],
     let exercisesDict = jsonDict["exercises"] as? [String: Any],
+    let conceptExercisesDict = exercisesDict["concept"] as? [[String: Any]],
+    let conceptExerciseSlugs = conceptExercisesDict.map({ $0["slug"] }) as? [String],
     let practiceExercisesDict = exercisesDict["practice"] as? [[String: Any]],
-    let exercises = practiceExercisesDict.map({ $0["slug"] }) as? [String] {
-    allProblems += exercises
+    let practiceExerciseSlugs = practiceExercisesDict.map({ $0["slug"] }) as? [String]  {
+    conceptExercises += conceptExerciseSlugs
+    practiceExercises += practiceExerciseSlugs
 } else {
     print("Could not parse config.json at \(configPath)")
 }
-let allProblemsPascalCase = allProblems.map { $0.pascalCased }
 
-#if os(Linux)
-// Create ./Tests/LinuxMain.swift
-let allTestCases = allProblemsPascalCase.map { "testCase(\($0)Tests.allTests)," }
-
-let linuxMainText =
-"""
-import XCTest
-@testable import xswiftTests
-
-XCTMain([
-\(allTestCases.joined(separator: "\n"))
-    ])
-"""
-
-let linuxMainFilePath = currentDirectory + "/LinuxMain.swift"
-
-do {
-    if FileManager.default.fileExists(atPath: linuxMainFilePath) {
-        try FileManager.default.removeItem(atPath: linuxMainFilePath)
-    }
-    try linuxMainText.write(to: URL(fileURLWithPath: linuxMainFilePath), atomically: false, encoding: .utf8)
-} catch let fileError {
-    print("Could not write file. \(fileError)")
+let conceptExerciseTargets: [Target] = conceptExercises.flatMap {
+    return [
+        .target(
+            name:"\($0.pascalCased)", 
+            path:"./exercises/concept/\($0)/.meta/ExemplarSources"),
+        .testTarget(
+            name:"\($0.pascalCased)Tests", 
+            dependencies: [
+                .target(name:"\($0.pascalCased)")
+            ], 
+            path:"./exercises/concept/\($0)/Tests",
+            exclude: ["LinuxMain.swift"])
+    ]
 }
-#endif
 
-let packageDependencies: [Package.Dependency] = allProblems.map { .package(path: "./exercises/practice/\($0)/") }
-let targetDependencies: [Target.Dependency] = allProblemsPascalCase.map { .byName(name:"\($0)") }
+let practiceExerciseTargets: [Target] = practiceExercises.flatMap {
+    return [
+        .target(
+            name:"\($0.pascalCased)", 
+            path:"./exercises/practice/\($0)/.meta/Sources"),
+        .testTarget(
+            name:"\($0.pascalCased)Tests", 
+            dependencies: [
+                .target(name:"\($0.pascalCased)")
+            ], 
+            path:"./exercises/practice/\($0)/Tests")
+    ]
+}
 
-let sources  = allProblems.map { "./\($0)/.meta/Sources" }
-let testSources  = allProblems.map { "./\($0)/Tests" }
+let allTargets = conceptExerciseTargets + practiceExerciseTargets
 
 let package = Package(
     name: "xswift",
     products: [
         .library(
-            name: "xswift",
-            targets: ["xswift"]
-            )
+            name: "xswift", 
+            targets: allTargets.filter { $0.type == .regular }.map { $0.name })
     ],
-    dependencies: packageDependencies,
-    targets: [
-        .target(
-            name: "xswift",
-            dependencies: targetDependencies,
-            path: "./exercises/practice",
-            sources: sources
-            ),
-        .testTarget(
-            name: "xswiftTests",
-            dependencies: ["xswift"],
-            path: "./exercises/practice",
-            sources: testSources
-            ),
-        ]
-    )
+    targets: allTargets
+)

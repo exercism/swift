@@ -5,12 +5,11 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: macos-latest
+    env:
+      RUNALL: "true"
     steps:
       - name: Checkout code
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
-      - name: Prepare
-        run: swift package generate-xcodeproj
-
       - name: Run tests
-        run: ./xswift-test-spm
+        run: swift test
