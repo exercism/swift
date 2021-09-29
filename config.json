@@ -21,7 +21,7 @@
   "files": {
     "solution": ["Sources/%{pascal_slug}/%{pascal_slug}.swift"],
     "test": ["Tests/%{pascal_slug}Tests/%{pascal_slug}Tests.swift"],
-    "example": ["Sources/%{pascal_slug}/%{pascal_slug}Example.swift"],
+    "example": [".meta/Sources/%{pascal_slug}/%{pascal_slug}Example.swift"],
     "exemplar": [".meta/Sources/%{pascal_slug}/%{pascal_slug}Exemplar.swift"]
   },
   "exercises": {
