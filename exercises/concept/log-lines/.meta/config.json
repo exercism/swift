@@ -11,7 +11,7 @@
       "Tests/LogLinesTests/LogLinesTests.swift"
     ],
     "exemplar": [
-      ".meta/ExemplarSources/LogLines.swift"
+      ".meta/Sources/LogLines/LogLinesExemplar.swift"
     ]
   },
   "forked_from": [

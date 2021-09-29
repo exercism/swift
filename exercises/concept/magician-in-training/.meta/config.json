@@ -11,7 +11,7 @@
       "Tests/MagicianInTrainingTests/MagicianInTrainingTests.swift"
     ],
     "exemplar": [
-      ".meta/ExemplarSources/MagicianInTraining.swift"
+      ".meta/Sources/MagicianInTraining/MagicianInTrainingExemplar.swift"
     ]
   },
   "forked_from": [

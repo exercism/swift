@@ -11,7 +11,7 @@
       "Tests/FreelancerRatesTests/FreelancerRatesTests.swift"
     ],
     "exemplar": [
-      ".meta/ExemplarSources/FreelancerRates.swift"
+      ".meta/Sources/FreelancerRates/FreelancerRatesExemplar.swift"
     ]
   },
   "forked_from": [

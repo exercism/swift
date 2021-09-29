@@ -11,7 +11,7 @@
       "Tests/VehiclePurchaseTests/VehiclePurchaseTests.swift"
     ],
     "exemplar": [
-      ".meta/ExemplarSources/VehiclePurchase.swift"
+      ".meta/Sources/VehiclePurchase/VehiclePurchaseExemplar.swift"
     ]
   },
   "contributors": [],

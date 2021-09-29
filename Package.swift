@@ -34,7 +34,7 @@ let conceptExerciseTargets: [Target] = conceptExercises.flatMap {
     return [
         .target(
             name:"\($0.pascalCased)", 
-            path:"./exercises/concept/\($0)/.meta/ExemplarSources"),
+            path:"./exercises/concept/\($0)/.meta/Sources"),
         .testTarget(
             name:"\($0.pascalCased)Tests", 
             dependencies: [
