@@ -48,8 +48,8 @@ final class SantasHelperTests: XCTestCase {
     )
   }
   static var allTests = [
-    ("testCartesianToPolar", testCaretesianToPolar),
-    ("testCartesianToPolarQ3", testCaretesianToPolarQ3),
+    ("testCartesianToPolar", testCartesianToPolar),
+    ("testCartesianToPolarQ3", testCartesianToPolarQ3),
     ("testCombineRecords", testCombineRecords),
   ]
 }

@@ -1,5 +1,0 @@
-#!/bin/bash
-for d in ./exercises/practice/*/ ; do
-    set -e -o pipefail # http://linuxcommand.org/lc3_man_pages/seth.html
-    swift test --package-path $d
-done
