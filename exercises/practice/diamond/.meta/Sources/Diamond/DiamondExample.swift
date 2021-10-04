@@ -2,7 +2,7 @@ struct Diamond {
     static let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".map { $0 }
 
     static func makeDiamond(letter: Character) -> [String] {
-        guard let index = alphabet.index(of: letter) else {
+        guard let index = alphabet.firstIndex(of: letter) else {
             return []
         }
 

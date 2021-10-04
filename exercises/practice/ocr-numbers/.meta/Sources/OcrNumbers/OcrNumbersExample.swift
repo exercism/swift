@@ -77,7 +77,7 @@ struct OCR {
     }
 
     func patternForGrouping(_ grouping: [String]) -> String {
-        guard let number = patterns.index(where: { $0 == grouping }) else {
+        guard let number = patterns.firstIndex(where: { $0 == grouping }) else {
             return "?"
         }
         return "\(number)"
