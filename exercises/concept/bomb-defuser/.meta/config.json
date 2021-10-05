@@ -11,7 +11,7 @@
       "Tests/BombDefuserTests/BombDefuserTests.swift"
     ],
     "exemplar": [
-      ".meta/Exemplar.swift"
+      ".meta/Sources/BombDefuser/BombDefuserExemplar.swift"
     ]
   },
   "contributors": [],
