@@ -29,12 +29,12 @@ Define a `LogLevel` enum that has six cases corresponding to the above log level
 
 ## 2. Parse log level
 
-Next, implement the `LogLine` initializer to parse the log level of a log line:
+Next, implement the `LogLevel` initializer to parse the log level of a log line:
 
 ```swift
-LogLine("[INF]: File deleted")
+LogLevel("[INF]: File deleted")
 // => LogLevel.info
-LogLine("Something went wrong!")
+LogLevel("Something went wrong!")
 // => LogLevel.unknown
 ```
 
