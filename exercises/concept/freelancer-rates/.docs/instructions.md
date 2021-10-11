@@ -28,7 +28,7 @@ Implement the function `monthlyRateFrom(hourlyRate:withDiscount:)` to calculate 
 
 ```swift
 monthlyRateFrom(hourlyRate: 77, withDiscount: 10.5)
-# => 12130
+# => 12129
 ```
 
 The returned monthly rate should be returned as a Double rounded to the nearest integer.

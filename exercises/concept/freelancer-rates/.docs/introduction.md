@@ -24,7 +24,7 @@ let z: Double = 42 // z is a Double
 
 In Swift, assignment of a value between different types requires explicit conversion. For example, to convert an `Int` to a `Double` and vice versa, you would need to do the following:
 
-````swift
+```swift
 let x = 42
 let d = Double(x)
 
@@ -41,5 +41,5 @@ print("pi:", pi, "is of type:", type(of: pi))
 // Output: pi: 3.141592653589793 is of type: Double
 
 print("iPi:", iPi, "is of type:", type(of: iPi))
-// Output: iPi: 3 is of type: Int```
-````
+// Output: iPi: 3 is of type: Int
+```
