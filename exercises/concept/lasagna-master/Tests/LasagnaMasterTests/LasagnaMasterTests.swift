@@ -71,7 +71,7 @@ final class LasagnaMasterTests: XCTestCase {
     XCTAssertFalse(
       redWine(
         layers: "sauce", "noodles", "béchamel", "meat", "mozzarella", "noodles", "sauce", "ricotta",
-        "eggplant", "béchamel", "noodles", "meat", "sauce", "mozzarella"))
+        "eggplant", "mozzarella", "béchamel", "noodles", "meat", "sauce", "mozzarella"))
   }
 
   static var allTests = [
