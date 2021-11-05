@@ -40,7 +40,7 @@ final class WindowingSystemTests: XCTestCase {
     size.resize(newWidth: newWidth, newHeight: newHeight)
     XCTAssertTrue(
       size.width == newWidth && size.height == newHeight,
-      "Expected: Size(x: \(newWidth), \(newHeight)), got Size(x: \(size.width), \(size.height))")
+      "Expected: Size(width: \(newWidth), height: \(newHeight)), got Size(width: \(size.width), height: \(size.height))")
   }
 
   func testMoveValid() throws {
