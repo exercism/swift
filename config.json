@@ -189,7 +189,7 @@
         "uuid": "0930d019-2ccb-48f9-9ee7-467b683d9901",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -199,7 +199,7 @@
         "uuid": "3a9f0e4d-a569-40ea-adb8-ded8d240c949",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -209,7 +209,7 @@
         "uuid": "128bcbc1-18b3-45e7-9590-c71d8f57c5c1",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -219,7 +219,7 @@
         "uuid": "8b376ef9-ad94-4623-8d0f-e2d7bb6c364a",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
