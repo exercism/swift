@@ -60,6 +60,6 @@ func redWine(layers: String...) -> Bool {
     return count
   }
 
-  return countMozzarella() + countRicotta() + countBechamel() < countMeat() + countSauce()
+  return countMozzarella() + countRicotta() + countBechamel() <= countMeat() + countSauce()
 
 }
