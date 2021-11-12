@@ -33,8 +33,8 @@ Implement the function `finishShift(minutesLeft: Int, remainingOrders: [[String]
 And good news! If you make all of the orders with time left on your shift you get to go home early!
 
 ```swift
-finishShift(minutesLeft: 5, remainingOrders: [["beer", "frozen drink", "shot], ["fancy drink", "soda"], ["beer", "beer", "water"], ["mixed drink", frozen drink"]])
-// => [["beer", "beer", "water"], ["mixed drink", frozen drink"]]
+finishShift(minutesLeft: 5, remainingOrders: [["beer", "frozen drink", "shot"], ["fancy drink", "soda"], ["beer", "beer", "water"], ["mixed drink", "frozen drink"]])
+// => [["beer", "beer", "water"], ["mixed drink", "frozen drink"]]
 ```
 
 ## 4. Track certain orders
