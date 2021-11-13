@@ -26,7 +26,7 @@ screenSize.height ║                 |      │                      │       
 
 ## 1. Define a Size struct
 
-Define a struct named `Size` with two `Int` properties, `width` and `height` that store the window's current width and height, respectively. The initial width and height should be 60 and 80, respectively. Include a method `resize(newWidth:newHeight:)` that takes new width and height parameters and changes the properties to reflect the new size.
+Define a struct named `Size` with two `Int` properties, `width` and `height` that store the window's current width and height, respectively. The initial width and height should be 80 and 60, respectively. Include a method `resize(newWidth:newHeight:)` that takes new width and height parameters and changes the properties to reflect the new size.
 
 ```swift
 let size1080x764 = Size(width: 1080, height: 764)
