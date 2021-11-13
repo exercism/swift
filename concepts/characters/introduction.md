@@ -65,7 +65,7 @@ Strings and Characters can be compared for equality (or lack thereof) using the 
 
 ```swift
 let hi = "Hello"
-hi == "Hello."
+hi == "Hello"
 // => true
 
 let period: Character = "."
