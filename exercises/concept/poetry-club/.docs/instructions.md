@@ -86,7 +86,7 @@ splitLines("Hello.\nHow are you?\n\nI'm doing fine.")
 
 ## 2. Get the first letter of a sentence
 
-Implement the function `firstLetter(_:)` that returns first letter of a sentence If there is no last letter, return an underscore (`_`):
+Implement the function `firstLetter(_:)` that returns first letter of a sentence. If there is no first letter, return an underscore (`_`):
 
 ```swift
 firstLetter("Stands so high")
