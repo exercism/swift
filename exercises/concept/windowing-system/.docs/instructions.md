@@ -74,7 +74,7 @@ Define a window class with the following properties:
 
 - `update(title:)` : `(String) -> ()` - This method sets the `title` property to the value of the string that was passed in.
 - `update(text:)` : `(String?) -> ()` - This method sets the `contents` property to the value of the optional string that was passed in.
-- `display()` : `() -> String` - This method returns a string describing the current state of the window. For example, if the window has the `title` "My First Window" with position: x = 10, y = 100; size: width = 200, height = 150; and contents: "I 😍 my window", it should return the string: `"My First Window\nPosition (10, 100), Size: (200 x 150)\nI 😍 my window\n"` - If `contents` is nil, the last line should read "[This window intentionally left blank]"
+- `display()` : `() -> String` - This method returns a string describing the current state of the window. For example, if the window has the `title` "My First Window" with position: x = 10, y = 100; size: width = 200, height = 150; and contents: "I 😍 my window", it should return the string: `"My First Window\nPosition: (10, 100), Size: (200 x 150)\nI 😍 my window\n"` - If `contents` is nil, the last line should read "[This window intentionally left blank]"
 
 ## 7. Create a new Window
 
