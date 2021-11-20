@@ -77,7 +77,7 @@ The guard will then give you the word formed by the array of letters you replied
 
 ## 1. Split a string into individual lines
 
-Implement the function `splitLines(_:)` that takes a `String` as output and splits it into an array of `String`s using newlines as delimiters.
+Implement the function `splitLines(_:)` that takes a `String` as input and splits it into an array of `String`s using newlines as delimiters.
 
 ```swift
 splitLines("Hello.\nHow are you?\n\nI'm doing fine.")
