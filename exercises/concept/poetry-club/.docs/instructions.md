@@ -77,7 +77,7 @@ The guard will then give you the word formed by the array of letters you replied
 
 ## 1. Split a string into individual lines
 
-Implement the function `splitLines(_:)` that takes a `String` as output and splits it into an array of `String`s using newlines as delimiters.
+Implement the function `splitLines(_:)` that takes a `String` as input and splits it into an array of `String`s using newlines as delimiters.
 
 ```swift
 splitLines("Hello.\nHow are you?\n\nI'm doing fine.")
@@ -86,7 +86,7 @@ splitLines("Hello.\nHow are you?\n\nI'm doing fine.")
 
 ## 2. Get the first letter of a sentence
 
-Implement the function `firstLetter(_:)` that returns first letter of a sentence If there is no last letter, return an underscore (`_`):
+Implement the function `firstLetter(_:)` that returns first letter of a sentence. If there is no first letter, return an underscore (`_`):
 
 ```swift
 firstLetter("Stands so high")
