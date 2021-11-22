@@ -28,7 +28,7 @@ licenseType(numberOfWheels: 6)
 // => "You will need an automobile license for your vehicle"
 licenseType(numberOfWheels: 18)
 // => "You will need a commercial trucking license for your vehicle"
-licenceType(numberOfWheels: 0)
+licenseType(numberOfWheels: 0)
 // => "We do not issue licenses for those types of vehicles"
 ```
 
