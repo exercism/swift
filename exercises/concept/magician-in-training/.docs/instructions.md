@@ -89,5 +89,5 @@ Implement the function `evenCardCount(_:)` that steps through the stack and coun
 
 ```swift
 evenCardCount([3,8,4,5,1,6,10])
-// => 3
+// => 4
 ```
