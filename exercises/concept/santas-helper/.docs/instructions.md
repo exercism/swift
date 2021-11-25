@@ -13,8 +13,7 @@ For this task you will need to implement the function `cartesianToPolar(_:)` tha
 
 See this image for an example
 
-<img src="img/polar_to_cartesian.png" alt="cartesian to polar coordinates" />
-
+![cartesian to polar coordinates](./img/polar_to_cartesian.png)
 [Attribution - https://en.wikipedia.org/](https://en.wikipedia.org/wiki/Polar_coordinate_system#/media/File:Polar_to_cartesian.svg)
 
 ```swift
