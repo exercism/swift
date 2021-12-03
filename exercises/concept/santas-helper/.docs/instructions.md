@@ -13,8 +13,8 @@ For this task you will need to implement the function `cartesianToPolar(_:)` tha
 
 See this image for an example
 
-![cartesian to polar coordinates](polar_to_cartesian.png)
-[Attribution - https://en.wikipedia.org/](https://en.wikipedia.org/wiki/Polar_coordinate_system#/media/File:Polar_to_cartesian.svg)
+![cartesian to polar coordinates](https://exercism-static.s3.eu-west-1.amazonaws.com/content/polar_to_cartesian.png)
+[Attribution: https://en.wikipedia.org/](https://en.wikipedia.org/wiki/Polar_coordinate_system#/media/File:Polar_to_cartesian.svg)
 
 ```swift
 let coordinate = (x: -78.70524308742053, y: -39.243573777212724)
