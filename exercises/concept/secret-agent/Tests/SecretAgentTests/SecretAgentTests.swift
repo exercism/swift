@@ -7,7 +7,17 @@ final class SecretAgentTests: XCTestCase {
   let protected = protectSecret(
     "UMBRA will fill everyone's sugar bowls with salt!", withPassword: "P455w0rd")
 
-  func testCombination1() {
+  func testPasswordSuccess() throws {
+    XCTAssertEqual(protected("P455w0rd"), "UMBRA will fill everyone's sugar bowls with salt!")
+  }
+
+  func testPasswordFail() {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(protected("hunter2"), "Sorry. No hidden secrets here.")
+  }
+
+  func testCombination1() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct
     // results.
@@ -25,20 +35,10 @@ final class SecretAgentTests: XCTestCase {
     XCTAssertTrue(combo == (234, 91, 148))
   }
 
-  func testPasswordFail() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(protected("hunter2"), "Sorry. No hidden secrets here.")
-  }
-
-  func testPasswordSuccess() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(protected("P455w0rd"), "UMBRA will fill everyone's sugar bowls with salt!")
-  }
-
   static var allTests = [
+    ("testPasswordSuccess", testPasswordSuccess),
+    ("testPasswordFail", testPasswordFail),
     ("testCombination1", testCombination1),
     ("testCombination2", testCombination2),
-    ("testPasswordFail", testPasswordFail),
-    ("testPasswordSuccess", testPasswordSuccess),
   ]
 }
