@@ -7,11 +7,11 @@ final class SecretAgentTests: XCTestCase {
   let protected = protectSecret(
     "UMBRA will fill everyone's sugar bowls with salt!", withPassword: "P455w0rd")
 
-  func testPasswordSuccess() throws {
+  func testPasswordSuccess() {
     XCTAssertEqual(protected("P455w0rd"), "UMBRA will fill everyone's sugar bowls with salt!")
   }
 
-  func testPasswordFail() {
+  func testPasswordFail() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(protected("hunter2"), "Sorry. No hidden secrets here.")
   }
