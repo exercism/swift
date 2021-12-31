@@ -19,7 +19,7 @@ class GradeSchoolTests: XCTestCase {
     }
 
     func testAddStudent() {
-        var school = GradeSchool()
+        let school = GradeSchool()
         school.addStudent("Aimee", grade: 2)
         let result = school.roster
         let expected: Dictionary = [2: ["Aimee"]]
@@ -28,7 +28,7 @@ class GradeSchoolTests: XCTestCase {
     }
 
     func testAddMoreStudentsInSameClass() {
-        var school = GradeSchool()
+        let school = GradeSchool()
         school.addStudent("Fred", grade: 2)
         school.addStudent("James", grade: 2)
         school.addStudent("Paul", grade: 2)
@@ -39,7 +39,7 @@ class GradeSchoolTests: XCTestCase {
     }
 
     func testAddStudentsToDifferentGrades() {
-        var school = GradeSchool()
+        let school = GradeSchool()
         school.addStudent("Chelsea", grade:3)
         school.addStudent("Logan", grade: 7)
         let result = school.roster
@@ -50,7 +50,7 @@ class GradeSchoolTests: XCTestCase {
     }
 
     func testGetStudentsInAGrade() {
-        var school = GradeSchool()
+        let school = GradeSchool()
         school.addStudent("Franklin", grade: 5)
         school.addStudent("Bradley", grade: 5)
         school.addStudent("Jeff", grade: 1)
@@ -68,7 +68,7 @@ class GradeSchoolTests: XCTestCase {
     }
 
     func testSortSchool() {
-        var school = GradeSchool()
+        let school = GradeSchool()
         school.addStudent("Jennifer", grade: 4)
         school.addStudent("Kareem", grade: 6)
         school.addStudent("Christopher", grade: 4)
