@@ -55,7 +55,7 @@ resetScore(&highScores, "Dave Thomas")
 
 ## 5. Update a player's score
 
-To update a players score by adding to the previous score, define `updatePlayer`, which takes 3 parameters:
+To update a players score by adding to the previous score, define `updateScore`, which takes 3 parameters:
 
 - The first parameter is the dictionary of scores. This should be an in-out parameter.
 - The second parameter is the name of the player as a string, whose score you wish to update.
