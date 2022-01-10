@@ -16,7 +16,7 @@ getCard(at: index, from: [1, 2, 4, 1])
 
 ## 2. Change a card in the stack
 
-Implement the function `setCard(at:in:to)` that returns a new stack that is a copy of the input stack but which has the card at position `index` changed to the the new card provided. If the given `index` is not a valid index in the stack, the original stack should be returned, unchanged.
+Implement the function `setCard(at:in:to)` that returns a new stack that is a copy of the input stack but which has the card at position `index` changed to the new card provided. If the given `index` is not a valid index in the stack, the original stack should be returned, unchanged.
 
 ```swift
 let index = 2
