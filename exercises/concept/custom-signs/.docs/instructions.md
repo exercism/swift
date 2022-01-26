@@ -31,7 +31,7 @@ buildSign(for: anniversary, name: "Valentina")
 
 ## 4. Build a graduation sign
 
-Implement the function `graduationFor(name: String, year: Int) -> String` which takes a name as a string parameter and a year as a string parameter and uses string interpolation to create a phrase for a sign that uses a newline to separate the two lines of the message.
+Implement the function `graduationFor(name: String, year: Int) -> String` which takes a name as a string parameter and a year as a integer parameter and uses string interpolation to create a phrase for a sign that uses a newline to separate the two lines of the message.
 
 ```swift
 graduationFor(name: "Padma", year: 2020)
