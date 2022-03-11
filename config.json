@@ -1266,11 +1266,6 @@
       "icon": "cross-platform"
     },
     {
-      "title": "Swift Package manager",
-      "content": "SPM - single cross-platform tool for building/running/testing/packaging your Swift libraries and executables.",
-      "icon": "tooling"
-    },
-    {
       "title": "Open source",
       "content": "Swift is developed in the open at Swift.org, with source code.",
       "icon": "community"
