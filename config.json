@@ -1239,7 +1239,38 @@
       "name": "while loops"
     }
   ],
-  "key_features": [],
+  "key_features": [
+    {
+      "title": "Modern",
+      "content": "Swift incorporates the latest research on programming languages, combined with Apple's experience.",
+      "icon": "evolving"
+    },
+    {
+      "title": "Designed for safety",
+      "content": "Swift eliminates entire classes of unsafe code.",
+      "icon": "safe"
+    },
+    {
+      "title": "Fast and powerful",
+      "content": "From its earliest conception, Swift was built to be fast.",
+      "icon": "fast"
+    },
+    {
+      "title": "Great first language",
+      "content": "Swift was designed to be anyone’s first programming language.",
+      "icon": "easy"
+    },
+    {
+      "title": "Cross platform",
+      "content": "Support Apple platforms and Linux, with community members working to port to even more platforms.",
+      "icon": "cross-platform"
+    },
+    {
+      "title": "Open source",
+      "content": "Swift is open-source and developed in the open at Swift.org.",
+      "icon": "community"
+    }
+  ],
   "tags": [
     "paradigm/declarative",
     "paradigm/functional",
