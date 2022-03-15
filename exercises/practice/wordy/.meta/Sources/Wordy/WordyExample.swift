@@ -101,7 +101,7 @@ struct WordProblem {
         }
 
         func checkCharInSet(_ input: Character) -> Bool {
-            let temp = " 0987654321+-*/".index(of: input)
+            let temp = " 0987654321+-*/".firstIndex(of: input)
 
             if temp == nil {
                 return false

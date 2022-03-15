@@ -69,7 +69,7 @@ struct ScaleGenerator {
             scale = chromaticScale
         }
 
-        guard let index = scale.index(of: tonic) else {
+        guard let index = scale.firstIndex(of: tonic) else {
             return scale
         }
 

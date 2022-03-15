@@ -27,7 +27,7 @@ struct SimulatedRobot {
     }
 
     mutating func turnRight() {
-        if let index = Direction.allValues.index(of: bearing) {
+        if let index = Direction.allValues.firstIndex(of: bearing) {
             var newIndex = index + 1
             if newIndex > 3 {
                 newIndex -= 4
@@ -37,7 +37,7 @@ struct SimulatedRobot {
     }
 
     mutating func turnLeft() {
-        if let index = Direction.allValues.index(of: bearing) {
+        if let index = Direction.allValues.firstIndex(of: bearing) {
             var newIndex = index - 1
             if newIndex < 0 {
                 newIndex += 4

@@ -27,7 +27,7 @@ struct Poker {
         }
 
         guard let topHand = (pokerHandsParsed.sorted(by: >)).first,
-            let indexTop = pokerHandsParsed.index(of: topHand) else { return nil }
+            let indexTop = pokerHandsParsed.firstIndex(of: topHand) else { return nil }
 
         return hands[indexTop]
 
@@ -89,7 +89,7 @@ enum HandRank {
         for (index, each) in sorted.enumerated() {
             guard each.rank.rawValue != index + first else { continue }
             // checks for Ace as the lowest card
-            guard let aceIndex = inputHand.hand.index(where: { $0.rank.rawValue == 14 })else { return (false, .ace) }
+            guard let aceIndex = inputHand.hand.firstIndex(where: { $0.rank.rawValue == 14 })else { return (false, .ace) }
             var replacedAced = inputHand.hand.map({ $0.rank.rawValue })
             replacedAced[aceIndex] = 1 // swaps ace value to lowest
             replacedAced.sort()

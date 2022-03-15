@@ -57,8 +57,8 @@ public struct Cipher {
         func encodeCharacter(_ plaintext: String, idx: Int) -> Character {
             //let plainTextArray = Array(plaintext) // hack for subscript support for Strings
             var alphabetIdx: Int =
-                (alphabet.index(of: plainTextArray[idx]) ?? 0) +
-                    (alphabet.index(of: keyArray[idx]) ?? 0)
+                (alphabet.firstIndex(of: plainTextArray[idx]) ?? 0) +
+                    (alphabet.firstIndex(of: keyArray[idx]) ?? 0)
             if alphabetIdx >= alphabet.count {
                 alphabetIdx -= alphabet.count
             }
@@ -78,8 +78,8 @@ public struct Cipher {
         func decodeCharacter(_ ciphertext: String, idx: Int) -> Character {
             //let cipherTextArray = Array(ciphertext) // no native subscript for String
             var alphabetIdx: Int =
-                (alphabet.index(of: cipherTextArray[idx]) ?? 0) -
-                    (alphabet.index(of: keyArray[idx]) ?? 0)
+                (alphabet.firstIndex(of: cipherTextArray[idx]) ?? 0) -
+                    (alphabet.firstIndex(of: keyArray[idx]) ?? 0)
             if alphabetIdx < 0 {
                 alphabetIdx += alphabet.count
             }

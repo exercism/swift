@@ -4,7 +4,7 @@ struct SumOfMultiples {
         guard limit > 0 else { return 0 }
         var multiples = Set(inMultiples)
 
-        if let indexOfZero = multiples.index(of: 0) {
+        if let indexOfZero = multiples.firstIndex(of: 0) {
             multiples.remove(at: indexOfZero)
         }
 
