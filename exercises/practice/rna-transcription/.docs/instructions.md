@@ -1,6 +1,8 @@
 # Instructions
 
-Given a DNA strand, return its RNA complement (per RNA transcription).
+Define an enum Nucleotide(_ : String) with a method complementOfDNA().
+
+Given a DNA strand, complementOfDNA() will return its RNA complement.
 
 Both DNA and RNA strands are a sequence of nucleotides.
 
