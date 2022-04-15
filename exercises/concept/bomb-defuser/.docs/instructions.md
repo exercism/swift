@@ -4,7 +4,7 @@ Hello again, Agent Double-Null0111.
 
 The forces of UMBRA are acting up again, and it is up to you to foil their latest scheme. Our intel branch informs us that those Minions are planning to set off a stink-bomb at the Governor's ball.
 
-Since the minions are so clumsy, they often accidentally arm the stink-bombs in their labs and offices. And because they keep forgetting how to disarm their stink-bombs, they require a system to generate the disarming instructions. The instructions will give the order in which the wires must be cut from a bomb's ID number and disarm it.
+Since the minions are so clumsy, they often accidentally arm the stink-bombs in their labs and offices. And because they keep forgetting how to disarm their stink-bombs, they require a system to generate the disarming instructions. The instructions will give the order in which the wires must be cut from a bomb's ID number to disarm it.
 
 Your job is to write the code that will allow you to disarm the stink-bomb at the ball before it goes off.
 
