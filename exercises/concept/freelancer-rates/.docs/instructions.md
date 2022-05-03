@@ -31,7 +31,7 @@ monthlyRateFrom(hourlyRate: 77, withDiscount: 10.5)
 # => 12129
 ```
 
-The returned monthly rate should be returned as a Double rounded to the nearest integer.
+The returned monthly rate should be returned as a Double rounded to the nearest whole number.
 
 ## 3. Calculate the number of workdays given a budget, hourly rate and discount
 
