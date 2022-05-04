@@ -20,7 +20,7 @@ final class LasagnaTests: XCTestCase {
 
   func testTotalMinutes() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(totalTimeInMinutes(layers: 6, elapsedMinutes: 13), 25)
+    XCTAssertEqual(totalTimeInMinutes(layers: 6, elapsedMinutes: 13), 39)
   }
 
   static var allTests = [
