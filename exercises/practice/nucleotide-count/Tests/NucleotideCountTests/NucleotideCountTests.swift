@@ -12,7 +12,7 @@ class NucleotideCountTests: XCTestCase {
     func testEmptyDNAStringHasNoNucleotides() {
         let dna = DNA(strand: "")!
         let results = dna.counts()
-        let expected = ["T": 0, "A": 0, "C": 0, "G": 0]
+        let expected = ["A": 0, "T": 0, "C": 0, "G": 0]
         XCTAssertEqual(results, expected)
     }
 
