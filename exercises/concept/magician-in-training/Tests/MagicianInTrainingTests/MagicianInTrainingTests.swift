@@ -13,7 +13,7 @@ final class MagicianInTrainingTests: XCTestCase {
 
   func testSetCard() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let stack = [9, 4, 3, 6, 1, 7, 2, 8, 5]
+    var stack = [9, 4, 3, 6, 1, 7, 2, 8, 5]
     let idx = 5
     XCTAssertEqual(setCard(at: idx, in: stack, to: 10), [9, 4, 3, 6, 1, 10, 2, 8, 5])
   }
