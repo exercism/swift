@@ -1,4 +1,4 @@
-# xSwift
+# Exercism Swift Track
 
 [Exercism](http://exercism.io) exercises in Swift
 
