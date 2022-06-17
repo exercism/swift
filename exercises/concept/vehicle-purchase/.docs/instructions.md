@@ -6,7 +6,7 @@ You have three tasks, one to help you determine the price of the vehicle you can
 
 ## 1. Compute whether or not you can afford the monthly payments on a given car
 
-The auto dealers in your town are all running a five year, 0% interest promotion that you would like to take advantage of. Implement the `canIBuy(vehicle:price:monthlyBudget:)` function that takes the name of the vehicle you are looking at, the price of the car, and your monthly budget and returns a string letting you know whether you can afford the car or not, if the monthly payment is within 10 of your monthly budget you will want to return a special reminder to be frugal:
+The auto dealers in your town are all running a five year, 0% interest promotion that you would like to take advantage of. Implement the `canIBuy(vehicle:price:monthlyBudget:)` function that takes the name of the vehicle you are looking at, the price of the car, and your monthly budget and returns a string letting you know whether you can afford the car or not, if the monthly payment is within 10% above your monthly budget you will want to return a special reminder to be frugal:
 
 ```swift
 canIBuy(vehicle: "1974 Ford Pinto", price: 516.32, monthlyBudget: 100.00)
