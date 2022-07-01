@@ -28,7 +28,7 @@ class SayTests: XCTestCase {
     }
 
     func testOneHundredTwentyThree() {
-        XCTAssertEqual("one hundred twenty-three", Say.say(123))
+        XCTAssertEqual("one hundred and twenty-three", Say.say(123))
     }
 
     func testOneThousand() {
@@ -36,7 +36,7 @@ class SayTests: XCTestCase {
     }
 
     func testOneThousandTwoHundredThirtyFour() {
-        XCTAssertEqual("one thousand two hundred thirty-four", Say.say(1_234))
+        XCTAssertEqual("one thousand two hundred and thirty-four", Say.say(1_234))
     }
 
     func testOneMillion() {
@@ -44,7 +44,7 @@ class SayTests: XCTestCase {
     }
 
     func testOneMillionTwoThousandThreeHundredFortyFive() {
-        XCTAssertEqual("one million two thousand three hundred forty-five", Say.say(1_002_345))
+        XCTAssertEqual("one million two thousand three hundred and forty-five", Say.say(1_002_345))
     }
 
     func testOneBillion() {
@@ -52,7 +52,7 @@ class SayTests: XCTestCase {
     }
 
     func testABigNumber() {
-        XCTAssertEqual("nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three", Say.say(987_654_321_123))
+        XCTAssertEqual("nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred and twenty-three", Say.say(987_654_321_123))
     }
 
     func testNumbersBelowZeroAreOutOfRange() {
