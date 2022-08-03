@@ -10,7 +10,7 @@ Apple refers to Swift as a "protocol oriented programming language" and has expr
 
 ***
 
-This [Swift Tour](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html) is an introduction the language on Apple's Public Developer Website. 
+This [Swift Tour](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html) is an introduction to the language on Apple's Public Developer Website. 
 
 ***
 
