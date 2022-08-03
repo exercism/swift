@@ -5,7 +5,7 @@ final class LasagnaTests: XCTestCase {
   let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
   func testExpectedMinutes() {
-    XCTAssertEqual(expectedMinutesInOven, 40)
+    XCTAssertEqual(expectedMinutesInOven(), 40)
   }
 
   func testRemainingMinutes() throws {
