@@ -88,7 +88,7 @@ final class HighScoreBoardTests: XCTestCase {
     addPlayer(&scoreboard, "Amil PAstorius", 99373)
     addPlayer(&scoreboard, "Min-seo Shin")
     updateScore(&scoreboard, "Min-seo Shin", 1999)
-    updateScore(&scoreboard, "Jesse Johnson", 1337)
+    updateScore(&scoreboard, "Jesse Johnson", 2674)
     XCTAssertEqual(
       scoreboard,
       ["Jesse Johnson": 2674, "Amil PAstorius": 99373, "Min-seo Shin": 1999],
