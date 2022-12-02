@@ -121,7 +121,7 @@ Like other types in Swift, enums may contain methods which allow the enum to pro
 
 Methods are analogous to functions, only they are defined inside the body of the enum and they are tied to the current enum value. They are accessed via _dot notation_ where the name of the enum value is followed by a dot (`.`) and the name of the method and its parameters.
 
-Inside the method, the enum value can be referred to as `self`, and in the type signature, if one is accepting as a parameter or returning a value of the the enum they can refer to the type as `Self`.
+Inside the method, the enum value can be referred to as `self`, and in the type signature, if one is accepting as a parameter or returning a value of the enum they can refer to the type as `Self`.
 
 ### Initializers
 

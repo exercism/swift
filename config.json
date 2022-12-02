@@ -15,7 +15,7 @@
   "version": 3,
   "online_editor": {
     "indent_style": "space",
-    "indent_size": 2,
+    "indent_size": 4,
     "highlightjs_language": "swift"
   },
   "files": {
@@ -189,7 +189,7 @@
         "uuid": "0930d019-2ccb-48f9-9ee7-467b683d9901",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -199,7 +199,7 @@
         "uuid": "3a9f0e4d-a569-40ea-adb8-ded8d240c949",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -209,7 +209,7 @@
         "uuid": "128bcbc1-18b3-45e7-9590-c71d8f57c5c1",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
@@ -219,13 +219,13 @@
         "uuid": "8b376ef9-ad94-4623-8d0f-e2d7bb6c364a",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "topics": null,
         "status": "deprecated"
       },
       {
         "slug": "difference-of-squares",
-        "name": "Difference Of Squares",
+        "name": "Difference of Squares",
         "uuid": "ef114733-886b-4d4b-a713-3ba169a85025",
         "practices": [],
         "prerequisites": [],
@@ -261,7 +261,7 @@
       },
       {
         "slug": "rna-transcription",
-        "name": "Rna Transcription",
+        "name": "RNA Transcription",
         "uuid": "537f8ccd-31ac-41d3-a5fa-39359340d1cb",
         "practices": [],
         "prerequisites": [],
@@ -279,7 +279,7 @@
       },
       {
         "slug": "sum-of-multiples",
-        "name": "Sum Of Multiples",
+        "name": "Sum of Multiples",
         "uuid": "b9736756-7022-4a82-b0ea-47b738b1b607",
         "practices": [],
         "prerequisites": [],
@@ -315,7 +315,7 @@
       },
       {
         "slug": "etl",
-        "name": "Etl",
+        "name": "ETL",
         "uuid": "71eb6dd0-1d0d-4aaa-bb22-604cece45bd7",
         "practices": [],
         "prerequisites": [],
@@ -456,7 +456,7 @@
       },
       {
         "slug": "isbn-verifier",
-        "name": "Isbn Verifier",
+        "name": "ISBN Verifier",
         "uuid": "5854447a-ff9f-4321-bd5c-430555b91fc6",
         "practices": [],
         "prerequisites": [],
@@ -695,7 +695,7 @@
       },
       {
         "slug": "pascals-triangle",
-        "name": "Pascals Triangle",
+        "name": "Pascal's Triangle",
         "uuid": "3b13f3f5-2d75-4dc0-8be0-e05694425fe2",
         "practices": [],
         "prerequisites": [],
@@ -848,7 +848,7 @@
       },
       {
         "slug": "ocr-numbers",
-        "name": "Ocr Numbers",
+        "name": "OCR Numbers",
         "uuid": "bbe12b06-cc63-46cd-9379-4865bf9171eb",
         "practices": [],
         "prerequisites": [],
@@ -866,7 +866,7 @@
       },
       {
         "slug": "run-length-encoding",
-        "name": "Run Length Encoding",
+        "name": "Run-Length Encoding",
         "uuid": "0718397c-b823-4b38-9892-69b667cf895f",
         "practices": [],
         "prerequisites": [],
@@ -1054,6 +1054,11 @@
       "name": "Constants"
     },
     {
+      "uuid": "5085d8c0-fa12-44d1-a781-b80d1f8ec9e6",
+      "slug": "constants-and-variables",
+      "name": "Constants And Variables"
+    },
+    {
       "uuid": "5ab7940e-0eea-435c-b3ac-dc3f77f536cf",
       "slug": "control-transfer",
       "name": "Contro transfer"
@@ -1234,7 +1239,38 @@
       "name": "while loops"
     }
   ],
-  "key_features": [],
+  "key_features": [
+    {
+      "title": "Modern",
+      "content": "Swift incorporates the latest research on programming languages, combined with Apple's experience.",
+      "icon": "evolving"
+    },
+    {
+      "title": "Designed for safety",
+      "content": "Swift eliminates entire classes of unsafe code.",
+      "icon": "safe"
+    },
+    {
+      "title": "Fast and powerful",
+      "content": "From its earliest conception, Swift was built to be fast.",
+      "icon": "fast"
+    },
+    {
+      "title": "Great first language",
+      "content": "Swift was designed to be anyone’s first programming language.",
+      "icon": "easy"
+    },
+    {
+      "title": "Cross platform",
+      "content": "Support Apple platforms and Linux, with community members working to port to even more platforms.",
+      "icon": "cross-platform"
+    },
+    {
+      "title": "Open source",
+      "content": "Swift is open-source and developed in the open at Swift.org.",
+      "icon": "community"
+    }
+  ],
   "tags": [
     "paradigm/declarative",
     "paradigm/functional",

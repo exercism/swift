@@ -2,13 +2,13 @@
 
 ## Testing Tutorial
 
-This guide explains how to run unit tests for the Exercism Swift exercises using either macOS or Linux. It assumes you have already successfully installed the Exercism client and fetched the first exercise. If not, [do that now](http://exercism.io/languages/swift).
+This guide explains how to run unit tests for the Exercism Swift exercises using either macOS or Linux. It assumes you have already successfully installed the Exercism client and fetched the first exercise. If not, [do that now](https://exercism.org/languages/swift).
 
 ### For experienced users:
 
 	1. `swift test` runs tests
 	2. `swift package generate-xcodeproj` creates an Xcode project
-	
+
 To run the tests from the command line, first `cd` to the exercise directory (for example, ~/exercism/swift/exercises/hello-world/), then execute `swift test`. This will compile the files in the Sources directory and execute the tests in the Tests directory. Alternatively, open the Xcode project and press Command-U.
 
 ### For new users:
@@ -23,7 +23,7 @@ The following instructions are written with the expectation that some readers wi
 
 **macOS users are encouraged to use Xcode.** The Xcode environment provides very detailed error messages compared to those available from the command line.
 
-Exercism uses the [Swift Package Manager](https://github.com/apple/swift-package-manager/tree/master/Documentation) to package files and tests for Swift. Packages provide a complete set of source files that can be compiled and executed from the command line (or from Xcode).
+Exercism uses the [Swift Package Manager](https://github.com/apple/swift-package-manager/tree/main/Documentation) to package files and tests for Swift. Packages provide a complete set of source files that can be compiled and executed from the command line (or from Xcode).
 
 To complete an Exercism exercise, you will work primarily with two files:
 
@@ -43,7 +43,7 @@ Optionally, Xcode can create a third file for experimentation:
 5. The items Package.swift, Configs, and Products are boilerplate that do not need modification.
 6. Congratulations! If the project builds successfully, configuration is complete.
 
-![file inspector](/docs/img/file-inspector.png)
+![file inspector](https://raw.githubusercontent.com/exercism/swift/master/docs/img/file-inspector.png)
 
 ### Xcode Playgrounds
 
@@ -60,11 +60,11 @@ Keep in mind that while playgrounds are useful for drafting code snippets and id
 
 Select the Tests Source file from the file inspector. You can trigger tests by clicking on one of the diamonds in the gutter of the file. The diamond next to the class definition will run all the tests, whereas the diamond next to each individual test will run only that test.
 
-![tests](/docs/img/tests.png)
+![tests](https://raw.githubusercontent.com/exercism/swift/master/docs/img/tests.png)
 
 Tests can also be invoked with Command-U, from the Test Inspector (Command-5), or from the sub-menu under the play button in the top bar. Red errors alongside all the tests are normal, since you have not witten any code yet!
 
-![failing tests](/docs/img/tests-fail.png)
+![failing tests](https://raw.githubusercontent.com/exercism/swift/master/docs/img/tests-fail.png)
 
 Test driven development is a very iterative process. The first step is to successfully run the tests and have them fail. Next try "sliming a test" by creating a method that returns a correct hard coded value for the first test. Sliming will confirm the project can compile and pass one test.
 
@@ -74,7 +74,7 @@ Remember that the exercise is solved with code in the application source file al
 
 Once all the tests are marked with a green icon, congratulations, you have successfully completed the exercise! Now submit it to the Exercism website for review. If you are impossibly stuck, submit the exercise before it is complete to view how other users solved the exercise.
 
-![passing tests](/docs/img/tests-pass.png)
+![passing tests](https://raw.githubusercontent.com/exercism/swift/master/docs/img/tests-pass.png)
 
 *The Hello-World exercise is a very simple coding problem, but the complexity of Xcode can make even simple exercises complex. We can ignore most of this complexity, because we only need to edit one file. You can always regenerate the Xcode project if something goes wrong.*
 
@@ -103,11 +103,11 @@ XCTestCase is the XCTest subclass that contains the test's methods and XCTAssert
 
 There is a lot more to learn more about Test Driven Development, XCTAssert Methods and XCTestCase. Unfortunately up-to-date Swift documentation on these topics is short-lived. Although out of date as of when this tutorial was last updated, this list of sources contains useful information:
 
-[Apple's Guide on XCTest](https://developer.apple.com/library/tvos/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/02-quick_start.html#//apple_ref/doc/uid/TP40014132-CH2-SW1)
+[Apple's Guide on XCTest](https://developer.apple.com/documentation/xctest)
 
 [XCTest​Case / XCTest​Expectation / measure​Block()](http://nshipster.com/xctestcase/)
 
 A list of [Assertions supported in XCTest](http://rshankar.com/assertions-supported-in-xctest/).
 
-[Getting Started with TDD in Swift 3.0](https://medium.com/@ynzc/getting-started-with-tdd-in-swift-2fab3e07204b#.589p6ao6y)
+[Getting Started with TDD in Swift 4.0](https://medium.com/@ynzc/getting-started-with-tdd-in-swift-2fab3e07204b#.589p6ao6y)
 

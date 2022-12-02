@@ -37,4 +37,4 @@ inoutFunc(&mutVar, &mutVar)
 // raises a compiler error: "Inout arguments are not allowed to alias each other"
 ```
 
-[in-out-parameters]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID173
+[in-out-parameters]: https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID545

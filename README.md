@@ -1,6 +1,6 @@
-# xSwift
+# Exercism Swift Track
 
-[Exercism](http://exercism.io) exercises in Swift
+[Exercism](https://exercism.org) exercises in Swift
 
 ## Contributing Guide
 

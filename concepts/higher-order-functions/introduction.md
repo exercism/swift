@@ -78,7 +78,7 @@ let add10 = makeAdder(base: 10)
 // add10: (Int) -> Int
 
 let subtract20 = makeAdder(base: -20)
-// subtract10: (Int) -> Int
+// subtract20: (Int) -> Int
 
 add10(5)
 // => 15

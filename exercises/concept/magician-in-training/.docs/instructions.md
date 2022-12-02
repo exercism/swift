@@ -16,7 +16,7 @@ getCard(at: index, from: [1, 2, 4, 1])
 
 ## 2. Change a card in the stack
 
-Implement the function `setCard(at:in:to)` that returns a new stack that is a copy of the input stack but which has the card at position `index` changed to the the new card provided. If the given `index` is not a valid index in the stack, the original stack should be returned, unchanged.
+Implement the function `setCard(at:in:to)` that returns a new stack that is a copy of the input stack but which has the card at position `index` changed to the new card provided. If the given `index` is not a valid index in the stack, the original stack should be returned, unchanged.
 
 ```swift
 let index = 2
@@ -75,7 +75,7 @@ removeBottomCard([8, 5, 9, 7, 1])
 
 ## 8. Check size of the stack
 
-Implement the function `checkSizeOfStack(_:_:)` that checks whether the size of the stack is equal a given `stackSize` or not.
+Implement the function `checkSizeOfStack(_:_:)` that checks whether the size of the stack is equal to a given `stackSize` or not.
 
 ```swift
 let stackSize = 4
@@ -85,9 +85,9 @@ checkSizeOfStack([3, 2, 6, 4, 8], stackSize)
 
 ## 9. Count the number of even cards in the stack
 
-Implement the function `evenCardCount(_:)` that steps through the stack and count the number of even cards in it.
+Implement the function `evenCardCount(_:)` that steps through the stack and counts the number of even cards in it.
 
 ```swift
 evenCardCount([3,8,4,5,1,6,10])
-// => 3
+// => 4
 ```

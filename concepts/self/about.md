@@ -15,4 +15,4 @@ struct MySelf {
 }
 ```
 
-Structs and classes also have a `Self` value which refers the the type if the struct or class, rather than the instance of the struct or class.
+Structs and classes also have a `Self` value which refers the type if the struct or class, rather than the instance of the struct or class.

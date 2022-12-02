@@ -14,8 +14,8 @@ final class VehiclePurchaseTests: XCTestCase {
   func testCannotBuy() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(
-      canIBuy(vehicle: "2011 Bugatti Veryon", price: 2_250_880.00, monthlyBudget: 10000.00),
-      "Darn! No 2011 Bugatti Veryon for me")
+      canIBuy(vehicle: "2011 Bugatti Veyron", price: 2_250_880.00, monthlyBudget: 10000.00),
+      "Darn! No 2011 Bugatti Veyron for me")
   }
 
   func testBeFrugal() throws {

@@ -1,7 +1,7 @@
-//let flip: (String, String, String)) -> (String, String, String) = TODO: Please define the flip closure
+//let flip: (String, String, String) -> (String, String, String) = TODO: Please define the flip closure
 //
 //
-//let rotate: (String, String, String)) -> (String, String, String) = TODO: Please define the stopAtOne closure
+//let rotate: (String, String, String) -> (String, String, String) = TODO: Please define the stopAtOne closure
 
 func makeShuffle(
   flipper: @escaping ((String, String, String)) -> (String, String, String),

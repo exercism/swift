@@ -9,7 +9,7 @@ var addresses: Dictionary<String, String> = ["The Munsters": "1313 Mockingbird L
 var sequences: [String: [Int]] = ["Euler's totient": [1, 1, 2, 2, 4, 2, 6, 4], "Lazy caterer": [1, 2, 4, 7, 11, 16, 22, 29, 37], "Carmichael": [561, 1105, 1729, 2465, 2821, 6601, 8911, 10585, 15841]]
 let constants = ["pi": 3.14159, "e": 2.71828, "phi": 1.618033, "avogadro": 6.02214076e22]
 var emptyDict1: [Int: Int] = [:]
-var emptyDict2 = ["Character": "String"]()
+var emptyDict2 = [Character: String]()
 var emptyDict3 = Dictionary<Int, Double>()
 ```
 

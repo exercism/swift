@@ -26,14 +26,14 @@ screenSize.height ║                 |      │                      │       
 
 ## 1. Define a Size struct
 
-Define a struct named `Size` with two `Int` properties, `height` and `width` that store the window's current height and width, respectively. The initial height and width should be 80 and 60, respectively. Include a method `resize(newHeight:newWidth:)` that takes new height and width parameters and changes the properties to reflect the new size.
+Define a struct named `Size` with two `Int` properties, `width` and `height` that store the window's current width and height, respectively. The initial width and height should be 80 and 60, respectively. Include a method `resize(newWidth:newHeight:)` that takes new width and height parameters and changes the properties to reflect the new size.
 
 ```swift
-let size1080x764 = Size(height: 764, width: 1080)
+let size1080x764 = Size(width: 1080, height: 764)
 // => Size
 var size1200x800 = size1080x764
 // => Size
-size1200x800.resize(newHeight: 800, newWidth: 1200)
+size1200x800.resize(newWidth: 1200, newHeight: 800)
 size1200x800.height
 // => 800
 ```
@@ -74,7 +74,7 @@ Define a window class with the following properties:
 
 - `update(title:)` : `(String) -> ()` - This method sets the `title` property to the value of the string that was passed in.
 - `update(text:)` : `(String?) -> ()` - This method sets the `contents` property to the value of the optional string that was passed in.
-- `display()` : `() -> String` - This method returns a string describing the current state of the window. For example, if the window has the `title` "My First Window" with position: x = 10, y = 100; size: width = 200, height = 150; and contents: "I 😍 my window", it should return the string: `"My First Window\nPosition (10, 100), Size: (200 x 150)\nI 😍 my window\n"` - If `contents` is nil, the last line should read "[This window intentionally left blank]"
+- `display()` : `() -> String` - This method returns a string describing the current state of the window. For example, if the window has the `title` "My First Window" with position: x = 10, y = 100; size: width = 200, height = 150; and contents: "I 😍 my window", it should return the string: `"My First Window\nPosition: (10, 100), Size: (200 x 150)\nI 😍 my window\n"` - If `contents` is nil, the last line should read "[This window intentionally left blank]"
 
 ## 7. Create a new Window
 
