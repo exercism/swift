@@ -2,7 +2,7 @@
 
 ## Testing Tutorial
 
-This guide explains how to run unit tests for the Exercism Swift exercises using either macOS or Linux. It assumes you have already successfully installed the Exercism client and fetched the first exercise. If not, [do that now](http://exercism.io/languages/swift).
+This guide explains how to run unit tests for the Exercism Swift exercises using either macOS or Linux. It assumes you have already successfully installed the Exercism client and fetched the first exercise. If not, [do that now](https://exercism.org/languages/swift).
 
 ### For experienced users:
 
