@@ -1,5 +1,4 @@
 {
-  "blurb": "Translate RNA sequences into proteins.",
   "authors": [
     "robtimp"
   ],
@@ -21,5 +20,6 @@
       ".meta/Sources/ProteinTranslation/ProteinTranslationExample.swift"
     ]
   },
+  "blurb": "Translate RNA sequences into proteins.",
   "source": "Tyler Long"
 }

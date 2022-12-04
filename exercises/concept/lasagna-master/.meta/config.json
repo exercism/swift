@@ -1,5 +1,4 @@
 {
-  "blurb": "Dig deeper into functions by cooking your favorite lasagna.",
   "authors": [
     "wneumann"
   ],
@@ -13,5 +12,6 @@
     "exemplar": [
       ".meta/Sources/LasagnaMaster/LasagnaMasterExemplar.swift"
     ]
-  }
+  },
+  "blurb": "Dig deeper into functions by cooking your favorite lasagna."
 }

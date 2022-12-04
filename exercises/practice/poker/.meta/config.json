@@ -1,5 +1,4 @@
 {
-  "blurb": "Pick the best hand(s) from a list of poker hands.",
   "authors": [
     "masters3d"
   ],
@@ -23,6 +22,7 @@
       ".meta/Sources/Poker/PokerExample.swift"
     ]
   },
+  "blurb": "Pick the best hand(s) from a list of poker hands.",
   "source": "Inspired by the training course from Udacity.",
   "source_url": "https://www.udacity.com/course/viewer#!/c-cs212/"
 }

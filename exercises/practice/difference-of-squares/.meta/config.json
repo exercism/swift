@@ -1,5 +1,4 @@
 {
-  "blurb": "Find the difference between the square of the sum and the sum of the squares of the first N natural numbers.",
   "authors": [
     "masters3d"
   ],
@@ -26,6 +25,7 @@
       ".meta/Sources/DifferenceOfSquares/DifferenceOfSquaresExample.swift"
     ]
   },
+  "blurb": "Find the difference between the square of the sum and the sum of the squares of the first N natural numbers.",
   "source": "Problem 6 at Project Euler",
   "source_url": "https://projecteuler.net/problem=6"
 }
