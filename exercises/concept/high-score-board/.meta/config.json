@@ -1,5 +1,4 @@
 {
-  "blurb": "Learn about dictionaries by tracking high scores of an arcade game.",
   "authors": [
     "wneumann"
   ],
@@ -16,5 +15,6 @@
   },
   "forked_from": [
     "elixir/high-score"
-  ]
+  ],
+  "blurb": "Learn about dictionaries by tracking high scores of an arcade game."
 }

@@ -1,5 +1,4 @@
 {
-  "blurb": "Learn about booleans and conditionals while preparing for your next vehicle purchase",
   "authors": [
     "wneumann"
   ],
@@ -14,6 +13,5 @@
       ".meta/Sources/VehiclePurchase/VehiclePurchaseExemplar.swift"
     ]
   },
-  "contributors": [],
-  "forked_from": []
+  "blurb": "Learn about booleans and conditionals while preparing for your next vehicle purchase"
 }

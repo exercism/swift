@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement a clock that handles times without dates.",
   "authors": [
     "masters3d"
   ],
@@ -24,6 +23,7 @@
       ".meta/Sources/Clock/ClockExample.swift"
     ]
   },
+  "blurb": "Implement a clock that handles times without dates.",
   "source": "Pairing session with Erin Drummond",
   "source_url": "https://twitter.com/ebdrummond"
 }
