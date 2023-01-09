@@ -6,8 +6,8 @@ These functions are defined and called just like normal functions, but are not v
 
 ```swift
 func double(_ x: Int) -> Int {
-  func add(_ x: Int, y: Int) -> Int { x + y }
+  func add(_ x: Int, _ y: Int) -> Int { x + y }
 
-  add(x, x)
+  return add(x, x)
 }
 ```
