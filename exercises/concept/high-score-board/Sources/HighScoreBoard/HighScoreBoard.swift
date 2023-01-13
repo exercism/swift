@@ -7,11 +7,11 @@ func addPlayer(_ scores: inout [String: Int], _ name: String, _ score: Int = 0) 
 }
 
 func removePlayer(_ scores: inout [String: Int], _ name: String) {
-  fatalError("newScoreBoard not implemented - please add implementation here")
+  fatalError("removePlayer not implemented - please add implementation here")
 }
 
 func resetScore(_ scores: inout [String: Int], _ name: String) {
-  fatalError("removePlayer not implemented - please add implementation here")
+  fatalError("resetScore not implemented - please add implementation here")
 }
 
 func updateScore(_ scores: inout [String: Int], _ name: String, _ delta: Int) {
