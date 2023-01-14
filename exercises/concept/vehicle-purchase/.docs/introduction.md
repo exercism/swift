@@ -80,7 +80,7 @@ default:
 The `guard` statement in swift is used for early returns from Swift functions when a necessary condition which needs to be met for further processing to continue is not met, e.g.:
 
 ```swift
-guard myValue = 0 else { return 0 }
+guard myValue != 0 else { return 0 }
 let root = myValue.squareRoot()
 ```
 
