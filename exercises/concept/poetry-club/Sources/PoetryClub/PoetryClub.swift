@@ -12,8 +12,8 @@ func capitalize(_ phrase: String) -> String {
   fatalError("capitalize not implemented -- replace this error with an implementation")
 }
 
-func trimFromEnd(_ line: String) -> String {
-  fatalError("trimFromEnd not implemented -- replace this error with an implementation")
+func trimSentence(_ line: String) -> String {
+  fatalError("trimSentence not implemented -- replace this error with an implementation")
 }
 
 func lastLetter(_ line: String) -> Character {

@@ -12,7 +12,7 @@ func capitalize(_ phrase: String) -> String {
   return phrase.capitalized
 }
 
-func trimFromEnd(_ line: String) -> String {
+func trimSentence(_ line: String) -> String {
   return line.trimmingCharacters(in: .whitespaces)
 }
 
