@@ -2,7 +2,7 @@
 
 ## Optionals
 
-Swift uses _optionals_ to allow programmers to represent the possible absence of a value. Before attempting to use a value that may not exist, optionals allow the program to check first it it exists, then if it does exist unwrap and use it.
+Swift uses _optionals_ to allow programmers to represent the possible absence of a value. Before attempting to use a value that may not exist, optionals allow the program to check first if it exists, then if it does exist unwrap and use it.
 
 Any type can be made into an optional by appending a `?` onto the end of the type name. So an optional integer would have type `Int?` and an optional string would have type `String?`. Defining constants or variables of optional type and assigning them values is done the same as for values of non-optional types.
 
