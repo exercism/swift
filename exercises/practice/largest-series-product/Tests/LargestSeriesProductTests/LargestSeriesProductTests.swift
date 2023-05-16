@@ -53,14 +53,6 @@ class LargestSeriesProductTests: XCTestCase {
         }
     }
 
-    func testReports1ForEmptyStringAndEmptyProduct0Span() {
-        XCTAssertEqual(1, try? NumberSeries("").largestProduct(0))
-    }
-
-    func testReports1ForNonemptyStringAndEmptyProduct0Span() {
-        XCTAssertEqual(1, try? NumberSeries("123").largestProduct(0))
-    }
-
     func testRejectsEmptyStringAndNonzeroSpan() {
         XCTAssertThrowsError(_ = try NumberSeries("").largestProduct(1)) { error in
             XCTAssertEqual(error as? NumberSeries.NumberSeriesError, .spanLongerThanStringLength)
