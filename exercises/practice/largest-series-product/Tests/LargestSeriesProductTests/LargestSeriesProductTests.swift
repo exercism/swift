@@ -85,8 +85,6 @@ class LargestSeriesProductTests: XCTestCase {
             ("testReportsZeroIfTheOnlyDigitsAreZero", testReportsZeroIfTheOnlyDigitsAreZero),
             ("testReportsZeroIfAllSpansIncludeZero", testReportsZeroIfAllSpansIncludeZero),
             ("testRejectsSpanLongerThanStringLength", testRejectsSpanLongerThanStringLength),
-            ("testReports1ForEmptyStringAndEmptyProduct0Span", testReports1ForEmptyStringAndEmptyProduct0Span),
-            ("testReports1ForNonemptyStringAndEmptyProduct0Span", testReports1ForNonemptyStringAndEmptyProduct0Span),
             ("testRejectsEmptyStringAndNonzeroSpan", testRejectsEmptyStringAndNonzeroSpan),
             ("testRejectsInvalidCharacterInDigits", testRejectsInvalidCharacterInDigits),
             ("testRejectsNegativeSpan", testRejectsNegativeSpan),
