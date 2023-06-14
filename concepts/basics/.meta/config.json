@@ -1,7 +1,8 @@
 {
-  "blurb": "Swift is a statically-typed language, which means that every value has a known, fixed type at compile time.",
+  "blurb": "Swift is a compiled, multi-paradigm language, that uses static typing.",
   "authors": [
-    "wneumann"
+    "wneumann",
+    "meatball133"
   ],
   "contributors": []
 }

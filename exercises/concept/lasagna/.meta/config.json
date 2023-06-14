@@ -1,7 +1,8 @@
 {
   "blurb": "Learn the basics of Swift cooking a brilliant lasagna from your favorite cooking book",
   "authors": [
-    "wneumann"
+    "wneumann",
+    "meatball133"
   ],
   "files": {
     "solution": [
@@ -17,5 +18,5 @@
   "forked_from": [
     "fsharp/lucians-luscious-lasagna"
   ],
-  "language_versions": ">=4.0"
+  "language_versions": ">=5.0"
 }
