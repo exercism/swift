@@ -25,5 +25,5 @@ In cases where the entire body of a function is a single expression, [the `retur
 
 Note that this applies for all return types, not just multiple-value returns.
 
-[multiple-return-values]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID164
-[implicit-returns]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID607
+[multiple-return-values]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID164
+[implicit-returns]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID607

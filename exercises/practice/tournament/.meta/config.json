@@ -1,5 +1,4 @@
 {
-  "blurb": "Tally the results of a small football competition.",
   "authors": [
     "masters3d"
   ],
@@ -23,5 +22,6 @@
     "example": [
       ".meta/Sources/Tournament/TournamentExample.swift"
     ]
-  }
+  },
+  "blurb": "Tally the results of a small football competition."
 }

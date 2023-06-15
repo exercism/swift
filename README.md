@@ -3,6 +3,7 @@
 <img align="left" width="90" height="90" src="https://github.com/exercism/website-icons/blob/main/tracks/swift.svg">
 <p vertical-align="middle"><h1>Exercism Swift Track</h1></p>
 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Discourse topics](https://img.shields.io/discourse/topics?color=8A08E6&label=Connect%20&labelColor=FFDF58&logo=Discourse&logoColor=8A08E6&server=https%3A%2F%2Fforum.exercism.org&style=social)](https://forum.exercism.org)
 &nbsp;[![Exercism_II](https://img.shields.io/badge/Exercism--Built-9101FF?logo=swift&logoColor=F05138&labelColor=ffffff&label=Swift%205.8.1%20Powered)](https://exercism.org)
 &nbsp;[![Exercism_III](https://img.shields.io/badge/Temporarly%20Closed-dba40d?labelColor=3D454D&label=Contributions)](https://exercism.org/blog/freeing-our-maintainers) &nbsp;[![Build Status](https://github.com/exercism/Swift/workflows/CI/badge.svg)](https://github.com/exercism/swift/actions/workflows/ci.yml)

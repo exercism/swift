@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement basic list operations",
   "authors": [
     "robtimp"
   ],
@@ -20,5 +19,6 @@
     "example": [
       ".meta/Sources/ListOps/ListOpsExample.swift"
     ]
-  }
+  },
+  "blurb": "Implement basic list operations."
 }

@@ -17,4 +17,4 @@ greeting()
 // => "Welcome, guest. Enjoy your 2 night stay."
 ```
 
-[default-parameter-values]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID169
+[default-parameter-values]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID169

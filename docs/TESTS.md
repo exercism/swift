@@ -2,7 +2,7 @@
 
 ## Testing Tutorial
 
-This guide explains how to run unit tests for the Exercism Swift exercises using either macOS or Linux. It assumes you have already successfully installed the Exercism client and fetched the first exercise. If not, [do that now](http://exercism.io/languages/swift).
+This guide explains how to run unit tests for the Exercism Swift exercises using either macOS or Linux. It assumes you have already successfully installed the Exercism client and fetched the first exercise. If not, [do that now](https://exercism.org/languages/swift).
 
 ### For experienced users:
 
@@ -23,7 +23,7 @@ The following instructions are written with the expectation that some readers wi
 
 **macOS users are encouraged to use Xcode.** The Xcode environment provides very detailed error messages compared to those available from the command line.
 
-Exercism uses the [Swift Package Manager](https://github.com/apple/swift-package-manager/tree/master/Documentation) to package files and tests for Swift. Packages provide a complete set of source files that can be compiled and executed from the command line (or from Xcode).
+Exercism uses the [Swift Package Manager](https://github.com/apple/swift-package-manager/tree/main/Documentation) to package files and tests for Swift. Packages provide a complete set of source files that can be compiled and executed from the command line (or from Xcode).
 
 To complete an Exercism exercise, you will work primarily with two files:
 
@@ -103,11 +103,11 @@ XCTestCase is the XCTest subclass that contains the test's methods and XCTAssert
 
 There is a lot more to learn more about Test Driven Development, XCTAssert Methods and XCTestCase. Unfortunately up-to-date Swift documentation on these topics is short-lived. Although out of date as of when this tutorial was last updated, this list of sources contains useful information:
 
-[Apple's Guide on XCTest](https://developer.apple.com/library/tvos/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/02-quick_start.html#//apple_ref/doc/uid/TP40014132-CH2-SW1)
+[Apple's Guide on XCTest](https://developer.apple.com/documentation/xctest)
 
 [XCTest​Case / XCTest​Expectation / measure​Block()](http://nshipster.com/xctestcase/)
 
 A list of [Assertions supported in XCTest](http://rshankar.com/assertions-supported-in-xctest/).
 
-[Getting Started with TDD in Swift 3.0](https://medium.com/@ynzc/getting-started-with-tdd-in-swift-2fab3e07204b#.589p6ao6y)
+[Getting Started with TDD in Swift 4.0](https://medium.com/@ynzc/getting-started-with-tdd-in-swift-2fab3e07204b#.589p6ao6y)
 

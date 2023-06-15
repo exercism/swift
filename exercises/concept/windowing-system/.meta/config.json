@@ -1,5 +1,4 @@
 {
-  "blurb": "Learn about structs and classes by simulating a windowing based computer system.",
   "authors": [
     "wneumann"
   ],
@@ -13,5 +12,6 @@
     "exemplar": [
       ".meta/Sources/WindowingSystem/WindowingSystemExemplar.swift"
     ]
-  }
+  },
+  "blurb": "Learn about structs and classes by simulating a windowing based computer system."
 }

@@ -25,4 +25,4 @@ makeNumber([true, true, false, false, false, true, true])
 // => 99
 ```
 
-[nested-functions]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID178
+[nested-functions]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID178
