@@ -18,7 +18,7 @@ Hi. &nbsp;👋🏽 &nbsp;👋 &nbsp;**We are happy you are here.**&nbsp; 🎉&nb
 This repo holds all the instructions, tests, code, & support files for Swift _exercises_ currently under development or implemented & available for students.
 
 🌟 &nbsp;&nbsp;Track tooling (_test-runner and Continuous Integration_) runs on Swift `5.8.1`. <br>
-🌟 &nbsp;&nbsp;Most exercises is solvable with Swift `5.0.0` or higher.
+🌟 &nbsp;&nbsp;Most exercises are solvable with Swift `5.0.0` or higher.
 
 This track is made up of **Practice Exercises**. Practice exercises are open-ended, and can be used to practice concepts learned, try out new techniques, and play.
 
@@ -51,7 +51,7 @@ If it is your first time contributing to Exercism, check for [good first patch][
 Here to suggest a new feature or new exercise?? **Hooray!** &nbsp;🎉 &nbsp;  
 We'd love if you did that via our [Exercism Community Forum](https://forum.exercism.org/).  
 Please keep in mind [Chesterton's Fence][chestertons-fence].  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Thoughtful suggestions will likely result faster & more enthusiastic responses from volunteers._
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Thoughtful suggestions will likely result in faster & more enthusiastic responses from volunteers._
 
 <br>
 
