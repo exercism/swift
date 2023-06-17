@@ -2,16 +2,19 @@
 
 ## macOS
 
-In order to use the Swift exercises, install Xcode version 10.0 or greater. On the first launch of Xcode, install the command line tools when prompted.
+In order to use the Swift exercises, install Xcode version 10.0 or greater.
+On the first launch of Xcode, install the command line tools when prompted.
 
-The current release version is available at the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). 
+The current release version is available at the [Mac App Store][xcode].
 
-Additional versions of Xcode (including the most recent beta) are available at [Apple's developer center](https://developer.apple.com/xcode/downloads/).
+Additional versions of Xcode (including the most recent beta) are available at [Apple's developer center][apple-developer-center].
 
-All exercises have been tested with Xcode 10.0 using Swift 4.2.
+## Linux & Windows
 
-## Linux
+The latest release is available on [Swift.org][swift-download].
+Swift.org installation [instructions][swift-installation-instructions].
 
-The latest release is available on [Swift.org](https://swift.org/download/#releases).
-
-Swift.org installation [instructions](https://swift.org/getting-started/#installing-swift).
+[xcode]: https://developer.apple.com/xcode/
+[apple-developer-center]: https://developer.apple.com/xcode/downloads/
+[swift-download]: https://swift.org/download/#releases
+[swift-installation-instructions]: https://swift.org/getting-started/#installing-swift
