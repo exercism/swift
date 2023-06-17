@@ -9,7 +9,7 @@ Define the `expectedMinutesInOven` constant, that stores how many minutes the la
 According to the cooking book, the expected oven time in minutes is 40:
 
 ```swift
-expectedMinutesInOven()
+expectedMinutesInOven
 // => 40
 ```
 
