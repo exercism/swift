@@ -6,7 +6,7 @@
 
 Values can be associated with names by defining a [variable][constants-variables] and assigning a value to that variable.
 That name may then be used to refer to that value throughout the program.
-As the name implies, a variable is _mutable_, which means that the value can be changed at any time.
+Variables are _mutable_, which means that the value can be changed at any time.
 
 Variables are defined using the `var` keyword.
 
@@ -16,7 +16,6 @@ var variableName = 10
 
 Swift is a type-safe, statically typed language, which means all values have a type at compile time.
 You can either explicitly specify the type of a variable or let the compiler [infer the type][type-infering] based on the assigned value.
-The type system ensures that values are used in a consistent manner throughout the program.
 
 When assigning a value to a variable are there two ways either through explicit typing through [type annotations][type annotations] or implicit typing.
 Explicit typing is when you specify the type of the variable when you declare it.
@@ -27,7 +26,10 @@ var explicitVar: Int = 10 // Explicitly typed
 var implicitVar = 10 // Implicitly typed
 ```
 
-Updating a variable's value is done using the `=` operator. Note that the type of that variable, however, is fixed once it is initially defined and like the value associated with a constant, cannot be changed.
+Updating a variable's value is done using the `=` operator.
+
+````exercism/note
+The type of a variable, is fixed once it is initially defined.
 
 ```swift
 variableName = 13 // update to new value
@@ -35,6 +37,7 @@ variableName = 13 // update to new value
 // compiler error when assigning a different type
 variableName = "Hello, world!" // Cannot assign value of type 'String' to type 'Int'
 ```
+````
 
 Variables may be declared without assigning a value by specifying the name and type, but they may not be used before a value is assigned.
 
@@ -52,7 +55,7 @@ print(someInt) // prints '169'
 
 ### Constants
 
-[Constants][constants-variables] are similar to variables in that they are associated with a name and a value, but the value of a constant cannot be changed once it is initially assigned and is thereby _inmutable_.
+[Constants][constants-variables] are similar to variables in that they are associated with a name and a value, but the value of a constant cannot be changed once it is initially assigned and is thereby _immutable_.
 Constants are defined using the `let` keyword.
 
 ```swift
@@ -91,8 +94,9 @@ func functionName(argumentName parameterName: ArgumentType) -> ReturnType {
 }
 ```
 
-Swift arguments are a bit special compared to other languages, they use [argument labels][argument labels], which is that each argument has a label and then a parameter name.
-The argument label is used when calling the function and the parameter name is used inside the function.
+Swift arguments are a bit special compared to other languages, they use [argument labels][argument labels].
+The argument label is used when calling the function.
+The parameter name is used inside the function body to refer to the argument value.
 If you only assign one name to the argument it will be used as both the argument label and the parameter name.
 When assigning the argument label name as: `_` so will the argument not have a label when calling the function, e.g: `functionName(argumentValue)`
 
@@ -107,7 +111,7 @@ func functionName(argumentLabel parameterName: ArgumentType) -> ReturnType {
 functionName(argumentLabel: argumentValue)
 ```
 
-All arguments are inmutable by default and can't be changed inside the function.
+All arguments are immutable by default and can't be changed inside the function.
 When a function has a return type most be sure to return a value of that type.
 That is done by using the `return` keyword followed by the value to return.
 
@@ -121,8 +125,7 @@ func addTen(number value: Int) -> Int {
 addTen(number: 10) // returns 20
 ```
 
-When functions don't return a value they have a return type of `Void`, which is the same as `()`.
-When a function doesn't return a value you can omit the return type.
+When functions don't return a value they have a return type of `Void`, which is the same as `()`, but the return type can also be omitted in these cases.
 
 ### Comments
 

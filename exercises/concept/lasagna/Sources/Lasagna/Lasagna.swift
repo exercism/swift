@@ -1,13 +1,7 @@
-let expectedMinutesInOven = 40
+// TODO: define the 'expectedMinutesInOven' constant
 
-func remainingMinutesInOven(elapsedMinutes minutes: Int) -> Int {
-  return expectedMinutesInOven - minutes
-}
+// TODO: define the 'remainingMinutesInOven' function
 
-func preparationTimeInMinutes(layers: Int) -> Int {
-  return 2 
-}
+// TODO: define the 'preparationTimeInMinutes' function
 
-func totalTimeInMinutes(layers: Int, elapsedMinutes minutes: Int) -> Int {
-  return preparationTimeInMinutes(layers: layers) + minutes
-}
+// TODO: define the 'totalTimeInMinutes' function
