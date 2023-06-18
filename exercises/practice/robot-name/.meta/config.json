@@ -1,5 +1,4 @@
 {
-  "blurb": "Manage robot factory settings.",
   "authors": [
     "hankturowski"
   ],
@@ -25,5 +24,6 @@
       ".meta/Sources/RobotName/RobotNameExample.swift"
     ]
   },
+  "blurb": "Manage robot factory settings.",
   "source": "A debugging session with Paul Blackwell at gSchool."
 }

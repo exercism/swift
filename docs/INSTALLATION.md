@@ -11,8 +11,10 @@ Additional versions of Xcode (including the most recent beta) are available at [
 
 ## Linux & Windows
 
+
 The latest release is available on [Swift.org][swift-download].
 Swift.org installation [instructions][swift-installation-instructions].
+
 
 [xcode]: https://developer.apple.com/xcode/
 [apple-developer-center]: https://developer.apple.com/xcode/downloads/

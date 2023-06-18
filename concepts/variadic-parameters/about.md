@@ -22,4 +22,4 @@ When using variadic parameters, Swift has two limitations:
 1. Swift only allows functions to have one variadic parameter. It has been decided that this restriction will be removed in a future release of Swift, but it is currently still in place.
 2. If a function has parameters that follow the variadic parameter in the definition, the first parameter following the variadic parameter is _required_ to have an argument label.
 
-[variadic-parameters]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID171
+[variadic-parameters]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID171

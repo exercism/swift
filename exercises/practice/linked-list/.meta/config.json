@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement a doubly linked list",
   "authors": [
     "masters3d"
   ],
@@ -23,5 +22,6 @@
       ".meta/Sources/LinkedList/LinkedListExample.swift"
     ]
   },
+  "blurb": "Implement a doubly linked list.",
   "source": "Classic computer science topic"
 }

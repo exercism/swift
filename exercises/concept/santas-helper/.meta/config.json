@@ -1,5 +1,4 @@
 {
-  "blurb": "Learn about tuples by upgrading the system software of Santa's logistics division.",
   "authors": [
     "wneumann"
   ],
@@ -13,5 +12,6 @@
     "exemplar": [
       ".meta/Sources/SantasHelper/SantasHelperExemplar.swift"
     ]
-  }
+  },
+  "blurb": "Learn about tuples by upgrading the system software of Santa's logistics division."
 }

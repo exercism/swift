@@ -1,5 +1,4 @@
 {
-  "blurb": "Learn about strings using poems to get into your local poetry club.",
   "authors": [
     "wneumann"
   ],
@@ -16,5 +15,6 @@
   },
   "forked_from": [
     "javascript/poetry-club-door-policy"
-  ]
+  ],
+  "blurb": "Learn about strings using poems to get into your local poetry club."
 }

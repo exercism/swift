@@ -1,5 +1,4 @@
 {
-  "blurb": "Learn about loops by making tasty drinks for the public to enjoy on their nights out.",
   "authors": [
     "wneumann"
   ],
@@ -13,5 +12,6 @@
     "exemplar": [
       ".meta/Sources/MasterMixologist/MasterMixologistExemplar.swift"
     ]
-  }
+  },
+  "blurb": "Learn about loops by making tasty drinks for the public to enjoy on their nights out."
 }
