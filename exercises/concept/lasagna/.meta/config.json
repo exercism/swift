@@ -1,5 +1,4 @@
 {
-  "blurb": "Learn the basics of Swift cooking a brilliant lasagna from your favorite cooking book",
   "authors": [
     "wneumann"
   ],
@@ -14,8 +13,9 @@
       ".meta/Sources/Lasagna/LasagnaExemplar.swift"
     ]
   },
+  "language_versions": ">=4.0",
   "forked_from": [
     "fsharp/lucians-luscious-lasagna"
   ],
-  "language_versions": ">=4.0"
+  "blurb": "Learn the basics of Swift cooking a brilliant lasagna from your favorite cooking book"
 }

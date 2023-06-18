@@ -1,5 +1,4 @@
 {
-  "blurb": "Learn about optionals by finding the pizza configuration to give you the largest slice.",
   "authors": [
     "wneumann"
   ],
@@ -13,5 +12,6 @@
     "exemplar": [
       ".meta/Sources/PizzaSlices/PizzaSlicesExemplar.swift"
     ]
-  }
+  },
+  "blurb": "Learn about optionals by finding the pizza configuration to give you the largest slice."
 }

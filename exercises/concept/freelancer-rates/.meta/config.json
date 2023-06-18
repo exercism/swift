@@ -1,5 +1,4 @@
 {
-  "blurb": "Learn about numbers whilst helping a freelancer communicate with a project manager about day- and month rates.",
   "authors": [
     "wneumann"
   ],
@@ -14,8 +13,9 @@
       ".meta/Sources/FreelancerRates/FreelancerRatesExemplar.swift"
     ]
   },
+  "language_versions": ">=5.0",
   "forked_from": [
     "javascript/freelancer-rates"
   ],
-  "language_versions": ">=5.0"
+  "blurb": "Learn about numbers whilst helping a freelancer communicate with a project manager about day- and month rates."
 }

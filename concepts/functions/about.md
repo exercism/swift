@@ -52,5 +52,5 @@ let twentySix = add(6, and: 7, doubleResult: true)
 Within the body of a function, parameters are treated as constants, not variables.
 
 [functions]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html
-[argument labels]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID166
+[argument labels]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID166
 [type annotations]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID312

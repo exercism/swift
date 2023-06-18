@@ -1,6 +1,4 @@
 {
-  "blurb": "Learn about strings by parsing application logs",  
-  "icon": "logs-logs-logs",
   "authors": [
     "wneumann"
   ],
@@ -17,5 +15,7 @@
   },
   "forked_from": [
     "csharp/logs-logs-logs"
-  ]
+  ],
+  "icon": "logs-logs-logs",
+  "blurb": "Learn about strings by parsing application logs"
 }
