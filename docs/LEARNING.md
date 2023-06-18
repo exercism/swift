@@ -2,6 +2,7 @@
 
 ## An overview how to get started with Swift
 
+
 - [A Swift Tour][a-swift-tour] - A tour of the Swift language by Apple, it gives a good overview of the language.
 - [Swift documentation][swift-documentation] - The official documentation for the Swift language.
 - [Swift Playgrounds][swift-playground] - A free app which is available for iPad and macOS.

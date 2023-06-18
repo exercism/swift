@@ -1,5 +1,4 @@
 {
-  "blurb": "Write a robot simulator.",
   "authors": [],
   "contributors": [
     "bhargavg",
@@ -19,5 +18,6 @@
       ".meta/Sources/RobotSimulator/RobotSimulatorExample.swift"
     ]
   },
+  "blurb": "Write a robot simulator.",
   "source": "Inspired by an interview question at a famous company."
 }

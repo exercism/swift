@@ -1,5 +1,4 @@
 {
-  "blurb": "Create a custom set type.",
   "authors": [
     "masters3d"
   ],
@@ -22,5 +21,6 @@
     "example": [
       ".meta/Sources/CustomSet/CustomSetExample.swift"
     ]
-  }
+  },
+  "blurb": "Create a custom set type."
 }
