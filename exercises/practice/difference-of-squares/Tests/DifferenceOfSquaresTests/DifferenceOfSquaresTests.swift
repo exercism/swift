@@ -38,18 +38,4 @@ class DifferenceOfSquaresTests: XCTestCase {
     func testDifferenceOfSquaresOfSumTo100() {
         XCTAssertEqual(25_164_150, Squares(100).differenceOfSquares)
     }
-
-    static var allTests: [(String, (DifferenceOfSquaresTests) -> () throws -> Void)] {
-        return [
-            ("testSquareOfSumTo5", testSquareOfSumTo5),
-            ("testSumOfSquaresTo5", testSumOfSquaresTo5),
-            ("testDifferenceOfSquaresOfSumTo5", testDifferenceOfSquaresOfSumTo5),
-            ("testSquareOfSumTo10", testSquareOfSumTo10),
-            ("testSumOfSquaresTo10", testSumOfSquaresTo10),
-            ("testDifferenceOfSquaresOfSumTo10", testDifferenceOfSquaresOfSumTo10),
-            ("testSquareOfSumTo100", testSquareOfSumTo100),
-            ("testSumOfSquaresTo100", testSumOfSquaresTo100),
-            ("testDifferenceOfSquaresOfSumTo100", testDifferenceOfSquaresOfSumTo100),
-        ]
-    }
 }

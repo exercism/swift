@@ -50,18 +50,4 @@ class MeetupTests: XCTestCase {
         let meetUp = Meetup(year: 2012, month: 12)
         XCTAssertEqual("2012-12-07", meetUp.day(dayOfWeek.Friday, which: whichOptions.first).description)
     }
-
-    static var allTests: [(String, (MeetupTests) -> () throws -> Void)] {
-        return [
-            ("testMonteenthOfMay2013", testMonteenthOfMay2013),
-            ("testSaturteenthOfFebruary2013", testSaturteenthOfFebruary2013),
-            ("testFirstTuesdayOfMay2013", testFirstTuesdayOfMay2013),
-            ("testSecondMondayOfApril2013", testSecondMondayOfApril2013),
-            ("testThirdThursdayOfSeptember2013", testThirdThursdayOfSeptember2013),
-            ("testFourthSundayOfMarch2013", testFourthSundayOfMarch2013),
-            ("testLastThursdayOfOctober2013", testLastThursdayOfOctober2013),
-            ("testLastWednesdayOfFebruary2012", testLastWednesdayOfFebruary2012),
-            ("testFirstFridayOfDecember2012", testFirstFridayOfDecember2012),
-        ]
-    }
 }

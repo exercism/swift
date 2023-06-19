@@ -115,24 +115,4 @@ class TwelveDaysTests: XCTestCase {
         XCTAssertEqual(expected, TwelveDaysSong.sing())
 
     }
-
-    static var allTests: [(String, (TwelveDaysTests) -> () throws -> Void)] {
-        return [
-            ("testVerse1", testVerse1),
-            ("testVerse2", testVerse2),
-            ("testVerse3", testVerse3),
-            ("testVerse4", testVerse4),
-            ("testVerse5", testVerse5),
-            ("testVerse6", testVerse6),
-            ("testVerse7", testVerse7),
-            ("testVerse8", testVerse8),
-            ("testVerse9", testVerse9),
-            ("testVerse10", testVerse10),
-            ("testVerse11", testVerse11),
-            ("testVerse12", testVerse12),
-            ("testFirstThreeVerses", testFirstThreeVerses),
-            ("testThreeVersesFromMiddle", testThreeVersesFromMiddle),
-            ("testTheWholeSong", testTheWholeSong),
-        ]
-    }
 }

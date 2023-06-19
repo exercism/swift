@@ -41,15 +41,4 @@ class PascalsTriangleTests: XCTestCase {
         ]
         XCTAssertEqual(expected, triangle.rows.last!)
     }
-
-    static var allTests: [(String, (PascalsTriangleTests) -> () throws -> Void)] {
-        return [
-            ("testOneRow", testOneRow),
-            ("testTwoRows", testTwoRows),
-            ("testThreeRows", testThreeRows),
-            ("testFourthRow", testFourthRow),
-            ("testFifthRow", testFifthRow),
-            ("testTwentiethRow", testTwentiethRow),
-        ]
-    }
 }

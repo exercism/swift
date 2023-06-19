@@ -29,16 +29,4 @@ class RunLengthEncodingTests: XCTestCase {
     func testDecodeUnicode() {
         XCTAssertEqual(RunLengthEncoding.decode("⏰3⚽2⭐⏰"), "⏰⚽⚽⚽⭐⭐⏰")
     }
-
-    static var allTests: [(String, (RunLengthEncodingTests) -> () throws -> Void)] {
-        return [
-            ("testEncodeSimple", testEncodeSimple),
-            ("testDecodeSimple", testDecodeSimple),
-            ("testEncodeWithSingleValues", testEncodeWithSingleValues),
-            ("testDecodeWithSingleValues", testDecodeWithSingleValues),
-            ("testDecodeEncodeCombination", testDecodeEncodeCombination),
-            ("testEncodeUnicode", testEncodeUnicode),
-            ("testDecodeUnicode", testDecodeUnicode),
-        ]
-    }
 }

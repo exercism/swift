@@ -31,15 +31,4 @@ class MatrixTests: XCTestCase {
         let matrix = Matrix("89 1903 3\n18 3 1\n9 4 800")
         XCTAssertEqual([1903, 3, 4], matrix.columns[1])
     }
-
-    static var allTests: [(String, (MatrixTests) -> () throws -> Void)] {
-        return [
-            ("testExtractARow", testExtractARow),
-            ("testExtractSameRowAgain", testExtractSameRowAgain),
-            ("testExtractOtherRow", testExtractOtherRow),
-            ("testExtractOtherRowAgain", testExtractOtherRowAgain),
-            ("testExtractAColumn", testExtractAColumn),
-            ("testExtractAnotherColumn", testExtractAnotherColumn),
-        ]
-    }
 }

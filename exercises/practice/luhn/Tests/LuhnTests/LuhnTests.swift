@@ -67,22 +67,4 @@ class LuhnTests: XCTestCase {
         let luhn = Luhn("091")
         XCTAssertEqual (true, luhn.isValid)
     }
-
-    static var allTests: [(String, (LuhnTests) -> () throws -> Void)] {
-        return [
-            ("testSingleDigitInvalid", testSingleDigitInvalid),
-            ("testSingleZeroInvalid", testSingleZeroInvalid),
-            ("testSimpleReversableValid", testSimpleReversableValid),
-            ("testSimpleIrreversableValid", testSimpleIrreversableValid),
-            ("testCanadianValid", testCanadianValid),
-            ("testCanadianInvalid", testCanadianInvalid),
-            ("testCreditCardInvalid", testCreditCardInvalid),
-            ("testNonDigitInvalid", testNonDigitInvalid),
-            ("testPunctuationInvalid", testPunctuationInvalid),
-            ("testSymbolsInvalid", testSymbolsInvalid),
-            ("testZeroWithSpaceInvalid", testZeroWithSpaceInvalid),
-            ("testMultipleZeroesValid", testMultipleZeroesValid),
-            ("testInputNineOutputNine", testInputNineOutputNine)
-        ]
-    }
 }

@@ -42,17 +42,4 @@ class SecretHandshakeTests: XCTestCase {
         let handshake = SecretHandshake(0)
         XCTAssertEqual([], handshake.commands)
     }
-
-    static var allTests: [(String, (SecretHandshakeTests) -> () throws -> Void)] {
-        return [
-            ("testHandshake1ToWink", testHandshake1ToWink),
-            ("testHandshake10ToDoubleBlink", testHandshake10ToDoubleBlink),
-            ("testHandshake100ToCloseYourEyes", testHandshake100ToCloseYourEyes),
-            ("testHandshake1000ToJump", testHandshake1000ToJump),
-            ("testHandshake11ToWinkAndDoubleBlink", testHandshake11ToWinkAndDoubleBlink),
-            ("testHandshake10011ToDoubleBlinkAndWink", testHandshake10011ToDoubleBlinkAndWink),
-            ("testHandshake11111ToDoubleBlinkAndWink", testHandshake11111ToDoubleBlinkAndWink),
-            ("testNonValidHandshake", testNonValidHandshake),
-        ]
-    }
 }

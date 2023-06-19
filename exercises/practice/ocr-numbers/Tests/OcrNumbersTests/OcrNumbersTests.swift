@@ -163,27 +163,4 @@ class OcrNumbersTests: XCTestCase {
             XCTAssertEqual(error as? OCR.OCRError, .invalidNumberOfColumns)
         }
     }
-
-    static var allTests: [(String, (OcrNumbersTests) -> () throws -> Void)] {
-        return [
-            ("testRecognizeZero", testRecognizeZero),
-            ("testRecognizeOne", testRecognizeOne),
-            ("testRecognizeTwo", testRecognizeTwo),
-            ("testRecognizeThree", testRecognizeThree),
-            ("testRecognizeFour", testRecognizeFour),
-            ("testRecognizeFive", testRecognizeFive),
-            ("testRecognizeSix", testRecognizeSix),
-            ("testRecognizeSeven", testRecognizeSeven),
-            ("testRecognizeEight", testRecognizeEight),
-            ("testRecognizeNine", testRecognizeNine),
-            ("testIdentifyGarble", testIdentifyGarble),
-            ("testIdentify10", testIdentify10),
-            ("testIdentify110101100", testIdentify110101100),
-            ("testIdentifyWithGarble", testIdentifyWithGarble),
-            ("testIdentify1234567890", testIdentify1234567890),
-            ("testIdentify123_456_789", testIdentify123_456_789),
-            ("testThrowsInvalidNumberOfLinesError", testThrowsInvalidNumberOfLinesError),
-            ("testThrowsInvalidNumberOfColumnsError", testThrowsInvalidNumberOfColumnsError),
-        ]
-    }
 }

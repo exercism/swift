@@ -107,15 +107,4 @@ class FoodChainTests: XCTestCase {
 
         XCTAssertEqual(expected, FoodChain.song())
     }
-
-    static var allTests: [(String, (FoodChainTests) -> () throws -> Void)] {
-        return [
-            ("testVerse1", testVerse1),
-            ("testVerse2", testVerse2),
-            ("testVerse5", testVerse5),
-            ("testVerse7", testVerse7),
-            ("testVerse8", testVerse8),
-            ("testWholeSong", testWholeSong),
-        ]
-    }
 }

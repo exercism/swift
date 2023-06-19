@@ -25,15 +25,4 @@ class AcronymTests: XCTestCase {
     func testAcronymAbbreviateTest6() {
         XCTAssertEqual("CMOS", Acronym.abbreviate("Complementary metal-oxide semiconductor"))
     }
-
-    static var allTests: [(String, (AcronymTests) -> () throws -> Void)] {
-        return [
-            ("testAcronymAbbreviateTest1", testAcronymAbbreviateTest1),
-            ("testAcronymAbbreviateTest2", testAcronymAbbreviateTest2),
-            ("testAcronymAbbreviateTest3", testAcronymAbbreviateTest3),
-            ("testAcronymAbbreviateTest4", testAcronymAbbreviateTest4),
-            ("testAcronymAbbreviateTest5", testAcronymAbbreviateTest5),
-            ("testAcronymAbbreviateTest6", testAcronymAbbreviateTest6),
-        ]
-    }
 }

@@ -58,23 +58,4 @@ class IsbnVerifierTests: XCTestCase {
     func testCheckDigitOfXShouldNotBeUsedFor0() {
         XCTAssertFalse(IsbnVerifier.isValid("3-598-21515-X"))
     }
-
-    static var allTests: [(String, (IsbnVerifierTests) -> () throws -> Void)] {
-        return [
-            ("testEmptyString", testEmptyString),
-            ("testValidIsbnNumber", testValidIsbnNumber),
-            ("testInvalidIsbnCheckDigit", testInvalidIsbnCheckDigit),
-            ("testValidIsbnNumberWithACheckDigitOf10", testValidIsbnNumberWithACheckDigitOf10),
-            ("testCheckDigitIsACharacterOtherThanX", testCheckDigitIsACharacterOtherThanX),
-            ("testInvalidCharacterInIsbn", testInvalidCharacterInIsbn),
-            ("testXIsOnlyValidAsACheckDigit", testXIsOnlyValidAsACheckDigit),
-            ("testValidIsbnWithoutSeparatingDashes", testValidIsbnWithoutSeparatingDashes),
-            ("testIsbnWithoutSeparatingDashesAndXAsCheckDigit", testIsbnWithoutSeparatingDashesAndXAsCheckDigit),
-            ("testIsbnWithoutCheckDigitAndDashes", testIsbnWithoutCheckDigitAndDashes),
-            ("testTooLongIsbnAndNoDashes", testTooLongIsbnAndNoDashes),
-            ("testIsbnWithoutCheckDigit", testIsbnWithoutCheckDigit),
-            ("testTooLongIsbn", testTooLongIsbn),
-            ("testCheckDigitOfXShouldNotBeUsedFor0", testCheckDigitOfXShouldNotBeUsedFor0)
-        ]
-    }
 }

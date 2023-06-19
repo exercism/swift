@@ -121,26 +121,4 @@ class BobTests: XCTestCase {
         let result = Bob.hey(input)
         XCTAssertEqual(expected, result)
     }
-
-    static var allTests: [(String, (BobTests) -> () throws -> Void)] {
-        return [
-            ("testStatingSomething", testStatingSomething),
-            ("testShouting", testShouting),
-            ("testAskingAQustion", testAskingAQustion),
-            ("testTalkingForcefully", testTalkingForcefully),
-            ("testUsingAcronyms", testUsingAcronyms),
-            ("testForcefulQuestions", testForcefulQuestions),
-            ("testShoutingNumbers", testShoutingNumbers),
-            ("testOnlyNumbers", testOnlyNumbers),
-            ("testQuestionWithOnlyNumbers", testQuestionWithOnlyNumbers),
-            ("testShoutingWithSpecialCharacters", testShoutingWithSpecialCharacters),
-            ("testShoutingWithUmlautsCharacters", testShoutingWithUmlautsCharacters),
-            ("testCalmlySpeakingAboutUmlauts", testCalmlySpeakingAboutUmlauts),
-            ("testShoutingWithNoExclamationmark", testShoutingWithNoExclamationmark),
-            ("testStatementContainingQuestionsMark", testStatementContainingQuestionsMark),
-            ("testPrattlingOn", testPrattlingOn),
-            ("testSilence", testSilence),
-            ("testProlongedSilence", testProlongedSilence),
-        ]
-    }
 }

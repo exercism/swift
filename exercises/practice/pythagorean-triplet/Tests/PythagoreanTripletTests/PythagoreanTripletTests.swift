@@ -35,16 +35,4 @@ class PythagoreanTripletTests: XCTestCase {
         let products = triplets.map { $0.product }.sorted(by: <)
         XCTAssertEqual([118_080, 168_480, 202_500], products)
     }
-
-    static var allTests: [(String, (PythagoreanTripletTests) -> () throws -> Void)] {
-        return [
-            ("testSum", testSum),
-            ("testProduct", testProduct),
-            ("testPythagorean", testPythagorean),
-            ("testNotPythagorean", testNotPythagorean),
-            ("testTripletsUpTo10", testTripletsUpTo10),
-            ("testTripletsFrom11UpTo20", testTripletsFrom11UpTo20),
-            ("testTripletsWhereSumX", testTripletsWhereSumX),
-        ]
-    }
 }

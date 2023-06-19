@@ -65,18 +65,4 @@ class PhoneNumberTests: XCTestCase {
         let number = PhoneNumber(startingNumber)
         XCTAssertEqual(String(describing: number), expected)
     }
-
-    static var allTests: [(String, (PhoneNumberTests) -> () throws -> Void)] {
-        return [
-            ("testValidWithTenDigits", testValidWithTenDigits),
-            ("testCleansNumber", testCleansNumber),
-            ("testCleansNumberWithDots", testCleansNumberWithDots),
-            ("testValidWithElevenDigitsAndFirstIsOne", testValidWithElevenDigitsAndFirstIsOne),
-            ("testInvalidWhenElevenDigits", testInvalidWhenElevenDigits),
-            ("testInvalidWhenNineDigits", testInvalidWhenNineDigits),
-            ("testAreaCode", testAreaCode),
-            ("testPrettyPrint", testPrettyPrint),
-            ("testPrettyPrintWithFullUSPhoneNumber", testPrettyPrintWithFullUSPhoneNumber),
-        ]
-    }
 }

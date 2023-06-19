@@ -34,17 +34,4 @@ class IsogramTests: XCTestCase {
     func testMadeUpNameThatIsAnIsogram() {
         XCTAssertTrue(Isogram.isIsogram("Emily Jung Schwartzkopf"))
     }
-
-    static var allTests: [(String, (IsogramTests) -> () throws -> Void)] {
-        return [
-            ("testEmptyString", testEmptyString),
-            ("testIsogramWithOnlyLowerCaseCharacters", testIsogramWithOnlyLowerCaseCharacters),
-            ("testWordWithOneDuplicatedCharacter", testWordWithOneDuplicatedCharacter),
-            ("testLongestReportedEnglishIsogram", testLongestReportedEnglishIsogram),
-            ("testWordWithDuplicatedCharacterInMixedCase", testWordWithDuplicatedCharacterInMixedCase),
-            ("testHypotheticalIsogrammicWordWithHyphen", testHypotheticalIsogrammicWordWithHyphen),
-            ("testIsogramWithDuplicatedNonLetterCharacter", testIsogramWithDuplicatedNonLetterCharacter),
-            ("testMadeUpNameThatIsAnIsogram", testMadeUpNameThatIsAnIsogram),
-        ]
-    }
 }

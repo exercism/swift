@@ -37,18 +37,4 @@ class TrinaryTests: XCTestCase {
     func testInvalidTrinaryIsDecimal0() {
         XCTAssertEqual(0, Int(Trinary("carrot")))
     }
-
-    static var allTests: [(String, (TrinaryTests) -> () throws -> Void)] {
-        return [
-            ("testTrinary1IsDecimal1", testTrinary1IsDecimal1),
-            ("testTrinary2IsDecimal2", testTrinary2IsDecimal2),
-            ("testTrinary10IsDecimal3", testTrinary10IsDecimal3),
-            ("testTrinary11IsDecimal4", testTrinary11IsDecimal4),
-            ("testTrinary100IsDecimal9", testTrinary100IsDecimal9),
-            ("testTrinary112IsDecimal14", testTrinary112IsDecimal14),
-            ("testTrinary222Is26", testTrinary222Is26),
-            ("testTrinary1122000120Is32091", testTrinary1122000120Is32091),
-            ("testInvalidTrinaryIsDecimal0", testInvalidTrinaryIsDecimal0),
-        ]
-    }
 }

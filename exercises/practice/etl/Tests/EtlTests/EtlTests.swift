@@ -47,13 +47,4 @@ class EtlTests: XCTestCase {
 
         XCTAssertEqual(results, expected)
     }
-
-    static var allTests: [(String, (EtlTests) -> () throws -> Void)] {
-        return [
-            ("testTransformOneValue", testTransformOneValue),
-            ("testTransformMoreValues", testTransformMoreValues),
-            ("testMoreKeys", testMoreKeys),
-            ("testFullDataSet", testFullDataSet),
-        ]
-    }
 }

@@ -71,19 +71,4 @@ class AnagramTests: XCTestCase {
         let expected = ["Carthorse"]
         XCTAssertEqual(results, expected)
     }
-
-    static var allTests: [(String, (AnagramTests) -> () throws -> Void)] {
-        return [
-            ("testNoMatches", testNoMatches),
-            ("testDetectSimpleAnagram", testDetectSimpleAnagram),
-            ("testDetectMultipleAnagrams", testDetectMultipleAnagrams),
-            ("testDoesNotConfuseDifferentDuplicates", testDoesNotConfuseDifferentDuplicates),
-            ("testIdenticalWordIsNotAnagram", testIdenticalWordIsNotAnagram),
-            ("testEliminateAnagramsWithSameChecksum", testEliminateAnagramsWithSameChecksum),
-            ("testEliminateAnagramSubsets", testEliminateAnagramSubsets),
-            ("testDetectAnagram", testDetectAnagram),
-            ("testMultipleAnagrams", testMultipleAnagrams),
-            ("testAnagramsAreCaseInsensitive", testAnagramsAreCaseInsensitive),
-        ]
-    }
 }

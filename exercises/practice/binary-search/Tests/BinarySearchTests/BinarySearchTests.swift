@@ -39,16 +39,4 @@ class BinarySearchTests: XCTestCase {
         XCTAssertEqual(5, binary.searchFor(21))
         XCTAssertEqual(6, binary.searchFor(34))
     }
-
-    static var allTests: [(String, (BinarySearchTests) -> () throws -> Void)] {
-        return [
-            ("testHasListData", testHasListData),
-            ("testThrowsErrorForUnsortedList", testThrowsErrorForUnsortedList),
-            ("testNilForDataNotInList", testNilForDataNotInList),
-            ("testFindsPositionOfMiddleItem", testFindsPositionOfMiddleItem),
-            ("testFindsPositionOfSearchData", testFindsPositionOfSearchData),
-            ("testFindsPositionInALargerList", testFindsPositionInALargerList),
-            ("testFindsCorrectPositionInAListWithAnEvenNumberOfElements", testFindsCorrectPositionInAListWithAnEvenNumberOfElements),
-        ]
-    }
 }

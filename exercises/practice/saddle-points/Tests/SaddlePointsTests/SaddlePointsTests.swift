@@ -57,19 +57,4 @@ class SaddlePointsTests: XCTestCase {
         let matrix = SaddlePointsMatrix("4 5 4\n3 5 5\n1 5 4")
         XCTAssertEqualMultiArray([[0, 1], [1, 1], [2, 1]], matrix.saddlePoints)
     }
-
-    static var allTests: [(String, (SaddlePointsTests) -> () throws -> Void)] {
-        return [
-            ("testExtractARow", testExtractARow),
-            ("testExtractSameRowAgain", testExtractSameRowAgain),
-            ("testExtractOtherRow", testExtractOtherRow),
-            ("testExtractOtherRowAgain", testExtractOtherRowAgain),
-            ("testExtractAColumn", testExtractAColumn),
-            ("testExtractAnotherColumn", testExtractAnotherColumn),
-            ("testNoSaddlePoint", testNoSaddlePoint),
-            ("testASaddlePoint", testASaddlePoint),
-            ("testAnotherSaddlePoint", testAnotherSaddlePoint),
-            ("testMultipleSaddlePoints", testMultipleSaddlePoints),
-        ]
-    }
 }

@@ -82,14 +82,4 @@ class AccumulateTests: XCTestCase {
 
         XCTAssertEqualMultiArray(expected, result)
     }
-
-    static var allTests: [(String, (AccumulateTests) -> () throws -> Void)] {
-        return [
-            ("testEmptyAccumulation", testEmptyAccumulation),
-            ("testAccumulateSquares", testAccumulateSquares),
-            ("testAccumulateUpcases", testAccumulateUpcases),
-            ("testAccumulateReversedStrings", testAccumulateReversedStrings),
-            ("testAccumulateRecursively", testAccumulateRecursively),
-        ]
-    }
 }

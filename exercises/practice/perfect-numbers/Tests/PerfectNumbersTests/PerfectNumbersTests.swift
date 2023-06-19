@@ -22,13 +22,4 @@ class PerfectNumbersTests: XCTestCase {
         let numberClassifier = NumberClassifier(number: 12)
         XCTAssertEqual([.abundant], [numberClassifier.classification])
     }
-
-    static var allTests: [(String, (PerfectNumbersTests) -> () throws -> Void)] {
-        return [
-            ("testPerfect", testPerfect),
-            ("testPerfectAgain", testPerfectAgain),
-            ("testDeficient", testDeficient),
-            ("testAbundant", testAbundant),
-        ]
-    }
 }

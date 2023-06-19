@@ -148,20 +148,4 @@ class TournamentTests: XCTestCase {
             """
         XCTAssertEqual(tournament.tally(input), expected)
     }
-
-    static var allTests: [(String, (TournamentTests) -> () throws -> Void)] {
-        return [
-            ("testNoInput", testNoInput),
-            ("testWinThreePointsLossZeroPoints", testWinThreePointsLossZeroPoints),
-            ("testWinCanAlsoBeExpressedAsLoss", testWinCanAlsoBeExpressedAsLoss),
-            ("testDifferentTeamCanWin", testDifferentTeamCanWin),
-            ("testDrawIsOnePointEach", testDrawIsOnePointEach),
-            ("testMoreThanOneMatch", testMoreThanOneMatch),
-            ("testThereCanBeMoreThanOneWinner", testThereCanBeMoreThanOneWinner),
-            ("testMoreThanTwoTeams", testMoreThanTwoTeams),
-            ("testTypicalInput", testTypicalInput),
-            ("testIncompleteCompetition", testIncompleteCompetition),
-            ("testTiesBrokenAlphabetically", testTiesBrokenAlphabetically)
-        ]
-    }
 }

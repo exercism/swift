@@ -70,24 +70,4 @@ class LargestSeriesProductTests: XCTestCase {
             XCTAssertEqual(error as? NumberSeries.NumberSeriesError, .negativeSpan)
         }
     }
-
-    static var allTests: [(String, (LargestSeriesProductTests) -> () throws -> Void)] {
-        return [
-            ("testCanFindTheLargestProductOf2WithNumbersInOrder", testCanFindTheLargestProductOf2WithNumbersInOrder),
-            ("testCanFindTheLargestProductOf2", testCanFindTheLargestProductOf2),
-            ("testFindsTheLargestProductIfSpanEqualsLength", testFindsTheLargestProductIfSpanEqualsLength),
-            ("testCanFindTheLargestProductOf3WithNumbersInOrder", testCanFindTheLargestProductOf3WithNumbersInOrder),
-            ("testCanFindTheLargestProductOf3", testCanFindTheLargestProductOf3),
-            ("testCanFindTheLargestProductOf5WithNumbersInOrder", testCanFindTheLargestProductOf5WithNumbersInOrder),
-            ("testCanGetTheLargestProductOfABigNumber", testCanGetTheLargestProductOfABigNumber),
-            ("testCanGetTheLargestProductOfAnotherBigNumber", testCanGetTheLargestProductOfAnotherBigNumber),
-            ("testCanGetTheLargestProductOfABigNumberProjectEuler", testCanGetTheLargestProductOfABigNumberProjectEuler),
-            ("testReportsZeroIfTheOnlyDigitsAreZero", testReportsZeroIfTheOnlyDigitsAreZero),
-            ("testReportsZeroIfAllSpansIncludeZero", testReportsZeroIfAllSpansIncludeZero),
-            ("testRejectsSpanLongerThanStringLength", testRejectsSpanLongerThanStringLength),
-            ("testRejectsEmptyStringAndNonzeroSpan", testRejectsEmptyStringAndNonzeroSpan),
-            ("testRejectsInvalidCharacterInDigits", testRejectsInvalidCharacterInDigits),
-            ("testRejectsNegativeSpan", testRejectsNegativeSpan),
-        ]
-    }
 }

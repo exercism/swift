@@ -48,14 +48,4 @@ class AllergiesTests: XCTestCase {
         XCTAssertTrue(allergies.hasAllergy(.cats))
 
     }
-
-    static var allTests: [(String, (AllergiesTests) -> () throws -> Void)] {
-        return [
-            ("testBob", testBob),
-            ("testEggsNcats", testEggsNcats),
-            ("testNone", testNone),
-            ("testOtherAllergies", testOtherAllergies),
-            ("testAll", testAll),
-        ]
-    }
 }

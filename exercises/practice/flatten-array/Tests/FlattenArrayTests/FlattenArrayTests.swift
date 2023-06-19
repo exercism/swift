@@ -50,16 +50,4 @@ class FlattenArrayTests: XCTestCase {
         XCTAssertEqual([0.74896463547850123, 2.1800000000000002, 3.6000000000000001, 100.0, 50.200000000000003, -2.5], result)
 
     }
-
-    static var allTests: [(String, (FlattenArrayTests) -> () throws -> Void)] {
-        return [
-            ("testFlattenIntegerArray", testFlattenIntegerArray),
-            ("testFlattenForFiveLevelDeepNestedList", testFlattenForFiveLevelDeepNestedList),
-            ("testFlattenForSixLevelDeepNestedList", testFlattenForSixLevelDeepNestedList),
-            ("testFlattenForSixLevelDeepNestedListWithNullValues", testFlattenForSixLevelDeepNestedListWithNullValues),
-            ("testFlattenForAllNullDeepNestedList", testFlattenForAllNullDeepNestedList),
-            ("testFlattenForStringValuesInSixLevelDeepNestedList", testFlattenForStringValuesInSixLevelDeepNestedList),
-            ("testFlattenForDoubleValuesInFiveLevelDeepNestedList", testFlattenForDoubleValuesInFiveLevelDeepNestedList),
-        ]
-    }
 }

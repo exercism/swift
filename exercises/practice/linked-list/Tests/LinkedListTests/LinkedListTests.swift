@@ -48,14 +48,4 @@ class LinkedListTests: XCTestCase {
         XCTAssertEqual(50, deque.pop() ?? 0 )
         XCTAssertEqual(30, deque.shift() ?? 0 )
     }
-
-    static var allTests: [(String, (LinkedListTests) -> () throws -> Void)] {
-        return [
-            ("testPushPop", testPushPop),
-            ("testPushShift", testPushShift),
-            ("testUnshiftShift", testUnshiftShift),
-            ("testUnshiftPop", testUnshiftPop),
-            ("testExampleMethodLength", testExampleMethodLength),
-        ]
-    }
 }

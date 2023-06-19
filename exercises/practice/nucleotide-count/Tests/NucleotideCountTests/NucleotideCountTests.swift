@@ -55,17 +55,4 @@ class NucleotideCountTests: XCTestCase {
         let expected = [ "A": 20, "T": 21, "C": 12, "G": 17 ]
         XCTAssertEqual(results, expected)
     }
-
-    static var allTests: [(String, (NucleotideCountTests) -> () throws -> Void)] {
-        return [
-            ("testEmptyDNAStringHasNoAdenosine", testEmptyDNAStringHasNoAdenosine),
-            ("testEmptyDNAStringHasNoNucleotides", testEmptyDNAStringHasNoNucleotides),
-            ("testRepetitiveCytidineGetsCounted", testRepetitiveCytidineGetsCounted),
-            ("testRepetitiveSequenceHasOnlyGuanosine", testRepetitiveSequenceHasOnlyGuanosine),
-            ("testCountsByThymidine", testCountsByThymidine),
-            ("testCountsANucleotideOnlyOnce", testCountsANucleotideOnlyOnce),
-            ("testValidatesDNA", testValidatesDNA),
-            ("testCountsAllNucleotides", testCountsAllNucleotides),
-        ]
-    }
 }
