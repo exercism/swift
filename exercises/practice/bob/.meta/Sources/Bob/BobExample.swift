@@ -60,6 +60,8 @@ struct Bob {
     static func hey(_ input: String) -> String {
         if input.trimWhiteSpace().isEmpty {
             return "Fine. Be that way!"
+        } else if input.isShouting && input.isQuestion {
+            return "Calm down, I know what I'm doing!"
         } else if input.isShouting {
             return "Whoa, chill out!"
         } else if input.isQuestion {
