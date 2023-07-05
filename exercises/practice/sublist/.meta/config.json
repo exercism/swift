@@ -1,5 +1,4 @@
 {
-  "blurb": "Write a function to determine if a list is a sublist of another list.",
   "authors": [
     "kytrinyx"
   ],
@@ -20,5 +19,6 @@
     "example": [
       ".meta/Sources/Sublist/SublistExample.swift"
     ]
-  }
+  },
+  "blurb": "Write a function to determine if a list is a sublist of another list."
 }

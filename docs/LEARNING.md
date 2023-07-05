@@ -1,9 +1,13 @@
 # Learning
 
-Exercism provides exercises and feedback, but it can be difficult to jump
-into learning Swift for the first time. These
-resources can help you get started:
+- [A Swift Tour][a-swift-tour] - A tour of the Swift language by Apple, it gives a good overview of the language.
+- [Swift documentation][swift-documentation] - The official documentation for the Swift language.
+- [Swift Playgrounds][swift-playground] - A free app which is available for iPad and macOS.
+  It is a great way to learn Swift interactively, it has lessons with everything from the basic programming concepts to how to create a simple app.
+- [Develop in Swift Fundamentals][develop-in-swift-fundamentals] - A free book from Apple which is available on Apple Books.
+  It is a great way to learn Swift interactively, it has lessons with everything from the basic programming concepts to how to create a simple app.
 
-* [Apple Swift Website](http://www.apple.com/swift/)
-* [The Swift Programming Language Website](https://swift.org/documentation/)
-* [Swift Education](http://swifteducation.github.io/)
+[a-swift-tour]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/guidedtour/
+[swift-documentation]: https://www.swift.org/documentation/
+[swift-playground]: https://www.apple.com/swift/playgrounds/
+[develop-in-swift-fundamentals]: https://books.apple.com/us/book/develop-in-swift-fundamentals/id1581182804

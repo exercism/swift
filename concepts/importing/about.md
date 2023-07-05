@@ -14,7 +14,7 @@ This allows access to all of the types, values, and functionality inside that mo
 
 While they can be placed in the code anywhere before a pice of code that makes use of one the content of module, import statements are usually placed at the beginning of the file that uses them for greater readability.
 
-[argument-parser]: https://github.com/apple/swift-argument-parser
+[argument-parser]: https://apple.github.io/swift-argument-parser/documentation/argumentparser/
 [network-framework]: https://developer.apple.com/documentation/network
-[swifty-beaver]: https://github.com/apple/swift-argument-parser
+[swifty-beaver]: https://github.com/SwiftyBeaver/SwiftyBeaver
 [apple-foundation]: https://developer.apple.com/documentation/foundation

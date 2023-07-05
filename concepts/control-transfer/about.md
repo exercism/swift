@@ -7,12 +7,12 @@ The normal control flow of loops in Swift can be altered using [Swift's control 
 When the `continue` keyword is executed inside a loop, it tells the loop to skip immediately to the next iteration of the loop, skipping any lines of code that may lie between it and the end of the body of the loop. Note that execution resumes with the next evaluation of the Boolean expression for while and repeat-while loops, and not directly to the start of the loop body. So this loop:
 
 ```swift
-count = 1
+var count = 1
 repeat {
   count += 1
   if count == 4 { continue }
   print(count)
-} while count !=4 && count < 6
+} while count != 4 && count < 6
 ```
 
 prints:

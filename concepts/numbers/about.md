@@ -96,7 +96,7 @@ let negativeUInt2 = UInt(negative)
 // error: Execution was interrupted, reason: EXC_BAD_INSTRUCTION (code=EXC_I386_INVOP, subcode=0x0).
 ```
 
-[integers]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID310
+[integers]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID317
 [floatingpoint]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID321
 [int]: https://developer.apple.com/documentation/swift/int
 [double]: https://developer.apple.com/documentation/swift/double
