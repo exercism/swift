@@ -28,8 +28,6 @@ Swift is a type-safe, statically typed language, which means all values have a t
 You can either explicitly specify the type of a variable or let the compiler [infer the type][type-infering] based on the assigned value.
 
 When assigning a value to a variable are there two ways either through explicit typing through [type annotations][type annotations] or implicit typing.
-Explicit typing is when you specify the type of the variable when you declare it.
-Implicit typing is when you let the compiler infer the type of the variable based on the value you assign to it:
 
 ```swift
 var explicitVar: Int = 10 // Explicitly typed
@@ -127,7 +125,6 @@ That is done by using the `return` keyword followed by the value to return.
 
 ```swift
 func addTen(number value: Int) -> Int {
-  // function body
   return value + 10
 }
 

@@ -37,43 +37,6 @@
         "status": "active"
       },
       {
-        "slug": "bomb-defuser",
-        "name": "Double-Null0111: Closures Are Forever",
-        "uuid": "21d213fe-1c9d-4e8a-bc7e-47a11e972c08",
-        "concepts": [
-          "capturing",
-          "closures",
-          "shorthand-arguments",
-          "trailing-closures"
-        ],
-        "prerequisites": ["basics", "higher-order-functions", "loops"],
-        "status": "active"
-      },
-      {
-        "slug": "custom-signs",
-        "name": "Cal's Custom Sign Shop",
-        "uuid": "ac9b14eb-b521-4f2b-bc4b-1bd0e3e35ae7",
-        "concepts": ["characters"],
-        "prerequisites": ["basics"],
-        "status": "active"
-      },
-      {
-        "slug": "freelancer-rates",
-        "name": "Freelancer Rates",
-        "uuid": "3bdad781-47e1-493a-834d-ca6ac8361ffd",
-        "concepts": ["numbers"],
-        "prerequisites": ["basics"],
-        "status": "active"
-      },
-      {
-        "slug": "high-score-board",
-        "name": "High Score Board",
-        "uuid": "74cb167d-7418-4327-9dd8-9852082127b0",
-        "concepts": ["dictionaries"],
-        "prerequisites": ["basics", "optionals"],
-        "status": "active"
-      },
-      {
         "slug": "freelancer-rates",
         "name": "Freelancer Rates",
         "uuid": "3bdad781-47e1-493a-834d-ca6ac8361ffd",

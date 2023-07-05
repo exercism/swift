@@ -34,7 +34,8 @@ preparationTimeInMinutes(layers: 2)
 
 ## 4. Calculate the total working time in minutes
 
-Define the `totalTimeInMinutes` function that takes two named parameters: the `layers` parameter is the number of layers you added to the lasagna, and the `elapsedMinutes` parameter is the number of minutes the lasagna has been in the oven. The function should return how many minutes in total you've worked on cooking the lasagna, which is the sum of the preparation time in minutes, and the time in minutes the lasagna has spent in the oven at the moment.
+Define the `totalTimeInMinutes` function that takes two named parameters: the `layers` parameter is the number of layers you added to the lasagna, and the `elapsedMinutes` parameter is the number of minutes the lasagna has been in the oven.
+The function should return how many minutes in total you've worked on cooking the lasagna, which is the sum of the preparation time in minutes, and the time in minutes the lasagna has spent in the oven at the moment.
 
 ```swift
 totalTimeInMinutes(layers: 3, elapsedMinutes: 20)

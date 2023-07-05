@@ -18,8 +18,6 @@ Swift is a type-safe, statically typed language, which means all values have a t
 You can either explicitly specify the type of a variable or let the compiler [infer the type][type-infering] based on the assigned value.
 
 When assigning a value to a variable are there two ways either through explicit typing through [type annotations][type annotations] or implicit typing.
-Explicit typing is when you specify the type of the variable when you declare it.
-Implicit typing is when you let the compiler infer the type of the variable based on the value you assign to it:
 
 ```swift
 var explicitVar: Int = 10 // Explicitly typed
@@ -32,10 +30,10 @@ Updating a variable's value is done using the `=` operator.
 The type of a variable, is fixed once it is initially defined.
 
 ```swift
-variableName = 13 // update to new value
+var numberVar = 13 // update to new value
 
 // compiler error when assigning a different type
-variableName = "Hello, world!" // Cannot assign value of type 'String' to type 'Int'
+numberVar = "Hello, world!" // Cannot assign value of type 'String' to type 'Int'
 ```
 ````
 
@@ -112,12 +110,11 @@ functionName(argumentLabel: argumentValue)
 ```
 
 All arguments are immutable by default and can't be changed inside the function.
-When a function has a return type most be sure to return a value of that type.
+When a function has a return type, then it must return a value of that type.
 That is done by using the `return` keyword followed by the value to return.
 
 ```swift
 func addTen(number value: Int) -> Int {
-  // function body
   return value + 10
 }
 
