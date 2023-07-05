@@ -1,0 +1,13 @@
+{
+    "authors": ["meatball133"],
+    "contributors": [],
+    "files": {
+      "solution": ["Sources/WindQuest/WindQuest.swift"],
+      "test": ["Tests/WindQuestTests/WindQuestTests.swift"],
+      "exemplar": [".meta/Sources/WindQuest/WindQuestExemplar.swift"]
+    },
+    "forked_from": ["elixir/pacman-rules", "Crystal/crystal_hunter"],
+    "icon": "low-power-embedded-game",
+    "blurb": "Learn about booleans by implementing the rules of the Wind Quest game."
+  }
+  
