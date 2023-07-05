@@ -122,7 +122,7 @@
           "shorthand-arguments",
           "trailing-closures"
         ],
-        "prerequisites": ["functions", "higher-order-functions", "loops"],
+        "prerequisites": ["basics", "higher-order-functions", "loops"],
         "status": "active"
       },
       {
@@ -130,7 +130,7 @@
         "name": "High Score Board",
         "uuid": "74cb167d-7418-4327-9dd8-9852082127b0",
         "concepts": ["dictionaries"],
-        "prerequisites": ["functions", "optionals"],
+        "prerequisites": ["basics", "optionals"],
         "status": "active"
       },
       {
