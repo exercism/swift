@@ -113,10 +113,10 @@ capitalize("horse")
 
 ## 4. Trim a sentence
 
-Implement the function `trimFromEnd(_:)` that removes whitespace from the end of a sentence and returns the trimmed sentence:
+Implement the function `trimSentence(_:)` that removes whitespace from the start and end of a sentence and returns the trimmed sentence:
 
 ```swift
-trimFromEnd("Stands so high   ")
+trimSentence("Stands so high   ")
 // => "Stands so high"
 ```
 
