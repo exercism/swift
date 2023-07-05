@@ -27,7 +27,7 @@ $ swift test --enable-test-discovery
 
 This will run all of the test files in the `Test` directory.
 
-For concept exercises, when you got a test passing change the `false` in the `XCTSkipIf` to `true` to enable the next test.
+For concept exercises, when you got a test passing change the `true` in the `XCTSkipIf` to `false` to enable the next test.
 
 
 ## Submitting Your Solution
