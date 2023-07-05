@@ -46,16 +46,16 @@ class TaskPreparationTimeInMinutes: XCTestCase {
 class TaskTotalTimeInMinutes: XCTestCase {
   func testTotalMinutes() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(totalTimeInMinutes(layers: 6, elapsedMinutes: 13), 25)
+    XCTAssertEqual(totalTimeInMinutes(layers: 1, elapsedMinutes: 30), 32)
   }
 
   func testTotalMinutesWhenDone() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(totalTimeInMinutes(layers: 6, elapsedMinutes: 40), 40)
+    XCTAssertEqual(totalTimeInMinutes(layers: 2, elapsedMinutes: 25), 29)
   }
 
   func testTotalMinutesWhenLessThanOne() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(totalTimeInMinutes(layers: 6, elapsedMinutes: 39), 40)
+    XCTAssertEqual(totalTimeInMinutes(layers: 4, elapsedMinutes: 8), 16)
   }
 }
