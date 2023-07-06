@@ -8,7 +8,10 @@ Swift is a compiled, multi-paradigm language. With the following goals:
 
 - Having syntax that is a joy to read and write
 
-Swift was developed as a replacement for Objective-C, which was the primary language used for developing iOS and macOS applications. Swift was developed by Apple Inc. The language got it first release in 2014. It is now open source and is available on all Apple devices, Linux, and Windows.
+Swift was developed as a replacement for Objective-C, which was the primary language used for developing iOS and macOS applications.
+Swift was developed by Apple Inc.
+The language got it first release in 2014.
+It is now open source and is available on all Apple devices, Linux, and Windows.
 
 ## Getting Started
 

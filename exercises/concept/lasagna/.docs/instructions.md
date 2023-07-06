@@ -17,7 +17,6 @@ expectedMinutesInOven
 
 Define the `remainingMinutesInOven` function that takes the actual minutes the lasagna has been in the oven as a parameter and returns how many minutes the lasagna still has to remain in the oven, based on the expected oven time in minutes from the previous task.
 
-
 ```swift
 remainingMinutesInOven(elapsedMinutes: 30)
 // => 10
