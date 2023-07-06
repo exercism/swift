@@ -7,28 +7,28 @@ let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 class TaskBonusPoints: XCTestCase {
   func testGetsBonusPoints() {
     XCTAssertTrue(
-      bonusPoints(powerUpActive: true, touchingAnotherBird: true)
+      bonusPoints(powerUpActive: true, touchingEagle: true)
     )
   }
 
   func testNoBonusPointsWhenNotPowerUpActive() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertFalse(
-      bonusPoints(powerUpActive: false, touchingAnotherBird: true)
+      bonusPoints(powerUpActive: false, touchingEagle: true)
     )
   }
 
   func testNoBonusPointsWhenNotTouchingOtherBird() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertFalse(
-      bonusPoints(powerUpActive: true, touchingAnotherBird: false)
+      bonusPoints(powerUpActive: true, touchingEagle: false)
     )
   }
 
   func testNoBonusPointsWhenNotTouchingOtherBirdnorPowerUp() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertFalse(
-      bonusPoints(powerUpActive: false, touchingAnotherBird: false)
+      bonusPoints(powerUpActive: false, touchingEagle: false)
     )
   }
 }
@@ -67,21 +67,21 @@ class TaskLose: XCTestCase {
   func testLose() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertTrue(
-      lose(powerUpActive: false, touchingAnotherBird: true)
+      lose(powerUpActive: false, touchingEagle: true)
     )
   }
 
   func testDontLoseWhenPowerUp() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertFalse(
-      lose(powerUpActive: true, touchingAnotherBird: true)
+      lose(powerUpActive: true, touchingEagle: true)
     )
   }
 
   func testDontLoseWhenNotTouchingAndPowerUp() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertFalse(
-      lose(powerUpActive: false, touchingAnotherBird: false)
+      lose(powerUpActive: false, touchingEagle: false)
     )
   }
 
@@ -97,21 +97,21 @@ class TaskWin: XCTestCase {
   func testWin() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertTrue(
-      win(HasPickedUpAllSeeds: true, powerUpActive: false, touchingAnotherBird: false)
+      win(HasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: false)
     )
   }
 
   func testDontWinIfLost() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertFalse(
-      win(HasPickedUpAllSeeds: true, powerUpActive: false, touchingAnotherBird: true)
+      win(HasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: true)
     )
   }
 
   func testWinIfPickedUpAllSeedsAndTouchingOtherBird() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertFalse(
-      win(HasPickedUpAllSeeds: true, powerUpActive: false, touchingAnotherBird: true)
+      win(HasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: true)
     )
   }
 }
