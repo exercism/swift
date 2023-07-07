@@ -88,7 +88,7 @@ class TaskLose: XCTestCase {
   func testDontLoseWhenNotTouching() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertFalse(
-      score(touchingPowerUp: true, touchingSeed: false)
+      lose(powerUpActive: true, touchingEagle: false)
     )
   }
 }
