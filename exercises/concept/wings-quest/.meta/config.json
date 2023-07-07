@@ -2,9 +2,9 @@
     "authors": ["meatball133"],
     "contributors": [],
     "files": {
-      "solution": ["Sources/WindQuest/WindQuest.swift"],
-      "test": ["Tests/WindQuestTests/WindQuestTests.swift"],
-      "exemplar": [".meta/Sources/WindQuest/WindQuestExemplar.swift"]
+      "solution": ["Sources/WingsQuest/WingsQuest.swift"],
+      "test": ["Tests/WingsQuestTests/WingsQuestTests.swift"],
+      "exemplar": [".meta/Sources/WingsQuest/WingsQuestExemplar.swift"]
     },
     "forked_from": ["elixir/pacman-rules", "Crystal/crystal_hunter"],
     "icon": "low-power-embedded-game",

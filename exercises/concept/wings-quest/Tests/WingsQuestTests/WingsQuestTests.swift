@@ -1,6 +1,6 @@
 import XCTest
 
-@testable import WindQuest
+@testable import WingsQuest
 
 let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
