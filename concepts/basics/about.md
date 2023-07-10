@@ -10,7 +10,7 @@ Swift is a compiled, multi-paradigm language. With the following goals:
 
 Swift was developed as a replacement for Objective-C, which was the primary language used for developing iOS and macOS applications.
 Swift was developed by Apple Inc.
-The language got it first release in 2014.
+The language got its first release in 2014.
 It is now open source and is available on all Apple devices, Linux, and Windows.
 
 ## Getting Started
@@ -96,7 +96,7 @@ In Swift, [functions][functions] are a chunk of code that performs a task.
 A function has a return type and can thereby be used as a value and be parsed as arguments to other functions.
 In Swift are functions defined using the `func` keyword followed by the name of the function, arguments separated by commas, and a return type.
 
-The arguments are defined by a argument label, parameter name followed by a semi-colons and then a type.
+The arguments are defined by an argument label, a parameter name followed by a semi-colon and then a type.
 The return type is defined by a `->` followed by the type of the return value.
 
 ```swift

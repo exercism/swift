@@ -30,10 +30,10 @@ Updating a variable's value is done using the `=` operator.
 The type of a variable, is fixed once it is initially defined.
 
 ```swift
-var numberVar = 13 // update to new value
+variableName = 13 // update to new value
 
 // compiler error when assigning a different type
-numberVar = "Hello, world!" // Cannot assign value of type 'String' to type 'Int'
+variableName = "Hello, world!" // Cannot assign value of type 'String' to type 'Int'
 ```
 ````
 
@@ -83,7 +83,7 @@ In Swift, [functions][functions] are a chunk of code that performs a task.
 A function has a return type and can thereby be used as a value and be parsed as arguments to other functions.
 In Swift are functions defined using the `func` keyword followed by the name of the function, arguments separated by commas, and a return type.
 
-The arguments are defined by a argument label, parameter name followed by a semi-colons and then a type.
+The arguments are defined by an argument label, a parameter name followed by a semi-colon and then a type.
 The return type is defined by a `->` followed by the type of the return value.
 
 ```swift
@@ -110,7 +110,7 @@ functionName(argumentLabel: argumentValue)
 ```
 
 All arguments are immutable by default and can't be changed inside the function.
-When a function has a return type, then it must return a value of that type.
+When a function has a return type most be sure to return a value of that type.
 That is done by using the `return` keyword followed by the value to return.
 
 ```swift
