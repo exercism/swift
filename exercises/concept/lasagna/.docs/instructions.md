@@ -15,7 +15,7 @@ expectedMinutesInOven
 
 ## 2. Calculate the remaining oven time in minutes
 
-Define the `remainingMinutesInOven` function that takes the actual minutes the lasagna has been in the oven as a parameter and returns how many minutes the lasagna still has to remain in the oven, based on the expected oven time in minutes from the previous task.
+Define the function `remainingMinutesInOven(elapsedMinutes:)` that takes the actual minutes the lasagna has been in the oven as a parameter and returns how many minutes the lasagna still has to remain in the oven, based on the expected oven time in minutes from the previous task.
 
 ```swift
 remainingMinutesInOven(elapsedMinutes: 30)
@@ -24,7 +24,7 @@ remainingMinutesInOven(elapsedMinutes: 30)
 
 ## 3. Calculate the preparation time in minutes
 
-Define the `preparationTimeInMinutes` function that takes the number of layers you added to the lasagna as a parameter and returns how many minutes you spent preparing the lasagna, assuming each layer takes you 2 minutes to prepare.
+Define the function `preparationTimeInMinutes(layers:)` that takes the number of layers you added to the lasagna as a parameter and returns how many minutes you spent preparing the lasagna, assuming each layer takes you 2 minutes to prepare.
 
 ```swift
 preparationTimeInMinutes(layers: 2)
@@ -33,7 +33,7 @@ preparationTimeInMinutes(layers: 2)
 
 ## 4. Calculate the total working time in minutes
 
-Define the `totalTimeInMinutes` function that takes two named parameters: the `layers` parameter is the number of layers you added to the lasagna, and the `elapsedMinutes` parameter is the number of minutes the lasagna has been in the oven.
+Define the function `totalTimeInMinutes(layers:elapsedMinutes:)` that takes two named parameters: the `layers` parameter is the number of layers you added to the lasagna, and the `elapsedMinutes` parameter is the number of minutes the lasagna has been in the oven.
 The function should return how many minutes in total you've worked on cooking the lasagna, which is the sum of the preparation time in minutes, and the time in minutes the lasagna has spent in the oven at the moment.
 
 ```swift
