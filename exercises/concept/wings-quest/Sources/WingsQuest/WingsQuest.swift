@@ -11,5 +11,5 @@ func lose(powerUpActive : Bool, touchingEagle : Bool) -> Bool{
 }
 
 func win(HasPickedUpAllSeeds : Bool, powerUpActive : Bool, touchingEagle : Bool) -> Bool{
-    fatalError("Please implement the lose(HasPickedUpAllSeeds:powerUpActive:touchingEagle:) function")
+    fatalError("Please implement the win(HasPickedUpAllSeeds:powerUpActive:touchingEagle:) function")
 }

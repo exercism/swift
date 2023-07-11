@@ -12,11 +12,8 @@ The [_and_ operator][and] in Swift is represented by `&&` and returns `true` if 
 When using the _and_ operator, one Bool be placed on the right side of the `&&` and another one on the left side.
 
 ```Swift
-true && true
-// => true
-
-true && false
-// => false
+true && true  // true
+true && false // false
 ```
 
 ### Or(`||`)
@@ -25,14 +22,9 @@ The [_or_ operator][or] in Swift is represented by `||` and returns `true` if **
 When using the _or_ operator one bool should be placed on the right side of the `||` and another one on the left side.
 
 ```swift
-true || true
-// => true
-
-true || false
-// => true
-
-false || false
-// => false
+true || true   // true
+true || false  // true
+false || false // false
 ```
 
 ### Not(`!`)
@@ -41,11 +33,8 @@ The [_not_ operator][not] in Swift is represented by `!` and returns `true` if t
 When using the _not_ operator one Bool should be placed after the operator (`!`).
 
 ```swift
-!true
-// => false
-
-!false
-// => true
+!true  // false
+!false // true
 ```
 
 ## Using parentheses(`()`)
@@ -55,21 +44,15 @@ The result can differ depending on how the parentheses are used.
 In Swift, what is in parentheses is evaluated first.
 
 ```swift
-true && false && false || true
-// => true
-
-true && false && (false || true)
-// => false
+true && false && false || true   // true
+true && false && (false || true) // false
 ```
 
 Since what is in parentheses is evaluated first, in the following example, the _not_ operator will apply to the expression inside parentheses.
 
 ```Swift
-!true && false
-// => false
-
-!(true && false)
-// => true
+!true && false   // false
+!(true && false) // true
 ```
 
 ```exercism/note

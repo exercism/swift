@@ -17,7 +17,7 @@ The function should return `true` only if the bird has a power-up active and is 
 
 ```Swift
 bonusPoints(powerUpActive: false, touchingEagle: true)
-// => false
+// Returns false
 ```
 
 ## 2. Define if bird scores
@@ -29,7 +29,7 @@ The function should return `true` if the bird is touching a power-up or a seed, 
 
 ```Swift
 score(touchingPowerUp: true, touchingSeed: true)
-// => true
+// Returns true
 ```
 
 ## 3. Define if bird loses
@@ -39,7 +39,7 @@ The function should return `true` if the character is an eagle and does not have
 
 ```Swift
 lose(powerUpActive: false, touchingEagle: true)
-// => true
+// Returns true
 ```
 
 ## 4. Define if bird wins
@@ -49,5 +49,5 @@ The function should return `true` if the bird has gathered all of the seeds and 
 
 ```Swift
 win(HasPickedUpAllSeeds: false, powerUpActive: true, touchingEagle: false)
-// => false
+// Returns false
 ```
