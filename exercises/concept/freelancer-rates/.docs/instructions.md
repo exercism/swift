@@ -14,7 +14,7 @@ The function should return the daily rate based on the hourly rate.
 
 ```swift
 dailyRateFrom(hourlyRate: 60)
-// => 480.0
+// Returns 480.0
 ```
 
 The returned daily rate should be a `Double`.
@@ -30,7 +30,7 @@ The function should return the monthly rate rounded down.
 
 ```swift
 monthlyRateFrom(hourlyRate: 77, withDiscount: 10.5)
-// => 12129
+// Returns 12129
 ```
 
 ## 3. Calculate the number of workdays given a budget, hourly rate and discount
@@ -49,5 +49,5 @@ The function should return the number of workdays the freelancer will work on th
 
 ```swift
 workdaysIn(budget: 20000, hourlyRate: 80, withDiscount: 11.0)
-// => 35.0
+// Returns 35.0
 ```
