@@ -10,7 +10,7 @@ According to the cooking book, the expected oven time in minutes is 40:
 
 ```swift
 expectedMinutesInOven
-// => 40
+// Returns 40
 ```
 
 ## 2. Calculate the remaining oven time in minutes
@@ -19,7 +19,7 @@ Define the function `remainingMinutesInOven(elapsedMinutes:)` that takes the act
 
 ```swift
 remainingMinutesInOven(elapsedMinutes: 30)
-// => 10
+// Returns 10
 ```
 
 ## 3. Calculate the preparation time in minutes
@@ -28,7 +28,7 @@ Define the function `preparationTimeInMinutes(layers:)` that takes the number of
 
 ```swift
 preparationTimeInMinutes(layers: 2)
-// => 4
+// Returns 4
 ```
 
 ## 4. Calculate the total working time in minutes
@@ -38,5 +38,5 @@ The function should return how many minutes in total you've worked on cooking th
 
 ```swift
 totalTimeInMinutes(layers: 3, elapsedMinutes: 20)
-// => 26
+// Returns 26
 ```

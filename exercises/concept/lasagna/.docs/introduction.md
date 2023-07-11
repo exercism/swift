@@ -48,7 +48,7 @@ var someInt: Int
 // Assign a value to the names
 someInt = 169
 
-print(someInt) // prints '169'
+print(someInt) // Prints '169'
 ```
 
 ### Constants
@@ -67,14 +67,14 @@ Swift has [operators][operators] for addition, subtraction, and multiplication.
 The operators are `+`, `-`, and `*` respectively.
   
 ```swift
-1 + 1
-// => 2
+print(1 + 1)
+// Prints 2
 
-2 - 1
-// => 1
+print(2 - 1)
+// Prints 1
 
-2 * 2
-// => 4
+print(2 * 2)
+// Prints: 4
 ```
 
 ### Functions
@@ -119,7 +119,7 @@ func addTen(number value: Int) -> Int {
 }
 
 // calling the function
-addTen(number: 10) // returns 20
+addTen(number: 10) // Returns 20
 ```
 
 When functions don't return a value they have a return type of `Void`, which is the same as `()`, but the return type can also be omitted in these cases.
