@@ -2,37 +2,72 @@
 
 ## Numbers
 
-Swift contains many basic numeric types that can represent sets of either integer or floating-point values, where different types may be chosen depending on the size of value you require and the architecture of the computer where the application is running (e.g. 32-bit or 64-bit).
+Swift has 2 main types of numbers: integers and floating-point numbers.
+Integers are whole numbers, e.g. `0`, `1`, `-1`, `42`, and `-273`.
+Floating-point numbers are numbers with a fractional component, e.g. `0.0`, `3.14`, and `-1.36969e-10`.
 
-## Integer types:
+In most cases you would define the type for integers as `Int` and for floating-point numbers as `Double`.
 
-Swift offers signed and unsigned integer types in 8, 16, 32, and 64 bit sizes named `IntX` or `UIntX` where _X_ is the number of bits and a leading U specifies unsigned integers. Swift also offers the `Int` and `UInt` types which are the signed and unsigned integers with a number of bits equal to the native machine word size (64 bits on most modern computers).
+To declare a variable or constant to be of type `Int` or `Double`, you can use a type annotation:
 
-The default integer type in Swift is `Int`, and it is preferred to use `Int` rather than `UInt` even if you know that your values will be non-negative unless you specifically need values larger than the maximum `Int` value (`2147483647` on 32 bit systems `9223372036854775807` on 64 bit systems. According to Apple,
-
-> A consistent use of Int for integer values aids code interoperability, avoids the need to convert between different number types, and matches integer type inference
-
-You can read more about integer types in [A Tour of Swift: Integers][integers].
-
-## Floating-point
-
-Floating-point number types are used to represent numbers which may have a fractional component, e.g. `0.0`, `3.14`, and `-1.36969e-10`. Swift offers two floating-point number types: `Double` and `Float`. `Double` is a 64-bit floating point type and `Float` is a 32-bit floating bit type. Like with `Int` for the integer types, it is preferred to use `Double` as the default floating point type. According to Apple:
-
-> Double has a precision of at least 15 decimal digits, whereas the precision of Float can be as little as 6 decimal digits. The appropriate floating-point type to use depends on the nature and range of values you need to work with in your code. In situations where either type would be appropriate, Double is preferred.
-
-You can read more about floating-point types in [A Tour of Swift: Floating-Point Numbers][floatingpoint].
+```swift
+let Speed: Int = 42   // Speed is an Int
+let Pi: Double = 3.14 // Pi is a Double
+``` 
 
 ## Arithmetic operators
 
-Swift supports the standard set of arithmetic operators of `+`, `-`, `*`, `/` and `%` (remainder not modulo). Note that for `Int` values, `/` is the integer division operator that throws away any remainder.
+The `+` operator is used for addition, the `-` operator is used for subtraction, and the `*` operator is used for multiplication.
 
-You can read more about the arithmetic operators in [A Tour of Swift: Arithmetic Operators][arithmeticoperators].
+| Operator | Example        |
+| -------- | -------------- |
+| `+`      | `4 + 6   // equals  10`  |
+| `-`      | `15 - 10 // equals  5` |
+| `*`      | `2 * 3   // equals  6`   |
 
-## Comparison operators
+### Division
 
-Swift also supports the standard set of comparison operators that are seen in C. Swift uses `!=` to test for inequality and not `<>` as in some languages. As with other languages, care should be taken when comparing two floating point values for equality.
+The `/` operator is used for division.
+When using at least one floating-point number, the result will be a floating-point number.
+When using only integers, the result will be an integer.
 
-You can read more about the arithmetic operators in [A Tour of Swift: Comparison Operators][comparisonoperators].
+```swift
+5 / 2.0 // equals 2.5
+5 / 2   // equals 2
+```
+
+When dividing by zero, depending on the type of number, you will get a different result.
+If you divide a floating-point number by zero, the result will be `inf`, or `-inf` if the number being divided is negative.
+Only exception is when you divide zero by zero, and one of them being a floating point number which will result in `nan`.
+If you divide an integer by zero, you will get a compile error.
+
+```swift
+print(5.0 / 0)  // Prints inf
+print(-5 / 0.0) // Prints -inf
+print(0.0 / 0)  // Prints nan
+
+// The following code will not compile
+print(5 / 0) // error: division by zero
+```
+
+### Remainder
+
+The `%` operator is used for remainder and does only work with integers.
+The operator returns the remainder of the division of the first argument by the second argument.
+And as with division, having the second argument having the value of zero will result in a compile error.
+
+```exercism/note
+In other languages, this is this operator also known as the modulo operator.
+But in Swift, it does not work the same way as the modulo operator, since it strictly speaking it returns the remainder, not the modulo.
+```
+
+```swift
+5 % 2  // equals 1
+-5 % 2 // equals -1
+
+// The following code will not compile
+print(5 % 0) // error: division by zero
+```
 
 ## Type inference
 
@@ -79,22 +114,6 @@ print("iPi:", iPi, "is of type:", type(of: iPi))
 ```
 
 Note that in some cases, where the value is out of range for the target type, attempting to convert types will lead to an error. If the compiler can detect the problem, the code will fail to compile, otherwise, a runtime error will occur. E.g.
-
-```swift
-let tooBigByte = Int8(300)
-// Compiler error: Integer literal '300' overflows when stored into 'Int8'
-
-let negativeUInt = UInt(-1)
-// Compiler error: Negative integer '-1' overflows when stored into unsigned type 'UInt'
-
-let big = 300
-let tooBigByte2 = Int8(big)
-// error: Execution was interrupted, reason: EXC_BAD_INSTRUCTION (code=EXC_I386_INVOP, subcode=0x0).
-
-let negative = -1
-let negativeUInt2 = UInt(negative)
-// error: Execution was interrupted, reason: EXC_BAD_INSTRUCTION (code=EXC_I386_INVOP, subcode=0x0).
-```
 
 [integers]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID317
 [floatingpoint]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID321
