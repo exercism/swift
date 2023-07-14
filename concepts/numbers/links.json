@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Integers",
+        "description": "Swift Book: Integers"
+    },
+    {
+        "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Floating-Point-Numbers",
+        "description": "Swift Book: Floating-Point Numbers"
+    },
+    {
+        "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Arithmetic-Operators",
+        "description": "Swift Book: Arithmetic Operators"
+    },
+    {
+        "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Remainder-Operator",
+        "description": "Swift Book: Remainder Operator"
+    },
+    {
+        "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Integer-and-Floating-Point-Conversion",
+        "description": "Swift Book: Integer and Floating-Point Conversion"
+    },
+    {
+        "url": "https://developer.apple.com/documentation/swift/int",
+        "description": "Swift docs: Int"
+    },
+    {
+        "url": "https://developer.apple.com/documentation/swift/double",
+        "description": "Swift docs: Double"
+    }
+]
