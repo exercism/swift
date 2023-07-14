@@ -53,18 +53,4 @@ class SpaceAgeTests: XCTestCase {
         XCTAssertEqual(260.16, age.onEarth, accuracy: 0.01)
         XCTAssertEqual(1.58, age.onNeptune, accuracy: 0.01)
     }
-
-    static var allTests: [(String, (SpaceAgeTests) -> () throws -> Void)] {
-        return [
-            ("testAgeInSeconds", testAgeInSeconds),
-            ("testAgeInEarthYears", testAgeInEarthYears),
-            ("testAgeInMercuryYears", testAgeInMercuryYears),
-            ("testAgeInVenusYears", testAgeInVenusYears),
-            ("testAgeOnMars", testAgeOnMars),
-            ("testAgeOnJupiter", testAgeOnJupiter),
-            ("testAgeOnSaturn", testAgeOnSaturn),
-            ("testAgeOnUranus", testAgeOnUranus),
-            ("testAgeOnNeptune", testAgeOnNeptune),
-        ]
-    }
 }

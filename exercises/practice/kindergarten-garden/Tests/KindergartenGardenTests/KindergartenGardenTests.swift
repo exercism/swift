@@ -105,30 +105,4 @@ class KindergartenGardenTests: XCTestCase {
         XCTAssertEqual([.grass, .violets, .clover, .grass], garden1.plantsForChild("Charlie"))
         XCTAssertEqual([.radishes, .radishes, .grass, .clover], garden2.plantsForChild("Charlie"))
     }
-
-    static var allTests: [(String, (KindergartenGardenTests) -> () throws -> Void)] {
-        return [
-            ("testAlicesGarden", testAlicesGarden),
-            ("testDifferentGardenForAlice", testDifferentGardenForAlice),
-            ("testBobsGarden", testBobsGarden),
-            ("testBobAndCharliesGardens", testBobAndCharliesGardens),
-            ("testAlice", testAlice),
-            ("testBob", testBob),
-            ("testCharlie", testCharlie),
-            ("testDavid", testDavid),
-            ("testEve", testEve),
-            ("testFred", testFred),
-            ("testGinny", testGinny),
-            ("testHarriet", testHarriet),
-            ("testIleana", testIleana),
-            ("testJoseph", testJoseph),
-            ("testKincaid", testKincaid),
-            ("testLarry", testLarry),
-            ("testPatricia", testPatricia),
-            ("testRoger", testRoger),
-            ("testSamantha", testSamantha),
-            ("testXander", testXander),
-            ("testBobAndCharliePerGarden", testBobAndCharliePerGarden),
-        ]
-    }
 }

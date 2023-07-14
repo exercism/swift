@@ -41,16 +41,4 @@ class HammingTests: XCTestCase {
         let result = Hamming.compute("GACTACGGACAGGGTAGGGAAT", against:"GACATCGCACACC")
         XCTAssertNil(result, "Different length strands return nil")
     }
-
-    static var allTests: [(String, (HammingTests) -> () throws -> Void)] {
-        return [
-            ("testNoDifferenceBetweenEmptyStrands", testNoDifferenceBetweenEmptyStrands),
-            ("testNoDifferenceBetweenIdenticalStrands", testNoDifferenceBetweenIdenticalStrands),
-            ("testCompleteHammingDistanceInSmallStrand", testCompleteHammingDistanceInSmallStrand),
-            ("testSmallHammingDistanceInMiddleSomewhere", testSmallHammingDistanceInMiddleSomewhere),
-            ("testLargerDistance", testLargerDistance),
-            ("testReturnsNilWhenOtherStrandLonger", testReturnsNilWhenOtherStrandLonger),
-            ("testReturnsNilWhenOriginalStrandLonger", testReturnsNilWhenOriginalStrandLonger),
-        ]
-    }
 }

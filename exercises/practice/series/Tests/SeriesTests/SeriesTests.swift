@@ -80,23 +80,4 @@ class SeriesTests: XCTestCase {
         let series = Series(sliceString)
         XCTAssertEqualMultiArray([], series.slices(12))
     }
-
-    static var allTests: [(String, (SeriesTests) -> () throws -> Void)] {
-        return [
-            ("testSimpleSlicesOfOne", testSimpleSlicesOfOne),
-            ("testSimpleSlicesOfOneAgain", testSimpleSlicesOfOneAgain),
-            ("testSimpleSlicesOfTwo", testSimpleSlicesOfTwo),
-            ("testOtherSlicesOfTwo", testOtherSlicesOfTwo),
-            ("testSimpleSlicesOfTwoAgain", testSimpleSlicesOfTwoAgain),
-            ("testSimpleSlicesOfThree", testSimpleSlicesOfThree),
-            ("testSimpleSlicesOfThreeAgain", testSimpleSlicesOfThreeAgain),
-            ("testOtherSlicesOfThree", testOtherSlicesOfThree),
-            ("testSimpleSlicesOfFour", testSimpleSlicesOfFour),
-            ("testSimpleSlicesOfFourAgain", testSimpleSlicesOfFourAgain),
-            ("testSimpleSlicesOfFive", testSimpleSlicesOfFive),
-            ("testSimpleSlicesOfFiveAgain", testSimpleSlicesOfFiveAgain),
-            ("testSimpleSliceThatBlowsUp", testSimpleSliceThatBlowsUp),
-            ("testMoreComplicatedSliceThatBlowsUp", testMoreComplicatedSliceThatBlowsUp),
-        ]
-    }
 }

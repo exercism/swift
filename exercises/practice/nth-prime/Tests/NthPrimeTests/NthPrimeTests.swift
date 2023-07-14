@@ -21,14 +21,4 @@ class NthPrimeTests: XCTestCase {
     func testWeirdCase() {
         XCTAssertNil(Prime.nth(0))
     }
-
-    static var allTests: [(String, (NthPrimeTests) -> () throws -> Void)] {
-        return [
-            ("testFirst", testFirst),
-            ("testSecond", testSecond),
-            ("testSixthPrime", testSixthPrime),
-            ("testBigPrime", testBigPrime),
-            ("testWeirdCase", testWeirdCase),
-        ]
-    }
 }

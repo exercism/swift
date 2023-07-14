@@ -76,18 +76,4 @@ class SimpleLinkedListTests: XCTestCase {
         XCTAssertEqual([2, 1], Element.fromArray([2, 1]).toArray() )
         XCTAssertEqual(Array(1...10), Element.fromArray(Array(1...10)).toArray())
     }
-
-    static var allTests: [(String, (SimpleLinkedListTests) -> () throws -> Void)] {
-        return [
-            ("testConstructorA", testConstructorA),
-            ("testConstructorB", testConstructorB),
-            ("testToA", testToA),
-            ("testReverseOne", testReverseOne),
-            ("testReverseTwo", testReverseTwo),
-            ("testFromAOne", testFromAOne),
-            ("testFromATwo", testFromATwo),
-            ("testFromATen", testFromATen),
-            ("testRoundtrip", testRoundtrip),
-        ]
-    }
 }

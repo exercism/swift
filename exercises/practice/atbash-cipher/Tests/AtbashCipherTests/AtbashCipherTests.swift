@@ -37,17 +37,4 @@ class AtbashCipherTests: XCTestCase {
         let cipher = "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
         XCTAssertEqual(cipher, AtbashCipher.encode(plaintext) )
     }
-
-    static var allTests: [(String, (AtbashCipherTests) -> () throws -> Void)] {
-        return [
-            ("testEncodeNo", testEncodeNo),
-            ("testEncodeYes", testEncodeYes),
-            ("testEncodeOMG", testEncodeOMG),
-            ("testEncodeOMGWithSpaces", testEncodeOMGWithSpaces),
-            ("testEncodeLongWord", testEncodeLongWord),
-            ("testEncodeNumbers", testEncodeNumbers),
-            ("testEncodeSentence", testEncodeSentence),
-            ("testEncodeAllTheThings", testEncodeAllTheThings),
-        ]
-    }
 }

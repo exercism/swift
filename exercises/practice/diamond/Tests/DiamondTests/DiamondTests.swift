@@ -86,13 +86,4 @@ class DiamondTests: XCTestCase {
             "                         A                         "]
         XCTAssertEqual(Diamond.makeDiamond(letter: "Z"), expected)
     }
-
-    static var allTests: [(String, (DiamondTests) -> () throws -> Void)] {
-        return [
-            ("testLetterA", testLetterA),
-            ("testLetterC", testLetterC),
-            ("testLetterE", testLetterE),
-            ("testLargestPossibleDiamond", testLargestPossibleDiamond),
-        ]
-    }
 }

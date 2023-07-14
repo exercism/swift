@@ -97,10 +97,4 @@ class HouseTests: XCTestCase {
 
         XCTAssertEqual(expected, House.recite())
     }
-
-    static var allTests: [(String, (HouseTests) -> () throws -> Void)] {
-        return [
-            ("testRhyme", testRhyme),
-        ]
-    }
 }

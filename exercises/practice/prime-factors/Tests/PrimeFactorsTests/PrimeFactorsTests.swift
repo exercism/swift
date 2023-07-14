@@ -45,20 +45,4 @@ class PrimeFactorsTests: XCTestCase {
     func test93819012551() {
         XCTAssertEqual([11, 9539, 894_119], PrimeFactors(93_819_012_551).toArray)
     }
-
-    static var allTests: [(String, (PrimeFactorsTests) -> () throws -> Void)] {
-        return [
-            ("test1", test1),
-            ("test2", test2),
-            ("test3", test3),
-            ("test4", test4),
-            ("test6", test6),
-            ("test8", test8),
-            ("test9", test9),
-            ("test27", test27),
-            ("test625", test625),
-            ("test901255", test901255),
-            ("test93819012551", test93819012551),
-        ]
-    }
 }

@@ -37,18 +37,4 @@ class PangramTests: XCTestCase {
     func testPangramWithNonAsciiCharacters() {
         XCTAssertTrue(Pangram.isPangram("Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich."))
     }
-
-    static var allTests: [(String, (PangramTests) -> () throws -> Void)] {
-        return [
-            ("testSentenceEmpty", testSentenceEmpty),
-            ("test_pangram_with_only_lower_case", test_pangram_with_only_lower_case),
-            ("testMissingCharacterX", testMissingCharacterX),
-            ("testAnotherMissingCharacterX", testAnotherMissingCharacterX),
-            ("testPangramWithUnderscores", testPangramWithUnderscores),
-            ("testPangramWithNumbers", testPangramWithNumbers),
-            ("testMissingLettersReplacedByNumbers", testMissingLettersReplacedByNumbers),
-            ("testPangramWithMixedCaseAndPunctuation", testPangramWithMixedCaseAndPunctuation),
-            ("testPangramWithNonAsciiCharacters", testPangramWithNonAsciiCharacters),
-        ]
-    }
 }

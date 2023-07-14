@@ -165,33 +165,4 @@ class BowlingTests: XCTestCase {
             XCTAssertEqual(error as? Bowling.BowlingError, .gameInProgress)
         }
     }
-
-    static var allTests: [(String, (BowlingTests) -> () throws -> Void)] {
-        return [
-            ("testAllZeros", testAllZeros),
-            ("testNoStrikesOrSpares", testNoStrikesOrSpares),
-            ("testSpareFollowedByZeros", testSpareFollowedByZeros),
-            ("testPointsScoredInRollAfterSpare", testPointsScoredInRollAfterSpare),
-            ("testConsecutiveSpares", testConsecutiveSpares),
-            ("testSpareInLastFrame", testSpareInLastFrame),
-            ("testStrikeWithSingleRoll", testStrikeWithSingleRoll),
-            ("testTwoRollsAfterAStrike", testTwoRollsAfterAStrike),
-            ("testConsecutiveStrikes", testConsecutiveStrikes),
-            ("testStrikeInLastFrame", testStrikeInLastFrame),
-            ("testSpareWithTwoRollBonus", testSpareWithTwoRollBonus),
-            ("testStrikesWithTwoRollBonus", testStrikesWithTwoRollBonus),
-            ("testStrikeAfterSpareInLastFrame", testStrikeAfterSpareInLastFrame),
-            ("testAllStrikes", testAllStrikes),
-            ("testNegativePoints", testNegativePoints),
-            ("testNoMoreThan10PinsPerRoll", testNoMoreThan10PinsPerRoll),
-            ("testTwoRollsGreaterThan10", testTwoRollsGreaterThan10),
-            ("testTwoBonusRollsAfterStrike", testTwoBonusRollsAfterStrike),
-            ("testUnstartedGameCanNotBeScored", testUnstartedGameCanNotBeScored),
-            ("testIncompleteGameCanNotBeScored", testIncompleteGameCanNotBeScored),
-            ("testMoreThanTenFrames", testMoreThanTenFrames),
-            ("testBonusRollsNotRolled", testBonusRollsNotRolled),
-            ("testSecondBonusRollNotRolled", testSecondBonusRollNotRolled),
-            ("testBonusRollForSpareNotRolled", testBonusRollForSpareNotRolled),
-        ]
-    }
 }

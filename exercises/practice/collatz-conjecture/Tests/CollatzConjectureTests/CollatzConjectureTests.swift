@@ -26,15 +26,4 @@ class CollatzConjectureTests: XCTestCase {
     func testNegativeValueIsAnError() {
         XCTAssertThrowsError(try CollatzConjecture.steps(-15))
     }
-
-    static var allTests: [(String, (CollatzConjectureTests) -> () throws -> Void)] {
-        return [
-            ("testZeroStepsForOne", testZeroStepsForOne),
-            ("testDivideIfEven", testDivideIfEven),
-            ("testEvenAndOddSteps", testEvenAndOddSteps),
-            ("testLargeNumberOfEvenAndOddSteps", testLargeNumberOfEvenAndOddSteps),
-            ("testZeroIsAnError", testZeroIsAnError),
-            ("testNegativeValueIsAnError", testNegativeValueIsAnError),
-        ]
-    }
 }

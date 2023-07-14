@@ -32,15 +32,4 @@ class GigasecondTests: XCTestCase {
         let gs = Gigasecond(from: "2015-01-24T23:59:59")?.description
         XCTAssertEqual("2046-10-03T01:46:39", gs)
     }
-
-    static var allTests: [(String, (GigasecondTests) -> () throws -> Void)] {
-        return [
-            ("test1 ", test1 ),
-            ("test2 ", test2 ),
-            ("test3 ", test3 ),
-            ("testTimeWithSeconds ", testTimeWithSeconds ),
-            ("testFullTimeSpecified ", testFullTimeSpecified ),
-            ("testFullTimeWithDayRollOver ", testFullTimeWithDayRollOver ),
-        ]
-    }
 }

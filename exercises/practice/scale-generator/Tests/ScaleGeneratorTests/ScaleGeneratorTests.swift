@@ -92,25 +92,4 @@ class ScaleGeneratorTests: XCTestCase {
         let enigmatic = ScaleGenerator(tonic: "G", scaleName: "enigma", pattern: "mAMMMmm")
         XCTAssertEqual(enigmatic.pitches(), ["G", "G#", "B", "C#", "D#", "F", "F#"])
     }
-
-    static var allTests: [(String, (ScaleGeneratorTests) -> () throws -> Void)] {
-        return [
-            ("testNamingScale", testNamingScale),
-            ("testChromaticScale", testChromaticScale),
-            ("testAnotherChromaticScale", testAnotherChromaticScale),
-            ("testNamingMajorScale", testNamingMajorScale),
-            ("testMajorScale", testMajorScale),
-            ("testAnotherMajorScale", testAnotherMajorScale),
-            ("testDorianMode", testDorianMode),
-            ("testMixolydianMode", testMixolydianMode),
-            ("testLydianMode", testLydianMode),
-            ("testPhrygianMode", testPhrygianMode),
-            ("testLocrianMode", testLocrianMode),
-            ("testHarmonicMinor", testHarmonicMinor),
-            ("testOctatonic", testOctatonic),
-            ("testHexatonic", testHexatonic),
-            ("testPentatonic", testPentatonic),
-            ("testEnigmatic", testEnigmatic)
-        ]
-    }
 }

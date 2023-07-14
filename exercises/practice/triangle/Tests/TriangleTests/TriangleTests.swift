@@ -58,23 +58,4 @@ class TriangleTests: XCTestCase {
     func testTrianglesViolatingTriangleInequalityAreIllegal3() {
         XCTAssertEqual(triangleKind.ErrorKind, Triangle(7, 3, 2).kind)
     }
-
-    static var allTests: [(String, (TriangleTests) -> () throws -> Void)] {
-        return [
-            ("testEquilateralTrianglesHaveEqualSides", testEquilateralTrianglesHaveEqualSides),
-            ("testLargerEquilateralTrianglesAlsoHaveEqualSides", testLargerEquilateralTrianglesAlsoHaveEqualSides),
-            ("testIsoscelesTrianglesHaveLastTwoSidesEqual", testIsoscelesTrianglesHaveLastTwoSidesEqual),
-            ("testIsoscelesTrianglesHaveFirstAndLastSidesEqual", testIsoscelesTrianglesHaveFirstAndLastSidesEqual),
-            ("testIsoscelesTrianglesHaveTwoFirstSidesEqual", testIsoscelesTrianglesHaveTwoFirstSidesEqual),
-            ("testIsoscelesTrianglesHaveInFactExactlyTwoSidesEqual", testIsoscelesTrianglesHaveInFactExactlyTwoSidesEqual),
-            ("testScaleneTrianglesHaveNoEqualSides", testScaleneTrianglesHaveNoEqualSides),
-            ("testScaleneTrianglesHaveNoEqualSidesAtALargerScaleToo", testScaleneTrianglesHaveNoEqualSidesAtALargerScaleToo),
-            ("testScaleneTrianglesHaveNoEqualSidesInDescendingOrderEither", testScaleneTrianglesHaveNoEqualSidesInDescendingOrderEither),
-            ("testVerySmallTrianglesAreLegal", testVerySmallTrianglesAreLegal),
-            ("testTrianglesWithNoSizeAreIllegal", testTrianglesWithNoSizeAreIllegal),
-            ("testTrianglesWithNegativeSidesAreIllegal", testTrianglesWithNegativeSidesAreIllegal),
-            ("testTrianglesViolatingTriangleInequalityAreIllegal", testTrianglesViolatingTriangleInequalityAreIllegal),
-            ("testTrianglesViolatingTriangleInequalityAreIllegal3", testTrianglesViolatingTriangleInequalityAreIllegal3),
-        ]
-    }
 }

@@ -51,17 +51,4 @@ class RnaTranscriptionTests: XCTestCase {
             }
         }
     }
-
-    static var allTests: [(String, (RnaTranscriptionTests) -> () throws -> Void)] {
-        return [
-            ("testRnaComplementOfCytosineIsGuanine", testRnaComplementOfCytosineIsGuanine),
-            ("testRnaComplementOfGuanineIsCytosine", testRnaComplementOfGuanineIsCytosine),
-            ("testRnaComplementOfThymineIsAdenine", testRnaComplementOfThymineIsAdenine),
-            ("testRnaComplementOfAdenineIsUracil", testRnaComplementOfAdenineIsUracil),
-            ("testRnaComplement", testRnaComplement),
-            ("testInvalidRnaComplementOfUracil", testInvalidRnaComplementOfUracil),
-            ("testInvalidRnaComplementOfXXX", testInvalidRnaComplementOfXXX),
-            ("testInvalidRnaComplementOfACGTXXXCTTAA", testInvalidRnaComplementOfACGTXXXCTTAA)
-        ]
-    }
 }

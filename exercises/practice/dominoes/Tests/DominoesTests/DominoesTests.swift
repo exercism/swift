@@ -62,21 +62,4 @@ class DominoesTests: XCTestCase {
         let input = [(1, 2), (5, 3), (3, 1), (1, 2), (2, 4), (1, 6), (2, 3), (3, 4), (5, 6)]
         XCTAssertTrue(Dominoes(input).chained)
     }
-
-    static var allTests: [(String, (DominoesTests) -> () throws -> Void)] {
-        return [
-            ("testEmptyInputEmptyOutput", testEmptyInputEmptyOutput),
-            ("testSingletonInputSingletonOutput", testSingletonInputSingletonOutput),
-            ("testSingletonThatCantBeChained", testSingletonThatCantBeChained),
-            ("testNoRepeatNumbers", testNoRepeatNumbers),
-            ("testCanReverseDominoes", testCanReverseDominoes),
-            ("testInvalidInput", testInvalidInput),
-            ("testDisconnectedSimple", testDisconnectedSimple),
-            ("testDisconnectedDoubleLoop", testDisconnectedDoubleLoop),
-            ("testDisconnectedSingleIsolated", testDisconnectedSingleIsolated),
-            ("testNeedBacktrack", testNeedBacktrack),
-            ("testSeparateLoops", testSeparateLoops),
-            ("testTenElements", testTenElements),
-        ]
-    }
 }
