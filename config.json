@@ -91,7 +91,7 @@
         "name": "Santa's Swifty Helper",
         "uuid": "f371c072-082b-496b-aa58-45b6cba203f6",
         "concepts": ["tuples"],
-        "prerequisites": ["arrays", "characters"],
+        "prerequisites": ["arrays"],
         "status": "active"
       },
       {
