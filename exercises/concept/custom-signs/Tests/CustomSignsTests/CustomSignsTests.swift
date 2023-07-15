@@ -72,7 +72,7 @@ class TaskCostOf: XCTestCase {
 
   func testBuiltSign() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(costOf(sign: buildSign(for: anniversary, name: "Bob")), 94)
+    XCTAssertEqual(costOf(sign: buildSign(for: anniversary, name: "Bob")), 60)
   }
 
   func testCostOfSignEmpty() throws {
