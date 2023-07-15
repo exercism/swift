@@ -2,9 +2,9 @@ import XCTest
 
 @testable import CustomSigns
 
-final class CustomSignsTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+class TaskStringConstants: XCTestCase {
   func testBirthday() {
     XCTAssertEqual(birthday, "Birthday")
   }
@@ -18,7 +18,9 @@ final class CustomSignsTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(anniversary, "Anniversary")
   }
+}
 
+class TaskCharacterConstants: XCTestCase {
   func testSpace() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(space, " " as Character)
@@ -28,43 +30,53 @@ final class CustomSignsTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(exclamation, "!" as Character)
   }
+}
 
+class TaskBuildSign: XCTestCase {
   func testBuildSign() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(buildSign(for: valentine, name: "Hikaru"), "Happy Valentine's Day Hikaru!")
   }
 
-  func testBuildSign2() throws {
+  func testBuildSignNoName() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(buildSign(for: birthday, name: ""), "Happy Birthday !")
   }
 
+  func testBuildSignAnniversary() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(buildSign(for: anniversary, name: "Bob"), "Happy Anniversary Bob!")
+  }
+}
+
+class TaskGraduationFor: XCTestCase {
   func testGraduation() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(
       graduationFor(name: "Isabel", year: 1988), "Congratulations Isabel!\nClass of 1988")
   }
 
+  func testGraduation2005() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(
+      graduationFor(name: "Jeremy", year: 2005), "Congratulations Jeremy!\nClass of 2005")
+  }
+}
+
+
+class TaskCostOf: XCTestCase {
   func testCostOfSign() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(costOf(sign: graduationFor(name: "Isabel", year: 1988)), 94)
+  }
+
+  func testBuiltSign() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(costOf(sign: buildSign(for: anniversary, name: "Bob")), 94)
   }
 
   func testCostOfSignEmpty() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(costOf(sign: ""), 20)
   }
-
-  static var allTests = [
-    ("testBirthday", testBirthday),
-    ("testValentine", testValentine),
-    ("testAnniversary", testAnniversary),
-    ("testSpace", testSpace),
-    ("testExclamation", testExclamation),
-    ("testBuildSign", testBuildSign),
-    ("testBuildSign2", testBuildSign2),
-    ("testGraduation", testGraduation),
-    ("testCostOfSign", testCostOfSign),
-    ("testCostOfSignEmpty", testCostOfSignEmpty),
-  ]
 }

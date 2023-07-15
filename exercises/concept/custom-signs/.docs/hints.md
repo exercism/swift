@@ -12,7 +12,8 @@
 ## 3. Combine phrases to build up messages
 
 - Strings can be concatenated using [the appropriate string operator][string-docs].
-- Characters cannot be concatenated with Strings. They must first be converted into Strings.
+- Characters cannot be concatenated with Strings. 
+  They must first be converted into Strings.
 
 ## 4. Build a graduation sign
 
@@ -24,7 +25,6 @@
 
 [strings-and-characters]: https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html
 [character-docs]: https://developer.apple.com/documentation/swift/character
-[string-interpolation]: https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html#ID292
-[string-equality]: https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html#ID299
-[string-count-docs]: https://developer.apple.com/documentation/swift/string/3003522-count
+[string-interpolation]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/#String-Interpolation
+[string-count-docs]: https://developer.apple.com/documentation/swift/string/count
 [string-docs]: https://developer.apple.com/documentation/swift/string
