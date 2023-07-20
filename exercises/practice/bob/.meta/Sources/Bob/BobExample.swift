@@ -38,6 +38,10 @@ private extension String {
 
     }
 
+    var isShoutingQuestion: Bool {
+        return isShouting && isQuestion
+    }
+
     private func containsLetters(_ input: String) -> Bool {
         let abc = "abcdefghijklmnopqrstuvwxyz"
         var contains = false
@@ -60,6 +64,8 @@ struct Bob {
     static func hey(_ input: String) -> String {
         if input.trimWhiteSpace().isEmpty {
             return "Fine. Be that way!"
+        } else if input.isShoutingQuestion {
+            return "Calm down, I know what I'm doing!"
         } else if input.isShouting {
             return "Whoa, chill out!"
         } else if input.isQuestion {
