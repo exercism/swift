@@ -40,7 +40,7 @@ class BobTests: XCTestCase {
 
     func testForcefulQuestions() {
         let input = "WHAT THE HELL WERE YOU THINKING?"
-        let expected = "Whoa, chill out!"
+        let expected = "Calm down, I know what I'm doing!"
         let result = Bob.hey(input)
         XCTAssertEqual(expected, result)
     }
