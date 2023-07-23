@@ -9,18 +9,26 @@ func canIBuy(vehicle: String, price: Double, monthlyBudget: Double) -> String {
 }
 
 func licenseType(numberOfWheels wheels: Int) -> String {
-  switch wheels {
-  case 2, 3: return "You will need a motorcycle license for your vehicle"
-  case 4, 6: return "You will need an automobile license for your vehicle"
-  case 18: return "You will need a commercial trucking license for your vehicle"
-  default: return "We do not issue licenses for those types of vehicles"
+  if wheels == 2 || wheels == 3 {
+    return "You will need a motorcycle license for your vehicle"
+  } else if wheels == 4 || wheels == 6{
+    return "You will need an automobile license for your vehicle"
+  } else if wheels == 18 {
+    return "You will need a commercial trucking license for your vehicle"
+  } else {
+    return "We do not issue licenses for those types of vehicles"
   }
 }
 
-func registrationFee(msrp: Int, yearsOld: Int) -> Int {
-  guard yearsOld < 10 else { return 25 }
-  let value = max(msrp, 25000)
-  let percent = 1.0 - Double(yearsOld) / 10.0  // 10 - yearsOld
-  let fee = Double(value) * percent / 100.0
-  return Int(fee)
+func calculateResellPrice(originalPrice: Int, yearsOld: Int) -> Int {
+ let percentage
+  if (age < 3) {
+    percentage = 80
+  } else if (age > 10) {
+    percentage = 50
+  } else {
+    percentage = 70
+  }
+
+  return Int((percentage / 100) * originalPrice)
 }

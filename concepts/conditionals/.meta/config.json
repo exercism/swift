@@ -1,7 +1,8 @@
 {
-  "blurb": "Conditional statement can be used to conditionally execute code.",
+  "blurb": "Conditionals are a way to make decisions in your code. They allow you to run code only when certain conditions are met.",
   "authors": [
-    "wneumann"
+    "wneumann",
+    "meatball133"
   ],
   "contributors": []
 }

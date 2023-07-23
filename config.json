@@ -69,10 +69,8 @@
         "name": "Vexing Vehicle Purchase",
         "uuid": "6fa28581-0992-4770-a657-2bb5157db178",
         "concepts": [
-          "booleans",
           "conditionals-if",
           "conditionals-guard",
-          "conditionals-switch",
           "ternary-operator"
         ],
         "prerequisites": ["basics"],
@@ -83,7 +81,7 @@
         "name": "Magician-in-Training",
         "uuid": "e6143dbc-895e-47aa-b42c-3034e1f872c2",
         "concepts": ["arrays"],
-        "prerequisites": ["conditionals-if", "conditionals-guard", "conditionals-switch"],
+        "prerequisites": ["conditionals-if", "conditionals-guard"],
         "status": "active"
       },
       {
@@ -99,7 +97,7 @@
         "name": "Slice Sizing",
         "uuid": "9d0bb0ad-904c-4d61-9d2c-ae37913d5741",
         "concepts": ["optionals"],
-        "prerequisites": ["tuples", "conditionals-if", "conditionals-guard", "conditionals-switch"],
+        "prerequisites": ["tuples", "conditionals-if", "conditionals-guard"],
         "status": "active"
       },
       {
@@ -157,7 +155,7 @@
           "inout-parameters",
           "nested-functions"
         ],
-        "prerequisites": ["arrays", "conditionals-if", "conditionals-guard", "conditionals-switch", "tuples"],
+        "prerequisites": ["arrays", "conditionals-if", "conditionals-guard", "tuples"],
         "status": "active"
       },
       {

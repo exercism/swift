@@ -1,15 +1,32 @@
 # About
 
-Swift also supports a fourth type of conditional, [the ternary operator][ternary-operator]. The ternary operator is an operator that takes, as the name implies, three inputs. The first input is a Boolean expression, and the other two inputs are expressions of the same type. The structure of the ternary operator is:
+[Ternary operator][ternary-operator] is a short form of an if-else statement.
+It takes a boolean expression and two expressions separated by a colon.
+The first expression is evaluated if the boolean expression is true, otherwise the second expression is evaluated.
+It has the following setup: `Boolean-expression ? expression1 : expression2`.
+
+The ternary operator is great when you want a short form of an if-else statement and the expressions are short:
 
 ```swift
-Boolean-expression ? expression1 : expression2
+let showFahrenheit = true
+let temperatureInCelsius = 30
+
+let temperature = showFahrenheit ? temperatureInCelsius * 9 / 5 + 32 : temperatureInCelsius
+print(temperature)
+// Prints 86
 ```
 
-The ternary operator evaluates _Boolean-expression_ then, if the expression evaluates to `true`, evaluates _expression1_, returning its value, otherwise it evaluates _expression2_ and returns its value. For example, the following expression assigns the larger of the two values `a` and `b` to `bigger`.
-
+The example above is shorthand for the code below:
+    
 ```swift
-let bigger = a > b ? a : b
+let showFahrenheit = true
+let temperatureInCelsius = 30
+
+let temperature = if showFahrenheit {
+    temperatureInCelsius * 9 / 5 + 32
+} else {
+    temperatureInCelsius
+}
 ```
 
 [ternary-operator]: https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#ID71

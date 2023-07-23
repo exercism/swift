@@ -1,6 +1,7 @@
 {
   "authors": [
-    "wneumann"
+    "wneumann",
+    "meatball133"
   ],
   "files": {
     "solution": [
@@ -13,5 +14,5 @@
       ".meta/Sources/VehiclePurchase/VehiclePurchaseExemplar.swift"
     ]
   },
-  "blurb": "Learn about booleans and conditionals while preparing for your next vehicle purchase"
+  "blurb": "Learn about conditionals while preparing for your next vehicle purchase"
 }

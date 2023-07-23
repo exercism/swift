@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow#If",
+        "description": "Swift Book: If"
+    },
+    {
+        "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators#Comparison-Operators",
+        "description": "Swift Book: Comparison Operators"
+    },
+    {
+        "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#If-Statement",
+        "description": "Swift References: If Statements"
+    }
+]

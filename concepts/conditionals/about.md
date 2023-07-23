@@ -1,9 +1,85 @@
 # About
 
-There are three primary conditional statements that are used in Swift, `if` statements, `switch` statements, and `guard` statements. The `if` and `switch` statements are similar to those seen in a number of other languages, and `guard` should feel familiar to users of other languages with early exit statements.
+## Comparison operators
 
-For more information, see:
+[Comparison operators][comparison-operators] are used to compare values and return a `true` or `false` value.
+These operators require 2 values to be compared of the same type.
+If the values are not of the same type then the compiler will throw an error.
+Here is a list of the comparison operators and an example of when they give a `true` value:
 
-- [concept:swift/conditionals-if]()
-- [concept:swift/conditionals-guard]()
-- [concept:swift/conditionals-switch]()
+| Method | Description           | Example |
+| ------ | --------------------- | ------- |
+| ==     | equal                 | 1 == 1  |
+| !=     | not equal             | 1 != 2  |
+| <      | less than             | 5 < 4   |
+| <=     | less than or equal    | 4 <= 4  |
+| >      | greater than          | 3 > 1   |
+| >=     | greater than or equal | 2 >= 2  |
+
+## If & Else statements
+
+A [conditional statement][conditional-statement] allows you to execute code based on a condition which is either `true` or `false`.
+The most basic conditional statement is an [if statement][if] which executes code when the condition is `true`.
+To declare an if statement you use the `if` keyword followed by the condition and then the code to execute in curly braces.
+
+```swift
+let wheelCount = 4
+if wheelCount == 4 {
+  print("Your vehicle is a car")
+}
+// Prints "Your vehicle is a car"
+```
+
+If can be combined with else to execute code when the condition is `false`.
+The else statement needs to be used with an if statement and cannot be used on its own.
+To declare an else statement you use the `else` keyword after an if statements curly braces, followed by the code to execute in curly braces.
+
+```swift
+Let precipitationInMM = 0.5
+if precipitationInMM > 0.5 {
+  print("You will need an umbrella")
+} else {
+  print("You will not need an umbrella")
+}
+// Prints "You will not need an umbrella"
+```
+
+If statements can also be chained together using else if to check multiple conditions.
+It follows the same principle as defining an if statement but the keyword is `else if` instead of `if`.
+As If statement don't they need an else statement to be valid, but they can have one if needed.
+
+```swift
+let favouriteFruit = "Apple"
+if favouriteFruit == "Banana" {
+    print("Your favourite fruit is a banana")
+} else if favouriteFruit == "Orange" {
+    print("Your favourite fruit is an orange")
+} else if favouriteFruit == "Apple" {
+    print("Your favourite fruit is an apple")
+} else {
+    print("Your favourite fruit is not a banana, orange or apple")
+}
+// Prints "Your favourite fruit is an apple"
+```
+
+## If expression
+
+If statements can also be used as expressions to assign a value to a variable.
+The last statement in the if block is used as the value of the if expression.
+This can be useful when you want to assign a value to a variable based on a condition.
+
+```swift
+let CpuBits = 32
+let largest = if CpuBits == 64 {
+  "x86_64"
+} else {
+  "x86_32"
+}
+
+print(largest)
+// Prints "x86_32"
+```
+
+[comparison-operators]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators#Comparison-Operators
+[conditional-statement]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Conditional-Statements
+[if]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#If
