@@ -1,6 +1,8 @@
 import Foundation
-import FoundationNetworking
 import TOMLKit
+#if canImport(FoundationNetworking)
+    import FoundationNetworking
+#endif
 
 class GeneratorHelp {
   var exercise: String
