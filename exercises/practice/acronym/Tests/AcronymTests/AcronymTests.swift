@@ -9,27 +9,27 @@ class AcronymTests: XCTestCase {
     XCTAssertEqual("PNG", Acronym.abbreviate("Portable Network Graphics"))
   }
 
-  func testLowercaseWords() {
+  func testLowercaseWords() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual("ROR", Acronym.abbreviate("Ruby on Rails"))
   }
 
-  func testPunctuation() {
+  func testPunctuation() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual("FIFO", Acronym.abbreviate("First In, First Out"))
   }
 
-  func testAllCapsWord() {
+  func testAllCapsWord() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual("GIMP", Acronym.abbreviate("GNU Image Manipulation Program"))
   }
 
-  func testPunctuationWithoutWhitespace() {
+  func testPunctuationWithoutWhitespace() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual("CMOS", Acronym.abbreviate("Complementary metal-oxide semiconductor"))
   }
 
-  func testVeryLongAbbreviation() {
+  func testVeryLongAbbreviation() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(
       "ROTFLSHTMDCOALM",
@@ -37,17 +37,17 @@ class AcronymTests: XCTestCase {
         "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"))
   }
 
-  func testConsecutiveDelimiters() {
+  func testConsecutiveDelimiters() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual("SIMUFTA", Acronym.abbreviate("Something - I made up from thin air"))
   }
 
-  func testApostrophes() {
+  func testApostrophes() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual("HC", Acronym.abbreviate("Halley's Comet"))
   }
 
-  func testUnderscoreEmphasis() {
+  func testUnderscoreEmphasis() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual("TRNT", Acronym.abbreviate("The Road _Not_ Taken"))
   }
