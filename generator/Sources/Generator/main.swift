@@ -76,7 +76,7 @@ class Generator {
           encoding: String.Encoding.ascii.rawValue) as String
       fileData = Data(fileInfo.utf8)
     } catch {
-      throw GeneratorError.noFile("Config file not found")
+      throw GeneratorError.noFile("No Exercise config file was found")
     }
     if let json = try JSONSerialization.jsonObject(with: fileData, options: []) as? [String: Any] {
       if let files = json["files"] as? [String: Any] {

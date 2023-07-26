@@ -60,7 +60,7 @@ class GeneratorHelp {
           encoding: String.Encoding.ascii.rawValue) as String
       fileData = Data(fileInfo.utf8)
     } catch {
-      throw GeneratorError.noFile("Config file not found")
+      throw GeneratorError.noFile("Track config file not found")
     }
     if let json = try JSONSerialization.jsonObject(with: fileData, options: []) as? [String: Any] {
       if let exercises = json["exercises"] as? [String: Any] {
