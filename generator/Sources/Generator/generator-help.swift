@@ -79,7 +79,6 @@ class GeneratorHelp {
   }
 
   func removeTestCases() throws {
-    print(uuids)
     var cases: [[String: Any]] = []
     if let tests = json["cases"] as? [[String: Any]] {
       for test in tests {
