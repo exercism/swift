@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
   name: "Generator",
+  platforms: [
+      .macOS(.v10_15) // Set the minimum macOS version to 10.15 or any version greater than 10.15.
+  ],
   dependencies: [
     .package(url: "https://github.com/stencilproject/Stencil.git", from: "0.15.1"),
     .package(url: "https://github.com/LebJe/TOMLKit.git", from: "0.5.5"),
