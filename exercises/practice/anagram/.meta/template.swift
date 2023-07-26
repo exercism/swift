@@ -13,7 +13,7 @@ class {{exercise|cammelcase}}Tests: XCTestCase {
         let anagram = {{exercise|cammelcase}}(word: "{{case.input.word}}")
         let results = anagram.match({{case.input.list}})
         {%- if case.expected %}
-        let expected = ["{{case.expected}}"]
+        let expected = {{case.expected}}
         {%- else %}
         let expected = [String]()
         {%- endif %}

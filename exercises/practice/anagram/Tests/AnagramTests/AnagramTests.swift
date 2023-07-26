@@ -16,7 +16,7 @@ class AnagramTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let anagram = Anagram(word: "")
     let results = anagram.match()
-    let expected = ["[" stream ", " maters "]"]
+    let expected = ["stream", "maters"]
     XCTAssertEqual(results, expected)
   }
 
@@ -24,7 +24,7 @@ class AnagramTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let anagram = Anagram(word: "")
     let results = anagram.match()
-    let expected = ["[" lemons ", " melons "]"]
+    let expected = ["lemons", "melons"]
     XCTAssertEqual(results, expected)
   }
 
@@ -40,7 +40,7 @@ class AnagramTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let anagram = Anagram(word: "")
     let results = anagram.match()
-    let expected = ["[" inlets "]"]
+    let expected = ["inlets"]
     XCTAssertEqual(results, expected)
   }
 
@@ -48,7 +48,7 @@ class AnagramTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let anagram = Anagram(word: "")
     let results = anagram.match()
-    let expected = ["[" gallery ", " regally ", " largely "]"]
+    let expected = ["gallery", "regally", "largely"]
     XCTAssertEqual(results, expected)
   }
 
@@ -56,7 +56,7 @@ class AnagramTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let anagram = Anagram(word: "")
     let results = anagram.match()
-    let expected = ["[" Eons ", " ONES "]"]
+    let expected = ["Eons", "ONES"]
     XCTAssertEqual(results, expected)
   }
 
@@ -72,7 +72,7 @@ class AnagramTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let anagram = Anagram(word: "")
     let results = anagram.match()
-    let expected = ["[" Carthorse "]"]
+    let expected = ["Carthorse"]
     XCTAssertEqual(results, expected)
   }
 
@@ -80,7 +80,7 @@ class AnagramTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let anagram = Anagram(word: "")
     let results = anagram.match()
-    let expected = ["[" carthorse "]"]
+    let expected = ["carthorse"]
     XCTAssertEqual(results, expected)
   }
 
@@ -88,7 +88,7 @@ class AnagramTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let anagram = Anagram(word: "")
     let results = anagram.match()
-    let expected = ["[" Carthorse "]"]
+    let expected = ["Carthorse"]
     XCTAssertEqual(results, expected)
   }
 
@@ -136,7 +136,7 @@ class AnagramTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let anagram = Anagram(word: "")
     let results = anagram.match()
-    let expected = ["[" Silent "]"]
+    let expected = ["Silent"]
     XCTAssertEqual(results, expected)
   }
 }
