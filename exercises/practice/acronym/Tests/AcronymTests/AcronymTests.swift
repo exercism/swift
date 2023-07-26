@@ -1,28 +1,54 @@
 import XCTest
+
 @testable import Acronym
 
 class AcronymTests: XCTestCase {
-    func testAcronymAbbreviateTest1() {
-        XCTAssertEqual("PNG", Acronym.abbreviate("Portable Network Graphics"))
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testAcronymAbbreviateTest2() {
-        XCTAssertEqual("ROR", Acronym.abbreviate("Ruby on Rails"))
-    }
+  func testBasic() {
+    XCTAssertEqual("PNG", Acronym.abbreviate("Portable Network Graphics"))
+  }
 
-    func testAcronymAbbreviateTest3() {
-        XCTAssertEqual("HTML", Acronym.abbreviate("HyperText Markup Language"))
-    }
+  func testLowercaseWords() {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("ROR", Acronym.abbreviate("Ruby on Rails"))
+  }
 
-    func testAcronymAbbreviateTest4() {
-        XCTAssertEqual("FIFO", Acronym.abbreviate("First In, First Out"))
-    }
+  func testPunctuation() {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("FIFO", Acronym.abbreviate("First In, First Out"))
+  }
 
-    func testAcronymAbbreviateTest5() {
-        XCTAssertEqual("PHP", Acronym.abbreviate("PHP: Hypertext Preprocessor"))
-    }
+  func testAllCapsWord() {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("GIMP", Acronym.abbreviate("GNU Image Manipulation Program"))
+  }
 
-    func testAcronymAbbreviateTest6() {
-        XCTAssertEqual("CMOS", Acronym.abbreviate("Complementary metal-oxide semiconductor"))
-    }
+  func testPunctuationWithoutWhitespace() {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("CMOS", Acronym.abbreviate("Complementary metal-oxide semiconductor"))
+  }
+
+  func testVeryLongAbbreviation() {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(
+      "ROTFLSHTMDCOALM",
+      Acronym.abbreviate(
+        "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"))
+  }
+
+  func testConsecutiveDelimiters() {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("SIMUFTA", Acronym.abbreviate("Something - I made up from thin air"))
+  }
+
+  func testApostrophes() {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("HC", Acronym.abbreviate("Halley's Comet"))
+  }
+
+  func testUnderscoreEmphasis() {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("TRNT", Acronym.abbreviate("The Road _Not_ Taken"))
+  }
 }
