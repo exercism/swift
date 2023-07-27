@@ -11,7 +11,7 @@ class {{exercise|camelCase}}Tests: XCTestCase {
         try XCTSkipIf(true && !runAll) // change true to false to run this test
     {% endif -%}
         let anagram = {{exercise|camelCase}}(word: "{{case.input.subject}}")
-        let results = anagram.match({{case.input.candidates}})
+        let results = anagram.match({{case.input.candidates | toStringArray }})
         {%- if case.expected %}
             let expected = {{case.expected | toStringArray }}
         {%- else %}
