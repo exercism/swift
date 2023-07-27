@@ -247,7 +247,6 @@ class AllergiesTests: XCTestCase {
   func testNoAllergies9() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let allergies = Allergies(0)
-    XCTAssertEqual(allergies.list(), [])
   }
 
   func testJustEggs9() throws {

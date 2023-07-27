@@ -60,8 +60,8 @@ class GeneratorPlugins {
 
     ext.registerFilter("toStringArray") { (value: Any?) in
       if let inputString = value as? [String] {
-        guard inputString.isEmpty else { return "[]" }
-        return "\"[\(inputString.joined(separator: "\", \""))\"]"
+        guard !inputString.isEmpty else { return "[]" }
+        return "[\"\(inputString.joined(separator: "\", \""))\"]"
       }
       return nil
     }

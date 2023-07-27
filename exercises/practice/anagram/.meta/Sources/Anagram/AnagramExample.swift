@@ -26,5 +26,4 @@ class Anagram {
 
     return matches
   }
-
 }
