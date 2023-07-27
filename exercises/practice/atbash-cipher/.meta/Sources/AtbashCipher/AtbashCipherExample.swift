@@ -1,41 +1,42 @@
 import Foundation
 
-struct AtbashCipher {
+class AtbashCipher {
+  static func encode(_ phrase: String) -> String {
+    let letters = Array("abcdefghijklmnopqrstuvwxyz")
+    let input = phrase.lowercased().filter { $0.isLetter || $0.isNumber }
+    var output = ""
+    var count = 0
 
-    private static func stripWhiteSpaceAndPunctuations(_ input: String) -> String {
-        var returnString = ""
-        input.forEach {
-            if !" ,.".contains(String($0)) {
-                returnString.append($0)
-            }
-        }
+    for character in input {
+      if let index = letters.firstIndex(of: character) {
+        output.append(letters[letters.count - index - 1])
+      } else {
+        output.append(character)
+      }
 
-        return returnString
+      count += 1
+
+      if count % 5 == 0 {
+        output.append(" ")
+      }
     }
 
-    static let cipherDictApply: [Character: Character] = ["a": "z", "b": "y", "c": "x", "d": "w", "e": "v", "f": "u", "g": "t", "h": "s", "i": "r", "j": "q", "k": "p", "l": "o", "m": "n", "n": "m", "o": "l", "p": "k", "q": "j", "r": "i", "s": "h", "t": "g", "u": "f", "v": "e", "w": "d", "x": "c", "y": "b", "z": "a"]
+    return output.trimmingCharacters(in: .whitespaces)
+  }
 
-    static func encode( _ valueIn: String) -> String {
-        let value = stripWhiteSpaceAndPunctuations(valueIn.lowercased()  )
+  static func decode(_ phrase: String) -> String {
+    let letters = Array("abcdefghijklmnopqrstuvwxyz")
+    let input = phrase.lowercased().filter { $0.isLetter || $0.isNumber }
+    var output = ""
 
-        var text2return = ""
-
-        for each in value {
-            text2return.append(cipherDictApply[each] ?? each )
-        }
-        return insertSpace5th(text2return)
+    for character in input {
+      if let index = letters.firstIndex(of: character) {
+        output.append(letters[letters.count - index - 1])
+      } else {
+        output.append(character)
+      }
     }
 
-    static func insertSpace5th(_ value: String) -> String {
-        var tempCounter = 0
-        var tempString: String = ""
-        for each in value {
-            if tempCounter % 5 == 0 && tempCounter != 0 {
-                tempString += " \(each)"
-            } else { tempString += "\(each)" }
-            tempCounter += 1
-        }
-        return tempString
-    }
-
+    return output
+  }
 }

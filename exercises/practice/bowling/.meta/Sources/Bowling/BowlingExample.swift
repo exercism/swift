@@ -1,121 +1,61 @@
-struct Bowling {
+enum BowlingError: Error {
+  case negativePins
+  case tooManyPinsInFrame
+  case gameIsOver
+  case gameInProgress
+}
 
-    enum BowlingError: Error {
-        case invalidNumberOfPins
-        case tooManyPinsInFrame
-        case gameIsOver
-        case gameInProgress
+class Bowling {
+  var scoreCard: [Int]
+
+  init(_ rolls: [Int]) {
+    scoreCard = rolls
+  }
+
+  func roll(pins: Int) throws {
+    if pins < 0 {
+      throw BowlingError.negativePins
     }
-
-    private let minPins = 0
-    private let maxPins = 10
-    private var scoreCard = [Int: [Int]]()
-
-    private var currentFrame: Int {
-        return scoreCard.keys.max() ?? 1
+    if pins > 10 || scoreCard.count % 2 == 1 && pins + scoreCard.last! > 10
+      || scoreCard.count % 2 == 0 && pins > 10 - scoreCard.last!
+    {
+      throw BowlingError.tooManyPinsInFrame
     }
-
-    private var isLastFrame: Bool {
-        return currentFrame == 10
+    if scoreCard.count >= 20 {
+      throw BowlingError.gameIsOver
     }
+    scoreCard.append(pins)
+  }
 
-    mutating func roll(pins: Int) throws {
-        try validate(pins: pins)
-        var currentValue = scoreCard[currentFrame] ?? []
-        currentValue.append(pins)
-        scoreCard[currentFrame] = currentValue
-        if frameComplete() && !isLastFrame {
-            scoreCard[currentFrame + 1] = []
-        }
+  func score() throws -> Int {
+    if scoreCard.count < 12 {
+      throw BowlingError.gameInProgress
     }
+    var score = 0
+    var frame = 0
 
-    func score() throws -> Int {
-        guard gameIsComplete() else {
-            throw BowlingError.gameInProgress
-        }
-
-        var result = 0
-
-        for index in 1...10 {
-            if let frame = scoreCard[index] {
-                result += scoreFrame(frame, index: index)
-            }
-        }
-
-        return result
-    }
-
-    private func scoreFrame(_ frame: [Int], index: Int) -> Int {
-        let strikeOrSpare = [frame.first, frame.reduce(0, +)]
-            .compactMap { $0 }
-            .contains(maxPins)
-
-        if strikeOrSpare {
-            let scores = [scoreCard[index], scoreCard[index + 1], scoreCard[index + 2]].compactMap { $0 }.flatMap { $0 }
-            let firstThree = scores[0...2]
-
-            return firstThree.reduce(0, +)
+    for _ in 0..<10 {
+      if scoreCard[frame] == 10 {
+        if scoreCard.count > frame + 2 {
+          score += 10 + scoreCard[frame + 1] + scoreCard[frame + 2]
         } else {
-            return frame.reduce(0, +)
+          throw BowlingError.gameInProgress
         }
-    }
-
-    private func validate(pins: Int) throws {
-        guard minPins...maxPins ~= pins else {
-            throw BowlingError.invalidNumberOfPins
+        frame += 1
+      } else if scoreCard[frame] + scoreCard[frame + 1] == 10 {
+        if scoreCard.count > frame + 2 {
+          score += 10 + scoreCard[frame + 2]
+        } else {
+          throw BowlingError.gameInProgress
         }
-
-        guard validFrame(pins: pins) else {
-            throw BowlingError.tooManyPinsInFrame
-        }
-
-        guard !gameIsComplete() else {
-            throw BowlingError.gameIsOver
-        }
+        frame += 2
+      } else if scoreCard[frame] + scoreCard[frame + 1] > 10 {
+        throw BowlingError.tooManyPinsInFrame
+      } else {
+        score += scoreCard[frame] + scoreCard[frame + 1]
+        frame += 2
+      }
     }
-
-    private func validFrame(pins: Int) -> Bool {
-        if isLastFrame {
-            let lastRollWasStrike = scoreCard[currentFrame]?.last == 10
-
-            if lastRollWasStrike || isSpare() {
-                return true
-            }
-        }
-
-        let lastRoll = scoreCard[currentFrame]?.last ?? 0
-
-        return lastRoll + pins <= maxPins
-    }
-
-    private func gameIsComplete() -> Bool {
-        return isLastFrame && frameComplete()
-    }
-
-    private func frameComplete() -> Bool {
-        if isLastFrame {
-            return isOpenFrame() && frameFilled() || frameFilled(rolls: 3)
-        }
-
-        return frameFilled() || isStrike()
-    }
-
-    private func frameFilled(rolls: Int = 2) -> Bool {
-        return scoreCard[currentFrame]?.count == rolls
-    }
-
-    private func isStrike() -> Bool {
-        return scoreCard[currentFrame]?.first == 10
-    }
-
-    private func isSpare() -> Bool {
-        guard let rolls = scoreCard[currentFrame] else { return false }
-        let total = rolls.reduce(0, +)
-
-        return total == 10
-    }
-
-    private func isOpenFrame() -> Bool {
-        return !isSpare() && !isStrike()
-    }
+    return score
+  }
 }
