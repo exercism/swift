@@ -9,7 +9,7 @@ class GeneratorPlugins {
       return NSNull().isEqual(value)
     }
 
-    ext.registerFilter("cammelcase") { (value: Any?) in
+    ext.registerFilter("camelCase") { (value: Any?) in
       if let inputString = value as? String {
         let components = inputString.components(separatedBy: CharacterSet(charactersIn: " -"))
         let capitalizedComponents = components.map { $0.capitalized }

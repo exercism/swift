@@ -1,17 +1,17 @@
 import XCTest
-@testable import {{exercise|cammelcase}}
-class {{exercise|cammelcase}}Tests: XCTestCase {
+@testable import {{exercise|camelCase}}
+class {{exercise|camelCase}}Tests: XCTestCase {
     let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
     {% for case in cases %}
     {% if forloop.first %}
-        func test{{case.description |cammelcase }}() {
+        func test{{case.description |camelCase }}() {
     {% else -%}
-        func test{{case.description |cammelcase }}() throws {
+        func test{{case.description |camelCase }}() throws {
         try XCTSkipIf(true && !runAll) // change true to false to run this test
     {% endif -%}
-        let anagram = {{exercise|cammelcase}}(word: "{{case.input.word}}")
-        let results = anagram.match({{case.input.list}})
+        let anagram = {{exercise|camelCase}}(word: "{{case.input.subject}}")
+        let results = anagram.match({{case.input.candidates}})
         {%- if case.expected %}
         let expected = {{case.expected}}
         {%- else %}

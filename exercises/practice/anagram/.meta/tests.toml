@@ -14,6 +14,7 @@ description = "no matches"
 
 [b3cca662-f50a-489e-ae10-ab8290a09bdc]
 description = "detects two anagrams"
+include = false
 
 [03eb9bbe-8906-4ea0-84fa-ffe711b52c8b]
 description = "detects two anagrams"
@@ -48,10 +49,6 @@ description = "does not detect an anagram if the original word is repeated"
 
 [9878a1c9-d6ea-4235-ae51-3ea2befd6842]
 description = "anagrams must use all letters exactly once"
-
-[85757361-4535-45fd-ac0e-3810d40debc1]
-description = "words are not anagrams of themselves (case-insensitive)"
-include = false
 
 [68934ed0-010b-4ef9-857a-20c9012d1ebf]
 description = "words are not anagrams of themselves"
