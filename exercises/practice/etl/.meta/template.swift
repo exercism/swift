@@ -10,10 +10,10 @@ class {{exercise|camelCase}}Tests: XCTestCase {
         func test{{case.description |camelCase }}() throws {
         try XCTSkipIf(true && !runAll) // change true to false to run this test
     {% endif -%}
-        let legacy = {{case.input.legacy}}
-        let expected = {{case.expected}}
+        let legacy = {{case.input.legacy | toStringDictionary}}
+        let expected = {{case.expected | toStringDictionary}}
         let results = ETL.transform(legacy)
-        
+
         XCTAssertEqual(results, expected)
     }
     {% endfor -%}
