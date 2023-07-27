@@ -1,23 +1,28 @@
-enum Allergen: UInt {
-    case eggs = 1
-    case peanuts = 2
-    case shellfish = 4
-    case strawberries = 8
-    case tomatoes = 16
-    case chocolate = 32
-    case pollen = 64
-    case cats = 128
-}
+let AllAllergens: KeyValuePairs = [
+  "eggs": 1,
+  "peanuts": 2,
+  "shellfish": 4,
+  "strawberries": 8,
+  "tomatoes": 16,
+  "chocolate": 32,
+  "pollen": 64,
+  "cats": 128,
+]
 
-struct Allergies {
+class Allergies {
+  let allergies: [String]
 
-    let score: UInt
+  init(_ score: UInt) {
+    self.allergies = AllAllergens.map { (key, value) in
+      return (score & UInt(value) != 0) ? key : nil
+    }.compactMap { $0 }
+  }
 
-    init(_ score: UInt) {
-        self.score = UInt(score)
-    }
+  func allergicTo(item: String) -> Bool {
+    return allergies.contains(item)
+  }
 
-    func hasAllergy(_ allergen: Allergen) -> Bool {
-        return allergen.rawValue & score == allergen.rawValue ? true : false
-    }
+  func list() -> [String] {
+    return allergies
+  }
 }

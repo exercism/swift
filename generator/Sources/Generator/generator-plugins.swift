@@ -9,7 +9,7 @@ class GeneratorPlugins {
       return NSNull().isEqual(value)
     }
 
-    ext.registerFilter("cammelcase") { (value: Any?) in
+    ext.registerFilter("camelCase") { (value: Any?) in
       if let inputString = value as? String {
         let charactersToRemove: [Character] = [","]
         let filteredString = inputString.filter { !charactersToRemove.contains($0) }
@@ -56,6 +56,14 @@ class GeneratorPlugins {
         }
       }
       return false
+    }
+
+    ext.registerFilter("toStringArray") { (value: Any?) in
+      if let inputString = value as? [String] {
+        guard !inputString.isEmpty else { return "[]" }
+        return "[\"\(inputString.joined(separator: "\", \""))\"]"
+      }
+      return nil
     }
 
     let environment = Environment(extensions: [ext])
