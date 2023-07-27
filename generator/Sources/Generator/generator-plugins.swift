@@ -58,6 +58,13 @@ class GeneratorPlugins {
       return false
     }
 
+    ext.registerFilter("toStringArray") { (value: Any?) in
+      if let inputString = value as? [String] {
+        return inputString.joined(separator: "\", \"")
+      }
+      return nil
+    }
+
     let environment = Environment(extensions: [ext])
     return environment
   }

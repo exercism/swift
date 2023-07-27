@@ -13,7 +13,7 @@ class {{exercise|camelCase}}Tests: XCTestCase {
         let anagram = {{exercise|camelCase}}(word: "{{case.input.subject}}")
         let results = anagram.match({{case.input.candidates}})
         {%- if case.expected %}
-        let expected = {{case.expected}}
+            let expected = ["{{case.expected | toStringArray }}"]
         {%- else %}
         let expected = [String]()
         {%- endif %}
