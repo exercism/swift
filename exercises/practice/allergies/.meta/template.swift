@@ -20,9 +20,7 @@ class {{exercise|camelCase}}Tests: XCTestCase {
             {%- endif %}
         {%- else %}
             {%- if subCases.expected %}
-                XCTAssertEqual(allergies.{{subCases.property}}(), ["{{subCases.expected | toStringArray }}"])
-            {%- else %}
-                XCTAssertEqual(allergies.{{subCases.property}}(), [])
+                XCTAssertEqual(allergies.{{subCases.property}}(), {{subCases.expected | toStringArray }})
             {%- endif %}
         {%- endif %}
         }
