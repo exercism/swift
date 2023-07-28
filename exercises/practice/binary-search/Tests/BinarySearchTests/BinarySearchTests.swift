@@ -1,42 +1,87 @@
 import XCTest
+
 @testable import BinarySearch
 
 class BinarySearchTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testHasListData() {
-        let binary = try! BinarySearch([1, 3, 4, 6, 8, 9, 11])
-        XCTAssertEqual([1, 3, 4, 6, 8, 9, 11], binary.list)
-    }
+  func testFindsAValueInAnArrayWithOneElement() {
+    let binarySearch = BinarySearch([6])
+    XCTAssertEqual(try! binarySearch.searchFor(6), 0)
+  }
 
-    func testThrowsErrorForUnsortedList() {
-        XCTAssertThrowsError(_ = try BinarySearch([2, 1, 4, 3, 6])) { error in
-            XCTAssertEqual(error as? BinarySearchError, BinarySearchError.unsorted)
-        }
-    }
+  func testFindsAValueInTheMiddleOfAnArray() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
+    XCTAssertEqual(try! binarySearch.searchFor(6), 3)
+  }
 
-    func testNilForDataNotInList() {
-        XCTAssertNil(try! BinarySearch([1, 3, 6]).searchFor(2))
-    }
+  func testFindsAValueAtTheBeginningOfAnArray() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
+    XCTAssertEqual(try! binarySearch.searchFor(1), 0)
+  }
 
-    func testFindsPositionOfMiddleItem() {
-        let binary = try! BinarySearch([1, 3, 4, 6, 8, 9, 11])
-        XCTAssertEqual(3, binary.middle)
-    }
+  func testFindsAValueAtTheEndOfAnArray() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
+    XCTAssertEqual(try! binarySearch.searchFor(11), 6)
+  }
 
-    func testFindsPositionOfSearchData() {
-        let binary = try! BinarySearch([1, 3, 4, 6, 8, 9, 11])
-        XCTAssertEqual(5, binary.searchFor(9))
-    }
+  func testFindsAValueInAnArrayOfOddLength() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let binarySearch = BinarySearch([1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634])
+    XCTAssertEqual(try! binarySearch.searchFor(144), 9)
+  }
 
-    func testFindsPositionInALargerList() {
-        let binary = try! BinarySearch([1, 3, 5, 8, 13, 21, 34, 55, 89, 144])
-        XCTAssertEqual(1, binary.searchFor(3))
-        XCTAssertEqual(7, binary.searchFor(55))
-    }
+  func testFindsAValueInAnArrayOfEvenLength() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let binarySearch = BinarySearch([1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377])
+    XCTAssertEqual(try! binarySearch.searchFor(21), 5)
+  }
 
-    func testFindsCorrectPositionInAListWithAnEvenNumberOfElements() {
-        let binary = try! BinarySearch([1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377])
-        XCTAssertEqual(5, binary.searchFor(21))
-        XCTAssertEqual(6, binary.searchFor(34))
+  func testIdentifiesThatAValueIsNotIncludedInTheArray() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
+
+    XCTAssertThrowsError(try binarySearch.searchFor(7)) { error in
+      XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
     }
+  }
+
+  func testAValueSmallerThanTheArraysSmallestValueIsNotFound() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
+
+    XCTAssertThrowsError(try binarySearch.searchFor(0)) { error in
+      XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
+    }
+  }
+
+  func testAValueLargerThanTheArraysLargestValueIsNotFound() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
+
+    XCTAssertThrowsError(try binarySearch.searchFor(13)) { error in
+      XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
+    }
+  }
+
+  func testNothingIsFoundInAnEmptyArray() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let binarySearch = BinarySearch([])
+
+    XCTAssertThrowsError(try binarySearch.searchFor(1)) { error in
+      XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
+    }
+  }
+
+  func testNothingIsFoundWhenTheLeftAndRightBoundsCross() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let binarySearch = BinarySearch([1, 2])
+
+    XCTAssertThrowsError(try binarySearch.searchFor(0)) { error in
+      XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
+    }
+  }
 }
