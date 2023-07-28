@@ -11,7 +11,10 @@ class GeneratorPlugins {
 
     ext.registerFilter("camelCase") { (value: Any?) in
       if let inputString = value as? String {
-        let charactersToRemove: [Character] = [",", "'", "?", "!", "." ]
+        let charactersToRemove: [Character] = [
+          ",", "'", "?", "!", ".", "=", "+", "&", "%", "$", "#", "@", "(", ")", "[", "]", "{", "}",
+          "<", ">", "/", "|", ":", ";",
+        ]
         let filteredString = inputString.filter { !charactersToRemove.contains($0) }
         let components = filteredString.components(separatedBy: CharacterSet(charactersIn: " -"))
         let capitalizedComponents = components.map { $0.capitalized }
@@ -70,7 +73,7 @@ class GeneratorPlugins {
       if let inputDictionary = value as? [String: String] {
         guard !inputDictionary.isEmpty else { return "[:]" }
         var output = "["
-        for (key, value) in inputDictionary.sorted( by: { $0.0 < $1.0 }) {
+        for (key, value) in inputDictionary.sorted(by: { $0.0 < $1.0 }) {
           output += "\"\(key)\": \"\(value)\", "
         }
         output.removeLast(2)
@@ -80,7 +83,7 @@ class GeneratorPlugins {
       if let inputDictionary = value as? [String: Int] {
         guard !inputDictionary.isEmpty else { return "[:]" }
         var output = "["
-        for (key, value) in inputDictionary.sorted( by: { $0.0 < $1.0 }) {
+        for (key, value) in inputDictionary.sorted(by: { $0.0 < $1.0 }) {
           output += "\"\(key)\": \(value), "
         }
         output.removeLast(2)
@@ -90,7 +93,7 @@ class GeneratorPlugins {
       if let inputDictionary = value as? [String: [String]] {
         guard !inputDictionary.isEmpty else { return "[:]" }
         var output = "["
-        for (key, value) in inputDictionary.sorted( by: { $0.0 < $1.0 }) {
+        for (key, value) in inputDictionary.sorted(by: { $0.0 < $1.0 }) {
           output += "\"\(key)\": [\"\(value.joined(separator: "\", \""))\"], "
         }
         output.removeLast(2)
@@ -99,12 +102,62 @@ class GeneratorPlugins {
       }
       return nil
     }
-    
-    ext.registerFilter("inspect") {(value: Any?) in
+
+    ext.registerFilter("inspect") { (value: Any?) in
       if let inputString = value as? String {
-        let escapechars = ["\t" : "\\t", "\n" : "\\n", "\r": "\\r"]
+        let escapechars = ["\t": "\\t", "\n": "\\n", "\r": "\\r"]
         return inputString.map { escapechars[String($0)] ?? String($0) }.joined()
       }
+      return nil
+    }
+
+    ext.registerFilter("toTupleArray") { (value: Any?) in
+      if let inputArray = value as? [[String]] {
+        guard !inputArray.isEmpty else { return "[]" }
+        var output = "["
+        for array in inputArray {
+          output += "(\(array.map { "\"\($0)\"" }.joined(separator: ", "))), "
+        }
+        output.removeLast(2)
+        output += "]"
+        return output
+      }
+      if let inputArray = value as? [[Int]] {
+        guard !inputArray.isEmpty else { return "[]" }
+        var output = "["
+        for array in inputArray {
+          output += "(\(array.map { "\($0)" }.joined(separator: ", "))), "
+        }
+        output.removeLast(2)
+        output += "]"
+        return output
+      }
+
+      return nil
+    }
+
+    ext.registerFilter("toNilArray") { (value: Any?) in
+      func replaceValuesWithNil(_ array: [Any?]) -> [Any?] {
+        var result = [Any?]()
+        for element in array {
+          if let nestedArray = element as? [Any?] {
+            result.append(replaceValuesWithNil(nestedArray))
+          } else {
+            if NSNull().isEqual(element) {
+              result.append(nil)
+            } else {
+              result.append(element)
+            }
+
+          }
+        }
+
+        return result
+      }
+      if let inputArray = value as? [Any?] {
+        return replaceValuesWithNil(inputArray)
+      }
+
       return nil
     }
 
