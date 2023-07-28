@@ -1,124 +1,134 @@
 import XCTest
+
 @testable import Bob
 
 class BobTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testStatingSomething() {
-        let input = "Tom-ay-to, tom-aaaah-to."
-        let expected = "Whatever."
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testStatingSomething() {
+    XCTAssertEqual("Whatever.", Bob.response("Tom-ay-to, tom-aaaah-to."))
+  }
 
-    func testShouting() {
-        let input = "WATCH OUT!"
-        let expected = "Whoa, chill out!"
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testShouting() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Whoa, chill out!", Bob.response("WATCH OUT!"))
+  }
 
-    func testAskingAQustion() {
-        let input = "Does this cryogenic chamber make me look fat?"
-        let expected = "Sure."
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testShoutingGibberish() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Whoa, chill out!", Bob.response("FCECDFCAAB"))
+  }
 
-    func testTalkingForcefully() {
-        let input = "Let's go make out behind the gym!"
-        let expected = "Whatever."
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testAskingAQuestion() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Sure.", Bob.response("Does this cryogenic chamber make me look fat?"))
+  }
 
-    func testUsingAcronyms() {
-        let input = "It's OK if you don't want to go to the DMV."
-        let expected = "Whatever."
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testAskingANumericQuestion() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Sure.", Bob.response("You are, what, like 15?"))
+  }
 
-    func testForcefulQuestions() {
-        let input = "WHAT THE HELL WERE YOU THINKING?"
-        let expected = "Calm down, I know what I'm doing!"
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testAskingGibberish() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Sure.", Bob.response("fffbbcbeab?"))
+  }
 
-    func testShoutingNumbers() {
-        let input = "1, 2, 3 GO!"
-        let expected = "Whoa, chill out!"
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testTalkingForcefully() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Whatever.", Bob.response("Hi there!"))
+  }
 
-    func testOnlyNumbers() {
-        let input = "1, 2, 3."
-        let expected = "Whatever."
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testUsingAcronymsInRegularSpeech() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Whatever.", Bob.response("It's OK if you don't want to go work for NASA."))
+  }
 
-    func testQuestionWithOnlyNumbers() {
-        let input = "4?"
-        let expected = "Sure."
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testForcefulQuestion() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Calm down, I know what I'm doing!", Bob.response("WHAT'S GOING ON?"))
+  }
 
-    func testShoutingWithSpecialCharacters() {
-        let input = "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"
-        let expected = "Whoa, chill out!"
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testShoutingNumbers() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Whoa, chill out!", Bob.response("1, 2, 3 GO!"))
+  }
 
-    func testShoutingWithUmlautsCharacters() {
-        let input = "ÄMLÄTS!"
-        let expected = "Whoa, chill out!"
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testNoLetters() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Whatever.", Bob.response("1, 2, 3"))
+  }
 
-    func testCalmlySpeakingAboutUmlauts() {
-        let input = "ÄMLäTS!"
-        let expected = "Whatever."
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testQuestionWithNoLetters() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Sure.", Bob.response("4?"))
+  }
 
-    func testShoutingWithNoExclamationmark() {
-        let input = "I HATE YOU"
-        let expected = "Whoa, chill out!"
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testShoutingWithSpecialCharacters() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(
+      "Whoa, chill out!", Bob.response("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"))
+  }
 
-    func testStatementContainingQuestionsMark() {
-        let input = "Ending with a ? means a question."
-        let expected = "Whatever."
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testShoutingWithNoExclamationMark() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Whoa, chill out!", Bob.response("I HATE THE DENTIST"))
+  }
 
-    func testPrattlingOn() {
-        let input = "Wait! Hang on.  Are you going to be OK?"
-        let expected = "Sure."
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testStatementContainingQuestionMark() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Whatever.", Bob.response("Ending with ? means a question."))
+  }
 
-    func testSilence() {
-        let input = ""
-        let expected = "Fine. Be that way!"
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testNonLettersWithQuestion() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Sure.", Bob.response(":) ?"))
+  }
 
-    func testProlongedSilence() {
-        let input = "     "
-        let expected = "Fine. Be that way!"
-        let result = Bob.hey(input)
-        XCTAssertEqual(expected, result)
-    }
+  func testPrattlingOn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Sure.", Bob.response("Wait! Hang on. Are you going to be OK?"))
+  }
+
+  func testSilence() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Fine. Be that way!", Bob.response(""))
+  }
+
+  func testProlongedSilence() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Fine. Be that way!", Bob.response("          "))
+  }
+
+  func testAlternateSilence() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Fine. Be that way!", Bob.response("\t\t\t\t\t\t\t\t\t\t"))
+  }
+
+  func testMultipleLineQuestion() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(
+      "Whatever.", Bob.response("\nDoes this cryogenic chamber make me look fat?\nNo."))
+  }
+
+  func testStartingWithWhitespace() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Whatever.", Bob.response("         hmmmmmmm..."))
+  }
+
+  func testEndingWithWhitespace() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Sure.", Bob.response("Okay if like my  spacebar  quite a bit?   "))
+  }
+
+  func testOtherWhitespace() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Fine. Be that way!", Bob.response("\n\r \t"))
+  }
+
+  func testNonQuestionEndingWithWhitespace() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual("Whatever.", Bob.response("This is a statement ending with whitespace      "))
+  }
+
 }

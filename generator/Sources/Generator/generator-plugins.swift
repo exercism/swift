@@ -11,7 +11,7 @@ class GeneratorPlugins {
 
     ext.registerFilter("camelCase") { (value: Any?) in
       if let inputString = value as? String {
-        let charactersToRemove: [Character] = [","]
+        let charactersToRemove: [Character] = [",", "'", "?", "!", "." ]
         let filteredString = inputString.filter { !charactersToRemove.contains($0) }
         let components = filteredString.components(separatedBy: CharacterSet(charactersIn: " -"))
         let capitalizedComponents = components.map { $0.capitalized }
@@ -96,6 +96,14 @@ class GeneratorPlugins {
         output.removeLast(2)
         output += "]"
         return output
+      }
+      return nil
+    }
+    
+    ext.registerFilter("inspect") {(value: Any?) in
+      if let inputString = value as? String {
+        let escapechars = ["\t" : "\\t", "\n" : "\\n", "\r": "\\r"]
+        return inputString.map { escapechars[String($0)] ?? String($0) }.joined()
       }
       return nil
     }
