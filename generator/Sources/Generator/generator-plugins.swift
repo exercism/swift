@@ -66,6 +66,40 @@ class GeneratorPlugins {
       return nil
     }
 
+    ext.registerFilter("toStringDictionary") { (value: Any?) in
+      if let inputDictionary = value as? [String: String] {
+        guard !inputDictionary.isEmpty else { return "[:]" }
+        var output = "["
+        for (key, value) in inputDictionary.sorted( by: { $0.0 < $1.0 }) {
+          output += "\"\(key)\": \"\(value)\", "
+        }
+        output.removeLast(2)
+        output += "]"
+        return output
+      }
+      if let inputDictionary = value as? [String: Int] {
+        guard !inputDictionary.isEmpty else { return "[:]" }
+        var output = "["
+        for (key, value) in inputDictionary.sorted( by: { $0.0 < $1.0 }) {
+          output += "\"\(key)\": \(value), "
+        }
+        output.removeLast(2)
+        output += "]"
+        return output
+      }
+      if let inputDictionary = value as? [String: [String]] {
+        guard !inputDictionary.isEmpty else { return "[:]" }
+        var output = "["
+        for (key, value) in inputDictionary.sorted( by: { $0.0 < $1.0 }) {
+          output += "\"\(key)\": [\"\(value.joined(separator: "\", \""))\"], "
+        }
+        output.removeLast(2)
+        output += "]"
+        return output
+      }
+      return nil
+    }
+    
     ext.registerFilter("inspect") {(value: Any?) in
       if let inputString = value as? String {
         let escapechars = ["\t" : "\\t", "\n" : "\\n", "\r": "\\r"]
