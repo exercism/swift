@@ -1,1 +1,3 @@
-//Solution goes in Sources
+class Year {
+  // Write your code for the 'Leap' exercise in this file.
+}
