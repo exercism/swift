@@ -12,7 +12,7 @@ Your goal is to write some rules that will be used in the game.
 
 In the game, the bird will get bonus points if they touch an eagle while having a power-up.
 
-Define the function `bonusPoints(powerUpActive:touchingEagle:)` that takes two arguments (_if the bird has an active power-up_ and _if the bird is touching an eagle_) and returns a boolean value that tells whether the bird will get bonus points or not.
+Define the function `bonusPoints(powerUpActive:touchingEagle:)` that takes two arguments `powerUpActive`, which holds if the bird has an active power-up, and the argument `touchingEagle` which holds if the bird is touching an eagle.
 The function should return `true` only if the bird has a power-up active and is touching an eagle, and `false` otherwise.
 
 ```Swift
@@ -24,7 +24,7 @@ bonusPoints(powerUpActive: false, touchingEagle: true)
 
 In the game, the player gets points when picking up a seed or a power-up.
 
-Define the function `score(touchingPowerUp:touchingSeed:)` that takes two arguments (_if the bird is touching a power-up_ and _if the bird is touching a seed_) and returns a boolean value indicating if the bird scored or not.
+Define the function `score(touchingPowerUp:touchingSeed:)` that takes two arguments `touchingPowerUp`, which holds if the bird is touching a power-up, the argument `touchingSeed` which holds if the bird is touching a seed.
 The function should return `true` if the bird is touching a power-up or a seed, and return `false` otherwise.
 
 ```Swift
@@ -34,7 +34,7 @@ score(touchingPowerUp: true, touchingSeed: true)
 
 ## 3. Define if bird loses
 
-Define the function `lose(powerUpActive:touchingEagle:)` that takes two arguments (_if the bird has a power-up active_ and _if the bird is touching an eagle_) and returns a boolean value that indicates if the bird loses or not.
+Define the function `lose(powerUpActive:touchingEagle:)` that takes two arguments `powerUpActive`, which holds if the bird has an active power-up, and the argument `touchingEagle` which holds if the bird is touching an eagle.
 The function should return `true` if the character is an eagle and does not have a power-up active, and return `false` otherwise.
 
 ```Swift
@@ -44,7 +44,12 @@ lose(powerUpActive: false, touchingEagle: true)
 
 ## 4. Define if bird wins
 
-Define the `win(HasPickedUpAllSeeds:powerUpActive:touchingEagle:)` function that takes three arguments (_if the bird has picked up all of the seeds, _if the bird has a power-up active_, and _if the bird is an eagle) and returns a boolean value indicating if the bird wins or not.
+Define the `win(HasPickedUpAllSeeds:powerUpActive:touchingEagle:)` function that takes the arguments:
+
+- `HasPickedUpAllSeeds` if the bird has picked up all of the seeds.
+- `powerUpActive` if the bird has a power-up active.
+- `touchingEagle` if the bird is an eagle.
+
 The function should return `true` if the bird has gathered all of the seeds and has not lost based on the arguments defined in part 3, and return `false` otherwise.
 
 ```Swift

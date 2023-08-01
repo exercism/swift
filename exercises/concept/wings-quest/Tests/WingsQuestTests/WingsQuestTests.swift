@@ -115,4 +115,3 @@ class TaskWin: XCTestCase {
     )
   }
 }
-
