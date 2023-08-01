@@ -1036,11 +1036,6 @@
       "name": "Conditionals Guard"
     },
     {
-      "uuid": "0ce7e6f2-ae63-4e0f-8eeb-8bc9831f4578",
-      "slug": "conditionals-if",
-      "name": "Conditionals If"
-    },
-    {
       "uuid": "e8fec07d-7a44-4ae4-8ad7-bc788c3ff827",
       "slug": "conditionals-switch",
       "name": "Conditionals Switch"
