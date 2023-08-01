@@ -21,7 +21,7 @@ When assigning a value to a variable are there two ways either through explicit 
 
 ```swift
 var explicitVar: Int = 10 // Explicitly typed
-var implicitVar = 10 // Implicitly typed
+var implicitVar = 10      // Implicitly typed
 ```
 
 Updating a variable's value is done using the `=` operator.
@@ -57,7 +57,7 @@ print(someInt) // Prints '169'
 Constants are defined using the `let` keyword.
 
 ```swift
-let constantName = 10 // constant
+let constantName = 10          // constant
 let explicitConstant: Int = 10 // Explicitly typed constant
 ```
 
@@ -67,14 +67,9 @@ Swift has [operators][operators] for addition, subtraction, and multiplication.
 The operators are `+`, `-`, and `*` respectively.
   
 ```swift
-print(1 + 1)
-// Prints 2
-
-print(2 - 1)
-// Prints 1
-
-print(2 * 2)
-// Prints: 4
+print(1 + 1) // Prints 2
+print(2 - 1) // Prints 1
+print(2 * 2) // Prints 4
 ```
 
 ### Functions
