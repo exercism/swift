@@ -51,7 +51,7 @@ Characters can **not** be concatenated with strings using the `+` operator witho
 
 ```swift
 print("honey" + "comb")
-// prinPrintsts "honeycomb"
+// Prints "honeycomb"
 ```
 
 The [`append(_:)`][append] method mutates the string by adding either a string or a character to the end of it.
@@ -64,18 +64,9 @@ let period: Character = "."
 greeting.append(world)
 print(greeting) // Prints "Hello, world"
 
-greeting.append(period) // Prints "Hello, world."
+greeting.append(period)
+print(greeting) // Prints "Hello, world."
 ```
-
-````exercism/advanced
-Sometimes when concatenating strings, can the result be a single character, such as when using [zero-width joiners][zero-width-joiners] to create a new emoji.
-
-```swift
-let zeroWidthJoiner = "\u{200D}"
-"🏳️" + zeroWidthJoiner + "🌈"
-// "🏳️‍🌈"
-```
-````
 
 ## String interpolation
 
@@ -84,34 +75,33 @@ To insert a value into a string using string interpolation, you place an express
 
 ```swift
 let radius = 5.0
-let interp = "The area of a circle with radius \(radius) is \(Double.pi * radius * radius)"
-print(interp) // Prints "The area of a circle with radius 5.0 is 78.53981633974483"
+let circle = "The area of a circle with radius \(radius) is \(Double.pi * radius * radius)"
+print(circle) // Prints "The area of a circle with radius 5.0 is 78.53981633974483"
 ```
 
 ## String and Character properties
 
 Strings and characters have a few different _properties_ which can be queried to get information about the string or character.
-This can be
 
 ### String properties
 
 Here are some of the most common string properties, but to find all, see the [documentation][string-docs].
 
-| Property  | Description                                    | Example                      |
-| --------- | ---------------------------------------------- | ---------------------------- |
-| `isEmpty` | Returns `true` if the string is empty          | `"Hello".isEmpty` => `false` |
-| `count`   | Returns the number of characters in the string | `"Hello".count` => `5`       |
+| Property  | Description                                    | Example                        |
+| --------- | ---------------------------------------------- | ------------------------------ |
+| `isEmpty` | Returns `true` if the string is empty          | `"Hello".isEmpty equals false` |
+| `count`   | Returns the number of characters in the string | `"Hello".count   equals 5`     |
 
 ### Character properties
 
 Here are some of the most common character properties, but to find all, see the [documentation][string-docs].
 
-| Property       | Description                                   | Example                      |
-| -------------- | --------------------------------------------- | ---------------------------- |
-| `isLowercase`  | Returns `true` if the character is lowercase  | `"a".isLowercase` => `true`  |
-| `isUppercase`  | Returns `true` if the character is uppercase  | `"A".isUppercase` => `true`  |
-| `isNumber`     | Returns `true` if the character is a number   | `"1".isNumber` => `true`     |
-| `isWhitespace` | Returns `true` if the character is whitespace | `" ".isWhitespace` => `true` |
+| Property       | Description                                   | Example                        |
+| -------------- | --------------------------------------------- | ------------------------------ |
+| `isLowercase`  | Returns `true` if the character is lowercase  | `"a".isLowercase  equals true` |
+| `isUppercase`  | Returns `true` if the character is uppercase  | `"A".isUppercase  equals true` |
+| `isNumber`     | Returns `true` if the character is a number   | `"1".isNumber     equals true` |
+| `isWhitespace` | Returns `true` if the character is whitespace | `" ".isWhitespace equals true` |
 
 ## Type conversion
 
@@ -156,5 +146,4 @@ print(unicode) // Prints 💖
 [unicode]: https://en.wikipedia.org/wiki/Unicode
 [concatenated]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/#Concatenating-Strings-and-Characters
 [append]: https://developer.apple.com/documentation/swift/string/append(_:)-4xa8f
-[zero-width-joiners]: https://en.wikipedia.org/wiki/Zero-width_joiner
 [special-characters]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/#Special-Characters-in-String-Literals

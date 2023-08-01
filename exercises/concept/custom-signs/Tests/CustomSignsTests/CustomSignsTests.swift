@@ -63,7 +63,6 @@ class TaskGraduationFor: XCTestCase {
   }
 }
 
-
 class TaskCostOf: XCTestCase {
   func testCostOfSign() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
