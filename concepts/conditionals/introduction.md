@@ -1,3 +1,5 @@
+# About
+
 ## Comparison operators
 
 [Comparison operators][comparison-operators] are used to compare values and return a `true` or `false` value.
@@ -47,17 +49,18 @@ It follows the same principle as defining an if statement but the keyword is `el
 As If statement don't they need an else statement to be valid, but they can have one if needed.
 
 ```swift
-let favouriteFruit = "Apple"
-if favouriteFruit == "Banana" {
-    print("Your favourite fruit is a banana")
-} else if favouriteFruit == "Orange" {
-    print("Your favourite fruit is an orange")
-} else if favouriteFruit == "Apple" {
-    print("Your favourite fruit is an apple")
+let favoriteFruit = "Apple"
+
+if favoriteFruit == "Banana" {
+    print("Your favorite fruit is a banana")
+} else if favoriteFruit == "Orange" {
+    print("Your favorite fruit is an orange")
+} else if favoriteFruit == "Apple" {
+    print("Your favorite fruit is an apple")
 } else {
-    print("Your favourite fruit is not a banana, orange or apple")
+    print("Your favorite fruit is not a banana, orange or apple")
 }
-// Prints "Your favourite fruit is an apple"
+// Prints "Your favorite fruit is an apple"
 ```
 
 ## If expression
