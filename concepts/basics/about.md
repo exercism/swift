@@ -1,6 +1,7 @@
 # About
 
-Swift is a compiled, multi-paradigm language. With the following goals:
+Swift is a compiled, multi-paradigm language.
+With the following goals:
 
 - Have safety features to prevent errors in production
 
@@ -17,7 +18,7 @@ It is now open source and is available on all Apple devices, Linux, and Windows.
 
 ### Variables
 
-Values can be associated with names by defining a [variable][constants-variables] and assigning a value to that variable.
+Values can be associated with names by defining a [variable][constants-variables] and assigning a value to it.
 That name may then be used to refer to that value throughout the program.
 Variables are _mutable_, which means that the value can be changed at any time.
 
@@ -87,7 +88,7 @@ print(2 - 1)
 // Prints 1
 
 print(2 * 2)
-// Prints: 4
+// Prints 4
 ```
 
 ### Functions
