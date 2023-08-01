@@ -5,7 +5,7 @@ import XCTest
 let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
 class TaskDailyRateFrom: XCTestCase {
-    func testdailyRateFromFor60() {
+  func testdailyRateFromFor60() {
     XCTAssertEqual(dailyRateFrom(hourlyRate: 60), 480.0, accuracy: 0.001)
   }
 

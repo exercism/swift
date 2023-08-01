@@ -13,15 +13,15 @@ In most cases you would define the type for integers as [`Int`][int] and for flo
 To declare a variable or constant to be of type `Int` or `Double`, you can use a type annotation:
 
 ```swift
-let speed: Int = 42              // speed is an Int
-let pi: Double = 3.14            // pi is a Double
-let giga: Double = 1_000_000_000 // giga is a Double
+let speed: Int = 42                           // speed is an Int
+let pi: Double = 3.14                         // pi is a Double
+let giga: Double = 1_000_000_000              // giga is a Double
 let plancksConstant : Double = 6.62607015e-34 // plancksConstant is a Double
 ```
 
 ## Arithmetic operators
 
-Swift does have a set of [arithmetic operators][arithmeticoperators] that can be used to perform basic mathematical operations.
+Swift does have a set of [arithmetic operators][arithmetic-operators] that can be used to perform basic mathematical operations.
 The `+` operator is used for addition, the `-` operator is used for subtraction, and the `*` operator is used for multiplication.
 
 | Operator | Example                 |
@@ -57,13 +57,13 @@ print(5 / 0) // error: division by zero
 
 ### Remainder
 
-The [`%` operator][reminder-operator] is used to get the remainder of a divison and does only work with integers.
+The [`%` operator][reminder-operator] is used to get the remainder of a division and does only work with integers.
 The operator returns the remainder of the division of the first argument by the second argument.
 And as with division, having the second argument having the value of zero will result in a compile error.
 
 ```exercism/note
-In other languages, this is this operator also known as the modulo operator.
-But in Swift, it does not work the same way as the modulo operator, since it strictly speaking it returns the remainder, not the modulo.
+In other languages, is this operator also known as the modulo operator.
+But in Swift, it does not work the same way as the modulo operator, since it strictly speaking, returns the remainder, not the modulo.
 ```
 
 ```swift
@@ -82,9 +82,9 @@ To round up or down, you can use the `rounded(.up)` or `rounded(.down)` methods 
 
 ```swift
 let x = 3.14
-let y = x.rounded()      // y is 3.0
-let w = x.rounded(.down) // w is 3.0
-let z = x.rounded(.up)   // z is 4.0
+let y = x.rounded()      // y equals 3.0
+let w = x.rounded(.down) // w equals 3.0
+let z = x.rounded(.up)   // z equals 4.0
 ```
 
 ## Type inference
@@ -119,7 +119,7 @@ print(type(of: iPi)) // Prints Int
 [floatingpoint]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Floating-Point-Numbers
 [int]: https://developer.apple.com/documentation/swift/int
 [double]: https://developer.apple.com/documentation/swift/double
-[arithmeticoperators]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Arithmetic-Operators
+[arithmetic-operators]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Arithmetic-Operators
 [reminder-operator]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Remainder-Operator
 [typeinference]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Type-Safety-and-Type-Inference
 [type-conversion]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Integer-and-Floating-Point-Conversion
