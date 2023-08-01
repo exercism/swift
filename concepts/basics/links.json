@@ -1,6 +1,34 @@
 [
   {
-    "url": "https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html",
-    "description": "The Basics of Swift"
+    "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/guidedtour/",
+    "description": "A Swift Tour"
+  },
+  {
+    "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/",
+    "description": "Swift language guide"
+  },
+  {
+    "url": "https://www.swift.org/documentation/",
+    "description": "Swift language documentation"
+  },
+  {
+    "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Constants-and-Variables",
+    "description": "Swift language guide: constants and variables"
+  },
+  {
+    "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Defining-and-Calling-Functions",
+    "description": "Swift language guide: functions"
+  },
+  {
+    "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Type-Annotations",
+    "description": "Swift language guide: type annotations"
+  },
+  {
+    "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Type-Safety-and-Type-Inference",
+    "description": "Swift language guide: type inferring"
+  },
+  {
+    "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Comments",
+    "description": "Swift language guide: comments"
   }
 ]
