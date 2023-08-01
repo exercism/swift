@@ -102,7 +102,7 @@ class GeneratorPlugins {
     
     ext.registerFilter("inspect") {(value: Any?) in
       if let inputString = value as? String {
-        let escapechars = ["\t" : "\\t", "\n" : "\\n", "\r": "\\r"]
+        let escapechars = ["\t" : "\\t", "\n" : "\\n", "\r": "\\r", "\\" : "\\\\"]
         return inputString.map { escapechars[String($0)] ?? String($0) }.joined()
       }
       return nil
