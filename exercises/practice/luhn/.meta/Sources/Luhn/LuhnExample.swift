@@ -1,8 +1,10 @@
+import Foundation
+
 func isValidLuhn(_ number: String) -> Bool {
   var number = number
   var sum = 0
   var odd = true
-  number.replace(" ", with: "")
+  number = number.replacingOccurrences(of:" ", with: "")
   guard number.count > 1 else { return false }
   for char in number.reversed() {
     if let digit = Int(String(char)) {
