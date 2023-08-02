@@ -1,31 +1,67 @@
-# Introduction
+# Bools
 
-One of Swift's basic types is the Boolean type, called `Bool`. Swift provides two Boolean constant values, `true` and `false`:
+Swift has a type known as [`Bool`][bools], it is used to represent the values `true` and `false`.
 
-```swift
-let doEaglesFly = true
-let doElephantsFly = false
+## Logical operators
+
+Swift has 3 [logical operators (`!`, `||`, `&&`)][logical-operators] which are used to combine Bools and make expressions that produce different values.
+
+### And(`&&`)
+
+The [_and_ operator][and] in Swift is represented by `&&` and returns `true` if both values given are `true` otherwise it returns `false`.
+When using the _and_ operator, one Bool be placed on the right side of the `&&` and another one on the left side.
+
+```Swift
+true && true  // true
+true && false // false
 ```
 
-Expressions that evaluate to Boolean values are known as _Boolean Expressions_. Some of the most common Boolean expressions are those built using comparison operators:
+### Or(`||`)
+
+The [_or_ operator][or] in Swift is represented by `||` and returns `true` if **at least one** of values given is `true` if both of the values are `false` then it returns `false`.
+When using the _or_ operator one bool should be placed on the right side of the `||` and another one on the left side.
 
 ```swift
-1 + 1 == 2   // evaluates to true
-3 + 3 < 5    // evaluates to false
-10 >= 10     // evaluates to true
+true || true   // true
+true || false  // true
+false || false // false
 ```
 
-Boolean Expressions can be combined using Swift's logical operators:
+### Not(`!`)
+
+The [_not_ operator][not] in Swift is represented by `!` and returns `true` if the given Bool is `false` and returns `false` if `true` is given.
+When using the _not_ operator one Bool should be placed after the operator (`!`).
 
 ```swift
-2 + 2 == 4 && 6 / 2 <= 2  // evaluates to false
-4 > 5 || 1 != 0           // evaluates to true
-!(2 * 2 == 2 + 2)         // evaluates to false
+!true  // false
+!false // true
 ```
 
-Note that unlike some languages, Swift doesn't have an logical exclusive-or operator; the `!=` comparison operator is used instead.
+## Using parentheses(`()`)
+
+When working with booleans you can use [explicit parentheses][explicit-parentheses] to decide which Bools to evaluate first.
+The result can differ depending on how the parentheses are used.
+In Swift, what is in parentheses is evaluated first.
 
 ```swift
-true != true                  // evaluates to false
-(1 == 2) != (7 - 4 == 15 / 5) // evaluates to true
+true && false && false || true   // true
+true && false && (false || true) // false
 ```
+
+Since what is in parentheses is evaluated first, in the following example, the _not_ operator will apply to the expression inside parentheses.
+
+```Swift
+!true && false   // false
+!(true && false) // true
+```
+
+```exercism/note
+You should only use parentheses when they affect the result, otherwise, should they be omitted.
+```
+
+[logical-operators]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Logical-Operators
+[not]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Logical-NOT-Operator
+[and]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Logical-AND-Operator
+[or]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Logical-OR-Operator
+[explicit-parentheses]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Explicit-Parentheses
+[bools]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Booleans

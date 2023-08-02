@@ -26,11 +26,4 @@ class SieveTests: XCTestCase {
         ]
         XCTAssertEqual(expected, Sieve(1000).primes)
     }
-
-    static var allTests: [(String, (SieveTests) -> () throws -> Void)] {
-        return [
-            ("testAFewPrimes", testAFewPrimes),
-            ("testPrimes", testPrimes),
-        ]
-    }
 }

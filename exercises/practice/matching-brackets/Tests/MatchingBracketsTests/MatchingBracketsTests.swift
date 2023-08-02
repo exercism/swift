@@ -55,22 +55,4 @@ class MatchingBracketsTests: XCTestCase {
         let text = "\\left(\\begin{array}{cc} \\frac{1}{3} & x\\\\ \\mathrm{e}^{x} &... x^2 \\end{array}\\right)"
         XCTAssertTrue(MatchingBrackets.paired(text: text))
     }
-
-    static var allTests: [(String, (MatchingBracketsTests) -> () throws -> Void)] {
-        return [
-            ("testPairedSquareBrackets", testPairedSquareBrackets),
-            ("testEmptyString", testEmptyString),
-            ("testUnpairedBrackets", testUnpairedBrackets),
-            ("testWrongOrderedBrackets", testWrongOrderedBrackets),
-            ("testPairedWithWhitespace", testPairedWithWhitespace),
-            ("testSimpleNestedBrackets", testSimpleNestedBrackets),
-            ("testSeveralPairedBrackets", testSeveralPairedBrackets),
-            ("testPairedAndNestedBrackets", testPairedAndNestedBrackets),
-            ("testUnopenedClosingBrackets", testUnopenedClosingBrackets),
-            ("testUnpairedAndNestedBrackets", testUnpairedAndNestedBrackets),
-            ("testPairedAndWrongNestedBrackets", testPairedAndWrongNestedBrackets),
-            ("testMathExpression", testMathExpression),
-            ("testComplexLatexExpression", testComplexLatexExpression),
-        ]
-    }
 }

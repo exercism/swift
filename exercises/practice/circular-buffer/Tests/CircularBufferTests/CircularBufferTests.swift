@@ -116,19 +116,4 @@ class CircularBufferTests: XCTestCase {
             XCTAssertEqual(error as? CircularBufferError, .bufferEmpty)
         }
     }
-
-    static var allTests: [(String, (CircularBufferTests) -> () throws -> Void)] {
-        return [
-            ("testReadEmptyBufferThrowsBufferEmptyException", testReadEmptyBufferThrowsBufferEmptyException),
-            ("testWriteAndReadBackOneItem", testWriteAndReadBackOneItem),
-            ("testWriteAndReadBackMultipleItems", testWriteAndReadBackMultipleItems),
-            ("testClearingBuffer", testClearingBuffer),
-            ("testAlternateWriteAndRead", testAlternateWriteAndRead),
-            ("testReadsBackOldestItem", testReadsBackOldestItem),
-            ("testWritingToAFullBufferThrowsAnException", testWritingToAFullBufferThrowsAnException),
-            ("testOverwritingOldestItemInAFullBuffer", testOverwritingOldestItemInAFullBuffer),
-            ("testForcedWritesToNonFullBufferShouldBehaveLikeWrites", testForcedWritesToNonFullBufferShouldBehaveLikeWrites),
-            ("testAlternateReadAndWriteIntoBufferOverflow", testAlternateReadAndWriteIntoBufferOverflow),
-        ]
-    }
 }

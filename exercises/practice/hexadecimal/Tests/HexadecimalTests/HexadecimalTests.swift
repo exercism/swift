@@ -42,19 +42,4 @@ class HexadecimalTests: XCTestCase {
     func testYellow() {
         XCTAssertEqual(16_776_960, Int(Hexadecimal("ffff00")))
     }
-
-    static var allTests: [(String, (HexadecimalTests) -> () throws -> Void)] {
-        return [
-            ("testHex1IsDecimal1", testHex1IsDecimal1),
-            ("testHexCIsDecimal12", testHexCIsDecimal12),
-            ("testHex10IsDecimal16", testHex10IsDecimal16),
-            ("testHexAFIsDecimal175", testHexAFIsDecimal175),
-            ("testHex100IsDecimal256", testHex100IsDecimal256),
-            ("testHex19aceIsDecimal105166", testHex19aceIsDecimal105166),
-            ("testInvalidHexIsNil", testInvalidHexIsNil),
-            ("testBlack", testBlack),
-            ("testWhite", testWhite),
-            ("testYellow", testYellow),
-        ]
-    }
 }

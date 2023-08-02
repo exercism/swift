@@ -82,29 +82,4 @@ class ListOpsTests: XCTestCase {
     func testReverseNonemptyList() {
         XCTAssertEqual(ListOps.reverse([1, 3, 5, 7]), [7, 5, 3, 1])
     }
-
-    static var allTests: [(String, (ListOpsTests) -> () throws -> Void)] {
-        return [
-            ("testAppendEmptyLists", testAppendEmptyLists),
-            ("testAppendEmptyListToList", testAppendEmptyListToList),
-            ("testAppendNonemptyLists", testAppendNonemptyLists),
-            ("testConcatEmptyList", testConcatEmptyList),
-            ("testConcatListOfLists", testConcatListOfLists),
-            ("testFilterEmptyList", testFilterEmptyList),
-            ("testFilterNonemptyList", testFilterNonemptyList),
-            ("testLengthEmptyList", testLengthEmptyList),
-            ("testLengthNonemptyList", testLengthNonemptyList),
-            ("testMapEmptyList", testMapEmptyList),
-            ("testMapNonemptyList", testMapNonemptyList),
-            ("testFoldLeftEmptyList", testFoldLeftEmptyList),
-            ("testFoldLeftNonemptyListAddition", testFoldLeftNonemptyListAddition),
-            ("testFoldLeftNonemptyListDivision", testFoldLeftNonemptyListDivision),
-            ("testFoldRightEmptyList", testFoldRightEmptyList),
-            ("testFoldRightNonemptyListAddition", testFoldRightNonemptyListAddition),
-            ("testFoldRightNonemptyListDivision", testFoldRightNonemptyListDivision),
-            ("testFoldRightAddString", testFoldRightAddString),
-            ("testReverseEmptyList", testReverseEmptyList),
-            ("testReverseNonemptyList", testReverseNonemptyList),
-        ]
-    }
 }

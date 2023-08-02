@@ -87,16 +87,4 @@ class GradeSchoolTests: XCTestCase {
         XCTAssertEqualArray(result[4], expected[4])
         XCTAssertEqualArray(result[6], expected[6])
     }
-
-    static var allTests: [(String, (GradeSchoolTests) -> () throws -> Void)] {
-        return [
-            ("testAnEmptySchool", testAnEmptySchool),
-            ("testAddStudent", testAddStudent),
-            ("testAddMoreStudentsInSameClass", testAddMoreStudentsInSameClass),
-            ("testAddStudentsToDifferentGrades", testAddStudentsToDifferentGrades),
-            ("testGetStudentsInAGrade", testGetStudentsInAGrade),
-            ("testGetStudentsInANonExistantGrade", testGetStudentsInANonExistantGrade),
-            ("testSortSchool", testSortSchool),
-        ]
-    }
 }

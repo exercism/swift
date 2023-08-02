@@ -49,15 +49,4 @@ class WordCountTests: XCTestCase {
 
         XCTAssertEqual(expected, result)
     }
-
-    static var allTests: [(String, (WordCountTests) -> () throws -> Void)] {
-        return [
-            ("testCountOneWord", testCountOneWord),
-            ("testCountOneOfEeach", testCountOneOfEeach),
-            ("testCountMultipleOccurrences", testCountMultipleOccurrences),
-            ("testIgnorePunctation", testIgnorePunctation),
-            ("testIncludeNumbers", testIncludeNumbers),
-            ("testNormalizeCase", testNormalizeCase),
-        ]
-    }
 }

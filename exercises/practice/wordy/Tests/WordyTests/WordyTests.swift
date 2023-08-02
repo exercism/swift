@@ -66,25 +66,4 @@ class WordyTests: XCTestCase {
 
     func testIrrelevant() {
         XCTAssertNil(try? WordProblem("Who is the president of the United States?").answer()) }
-
-    static var allTests: [(String, (WordyTests) -> () throws -> Void)] {
-        return [
-            ("testAdd1", testAdd1),
-            ("testAdd2", testAdd2),
-            ("testAddNegativeNumbers", testAddNegativeNumbers),
-            ("testAddMoreDigits", testAddMoreDigits),
-            ("testSubtract", testSubtract),
-            ("testMultiply", testMultiply),
-            ("testDivide", testDivide),
-            ("testAddTwice", testAddTwice),
-            ("testAddThenSubtract", testAddThenSubtract),
-            ("testSubtractTwice", testSubtractTwice),
-            ("testSubtractThenAdd", testSubtractThenAdd),
-            ("testMultiplyTwice", testMultiplyTwice),
-            ("testAddThenMultiply", testAddThenMultiply),
-            ("testDivideTwice", testDivideTwice),
-            ("testTooAdvanced", testTooAdvanced),
-            ("testIrrelevant", testIrrelevant),
-        ]
-    }
 }

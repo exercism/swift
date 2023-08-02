@@ -44,13 +44,4 @@ class RobotNameTests: XCTestCase {
         let secondName = robot.name
         XCTAssertNotEqual(firstName, secondName)
     }
-
-    static var allTests: [(String, (RobotNameTests) -> () throws -> Void)] {
-        return [
-            ("testHasName", testHasName),
-            ("testNameSticks", testNameSticks),
-            ("testDifferentRobotsHaveDifferentNames", testDifferentRobotsHaveDifferentNames),
-            ("testResetName", testResetName),
-        ]
-    }
 }

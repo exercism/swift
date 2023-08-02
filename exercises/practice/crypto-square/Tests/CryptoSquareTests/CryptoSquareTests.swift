@@ -82,24 +82,4 @@ class CryptoSquareTests: XCTestCase {
         let expected = "hifei acedl veeol eddgo aatcu nyhht"
         XCTAssertEqual(expected, crypto.normalizeCiphertext)
     }
-
-    static var allTests: [(String, (CryptoSquareTests) -> () throws -> Void)] {
-        return [
-            ("testNormalizeStrangeCharacters", testNormalizeStrangeCharacters),
-            ("testNormalizeUppercaseCharacters", testNormalizeUppercaseCharacters),
-            ("testNormalizeWithNumbers", testNormalizeWithNumbers),
-            ("testSizeOfSmallSquare", testSizeOfSmallSquare),
-            ("testSizeOfSlightlyLargerSquare", testSizeOfSlightlyLargerSquare),
-            ("testSizeOfNonPerfectSquare", testSizeOfNonPerfectSquare),
-            ("testSizeIsDeterminedByNormalizedPlaintext", testSizeIsDeterminedByNormalizedPlaintext),
-            ("testPlaintextSegments", testPlaintextSegments),
-            ("testOtherPlaintextSegments", testOtherPlaintextSegments),
-            ("testCiphertext", testCiphertext),
-            ("testAnotherCiphertext", testAnotherCiphertext),
-            ("testNormalizedCiphertext", testNormalizedCiphertext),
-            ("testNormalizedCiphertextSpillsIntoShortSegment", testNormalizedCiphertextSpillsIntoShortSegment),
-            ("testAnotherNormalizedCiphertext", testAnotherNormalizedCiphertext),
-            ("testNormalizedCiphertextWithPunctuation", testNormalizedCiphertextWithPunctuation),
-        ]
-    }
 }

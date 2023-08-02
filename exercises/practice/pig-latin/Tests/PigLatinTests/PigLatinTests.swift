@@ -61,24 +61,4 @@ class PigLatinTests: XCTestCase {
     func testTranslatesPhrase() {
         XCTAssertEqual("ickquay astfay unray", PigLatin.translate("quick fast run"))
     }
-
-    static var allTests: [(String, (PigLatinTests) -> () throws -> Void)] {
-        return [
-            ("testWordBeginningWithA", testWordBeginningWithA),
-            ("test_otherWordBeginningE", test_otherWordBeginningE),
-            ("testWordBeginningWithP", testWordBeginningWithP),
-            ("testWordBeginningWithK", testWordBeginningWithK),
-            ("testWordBeginningWithCh", testWordBeginningWithCh),
-            ("testWordBeginningWithQu", testWordBeginningWithQu),
-            ("testWordWithConsonantPrecedingQu", testWordWithConsonantPrecedingQu),
-            ("testWordBeginningWithTh", testWordBeginningWithTh),
-            ("testWordBeginningWithThr", testWordBeginningWithThr),
-            ("testWordBeginningWithSch", testWordBeginningWithSch),
-            ("testWordBeginningWithYe", testWordBeginningWithYe),
-            ("testWordBeginningWithYt", testWordBeginningWithYt),
-            ("testWordBeginningWithXe", testWordBeginningWithXe),
-            ("testWordBeginningWithXr", testWordBeginningWithXr),
-            ("testTranslatesPhrase", testTranslatesPhrase),
-        ]
-    }
 }

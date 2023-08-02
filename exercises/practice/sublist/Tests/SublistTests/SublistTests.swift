@@ -92,26 +92,4 @@ class SublistTests: XCTestCase {
 
         XCTAssertEqual(.unequal, classifier(listOne: [1, 0, 1], listTwo: [10, 1]))
     }
-
-    static var allTests: [(String, (SublistTests) -> () throws -> Void)] {
-        return [
-            ("testEmptyLists", testEmptyLists),
-            ("testEmptyListWithinNonEmptyList", testEmptyListWithinNonEmptyList),
-            ("testNonEmptyListContainingEmptyList", testNonEmptyListContainingEmptyList),
-            ("testEqualLists", testEqualLists),
-            ("testDifferentLists", testDifferentLists),
-            ("testFalseStart", testFalseStart),
-            ("testConsecutive", testConsecutive),
-            ("testSublistAtStart", testSublistAtStart),
-            ("testSublistInMiddle", testSublistInMiddle),
-            ("testSublistAtEnd", testSublistAtEnd),
-            ("testAtStartOfSuperList", testAtStartOfSuperList),
-            ("testInMiddleOfSuperList", testInMiddleOfSuperList),
-            ("testAtEndOfSuperList", testAtEndOfSuperList),
-            ("testFirstListMissingElementFromSecondList", testFirstListMissingElementFromSecondList),
-            ("testSecondListMissingElementFromFirstList", testSecondListMissingElementFromFirstList),
-            ("testOrderMattersToAList", testOrderMattersToAList),
-            ("testSameDigitsButDifferentNumbers", testSameDigitsButDifferentNumbers),
-        ]
-    }
 }

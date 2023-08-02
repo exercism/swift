@@ -36,14 +36,4 @@ class PalindromeProductsTests: XCTestCase {
         XCTAssertEqual(10_201, smallest.value)
         XCTAssertEqual(Set([101, 101]), Set(smallest.factor))
     }
-
-    static var allTests: [(String, (PalindromeProductsTests) -> () throws -> Void)] {
-        return [
-            ("testLargestPalindromeFromSingleDigitFactors", testLargestPalindromeFromSingleDigitFactors),
-            ("testLargestPalindromeFromDoubleDigitFactors", testLargestPalindromeFromDoubleDigitFactors),
-            ("testSmallestPalindromeFromDoubleDigitFactors", testSmallestPalindromeFromDoubleDigitFactors),
-            ("testLargestPalindromeFromTripleDigitFactors", testLargestPalindromeFromTripleDigitFactors),
-            ("testSmallestPalindromeFromTripleDigitFactors", testSmallestPalindromeFromTripleDigitFactors),
-        ]
-    }
 }

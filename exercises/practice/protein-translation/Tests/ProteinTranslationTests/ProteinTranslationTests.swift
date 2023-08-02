@@ -63,21 +63,4 @@ class ProteinTranslationTests: XCTestCase {
     func testInvalidCodons() {
         XCTAssertThrowsError(try ProteinTranslation.translationOfRNA("CARROT"))
     }
-
-    static var allTests: [(String, (ProteinTranslationTests) -> () throws -> Void)] {
-        return [
-            ("testAUGTranslatesToMethionine", testAUGTranslatesToMethionine),
-            ("testIdentifiesPhenylalanineCodons", testIdentifiesPhenylalanineCodons),
-            ("testIdentifiesLeucineCodons", testIdentifiesLeucineCodons),
-            ("testIdentifiesSerineCodons", testIdentifiesSerineCodons),
-            ("testIdentifiesTyrosineCodons", testIdentifiesTyrosineCodons),
-            ("testIdentifiesCysteineCodons", testIdentifiesCysteineCodons),
-            ("testIdentifiesTryptophanCodons", testIdentifiesTryptophanCodons),
-            ("testIdentifiesStopCodons", testIdentifiesStopCodons),
-            ("testTranslatesRNAStrandIntoCorrectProtein", testTranslatesRNAStrandIntoCorrectProtein),
-            ("testStopsTranslationIfStopCodonPresent", testStopsTranslationIfStopCodonPresent),
-            ("testStopsTranslationOfLongerStrand", testStopsTranslationOfLongerStrand),
-            ("testInvalidCodons", testInvalidCodons),
-        ]
-    }
 }

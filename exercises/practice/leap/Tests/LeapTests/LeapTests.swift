@@ -22,13 +22,4 @@ class LeapTests: XCTestCase {
         let year = Year(calendarYear: 2400)
         XCTAssertTrue(year.isLeapYear)
     }
-
-    static var allTests: [(String, (LeapTests) -> () throws -> Void)] {
-        return [
-            ("testVanillaLeapYear", testVanillaLeapYear),
-            ("testAnyOldYear", testAnyOldYear),
-            ("testCentury", testCentury),
-            ("testExceptionalCentury", testExceptionalCentury),
-        ]
-    }
 }

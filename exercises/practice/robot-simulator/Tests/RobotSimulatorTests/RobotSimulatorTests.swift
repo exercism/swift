@@ -155,33 +155,4 @@ class RobotSimulatorTests: XCTestCase {
         XCTAssertEqual([11, 5], robot3.coordinates)
         XCTAssertEqual([.north], [robot3.bearing])
     }
-
-    static var allTests: [(String, (RobotSimulatorTests) -> () throws -> Void)] {
-        return [
-            ("testRobotBearingEast", testRobotBearingEast),
-            ("testRobotBearingWest", testRobotBearingWest),
-            ("testRobotBearingNorth", testRobotBearingNorth),
-            ("testRobotBearingSouth", testRobotBearingSouth),
-            ("testTurnRightFromNorth", testTurnRightFromNorth),
-            ("testTurnRightFromEast", testTurnRightFromEast),
-            ("testTurnRightFromSouth", testTurnRightFromSouth),
-            ("testTurnRightFromWest", testTurnRightFromWest),
-            ("testTurnLeftFromNorth", testTurnLeftFromNorth),
-            ("testTurnLeftFromEast", testTurnLeftFromEast),
-            ("testTurnLeftFromSouth", testTurnLeftFromSouth),
-            ("testTurnLeftFromWest", testTurnLeftFromWest),
-            ("testRobotCoordinates", testRobotCoordinates),
-            ("testOtherRobotCoordinates", testOtherRobotCoordinates),
-            ("testAdvanceWhenFacingNorth", testAdvanceWhenFacingNorth),
-            ("testAdvanceWhenFacingEast", testAdvanceWhenFacingEast),
-            ("testAdvanceWhenFacingSouth", testAdvanceWhenFacingSouth),
-            ("testAdvanceWhenFacingWest", testAdvanceWhenFacingWest),
-            ("testInstructionForTurningLeft", testInstructionForTurningLeft),
-            ("testInstructionForTurningRight", testInstructionForTurningRight),
-            ("testInstructionForAdvancing", testInstructionForAdvancing),
-            ("testSeriesOfInstructions", testSeriesOfInstructions),
-            ("testInstructRobot", testInstructRobot),
-            ("testInstructManyRobots", testInstructManyRobots),
-        ]
-    }
 }

@@ -14,12 +14,4 @@ class TwoFerTests: XCTestCase {
     func testAnotherNameGiven() {
         XCTAssertEqual(TwoFer.twoFer(name: "Bob"), "One for Bob, one for me.")
     }
-
-    static var allTests: [(String, (TwoFerTests) -> () throws -> Void)] {
-        return [
-            ("testNoNameGiven", testNoNameGiven),
-            ("testANameGiven", testANameGiven),
-            ("testAnotherNameGiven", testAnotherNameGiven),
-        ]
-    }
 }

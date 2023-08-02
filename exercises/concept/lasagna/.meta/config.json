@@ -1,6 +1,7 @@
 {
   "authors": [
-    "wneumann"
+    "wneumann",
+    "meatball133"
   ],
   "files": {
     "solution": [
@@ -13,7 +14,7 @@
       ".meta/Sources/Lasagna/LasagnaExemplar.swift"
     ]
   },
-  "language_versions": ">=4.0",
+  "language_versions": ">=5.0",
   "forked_from": [
     "fsharp/lucians-luscious-lasagna"
   ],

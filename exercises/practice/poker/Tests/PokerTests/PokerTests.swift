@@ -264,11 +264,4 @@ class PokerTests: XCTestCase {
         ]
 
     }
-
-    static var allTests: [(String, (PokerTests) -> () throws -> Void)] {
-        return [
-            ("testInvalidCases", testInvalidCases),
-            ("testAllValid", testAllValid),
-        ]
-    }
 }

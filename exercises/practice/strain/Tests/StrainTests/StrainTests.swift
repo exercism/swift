@@ -81,21 +81,4 @@ class StrainTests: XCTestCase {
         let result = rows.discard { each -> Bool in (each as [Int]).contains(5) }
         XCTAssertEqualMultiArray([[1, 2, 3], [2, 1, 2], [2, 2, 1]], result)
     }
-
-    static var allTests: [(String, (StrainTests) -> () throws -> Void)] {
-        return [
-            ("testEmptyKeep", testEmptyKeep),
-            ("testKeepEverything", testKeepEverything),
-            ("testKeepFirstAndLast", testKeepFirstAndLast),
-            ("testKeepNeitherFirstNorLast", testKeepNeitherFirstNorLast),
-            ("testKeepStrings", testKeepStrings),
-            ("testKeepArrays ", testKeepArrays ),
-            ("testEmptyDiscard", testEmptyDiscard),
-            ("testDiscardNothing", testDiscardNothing),
-            ("testDiscardFirstAndLast", testDiscardFirstAndLast),
-            ("testDiscardNeitherFirstNorLast", testDiscardNeitherFirstNorLast),
-            ("testDiscardStrings", testDiscardStrings),
-            ("testDiscardArrays ", testDiscardArrays ),
-        ]
-    }
 }

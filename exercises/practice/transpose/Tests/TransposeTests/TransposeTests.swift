@@ -129,20 +129,4 @@ class TransposeTests: XCTestCase {
 
         XCTAssertEqual(Transpose.transpose(input), expected)
     }
-
-    static var allTests: [(String, (TransposeTests) -> () throws -> Void)] {
-        return [
-            ("testEmptyInput", testEmptyInput),
-            ("testTwoCharactersInARow", testTwoCharactersInARow),
-            ("testTwoCharactersInAColumn", testTwoCharactersInAColumn),
-            ("testSimple", testSimple),
-            ("testSingleLine", testSingleLine),
-            ("testFirstLineLongerThanSecondLine", testFirstLineLongerThanSecondLine),
-            ("testSecondLineLongerThanFirstLine", testSecondLineLongerThanFirstLine),
-            ("testSquare", testSquare),
-            ("testRectangle", testRectangle),
-            ("testTriangle", testTriangle),
-            ("testManyLines", testManyLines),
-        ]
-    }
 }

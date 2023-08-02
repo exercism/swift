@@ -52,19 +52,4 @@ class RotationalCipherTests: XCTestCase {
         let expected = "The quick brown fox jumps over the lazy dog."
         XCTAssertEqual(expected, RotationalCipher.rotate("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.", ROT: 13))
     }
-
-    static var allTests: [(String, (RotationalCipherTests) -> () throws -> Void)] {
-        return [
-            ("testRotateSingleCharacterBy1", testRotateSingleCharacterBy1),
-            ("testRotateSingleCharacterBy26", testRotateSingleCharacterBy26),
-            ("testRotateSingleCharacterBy0", testRotateSingleCharacterBy0),
-            ("testRotateSingleCharacterBy13", testRotateSingleCharacterBy13),
-            ("testRotateSingleCharacterWithWrapAround", testRotateSingleCharacterWithWrapAround),
-            ("testRotateCapitalLetters", testRotateCapitalLetters),
-            ("testRotateSpaces", testRotateSpaces),
-            ("testRotateNumbers", testRotateNumbers),
-            ("testRotatePunctuation", testRotatePunctuation),
-            ("testRotateAllLetters", testRotateAllLetters)
-        ]
-    }
 }

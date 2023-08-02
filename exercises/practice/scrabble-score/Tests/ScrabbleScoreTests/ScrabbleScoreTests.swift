@@ -37,18 +37,4 @@ class ScrabbleScoreTests: XCTestCase {
     func testScoringUtility() {
         XCTAssertEqual( 13, Scrabble.score("alacrity"))
     }
-
-    static var allTests: [(String, (ScrabbleScoreTests) -> () throws -> Void)] {
-        return [
-            ("testEmptyWordScoresZero", testEmptyWordScoresZero),
-            ("testWhitespaceScoresZero", testWhitespaceScoresZero),
-            ("testNilScoresZero", testNilScoresZero),
-            ("testScoresVeryShortWord", testScoresVeryShortWord),
-            ("testScoresOtherVeryShortWord", testScoresOtherVeryShortWord),
-            ("testSimpleWordScoresTheNumberOfLetters", testSimpleWordScoresTheNumberOfLetters),
-            ("testComplicatedWordScoresMore", testComplicatedWordScoresMore),
-            ("testScoresAreCaseInsensitive", testScoresAreCaseInsensitive),
-            ("testScoringUtility", testScoringUtility),
-        ]
-    }
 }

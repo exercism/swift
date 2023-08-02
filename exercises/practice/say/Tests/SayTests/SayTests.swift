@@ -62,24 +62,4 @@ class SayTests: XCTestCase {
     func testNumbersAbove999999999999AreOutOfRange() {
         XCTAssertNil(Say.say(1_000_000_000_000))
     }
-
-    static var allTests: [(String, (SayTests) -> () throws -> Void)] {
-        return [
-            ("testZero", testZero),
-            ("testOne", testOne),
-            ("testFourteen", testFourteen),
-            ("testTwenty", testTwenty),
-            ("testTwentyTwo", testTwentyTwo),
-            ("testOneHundred", testOneHundred),
-            ("testOneHundredTwentyThree", testOneHundredTwentyThree),
-            ("testOneThousand", testOneThousand),
-            ("testOneThousandTwoHundredThirtyFour", testOneThousandTwoHundredThirtyFour),
-            ("testOneMillion", testOneMillion),
-            ("testOneMillionTwoThousandThreeHundredFortyFive", testOneMillionTwoThousandThreeHundredFortyFive),
-            ("testOneBillion", testOneBillion),
-            ("testABigNumber", testABigNumber),
-            ("testNumbersBelowZeroAreOutOfRange", testNumbersBelowZeroAreOutOfRange),
-            ("testNumbersAbove999999999999AreOutOfRange", testNumbersAbove999999999999AreOutOfRange),
-        ]
-    }
 }

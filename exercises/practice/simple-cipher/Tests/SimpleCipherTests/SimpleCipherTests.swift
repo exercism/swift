@@ -93,24 +93,4 @@ class SimpleCipherTests: XCTestCase {
         let plaintext = "abcdefghij"
         XCTAssertEqual(plaintext, cipherPseudo.decode(cipherPseudo.encode(plaintext)))
     }
-
-    static var allTests: [(String, (SimpleCipherTests) -> () throws -> Void)] {
-        return [
-            ("testCipherEncode", testCipherEncode),
-            ("testCipherDecode", testCipherDecode),
-            ("testCipherReversible", testCipherReversible),
-            ("testCipherWithCapsKey", testCipherWithCapsKey),
-            ("testCipherWithNumericKey", testCipherWithNumericKey),
-            ("testCipherWithEmptyKey", testCipherWithEmptyKey),
-            ("testCipherKeyIsAsSubmitted", testCipherKeyIsAsSubmitted),
-            ("testCipherEncodeSubstitution", testCipherEncodeSubstitution),
-            ("testCipherDecodeSubstitution", testCipherDecodeSubstitution),
-            ("testCipherReversibleSubstitution", testCipherReversibleSubstitution),
-            ("testDoubleShiftEncode", testDoubleShiftEncode),
-            ("testCipherEncodeWrap", testCipherEncodeWrap),
-            ("testCipherEncodePseudo", testCipherEncodePseudo),
-            ("testCipherDecodePseudo", testCipherDecodePseudo),
-            ("testCipherReversiblePseudo", testCipherReversiblePseudo),
-        ]
-    }
 }

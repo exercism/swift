@@ -277,45 +277,4 @@ class ComplexNumbersTests: XCTestCase {
 
         XCTAssertEqual([expectedResult.realComponent, expectedResult.imaginaryComponent], [round(actualResult.realComponent), Double(String(format: "%.1f", actualResult.imaginaryComponent))!])
     }
-
-    static var allTests: [(String, (ComplexNumbersTests) -> () throws -> Void)] {
-        return [
-            ("testRealPartOfPurelyRealNumber", testRealPartOfPurelyRealNumber),
-            ("testRealPartOfPurelyImaginaryNumber", testRealPartOfPurelyImaginaryNumber),
-            ("testRealPartOfNumberWithRealAndImaginary", testRealPartOfNumberWithRealAndImaginary),
-            ("testImaginaryPartOfPurelyRealNumber", testImaginaryPartOfPurelyRealNumber),
-            ("testImaginaryPartOfPurelyImaginaryNumber", testImaginaryPartOfPurelyImaginaryNumber),
-            ("testImaginaryPartOfNumberWithRealAndImaginary", testImaginaryPartOfNumberWithRealAndImaginary),
-            ("testImaginaryUnit", testImaginaryUnit),
-            ("testAddPurelyRealNumbers", testAddPurelyRealNumbers),
-            ("testAddPurelyImaginaryNumbers", testAddPurelyImaginaryNumbers),
-            ("testAddNumbersWithRealAndImaginaryParts", testAddNumbersWithRealAndImaginaryParts),
-            ("testSubtractPurelyRealNumbers", testSubtractPurelyRealNumbers),
-            ("testSubtractPurelyImaginaryNumbers", testSubtractPurelyImaginaryNumbers),
-            ("testSubtractNumbersWithRealAndImaginaryParts", testSubtractNumbersWithRealAndImaginaryParts),
-            ("testMultiplicationOfPurelyRealNumbers", testMultiplicationOfPurelyRealNumbers),
-            ("testMultiplicationOfPurelyImaginaryNumbers", testMultiplicationOfPurelyImaginaryNumbers),
-            ("testMultiplyNumbersWithRealAndImaginaryParts", testMultiplyNumbersWithRealAndImaginaryParts),
-            ("testDividePurelyRealNumbers", testDividePurelyRealNumbers),
-            ("testDividePurelyImaginaryNumbers", testDividePurelyImaginaryNumbers),
-            ("testDividingNumbersWithRealAndImaginaryParts", testDividingNumbersWithRealAndImaginaryParts),
-            ("testAbsoluteValueOfPositivePurelyRealNumber", testAbsoluteValueOfPositivePurelyRealNumber),
-            ("testAbsoluteValueOfNegativePurelyRealNumber", testAbsoluteValueOfNegativePurelyRealNumber),
-            ("testAbsoluteValueOfPositivePurelyImaginaryNumber", testAbsoluteValueOfPositivePurelyImaginaryNumber),
-            ("testAbsoluteValueOfNegativePurelyImaginaryNumber", testAbsoluteValueOfNegativePurelyImaginaryNumber),
-            ("testAbsoluteValueOfNumberWithRealAndImaginaryParts", testAbsoluteValueOfNumberWithRealAndImaginaryParts),
-            ("testConjugateOfAPurelyRealNumber", testConjugateOfAPurelyRealNumber),
-            ("testConjugateOfAPurelyImaginaryNumber", testConjugateOfAPurelyImaginaryNumber),
-
-            ("testConjugateOfANumberWithRealAndImaginaryParts", testConjugateOfANumberWithRealAndImaginaryParts),
-
-            ("testEulersIdentityForComplexNumbers", testEulersIdentityForComplexNumbers),
-
-                ("testExponentOfZero", testExponentOfZero),
-            ("testExponentOfPurelyRealNumber", testExponentOfPurelyRealNumber),
-
-            ("testExponentOfNumberWithRealAndImaginaryPart", testExponentOfNumberWithRealAndImaginaryPart)
-        ]
-    }
-
 }

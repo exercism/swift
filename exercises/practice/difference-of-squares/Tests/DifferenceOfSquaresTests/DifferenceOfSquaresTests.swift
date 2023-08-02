@@ -1,55 +1,51 @@
 import XCTest
+
 @testable import DifferenceOfSquares
 
 class DifferenceOfSquaresTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testSquareOfSumTo5() {
-        XCTAssertEqual(225, Squares(5).squareOfSum)
-    }
+  func testSquareOfSum1() {
+    XCTAssertEqual(1, Squares(1).squareOfSum)
+  }
 
-    func testSumOfSquaresTo5() {
-        XCTAssertEqual(55, Squares(5).sumOfSquares)
-    }
+  func testSquareOfSum5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(225, Squares(5).squareOfSum)
+  }
 
-    func testDifferenceOfSquaresOfSumTo5() {
-        XCTAssertEqual(170, Squares(5).differenceOfSquares)
-    }
+  func testSquareOfSum100() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(25_502_500, Squares(100).squareOfSum)
+  }
 
-    func testSquareOfSumTo10() {
-        XCTAssertEqual(3025, Squares(10).squareOfSum)
-    }
+  func testSumOfSquares1() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(1, Squares(1).sumOfSquares)
+  }
 
-    func testSumOfSquaresTo10() {
-        XCTAssertEqual(385, Squares(10).sumOfSquares)
-    }
+  func testSumOfSquares5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(55, Squares(5).sumOfSquares)
+  }
 
-    func testDifferenceOfSquaresOfSumTo10() {
-        XCTAssertEqual(2640, Squares(10).differenceOfSquares)
-    }
+  func testSumOfSquares100() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(338350, Squares(100).sumOfSquares)
+  }
 
-    func testSquareOfSumTo100() {
-        XCTAssertEqual(25_502_500, Squares(100).squareOfSum)
-    }
+  func testDifferenceOfSquares1() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(0, Squares(1).differenceOfSquares)
+  }
 
-    func testSumOfSquaresTo100() {
-        XCTAssertEqual(338_350, Squares(100).sumOfSquares)
-    }
+  func testDifferenceOfSquares5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(170, Squares(5).differenceOfSquares)
+  }
 
-    func testDifferenceOfSquaresOfSumTo100() {
-        XCTAssertEqual(25_164_150, Squares(100).differenceOfSquares)
-    }
-
-    static var allTests: [(String, (DifferenceOfSquaresTests) -> () throws -> Void)] {
-        return [
-            ("testSquareOfSumTo5", testSquareOfSumTo5),
-            ("testSumOfSquaresTo5", testSumOfSquaresTo5),
-            ("testDifferenceOfSquaresOfSumTo5", testDifferenceOfSquaresOfSumTo5),
-            ("testSquareOfSumTo10", testSquareOfSumTo10),
-            ("testSumOfSquaresTo10", testSumOfSquaresTo10),
-            ("testDifferenceOfSquaresOfSumTo10", testDifferenceOfSquaresOfSumTo10),
-            ("testSquareOfSumTo100", testSquareOfSumTo100),
-            ("testSumOfSquaresTo100", testSumOfSquaresTo100),
-            ("testDifferenceOfSquaresOfSumTo100", testDifferenceOfSquaresOfSumTo100),
-        ]
-    }
+  func testDifferenceOfSquares100() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(25_164_150, Squares(100).differenceOfSquares)
+  }
 }

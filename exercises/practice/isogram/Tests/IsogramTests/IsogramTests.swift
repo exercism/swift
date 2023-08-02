@@ -1,50 +1,76 @@
 import XCTest
+
 @testable import Isogram
 
 class IsogramTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testEmptyString() {
-        XCTAssertTrue(Isogram.isIsogram(""))
-    }
+  func testEmptyString() {
+    XCTAssertTrue(Isogram.isIsogram(""))
+  }
 
-    func testIsogramWithOnlyLowerCaseCharacters() {
-        XCTAssertTrue(Isogram.isIsogram("isogram"))
-    }
+  func testIsogramWithOnlyLowerCaseCharacters() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Isogram.isIsogram("isogram"))
+  }
 
-    func testWordWithOneDuplicatedCharacter() {
-        XCTAssertFalse(Isogram.isIsogram("eleven"))
-    }
+  func testWordWithOneDuplicatedCharacter() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Isogram.isIsogram("eleven"))
+  }
 
-    func testLongestReportedEnglishIsogram() {
-        XCTAssertTrue(Isogram.isIsogram("subdermatoglyphic"))
-    }
+  func testWordWithOneDuplicatedCharacterFromTheEndOfTheAlphabet() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Isogram.isIsogram("zzyzx"))
+  }
 
-    func testWordWithDuplicatedCharacterInMixedCase() {
-        XCTAssertFalse(Isogram.isIsogram("Alphabet"))
-    }
+  func testLongestReportedEnglishIsogram() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Isogram.isIsogram("subdermatoglyphic"))
+  }
 
-    func testHypotheticalIsogrammicWordWithHyphen() {
-        XCTAssertTrue(Isogram.isIsogram("thumbscrew-japingly"))
-    }
+  func testWordWithDuplicatedCharacterInMixedCase() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Isogram.isIsogram("Alphabet"))
+  }
 
-    func testIsogramWithDuplicatedNonLetterCharacter() {
-        XCTAssertTrue(Isogram.isIsogram("Hjelmqvist-Gryb-Zock-Pfund-Wax"))
-    }
+  func testWordWithDuplicatedCharacterInMixedCaseLowercaseFirst() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Isogram.isIsogram("alphAbet"))
+  }
 
-    func testMadeUpNameThatIsAnIsogram() {
-        XCTAssertTrue(Isogram.isIsogram("Emily Jung Schwartzkopf"))
-    }
+  func testHypotheticalIsogrammicWordWithHyphen() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Isogram.isIsogram("thumbscrew-japingly"))
+  }
 
-    static var allTests: [(String, (IsogramTests) -> () throws -> Void)] {
-        return [
-            ("testEmptyString", testEmptyString),
-            ("testIsogramWithOnlyLowerCaseCharacters", testIsogramWithOnlyLowerCaseCharacters),
-            ("testWordWithOneDuplicatedCharacter", testWordWithOneDuplicatedCharacter),
-            ("testLongestReportedEnglishIsogram", testLongestReportedEnglishIsogram),
-            ("testWordWithDuplicatedCharacterInMixedCase", testWordWithDuplicatedCharacterInMixedCase),
-            ("testHypotheticalIsogrammicWordWithHyphen", testHypotheticalIsogrammicWordWithHyphen),
-            ("testIsogramWithDuplicatedNonLetterCharacter", testIsogramWithDuplicatedNonLetterCharacter),
-            ("testMadeUpNameThatIsAnIsogram", testMadeUpNameThatIsAnIsogram),
-        ]
-    }
+  func testHypotheticalWordWithDuplicatedCharacterFollowingHyphen() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Isogram.isIsogram("thumbscrew-jappingly"))
+  }
+
+  func testIsogramWithDuplicatedHyphen() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Isogram.isIsogram("six-year-old"))
+  }
+
+  func testMadeUpNameThatIsAnIsogram() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Isogram.isIsogram("Emily Jung Schwartzkopf"))
+  }
+
+  func testDuplicatedCharacterInTheMiddle() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Isogram.isIsogram("accentor"))
+  }
+
+  func testSameFirstAndLastCharacters() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Isogram.isIsogram("angola"))
+  }
+
+  func testWordWithDuplicatedCharacterAndWithTwoHyphens() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Isogram.isIsogram("up-to-date"))
+  }
 }

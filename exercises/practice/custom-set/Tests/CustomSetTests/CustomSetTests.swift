@@ -107,22 +107,4 @@ class CustomSetTests: XCTestCase {
         XCTAssertEqual(CustomSet(emptyTypedArray),
                        CustomSet(emptyTypedArray).union(CustomSet(emptyTypedArray)))
     }
-
-    static var allTests: [(String, (CustomSetTests) -> () throws -> Void)] {
-        return [
-            ("testEqual", testEqual),
-            ("testNoDuplicates", testNoDuplicates),
-            ("testDeleteMethod", testDeleteMethod),
-            ("testDifference", testDifference),
-            ("testDisjoint", testDisjoint),
-            ("testEmptyMethod", testEmptyMethod),
-            ("testIntersection", testIntersection),
-            ("testMember", testMember),
-            ("testPutMethod", testPutMethod),
-            ("testSize", testSize),
-            ("testSubsetMethod", testSubsetMethod),
-            ("testToA", testToA),
-            ("testUnion", testUnion),
-        ]
-    }
 }

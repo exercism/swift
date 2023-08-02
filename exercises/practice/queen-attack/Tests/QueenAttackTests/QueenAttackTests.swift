@@ -115,25 +115,4 @@ class QueenAttackTests: XCTestCase {
         let queens = try! Queens(white: [6, 1], black: [1, 6])
         XCTAssertTrue(queens.canAttack)
     }
-
-    static var allTests: [(String, (QueenAttackTests) -> () throws -> Void)] {
-        return [
-            ("testDefaultPositions", testDefaultPositions),
-            ("testSpecificPlacement", testSpecificPlacement),
-            ("testMultipleBoardsSimultaneously", testMultipleBoardsSimultaneously),
-            ("testIncorrectNumberOfCoordinates", testIncorrectNumberOfCoordinates),
-            ("testInvalidCoordinates", testInvalidCoordinates),
-            ("testCannotOccupySameSpace", testCannotOccupySameSpace),
-            ("testStringRepresentation", testStringRepresentation),
-            ("testAnotherStringRepresentation", testAnotherStringRepresentation),
-            ("testYetAnotherStringRepresentation", testYetAnotherStringRepresentation),
-            ("testCannotAttack", testCannotAttack),
-            ("testCanAttackOnSameRow", testCanAttackOnSameRow),
-            ("testCanAttackOnSameColumn", testCanAttackOnSameColumn),
-            ("testCanAttackOnDiagonal", testCanAttackOnDiagonal),
-            ("testCanAttackOnOtherDiagonal", testCanAttackOnOtherDiagonal),
-            ("testCanAttackOnYetAnotherDiagonal", testCanAttackOnYetAnotherDiagonal),
-            ("testCanAttackOnADiagonalSlantedTheOtherWay", testCanAttackOnADiagonalSlantedTheOtherWay),
-        ]
-    }
 }
