@@ -1,44 +1,61 @@
 import XCTest
+
 @testable import Hamming
 
 class HammingTests: XCTestCase {
-    func testNoDifferenceBetweenEmptyStrands() {
-        let result = Hamming.compute("", against: "")!
-        let expected = 0
-        XCTAssertEqual(expected, result)
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testNoDifferenceBetweenIdenticalStrands() {
-        let result = Hamming.compute("GGACTGA", against:"GGACTGA")!
-        let expected = 0
-        XCTAssertEqual(expected, result)
-    }
+  func testEmptyStrands() {
+    let result = try! Hamming.compute("", against: "")!
+    let expected = 0
+    XCTAssertEqual(expected, result)
+  }
 
-    func testCompleteHammingDistanceInSmallStrand() {
-        let result = Hamming.compute("ACT", against: "GGA")!
-        let expected = 3
-        XCTAssertEqual(expected, result)
-    }
+  func testSingleLetterIdenticalStrands() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result = try! Hamming.compute("A", against: "A")!
+    let expected = 0
+    XCTAssertEqual(expected, result)
+  }
 
-    func testSmallHammingDistanceInMiddleSomewhere() {
-        let result = Hamming.compute("GGACG", against:"GGTCG")!
-        let expected = 1
-        XCTAssertEqual(expected, result)
-    }
+  func testSingleLetterDifferentStrands() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result = try! Hamming.compute("G", against: "T")!
+    let expected = 1
+    XCTAssertEqual(expected, result)
+  }
 
-    func testLargerDistance() {
-        let result = Hamming.compute("ACCAGGG", against:"ACTATGG")!
-        let expected = 2
-        XCTAssertEqual(expected, result)
-    }
+  func testLongIdenticalStrands() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result = try! Hamming.compute("GGACTGAAATCTG", against: "GGACTGAAATCTG")!
+    let expected = 0
+    XCTAssertEqual(expected, result)
+  }
 
-    func testReturnsNilWhenOtherStrandLonger() {
-        let result = Hamming.compute("AAACTAGGGG", against:"AGGCTAGCGGTAGGAC")
-        XCTAssertNil(result, "Different length strands return nil")
-    }
+  func testLongDifferentStrands() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result = try! Hamming.compute("GGACGGATTCTG", against: "AGGACGGATTCT")!
+    let expected = 9
+    XCTAssertEqual(expected, result)
+  }
 
-    func testReturnsNilWhenOriginalStrandLonger() {
-        let result = Hamming.compute("GACTACGGACAGGGTAGGGAAT", against:"GACATCGCACACC")
-        XCTAssertNil(result, "Different length strands return nil")
-    }
+  func testDisallowFirstStrandLonger() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try Hamming.compute("AATG", against: "AAA"))
+  }
+
+  func testDisallowSecondStrandLonger() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try Hamming.compute("ATA", against: "AGTG"))
+  }
+
+  func testDisallowEmptyFirstStrand() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try Hamming.compute("", against: "G"))
+  }
+
+  func testDisallowEmptySecondStrand() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try Hamming.compute("G", against: ""))
+  }
 }
