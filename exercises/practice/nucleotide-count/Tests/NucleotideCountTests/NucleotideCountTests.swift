@@ -1,58 +1,46 @@
 import XCTest
+
 @testable import NucleotideCount
 
 class NucleotideCountTests: XCTestCase {
-    func testEmptyDNAStringHasNoAdenosine() {
-        let dna = DNA(strand: "")!
-        let result = dna.count("A")
-        let expected = 0
-        XCTAssertEqual(result, expected)
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testEmptyDNAStringHasNoNucleotides() {
-        let dna = DNA(strand: "")!
-        let results = dna.counts()
-        let expected = ["A": 0, "T": 0, "C": 0, "G": 0]
-        XCTAssertEqual(results, expected)
-    }
+  func testEmptyStrand() {
+    let dna = try! DNA(strand: "")
+    let results = dna.counts()
+    let expected = ["A": 0, "C": 0, "G": 0, "T": 0]
+    XCTAssertEqual(results, expected)
+  }
 
-    func testRepetitiveCytidineGetsCounted() {
-        let dna = DNA(strand: "CCCCC")!
-        let result = dna.count("C")
-        let expected = 5
-        XCTAssertEqual(result, expected)
-    }
+  func testCanCountOneNucleotideInSingleCharacterInput() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let dna = try! DNA(strand: "G")
+    let results = dna.counts()
+    let expected = ["A": 0, "C": 0, "G": 1, "T": 0]
+    XCTAssertEqual(results, expected)
+  }
 
-    func testRepetitiveSequenceHasOnlyGuanosine() {
-        let dna = DNA(strand: "GGGGGGGG")!
-        let results = dna.counts()
-        let expected = [ "A": 0, "T": 0, "C": 0, "G": 8 ]
-        XCTAssertEqual(results, expected)
-    }
+  func testStrandWithRepeatedNucleotide() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let dna = try! DNA(strand: "GGGGGGG")
+    let results = dna.counts()
+    let expected = ["A": 0, "C": 0, "G": 7, "T": 0]
+    XCTAssertEqual(results, expected)
+  }
 
-    func testCountsByThymidine() {
-        let dna = DNA(strand: "GGGGGTAACCCGG")!
-        let result = dna.count("T")
-        let expected = 1
-        XCTAssertEqual(result, expected)
-    }
+  func testStrandWithMultipleNucleotides() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let dna = try! DNA(
+      strand: "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
+    let results = dna.counts()
+    let expected = ["A": 20, "C": 12, "G": 17, "T": 21]
+    XCTAssertEqual(results, expected)
+  }
 
-    func testCountsANucleotideOnlyOnce() {
-        let dna = DNA(strand: "CGATTGGG")!
-        let result = dna.count("T")
-        let expected = 2
-        XCTAssertEqual(result, expected)
+  func testStrandWithInvalidNucleotides() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try DNA(strand: "AGXXACT")) { error in
+      XCTAssertEqual(error as? NucleotideCountErrors, NucleotideCountErrors.invalidNucleotide)
     }
-
-    func testValidatesDNA() {
-        XCTAssert(DNA(strand: "John") == nil )
-    }
-
-    func testCountsAllNucleotides() {
-        let longStrand = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
-        let dna = DNA(strand: longStrand)!
-        let results = dna.counts()
-        let expected = [ "A": 20, "T": 21, "C": 12, "G": 17 ]
-        XCTAssertEqual(results, expected)
-    }
+  }
 }

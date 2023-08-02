@@ -13,7 +13,7 @@ class GeneratorPlugins {
       if let inputString = value as? String {
         let charactersToRemove: [Character] = [
           ",", "'", "?", "!", ".", "=", "+", "&", "%", "$", "#", "@", "(", ")", "[", "]", "{", "}",
-          "<", ">", "/", "|", ":", ";",
+          "<", ">", "/", "|", ":", ";"
         ]
         let filteredString = inputString.filter { !charactersToRemove.contains($0) }
         let components = filteredString.components(separatedBy: CharacterSet(charactersIn: " -"))
@@ -105,8 +105,8 @@ class GeneratorPlugins {
 
     ext.registerFilter("inspect") { (value: Any?) in
       if let inputString = value as? String {
-        let escapechars = ["\t": "\\t", "\n": "\\n", "\r": "\\r"]
-        return inputString.map { escapechars[String($0)] ?? String($0) }.joined()
+        let escapeChars = ["\t" : "\\t", "\n" : "\\n", "\r": "\\r", "\\" : "\\\\", "\"" : "\\\""]
+        return inputString.map { escapeChars[String($0)] ?? String($0) }.joined()
       }
       return nil
     }
