@@ -1,53 +1,83 @@
 import XCTest
+
 @testable import FlattenArray
 
 class FlattenArrayTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testFlattenIntegerArray() {
+  func testEmpty() {
+    let result: [Int] = flattenArray([])
+    let expected: [Int] = []
+    XCTAssertEqual(expected, result)
+  }
 
-        let result: [Int] = flattenArray([1, [2, 3, 4, 5, 6, 7], 8])
-        XCTAssertEqual([1, 2, 3, 4, 5, 6, 7, 8], result)
-    }
+  func testNoNesting() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result: [Int] = flattenArray([0, 1, 2])
+    let expected: [Int] = [0, 1, 2]
+    XCTAssertEqual(expected, result)
+  }
 
-    func testFlattenForFiveLevelDeepNestedList() {
+  func testFlattensANestedArray() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result: [Int] = flattenArray([[[]]])
+    let expected: [Int] = []
+    XCTAssertEqual(expected, result)
+  }
 
-        let result: [Int] = flattenArray([0, 2, [[2, 3], 8, 100, 4, [[[50]]]], -2])
-        XCTAssertEqual([0, 2, 2, 3, 8, 100, 4, 50, -2], result)
-    }
+  func testFlattensArrayWithJustIntegersPresent() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result: [Int] = flattenArray([1, [2, 3, 4, 5, 6, 7], 8])
+    let expected: [Int] = [1, 2, 3, 4, 5, 6, 7, 8]
+    XCTAssertEqual(expected, result)
+  }
 
-    func testFlattenForSixLevelDeepNestedList() {
+  func test5LevelNesting() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result: [Int] = flattenArray([0, 2, [[2, 3], 8, 100, 4, [[[50]]]], -2])
+    let expected: [Int] = [0, 2, 2, 3, 8, 100, 4, 50, -2]
+    XCTAssertEqual(expected, result)
+  }
 
-        let result: [Int] = flattenArray([1, [2, [[3]], [4, [[5]]], 6, 7], 8])
-        XCTAssertEqual([1, 2, 3, 4, 5, 6, 7, 8], result)
-    }
+  func test6LevelNesting() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result: [Int] = flattenArray([1, [2, [[3]], [4, [[5]]], 6, 7], 8])
+    let expected: [Int] = [1, 2, 3, 4, 5, 6, 7, 8]
+    XCTAssertEqual(expected, result)
+  }
 
-    func testFlattenForSixLevelDeepNestedListWithNullValues() {
+  func testNullValuesAreOmittedFromTheFinalResult() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result: [Int] = flattenArray([1, 2, nil])
+    let expected: [Int] = [1, 2]
+    XCTAssertEqual(expected, result)
+  }
 
-        let nilValue: Any? = nil
-        let result: [Int] = flattenArray([0, 2, [[2, 3], 8, [[100]], nilValue, [[nilValue]]], -2])
-        XCTAssertEqual([0, 2, 2, 3, 8, 100, -2], result)
-    }
+  func testConsecutiveNullValuesAtTheFrontOfTheListAreOmittedFromTheFinalResult() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result: [Int] = flattenArray([nil, nil, 3])
+    let expected: [Int] = [3]
+    XCTAssertEqual(expected, result)
+  }
 
-    func testFlattenForAllNullDeepNestedList() {
+  func testConsecutiveNullValuesInTheMiddleOfTheListAreOmittedFromTheFinalResult() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result: [Int] = flattenArray([1, nil, nil, 4])
+    let expected: [Int] = [1, 4]
+    XCTAssertEqual(expected, result)
+  }
 
-        let nilValue: Any? = nil
-        let result: [Int] = flattenArray([nilValue, [[[nilValue]]], nilValue, nilValue, [[nilValue, nilValue], nilValue], nilValue])
-        XCTAssertEqual([], result)
-    }
+  func test6LevelNestListWithNullValues() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result: [Int] = flattenArray([0, 2, [[2, 3], 8, [[100]], nil, [[nil]]], -2])
+    let expected: [Int] = [0, 2, 2, 3, 8, 100, -2]
+    XCTAssertEqual(expected, result)
+  }
 
-    func testFlattenForStringValuesInSixLevelDeepNestedList() {
-
-        let nilValue: Any? = nil
-        let result: [String] = flattenArray(["Zero", "two", [["Two", "three"], "Eight", [["ONE HUNDRED"]], nilValue, [[nilValue]]], "minus two"])
-        XCTAssertEqual(["Zero", "two", "Two", "three", "Eight", "ONE HUNDRED", "minus two"], result)
-
-    }
-
-    func testFlattenForDoubleValuesInFiveLevelDeepNestedList() {
-
-        let nilValue: Any? = nil
-        let result: [Double] = flattenArray([0.74896463547850123, 2.18, [[nilValue, 3.6], nilValue, 100.0, nilValue, [[[50.2]]]], -2.5])
-        XCTAssertEqual([0.74896463547850123, 2.1800000000000002, 3.6000000000000001, 100.0, 50.200000000000003, -2.5], result)
-
-    }
+  func testAllValuesInNestedListAreNull() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let result: [Int] = flattenArray([nil, [[[nil]]], nil, nil, [[nil, nil], nil], nil])
+    let expected: [Int] = []
+    XCTAssertEqual(expected, result)
+  }
 }
