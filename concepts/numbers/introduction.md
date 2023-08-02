@@ -21,6 +21,11 @@ let plancksConstant : Double = 6.62607015e-34 // plancksConstant is a Double
 
 ## Arithmetic operators
 
+```exercism/caution
+In Swift can't mix types in arithmetic operations, so you can't use any arithmetic operator on an `Int` with a `Double` or vice versa.
+Thereby you have to do a type conversion first.
+```
+
 Swift does have a set of [arithmetic operators][arithmetic-operators] that can be used to perform basic mathematical operations.
 The `+` operator is used for addition, the `-` operator is used for subtraction, and the `*` operator is used for multiplication.
 
@@ -33,8 +38,8 @@ The `+` operator is used for addition, the `-` operator is used for subtraction,
 ### Division
 
 The `/` operator is used for division.
-When using at least one floating-point number, the result will be a floating-point number.
-When using only integers, the result will be an integer.
+When using a floating-point number, the result will be a floating-point number.
+When using integers, the result will be an integer.
 
 ```swift
 5 / 2.0 // equals 2.5
@@ -47,9 +52,9 @@ Only exception is when you divide zero by zero, and one of them being a floating
 If you divide an integer by zero, you will get a compile error.
 
 ```swift
-print(5.0 / 0)  // Prints inf
-print(-5 / 0.0) // Prints -inf
-print(0.0 / 0)  // Prints nan
+print(5.0 / 0.0)  // Prints inf
+print(-5.0 / 0.0) // Prints -inf
+print(0.0 / 0.0)  // Prints nan
 
 // The following code will not compile
 print(5 / 0) // error: division by zero
