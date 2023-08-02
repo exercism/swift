@@ -19,30 +19,36 @@ Define the following constant characters which will be used to create signs:
 
 ## 3. Combine phrases to build up messages
 
-Implement the function `buildSign(for: String, name: String) -> String`. This function takes one of the three strings you defined in the first task as the `for` parameter and a String holding someone's name as the `name` parameter and uses concatenation as well as the characters defined in task #2 to build up a phrase for a sign.
+Implement the function `buildSign(for:name:)`, which takes the argument `for` which holds one of the three strings you defined in the first task and the argument `name` which is a string that holds the name of the person the sign is for.
+You shall use concatenation to build up the message for the sign and remember to reuse the already defined constants.
+The function should return the sign message as a string.
 
 ```swift
 buildSign(for: birthday, name: "Otto")
-// => "Happy Birthday Otto!"
+// returns "Happy Birthday Otto!"
 
 buildSign(for: anniversary, name: "Valentina")
-// => "Happy Anniversary Valentina!"
+// returns "Happy Anniversary Valentina!"
 ```
 
 ## 4. Build a graduation sign
 
-Implement the function `graduationFor(name: String, year: Int) -> String` which takes a name as a string parameter and a year as a integer parameter and uses string interpolation to create a phrase for a sign that uses a newline to separate the two lines of the message.
+Implement the function `graduationFor(name:year:)` which takes the argument `name` which is a string that holds the name of the person the sign is for and the argument `year` which is an integer that holds the year the person is graduating.
+You shall use template strings to build up the message for the sign.
+The function should return the sign message as a string.
 
 ```swift
-graduationFor(name: "Padma", year: 2020)
-// => "Congratulations Padma!\nClass of 2020"
+graduationFor(name: "Padma", year: 2023)
+// returns "Congratulations Padma!\nClass of 2023"
 ```
 
 ## 5. Compute the cost of a sign
 
-Implement the function `costOf(sign: String) -> Int` which takes a string that holds the contents of the sign and returns the cost to create the sign, which is 2 dollars for each character in the sign plus a base price of 20 dollars.
+Implement the function `costOf(sign:)` which takes the argument `sign` which is a string that holds the message for the sign.
+The sign has a base price of 20 in the given currency. Additionally each letter costs 2 (Whitespaces are included in the calculation).
+The function should return the cost of the sign as an integer.
 
 ```swift
 costOf(sign: "Happy Birthday Grandma!")
-// => 66
+// returns 66
 ```

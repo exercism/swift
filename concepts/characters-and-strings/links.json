@@ -1,0 +1,14 @@
+[
+    {
+        "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/",
+        "description": "Swift Book: Strings and Characters"
+    },
+    {
+        "url": "https://developer.apple.com/documentation/swift/string",
+        "description": "Apple Docs: String"
+    },
+    {
+        "url": "https://developer.apple.com/documentation/swift/character",
+        "description": "Apple Docs: Character"
+    }
+]

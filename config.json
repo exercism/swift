@@ -58,8 +58,8 @@
         "slug": "custom-signs",
         "name": "Cal's Custom Sign Shop",
         "uuid": "ac9b14eb-b521-4f2b-bc4b-1bd0e3e35ae7",
-        "concepts": ["characters"],
-        "prerequisites": ["basics"],
+        "concepts": ["characters-and-strings"],
+        "prerequisites": ["numbers"],
         "status": "active"
       },
       {
@@ -96,7 +96,7 @@
         "name": "Santa's Swifty Helper",
         "uuid": "f371c072-082b-496b-aa58-45b6cba203f6",
         "concepts": ["tuples"],
-        "prerequisites": ["arrays", "characters"],
+        "prerequisites": ["arrays"],
         "status": "active"
       },
       {
@@ -1020,8 +1020,8 @@
     },
     {
       "uuid": "ce6ccbb9-352c-4795-8187-7f28e59cfe0b",
-      "slug": "characters",
-      "name": "Characters"
+      "slug": "characters-and-strings",
+      "name": "Characters and Strings"
     },
     {
       "uuid": "70702be6-4678-44c0-b5d2-6e93ff0b5eb2",
