@@ -117,6 +117,7 @@ class GeneratorPlugins {
           return inputNumber - number
         }
       }
+      return nil
     }
 
     ext.registerFilter("toTupleArray") { (value: Any?) in
