@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Booleans",
+    "description": "Swift Book: Booleans"
+  },
+  {
+    "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Logical-Operators",
+    "description": "Swift Book: Logical operators"
+  },
+  {
+    "url": "https://developer.apple.com/documentation/swift/bool",
+    "description": "Swift docs: Bool"
+  }
+]

@@ -37,6 +37,16 @@
         "status": "active"
       },
       {
+        "slug": "wings-quest",
+        "name": "Wings Quest",
+        "uuid": "13a703ee-2180-49c6-86c7-7c848d636a3c",
+        "concepts": [
+          "booleans"
+        ],
+        "prerequisites": ["basics"],
+        "status": "wip"
+      },
+      {
         "slug": "freelancer-rates",
         "name": "Freelancer Rates",
         "uuid": "3bdad781-47e1-493a-834d-ca6ac8361ffd",
@@ -65,7 +75,6 @@
         "name": "Vexing Vehicle Purchase",
         "uuid": "6fa28581-0992-4770-a657-2bb5157db178",
         "concepts": [
-          "booleans",
           "conditionals-if",
           "conditionals-guard",
           "conditionals-switch",
