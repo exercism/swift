@@ -108,6 +108,15 @@ class GeneratorPlugins {
       return nil
     }
 
+    ext.registerFilter("minus") { (value: Any?, args: [Any?]) in
+      if let inputNumber = value as? Int {
+        if let number = args.first as? Int {
+          return inputNumber - number
+        }
+      }
+      return nil
+    }
+
     let environment = Environment(extensions: [ext])
     return environment
   }

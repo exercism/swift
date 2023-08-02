@@ -12,9 +12,9 @@ class {{exercise|camelCase}}Tests: XCTestCase {
     {% endif -%}
         let matrix = Matrix("{{case.input.string | inspect}}")
         {% if case.property == "row" -%}
-        XCTAssertEqual({{case.expected}}, matrix.rows[{{case.input.index}}])
+        XCTAssertEqual({{case.expected}}, matrix.rows[{{case.input.index | minus: 1}}])
         {% else -%}
-        XCTAssertEqual({{case.expected}}, matrix.columns[{{case.input.index}}])
+        XCTAssertEqual({{case.expected}}, matrix.columns[{{case.input.index | minus: 1}}])
         {% endif -%}
     }
     {% endfor -%}
