@@ -1,54 +1,72 @@
 # Instructions
 
-In this exercise you're going to write some code to help you prepare to buy a new vehicle.
+In this exercise, you will write some code to help you prepare to buy a vehicle.
 
-You have three tasks, one to help you determine the price of the vehicle you can afford, one to determine what kind of license you will need to get, and one to help you compute your yearly registration fees.
+You have three tasks, one to determine if you will need one to help you choose between two vehicles, determine which license you will need and one to estimate the acceptable price for a used vehicle.
 
 ## 1. Compute whether or not you can afford the monthly payments on a given car
 
-The auto dealers in your town are all running a five year, 0% interest promotion that you would like to take advantage of. Implement the `canIBuy(vehicle:price:monthlyBudget:)` function that takes the name of the vehicle you are looking at, the price of the car, and your monthly budget and returns a string letting you know whether you can afford the car or not, if the monthly payment is within 10% above your monthly budget you will want to return a special reminder to be frugal:
+The auto dealers in your town are all running a five year, 0% interest promotion that you would like to take advantage of.
+But you are not sure if you can afford the monthly payments on the car you want.
+
+Implement the `canIBuy(vehicle:price:monthlyBudget:)` function that takes the following arguments:
+- `vehicle` - The name of the vehicle you want to buy.
+- `price` - The price of the vehicle you want to buy.
+- `monthlyBudget` - The amount of money you can afford to pay each month.
+
+The function should return the following message based on the following conditions:
+- If the price of the vehicle is less than or equal to the monthly budget, return the message `"Yes! I'm getting a <vehicle>"`.
+- If the price of the vehicle is 10% above your monthly budget, return the message `"I'll have to be frugal if I want a <vehicle>"`.
+- If the price of the vehicle is more than 10% above your monthly budget, return the message `"Darn! No <vehicle> for me"`.
 
 ```swift
 canIBuy(vehicle: "1974 Ford Pinto", price: 516.32, monthlyBudget: 100.00)
-// => "Yes! I'm getting a 1974 Ford Pinto"
+// returns "Yes! I'm getting a 1974 Ford Pinto"
 canIBuy(vehicle: "2011 Bugatti Veyron", price: 2_250_880.00, monthlyBudget: 10000.00)
-// => "Darn! No 2011 Bugatti Veyron for me"
+// returns "Darn! No 2011 Bugatti Veyron for me"
 canIBuy(vehicle: "2020 Indian FTR 1200", price: 12_500, monthlyBudget: 200)
-// => "I'll have to be frugal if I want a 2020 Indian FTR 1200"
+// returns "I'll have to be frugal if I want a 2020 Indian FTR 1200"
 ```
 
 ## 2. Determine the type of drivers license you will need
 
-Implement the `licenseType(numberOfWheels:)` function that takes the number of wheels on your new vehicle and returns the type of license you will need. Vehicles with 2 or 3 wheels will require a motorcycle license, vehicles with 4 or 6 wheels will require an automobile license, vehicles with 18 wheels require a commercial trucking license, and any other number of wheels returning an failure message:
+You have decided to buy a used vehicle and you need to determine what type of drivers license you will need to operate it.
+
+Implement the `licenseType(numberOfWheels:)` function that takes the argument `numberOfWheels` which is the number of wheels on the vehicle you want to buy.
+
+The function should return the following message based on the following conditions:
+- If the number of wheels is 2 or 3, return the message `"You will need a motorcycle license for your vehicle"`.
+- If the number of wheels is 4 or 6, return the message `"You will need an automobile license for your vehicle"`.
+- If the number of wheels is 18, return the message `"You will need a commercial trucking license for your vehicle"`.
+- If the number is any other number, return the message `"There is no license for such vehicle"`.
 
 ```swift
 licenseType(numberOfWheels: 2)
-// => "You will need a motorcycle license for your vehicle"
+// returns "You will need a motorcycle license for your vehicle"
 licenseType(numberOfWheels: 6)
-// => "You will need an automobile license for your vehicle"
+// returns "You will need an automobile license for your vehicle"
 licenseType(numberOfWheels: 18)
-// => "You will need a commercial trucking license for your vehicle"
+// returns "You will need a commercial trucking license for your vehicle"
 licenseType(numberOfWheels: 0)
-// => "We do not issue licenses for those types of vehicles"
+// returns "We do not issue licenses for those types of vehicles"
 ```
 
-## 3. Calculate the registration fees for your new vehicle
+## 3. Calculate an estimation for the price of a used vehicle
 
-The annual registration fee for your new vehicle is based on the following formula:
+Now that you made your decision you want to make sure you get a fair price at the dealership.
+Since you are interested in buying a used vehicle, the price depends on how old the vehicle is.
+For a rough estimate, assume if the vehicle is less than 3 years old, it costs 80% of the original price it had when it was brand new.
+If it is at least 10 years old, it costs 50%.
+If the vehicle is at least 3 years old but not older than 10 years, it costs 70% of the original price.
 
-- For any vehicle 10 years old or older, the fee is a flat \$25.
-- For any newer car:
-  - Start with a base cost that is either the Manufacturer's Standard Retail Price (MSRP) for the vehicle, or \$25,000 whichever is greater.
-  - Then for each year of age, subtract 10% of the base price.
-  - Finally, divide that value by 100. Return the nearest integer dollar amount that is less than or equal to this value.
-
-Implement the `registrationFee(msrp:yearsOld:)` function that takes the price of the car and the car's age in years, both as `Int` parameters and returns the registration fee for that car, according to the above formula.
+Implement the `calculateResellPrice(originalPrice:yearsOld:)` function that takes the arguments `originalPrice` which holds the vehicles original price, and `yearsOld` which holds the age of the vehicle in years.
+The function should return the resell price of the vehicle. 
 
 ```swift
-registrationFee(msrp: 2_250_800, yearsOld: 9)
-// => 2250
-registrationFee(msrp: 25_000, yearsOld: 3)
-// => 175
-registrationFee(msrp: 34_000, yearsOld: 30)
-// => 25
+calculateResellPrice(originalPrice: 1000, yearsOld: 1)
+// returns 800
+calculateResellPrice(originalPrice: 1000, yearsOld: 5)
+// returns 700
+calculateResellPrice(originalPrice: 1000, yearsOld: 15)
+// returns 500
 ```

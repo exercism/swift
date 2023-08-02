@@ -6,6 +6,6 @@ func licenseType(numberOfWheels wheels: Int) -> String {
   fatalError("Please implement licenseType(numberOfWheels:) function")
 }
 
-func registrationFee(msrp: Int, yearsOld: Int) -> Int {
-  fatalError("Please implement registrationFee(msrp:yearsOld:) function")
+func calculateResellPrice(originalPrice: Int, yearsOld: Int) -> Int {
+  fatalError("Please implement calculateResellPrice(originalPrice:yearsOld:) function")
 }

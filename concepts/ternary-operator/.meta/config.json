@@ -1,7 +1,8 @@
 {
-  "blurb": "The ternary operator allows an if/else statements to be written as expression.",
+  "blurb": "The ternary operator allows you to write shorthand if/else statements.",
   "authors": [
-    "wneumann"
+    "wneumann",
+    "meatball133"
   ],
   "contributors": []
 }
