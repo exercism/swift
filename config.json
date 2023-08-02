@@ -44,7 +44,7 @@
           "booleans"
         ],
         "prerequisites": ["basics"],
-        "status": "wip"
+        "status": "beta"
       },
       {
         "slug": "freelancer-rates",
