@@ -31,14 +31,20 @@
         "name": "Layers of Lasagna",
         "uuid": "44ae5892-40a5-4483-a181-28e1c38645d6",
         "concepts": [
-          "basics",
-          "constants",
-          "functions",
-          "type-annotations",
-          "variables"
+          "basics"
         ],
         "prerequisites": [],
         "status": "active"
+      },
+      {
+        "slug": "wings-quest",
+        "name": "Wings Quest",
+        "uuid": "13a703ee-2180-49c6-86c7-7c848d636a3c",
+        "concepts": [
+          "booleans"
+        ],
+        "prerequisites": ["basics"],
+        "status": "wip"
       },
       {
         "slug": "freelancer-rates",
@@ -61,7 +67,7 @@
         "name": "Secret Agent Double-Null0111",
         "uuid": "eb8ccbb6-79af-4417-b934-e07fb496aaf2",
         "concepts": ["escaping-functions", "higher-order-functions"],
-        "prerequisites": ["functions"],
+        "prerequisites": ["basics"],
         "status": "active"
       },
       {
@@ -69,7 +75,6 @@
         "name": "Vexing Vehicle Purchase",
         "uuid": "6fa28581-0992-4770-a657-2bb5157db178",
         "concepts": [
-          "booleans",
           "conditionals-if",
           "conditionals-guard",
           "conditionals-switch",
@@ -126,7 +131,7 @@
           "shorthand-arguments",
           "trailing-closures"
         ],
-        "prerequisites": ["functions", "higher-order-functions", "loops"],
+        "prerequisites": ["basics", "higher-order-functions", "loops"],
         "status": "active"
       },
       {
@@ -134,7 +139,7 @@
         "name": "High Score Board",
         "uuid": "74cb167d-7418-4327-9dd8-9852082127b0",
         "concepts": ["dictionaries"],
-        "prerequisites": ["functions", "optionals"],
+        "prerequisites": ["basics", "optionals"],
         "status": "active"
       },
       {
@@ -170,7 +175,7 @@
           "structs-and-classes",
           "value-and-reference-types"
         ],
-        "prerequisites": ["functions", "function-overloading"],
+        "prerequisites": ["basics", "function-overloading"],
         "status": "active"
       },
       {
@@ -1049,16 +1054,6 @@
       "name": "Conditionals Switch"
     },
     {
-      "uuid": "b8fc890f-aa62-44e9-acd3-9e90f6706000",
-      "slug": "constants",
-      "name": "Constants"
-    },
-    {
-      "uuid": "5085d8c0-fa12-44d1-a781-b80d1f8ec9e6",
-      "slug": "constants-and-variables",
-      "name": "Constants And Variables"
-    },
-    {
       "uuid": "5ab7940e-0eea-435c-b3ac-dc3f77f536cf",
       "slug": "control-transfer",
       "name": "Control transfer"
@@ -1092,11 +1087,6 @@
       "uuid": "075ad4fd-54e5-46c4-85ab-cdd0d91c03f6",
       "slug": "for-loops",
       "name": "for loops"
-    },
-    {
-      "uuid": "8fe54be1-48e6-49c7-8137-efdd25973716",
-      "slug": "functions",
-      "name": "Functions"
     },
     {
       "uuid": "71b8a728-e8c9-466c-a53c-a7d436a732d1",
@@ -1212,16 +1202,6 @@
       "uuid": "4b52314c-c3a0-458c-a463-d051c146df95",
       "slug": "tuples",
       "name": "Tuples"
-    },
-    {
-      "uuid": "85147cec-238c-4cc9-a3b3-fc7792f53508",
-      "slug": "type-annotations",
-      "name": "Type Annotations"
-    },
-    {
-      "uuid": "5da5a2b3-5d51-44e9-810b-a5379abe41f0",
-      "slug": "variables",
-      "name": "Variables"
     },
     {
       "uuid": "f6bb1433-96ae-4efe-b1f6-abbe0f48cd9c",

@@ -1,7 +1,8 @@
 {
   "blurb": "Booleans are either true or false. They support NOT, AND, and OR operators.",
   "authors": [
-    "wneumann"
+    "wneumann",
+    "meatball133"
   ],
   "contributors": []
 }
