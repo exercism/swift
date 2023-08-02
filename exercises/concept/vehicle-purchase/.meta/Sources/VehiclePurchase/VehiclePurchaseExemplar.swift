@@ -21,14 +21,14 @@ func licenseType(numberOfWheels wheels: Int) -> String {
 }
 
 func calculateResellPrice(originalPrice: Int, yearsOld: Int) -> Int {
-  let percentage : Int
+  var percentage: Int = 0
   if yearsOld < 3 {
     percentage = 80
-  } else if yearsOld > 10 {
+  } else if yearsOld >= 10 {
     percentage = 50
   } else {
     percentage = 70
   }
 
-  return Int((percentage / 100) * originalPrice)
+  return Int((Double(percentage) / 100.0) * Double(originalPrice))
 }
