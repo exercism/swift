@@ -1,39 +1,16 @@
-#if os(Linux)
-    import Glibc
-#elseif os(OSX)
-    import Darwin
-#endif
+enum PrimeError: Error {
+  case noZerothPrime
+}
 
-struct Prime {
-    static func nth(_ nth: Int) -> Int? {
-        if nth < 1 {
-            return nil
-        }
-
-        var primes = 0
-        var i = 1
-
-        while primes < nth {
-            i += 1
-            if isPrime(i) {
-                primes += 1
-            }
-        }
-
-        return i
+func nthPrime(_ n: Int) throws -> Int {
+  guard n > 0 else { throw PrimeError.noZerothPrime }
+  var primes = [2]
+  var candidate = 3
+  while primes.count < n {
+    if primes.allSatisfy({ candidate % $0 != 0 }) {
+      primes.append(candidate)
     }
-
-    private static func isPrime(_ number: Int) -> Bool {
-        if number == 1 {
-            return false
-        } else if number == 2 {
-            return true
-        }
-
-        for i in 2...Int(ceil(sqrt(Double(number)))) where number % i == 0 {
-            return false
-        }
-
-        return true
-    }
+    candidate += 2
+  }
+  return primes.last!
 }

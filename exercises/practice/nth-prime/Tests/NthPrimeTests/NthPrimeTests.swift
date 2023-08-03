@@ -1,24 +1,33 @@
 import XCTest
+
 @testable import NthPrime
 
 class NthPrimeTests: XCTestCase {
-    func testFirst() {
-        XCTAssertEqual(2, Prime.nth(1))
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testSecond() {
-        XCTAssertEqual(3, Prime.nth(2))
-    }
+  func testFirstPrime() {
+    XCTAssertEqual(try! nthPrime(1), 2)
+  }
 
-    func testSixthPrime() {
-        XCTAssertEqual(13, Prime.nth(6))
-    }
+  func testSecondPrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! nthPrime(2), 3)
+  }
 
-    func testBigPrime() {
-        XCTAssertEqual(104_743, Prime.nth(10_001))
-    }
+  func testSixthPrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! nthPrime(6), 13)
+  }
 
-    func testWeirdCase() {
-        XCTAssertNil(Prime.nth(0))
+  func testBigPrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! nthPrime(10001), 104743)
+  }
+
+  func testThereIsNoZerothPrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try nthPrime(0)) { error in
+      XCTAssertEqual(error as? PrimeError, PrimeError.noZerothPrime)
     }
+  }
 }
