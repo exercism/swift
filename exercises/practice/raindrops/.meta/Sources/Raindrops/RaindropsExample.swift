@@ -1,4 +1,4 @@
-func convert(_ number: Int) -> String {
+func raindrops(_ number: Int) -> String {
   let result = (number % 3, number % 5, number % 7)
   switch result {
   case (0, 0, 0): return "PlingPlangPlong"
