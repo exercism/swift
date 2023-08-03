@@ -38,7 +38,7 @@ The function should return the following message based on the following conditio
 - If the number of wheels is 2 or 3, return the message `"You will need a motorcycle license for your vehicle"`.
 - If the number of wheels is 4 or 6, return the message `"You will need an automobile license for your vehicle"`.
 - If the number of wheels is 18, return the message `"You will need a commercial trucking license for your vehicle"`.
-- If the number is any other number, return the message `"There is no license for such vehicle"`.
+- If the number is any other number, return the message `"We do not issue licenses for those types of vehicles"`.
 
 ```swift
 licenseType(numberOfWheels: 2)

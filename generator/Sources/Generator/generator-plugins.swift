@@ -111,6 +111,15 @@ class GeneratorPlugins {
       return nil
     }
 
+    ext.registerFilter("minus") { (value: Any?, args: [Any?]) in
+      if let inputNumber = value as? Int {
+        if let number = args.first as? Int {
+          return inputNumber - number
+        }
+      }
+      return nil
+    }
+
     ext.registerFilter("toTupleArray") { (value: Any?) in
       if let inputArray = value as? [[String]] {
         guard !inputArray.isEmpty else { return "[]" }
