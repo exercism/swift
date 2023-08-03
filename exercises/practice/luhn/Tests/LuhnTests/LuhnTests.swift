@@ -1,70 +1,116 @@
 import XCTest
+
 @testable import Luhn
 
 class LuhnTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testSingleDigitInvalid() {
-        let luhn = Luhn("1")
-        XCTAssertEqual (false, luhn.isValid)
-    }
+  func testSingleDigitStringsCanNotBeValid() {
+    XCTAssertFalse(isValidLuhn("1"))
+  }
 
-    func testSingleZeroInvalid() {
-        let luhn = Luhn("0")
-        XCTAssertEqual (false, luhn.isValid)
-    }
+  func testASingleZeroIsInvalid() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn("0"))
+  }
 
-    func testSimpleReversableValid() {
-        let luhn = Luhn("059")
-        XCTAssertEqual (true, luhn.isValid)
-    }
+  func testASimpleValidSinThatRemainsValidIfReversed() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(isValidLuhn("059"))
+  }
 
-    func testSimpleIrreversableValid() {
-        let luhn = Luhn("59")
-        XCTAssertEqual (true, luhn.isValid)
-    }
+  func testASimpleValidSinThatBecomesInvalidIfReversed() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(isValidLuhn("59"))
+  }
 
-    func testCanadianValid() {
-        let luhn = Luhn("055 444 285")
-        XCTAssertEqual (true, luhn.isValid)
-    }
+  func testAValidCanadianSin() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(isValidLuhn("055 444 285"))
+  }
 
-    func testCanadianInvalid() {
-        let luhn = Luhn("055 444 286")
-        XCTAssertEqual (false, luhn.isValid)
-    }
+  func testInvalidCanadianSin() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn("055 444 286"))
+  }
 
-    func testCreditCardInvalid() {
-        let luhn = Luhn("8273 1232 7352 0569")
-        XCTAssertEqual (false, luhn.isValid)
-    }
+  func testInvalidCreditCard() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn("8273 1232 7352 0569"))
+  }
 
-    func testNonDigitInvalid() {
-        let luhn = Luhn("055a 444 285")
-        XCTAssertEqual (false, luhn.isValid)
-    }
+  func testInvalidLongNumberWithAnEvenRemainder() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn("1 2345 6789 1234 5678 9012"))
+  }
 
-    func testPunctuationInvalid() {
-        let luhn = Luhn("055-444-285")
-        XCTAssertEqual (false, luhn.isValid)
-    }
+  func testInvalidLongNumberWithARemainderDivisibleBy5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn("1 2345 6789 1234 5678 9013"))
+  }
 
-    func testSymbolsInvalid() {
-        let luhn = Luhn("055£ 444$ 285")
-        XCTAssertEqual (false, luhn.isValid)
-    }
+  func testValidNumberWithAnEvenNumberOfDigits() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(isValidLuhn("095 245 88"))
+  }
 
-    func testZeroWithSpaceInvalid() {
-        let luhn = Luhn(" 0")
-        XCTAssertEqual (false, luhn.isValid)
-    }
+  func testValidNumberWithAnOddNumberOfSpaces() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(isValidLuhn("234 567 891 234"))
+  }
 
-    func testMultipleZeroesValid() {
-        let luhn = Luhn("0000 0")
-        XCTAssertEqual (true, luhn.isValid)
-    }
+  func testValidStringsWithANonDigitAddedAtTheEndBecomeInvalid() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn("059a"))
+  }
 
-    func testInputNineOutputNine() {
-        let luhn = Luhn("091")
-        XCTAssertEqual (true, luhn.isValid)
-    }
+  func testValidStringsWithPunctuationIncludedBecomeInvalid() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn("055-444-285"))
+  }
+
+  func testValidStringsWithSymbolsIncludedBecomeInvalid() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn("055# 444$ 285"))
+  }
+
+  func testSingleZeroWithSpaceIsInvalid() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn(" 0"))
+  }
+
+  func testMoreThanASingleZeroIsValid() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(isValidLuhn("0000 0"))
+  }
+
+  func testInputDigit9IsCorrectlyConvertedToOutputDigit9() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(isValidLuhn("091"))
+  }
+
+  func testVeryLongInputIsValid() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(isValidLuhn("9999999999 9999999999 9999999999 9999999999"))
+  }
+
+  func testValidLuhnWithAnOddNumberOfDigitsAndNonZeroFirstDigit() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(isValidLuhn("109"))
+  }
+
+  func testUsingAsciiValueForNonDoubledNonDigitIsntAllowed() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn("055b 444 285"))
+  }
+
+  func testUsingAsciiValueForDoubledNonDigitIsntAllowed() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn(":9"))
+  }
+
+  func testNonNumericNonSpaceCharInTheMiddleWithASumThatsDivisibleBy10IsntAllowed() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(isValidLuhn("59%59"))
+  }
 }
