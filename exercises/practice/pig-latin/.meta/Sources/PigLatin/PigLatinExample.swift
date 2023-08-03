@@ -1,53 +1,40 @@
-import Foundation
+class PigLatin {
+  static func translate(_ input: String) -> String {
+    let words = input.lowercased().split(separator: " ")
+    let translatedWords = words.map { translateWord(String($0)) }
+    return translatedWords.joined(separator: " ")
+  }
 
-private extension String {
-    func substringFromIndexInt(_ indx: Int) -> String {
-        let index = self.index(self.startIndex, offsetBy: indx)
-        return String(self[index...])
+  private static func translateWord(_ word: String) -> String {
+    if word.isEmpty {
+      return word
     }
 
-    func substringWithRangeInt(_ intRange: Range<Int>) -> String {
-        let start = self.index(self.startIndex, offsetBy: intRange.lowerBound)
-        let end = self.index(self.startIndex, offsetBy: intRange.upperBound)
-        return String(self[start..<end])
-    }
-}
-
-struct PigLatin {
-
-    static func translate (_ word: String) -> String {
-        return word.components(separatedBy: " ").map { self.translateWord($0) }.joined(separator: " ")
+    if ["a", "e", "i", "o", "u"].contains(String(word.first!)) || word.starts(with: "xr")
+      || word.starts(with: "yt")
+    {
+      return word + "ay"
     }
 
-    static func translateWord(_ word: String) -> String {
-
-        func wordStartsWithPrefixes(_ word: String, prefixes: [String]) -> Bool {
-            return 0 < prefixes.filter { word.hasPrefix($0) }.count
-        }
-
-        func wordStartsWithVowelLike(_ word: String) -> Bool {
-            return wordStartsWithPrefixes(word, prefixes: ["xr", "yt", "a", "e", "i", "o", "u" ])
-        }
-
-        func wordStartsWithConsonantAndQu(_ word: String) -> Bool {
-            let index = word.index(word.startIndex, offsetBy: 1)
-            return word[index...].hasPrefix("qu")
-        }
-
-        if wordStartsWithVowelLike(word) { return word + "ay" }
-        if wordStartsWithPrefixes(word, prefixes: ["thr", "sch"]) {
-            return (word.substringFromIndexInt(3) + word.substringWithRangeInt(0..<3) + "ay") }
-
-        if wordStartsWithPrefixes(word, prefixes: ["ch", "qu", "th"]) {
-            return word.substringFromIndexInt(2) +
-                word.substringWithRangeInt(0..<2) + "ay" }
-        if wordStartsWithConsonantAndQu(word) {
-            return word.substringFromIndexInt(3) +
-                word.substringWithRangeInt(0..<1) + "quay"}
-
-        return word.substringFromIndexInt(1) +
-            word.substringWithRangeInt(0..<1) + "ay"
-
+    if word.starts(with: "squ") || word.starts(with: "thr") || word.starts(with: "sch") {
+      return word.dropFirst(3) + String(word.prefix(3)) + "ay"
     }
 
+    let firstTwoCharacters = word.prefix(2)
+    let isFirstTwoCharactersVocals = ["a", "e", "i", "o", "u"].contains(String(firstTwoCharacters))
+
+    var thirdLetter = ""
+    if word.count >= 3 {
+      thirdLetter = String(word[word.index(word.startIndex, offsetBy: 2)])
+    }
+
+    if word.starts(with: "ch") || word.starts(with: "qu") || word.starts(with: "th")
+      || (!isFirstTwoCharactersVocals && thirdLetter == "y")
+    {
+      return word.dropFirst(2) + String(word.prefix(2)) + "ay"
+    }
+
+    return word.dropFirst() + String(word.prefix(1)) + "ay"
+
+  }
 }
