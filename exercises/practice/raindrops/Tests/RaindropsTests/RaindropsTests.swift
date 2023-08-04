@@ -1,68 +1,96 @@
 import XCTest
+
 @testable import Raindrops
 
 class RaindropsTests: XCTestCase {
-    func test1() {
-        XCTAssertEqual("1", Raindrops(1).sounds)
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func test3() {
-        XCTAssertEqual("Pling", Raindrops(3).sounds)
-    }
+  func testTheSoundFor1Is1() {
+    XCTAssertEqual(raindrops(1), "1")
+  }
 
-    func test5() {
-        XCTAssertEqual("Plang", Raindrops(5).sounds)
-    }
+  func testTheSoundFor3IsPling() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(3), "Pling")
+  }
 
-    func test7() {
-        XCTAssertEqual("Plong", Raindrops(7).sounds)
-    }
+  func testTheSoundFor5IsPlang() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(5), "Plang")
+  }
 
-    func test6() {
-        XCTAssertEqual("Pling", Raindrops(6).sounds)
-    }
+  func testTheSoundFor7IsPlong() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(7), "Plong")
+  }
 
-    func test9() {
-        XCTAssertEqual("Pling", Raindrops(9).sounds)
-    }
+  func testTheSoundFor6IsPlingAsItHasAFactor3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(6), "Pling")
+  }
 
-    func test10() {
-        XCTAssertEqual("Plang", Raindrops(10).sounds)
-    }
+  func test2ToThePower3DoesNotMakeARaindropSoundAs3IsTheExponentNotTheBase() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(8), "8")
+  }
 
-    func test14() {
-        XCTAssertEqual("Plong", Raindrops(14).sounds)
-    }
+  func testTheSoundFor9IsPlingAsItHasAFactor3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(9), "Pling")
+  }
 
-    func test15() {
-        XCTAssertEqual("PlingPlang", Raindrops(15).sounds)
-    }
+  func testTheSoundFor10IsPlangAsItHasAFactor5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(10), "Plang")
+  }
 
-    func test21() {
-        XCTAssertEqual("PlingPlong", Raindrops(21).sounds)
-    }
+  func testTheSoundFor14IsPlongAsItHasAFactorOf7() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(14), "Plong")
+  }
 
-    func test25() {
-        XCTAssertEqual("Plang", Raindrops(25).sounds)
-    }
+  func testTheSoundFor15IsPlingplangAsItHasFactors3And5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(15), "PlingPlang")
+  }
 
-    func test35() {
-        XCTAssertEqual("PlangPlong", Raindrops(35).sounds)
-    }
+  func testTheSoundFor21IsPlingplongAsItHasFactors3And7() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(21), "PlingPlong")
+  }
 
-    func test49() {
-        XCTAssertEqual("Plong", Raindrops(49).sounds)
-    }
+  func testTheSoundFor25IsPlangAsItHasAFactor5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(25), "Plang")
+  }
 
-    func test52() {
-        XCTAssertEqual("52", Raindrops(52).sounds)
-    }
+  func testTheSoundFor27IsPlingAsItHasAFactor3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(27), "Pling")
+  }
 
-    func test105() {
-        XCTAssertEqual("PlingPlangPlong", Raindrops(105).sounds)
-    }
+  func testTheSoundFor35IsPlangplongAsItHasFactors5And7() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(35), "PlangPlong")
+  }
 
-    func test12121() {
-        XCTAssertEqual("12121", Raindrops(12_121).sounds)
-    }
+  func testTheSoundFor49IsPlongAsItHasAFactor7() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(49), "Plong")
+  }
+
+  func testTheSoundFor52Is52() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(52), "52")
+  }
+
+  func testTheSoundFor105IsPlingplangplongAsItHasFactors35And7() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(105), "PlingPlangPlong")
+  }
+
+  func testTheSoundFor3125IsPlangAsItHasAFactor5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(raindrops(3125), "Plang")
+  }
 }

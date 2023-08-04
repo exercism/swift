@@ -1,48 +1,66 @@
 import XCTest
+
 @testable import PrimeFactors
 
 class PrimeFactorsTests: XCTestCase {
-    func test1() {
-        XCTAssertEqual([], PrimeFactors(1).toArray)
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func test2() {
-        XCTAssertEqual([2], PrimeFactors(2).toArray)
-    }
+  func testNoFactors() {
+    XCTAssertEqual(primeFactors(1), [])
+  }
 
-    func test3() {
-        XCTAssertEqual([3], PrimeFactors(3).toArray)
-    }
+  func testPrimeNumber() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(2), [2])
+  }
 
-    func test4() {
-        XCTAssertEqual([2, 2], PrimeFactors(4).toArray)
-    }
+  func testAnotherPrimeNumber() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(3), [3])
+  }
 
-    func test6() {
-        XCTAssertEqual([2, 3], PrimeFactors(6).toArray)
-    }
+  func testSquareOfAPrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(9), [3, 3])
+  }
 
-    func test8() {
-        XCTAssertEqual([2, 2, 2], PrimeFactors(8).toArray)
-    }
+  func testProductOfFirstPrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(4), [2, 2])
+  }
 
-    func test9() {
-        XCTAssertEqual([3, 3], PrimeFactors(9).toArray)
-    }
+  func testCubeOfAPrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(8), [2, 2, 2])
+  }
 
-    func test27() {
-        XCTAssertEqual([3, 3, 3], PrimeFactors(27).toArray)
-    }
+  func testProductOfSecondPrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(27), [3, 3, 3])
+  }
 
-    func test625() {
-        XCTAssertEqual([5, 5, 5, 5], PrimeFactors(625).toArray)
-    }
+  func testProductOfThirdPrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(625), [5, 5, 5, 5])
+  }
 
-    func test901255() {
-        XCTAssertEqual([5, 17, 23, 461], PrimeFactors(901_255).toArray)
-    }
+  func testProductOfFirstAndSecondPrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(6), [2, 3])
+  }
 
-    func test93819012551() {
-        XCTAssertEqual([11, 9539, 894_119], PrimeFactors(93_819_012_551).toArray)
-    }
+  func testProductOfPrimesAndNonPrimes() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(12), [2, 2, 3])
+  }
+
+  func testProductOfPrimes() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(901255), [5, 17, 23, 461])
+  }
+
+  func testFactorsIncludeALargePrime() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(primeFactors(93_819_012_551), [11, 9539, 894119])
+  }
 }
