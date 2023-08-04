@@ -1,25 +1,20 @@
-import Foundation
+func isIsogram(_ string: String) -> Bool {
+  let lowercasedString = string.lowercased()
+  let lowercaseLetterSet = CharacterSet.lowercaseLetters
 
-struct Isogram {
+  var letters: Set<UnicodeScalar> = []
 
-  static func isIsogram(_ string: String) -> Bool {
-    let lowercasedString = string.lowercased()
-    let lowercaseLetterSet = CharacterSet.lowercaseLetters
-
-    var letters: Set<UnicodeScalar> = []
-
-    for character in lowercasedString.unicodeScalars {
-      guard lowercaseLetterSet.contains(character) else {
-        continue
-      }
-
-      guard !letters.contains(character) else {
-        return false
-      }
-
-      letters.insert(character)
+  for character in lowercasedString.unicodeScalars {
+    guard lowercaseLetterSet.contains(character) else {
+      continue
     }
 
-    return true
+    guard !letters.contains(character) else {
+      return false
+    }
+
+    letters.insert(character)
   }
+
+  return true
 }
