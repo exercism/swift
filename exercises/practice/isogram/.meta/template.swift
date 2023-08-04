@@ -11,9 +11,9 @@ class {{exercise|camelCase}}Tests: XCTestCase {
         try XCTSkipIf(true && !runAll) // change true to false to run this test
     {% endif -%}
         {%- if case.expected -%}
-        XCTAssertTrue(Isogram.isIsogram("{{case.input.phrase}}"))
+        XCTAssertTrue(isIsogram("{{case.input.phrase}}"))
         {%- else -%}
-        XCTAssertFalse(Isogram.isIsogram("{{case.input.phrase}}"))
+        XCTAssertFalse(isIsogram("{{case.input.phrase}}"))
         {%- endif %}
     }
     {% endfor -%}
