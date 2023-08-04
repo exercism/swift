@@ -1,3 +1,5 @@
+import Foundation
+
 func isIsogram(_ string: String) -> Bool {
   let lowercasedString = string.lowercased()
   let lowercaseLetterSet = CharacterSet.lowercaseLetters
