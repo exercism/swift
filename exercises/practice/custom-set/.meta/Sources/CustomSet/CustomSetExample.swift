@@ -1,82 +1,68 @@
-func == <T> (lh: CustomSet<T>, rh: CustomSet<T>) -> Bool {
-    return lh.contents.keys.sorted { $0.hashValue < $1.hashValue } == rh.contents.keys.sorted { $0.hashValue < $1.hashValue }
+struct CustomSet<Element: Hashable>: Equatable {
+  private var elements: [Element: Bool] = [:]
+  var isEmpty: Bool { elements.isEmpty }
 
-}
+  init(_ elements: [Element] = []) {
+    self.elements = elements.reduce(into: [:]) { $0[$1] = true }
+  }
 
-extension CustomSet where T: Comparable {
+  mutating func add(_ element: Element) {
+    elements[element] = true
+  }
 
-    var toSortedArray: [Element] { return Array(contents.keys.sorted { $0 < $1 }) }
-}
+  mutating func delete(_ element: Element) {
+    elements[element] = nil
+  }
 
-struct CustomSet<T: Hashable>: Equatable {
+  func contains(_ element: Element) -> Bool {
+    elements[element] ?? false
+  }
 
-    typealias Element = T
-
-    fileprivate var contents = [Element: Bool]()
-
-    var size: Int { return contents.count }
-
-    init<S: Sequence>(_ sequence: S) where S.Iterator.Element == Element {
-        self.contents = [:]
-        _ = sequence.map { self.contents[$0] = true }
-    }
-    mutating func put(_ item: Element) {
-        contents[item] = true
-
-    }
-
-    mutating func delete(_ item: Element) {
-        contents[item] = nil
-
-    }
-
-    mutating func removeAll() {
-        contents = [:]
-
-    }
-
-    func intersection(_ item: CustomSet) -> CustomSet {
-        var temp = [Element: Bool]()
-        for each in Array(item.contents.keys) {
-            guard contents[each] != nil else { continue }
-            temp[each] = true
-        }
-        return CustomSet(temp.keys)
-    }
-    func difference(_ item: CustomSet) -> CustomSet {
-        var temp = contents
-        for each in Array(item.contents.keys) {
-            temp[each] = nil
-        }
-        return CustomSet(temp.keys)
-    }
-
-    func union(_ item: CustomSet) -> CustomSet {
-        var temp = contents
-        for each in Array(item.contents.keys) {
-            temp[each] = true
-        }
-        return CustomSet(temp.keys)
-    }
-    func isSupersetOf (_ item: CustomSet) -> Bool {
-
-        return item.contents.count == item.contents.filter { self.contents.keys.contains($0.0) }.count
-
-    }
-    func isDisjoint(_ item: CustomSet) -> Bool {
-
-        for each in Array(item.contents.keys) {
-            if contents.keys.contains(each) {
-                return false
-            }
-        }
-        return true
-    }
-
-    func containsMember(_ item: Element) -> Bool {
-        if contents[item] != nil {
-            return true}
+  func isDisjoint(with otherSet: CustomSet<Element>) -> Bool {
+    for element in elements.keys {
+      if otherSet.contains(element) {
         return false
+      }
     }
+    return true
+  }
 
+  func isSubset(of otherSet: CustomSet<Element>) -> Bool {
+    for element in elements.keys {
+      if !otherSet.contains(element) {
+        return false
+      }
+    }
+    return true
+  }
+
+  func isSuperset(of otherSet: CustomSet<Element>) -> Bool {
+    otherSet.isSubset(of: self)
+  }
+
+  func union(_ otherSet: CustomSet<Element>) -> CustomSet<Element> {
+    var unionSet = self
+    for element in otherSet.elements.keys {
+      unionSet.add(element)
+    }
+    return unionSet
+  }
+
+  func intersection(_ otherSet: CustomSet<Element>) -> CustomSet<Element> {
+    var intersectionSet = CustomSet<Element>()
+    for element in elements.keys {
+      if otherSet.contains(element) {
+        intersectionSet.add(element)
+      }
+    }
+    return intersectionSet
+  }
+
+  func difference(_ otherSet: CustomSet<Element>) -> CustomSet<Element> {
+    var differenceSet = self
+    for element in otherSet.elements.keys {
+      differenceSet.delete(element)
+    }
+    return differenceSet
+  }
 }
