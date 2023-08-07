@@ -1,4 +1,4 @@
-func rotate(_ input: String, by shift: Int) -> String {
+func rotateCipher(_ input: String, shift: Int) -> String {
   let lowercaseAlphabet = Array("abcdefghijklmnopqrstuvwxyz")
   let uppercaseAlphabet = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
