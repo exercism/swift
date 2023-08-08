@@ -1,45 +1,61 @@
 import XCTest
+
 @testable import SecretHandshake
 
 class SecretHandshakeTests: XCTestCase {
-    func testHandshake1ToWink() {
-        let handshake = SecretHandshake(1)
-        XCTAssertEqual(["wink"], handshake.commands)
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testHandshake10ToDoubleBlink() {
-        let handshake = SecretHandshake(2)
-        XCTAssertEqual(["double blink"], handshake.commands)
-    }
+  func testWinkFor1() {
+    XCTAssertEqual(commands(number: 1), ["wink"])
+  }
 
-    func testHandshake100ToCloseYourEyes() {
-        let handshake = SecretHandshake(4)
-        XCTAssertEqual(["close your eyes"], handshake.commands)
-    }
+  func testDoubleBlinkFor10() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(commands(number: 2), ["double blink"])
+  }
 
-    func testHandshake1000ToJump() {
-        let handshake = SecretHandshake(8)
-        XCTAssertEqual(["jump"], handshake.commands)
-    }
+  func testCloseYourEyesFor100() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(commands(number: 4), ["close your eyes"])
+  }
 
-    func testHandshake11ToWinkAndDoubleBlink() {
-        let handshake = SecretHandshake(3)
-        XCTAssertEqual(["wink", "double blink"], handshake.commands)
-    }
+  func testJumpFor1000() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(commands(number: 8), ["jump"])
+  }
 
-    func testHandshake10011ToDoubleBlinkAndWink() {
-        let handshake = SecretHandshake(19)
-        XCTAssertEqual(["double blink", "wink"], handshake.commands)
-    }
+  func testCombineTwoActions() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(commands(number: 3), ["wink", "double blink"])
+  }
 
-    func testHandshake11111ToDoubleBlinkAndWink() {
-        let handshake = SecretHandshake(31)
-        let expected = ["jump", "close your eyes", "double blink", "wink"]
-        XCTAssertEqual(expected, handshake.commands)
-    }
+  func testReverseTwoActions() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(commands(number: 19), ["double blink", "wink"])
+  }
 
-    func testNonValidHandshake() {
-        let handshake = SecretHandshake(0)
-        XCTAssertEqual([], handshake.commands)
-    }
+  func testReversingOneActionGivesTheSameAction() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(commands(number: 24), ["jump"])
+  }
+
+  func testReversingNoActionsStillGivesNoActions() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(commands(number: 16), [])
+  }
+
+  func testAllPossibleActions() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(commands(number: 15), ["wink", "double blink", "close your eyes", "jump"])
+  }
+
+  func testReverseAllPossibleActions() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(commands(number: 31), ["jump", "close your eyes", "double blink", "wink"])
+  }
+
+  func testDoNothingForZero() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(commands(number: 0), [])
+  }
 }

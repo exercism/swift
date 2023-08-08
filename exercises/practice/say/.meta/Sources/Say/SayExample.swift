@@ -1,48 +1,88 @@
-struct Say {
+enum SayError: Error {
+  case outOfRange
+}
 
-    private static let smallNumbers = [
-        "zero", "one", "two", "three", "four", "five",
-        "six", "seven", "eight", "nine", "ten",
-        "eleven", "twelve", "thirteen", "fourteen", "fifteen",
-        "sixteen", "seventeen", "eighteen", "nineteen"
-    ]
+let numberNames = [
+  0: "zero",
+  1: "one",
+  2: "two",
+  3: "three",
+  4: "four",
+  5: "five",
+  6: "six",
+  7: "seven",
+  8: "eight",
+  9: "nine",
+]
 
-    private static let decades = [
-        "twenty", "thirty", "forty", "fifty",
-        "sixty", "seventy", "eighty", "ninety"
-    ]
+let teenNames = [
+  10: "ten",
+  11: "eleven",
+  12: "twelve",
+  13: "thirteen",
+  14: "fourteen",
+  15: "fifteen",
+  16: "sixteen",
+  17: "seventeen",
+  18: "eighteen",
+  19: "ninteen",
+]
 
-    private static let largeGroups: [(name: String, amount: Int)] = [
-        ("billion", 1_000_000_000), ("million", 1_000_000), ("thousand", 1_000), ("hundred", 100)
-    ]
+let tensNames = [
+  2: "twenty",
+  3: "thirty",
+  4: "forty",
+  5: "fifty",
+  6: "sixty",
+  7: "seventy",
+  8: "eighty",
+  9: "ninety",
+]
 
-    static func say(_ number: Int) -> String? {
-        guard number >= 0 && number < 1_000_000_000_000 else {
-            return nil
+let bigNames = [
+  100: "hundred",
+  1000: "thousand",
+  1_000_000: "million",
+  1_000_000_000: "billion",
+]
+
+func say(number: Int) throws -> String {
+  var result = ""
+  var number = number
+  if number < 0 || number > 999_999_999_999 {
+    print("hi")
+    throw SayError.outOfRange
+  }
+
+  if number == 0 {
+    return "zero"
+  }
+
+  for (value, name) in bigNames.sorted(by: >) {
+    if number >= value {
+      let times = number / value
+      number = number % value
+      if times > 0 {
+        result += try say(number: times) + " " + name
+        if number > 0 {
+          result += " "
         }
-
-        if number < 20 {
-            return smallNumbers[number]
-        }
-
-        for group in largeGroups where number >= group.amount {
-            let result = "\(say(number / group.amount)!) " + group.name
-            let remainder = number % group.amount
-
-            if remainder == 0 {
-                return result
-            } else {
-                return result + " \(say(remainder)!)"
-            }
-        }
-
-        let decade = number / 10
-        let decadeName = decades[decade - 2]
-
-        if number % 10 == 0 {
-            return decadeName
-        } else {
-            return decadeName + "-" + say(number % 10)!
-        }
+      }
     }
+  }
+
+  if number >= 20 {
+    let times = number / 10
+    number = number % 10
+    result += tensNames[times]!
+    if number > 0 {
+      result += "-" + numberNames[number]!
+    }
+  } else if number >= 10 {
+    result += teenNames[number]!
+  } else if number > 0 {
+    result += numberNames[number]!
+  }
+
+  return result
 }

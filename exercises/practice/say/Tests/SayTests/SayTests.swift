@@ -1,65 +1,110 @@
 import XCTest
+
 @testable import Say
 
 class SayTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testZero() {
-        XCTAssertEqual("zero", Say.say(0))
-    }
+  func testZero() {
+    XCTAssertEqual(try! say(number: 0), "zero")
+  }
 
-    func testOne() {
-        XCTAssertEqual("one", Say.say(1))
-    }
+  func testOne() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 1), "one")
+  }
 
-    func testFourteen() {
-        XCTAssertEqual("fourteen", Say.say(14))
-    }
+  func testFourteen() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 14), "fourteen")
+  }
 
-    func testTwenty() {
-        XCTAssertEqual("twenty", Say.say(20))
-    }
+  func testTwenty() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 20), "twenty")
+  }
 
-    func testTwentyTwo() {
-        XCTAssertEqual("twenty-two", Say.say(22))
-    }
+  func testTwentyTwo() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 22), "twenty-two")
+  }
 
-    func testOneHundred() {
-        XCTAssertEqual("one hundred", Say.say(100))
-    }
+  func testThirty() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 30), "thirty")
+  }
 
-    func testOneHundredTwentyThree() {
-        XCTAssertEqual("one hundred twenty-three", Say.say(123))
-    }
+  func testNinetyNine() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 99), "ninety-nine")
+  }
 
-    func testOneThousand() {
-        XCTAssertEqual("one thousand", Say.say(1_000))
-    }
+  func testOneHundred() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 100), "one hundred")
+  }
 
-    func testOneThousandTwoHundredThirtyFour() {
-        XCTAssertEqual("one thousand two hundred thirty-four", Say.say(1_234))
-    }
+  func testOneHundredTwentyThree() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 123), "one hundred twenty-three")
+  }
 
-    func testOneMillion() {
-        XCTAssertEqual("one million", Say.say(1_000_000))
-    }
+  func testTwoHundred() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 200), "two hundred")
+  }
 
-    func testOneMillionTwoThousandThreeHundredFortyFive() {
-        XCTAssertEqual("one million two thousand three hundred forty-five", Say.say(1_002_345))
-    }
+  func testNineHundredNinetyNine() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 999), "nine hundred ninety-nine")
+  }
 
-    func testOneBillion() {
-        XCTAssertEqual("one billion", Say.say(1_000_000_000))
-    }
+  func testOneThousand() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 1000), "one thousand")
+  }
 
-    func testABigNumber() {
-        XCTAssertEqual("nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three", Say.say(987_654_321_123))
-    }
+  func testOneThousandTwoHundredThirtyFour() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 1234), "one thousand two hundred thirty-four")
+  }
 
-    func testNumbersBelowZeroAreOutOfRange() {
-        XCTAssertNil(Say.say(-1))
-    }
+  func testOneMillion() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 1_000_000), "one million")
+  }
 
-    func testNumbersAbove999999999999AreOutOfRange() {
-        XCTAssertNil(Say.say(1_000_000_000_000))
+  func testOneMillionTwoThousandThreeHundredFortyFive() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 1_002_345), "one million two thousand three hundred forty-five")
+  }
+
+  func testOneBillion() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! say(number: 1_000_000_000), "one billion")
+  }
+
+  func testABigNumber() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(
+      try! say(number: 987_654_321_123),
+      "nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three"
+    )
+  }
+
+  func testNumbersBelowZeroAreOutOfRange() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+
+    XCTAssertThrowsError(try say(number: -1)) { error in
+      XCTAssertEqual(error as? SayError, SayError.outOfRange)
     }
+  }
+
+  func testNumbersAbove999999999999AreOutOfRange() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+
+    XCTAssertThrowsError(try say(number: 1_000_000_000_000)) { error in
+      XCTAssertEqual(error as? SayError, SayError.outOfRange)
+    }
+  }
 }

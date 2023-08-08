@@ -1,26 +1,22 @@
-struct SecretHandshake {
+let commandValues = [
+  1: "wink",
+  2: "double blink",
+  4: "close your eyes",
+  8: "jump",
+]
 
-    var commandValue: Int
-    var commandValues = [1: "wink", 2: "double blink", 4: "close your eyes", 8: "jump"]
+func commands(number: Int) -> [String] {
+  var result = [String]()
 
-    init(_ commandValue: Int) {
-        self.commandValue = commandValue
+  for (value, name) in commandValues.sorted(by: <) {
+    if number & value != 0 {
+      result.append(name)
     }
+  }
 
-    var shouldReverse: Bool { return (commandValue & 16) != 0 }
+  if number & 16 != 0 {
+    result.reverse()
+  }
 
-    var commands: [String] { return commandsFunc() }
-
-    private func commandsFunc() -> [String] {
-        var commands = [String]()
-        for key in Array(commandValues.keys).sorted( by: < ) where (commandValue & key) != 0 {
-            commands.append(commandValues[key]!)
-        }
-
-        if shouldReverse {
-            return Array(commands.reversed())
-        } else {
-            return commands
-        }
-    }
+  return result
 }
