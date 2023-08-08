@@ -607,6 +607,14 @@
         "topics": ["discriminated_unions", "integers"]
       },
       {
+        "slug": "bottle-song",
+        "name": "Bottle Song",
+        "uuid": "d609de16-84e5-4df6-940c-d6f28cdd7d80",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "acronym",
         "name": "Acronym",
         "uuid": "7359a818-ffa5-4ce0-be35-cc66654f9af2",
@@ -641,15 +649,6 @@
         "prerequisites": [],
         "difficulty": 4,
         "topics": ["filtering", "strings"]
-      },
-      {
-        "slug": "beer-song",
-        "name": "Beer Song",
-        "uuid": "53f022ee-903e-4ee1-aabc-2db0a68d4b1c",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 4,
-        "topics": ["conditionals", "looping", "strings"]
       },
       {
         "slug": "house",
@@ -992,6 +991,16 @@
         "prerequisites": [],
         "difficulty": 8,
         "topics": ["discriminated_unions", "games", "parsing", "sorting"]
+      },
+      {
+        "slug": "beer-song",
+        "name": "Beer Song",
+        "uuid": "53f022ee-903e-4ee1-aabc-2db0a68d4b1c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": ["conditionals", "looping", "strings"],
+        "status": "deprecated"
       }
     ]
   },
