@@ -7,9 +7,9 @@ class {{exercise|camelCase}}Tests: XCTestCase {
     {% outer: for case in cases %}
         {%- for subCases in case.cases %}
         {%- if forloop.outer.first and forloop.first %}
-            func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() {
+            func test{{subCases.description |camelCase }}() {
         {%- else %}
-            func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() throws {
+            func test{{subCases.description |camelCase }}() throws {
             try XCTSkipIf(true && !runAll) // change true to false to run this test
         {%- endif %}
         {%- if subCases.input | length == 2 and not subCases.input.element %}
@@ -24,8 +24,12 @@ class {{exercise|camelCase}}Tests: XCTestCase {
             let set2 = {{exercise|camelCase}}(emptyArray)
             {%- endif %}
         {%- else %}
-            {%- if subCases.input.set %}
+            {%- if subCases.input.set and (subCases.property == "empty" or subCases.property == "contains") %}
+            let customSet = {{exercise|camelCase}}({{subCases.input.set}})
+            {%- elif subCases.input.set %}
             var customSet = {{exercise|camelCase}}({{subCases.input.set}})
+            {%- elif subCases.property == "empty" or subCases.property == "contains" %}
+            let customSet = {{exercise|camelCase}}(emptyArray)
             {%- else %}
             var customSet = {{exercise|camelCase}}(emptyArray)
             {%- endif %}

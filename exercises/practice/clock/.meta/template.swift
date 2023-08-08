@@ -6,9 +6,9 @@ class {{exercise|camelCase}}Tests: XCTestCase {
     {% outer: for case in cases %}
         {%- for subCases in case.cases %}
         {%- if forloop.outer.first and forloop.first %}
-            func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() {
+            func test{{subCases.description |camelCase }}() {
         {%- else %}
-            func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() throws {
+            func test{{subCases.description |camelCase }}() throws {
             try XCTSkipIf(true && !runAll) // change true to false to run this test
         {%- endif %}
         {%- if subCases.property == "create" %}
