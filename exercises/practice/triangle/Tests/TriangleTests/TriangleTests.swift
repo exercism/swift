@@ -1,61 +1,111 @@
 import XCTest
+
 @testable import Triangle
 
 class TriangleTests: XCTestCase {
-    let triangleKind = (Equilateral:"Equilateral", Isosceles:"Isosceles", Scalene:"Scalene", ErrorKind:"ErrorKind")
-    func testEquilateralTrianglesHaveEqualSides() {
-        XCTAssertEqual(triangleKind.Equilateral, Triangle(2, 2, 2).kind)
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testLargerEquilateralTrianglesAlsoHaveEqualSides() {
-        XCTAssertEqual(triangleKind.Equilateral, Triangle(10, 10, 10).kind)
-    }
+  func testAllSidesAreEqual1() {
+    XCTAssertTrue(Triangle([2, 2, 2]).isEquilateral)
+  }
 
-    func testIsoscelesTrianglesHaveLastTwoSidesEqual() {
-        XCTAssertEqual(triangleKind.Isosceles, Triangle(3, 4, 4).kind)
-    }
+  func testAnySideIsUnequal1() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([2, 3, 2]).isEquilateral)
+  }
 
-    func testIsoscelesTrianglesHaveFirstAndLastSidesEqual() {
-        XCTAssertEqual(triangleKind.Isosceles, Triangle(4, 3, 4).kind)
-    }
+  func testNoSidesAreEqual1() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([5, 4, 6]).isEquilateral)
+  }
 
-    func testIsoscelesTrianglesHaveTwoFirstSidesEqual() {
-        XCTAssertEqual(triangleKind.Isosceles, Triangle(4, 4, 3).kind)
-    }
+  func testAllZeroSidesIsNotATriangle1() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([0, 0, 0]).isEquilateral)
+  }
 
-    func testIsoscelesTrianglesHaveInFactExactlyTwoSidesEqual() {
-        XCTAssertEqual(triangleKind.Isosceles, Triangle(10, 10, 2).kind)
-    }
+  func testSidesMayBeFloats1() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Triangle([0.5, 0.5, 0.5]).isEquilateral)
+  }
 
-    func testScaleneTrianglesHaveNoEqualSides() {
-        XCTAssertEqual(triangleKind.Scalene, Triangle(3, 4, 5).kind)
-    }
+  func testLastTwoSidesAreEqual2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Triangle([3, 4, 4]).isIsosceles)
+  }
 
-    func testScaleneTrianglesHaveNoEqualSidesAtALargerScaleToo() {
-        XCTAssertEqual(triangleKind.Scalene, Triangle(10, 11, 12).kind)
-    }
+  func testFirstTwoSidesAreEqual2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Triangle([4, 4, 3]).isIsosceles)
+  }
 
-    func testScaleneTrianglesHaveNoEqualSidesInDescendingOrderEither() {
-        XCTAssertEqual(triangleKind.Scalene, Triangle(5, 4, 2).kind)
-    }
+  func testFirstAndLastSidesAreEqual2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Triangle([4, 3, 4]).isIsosceles)
+  }
 
-    func testVerySmallTrianglesAreLegal() {
-        XCTAssertEqual(triangleKind.Scalene, Triangle(0.4, 0.6, 0.3).kind)
-    }
+  func testEquilateralTrianglesAreAlsoIsosceles2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Triangle([4, 4, 4]).isIsosceles)
+  }
 
-    func testTrianglesWithNoSizeAreIllegal() {
-        XCTAssertEqual(triangleKind.ErrorKind, Triangle(0, 0, 0).kind)
-    }
+  func testNoSidesAreEqual2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([2, 3, 4]).isIsosceles)
+  }
 
-    func testTrianglesWithNegativeSidesAreIllegal() {
-        XCTAssertEqual(triangleKind.ErrorKind, Triangle(3, 4, -5).kind)
-    }
+  func testFirstTriangleInequalityViolation2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([1, 1, 3]).isIsosceles)
+  }
 
-    func testTrianglesViolatingTriangleInequalityAreIllegal() {
-        XCTAssertEqual(triangleKind.ErrorKind, Triangle(1, 1, 3).kind)
-    }
+  func testSecondTriangleInequalityViolation2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([1, 3, 1]).isIsosceles)
+  }
 
-    func testTrianglesViolatingTriangleInequalityAreIllegal3() {
-        XCTAssertEqual(triangleKind.ErrorKind, Triangle(7, 3, 2).kind)
-    }
+  func testThirdTriangleInequalityViolation2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([3, 1, 1]).isIsosceles)
+  }
+
+  func testSidesMayBeFloats2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Triangle([0.5, 0.4, 0.5]).isIsosceles)
+  }
+
+  func testNoSidesAreEqual3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Triangle([5, 4, 6]).isScalene)
+  }
+
+  func testAllSidesAreEqual3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([4, 4, 4]).isScalene)
+  }
+
+  func testFirstAndSecondSidesAreEqual3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([4, 4, 3]).isScalene)
+  }
+
+  func testFirstAndThirdSidesAreEqual3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([3, 4, 3]).isScalene)
+  }
+
+  func testSecondAndThirdSidesAreEqual3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([4, 3, 3]).isScalene)
+  }
+
+  func testMayNotViolateTriangleInequality3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertFalse(Triangle([7, 3, 2]).isScalene)
+  }
+
+  func testSidesMayBeFloats3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertTrue(Triangle([0.5, 0.4, 0.6]).isScalene)
+  }
 }

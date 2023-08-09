@@ -1,37 +1,23 @@
 import Foundation
 
 struct Transpose {
-    static func transpose(_ input: [String]) -> [String] {
-        let maxLineLength = input.map { $0.count }.max()
+  static func transpose(_ lines: [String]) -> [String] {
+    var rows = lines.map { String($0).replacingOccurrences(of: " ", with: "_") }
+    let maxLength = rows.map { $0.count }.max() ?? 0
+    rows = rows.map { $0.padding(toLength: maxLength, withPad: " ", startingAt: 0) }
 
-        guard let maxLength = maxLineLength else {
-            return []
-        }
-
-        var result = [String](repeatElement("", count: maxLength))
-
-        for i in 0..<maxLength {
-            for line in input {
-                if let start = line.index(line.startIndex, offsetBy: i, limitedBy: line.endIndex),
-                    let end = line.index(start, offsetBy: 1, limitedBy: line.endIndex) {
-                    let character = line[start..<end]
-                    result[i].append(String(character))
-                } else {
-                    result[i].append(" ")
-                }
-            }
-        }
-
-        return result.map { stripTrailingWhitespace($0) }
+    var transposed: [String] = []
+    for columnIndex in 0..<maxLength {
+      let transposedLine = rows.map { row -> Character in
+        let index = row.index(row.startIndex, offsetBy: columnIndex)
+        return row[index]
+      }
+      transposed.append(
+        String(transposedLine).replacingOccurrences(
+          of: "\\s+$", with: "", options: .regularExpression
+        ).replacingOccurrences(of: "_", with: " "))
     }
 
-    private static func stripTrailingWhitespace(_ input: String) -> String {
-        var result = input
-
-        while result.hasSuffix(" ") {
-            result.remove(at: result.index(before: result.endIndex))
-        }
-
-        return result
-    }
+    return transposed
+  }
 }

@@ -1,34 +1,22 @@
-struct WordCount {
+import Foundation
 
-    func splitStringToArray(_ inString: String) -> [String] {
-        return inString.split(whereSeparator: { splitAt($0) }).map { String($0) }
+class WordCount {
+  let words: String
+
+  init(words: String) {
+    self.words = words
+  }
+
+  func count() -> [String: Int] {
+    var result = [String: Int]()
+    let trimmingCharacters = CharacterSet(charactersIn: ".,:!&@$%^&'")
+    let words = self.words
+      .lowercased()
+      .split(whereSeparator: { $0.isWhitespace || $0 == "," })
+      .map { String($0).trimmingCharacters(in: trimmingCharacters) }
+    for word in words {
+      result[word, default: 0] += 1
     }
-
-    func splitAt(_ characterToCompare: Character, charToSplitAt: String = " !&$%^&,:") -> Bool {
-        for each in charToSplitAt where each == characterToCompare {
-            return true
-        }
-        return false
-    }
-
-    let words: String
-
-    init(words: String) {
-        self.words = words
-    }
-
-    func count() -> [String: Int] {
-        var dict = [String: Int]()
-        let cleanArray = splitStringToArray(words)
-
-        cleanArray.forEach { string in
-            if !string.isEmpty {
-                if let count = dict[string.lowercased()] {
-                    dict[string.lowercased()] = count + 1
-                } else { dict[string.lowercased()] = 1
-                }
-            }
-        }
-        return dict
-    }
+    return result
+  }
 }
