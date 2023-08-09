@@ -1,28 +1,19 @@
-enum TranscriptionError: Error {
-    case invalidNucleotide(String)
-}
+func toRna(_ dna: String) -> String {
+  var rna = ""
 
-struct Nucleotide {
-    func complementOfDNA() throws -> String {
-        return try transcribe(dnaToRna)
-    }
-
-    private let value: String
-
-    init(_ nucleotide: String) {
-        self.value = nucleotide
-    }
-
-    private let dnaToRna: [Character: String] = [ "G": "C", "C": "G", "T": "A", "A": "U" ]
-
-    private func transcribe(_ dict: [Character: String]) throws -> String {
-        var tempText = ""
-        for each in self.value {
-            if dict[each] == nil {
-                throw TranscriptionError.invalidNucleotide("\(each) is not a valid Nucleotide")
-            }
-            tempText += dict[each] ?? ""
+    for nucleotide in dna {
+        switch nucleotide {
+        case "G":
+        rna += "C"
+        case "C":
+        rna += "G"
+        case "T":
+        rna += "A"
+        case "A":
+        rna += "U"
+        default:
+        continue
         }
-        return tempText
     }
+    return rna
 }
