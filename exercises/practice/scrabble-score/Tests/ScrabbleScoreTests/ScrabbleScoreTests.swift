@@ -1,40 +1,61 @@
 import XCTest
+
 @testable import ScrabbleScore
 
 class ScrabbleScoreTests: XCTestCase {
-    func testEmptyWordScoresZero() {
-        XCTAssertEqual( 0, Scrabble("").score)
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testWhitespaceScoresZero() {
-        XCTAssertEqual( 0, Scrabble(" \t\n").score)
-    }
+  func testLowercaseLetter() {
+    XCTAssertEqual(score("a"), 1)
+  }
 
-    func testNilScoresZero() {
-        XCTAssertEqual( 0, Scrabble(nil).score)
-    }
+  func testUppercaseLetter() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(score("A"), 1)
+  }
 
-    func testScoresVeryShortWord() {
-        XCTAssertEqual( 1, Scrabble("a").score)
-    }
+  func testValuableLetter() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(score("f"), 4)
+  }
 
-    func testScoresOtherVeryShortWord() {
-        XCTAssertEqual( 4, Scrabble("f").score)
-    }
+  func testShortWord() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(score("at"), 2)
+  }
 
-    func testSimpleWordScoresTheNumberOfLetters() {
-        XCTAssertEqual( 6, Scrabble("street").score)
-    }
+  func testShortValuableWord() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(score("zoo"), 12)
+  }
 
-    func testComplicatedWordScoresMore() {
-        XCTAssertEqual( 22, Scrabble("quirky").score)
-    }
+  func testMediumWord() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(score("street"), 6)
+  }
 
-    func testScoresAreCaseInsensitive() {
-        XCTAssertEqual( 41, Scrabble("OXYPHENBUTAZONE").score)
-    }
+  func testMediumValuableWord() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(score("quirky"), 22)
+  }
 
-    func testScoringUtility() {
-        XCTAssertEqual( 13, Scrabble.score("alacrity"))
-    }
+  func testLongMixedCaseWord() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(score("OxyphenButazone"), 41)
+  }
+
+  func testEnglishLikeWord() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(score("pinata"), 8)
+  }
+
+  func testEmptyInput() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(score(""), 0)
+  }
+
+  func testEntireAlphabetAvailable() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(score("abcdefghijklmnopqrstuvwxyz"), 87)
+  }
 }

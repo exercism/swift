@@ -1,62 +1,44 @@
-struct RunLengthEncoding {
-
-    static func encode(_ input: String) -> String {
-        var result = ""
-
-        var lastCharacter = input.first!
-        var count = 0
-
-        for (index, character) in input.enumerated() {
-            if character == lastCharacter {
-                count += 1
-            }
-
-            func addCharacter() {
-                if count == 1 {
-                    result += "\(lastCharacter)"
-                } else {
-                    result += "\(count)\(lastCharacter)"
-                }
-
-                lastCharacter = character
-                count = 1
-            }
-
-            if character != lastCharacter {
-                addCharacter()
-            }
-
-            let isFinal = index == input.count - 1
-
-            if isFinal {
-                addCharacter()
-            }
+class RunLengthEncoding {
+  static func encode(_ phrase: String) -> String {
+    var encodedString = ""
+    var count = 1
+    var previousChar = ""
+    for char in phrase {
+      if previousChar == "" {
+        previousChar = String(char)
+      } else if previousChar == String(char) {
+        count += 1
+      } else {
+        if count > 1 {
+          encodedString += String(count)
         }
-
-        return result
+        encodedString += previousChar
+        count = 1
+        previousChar = String(char)
+      }
     }
+    if count > 1 {
+      encodedString += String(count)
+    }
+    encodedString += previousChar
+    return encodedString
+  }
 
-    static func decode(_ input: String) -> String {
-        var result = ""
-
-        var multiplier: Int?
-
-        for character in input {
-            if let number = Int(String(character)) {
-                if let currentMultiplier = multiplier {
-                    multiplier = currentMultiplier * 10 + number
-                } else {
-                    multiplier = number
-                }
-            } else {
-                for _ in 1...(multiplier ?? 1) {
-                    result += "\(character)"
-                }
-
-                multiplier = nil
-            }
+  static func decode(_ phrase: String) -> String {
+    var decodedString = ""
+    var count = ""
+    for char in phrase {
+      if char.isNumber {
+        count += String(char)
+      } else {
+        if count == "" {
+          decodedString += String(char)
+        } else {
+          decodedString += String(repeating: String(char), count: Int(count)!)
+          count = ""
         }
-
-        return result
+      }
     }
+    return decodedString
+  }
 }
