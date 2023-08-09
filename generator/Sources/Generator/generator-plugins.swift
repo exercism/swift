@@ -170,6 +170,19 @@ class GeneratorPlugins {
       return nil
     }
 
+    ext.registerFilter("length") { (value: Any?) in
+      if let inputString = value as? String {
+        return inputString.count
+      }
+      if let inputArray = value as? [Any?] {
+        return inputArray.count
+      }
+      if let inputDictionary = value as? [String: Any?] {
+        return inputDictionary.count
+      }
+      return nil
+    }
+
     let environment = Environment(extensions: [ext])
     return environment
   }

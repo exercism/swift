@@ -1,55 +1,58 @@
 import XCTest
+
 @testable import RotationalCipher
 
 class RotationalCipherTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testRotateSingleCharacterBy1() {
-        let expected = "b"
-        XCTAssertEqual(expected, RotationalCipher.rotate("a", ROT: 1))
-    }
+  func testRotateABy0SameOutputAsInput() {
+    XCTAssertEqual(rotateCipher("a", shift: 0), "a")
+  }
 
-    func testRotateSingleCharacterBy26() {
-        let expected = "a"
-        XCTAssertEqual(expected, RotationalCipher.rotate("a", ROT: 26))
-    }
+  func testRotateABy1() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(rotateCipher("a", shift: 1), "b")
+  }
 
-    func testRotateSingleCharacterBy0() {
-        let expected = "a"
-        XCTAssertEqual(expected, RotationalCipher.rotate("a", ROT: 0))
-    }
+  func testRotateABy26SameOutputAsInput() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(rotateCipher("a", shift: 26), "a")
+  }
 
-    func testRotateSingleCharacterBy13() {
-        let expected = "z"
-        XCTAssertEqual(expected, RotationalCipher.rotate("m", ROT: 13))
-    }
+  func testRotateMBy13() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(rotateCipher("m", shift: 13), "z")
+  }
 
-    func testRotateSingleCharacterWithWrapAround() {
-        let expected = "a"
-        XCTAssertEqual(expected, RotationalCipher.rotate("n", ROT: 13))
-    }
+  func testRotateNBy13WithWrapAroundAlphabet() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(rotateCipher("n", shift: 13), "a")
+  }
 
-    func testRotateCapitalLetters() {
-        let expected = "TRL"
-        XCTAssertEqual(expected, RotationalCipher.rotate("OMG", ROT: 5))
-    }
+  func testRotateCapitalLetters() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(rotateCipher("OMG", shift: 5), "TRL")
+  }
 
-    func testRotateSpaces() {
-        let expected = "T R L"
-        XCTAssertEqual(expected, RotationalCipher.rotate("O M G", ROT: 5))
-    }
+  func testRotateSpaces() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(rotateCipher("O M G", shift: 5), "T R L")
+  }
 
-    func testRotateNumbers() {
-        let expected = "Xiwxmrk 1 2 3 xiwxmrk"
-        XCTAssertEqual(expected, RotationalCipher.rotate("Testing 1 2 3 testing", ROT: 4))
-    }
+  func testRotateNumbers() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(rotateCipher("Testing 1 2 3 testing", shift: 4), "Xiwxmrk 1 2 3 xiwxmrk")
+  }
 
-    func testRotatePunctuation() {
-        let expected = "Gzo'n zvo, Bmviyhv!"
-        XCTAssertEqual(expected, RotationalCipher.rotate("Let's eat, Grandma!", ROT: 21))
-    }
+  func testRotatePunctuation() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(rotateCipher("Let's eat, Grandma!", shift: 21), "Gzo'n zvo, Bmviyhv!")
+  }
 
-    func testRotateAllLetters() {
-        let expected = "The quick brown fox jumps over the lazy dog."
-        XCTAssertEqual(expected, RotationalCipher.rotate("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.", ROT: 13))
-    }
+  func testRotateAllLetters() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(
+      rotateCipher("The quick brown fox jumps over the lazy dog.", shift: 13),
+      "Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
+  }
 }
