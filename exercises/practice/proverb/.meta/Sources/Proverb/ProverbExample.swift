@@ -1,28 +1,19 @@
-import Foundation
+class Proverb {
+  let words: [String]
 
-extension Array where Element == String {
+  init(_ words: [String]) {
+    self.words = words
+  }
 
-    func recite() -> String {
-
-    var saying = ""
-
-    if let firstPiece = self.first {
-
-        for (position, piece) in self.enumerated() {
-
-            if position != self.count - 1 {
-
-                let nextPiece = self[position + 1]
-                saying.append("For want of a \(piece) the \(nextPiece) was lost.\n")
-            } else {
-
-                saying.append("And all for the want of a \(firstPiece).")
-            }
-
-        }
+  func recite() -> String {
+    var result = ""
+    for i in 0..<words.count {
+      if i == words.count - 1 {
+        result += "And all for the want of a \(words[0])."
+      } else {
+        result += "For want of a \(words[i]) the \(words[i + 1]) was lost.\n"
+      }
     }
-
-    return saying
-}
-
+    return result
+  }
 }
