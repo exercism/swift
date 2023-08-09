@@ -97,6 +97,18 @@ class GeneratorHelp {
                 subCases2.append(subCase)
               }
             }
+            if let subSubCases = subCase["cases"] as? [[String: Any]] {
+              var subSubCases2: [[String: Any]] = []
+              for subSubCase in subSubCases {
+                if let uuid = subSubCase["uuid"] as? String {
+                  if uuids.contains(uuid) {
+                    subSubCases2.append(subSubCase)
+                  }
+                }
+              }
+              subCases2.append(["cases": subSubCases2])
+            }
+            
           }
           cases.append(["cases": subCases2])
         }
