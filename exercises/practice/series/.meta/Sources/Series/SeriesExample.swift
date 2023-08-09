@@ -1,26 +1,24 @@
-struct Series {
+enum SeriesError: Error {
+  case sliceLengthLongerThanSeries
+  case sliceLengthZeroOrLess
+  case emptySeries
+}
 
-    var numberString = ""
-
-    init(_ numString: String) {
-        self.numberString = numString
+class Series {
+  let series: String
+  init(_ series: String) {
+    self.series = series
+  }
+  func slice(_ length: Int) throws -> [String] {
+    guard !series.isEmpty else { throw SeriesError.emptySeries }
+    guard length <= series.count else { throw SeriesError.sliceLengthLongerThanSeries }
+    guard length > 0 else { throw SeriesError.sliceLengthZeroOrLess }
+    var result: [String] = []
+    for i in 0...series.count - length {
+      let start = series.index(series.startIndex, offsetBy: i)
+      let end = series.index(start, offsetBy: length)
+      result.append(String(series[start..<end]))
     }
-
-    func slices(_ chunkSize: Int) -> [[Int]] {
-        var numberStringArray = Array(numberString).map { Int("\($0)") ?? 0 }
-        let count = numberStringArray.count
-        var start = 0
-        var end = chunkSize
-        var tempArrayReturn = [[Int]]()
-
-        let enumarated = (0..<(count)).enumerated()
-
-        for (_, _) in enumarated where end < (count + 1) {
-            let tempArray = Array(numberStringArray[start ..< end])
-            tempArrayReturn.append(tempArray)
-            start += 1
-            end += 1
-        }
-        return tempArrayReturn
-    }
+    return result
+  }
 }

@@ -1,83 +1,84 @@
 import XCTest
+
 @testable import Series
 
-private extension XCTest {
-    func XCTAssertEqualMultiArray(_ aArray1: [[Int]], _ aArray2: [[Int]]) {
-        XCTAssertEqual(Array(aArray1.joined()), Array(aArray2.joined()))
-    }
-}
-
 class SeriesTests: XCTestCase {
-    func testSimpleSlicesOfOne() {
-        let series = Series("01234")
-        XCTAssertEqualMultiArray([[0], [1], [2], [3], [4]], series.slices(1))
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testSimpleSlicesOfOneAgain() {
-        let series = Series("92834")
-        XCTAssertEqualMultiArray([[9], [2], [8], [3], [4]], series.slices(1))
-    }
+  func testSlicesOfOneFromOne() {
+    let series = Series("1")
+    XCTAssertEqual(try! series.slice(1), ["1"])
+  }
 
-    func testSimpleSlicesOfTwo() {
-        let series = Series("01234")
-        XCTAssertEqualMultiArray([[0, 1], [1, 2], [2, 3], [3, 4]], series.slices(2))
-    }
+  func testSlicesOfOneFromTwo() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let series = Series("12")
+    XCTAssertEqual(try! series.slice(1), ["1", "2"])
+  }
 
-    func testOtherSlicesOfTwo() {
-        let series = Series("98273463")
-        let expected = [[9, 8], [8, 2], [2, 7], [7, 3], [3, 4], [4, 6], [6, 3]]
-        XCTAssertEqualMultiArray(expected, series.slices(2))
-    }
+  func testSlicesOfTwo() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let series = Series("35")
+    XCTAssertEqual(try! series.slice(2), ["35"])
+  }
 
-    func testSimpleSlicesOfTwoAgain() {
-        let series = Series("37103")
-        XCTAssertEqualMultiArray([[3, 7], [7, 1], [1, 0], [0, 3]], series.slices(2))
-    }
+  func testSlicesOfTwoOverlap() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let series = Series("9142")
+    XCTAssertEqual(try! series.slice(2), ["91", "14", "42"])
+  }
 
-    func testSimpleSlicesOfThree() {
-        let series = Series("01234")
-        XCTAssertEqualMultiArray([[0, 1, 2], [1, 2, 3], [2, 3, 4]], series.slices(3))
-    }
+  func testSlicesCanIncludeDuplicates() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let series = Series("777777")
+    XCTAssertEqual(try! series.slice(3), ["777", "777", "777", "777"])
+  }
 
-    func testSimpleSlicesOfThreeAgain() {
-        let series = Series("31001")
-        XCTAssertEqualMultiArray([[3, 1, 0], [1, 0, 0], [0, 0, 1]], series.slices(3))
-    }
+  func testSlicesOfALongSeries() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let series = Series("918493904243")
+    XCTAssertEqual(
+      try! series.slice(5),
+      ["91849", "18493", "84939", "49390", "93904", "39042", "90424", "04243"])
+  }
 
-    func testOtherSlicesOfThree() {
-        let series = Series("982347")
-        let expected = [[9, 8, 2], [8, 2, 3], [2, 3, 4], [3, 4, 7]]
-        XCTAssertEqualMultiArray(expected, series.slices(3))
+  func testSliceLengthIsTooLarge() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let series = Series("12345")
+    XCTAssertThrowsError(try series.slice(6)) { error in
+      XCTAssertEqual(error as? SeriesError, SeriesError.sliceLengthLongerThanSeries)
     }
+  }
 
-    func testSimpleSlicesOfFour() {
-        let series = Series("01234")
-        XCTAssertEqualMultiArray([[0, 1, 2, 3], [1, 2, 3, 4]], series.slices(4))
+  func testSliceLengthIsWayTooLarge() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let series = Series("12345")
+    XCTAssertThrowsError(try series.slice(42)) { error in
+      XCTAssertEqual(error as? SeriesError, SeriesError.sliceLengthLongerThanSeries)
     }
+  }
 
-    func testSimpleSlicesOfFourAgain() {
-        let series = Series("91274")
-        XCTAssertEqualMultiArray([[9, 1, 2, 7], [1, 2, 7, 4]], series.slices(4))
+  func testSliceLengthCannotBeZero() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let series = Series("12345")
+    XCTAssertThrowsError(try series.slice(0)) { error in
+      XCTAssertEqual(error as? SeriesError, SeriesError.sliceLengthZeroOrLess)
     }
+  }
 
-    func testSimpleSlicesOfFive() {
-        let series = Series("01234")
-        XCTAssertEqualMultiArray([[0, 1, 2, 3, 4]], series.slices(5))
+  func testSliceLengthCannotBeNegative() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let series = Series("123")
+    XCTAssertThrowsError(try series.slice(-1)) { error in
+      XCTAssertEqual(error as? SeriesError, SeriesError.sliceLengthZeroOrLess)
     }
+  }
 
-    func testSimpleSlicesOfFiveAgain() {
-        let series = Series("81228")
-        XCTAssertEqualMultiArray([[8, 1, 2, 2, 8]], series.slices(5))
+  func testEmptySeriesIsInvalid() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let series = Series("")
+    XCTAssertThrowsError(try series.slice(1)) { error in
+      XCTAssertEqual(error as? SeriesError, SeriesError.emptySeries)
     }
-
-    func testSimpleSliceThatBlowsUp() {
-        let series = Series("01234")
-        XCTAssertEqualMultiArray([], series.slices(6))
-    }
-
-    func testMoreComplicatedSliceThatBlowsUp() {
-        let sliceString = "01032987583"
-        let series = Series(sliceString)
-        XCTAssertEqualMultiArray([], series.slices(12))
-    }
+  }
 }
