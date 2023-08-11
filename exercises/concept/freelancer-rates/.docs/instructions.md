@@ -44,7 +44,8 @@ Implement the function `workdaysIn(budget:hourlyRate:withDiscount:)`, that takes
 - `budget` which holds the budget for the project.
 - `hourlyRate` which holds the freelancers hourly rate.
 - `withDiscount` which holds the discount the freelancer is willing to give to the client.
-The function should return the number of workdays the freelancer will work on the project rounded up.
+
+The function should return the number of workdays the freelancer will work on the project rounded down.
 
 ```swift
 workdaysIn(budget: 20000, hourlyRate: 80, withDiscount: 11.0)
