@@ -44,15 +44,15 @@ lose(powerUpActive: false, touchingEagle: true)
 
 ## 4. Define if bird wins
 
-Define the `win(HasPickedUpAllSeeds:powerUpActive:touchingEagle:)` function that takes the arguments:
+Define the `win(hasPickedUpAllSeeds:powerUpActive:touchingEagle:)` function that takes the arguments:
 
-- `HasPickedUpAllSeeds` if the bird has picked up all of the seeds.
+- `hasPickedUpAllSeeds` if the bird has picked up all of the seeds.
 - `powerUpActive` if the bird has a power-up active.
 - `touchingEagle` if the bird is an eagle.
 
 The function should return `true` if the bird has gathered all of the seeds and has not lost based on the arguments defined in part 3, and return `false` otherwise.
 
 ```Swift
-win(HasPickedUpAllSeeds: false, powerUpActive: true, touchingEagle: false)
+win(hasPickedUpAllSeeds: false, powerUpActive: true, touchingEagle: false)
 // Returns false
 ```
