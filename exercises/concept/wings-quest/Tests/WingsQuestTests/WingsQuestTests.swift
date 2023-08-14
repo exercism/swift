@@ -97,21 +97,21 @@ class TaskWin: XCTestCase {
   func testWin() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertTrue(
-      win(HasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: false)
+      win(hasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: false)
     )
   }
 
   func testDontWinIfLost() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertFalse(
-      win(HasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: true)
+      win(hasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: true)
     )
   }
 
   func testWinIfPickedUpAllSeedsAndTouchingOtherBird() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertFalse(
-      win(HasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: true)
+      win(hasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: true)
     )
   }
 }
