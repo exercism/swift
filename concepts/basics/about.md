@@ -77,7 +77,7 @@ let explicitConstant: Int = 10 // Explicitly typed constant
 
 ### Addition & Subtraction & Multiplication
 
-Swift has [operators][operators] for addition, subtraction, and multiplication.
+Swift has [operators][arithmetical-operators] for addition, subtraction, and multiplication.
 The operators are `+`, `-`, and `*` respectively.
   
 ```swift
@@ -101,7 +101,7 @@ func functionName(argumentName parameterName: ArgumentType) -> ReturnType {
 }
 ```
 
-Swift arguments are a bit special compared to other languages, they use [argument labels][argument labels].
+Swift arguments are a bit special compared to other languages, they use [argument labels][argumment-labels].
 The argument label is used when calling the function.
 The parameter name is used inside the function body to refer to the argument value.
 If you only assign one name to the argument it will be used as both the argument label and the parameter name.
@@ -144,3 +144,4 @@ Single line comments are preceded by `//` and multiline comments are inserted be
 [type-infering]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Type-Safety-and-Type-Inference
 [functions]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Defining-and-Calling-Functions
 [arithmetical-operators]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Arithmetic-Operators
+[argumment-labels]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Function-Argument-Labels-and-Parameter-Names
