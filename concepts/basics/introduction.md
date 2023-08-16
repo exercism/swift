@@ -105,7 +105,7 @@ functionName(argumentLabel: argumentValue)
 ```
 
 All arguments are immutable by default and can't be changed inside the function.
-When a function has a return type most be sure to return a value of that type.
+When a function has a return type be sure to return a value of that type.
 That is done by using the `return` keyword followed by the value to return.
 
 ```swift
