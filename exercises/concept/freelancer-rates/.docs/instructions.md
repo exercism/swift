@@ -27,7 +27,7 @@ There is in total  **_22 workdays_**.
 Help the freelancer calculate their monthly rate given their hourly rate and the discount they are willing to give, rounded to the nearest whole number.
 
 Implement the function `monthlyRateFrom(hourlyRate:withDiscount:)`, that takes the arguments `hourlyRate` which holds the freelancers hourly rate, and `withDiscount` which holds the discount the freelancer is willing to give to the client.
-The function should return the monthly rate rounded down.
+The function should return the monthly rate rounded to the nearest whole number.
 
 ```swift
 monthlyRateFrom(hourlyRate: 77, withDiscount: 10.5)
