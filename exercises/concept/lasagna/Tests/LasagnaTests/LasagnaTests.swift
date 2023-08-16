@@ -2,7 +2,7 @@ import XCTest
 
 @testable import Lasagna
 
-let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "true"]) ?? true
+let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
 class TaskExpectedMinutesInOvenTests: XCTestCase {
   func testExpectedMinutes() {
