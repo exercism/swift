@@ -1,25 +1,15 @@
 struct GradeSchool {
-    var roster = [Int: [String]]()
+  var rosters = [Int: [String]]()
 
-    mutating func addStudent(_ name: String, grade: Int) {
-        if let students = roster[grade] {
-            var students = students
-            students.append(name)
-            roster[grade] = students
-        } else {
-            roster[grade] = [name]
-        }
-    }
+  mutating func addStudent(_ name: String, grade: Int) {
+    
+  }
 
-    func studentsInGrade(_ grade: Int) -> [String] {
-        return roster[grade] ?? [String]()
-    }
+  func studentsInGrade(_ grade: Int) -> [String] {
+    return rosters[grade] ?? [String]()
+  }
 
-    var sortedRoster: [Int: [String]] {
-        var sortedRoster = [Int: [String]](minimumCapacity: roster.count)
-        for (grade, students) in roster {
-            sortedRoster[grade] = students.sorted()
-        }
-        return sortedRoster
-    }
+  func roster() -> [String] {
+    return rosters.keys.sorted().flatMap { rosters[$0] ?? [String]() }
+  }
 }

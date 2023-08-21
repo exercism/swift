@@ -1,90 +1,201 @@
 import XCTest
+
 @testable import GradeSchool
 
 class GradeSchoolTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func sameArray(_ result: [String]?, _ expected: [String]? ) -> Bool {
-        guard let result = result, let expected = expected else { return false }
-        return result == expected
-    }
+  func testRosterIsEmptyWhenNoStudentIsAdded() {
+    var school = GradeSchool()
 
-    func XCTAssertEqualArray (_ result: [String]?, _ expected: [String]? ) {
-        XCTAssertTrue(sameArray(expected, result))
-    }
+    XCTAssertEqual(school.roster(), [])
+  }
 
-    func testAnEmptySchool() {
-        let school   = GradeSchool()
-        let result   = school.roster
-        XCTAssertTrue(result.isEmpty)
-    }
+  func testAddAStudent() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
 
-    func testAddStudent() {
-        var school = GradeSchool()
-        school.addStudent("Aimee", grade: 2)
-        let result = school.roster
-        let expected: Dictionary = [2: ["Aimee"]]
-        XCTAssertEqual(Array(result.keys), Array(expected.keys))
-        XCTAssertEqualArray(result[2], expected[2])
-    }
+    XCTAssertTrue(school.addStudent("Aimee", grade: 2))
+  }
 
-    func testAddMoreStudentsInSameClass() {
-        var school = GradeSchool()
-        school.addStudent("Fred", grade: 2)
-        school.addStudent("James", grade: 2)
-        school.addStudent("Paul", grade: 2)
-        let result   = school.roster
-        let expected = [2: ["Fred", "James", "Paul"]]
-        XCTAssertEqual(Array(result.keys), Array(expected.keys))
-        XCTAssertEqualArray(result[2], expected[2])
-    }
+  func testStudentIsAddedToTheRoster() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Aimee", grade: 2)
 
-    func testAddStudentsToDifferentGrades() {
-        var school = GradeSchool()
-        school.addStudent("Chelsea", grade:3)
-        school.addStudent("Logan", grade: 7)
-        let result = school.roster
-        let expected = [3: ["Chelsea"], 7: ["Logan"]]
-        XCTAssertEqual(Array(result.keys).sorted(by: >), Array(expected.keys).sorted(by: >))
+    XCTAssertEqual(school.roster(), ["Aimee"])
+  }
 
-        XCTAssertEqualArray(result[3], expected[3])
-    }
+  func testAddingMultipleStudentsInTheSameGradeInTheRoster() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
 
-    func testGetStudentsInAGrade() {
-        var school = GradeSchool()
-        school.addStudent("Franklin", grade: 5)
-        school.addStudent("Bradley", grade: 5)
-        school.addStudent("Jeff", grade: 1)
-        let result   = school.studentsInGrade(5)
-        let expected = ["Franklin", "Bradley"]
-        XCTAssertEqual(result, expected)
-    }
+    XCTAssertTrue(school.addStudent("Blair", grade: 2))
+    XCTAssertTrue(school.addStudent("James", grade: 2))
+    XCTAssertTrue(school.addStudent("Paul", grade: 2))
+  }
 
-    func testGetStudentsInANonExistantGrade() {
-        let school = GradeSchool()
-        let result = school.studentsInGrade(1)
+  func testMultipleStudentsInTheSameGradeAreAddedToTheRoster() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Blair", grade: 2)
+    school.addStudent("James", grade: 2)
+    school.addStudent("Paul", grade: 2)
 
-        let expected = [String]()
-        XCTAssertEqual(result, expected)
-    }
+    XCTAssertEqual(school.roster(), ["Blair", "James", "Paul"])
+  }
 
-    func testSortSchool() {
-        var school = GradeSchool()
-        school.addStudent("Jennifer", grade: 4)
-        school.addStudent("Kareem", grade: 6)
-        school.addStudent("Christopher", grade: 4)
-        school.addStudent("Kyle", grade: 3)
-        let result = school.sortedRoster
+  func testCannotAddStudentToSameGradeInTheRosterMoreThanOnce() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
 
-        let expected = [
-            3: ["Kyle"],
-            4: ["Christopher", "Jennifer"],
-            6: ["Kareem"]
-        ]
+    XCTAssertTrue(school.addStudent("Blair", grade: 2))
+    XCTAssertTrue(school.addStudent("James", grade: 2))
+    XCTAssertFalse(school.addStudent("James", grade: 2))
+    XCTAssertTrue(school.addStudent("Paul", grade: 2))
+  }
 
-        XCTAssertEqual(Array(result.keys).sorted(by: >), Array(expected.keys).sorted(by: >))
+  func testStudentNotAddedToSameGradeInTheRosterMoreThanOnce() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Blair", grade: 2)
+    school.addStudent("James", grade: 2)
+    school.addStudent("James", grade: 2)
+    school.addStudent("Paul", grade: 2)
 
-        XCTAssertEqualArray(result[3], expected[3])
-        XCTAssertEqualArray(result[4], expected[4])
-        XCTAssertEqualArray(result[6], expected[6])
-    }
+    XCTAssertEqual(school.roster(), ["Blair", "James", "Paul"])
+  }
+
+  func testAddingStudentsInMultipleGrades() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+
+    XCTAssertTrue(school.addStudent("Chelsea", grade: 3))
+    XCTAssertTrue(school.addStudent("Logan", grade: 7))
+  }
+
+  func testStudentsInMultipleGradesAreAddedToTheRoster() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Chelsea", grade: 3)
+    school.addStudent("Logan", grade: 7)
+
+    XCTAssertEqual(school.roster(), ["Chelsea", "Logan"])
+  }
+
+  func testCannotAddSameStudentToMultipleGradesInTheRoster() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+
+    XCTAssertTrue(school.addStudent("Blair", grade: 2))
+    XCTAssertTrue(school.addStudent("James", grade: 2))
+    XCTAssertFalse(school.addStudent("James", grade: 3))
+    XCTAssertTrue(school.addStudent("Paul", grade: 3))
+  }
+
+  func testStudentNotAddedToMultipleGradesInTheRoster() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Blair", grade: 2)
+    school.addStudent("James", grade: 2)
+    school.addStudent("James", grade: 3)
+    school.addStudent("Paul", grade: 3)
+
+    XCTAssertEqual(school.roster(), ["Blair", "James", "Paul"])
+  }
+
+  func testStudentsAreSortedByGradesInTheRoster() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Jim", grade: 3)
+    school.addStudent("Peter", grade: 2)
+    school.addStudent("Anna", grade: 1)
+
+    XCTAssertEqual(school.roster(), ["Anna", "Peter", "Jim"])
+  }
+
+  func testStudentsAreSortedByNameInTheRoster() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Peter", grade: 2)
+    school.addStudent("Zoe", grade: 2)
+    school.addStudent("Alex", grade: 2)
+
+    XCTAssertEqual(school.roster(), ["Alex", "Peter", "Zoe"])
+  }
+
+  func testStudentsAreSortedByGradesAndThenByNameInTheRoster() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Peter", grade: 2)
+    school.addStudent("Anna", grade: 1)
+    school.addStudent("Barb", grade: 1)
+    school.addStudent("Zoe", grade: 2)
+    school.addStudent("Alex", grade: 2)
+    school.addStudent("Jim", grade: 3)
+    school.addStudent("Charlie", grade: 1)
+
+    XCTAssertEqual(school.roster(), ["Anna", "Barb", "Charlie", "Alex", "Peter", "Zoe", "Jim"])
+  }
+
+  func testGradeIsEmptyIfNoStudentsInTheRoster() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+
+    XCTAssertEqual(school.studentsInGrade(1), [])
+  }
+
+  func testGradeIsEmptyIfNoStudentsInThatGrade() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Peter", grade: 2)
+    school.addStudent("Zoe", grade: 2)
+    school.addStudent("Alex", grade: 2)
+    school.addStudent("Jim", grade: 3)
+
+    XCTAssertEqual(school.studentsInGrade(1), [])
+  }
+
+  func testStudentNotAddedToSameGradeMoreThanOnce() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Blair", grade: 2)
+    school.addStudent("James", grade: 2)
+    school.addStudent("James", grade: 2)
+    school.addStudent("Paul", grade: 2)
+
+    XCTAssertEqual(school.studentsInGrade(2), ["Blair", "James", "Paul"])
+  }
+
+  func testStudentNotAddedToMultipleGrades() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Blair", grade: 2)
+    school.addStudent("James", grade: 2)
+    school.addStudent("James", grade: 3)
+    school.addStudent("Paul", grade: 3)
+
+    XCTAssertEqual(school.studentsInGrade(2), ["Blair", "James"])
+  }
+
+  func testStudentNotAddedToOtherGradeForMultipleGrades() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Blair", grade: 2)
+    school.addStudent("James", grade: 2)
+    school.addStudent("James", grade: 3)
+    school.addStudent("Paul", grade: 3)
+
+    XCTAssertEqual(school.studentsInGrade(3), ["Paul"])
+  }
+
+  func testStudentsAreSortedByNameInAGrade() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var school = GradeSchool()
+    school.addStudent("Franklin", grade: 5)
+    school.addStudent("Bradley", grade: 5)
+    school.addStudent("Jeff", grade: 1)
+
+    XCTAssertEqual(school.studentsInGrade(5), ["Bradley", "Franklin"])
+  }
 }
