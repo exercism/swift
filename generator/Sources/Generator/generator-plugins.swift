@@ -183,6 +183,20 @@ class GeneratorPlugins {
       return nil
     }
 
+    ext.registerFilter("toEnumArray") { (value: Any?) in
+      if let inputArray = value as? [String] {
+        guard !inputArray.isEmpty else { return "[]" }
+        var output = "["
+        for element in inputArray {
+          output += ".\(element), "
+        }
+        output.removeLast(2)
+        output += "]"
+        return output
+      }
+      return nil
+    }
+
     let environment = Environment(extensions: [ext])
     return environment
   }

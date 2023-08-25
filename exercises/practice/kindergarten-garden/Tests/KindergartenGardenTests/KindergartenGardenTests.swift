@@ -1,108 +1,108 @@
 import XCTest
+
 @testable import KindergartenGarden
 
 class KindergartenGardenTests: XCTestCase {
-    private let fullGarden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
-    private let disorderedGarden = Garden("VCRRGVRG\nRVGCCGCV", children: ["Samantha", "Patricia", "Xander", "Roger"])
-    private static let diagram = "VCRRGVRG\nRVGCCGCV"
-    private let garden1 = Garden(diagram, children: ["Alice", "Bob", "Charlie", "Dan"])
-    private let garden2 = Garden(diagram, children: ["Bob", "Charlie", "Dan", "Erin"])
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testAlicesGarden() {
-        let garden = Garden("RC\nGG")
-        XCTAssertEqual([.radishes, .clover, .grass, .grass], garden.plantsForChild("Alice"))
-    }
+  func testGardenWithSingleStudent() {
+    let garden = Garden("RC\nGG")
+    XCTAssertEqual(garden.plantsForChild("Alice"), [.radishes, .clover, .grass, .grass])
+  }
 
-    func testDifferentGardenForAlice() {
-        let garden = Garden("VC\nRC")
-        XCTAssertEqual([.violets, .clover, .radishes, .clover], garden.plantsForChild("Alice"))
-    }
+  func testDifferentGardenWithSingleStudent() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VC\nRC")
+    XCTAssertEqual(garden.plantsForChild("Alice"), [.violets, .clover, .radishes, .clover])
+  }
 
-    func testBobsGarden() {
-        let garden = Garden("VVCG\nVVRC")
-        XCTAssertEqual([.clover, .grass, .radishes, .clover], garden.plantsForChild("Bob"))
-    }
+  func testGardenWithTwoStudents() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VVCG\nVVRC")
+    XCTAssertEqual(garden.plantsForChild("Bob"), [.clover, .grass, .radishes, .clover])
+  }
 
-    func testBobAndCharliesGardens() {
-        let garden = Garden("VVCCGG\nVVCCGG")
-        XCTAssertEqual([.clover, .clover, .clover, .clover], garden.plantsForChild("Bob"))
-        XCTAssertEqual([.grass, .grass, .grass, .grass], garden.plantsForChild("Charlie"))
-    }
+  func testSecondStudentsGarden() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VVCCGG\nVVCCGG")
+    XCTAssertEqual(garden.plantsForChild("Bob"), [.clover, .clover, .clover, .clover])
+  }
 
-    // MARK: - Test full garden
+  func testThirdStudentsGarden() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VVCCGG\nVVCCGG")
+    XCTAssertEqual(garden.plantsForChild("Charlie"), [.grass, .grass, .grass, .grass])
+  }
 
-    func testAlice() {
-        XCTAssertEqual([.violets, .radishes, .violets, .radishes], fullGarden.plantsForChild("Alice"))
-    }
+  func testForAliceFirstStudentsGarden() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Alice"), [.violets, .radishes, .violets, .radishes])
+  }
 
-    func testBob() {
-        XCTAssertEqual([.clover, .grass, .clover, .clover], fullGarden.plantsForChild("Bob"))
-    }
+  func testForBobSecondStudentsGarden() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Bob"), [.clover, .grass, .clover, .clover])
+  }
 
-    func testCharlie() {
-        XCTAssertEqual([.violets, .violets, .clover, .grass], fullGarden.plantsForChild("Charlie"))
-    }
+  func testForCharlie() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Charlie"), [.violets, .violets, .clover, .grass])
+  }
 
-    func testDavid() {
-        XCTAssertEqual([.radishes, .violets, .clover, .radishes], fullGarden.plantsForChild("David"))
-    }
+  func testForDavid() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("David"), [.radishes, .violets, .clover, .radishes])
+  }
 
-    func testEve() {
-        XCTAssertEqual([.clover, .grass, .radishes, .grass], fullGarden.plantsForChild("Eve"))
-    }
+  func testForEve() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Eve"), [.clover, .grass, .radishes, .grass])
+  }
 
-    func testFred() {
-        XCTAssertEqual([.grass, .clover, .violets, .clover], fullGarden.plantsForChild("Fred"))
-    }
+  func testForFred() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Fred"), [.grass, .clover, .violets, .clover])
+  }
 
-    func testGinny() {
-        XCTAssertEqual([.clover, .grass, .grass, .clover], fullGarden.plantsForChild("Ginny"))
-    }
+  func testForGinny() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Ginny"), [.clover, .grass, .grass, .clover])
+  }
 
-    func testHarriet() {
-        XCTAssertEqual([.violets, .radishes, .radishes, .violets], fullGarden.plantsForChild("Harriet"))
-    }
+  func testForHarriet() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Harriet"), [.violets, .radishes, .radishes, .violets])
+  }
 
-    func testIleana() {
-        XCTAssertEqual([.grass, .clover, .violets, .clover], fullGarden.plantsForChild("Ileana"))
-    }
+  func testForIleana() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Ileana"), [.grass, .clover, .violets, .clover])
+  }
 
-    func testJoseph() {
-        XCTAssertEqual([.violets, .clover, .violets, .grass], fullGarden.plantsForChild("Joseph"))
-    }
+  func testForJoseph() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Joseph"), [.violets, .clover, .violets, .grass])
+  }
 
-    func testKincaid() {
-        XCTAssertEqual([.grass, .clover, .clover, .grass], fullGarden.plantsForChild("Kincaid"))
-    }
+  func testForKincaidSecondToLastStudentsGarden() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Kincaid"), [.grass, .clover, .clover, .grass])
+  }
 
-    func testLarry() {
-        XCTAssertEqual([.grass, .violets, .clover, .violets], fullGarden.plantsForChild("Larry"))
-    }
-
-    // MARK: - Test disordered garden
-
-    func testPatricia() {
-        XCTAssertEqual([.violets, .clover, .radishes, .violets], disorderedGarden.plantsForChild("Patricia"))
-    }
-
-    func testRoger() {
-        XCTAssertEqual([.radishes, .radishes, .grass, .clover], disorderedGarden.plantsForChild("Roger"))
-    }
-
-    func testSamantha() {
-        XCTAssertEqual([.grass, .violets, .clover, .grass], disorderedGarden.plantsForChild("Samantha"))
-    }
-
-    func testXander() {
-        XCTAssertEqual([.radishes, .grass, .clover, .violets], disorderedGarden.plantsForChild("Xander"))
-    }
-
-    // MARK: - Test two gardens, different students
-
-    func testBobAndCharliePerGarden() {
-        XCTAssertEqual([.radishes, .radishes, .grass, .clover], garden1.plantsForChild("Bob"))
-        XCTAssertEqual([.violets, .clover, .radishes, .violets], garden2.plantsForChild("Bob"))
-        XCTAssertEqual([.grass, .violets, .clover, .grass], garden1.plantsForChild("Charlie"))
-        XCTAssertEqual([.radishes, .radishes, .grass, .clover], garden2.plantsForChild("Charlie"))
-    }
+  func testForLarryLastStudentsGarden() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let garden = Garden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV")
+    XCTAssertEqual(garden.plantsForChild("Larry"), [.grass, .violets, .clover, .violets])
+  }
 }
