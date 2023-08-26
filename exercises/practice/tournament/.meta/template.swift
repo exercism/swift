@@ -3,6 +3,8 @@ import XCTest
 class {{exercise|camelCase}}Tests: XCTestCase {
     let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+    private var tournament: Tournament!
+
     override func setUp() {
         tournament = Tournament()
     }
