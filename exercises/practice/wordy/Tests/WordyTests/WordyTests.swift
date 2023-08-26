@@ -1,69 +1,137 @@
 import XCTest
+
 @testable import Wordy
 
 class WordyTests: XCTestCase {
-    func testAdd1() {
-        XCTAssertEqual(2, try? WordProblem("What is 1 plus 1?").answer())
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+  func testJustANumber() {
+    XCTAssertEqual(try! wordyAnswer("What is 5?"), 5)
+  }
+
+  func testAddition() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is 1 plus 1?"), 2)
+  }
+
+  func testMoreAddition() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is 53 plus 2?"), 55)
+  }
+
+  func testAdditionWithNegativeNumbers() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is -1 plus -10?"), -11)
+  }
+
+  func testLargeAddition() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is 123 plus 45678?"), 45801)
+  }
+
+  func testSubtraction() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is 4 minus -12?"), 16)
+  }
+
+  func testMultiplication() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is -3 multiplied by 25?"), -75)
+  }
+
+  func testDivision() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is 33 divided by -3?"), -11)
+  }
+
+  func testMultipleAdditions() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is 1 plus 1 plus 1?"), 3)
+  }
+
+  func testAdditionAndSubtraction() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is 1 plus 5 minus -2?"), 8)
+  }
+
+  func testMultipleSubtraction() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is 20 minus 4 minus 13?"), 3)
+  }
+
+  func testSubtractionThenAddition() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is 17 minus 6 plus 3?"), 14)
+  }
+
+  func testMultipleMultiplication() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is 2 multiplied by -2 multiplied by 3?"), -12)
+  }
+
+  func testAdditionAndMultiplication() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is -3 plus 7 multiplied by -2?"), -8)
+  }
+
+  func testMultipleDivision() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(try! wordyAnswer("What is -12 divided by 2 divided by -3?"), 2)
+  }
+
+  func testUnknownOperation() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try wordyAnswer("What is 52 cubed?")) { error in
+      XCTAssertEqual(error as? WordyError, .syntaxError)
     }
+  }
 
-    func testAdd2() {
-        XCTAssertEqual(55, try? WordProblem("What is 53 plus 2?").answer())
+  func testNonMathQuestion() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try wordyAnswer("Who is the President of the United States?")) { error in
+      XCTAssertEqual(error as? WordyError, .syntaxError)
     }
+  }
 
-    func testAddNegativeNumbers() {
-        XCTAssertEqual(-11, try? WordProblem("What is -1 plus -10?").answer()) }
-
-    func testAddMoreDigits() {
-        XCTAssertEqual(45_801, try? WordProblem("What is 123 plus 45678?").answer())
+  func testRejectProblemMissingAnOperand() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try wordyAnswer("What is 1 plus?")) { error in
+      XCTAssertEqual(error as? WordyError, .syntaxError)
     }
+  }
 
-    func testSubtract() {
-        XCTAssertEqual(16, try? WordProblem("What is 4 minus -12?").answer())
+  func testRejectProblemWithNoOperandsOrOperators() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try wordyAnswer("What is?")) { error in
+      XCTAssertEqual(error as? WordyError, .syntaxError)
     }
+  }
 
-    func testMultiply() {
-        XCTAssertEqual(-75, try? WordProblem("What is -3 multiplied by 25?").answer()) }
-
-    func testDivide() {
-        XCTAssertEqual(-11, try? WordProblem("What is 33 divided by -3?").answer()) }
-
-    func testAddTwice() {
-        let question = "What is 1 plus 1 plus 1?"
-        XCTAssertEqual(3, try? WordProblem(question).answer())
+  func testRejectTwoOperationsInARow() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try wordyAnswer("What is 1 plus plus 2?")) { error in
+      XCTAssertEqual(error as? WordyError, .syntaxError)
     }
+  }
 
-    func testAddThenSubtract() {
-        let question = "What is 1 plus 5 minus -2?"
-        XCTAssertEqual(8, try? WordProblem(question).answer())
+  func testRejectTwoNumbersInARow() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try wordyAnswer("What is 1 plus 2 1?")) { error in
+      XCTAssertEqual(error as? WordyError, .syntaxError)
     }
+  }
 
-    func testSubtractTwice() {
-        let question = "What is 20 minus 4 minus 13?"
-        XCTAssertEqual(3, try? WordProblem(question).answer())
+  func testRejectPostfixNotation() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try wordyAnswer("What is 1 2 plus?")) { error in
+      XCTAssertEqual(error as? WordyError, .syntaxError)
     }
+  }
 
-    func testSubtractThenAdd() {
-        let question = "What is 17 minus 6 plus 3?"
-        XCTAssertEqual(14, try? WordProblem(question).answer())
+  func testRejectPrefixNotation() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try wordyAnswer("What is plus 1 2?")) { error in
+      XCTAssertEqual(error as? WordyError, .syntaxError)
     }
-
-    func testMultiplyTwice() {
-        let question = "What is 2 multiplied by -2 multiplied by 3?"
-        XCTAssertEqual(-12, try? WordProblem(question).answer()) }
-
-    func testAddThenMultiply() {
-        let question = "What is -3 plus 7 multiplied by -2?"
-        XCTAssertEqual(-8, try? WordProblem(question).answer()) }
-
-    func testDivideTwice() {
-        let question = "What is -12 divided by 2 divided by -3?"
-        XCTAssertEqual(2, try? WordProblem(question).answer())
-    }
-
-    func testTooAdvanced() {
-        XCTAssertNil(try? WordProblem("What is 53 cubed?").answer())
-    }
-
-    func testIrrelevant() {
-        XCTAssertNil(try? WordProblem("Who is the president of the United States?").answer()) }
+  }
 }
