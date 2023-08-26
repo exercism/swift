@@ -1,40 +1,19 @@
-struct PascalsTriangle {
+func pascalsTriangle(rows: Int) -> [[Int]] {
+  var triangle = [[Int]]()
 
-    let rows: [[Int]]
-
-    init(_ numberOfRows: Int) {
-        var triangle = [[Int]]()
-
-        for rowNumber in 0..<numberOfRows {
-            var values = [Int]()
-            if rowNumber == 0 {
-                values.append(1)
-            } else {
-                let lastRow = triangle[rowNumber - 1]
-                let length = lastRow.count
-
-                for position in 0...length {
-                    let left: Int
-                    if position == 0 {
-                        left = 0
-                    } else {
-                        left = lastRow[position - 1]
-                    }
-
-                    let right: Int
-                    if position < length {
-                        right = lastRow[position]
-                    } else {
-                        right = 0
-                    }
-
-                    values.append(left + right)
-                }
-            }
-            triangle.append(values)
-        }
-
-        self.rows = triangle
+  for row in 0..<rows {
+    var currentRow = [Int]()
+    for col in 0...row {
+      if col == 0 || col == row {
+        currentRow.append(1)
+      } else {
+        let left = triangle[row - 1][col - 1]
+        let right = triangle[row - 1][col]
+        currentRow.append(left + right)
+      }
     }
+    triangle.append(currentRow)
+  }
 
+  return triangle
 }

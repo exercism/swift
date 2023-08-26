@@ -145,6 +145,15 @@ class GeneratorPlugins {
       return nil
     }
 
+    ext.registerFilter("extractCountKey") { (value: Any?) in
+      if let inputDictionary = value as? [String: Any] {
+        if let count = inputDictionary["count"] as? Int {
+          return count
+        }
+      }
+      return nil
+    }
+
     ext.registerFilter("toNilArray") { (value: Any?) in
       func replaceValuesWithNil(_ array: [Any?]) -> [Any?] {
         var result = [Any?]()
