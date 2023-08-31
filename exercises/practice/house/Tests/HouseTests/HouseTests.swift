@@ -1,100 +1,116 @@
 import XCTest
+
 @testable import House
 
 class HouseTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testRhyme() {
-        let expected =
-            "This is the house that Jack built.\n\n" +
+  func testVerseOneTheHouseThatJackBuilt() {
+    let expected = "This is the house that Jack built."
+    XCTAssertEqual(House.recite(start: 1, end: 1), expected)
+  }
 
-                "This is the malt\n" +
-                "that lay in the house that Jack built.\n\n" +
+  func testVerseTwoTheMaltThatLay() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected = "This is the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 2, end: 2), expected)
+  }
 
-                "This is the rat\n" +
-                "that ate the malt\n" +
-                "that lay in the house that Jack built.\n\n" +
+  func testVerseThreeTheRatThatAte() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected = "This is the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 3, end: 3), expected)
+  }
 
-                "This is the cat\n" +
-                "that killed the rat\n" +
-                "that ate the malt\n" +
-                "that lay in the house that Jack built.\n\n" +
+  func testVerseFourTheCatThatKilled() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 4, end: 4), expected)
+  }
 
-                "This is the dog\n" +
-                "that worried the cat\n" +
-                "that killed the rat\n" +
-                "that ate the malt\n" +
-                "that lay in the house that Jack built.\n\n" +
+  func testVerseFiveTheDogThatWorried() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 5, end: 5), expected)
+  }
 
-                "This is the cow with the crumpled horn\n" +
-                "that tossed the dog\n" +
-                "that worried the cat\n" +
-                "that killed the rat\n" +
-                "that ate the malt\n" +
-                "that lay in the house that Jack built.\n\n" +
+  func testVerseSixTheCowWithTheCrumpledHorn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 6, end: 6), expected)
+  }
 
-                "This is the maiden all forlorn\n" +
-                "that milked the cow with the crumpled horn\n" +
-                "that tossed the dog\n" +
-                "that worried the cat\n" +
-                "that killed the rat\n" +
-                "that ate the malt\n" +
-                "that lay in the house that Jack built.\n\n" +
+  func testVerseSevenTheMaidenAllForlorn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 7, end: 7), expected)
+  }
 
-                "This is the man all tattered and torn\n" +
-                "that kissed the maiden all forlorn\n" +
-                "that milked the cow with the crumpled horn\n" +
-                "that tossed the dog\n" +
-                "that worried the cat\n" +
-                "that killed the rat\n" +
-                "that ate the malt\n" +
-                "that lay in the house that Jack built.\n\n" +
+  func testVerseEightTheManAllTatteredAndTorn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 8, end: 8), expected)
+  }
 
-                "This is the priest all shaven and shorn\n" +
-                "that married the man all tattered and torn\n" +
-                "that kissed the maiden all forlorn\n" +
-                "that milked the cow with the crumpled horn\n" +
-                "that tossed the dog\n" +
-                "that worried the cat\n" +
-                "that killed the rat\n" +
-                "that ate the malt\n" +
-                "that lay in the house that Jack built.\n\n" +
+  func testVerseNineThePriestAllShavenAndShorn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 9, end: 9), expected)
+  }
 
-                "This is the rooster that crowed in the morn\n" +
-                "that woke the priest all shaven and shorn\n" +
-                "that married the man all tattered and torn\n" +
-                "that kissed the maiden all forlorn\n" +
-                "that milked the cow with the crumpled horn\n" +
-                "that tossed the dog\n" +
-                "that worried the cat\n" +
-                "that killed the rat\n" +
-                "that ate the malt\n" +
-                "that lay in the house that Jack built.\n\n" +
+  func testVerse10TheRoosterThatCrowedInTheMorn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 10, end: 10), expected)
+  }
 
-                "This is the farmer sowing his corn\n" +
-                "that kept the rooster that crowed in the morn\n" +
-                "that woke the priest all shaven and shorn\n" +
-                "that married the man all tattered and torn\n" +
-                "that kissed the maiden all forlorn\n" +
-                "that milked the cow with the crumpled horn\n" +
-                "that tossed the dog\n" +
-                "that worried the cat\n" +
-                "that killed the rat\n" +
-                "that ate the malt\n" +
-                "that lay in the house that Jack built.\n\n" +
+  func testVerse11TheFarmerSowingHisCorn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the farmer sowing his corn that kept the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 11, end: 11), expected)
+  }
 
-                "This is the horse and the hound and the horn\n" +
-                "that belonged to the farmer sowing his corn\n" +
-                "that kept the rooster that crowed in the morn\n" +
-                "that woke the priest all shaven and shorn\n" +
-                "that married the man all tattered and torn\n" +
-                "that kissed the maiden all forlorn\n" +
-                "that milked the cow with the crumpled horn\n" +
-                "that tossed the dog\n" +
-                "that worried the cat\n" +
-                "that killed the rat\n" +
-                "that ate the malt\n" +
-        "that lay in the house that Jack built."
+  func testVerse12TheHorseAndTheHoundAndTheHorn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the horse and the hound and the horn that belonged to the farmer sowing his corn that kept the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 12, end: 12), expected)
+  }
 
-        XCTAssertEqual(expected, House.recite())
-    }
+  func testMultipleVerses() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 4, end: 8), expected)
+  }
+
+  func testFullRhyme() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let expected =
+      "This is the house that Jack built.\n"
+      + "This is the malt that lay in the house that Jack built.\n"
+      + "This is the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the farmer sowing his corn that kept the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
+      + "This is the horse and the hound and the horn that belonged to the farmer sowing his corn that kept the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built."
+    XCTAssertEqual(House.recite(start: 1, end: 12), expected)
+  }
 }
