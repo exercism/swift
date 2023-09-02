@@ -1,158 +1,150 @@
 import XCTest
+
 @testable import RobotSimulator
 
 class RobotSimulatorTests: XCTestCase {
-    var robot = SimulatedRobot()
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testRobotBearingEast() {
-        robot.orient(.east)
-        XCTAssertEqual([.east], [robot.bearing])
-    }
+  func testAtOriginFacingNorth1() {
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .north)
+    robot.move(commands: "")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == 0 && state.bearing == .north)
+  }
 
-    func testRobotBearingWest() {
-        robot.orient(.west)
-        XCTAssertEqual([.west], [robot.bearing])
-    }
+  func testAtNegativePositionFacingSouth1() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: -1, y: -1, bearing: .south)
+    robot.move(commands: "")
+    let state = robot.state
+    XCTAssertTrue(state.x == -1 && state.y == -1 && state.bearing == .south)
+  }
 
-    func testRobotBearingNorth() {
-        robot.orient(.north)
-        XCTAssertEqual([.north], [robot.bearing])
-    }
+  func testChangesNorthToEast2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .north)
+    robot.move(commands: "R")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == 0 && state.bearing == .east)
+  }
 
-    func testRobotBearingSouth() {
-        robot.orient(.south)
-        XCTAssertEqual([.south], [robot.bearing])
-    }
+  func testChangesEastToSouth2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .east)
+    robot.move(commands: "R")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == 0 && state.bearing == .south)
+  }
 
-    func testTurnRightFromNorth() {
-        robot.orient(.north)
-        robot.turnRight()
-        XCTAssertEqual([.east], [robot.bearing])
-    }
+  func testChangesSouthToWest2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .south)
+    robot.move(commands: "R")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == 0 && state.bearing == .west)
+  }
 
-    func testTurnRightFromEast() {
-        robot.orient(.east)
-        robot.turnRight()
-        XCTAssertEqual([.south], [robot.bearing])
-    }
+  func testChangesWestToNorth2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .west)
+    robot.move(commands: "R")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == 0 && state.bearing == .north)
+  }
 
-    func testTurnRightFromSouth() {
-        robot.orient(.south)
-        robot.turnRight()
-        XCTAssertEqual([.west], [robot.bearing])
-    }
+  func testChangesNorthToWest3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .north)
+    robot.move(commands: "L")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == 0 && state.bearing == .west)
+  }
 
-    func testTurnRightFromWest() {
-        robot.orient(.west)
-        robot.turnRight()
-        XCTAssertEqual([.north], [robot.bearing])
-    }
+  func testChangesWestToSouth3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .west)
+    robot.move(commands: "L")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == 0 && state.bearing == .south)
+  }
 
-    func testTurnLeftFromNorth() {
-        robot.orient(.north)
-        robot.turnLeft()
-        XCTAssertEqual([.west], [robot.bearing])
-    }
+  func testChangesSouthToEast3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .south)
+    robot.move(commands: "L")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == 0 && state.bearing == .east)
+  }
 
-    func testTurnLeftFromEast() {
-        robot.orient(.east)
-        robot.turnLeft()
-        XCTAssertEqual([.north], [robot.bearing])
-    }
+  func testChangesEastToNorth3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .east)
+    robot.move(commands: "L")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == 0 && state.bearing == .north)
+  }
 
-    func testTurnLeftFromSouth() {
-        robot.orient(.south)
-        robot.turnLeft()
-        XCTAssertEqual([.east], [robot.bearing])
-    }
+  func testFacingNorthIncrementsY4() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .north)
+    robot.move(commands: "A")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == 1 && state.bearing == .north)
+  }
 
-    func testTurnLeftFromWest() {
-        robot.orient(.west)
-        robot.turnLeft()
-        XCTAssertEqual([.south], [robot.bearing])
-    }
+  func testFacingSouthDecrementsY4() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .south)
+    robot.move(commands: "A")
+    let state = robot.state
+    XCTAssertTrue(state.x == 0 && state.y == -1 && state.bearing == .south)
+  }
 
-    func testRobotCoordinates() {
-        robot.at(x: 3, y: 0)
-        XCTAssertEqual([3, 0], robot.coordinates)
-    }
+  func testFacingEastIncrementsX4() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .east)
+    robot.move(commands: "A")
+    let state = robot.state
+    XCTAssertTrue(state.x == 1 && state.y == 0 && state.bearing == .east)
+  }
 
-    func testOtherRobotCoordinates() {
-        robot.at(x: -2, y: 5)
-        XCTAssertEqual([-2, 5], robot.coordinates)
-    }
+  func testFacingWestDecrementsX4() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .west)
+    robot.move(commands: "A")
+    let state = robot.state
+    XCTAssertTrue(state.x == -1 && state.y == 0 && state.bearing == .west)
+  }
 
-    func testAdvanceWhenFacingNorth() {
-        robot.at(x: 0, y: 0)
-        robot.orient(.north)
-        robot.advance()
-        XCTAssertEqual([0, 1], robot.coordinates)
-    }
+  func testMovingEastAndNorthFromReadme5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 7, y: 3, bearing: .north)
+    robot.move(commands: "RAALAL")
+    let state = robot.state
+    XCTAssertTrue(state.x == 9 && state.y == 4 && state.bearing == .west)
+  }
 
-    func testAdvanceWhenFacingEast() {
-        robot.at(x: 0, y: 0)
-        robot.orient(.east)
-        robot.advance()
-        XCTAssertEqual([1, 0], robot.coordinates)
-    }
+  func testMovingWestAndNorth5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 0, y: 0, bearing: .north)
+    robot.move(commands: "LAAARALA")
+    let state = robot.state
+    XCTAssertTrue(state.x == -4 && state.y == 1 && state.bearing == .west)
+  }
 
-    func testAdvanceWhenFacingSouth() {
-        robot.at(x: 0, y: 0)
-        robot.orient(.south)
-        robot.advance()
-        XCTAssertEqual([0, -1], robot.coordinates)
-    }
+  func testMovingWestAndSouth5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 2, y: -7, bearing: .east)
+    robot.move(commands: "RRAAAAALA")
+    let state = robot.state
+    XCTAssertTrue(state.x == -3 && state.y == -8 && state.bearing == .south)
+  }
 
-    func testAdvanceWhenFacingWest() {
-        robot.at(x: 0, y: 0)
-        robot.orient(.west)
-        robot.advance()
-        XCTAssertEqual([-1, 0], robot.coordinates)
-    }
-
-    func testInstructionForTurningLeft() {
-        XCTAssertEqual([.turnLeft], robot.instructions("L"))
-    }
-
-    func testInstructionForTurningRight() {
-        XCTAssertEqual([.turnRight], robot.instructions("R"))
-    }
-
-    func testInstructionForAdvancing() {
-        XCTAssertEqual([.advance], robot.instructions("A"))
-    }
-
-    func testSeriesOfInstructions() {
-        XCTAssertEqual([.turnRight, .advance, .advance, .turnLeft], robot.instructions("RAAL"))
-    }
-
-    func testInstructRobot() {
-        var robot = SimulatedRobot()
-        robot.place(x: -2, y: 1, direction: .east)
-        robot.evaluate("RLAALAL")
-
-        XCTAssertEqual([0, 2], robot.coordinates)
-        XCTAssertEqual([.west], [robot.bearing])
-    }
-
-    func testInstructManyRobots() {
-        var robot1 = SimulatedRobot()
-        var robot2 = SimulatedRobot()
-        var robot3 = SimulatedRobot()
-        robot1.place(x: 0, y: 0, direction: .north)
-        robot2.place(x: 2, y: -7, direction: .east)
-        robot3.place(x: 8, y: 4, direction: .south)
-        robot1.evaluate("LAAARALA")
-        robot2.evaluate("RRAAAAALA")
-        robot3.evaluate("LAAARRRALLLL")
-
-        XCTAssertEqual([-4, 1], robot1.coordinates)
-        XCTAssertEqual([.west], [robot1.bearing])
-
-        XCTAssertEqual([-3, -8], robot2.coordinates)
-        XCTAssertEqual([.south], [robot2.bearing])
-
-        XCTAssertEqual([11, 5], robot3.coordinates)
-        XCTAssertEqual([.north], [robot3.bearing])
-    }
+  func testMovingEastAndNorth5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var robot = SimulatedRobot(x: 8, y: 4, bearing: .south)
+    robot.move(commands: "LAAARRRALLLL")
+    let state = robot.state
+    XCTAssertTrue(state.x == 11 && state.y == 5 && state.bearing == .north)
+  }
 }

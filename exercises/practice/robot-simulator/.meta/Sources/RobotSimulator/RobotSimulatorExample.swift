@@ -1,4 +1,4 @@
-struct SimulatedRobot {
+class SimulatedRobot {
 
     enum Direction {
         case north
@@ -18,75 +18,68 @@ struct SimulatedRobot {
     var bearing: Direction = .north
     var x: Int = 0
     var y: Int = 0
-    var coordinates: [Int] {
-        return [x, y]
-    }
 
-    mutating func orient(_ bearing: Direction) {
+    init(x: Int, y: Int, bearing: Direction) {
+        self.x = x
+        self.y = y
         self.bearing = bearing
     }
 
-    mutating func turnRight() {
-        if let index = Direction.allValues.index(of: bearing) {
-            var newIndex = index + 1
-            if newIndex > 3 {
-                newIndex -= 4
+    func move(commands: String) {
+        for command in commands {
+            switch command {
+            case "L":
+                turnLeft()
+            case "R":
+                turnRight()
+            case "A":
+                advance()
+            default:
+                break
             }
-            bearing = Direction.allValues[newIndex]
         }
     }
 
-    mutating func turnLeft() {
-        if let index = Direction.allValues.index(of: bearing) {
-            var newIndex = index - 1
-            if newIndex < 0 {
-                newIndex += 4
-            }
-            bearing = Direction.allValues[newIndex]
-        }
-    }
-
-    mutating func at(x: Int, y: Int) {
-        self.x = x
-        self.y = y
-    }
-
-    mutating func advance() {
+    func turnLeft() {
         switch bearing {
-        case .north: y += 1
-        case .east:  x += 1
-        case .south: y -= 1
-        case .west:  x -= 1
+        case .north:
+            bearing = .west
+        case .east:
+            bearing = .north
+        case .south:
+            bearing = .east
+        case .west:
+            bearing = .south
         }
     }
 
-    func instructions(_ instructions: String) -> [Instruction] {
-        var result = [Instruction]()
-
-        let characters = instructions.map { String($0) }
-
-        for character in characters {
-            if let instruction = Instruction(rawValue: character) {
-                result.append(instruction)
-            }
-        }
-
-        return result
-    }
-
-    mutating func place(x: Int, y: Int, direction: Direction) {
-        at(x: x, y: y)
-        orient(direction)
-    }
-
-    mutating func evaluate(_ commands: String) {
-        for instruction in instructions(commands) {
-            switch instruction {
-            case .turnLeft:  turnLeft()
-            case .turnRight: turnRight()
-            case .advance:   advance()
-            }
+    func turnRight() {
+        switch bearing {
+        case .north:
+            bearing = .east
+        case .east:
+            bearing = .south
+        case .south:
+            bearing = .west
+        case .west:
+            bearing = .north
         }
     }
 
+    func advance() {
+        switch bearing {
+        case .north:
+            y += 1
+        case .east:
+            x += 1
+        case .south:
+            y -= 1
+        case .west:
+            x -= 1
+        }
+    }
+
+    var state: (x: Int, y: Int, bearing: Direction) {
+        return (x, y, bearing)
+    }
 }
