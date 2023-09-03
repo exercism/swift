@@ -1,71 +1,73 @@
-import Foundation
-import Dispatch
-
-private extension String {
-
-    var length: Int { return self.count }
-
-    func reverse() -> String {
-        return String(reversed())
-    }
+enum PalindromeError: Error {
+  case invalidRange
 }
 
-struct PalindromeProducts {
-
-    typealias Palindrome = (value: Int, factor: [Int])
-    private let maxFactor: Int
-    private let minFactor: Int
-
-    var largest: Palindrome { return calculate(.max) }
-    var smallest: Palindrome { return calculate(.min) }
-
-    init(maxFactor: Int, minFactor: Int = 1) {
-        self.maxFactor = maxFactor
-        self.minFactor = minFactor
+class PalindromeProducts {
+  static func largest(from: Int, to: Int) throws -> (value: Int?, factors: Set<[Int]>) {
+    guard from <= to else {
+      throw PalindromeError.invalidRange
+    }
+    var result: (value: Int?, factors: Set<[Int]>) = (0, [])
+    var wasBigger = false
+    for i in (from...to).reversed() {
+      wasBigger = false
+      for j in (i...to).reversed() {
+        let product = i * j
+        if product > result.value! {
+          wasBigger = true
+          if isPalindrome(product) {
+            result = (product, [[i, j]])
+          }
+        } else if product == result.value! {
+          result.factors.insert([i, j])
+        }
+      }
+      if !wasBigger {
+        break
+      }
     }
 
-    private enum Mode { case max, min }
-    private func calculate(_ upTo: Mode) -> Palindrome {
-
-        let rangeOuter = minFactor...maxFactor
-
-        //Multithreaded code
-        var results = [[Palindrome]](repeating: [Palindrome](), count: rangeOuter.count)
-        // use this queue to read and write from results
-        let resultsRWQueue = DispatchQueue.init(label: "exercism.resultsRWQueue")
-
-        DispatchQueue.concurrentPerform(iterations: rangeOuter.count) { advanceByIndex in
-            var multiplicationsTemp = [Palindrome]()
-            let each = rangeOuter.lowerBound + advanceByIndex
-            let innerRangeCustom = each...rangeOuter.upperBound
-
-            for eaInside in innerRangeCustom {
-                let multiplied = each * eaInside
-                let number = String(multiplied)
-                if number == number.reverse() {
-                    multiplicationsTemp.append((multiplied, [each, eaInside]))
-                }
-            }
-            // prevent data race conditions
-            resultsRWQueue.async {
-                results[advanceByIndex] = multiplicationsTemp
-            }
-        }
-        var multiplications = [Palindrome]()
-        // prevent data race conditions
-        resultsRWQueue.sync {
-            multiplications = results.joined().sorted(by: { $0.value > $1.value })
-        }
-        if let large = multiplications.first, let small = multiplications.last {
-            switch upTo {
-            case .max: return large
-            case .min: return small
-            }
-        } else {
-            switch upTo {
-            case .max: return (maxFactor, [maxFactor, 1])
-            case .min: return (minFactor, [minFactor, 1])
-            }
-        }
+    if result.value == 0 {
+      result.value = nil
     }
+
+    return result
+  }
+
+  static func smallest(from: Int, to: Int) throws -> (value: Int?, factors: Set<[Int]>) {
+    guard from <= to else {
+      throw PalindromeError.invalidRange
+    }
+    var result: (value: Int?, factors: Set<[Int]>) = (Int.max, [])
+
+    var wasSmaller = false
+    for i in from...to {
+      wasSmaller = false
+      for j in i...to {
+        let product = i * j
+        if product < result.value! {
+          wasSmaller = true
+          if isPalindrome(product) {
+            result = (product, [[i, j]])
+          }
+        } else if product == result.value! {
+          result.factors.insert([i, j])
+        }
+      }
+      if !wasSmaller {
+        break
+      }
+    }
+
+    if result.value == Int.max {
+      result.value = nil
+    }
+
+    return result
+  }
+
+  private static func isPalindrome(_ number: Int) -> Bool {
+    let numberString = String(number)
+    return numberString == String(numberString.reversed())
+  }
 }

@@ -205,7 +205,6 @@ class GeneratorPlugins {
       }
       return nil
     }
-
     let environment = Environment(extensions: [ext])
     return environment
   }
