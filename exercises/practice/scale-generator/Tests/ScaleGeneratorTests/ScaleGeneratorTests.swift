@@ -1,95 +1,117 @@
 import XCTest
+
 @testable import ScaleGenerator
 
 class ScaleGeneratorTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testNamingScale() {
-        let chromatic = ScaleGenerator(tonic: "c", scaleName: "chromatic")
-        XCTAssertEqual(chromatic.name, "C chromatic")
-    }
+  func testChromaticScaleWithSharps() {
+    let scaleGenerator = ScaleGenerator(tonic: "C")
+    XCTAssertEqual(
+      scaleGenerator.chromatic(), ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"])
+  }
 
-    func testChromaticScale() {
-        let chromatic = ScaleGenerator(tonic: "C", scaleName: "chromatic")
-        XCTAssertEqual(chromatic.pitches(), ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"])
-    }
+  func testChromaticScaleWithFlats() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "F")
+    XCTAssertEqual(
+      scaleGenerator.chromatic(), ["F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E"])
+  }
 
-    func testAnotherChromaticScale() {
-        let chromatic = ScaleGenerator(tonic: "F", scaleName: "chromatic")
-        XCTAssertEqual(chromatic.pitches(), ["F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E"])
-    }
+  func testSimpleMajorScale() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "C")
+    XCTAssertEqual(scaleGenerator.interval("MMmMMMm"), ["C", "D", "E", "F", "G", "A", "B", "C"])
+  }
 
-    func testNamingMajorScale() {
-        let major = ScaleGenerator(tonic: "G", scaleName: "major", pattern: "MMmMMMm")
-        XCTAssertEqual(major.name, "G major")
-    }
+  func testMajorScaleWithSharps() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "G")
+    XCTAssertEqual(scaleGenerator.interval("MMmMMMm"), ["G", "A", "B", "C", "D", "E", "F#", "G"])
+  }
 
-    func testMajorScale() {
-        let major = ScaleGenerator(tonic: "C", scaleName: "major", pattern: "MMmMMMm")
-        XCTAssertEqual(major.pitches(), ["C", "D", "E", "F", "G", "A", "B"])
-    }
+  func testMajorScaleWithFlats() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "F")
+    XCTAssertEqual(scaleGenerator.interval("MMmMMMm"), ["F", "G", "A", "Bb", "C", "D", "E", "F"])
+  }
 
-    func testAnotherMajorScale() {
-        let major = ScaleGenerator(tonic: "G", scaleName: "major", pattern: "MMmMMMm")
-        XCTAssertEqual(major.pitches(), ["G", "A", "B", "C", "D", "E", "F#"])
-    }
+  func testMinorScaleWithSharps() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "f#")
+    XCTAssertEqual(
+      scaleGenerator.interval("MmMMmMM"), ["F#", "G#", "A", "B", "C#", "D", "E", "F#"])
+  }
 
-    func testMinorScale() {
-        let minor = ScaleGenerator(tonic: "f#", scaleName: "minor", pattern: "MmMMmMM")
-        XCTAssertEqual(minor.pitches(), ["F#", "G#", "A", "B", "C#", "D", "E"])
-    }
+  func testMinorScaleWithFlats() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "bb")
+    XCTAssertEqual(
+      scaleGenerator.interval("MmMMmMM"), ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab", "Bb"])
+  }
 
-    func testAnotherMinorScale() {
-        let minor = ScaleGenerator(tonic: "bb", scaleName: "minor", pattern: "MmMMmMM")
-        XCTAssertEqual(minor.pitches(), ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab"])
-    }
+  func testDorianMode() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "d")
+    XCTAssertEqual(scaleGenerator.interval("MmMMMmM"), ["D", "E", "F", "G", "A", "B", "C", "D"])
+  }
 
-    func testDorianMode() {
-        let dorian = ScaleGenerator(tonic: "d", scaleName: "dorian", pattern: "MmMMMmM")
-        XCTAssertEqual(dorian.pitches(), ["D", "E", "F", "G", "A", "B", "C"])
-    }
+  func testMixolydianMode() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "Eb")
+    XCTAssertEqual(
+      scaleGenerator.interval("MMmMMmM"), ["Eb", "F", "G", "Ab", "Bb", "C", "Db", "Eb"])
+  }
 
-    func testMixolydianMode() {
-        let mixolydian = ScaleGenerator(tonic: "Eb", scaleName: "mixolydian", pattern: "MMmMMmM")
-        XCTAssertEqual(mixolydian.pitches(), ["Eb", "F", "G", "Ab", "Bb", "C", "Db"])
-    }
+  func testLydianMode() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "a")
+    XCTAssertEqual(
+      scaleGenerator.interval("MMMmMMm"), ["A", "B", "C#", "D#", "E", "F#", "G#", "A"])
+  }
 
-    func testLydianMode() {
-        let lydian = ScaleGenerator(tonic: "a", scaleName: "lydian", pattern: "MMMmMMm")
-        XCTAssertEqual(lydian.pitches(), ["A", "B", "C#", "D#", "E", "F#", "G#"])
-    }
+  func testPhrygianMode() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "e")
+    XCTAssertEqual(scaleGenerator.interval("mMMMmMM"), ["E", "F", "G", "A", "B", "C", "D", "E"])
+  }
 
-    func testPhrygianMode() {
-        let phrygian = ScaleGenerator(tonic: "e", scaleName: "phrygian", pattern: "mMMMmMM")
-        XCTAssertEqual(phrygian.pitches(), ["E", "F", "G", "A", "B", "C", "D"])
-    }
+  func testLocrianMode() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "g")
+    XCTAssertEqual(
+      scaleGenerator.interval("mMMmMMM"), ["G", "Ab", "Bb", "C", "Db", "Eb", "F", "G"])
+  }
 
-    func testLocrianMode() {
-        let locrian = ScaleGenerator(tonic: "g", scaleName: "locrian", pattern: "mMMmMMM")
-        XCTAssertEqual(locrian.pitches(), ["G", "Ab", "Bb", "C", "Db", "Eb", "F"])
-    }
+  func testHarmonicMinor() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "d")
+    XCTAssertEqual(scaleGenerator.interval("MmMMmAm"), ["D", "E", "F", "G", "A", "Bb", "Db", "D"])
+  }
 
-    func testHarmonicMinor() {
-        let harmonicMinor = ScaleGenerator(tonic: "d", scaleName: "harmonic minor", pattern: "MmMMmAm")
-        XCTAssertEqual(harmonicMinor.pitches(), ["D", "E", "F", "G", "A", "Bb", "Db"])
-    }
+  func testOctatonic() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "C")
+    XCTAssertEqual(
+      scaleGenerator.interval("MmMmMmMm"), ["C", "D", "D#", "F", "F#", "G#", "A", "B", "C"])
+  }
 
-    func testOctatonic() {
-        let octatonic = ScaleGenerator(tonic: "C", scaleName: "octatonic", pattern: "MmMmMmMm")
-        XCTAssertEqual(octatonic.pitches(), ["C", "D", "D#", "F", "F#", "G#", "A", "B"])
-    }
+  func testHexatonic() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "Db")
+    XCTAssertEqual(scaleGenerator.interval("MMMMMM"), ["Db", "Eb", "F", "G", "A", "B", "Db"])
+  }
 
-    func testHexatonic() {
-        let hexatonic = ScaleGenerator(tonic: "Db", scaleName: "hexatonic", pattern: "MMMMMM")
-        XCTAssertEqual(hexatonic.pitches(), ["Db", "Eb", "F", "G", "A", "B"])
-    }
+  func testPentatonic() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "A")
+    XCTAssertEqual(scaleGenerator.interval("MMAMA"), ["A", "B", "C#", "E", "F#", "A"])
+  }
 
-    func testPentatonic() {
-        let pentatonic = ScaleGenerator(tonic: "A", scaleName: "pentatonic", pattern: "MMAMA")
-        XCTAssertEqual(pentatonic.pitches(), ["A", "B", "C#", "E", "F#"])
-    }
-
-    func testEnigmatic() {
-        let enigmatic = ScaleGenerator(tonic: "G", scaleName: "enigma", pattern: "mAMMMmm")
-        XCTAssertEqual(enigmatic.pitches(), ["G", "G#", "B", "C#", "D#", "F", "F#"])
-    }
+  func testEnigmatic() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let scaleGenerator = ScaleGenerator(tonic: "G")
+    XCTAssertEqual(
+      scaleGenerator.interval("mAMMMmm"), ["G", "G#", "B", "C#", "D#", "F", "F#", "G"])
+  }
 }

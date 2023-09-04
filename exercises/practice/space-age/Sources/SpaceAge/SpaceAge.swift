@@ -1,1 +1,3 @@
-//Solution goes in Sources
+class SpaceAge {
+  // Write your code for the 'SpaceAge' exercise in this file.
+}

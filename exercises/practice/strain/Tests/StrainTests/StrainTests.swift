@@ -1,84 +1,108 @@
 import XCTest
-import Foundation
+
 @testable import Strain
 
-private extension XCTest {
-    func XCTAssertEqualMultiArray(_ aArray1: [[Int]], _ aArray2: [[Int]]) {
-        XCTAssertEqual(Array(aArray1.joined()), Array(aArray2.joined()))
-    }
-}
-
 class StrainTests: XCTestCase {
-    func testEmptyKeep() {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-        XCTAssertTrue ([].keep { each -> Bool in each < 10 }.isEmpty)
-    }
+  func testKeepOnEmptyListReturnsEmptyList() {
+    let input: [Int] = []
+    let expected: [Int] = []
+    XCTAssertEqual(input.keep { x in true }, expected)
+  }
 
-    func testKeepEverything() {
-        XCTAssertEqual([1, 2, 3], [1, 2, 3].keep { each -> Bool in each < 10 })
-    }
+  func testKeepsEverything() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [1, 3, 5]
+    let expected = [1, 3, 5]
+    XCTAssertEqual(input.keep { x in true }, expected)
+  }
 
-    func testKeepFirstAndLast() {
-        XCTAssertEqual([1, 3], [1, 2, 3].keep { each -> Bool in (each % 2 != 0) })
-    }
+  func testKeepsNothing() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [1, 3, 5]
+    let expected: [Int] = []
+    XCTAssertEqual(input.keep { x in false }, expected)
+  }
 
-    func testKeepNeitherFirstNorLast() {
-        XCTAssertEqual([2, 4], [1, 2, 3, 4, 5].keep { each -> Bool in (each % 2 == 0) })
-    }
+  func testKeepsFirstAndLast() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [1, 2, 3]
+    let expected = [1, 3]
+    XCTAssertEqual(input.keep { x in x % 2 == 1 }, expected)
+  }
 
-    func testKeepStrings() {
-        let words = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
-        let result = words.keep { each -> Bool in (each as String).hasPrefix("z") }
-        XCTAssertEqual(["zebra", "zombies", "zealot"], result)
-    }
+  func testKeepsNeitherFirstNorLast() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [1, 2, 3]
+    let expected = [2]
+    XCTAssertEqual(input.keep { x in x % 2 == 0 }, expected)
+  }
 
-    func testKeepArrays () {
-        let  rows = [
-            [1, 2, 3],
-            [5, 5, 5],
-            [5, 1, 2],
-            [2, 1, 2],
-            [1, 5, 2],
-            [2, 2, 1],
-            [1, 2, 5]
-        ]
-        let result = rows.keep { each -> Bool in (each as [Int]).contains(5) }
-        XCTAssertEqualMultiArray([[5, 5, 5], [5, 1, 2], [1, 5, 2], [1, 2, 5]], result)
-    }
+  func testKeepsStrings() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
+    let expected = ["zebra", "zombies", "zealot"]
+    XCTAssertEqual(input.keep { x in x.starts(with: "z") }, expected)
+  }
 
-    func testEmptyDiscard() {
-        XCTAssertEqual([], [].discard { each -> Bool in each < 10 })
-    }
+  func testKeepsLists() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [
+      [1, 2, 3], [5, 5, 5], [5, 1, 2], [2, 1, 2], [1, 5, 2], [2, 2, 1], [1, 2, 5],
+    ]
+    let expected = [[5, 5, 5], [5, 1, 2], [1, 5, 2], [1, 2, 5]]
+    XCTAssertEqual(input.keep { x in x.contains(5) }, expected)
+  }
 
-    func testDiscardNothing() {
-        XCTAssertEqual([1, 2, 3], [1, 2, 3].discard { each -> Bool in each > 10 })
-    }
+  func testDiscardOnEmptyListReturnsEmptyList() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input: [Int] = []
+    let expected: [Int] = []
+    XCTAssertEqual(input.discard { x in true }, expected)
+  }
 
-    func testDiscardFirstAndLast() {
-        XCTAssertEqual([2], [1, 2, 3].discard { each -> Bool in (each % 2 != 0) })
-    }
+  func testDiscardsEverything() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [1, 3, 5]
+    let expected: [Int] = []
+    XCTAssertEqual(input.discard { x in true }, expected)
+  }
 
-    func testDiscardNeitherFirstNorLast() {
-        XCTAssertEqual([1, 3, 5], [1, 2, 3, 4, 5].discard { each -> Bool in (each % 2 == 0) })
-    }
+  func testDiscardsNothing() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [1, 3, 5]
+    let expected = [1, 3, 5]
+    XCTAssertEqual(input.discard { x in false }, expected)
+  }
 
-    func testDiscardStrings() {
-        let words = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
-        let result = words.discard { each -> Bool in (each as String).hasPrefix("z") }
-        XCTAssertEqual(["apple", "banana", "cherimoya"], result)
-    }
+  func testDiscardsFirstAndLast() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [1, 2, 3]
+    let expected = [2]
+    XCTAssertEqual(input.discard { x in x % 2 == 1 }, expected)
+  }
 
-    func testDiscardArrays () {
-        let rows = [
-            [1, 2, 3],
-            [5, 5, 5],
-            [5, 1, 2],
-            [2, 1, 2],
-            [1, 5, 2],
-            [2, 2, 1],
-            [1, 2, 5]
-        ]
-        let result = rows.discard { each -> Bool in (each as [Int]).contains(5) }
-        XCTAssertEqualMultiArray([[1, 2, 3], [2, 1, 2], [2, 2, 1]], result)
-    }
+  func testDiscardsNeitherFirstNorLast() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [1, 2, 3]
+    let expected = [1, 3]
+    XCTAssertEqual(input.discard { x in x % 2 == 0 }, expected)
+  }
+
+  func testDiscardsStrings() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
+    let expected = ["apple", "banana", "cherimoya"]
+    XCTAssertEqual(input.discard { x in x.starts(with: "z") }, expected)
+  }
+
+  func testDiscardsLists() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [
+      [1, 2, 3], [5, 5, 5], [5, 1, 2], [2, 1, 2], [1, 5, 2], [2, 2, 1], [1, 2, 5],
+    ]
+    let expected = [[1, 2, 3], [2, 1, 2], [2, 2, 1]]
+    XCTAssertEqual(input.discard { x in x.contains(5) }, expected)
+  }
 }

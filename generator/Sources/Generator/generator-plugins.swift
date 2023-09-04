@@ -65,7 +65,10 @@ class GeneratorPlugins {
       if let inputString = value as? [String] {
         guard !inputString.isEmpty else { return "[]" }
         return "[\"\(inputString.joined(separator: "\", \""))\"]"
+      } else if let array = value as? [Any?] {
+        return array
       }
+
       return nil
     }
 
@@ -204,6 +207,19 @@ class GeneratorPlugins {
         return output
       }
       return nil
+    }
+
+    ext.registerFilter("strain") { (value: Any?) in
+      if let input = value as? String {
+        if input.contains("starts_with") {
+          return "{x in x.starts(with: \"z\")}"
+        } else if input.contains("contains") {
+          return "{x in x.contains(5)}"
+        }
+        let trimmedInput = input.replacingOccurrences(of: "fn(x) -> ", with: "")
+        return "{x in \(trimmedInput)}"
+      }
+      return []
     }
 
     let environment = Environment(extensions: [ext])
