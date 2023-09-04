@@ -5,68 +5,68 @@ import XCTest
 class PerfectNumbersTests: XCTestCase {
   let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-  func testSmallestPerfectNumberIsClassifiedCorrectly1() {
+  func testSmallestPerfectNumberIsClassifiedCorrectly() {
     XCTAssertEqual(try! classify(number: 6), .perfect)
   }
 
-  func testMediumPerfectNumberIsClassifiedCorrectly1() throws {
+  func testMediumPerfectNumberIsClassifiedCorrectly() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(try! classify(number: 28), .perfect)
   }
 
-  func testLargePerfectNumberIsClassifiedCorrectly1() throws {
+  func testLargePerfectNumberIsClassifiedCorrectly() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(try! classify(number: 33_550_336), .perfect)
   }
 
-  func testSmallestAbundantNumberIsClassifiedCorrectly2() throws {
+  func testSmallestAbundantNumberIsClassifiedCorrectly() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(try! classify(number: 12), .abundant)
   }
 
-  func testMediumAbundantNumberIsClassifiedCorrectly2() throws {
+  func testMediumAbundantNumberIsClassifiedCorrectly() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(try! classify(number: 30), .abundant)
   }
 
-  func testLargeAbundantNumberIsClassifiedCorrectly2() throws {
+  func testLargeAbundantNumberIsClassifiedCorrectly() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(try! classify(number: 33_550_335), .abundant)
   }
 
-  func testSmallestPrimeDeficientNumberIsClassifiedCorrectly3() throws {
+  func testSmallestPrimeDeficientNumberIsClassifiedCorrectly() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(try! classify(number: 2), .deficient)
   }
 
-  func testSmallestNonPrimeDeficientNumberIsClassifiedCorrectly3() throws {
+  func testSmallestNonPrimeDeficientNumberIsClassifiedCorrectly() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(try! classify(number: 4), .deficient)
   }
 
-  func testMediumDeficientNumberIsClassifiedCorrectly3() throws {
+  func testMediumDeficientNumberIsClassifiedCorrectly() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(try! classify(number: 32), .deficient)
   }
 
-  func testLargeDeficientNumberIsClassifiedCorrectly3() throws {
+  func testLargeDeficientNumberIsClassifiedCorrectly() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(try! classify(number: 33_550_337), .deficient)
   }
 
-  func testEdgeCaseNoFactorsOtherThanItselfIsClassifiedCorrectly3() throws {
+  func testEdgeCaseNoFactorsOtherThanItselfIsClassifiedCorrectly() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(try! classify(number: 1), .deficient)
   }
 
-  func testZeroIsRejectedAsItIsNotAPositiveInteger4() throws {
+  func testZeroIsRejectedAsItIsNotAPositiveInteger() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertThrowsError(try classify(number: 0)) { error in
       XCTAssertEqual(error as? ClassificationError, .invalidInput)
     }
   }
 
-  func testNegativeIntegerIsRejectedAsItIsNotAPositiveInteger4() throws {
+  func testNegativeIntegerIsRejectedAsItIsNotAPositiveInteger() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertThrowsError(try classify(number: -1)) { error in
       XCTAssertEqual(error as? ClassificationError, .invalidInput)
