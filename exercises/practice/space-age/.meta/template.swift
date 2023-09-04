@@ -11,7 +11,7 @@ class {{exercise|camelCase}}Tests: XCTestCase {
         try XCTSkipIf(true && !runAll) // change true to false to run this test
     {% endif -%}
         let age = SpaceAge({{case.input.seconds}})
-        XCTAssertEqual(age.on{{case.input.planet |camelCase}}, {{case.expected}}, accuracy: 0.02)
+        XCTAssertEqual(age.on{{case.input.planet |camelCase}}, {{case.expected | round:2 }}, accuracy: 0.02)
     }
     {% endfor -%}
 }

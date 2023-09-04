@@ -13,7 +13,7 @@ class GeneratorPlugins {
       if let inputString = value as? String {
         let charactersToRemove: [Character] = [
           ",", "'", "?", "!", ".", "=", "+", "&", "%", "$", "#", "@", "(", ")", "[", "]", "{", "}",
-          "<", ">", "/", "|", ":", ";"
+          "<", ">", "/", "|", ":", ";",
         ]
         let filteredString = inputString.filter { !charactersToRemove.contains($0) }
         let components = filteredString.components(separatedBy: CharacterSet(charactersIn: " -"))
@@ -108,7 +108,7 @@ class GeneratorPlugins {
 
     ext.registerFilter("inspect") { (value: Any?) in
       if let inputString = value as? String {
-        let escapeChars = ["\t" : "\\t", "\n" : "\\n", "\r": "\\r", "\\" : "\\\\", "\"" : "\\\""]
+        let escapeChars = ["\t": "\\t", "\n": "\\n", "\r": "\\r", "\\": "\\\\", "\"": "\\\""]
         return inputString.map { escapeChars[String($0)] ?? String($0) }.joined()
       }
       return nil
@@ -220,6 +220,16 @@ class GeneratorPlugins {
         return "{x in \(trimmedInput)}"
       }
       return []
+    }
+
+    ext.registerFilter("round") { (value: Any?, args: [Any?]) in
+      if let inputNumber = value as? Double {
+        if let precision = args.first as? Int {
+          let divisor = pow(10.0, Double(precision))
+          return (inputNumber * divisor).rounded() / divisor
+        }
+      }
+      return nil
     }
 
     let environment = Environment(extensions: [ext])
