@@ -1,166 +1,124 @@
 import XCTest
+
 @testable import OcrNumbers
 
 class OcrNumbersTests: XCTestCase {
-    func testRecognizeZero() {
-        let text =  " _ \n" +
-            "| |\n" +
-            "|_|\n" +
-        "   "
-        XCTAssertEqual("0", try? OCR(text).converted())
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+  func testRecognizes0() {
+    let input = [" _ ", "| |", "|_|", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "0")
+  }
+
+  func testRecognizes1() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = ["   ", "  |", "  |", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "1")
+  }
+
+  func testUnreadableButCorrectlySizedInputsReturn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = ["   ", "  _", "  |", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "?")
+  }
+
+  func testInputWithANumberOfLinesThatIsNotAMultipleOfFourRaisesAnError() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [" _ ", "| |", "   "]
+    XCTAssertThrowsError(try OcrNumber.convert(rows: input)) {
+      XCTAssertEqual($0 as? OcrNumberError, .invalidInput)
     }
+  }
 
-    func testRecognizeOne() {
-        let text =  "   \n" +
-            "  |\n" +
-            "  |\n" +
-        "   "
-        XCTAssertEqual("1", try? OCR(text).converted())
+  func testInputWithANumberOfColumnsThatIsNotAMultipleOfThreeRaisesAnError() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = ["    ", "   |", "   |", "    "]
+    XCTAssertThrowsError(try OcrNumber.convert(rows: input)) {
+      XCTAssertEqual($0 as? OcrNumberError, .invalidInput)
     }
+  }
 
-    func testRecognizeTwo() {
-        let text =  " _ \n" +
-            " _|\n" +
-            "|_ \n" +
-        "   "
-        XCTAssertEqual("2", try? OCR(text).converted())
-    }
+  func testRecognizes110101100() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [
+      "       _     _        _  _ ", "  |  || |  || |  |  || || |", "  |  ||_|  ||_|  |  ||_||_|",
+      "                           ",
+    ]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "110101100")
+  }
 
-    func testRecognizeThree() {
-        let text =  " _ \n" +
-            " _|\n" +
-            " _|\n" +
-        "   "
-        XCTAssertEqual("3", try? OCR(text).converted())
-    }
+  func testGarbledNumbersInAStringAreReplacedWith() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [
+      "       _     _           _ ", "  |  || |  || |     || || |", "  |  | _|  ||_|  |  ||_||_|",
+      "                           ",
+    ]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "11?10?1?0")
+  }
 
-    func testRecognizeFour() {
-        let text =  "   \n" +
-            "|_|\n" +
-            "  |\n" +
-        "   "
-        XCTAssertEqual("4", try? OCR(text).converted())
-    }
+  func testRecognizes2() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [" _ ", " _|", "|_ ", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "2")
+  }
 
-    func testRecognizeFive() {
-        let text =  " _ \n" +
-            "|_ \n" +
-            " _|\n" +
-        "   "
-        XCTAssertEqual("5", try? OCR(text).converted())
-    }
+  func testRecognizes3() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [" _ ", " _|", " _|", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "3")
+  }
 
-    func testRecognizeSix() {
-        let text =  " _ \n" +
-            "|_ \n" +
-            "|_|\n" +
-        "   "
-        XCTAssertEqual("6", try? OCR(text).converted())
-    }
+  func testRecognizes4() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = ["   ", "|_|", "  |", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "4")
+  }
 
-    func testRecognizeSeven() {
-        let text =  " _ \n" +
-            "  |\n" +
-            "  |\n" +
-        "   "
-        XCTAssertEqual("7", try? OCR(text).converted())
-    }
+  func testRecognizes5() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [" _ ", "|_ ", " _|", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "5")
+  }
 
-    func testRecognizeEight() {
-        let text =  " _ \n" +
-            "|_|\n" +
-            "|_|\n" +
-        "   "
-        XCTAssertEqual("8", try? OCR(text).converted())
-    }
+  func testRecognizes6() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [" _ ", "|_ ", "|_|", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "6")
+  }
 
-    func testRecognizeNine() {
-        let text =  " _ \n" +
-            "|_|\n" +
-            " _|\n" +
-        "   "
-        XCTAssertEqual("9", try? OCR(text).converted())
-    }
+  func testRecognizes7() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [" _ ", "  |", "  |", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "7")
+  }
 
-    func testIdentifyGarble() {
-        let text =  "   \n" +
-            "| |\n" +
-            "| |\n" +
-        "   "
-        XCTAssertEqual("?", try? OCR(text).converted())
-    }
+  func testRecognizes8() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [" _ ", "|_|", "|_|", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "8")
+  }
 
-    func testIdentify10() {
-        let text =  "    _ \n" +
-            "  || |\n" +
-            "  ||_|\n" +
-        "      "
-        XCTAssertEqual("10", try? OCR(text).converted())
-    }
+  func testRecognizes9() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [" _ ", "|_|", " _|", "   "]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "9")
+  }
 
-    func testIdentify110101100() {
-        let text =
-            "       _     _        _  _ \n" +
-                "  |  || |  || |  |  || || |\n" +
-                "  |  ||_|  ||_|  |  ||_||_|\n" +
-        "                           "
-        XCTAssertEqual("110101100", try? OCR(text).converted())
-    }
+  func testRecognizesStringOfDecimalNumbers() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [
+      "    _  _     _  _  _  _  _  _ ", "  | _| _||_||_ |_   ||_||_|| |",
+      "  ||_  _|  | _||_|  ||_| _||_|", "                              ",
+    ]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "1234567890")
+  }
 
-    func testIdentifyWithGarble() {
-        let text =
-            "       _     _           _ \n" +
-                "  |  || |  || |     || || |\n" +
-                "  |  | _|  ||_|  |  ||_||_|\n" +
-        "                           "
-        XCTAssertEqual("11?10?1?0", try? OCR(text).converted())
-    }
-
-    func testIdentify1234567890() {
-        let text =
-            "    _  _     _  _  _  _  _  _ \n" +
-                "  | _| _||_||_ |_   ||_||_|| |\n" +
-                "  ||_  _|  | _||_|  ||_| _||_|\n" +
-        "                              "
-        XCTAssertEqual("1234567890", try? OCR(text).converted())
-    }
-
-    func testIdentify123_456_789() {
-        let text =
-            "    _  _ \n" +
-                "  | _| _|\n" +
-                "  ||_  _|\n" +
-                "         \n" +
-                "    _  _ \n" +
-                "|_||_ |_ \n" +
-                "  | _||_|\n" +
-                "         \n" +
-                " _  _  _ \n" +
-                "  ||_||_|\n" +
-                "  ||_| _|\n" +
-        "         "
-        XCTAssertEqual("123,456,789", try? OCR(text).converted())
-    }
-
-    func testThrowsInvalidNumberOfLinesError() {
-        let text =
-            "    _  _ \n" +
-        "  | _| _|"
-
-        XCTAssertThrowsError(_ = try OCR(text)) { error in
-            XCTAssertEqual(error as? OCR.OCRError, .invalidNumberOfLines)
-        }
-    }
-
-    func testThrowsInvalidNumberOfColumnsError() {
-        let text =
-            "    _\n" +
-                "  | _\n" +
-                "  ||_\n" +
-        "     "
-
-        XCTAssertThrowsError(_ = try OCR(text)) { error in
-            XCTAssertEqual(error as? OCR.OCRError, .invalidNumberOfColumns)
-        }
-    }
+  func testNumbersSeparatedByEmptyLinesAreRecognizedLinesAreJoinedByCommas() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let input = [
+      "    _  _ ", "  | _| _|", "  ||_  _|", "         ", "    _  _ ", "|_||_ |_ ", "  | _||_|",
+      "         ", " _  _  _ ", "  ||_||_|", "  ||_| _|", "         ",
+    ]
+    XCTAssertEqual(try! OcrNumber.convert(rows: input), "123,456,789")
+  }
 }

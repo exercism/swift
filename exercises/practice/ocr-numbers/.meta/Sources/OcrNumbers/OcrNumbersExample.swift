@@ -1,86 +1,55 @@
 import Foundation
 
-struct OCR {
+enum OcrNumberError: Error {
+  case invalidInput
+}
 
-    let lines: [String]
-    let patterns =  [
-        [" _ ", "| |", "|_|", "   "] ,
-        ["   ", "  |", "  |", "   "] ,
-        [" _ ", " _|", "|_ ", "   "] ,
-        [" _ ", " _|", " _|", "   "] ,
-        ["   ", "|_|", "  |", "   "] ,
-        [" _ ", "|_ ", " _|", "   "] ,
-        [" _ ", "|_ ", "|_|", "   "] ,
-        [" _ ", "  |", "  |", "   "] ,
-        [" _ ", "|_|", "|_|", "   "] ,
-        [" _ ", "|_|", " _|", "   "]
-    ]
-
-    enum OCRError: Error {
-        case invalidNumberOfLines
-        case invalidNumberOfColumns
+class OcrNumber {
+  static func convert(rows: [String]) throws -> String {
+    guard rows.count.isMultiple(of: 4) && rows[0].count.isMultiple(of: 3) else {
+      throw OcrNumberError.invalidInput
     }
-    init(_ text: String) throws {
-        let lines = text.split(separator: "\n").map { String($0) }
-
-        let rowCount = lines.count
-
-        guard rowCount > 0 && rowCount % 4 == 0 else {
-            throw OCRError.invalidNumberOfLines
-        }
-
-        let columnCount = lines[0].count
-
-        guard columnCount > 0 && columnCount % 3 == 0 else {
-            throw OCRError.invalidNumberOfColumns
-        }
-
-        try lines.forEach {
-            guard $0.count == columnCount else {
-                throw OCRError.invalidNumberOfColumns
-            }
-        }
-
-        self.lines = lines
+    let digits = stride(from: 0, to: rows[0].count, by: 3).map { index in
+      rows.map { row in
+        let startIndex = row.index(row.startIndex, offsetBy: index)
+        let endIndex = row.index(startIndex, offsetBy: 3)
+        return row[startIndex..<endIndex]
+      }
     }
-
-    func converted() -> String {
-        var resultArray = [String]()
-
-        var rowIndex = 0
-
-        while rowIndex < lines.count {
-            let selectedLines = lines[rowIndex ... rowIndex + 3]
-            var result = ""
-
-            var columnIndex = 0
-
-            while columnIndex < lines[0].count {
-                var grouping = [String]()
-
-                for line in selectedLines {
-                    let startIndex = line.index(line.startIndex, offsetBy: columnIndex)
-                    let endIndex = line.index(line.startIndex, offsetBy: columnIndex + 2)
-                    grouping.append(String(line[startIndex...endIndex]))
-
-                }
-
-                result += patternForGrouping(grouping)
-                columnIndex += 3
-            }
-
-            resultArray.append(result)
-            rowIndex += 4
+    var result = ""
+    var idx = 0
+    while idx + 2 < digits[0].count {
+      for digit in digits {
+        switch digit[(idx)...(idx + 2)] {
+        case [" _ ", "| |", "|_|"]:
+          result += "0"
+        case ["   ", "  |", "  |"]:
+          result += "1"
+        case [" _ ", " _|", "|_ "]:
+          result += "2"
+        case [" _ ", " _|", " _|"]:
+          result += "3"
+        case ["   ", "|_|", "  |"]:
+          result += "4"
+        case [" _ ", "|_ ", " _|"]:
+          result += "5"
+        case [" _ ", "|_ ", "|_|"]:
+          result += "6"
+        case [" _ ", "  |", "  |"]:
+          result += "7"
+        case [" _ ", "|_|", "|_|"]:
+          result += "8"
+        case [" _ ", "|_|", " _|"]:
+          result += "9"
+        default:
+          result += "?"
         }
-        return resultArray.joined(separator: ",")
-
+      }
+      idx += 4
+      if idx + 2 < digits[0].count {
+        result += ","
+      }
     }
-
-    func patternForGrouping(_ grouping: [String]) -> String {
-        guard let number = patterns.index(where: { $0 == grouping }) else {
-            return "?"
-        }
-        return "\(number)"
-    }
-
+    return result
+  }
 }
