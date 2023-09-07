@@ -1,32 +1,28 @@
-enum NumberClassification {
-    case perfect
-    case abundant
-    case deficient
+enum Classification {
+  case perfect
+  case abundant
+  case deficient
 }
 
-struct NumberClassifier {
-    let number: Int
-    var sum: Int {
-        return aliquotSum(number)
-    }
-    var classification: NumberClassification {
-        switch sum {
-        case let sum where sum == number :
-            return NumberClassification.perfect
-        case let sum where sum < number :
-            return NumberClassification.deficient
-        default:
-            return NumberClassification.abundant
-        }
-    }
-    func aliquotSum (_ input: Int) -> Int {
-        let array = Array(1..<(input-1))
+enum ClassificationError: Error {
+  case invalidInput
+}
 
-        return array.filter({ input % $0 == 0 }).reduce(0, +)
+func classify(number: Int) throws -> Classification {
+  guard number > 0 else {
+    throw ClassificationError.invalidInput
+  }
+  var sum = 0
+  for i in 1..<number {
+    if number % i == 0 {
+      sum += i
     }
-
-    init(number: Int) {
-        self.number = number
-    }
-
+  }
+  if sum == number {
+    return .perfect
+  } else if sum > number {
+    return .abundant
+  } else {
+    return .deficient
+  }
 }
