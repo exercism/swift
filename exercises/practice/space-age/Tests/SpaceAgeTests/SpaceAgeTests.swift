@@ -1,56 +1,54 @@
 import XCTest
+
 @testable import SpaceAge
 
 class SpaceAgeTests: XCTestCase {
-    func testAgeInSeconds() {
-        let age = SpaceAge(1_000_000)
-        XCTAssertEqual(1_000_000, age.seconds)
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testAgeInEarthYears() {
-        let age = SpaceAge(1_000_000_000)
-        XCTAssertEqual(31.69, age.onEarth, accuracy: 0.01)
-    }
+  func testAgeOnEarth() {
+    let age = SpaceAge(1_000_000_000)
+    XCTAssertEqual(age.onEarth, 31.69, accuracy: 0.02)
+  }
 
-    func testAgeInMercuryYears() {
-        let age = SpaceAge(2_134_835_688)
-        XCTAssertEqual(67.65, age.onEarth, accuracy: 0.01)
-        XCTAssertEqual(280.88, age.onMercury, accuracy: 0.01)
-    }
+  func testAgeOnMercury() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let age = SpaceAge(2_134_835_688)
+    XCTAssertEqual(age.onMercury, 280.88, accuracy: 0.02)
+  }
 
-    func testAgeInVenusYears() {
-        let age = SpaceAge(189_839_836)
-        XCTAssertEqual(6.02, age.onEarth, accuracy: 0.01)
-        XCTAssertEqual(9.78, age.onVenus, accuracy: 0.01)
-    }
+  func testAgeOnVenus() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let age = SpaceAge(189_839_836)
+    XCTAssertEqual(age.onVenus, 9.78, accuracy: 0.02)
+  }
 
-    func testAgeOnMars() {
-        let age = SpaceAge(2_329_871_239)
-        XCTAssertEqual(73.83, age.onEarth, accuracy: 0.01)
-        XCTAssertEqual(39.25, age.onMars, accuracy: 0.01)
-    }
+  func testAgeOnMars() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let age = SpaceAge(2_129_871_239)
+    XCTAssertEqual(age.onMars, 35.88, accuracy: 0.02)
+  }
 
-    func testAgeOnJupiter() {
-        let age = SpaceAge(901_876_382)
-        XCTAssertEqual(28.58, age.onEarth, accuracy: 0.01)
-        XCTAssertEqual(2.41, age.onJupiter, accuracy: 0.01)
-    }
+  func testAgeOnJupiter() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let age = SpaceAge(901_876_382)
+    XCTAssertEqual(age.onJupiter, 2.41, accuracy: 0.02)
+  }
 
-    func testAgeOnSaturn() {
-        let age = SpaceAge(3_000_000_000)
-        XCTAssertEqual(95.06, age.onEarth, accuracy: 0.01)
-        XCTAssertEqual(3.23, age.onSaturn, accuracy: 0.01)
-    }
+  func testAgeOnSaturn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let age = SpaceAge(2_000_000_000)
+    XCTAssertEqual(age.onSaturn, 2.15, accuracy: 0.02)
+  }
 
-    func testAgeOnUranus() {
-        let age = SpaceAge(3_210_123_456)
-        XCTAssertEqual(101.72, age.onEarth, accuracy: 0.01)
-        XCTAssertEqual(1.21, age.onUranus, accuracy: 0.01)
-    }
+  func testAgeOnUranus() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let age = SpaceAge(1_210_123_456)
+    XCTAssertEqual(age.onUranus, 0.46, accuracy: 0.02)
+  }
 
-    func testAgeOnNeptune() {
-        let age = SpaceAge(8_210_123_456)
-        XCTAssertEqual(260.16, age.onEarth, accuracy: 0.01)
-        XCTAssertEqual(1.58, age.onNeptune, accuracy: 0.01)
-    }
+  func testAgeOnNeptune() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let age = SpaceAge(1_821_023_456)
+    XCTAssertEqual(age.onNeptune, 0.35, accuracy: 0.02)
+  }
 }
