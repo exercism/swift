@@ -1,1 +1,3 @@
-//Solution goes in Sources
+class Meetup {
+  // Write your code for the 'Meetup' exercise in this file.
+}
