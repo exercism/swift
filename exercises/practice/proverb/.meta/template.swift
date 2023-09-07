@@ -10,7 +10,7 @@ class {{exercise|camelCase}}Tests: XCTestCase {
         func test{{case.description |camelCase }}() throws {
         try XCTSkipIf(true && !runAll) // change true to false to run this test
     {% endif -%}
-        let expected = "{{case.expected | join: "\n" }}"
+        let expected = "{{case.expected | join: "\n" + "" }}"
         XCTAssertEqual(Proverb({{case.input.strings | toStringArray}}).recite(), expected)
     }
     {% endfor -%}
