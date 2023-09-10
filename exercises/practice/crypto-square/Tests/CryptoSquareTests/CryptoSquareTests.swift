@@ -1,85 +1,48 @@
 import XCTest
+
 @testable import CryptoSquare
 
 class CryptoSquareTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testNormalizeStrangeCharacters() {
-        let crypto = Crypto("s#$%^&plunk")
-        XCTAssertEqual("splunk", crypto.normalizePlaintext)
-    }
+  func testEmptyPlaintextResultsInAnEmptyCiphertext() {
+    XCTAssertEqual(cryptoSquare(text: ""), "")
+  }
 
-    func testNormalizeUppercaseCharacters() {
-        let crypto = Crypto("WHOA HEY!")
-        XCTAssertEqual("whoahey", crypto.normalizePlaintext)
-    }
+  func testNormalizationResultsInEmptyPlaintext() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(cryptoSquare(text: "... --- ..."), "")
+  }
 
-    func testNormalizeWithNumbers() {
-        let crypto = Crypto("1, 2, 3 GO!")
-        XCTAssertEqual("123go", crypto.normalizePlaintext)
-    }
+  func testLowercase() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(cryptoSquare(text: "A"), "a")
+  }
 
-    func testSizeOfSmallSquare() {
-        let crypto = Crypto("1234")
-        XCTAssertEqual(2, crypto.size)
-    }
+  func testRemoveSpaces() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(cryptoSquare(text: "  b "), "b")
+  }
 
-    func testSizeOfSlightlyLargerSquare() {
-        let crypto = Crypto("123456789")
-        XCTAssertEqual(3, crypto.size)
-    }
+  func testRemovePunctuation() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(cryptoSquare(text: "@1,%!"), "1")
+  }
 
-    func testSizeOfNonPerfectSquare() {
-        let crypto = Crypto("123456789abc")
-        XCTAssertEqual(4, crypto.size)
-    }
+  func test9CharacterPlaintextResultsIn3ChunksOf3Characters() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(cryptoSquare(text: "This is fun!"), "tsf hiu isn")
+  }
 
-    func testSizeIsDeterminedByNormalizedPlaintext() {
-        let crypto = Crypto("Oh hey, this is nuts!")
-        XCTAssertEqual(4, crypto.size)
-    }
+  func test8CharacterPlaintextResultsIn3ChunksTheLastOneWithATrailingSpace() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(cryptoSquare(text: "Chill out."), "clu hlt io ")
+  }
 
-    func testPlaintextSegments() {
-        let crypto = Crypto("Never vex thine heart with idle woes")
-        let expected = ["neverv", "exthin", "eheart", "withid", "lewoes"]
-        XCTAssertEqual(expected, crypto.plaintextSegments)
-    }
-
-    func testOtherPlaintextSegments() {
-        let crypto = Crypto("ZOMG! ZOMBIES!!!")
-        XCTAssertEqual(["zomg", "zomb", "ies"], crypto.plaintextSegments)
-    }
-
-    func testCiphertext() {
-        let crypto = Crypto("Time is an illusion. Lunchtime doubly so.")
-        XCTAssertEqual("tasneyinicdsmiohooelntuillibsuuml", crypto.ciphertext)
-    }
-
-    func testAnotherCiphertext() {
-        let crypto = Crypto("We all know interspecies romance is weird.")
-        XCTAssertEqual("wneiaweoreneawssciliprerlneoidktcms", crypto.ciphertext)
-    }
-
-    func testNormalizedCiphertext() {
-        let crypto = Crypto("Vampires are people too!")
-        XCTAssertEqual("vrel aepe mset paoo irpo", crypto.normalizeCiphertext)
-    }
-
-    func testNormalizedCiphertextSpillsIntoShortSegment() {
-        let crypto = Crypto("Madness, and then illumination.")
-        XCTAssertEqual("msemo aanin dninn dlaet ltshu i", crypto.normalizeCiphertext)
-    }
-
-    func testAnotherNormalizedCiphertext() {
-        let crypto = Crypto(
-            "If man was meant to stay on the ground god would have given us roots"
-        )
-        let  expected = "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghns seoau"
-        XCTAssertEqual(expected, crypto.normalizeCiphertext)
-    }
-
-    func testNormalizedCiphertextWithPunctuation() {
-        let crypto = Crypto("Have a nice day. Feed the dog & chill out!")
-        let expected = "hifei acedl veeol eddgo aatcu nyhht"
-        XCTAssertEqual(expected, crypto.normalizeCiphertext)
-    }
+  func test54CharacterPlaintextResultsIn7ChunksTheLastTwoWithTrailingSpaces() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertEqual(
+      cryptoSquare(text: "If man was meant to stay on the ground, god would have given us roots."),
+      "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau ")
+  }
 }
