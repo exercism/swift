@@ -16,8 +16,8 @@ class PhoneNumber {
     }
     let areaCode = cleanNumber.index(cleanNumber.startIndex, offsetBy: 3)
 
-    if cleanNumber.count != 10 || ("0", "1").includes(cleanNumber.first)
-      || ("0", "1").includes(cleanNumber[areaCode])
+    if cleanNumber.count != 10 || ["0", "1"].includes(cleanNumber.first)
+      || ["0", "1"].includes(cleanNumber[areaCode])
     {
       throw PhoneNumberError.invalidPhoneNumber
     }
