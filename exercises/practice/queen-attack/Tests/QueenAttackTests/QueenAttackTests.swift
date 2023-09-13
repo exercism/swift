@@ -1,118 +1,100 @@
 import XCTest
+
 @testable import QueenAttack
 
 class QueenAttackTests: XCTestCase {
-    func testDefaultPositions() {
-        let queens = try! Queens()
-        XCTAssertEqual([0, 3], queens.white)
-        XCTAssertEqual([7, 3], queens.black)
-    }
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testSpecificPlacement() {
-        let queens = try! Queens(white: [3, 7], black: [6, 1])
-        XCTAssertEqual([3, 7], queens.white)
-        XCTAssertEqual([6, 1], queens.black)
-    }
+  func testQueenWithAValidPosition() {
+    let queen = try! Queen(row: 2, column: 2)
+    XCTAssertEqual(queen.row, 2)
+    XCTAssertEqual(queen.column, 2)
+  }
 
-    func testMultipleBoardsSimultaneously() {
-        let queens1 = try! Queens(white: [3, 7], black: [6, 1])
-        let queens2 = try! Queens(white: [5, 4], black: [7, 7])
-
-        XCTAssertEqual([3, 7], queens1.white)
-        XCTAssertEqual([6, 1], queens1.black)
-        XCTAssertEqual([5, 4], queens2.white)
-        XCTAssertEqual([7, 7], queens2.black)
+  func testQueenMustHavePositiveRow() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try Queen(row: -2, column: 2)) { error in
+      XCTAssertEqual(error as? QueenError, .inValidRow)
     }
+  }
 
-    func testIncorrectNumberOfCoordinates() {
-        XCTAssertThrowsError(_ = try Queens(white: [1, 2, 3], black: [4, 5])) { error in
-            XCTAssertEqual(error as? Queens.InitError, .incorrectNumberOfCoordinates)
-        }
+  func testQueenMustHaveRowOnBoard() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try Queen(row: 8, column: 4)) { error in
+      XCTAssertEqual(error as? QueenError, .inValidRow)
     }
+  }
 
-    func testInvalidCoordinates() {
-        XCTAssertThrowsError(_ = try Queens(white: [-3, 0], black: [2, 481])) { error in
-            XCTAssertEqual(error as? Queens.InitError, .invalidCoordinates)
-        }
+  func testQueenMustHavePositiveColumn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try Queen(row: 2, column: -2)) { error in
+      XCTAssertEqual(error as? QueenError, .inValidColumn)
     }
+  }
 
-    func testCannotOccupySameSpace() {
-        XCTAssertThrowsError(_ = try Queens(white: [2, 4], black: [2, 4])) { error in
-            XCTAssertEqual(error as? Queens.InitError, .sameSpace)
-        }
+  func testQueenMustHaveColumnOnBoard() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    XCTAssertThrowsError(try Queen(row: 4, column: 8)) { error in
+      XCTAssertEqual(error as? QueenError, .inValidColumn)
     }
+  }
 
-    func testStringRepresentation() {
-        let queens = try! Queens(white: [2, 4], black: [6, 6])
-        let board = "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ W _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ B _\n" +
-        "_ _ _ _ _ _ _ _"
-        XCTAssertEqual(board, queens.description)
-    }
+  func testCannotAttack() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let queen = try! Queen(row: 2, column: 4)
+    let otherQueen = try! Queen(row: 6, column: 6)
+    XCTAssertFalse(queen.canAttack(other: otherQueen))
+  }
 
-    func testAnotherStringRepresentation() {
-        let queens = try! Queens(white: [7, 1], black: [0, 0])
-        let board = "B _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-        "_ W _ _ _ _ _ _"
-        XCTAssertEqual(board, queens.description)
-    }
+  func testCanAttackOnSameRow() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let queen = try! Queen(row: 2, column: 4)
+    let otherQueen = try! Queen(row: 2, column: 6)
+    XCTAssertTrue(queen.canAttack(other: otherQueen))
+  }
 
-    func testYetAnotherStringRepresentation() {
-        let queens = try! Queens(white: [4, 3], black: [3, 4])
-        let board = "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ B _ _ _\n" +
-            "_ _ _ W _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-            "_ _ _ _ _ _ _ _\n" +
-        "_ _ _ _ _ _ _ _"
-        XCTAssertEqual(board, queens.description)
-    }
+  func testCanAttackOnSameColumn() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let queen = try! Queen(row: 4, column: 5)
+    let otherQueen = try! Queen(row: 2, column: 5)
+    XCTAssertTrue(queen.canAttack(other: otherQueen))
+  }
 
-    func testCannotAttack() {
-        let queens = try! Queens(white: [2, 3], black: [4, 7])
-        XCTAssertFalse(queens.canAttack)
-    }
+  func testCanAttackOnFirstDiagonal() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let queen = try! Queen(row: 2, column: 2)
+    let otherQueen = try! Queen(row: 0, column: 4)
+    XCTAssertTrue(queen.canAttack(other: otherQueen))
+  }
 
-    func testCanAttackOnSameRow() {
-        let queens = try! Queens(white: [2, 4], black: [2, 7])
-        XCTAssertTrue(queens.canAttack)
-    }
+  func testCanAttackOnSecondDiagonal() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let queen = try! Queen(row: 2, column: 2)
+    let otherQueen = try! Queen(row: 3, column: 1)
+    XCTAssertTrue(queen.canAttack(other: otherQueen))
+  }
 
-    func testCanAttackOnSameColumn() {
-        let queens = try! Queens(white: [5, 4], black: [2, 4])
-        XCTAssertTrue(queens.canAttack)
-    }
+  func testCanAttackOnThirdDiagonal() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let queen = try! Queen(row: 2, column: 2)
+    let otherQueen = try! Queen(row: 1, column: 1)
+    XCTAssertTrue(queen.canAttack(other: otherQueen))
+  }
 
-    func testCanAttackOnDiagonal() {
-        let queens = try! Queens(white: [1, 1], black: [6, 6])
-        XCTAssertTrue(queens.canAttack)
-    }
+  func testCanAttackOnFourthDiagonal() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let queen = try! Queen(row: 1, column: 7)
+    let otherQueen = try! Queen(row: 0, column: 6)
+    XCTAssertTrue(queen.canAttack(other: otherQueen))
+  }
 
-    func testCanAttackOnOtherDiagonal() {
-        let queens = try! Queens(white: [0, 6], black: [1, 7])
-        XCTAssertTrue(queens.canAttack)
-    }
-
-    func testCanAttackOnYetAnotherDiagonal() {
-        let queens = try! Queens(white: [4, 1], black: [6, 3])
-        XCTAssertTrue(queens.canAttack)
-    }
-
-    func testCanAttackOnADiagonalSlantedTheOtherWay() {
-        let queens = try! Queens(white: [6, 1], black: [1, 6])
-        XCTAssertTrue(queens.canAttack)
-    }
+  func
+    testCannotAttackIfFallingDiagonalsAreOnlyTheSameWhenReflectedAcrossTheLongestFallingDiagonal()
+    throws
+  {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    let queen = try! Queen(row: 4, column: 1)
+    let otherQueen = try! Queen(row: 2, column: 5)
+    XCTAssertFalse(queen.canAttack(other: otherQueen))
+  }
 }
