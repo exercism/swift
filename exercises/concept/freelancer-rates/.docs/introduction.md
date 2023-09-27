@@ -21,10 +21,10 @@ let plancksConstant : Double = 6.62607015e-34 // plancksConstant is a Double
 
 ## Arithmetic operators
 
-```exercism/caution
+~~~~exercism/caution
 In Swift can't mix types in arithmetic operations, so you can't use any arithmetic operator on an `Int` with a `Double` or vice versa.
 Thereby you have to do a type conversion first.
-```
+~~~~
 
 Swift does have a set of [arithmetic operators][arithmetic-operators] that can be used to perform basic mathematical operations.
 The `+` operator is used for addition, the `-` operator is used for subtraction, and the `*` operator is used for multiplication.
@@ -66,10 +66,10 @@ The [`%` operator][reminder-operator] is used to get the remainder of a division
 The operator returns the remainder of the division of the first argument by the second argument.
 And as with division, having the second argument having the value of zero will result in a compile error.
 
-```exercism/note
+~~~~exercism/note
 In other languages, is this operator also known as the modulo operator.
 But in Swift, it does not work the same way as the modulo operator, since it strictly speaking, returns the remainder, not the modulo.
-```
+~~~~
 
 ```swift
 5 % 2  // equals 1

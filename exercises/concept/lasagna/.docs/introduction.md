@@ -26,7 +26,7 @@ var implicitVar = 10      // Implicitly typed
 
 Updating a variable's value is done using the `=` operator.
 
-````exercism/note
+~~~~exercism/note
 The type of a variable, is fixed once it is initially defined.
 
 ```swift
@@ -35,7 +35,7 @@ variableName = 13 // update to new value
 // compiler error when assigning a different type
 variableName = "Hello, world!" // Cannot assign value of type 'String' to type 'Int'
 ```
-````
+~~~~
 
 Variables may be declared without assigning a value by specifying the name and type, but they may not be used before a value is assigned.
 
