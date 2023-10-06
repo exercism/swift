@@ -55,9 +55,9 @@ Since what is in parentheses is evaluated first, in the following example, the _
 !(true && false) // true
 ```
 
-```exercism/note
+~~~~exercism/note
 You should only use parentheses when they affect the result, otherwise, should they be omitted.
-```
+~~~~
 
 [logical-operators]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Logical-Operators
 [not]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Logical-NOT-Operator
