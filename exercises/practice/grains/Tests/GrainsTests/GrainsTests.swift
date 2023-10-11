@@ -39,21 +39,21 @@ class GrainsTests: XCTestCase {
     XCTAssertEqual(try! Grains.square(64), 9_223_372_036_854_775_808)
   }
 
-  func testSquare0RaisesAnException() throws {
+  func testSquare0IsInvalid() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertThrowsError(try Grains.square(0)) { error in
       XCTAssertEqual(error as? GrainsError, GrainsError.inputTooLow)
     }
   }
 
-  func testNegativeSquareRaisesAnException() throws {
+  func testNegativeSquareIsInvalid() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertThrowsError(try Grains.square(-1)) { error in
       XCTAssertEqual(error as? GrainsError, GrainsError.inputTooLow)
     }
   }
 
-  func testSquareGreaterThan64RaisesAnException() throws {
+  func testSquareGreaterThan64IsInvalid() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertThrowsError(try Grains.square(65)) { error in
       XCTAssertEqual(error as? GrainsError, GrainsError.inputTooHigh)
