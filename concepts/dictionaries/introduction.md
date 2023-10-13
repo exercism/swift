@@ -50,7 +50,7 @@ constants["Gelfond's"] = 23.140692
 // compiler error: "Cannot assign through subscript: 'constants' is a 'let' constant"
 ```
 
-Like arrays, the _key: value_ pairs of a dictionary can be stepped through one at a time using a for-in loop. This type of loop takes each _key: value_ pair of the dictionary and binds the pair to a specified name for further processing inside the loop body. The pair is represented as a tuple and can be decomposed like other tuples to assign each element to a name. For example, to print out the address book, on can write:
+Like arrays, the _key: value_ pairs of a dictionary can be stepped through one at a time using a for-in loop. This type of loop takes each _key: value_ pair of the dictionary and binds the pair to a specified name for further processing inside the loop body. The pair is represented as a tuple and can be decomposed like other tuples to assign each element to a name. For example, to print out the address book, one can write:
 
 ```swift
 for (name, address) in addresses {
