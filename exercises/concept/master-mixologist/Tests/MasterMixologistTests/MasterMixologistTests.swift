@@ -28,7 +28,7 @@ final class MasterMixologistTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let got = makeWedges(
       needed: 42, limes: ["small", "large", "large", "medium", "small", "large", "large"])
-    XCTAssertEqual(got, 6, "You needto use 6 limes to fill the bin; you said you need \(got).")
+    XCTAssertEqual(got, 6, "You need to use 6 limes to fill the bin; you said you need \(got).")
   }
 
   func testMakeWedgesNoNeed() throws {
