@@ -9,7 +9,7 @@ Swift has 3 [logical operators (`!`, `||`, `&&`)][logical-operators] which are u
 ### And(`&&`)
 
 The [_and_ operator][and] in Swift is represented by `&&` and returns `true` if both values given are `true` otherwise it returns `false`.
-When using the _and_ operator, one Bool be placed on the right side of the `&&` and another one on the left side.
+When using the _and_ operator, one Bool is placed on the right side of the `&&` and another one on the left side.
 
 ```Swift
 true && true  // true
@@ -18,7 +18,7 @@ true && false // false
 
 ### Or(`||`)
 
-The [_or_ operator][or] in Swift is represented by `||` and returns `true` if **at least one** of values given is `true` if both of the values are `false` then it returns `false`.
+The [_or_ operator][or] in Swift is represented by `||` and returns `true` if **at least one** of values given is `true`. If both of the values are `false` then it returns `false`.
 When using the _or_ operator one bool should be placed on the right side of the `||` and another one on the left side.
 
 ```swift
@@ -29,7 +29,7 @@ false || false // false
 
 ### Not(`!`)
 
-The [_not_ operator][not] in Swift is represented by `!` and returns `true` if the given Bool is `false` and returns `false` if `true` is given.
+The [_not_ operator][not] in Swift is represented by `!` and returns `true` if the given Bool is `false`, and returns `false` if `true` is given.
 When using the _not_ operator one Bool should be placed after the operator (`!`).
 
 ```swift
