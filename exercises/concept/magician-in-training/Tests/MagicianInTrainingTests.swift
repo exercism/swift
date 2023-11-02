@@ -132,4 +132,3 @@ class TaskCheckSizeOfStackTests: XCTestCase {
     XCTAssertFalse(checkSizeOfStack(stack, 4))
   }
 }
-0
