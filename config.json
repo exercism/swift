@@ -326,6 +326,14 @@
         "topics": ["maps", "transforming"]
       },
       {
+        "slug": "armstrong-numbers",
+        "name": "Armstrong Numbers",
+        "uuid": "6bd76515-cc17-4238-bc08-7fbdfea14131",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "grade-school",
         "name": "Grade School",
         "uuid": "d1ab2908-8f95-42cd-b40e-b571287ea744",
