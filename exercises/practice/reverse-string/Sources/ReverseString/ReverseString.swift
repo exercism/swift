@@ -1,3 +1,3 @@
 func reverseString(_ input : String) -> String {
-    return String(input.reversed())
+    // Write your code for the 'Reverse String' exercise in this file.
 }
