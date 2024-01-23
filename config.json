@@ -299,6 +299,14 @@
         "topics": ["optional_values", "text_formatting"]
       },
       {
+        "slug": "reverse-string",
+        "name": "Reverse String",
+        "uuid": "f030605e-e971-4153-8927-b4046742fc71",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
+      },
+      {
         "slug": "accumulate",
         "name": "Accumulate",
         "uuid": "cb5bc145-8249-4b3b-bcb3-b8d7805f2a14",
