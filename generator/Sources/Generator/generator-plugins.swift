@@ -222,6 +222,26 @@ class GeneratorPlugins {
       return []
     }
 
+    ext.registerFilter("listOps") { (value: Any?) in
+      if let input = value as? String {
+        switch input {
+        case "(x) -> x modulo 2 == 1":
+          return "{ $0 % 2 == 1 }"
+        case "(x) -> x + 1":
+          return "{ $0 + 1 }"
+        case "(acc, el) -> el * acc":
+          return "*"
+        case "(acc, el) -> el + acc":
+          return "+"
+        case "(acc, el) -> el / acc":
+          return "/"
+        default:
+          return ""
+        }
+      }
+      return []
+    }
+
     ext.registerFilter("round") { (value: Any?, args: [Any?]) in
       if let inputNumber = value as? Double {
         if let precision = args.first as? Int {
