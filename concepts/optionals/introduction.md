@@ -51,7 +51,7 @@ let sum = num + 1
 
 ## Comparing optionals
 
-Note that even if the base type of a pair of optionals can be compared using the standard comparison operators, the optionals themselves cannot be compared. They can only be checked for equality. two optionals are equal if they are both nil or if the values they wrap are equal within their base types.
+Note that even if the base type of a pair of optionals can be compared using the standard comparison operators, the optionals themselves cannot be compared. They can only be checked for equality. Two optionals are equal if they are both nil or if the values they wrap are equal within their base types.
 
 However, code can of course, be written to perform a custom comparison of two optional values. Below is an example of a `switch` statement that will return `true` only if both optional values are non-nil and the first value is less than the second. To do this it uses the _optional pattern_ `varName?` which only matches non-nil optionals, binding the value inside the optional to the name `varName`:
 
