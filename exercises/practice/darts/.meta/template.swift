@@ -10,7 +10,7 @@ class {{exercise|camelCase}}Tests: XCTestCase {
         func test{{case.description |camelCase }}() throws {
         try XCTSkipIf(true && !runAll) // change true to false to run this test
     {% endif -%}
-        XCTAssertEqual(dartScore(x: {{case.input.x}}, y: {{case.input.y}}), {{case.expected}})
+        XCTAssertEqual(dartScore(x: {{case.input.x | round:1 }}, y: {{case.input.y | round:1}}), {{case.expected}})
     }
     {% endfor -%}
 }

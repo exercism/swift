@@ -56,7 +56,7 @@ class DartsTests: XCTestCase {
 
   func testJustWithinTheOuterCircle() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(dartScore(x: -7.0, y: 7.0), 1)
+    XCTAssertEqual(dartScore(x: -7, y: 7), 1)
   }
 
   func testJustOutsideTheOuterCircle() throws {
