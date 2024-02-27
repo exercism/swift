@@ -223,6 +223,9 @@ class GeneratorPlugins {
     }
 
     ext.registerFilter("round") { (value: Any?, args: [Any?]) in
+      if let inputNumber = value as? Int {
+        return inputNumber
+      }
       if let inputNumber = value as? Double {
         if let precision = args.first as? Int {
           let divisor = pow(10.0, Double(precision))
