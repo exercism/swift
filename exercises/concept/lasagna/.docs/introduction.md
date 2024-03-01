@@ -15,9 +15,7 @@ var variableName = 10
 ```
 
 Swift is a type-safe, statically typed language, which means all values have a type at compile time.
-You can either explicitly specify the type of a variable or let the compiler [infer the type][type-infering] based on the assigned value.
-
-When assigning a value to a variable are there two ways either through explicit typing through [type annotations][type annotations] or implicit typing.
+You can either explicitly specify the type of a variable with [type annotations][type annotations] or let the compiler [infer the type][type-inferring].
 
 ```swift
 var explicitVar: Int = 10 // Explicitly typed
@@ -75,8 +73,8 @@ print(2 * 2) // Prints 4
 ### Functions
 
 In Swift, [functions][functions] are a chunk of code that performs a task.
-A function has a return type and can thereby be used as a value and be parsed as arguments to other functions.
-In Swift are functions defined using the `func` keyword followed by the name of the function, arguments separated by commas, and a return type.
+A function has a return type and can thereby be used as a value and be passed as an argument to other functions.
+In Swift functions are defined using the `func` keyword followed by the name of the function, arguments separated by commas, and a return type.
 
 The arguments are defined by an argument label, a parameter name followed by a colon and then a type.
 The return type is defined by a `->` followed by the type of the return value.
@@ -87,7 +85,7 @@ func functionName(argumentName parameterName: ArgumentType) -> ReturnType {
 }
 ```
 
-Swift arguments are a bit special compared to other languages, they use [argument labels][argumment-labels].
+Swift arguments are a bit special compared to other languages, they use [argument labels][argument-labels].
 The argument label is used when calling the function.
 The parameter name is used inside the function body to refer to the argument value.
 If you only assign one name to the argument it will be used as both the argument label and the parameter name.
@@ -124,10 +122,19 @@ When functions don't return a value they have a return type of `Void`, which is 
 Swift supports two types of [comments][comments].
 Single line comments are preceded by `//` and multiline comments are inserted between `/*` and `*/`.
 
+```swift
+// This is a comment
+
+/* 
+    This is also a comment but it can span many
+    lines.
+*/
+```
+
 [comments]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Comments
 [constants-variables]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Constants-and-Variables
 [type annotations]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Type-Annotations
-[type-infering]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Type-Safety-and-Type-Inference
+[type-inferring]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Type-Safety-and-Type-Inference
 [functions]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Defining-and-Calling-Functions
 [arithmetical-operators]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Arithmetic-Operators
-[argumment-labels]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Function-Argument-Labels-and-Parameter-Names
+[argument-labels]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Function-Argument-Labels-and-Parameter-Names
