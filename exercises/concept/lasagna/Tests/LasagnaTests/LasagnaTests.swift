@@ -28,17 +28,17 @@ class TaskRemainingMinutesInOven: XCTestCase {
 }
 
 class TaskPreparationTimeInMinutes: XCTestCase {
-  func testPreperationMinutes() throws {
+  func testPreparationMinutes() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(preparationTimeInMinutes(layers: 6), 12)
   }
 
-  func testPreperationMinutesForOneLayer() throws {
+  func testPreparationMinutesForOneLayer() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(preparationTimeInMinutes(layers: 1), 2)
   }
 
-  func testPreperationMinutesForZeroLayers() throws {
+  func testPreparationMinutesForZeroLayers() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(preparationTimeInMinutes(layers: 0), 0)
   }
