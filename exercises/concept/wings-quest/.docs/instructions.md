@@ -35,7 +35,7 @@ score(touchingPowerUp: true, touchingSeed: true)
 ## 3. Define if bird loses
 
 Define the function `lose(powerUpActive:touchingEagle:)` that takes two arguments `powerUpActive`, which holds if the bird has an active power-up, and the argument `touchingEagle` which holds if the bird is touching an eagle.
-The function should return `true` if the character is an eagle and does not have a power-up active, and return `false` otherwise.
+The function should return `true` if the character is touching an eagle and does not have a power-up active, and return `false` otherwise.
 
 ```Swift
 lose(powerUpActive: false, touchingEagle: true)
