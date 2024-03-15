@@ -74,7 +74,7 @@ print(2 * 2) // Prints 4
 
 In Swift, [functions][functions] are a chunk of code that performs a task.
 A function has a return type and can thereby be used as a value and be passed as an argument to other functions.
-In Swift functions are defined using the `func` keyword followed by the name of the function, arguments separated by commas, and a return type.
+In Swift, functions are defined using the `func` keyword followed by the name of the function, arguments separated by commas, and a return type.
 
 The arguments are defined by an argument label, a parameter name followed by a colon and then a type.
 The return type is defined by a `->` followed by the type of the return value.
@@ -121,15 +121,6 @@ When functions don't return a value they have a return type of `Void`, which is 
 
 Swift supports two types of [comments][comments].
 Single line comments are preceded by `//` and multiline comments are inserted between `/*` and `*/`.
-
-```swift
-// This is a comment
-
-/* 
-    This is also a comment but it can span many
-    lines.
-*/
-```
 
 [comments]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Comments
 [constants-variables]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Constants-and-Variables
