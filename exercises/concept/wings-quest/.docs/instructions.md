@@ -48,7 +48,7 @@ Define the `win(hasPickedUpAllSeeds:powerUpActive:touchingEagle:)` function that
 
 - `hasPickedUpAllSeeds` if the bird has picked up all of the seeds.
 - `powerUpActive` if the bird has a power-up active.
-- `touchingEagle` if the bird is an eagle.
+- `touchingEagle` if the bird is touching an eagle.
 
 The function should return `true` if the bird has gathered all of the seeds and has not lost based on the arguments defined in part 3, and return `false` otherwise.
 
