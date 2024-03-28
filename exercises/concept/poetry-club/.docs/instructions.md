@@ -82,10 +82,10 @@ Finally the password you return is `SUPER!`, and you'll get in.
 
 ## 1. Split a string into individual lines
 
-Implement the function `splitLines(_:)` that takes a `String` as input and splits it into an array of `String`s using newlines as delimiters.
+Implement the function `splitOnNewlines(_:)` that takes a `String` as input and splits it into an array of `String`s using newlines as delimiters.
 
 ```swift
-splitLines("Hello.\nHow are you?\n\nI'm doing fine.")
+splitOnNewlines("Hello.\nHow are you?\n\nI'm doing fine.")
 // => ["Hello." ,"How are you?", "", "I'm doing fine"].
 ```
 
