@@ -2,7 +2,7 @@
 
 Dictionaries are one of Swift's three primary collection types. Dictionaries store mappings between _keys_ which are elements of one type and _values_ which are elements of another type (possibly the same type as that of the keys).
 
-Dictionary literals are written as a series of `key: value` pairs, separated by commas, enclosed in square brackets. Empty dictionaries can be written by following the type name of the dictionary by a pair of parenthesis, e.g. `[Int: String]()`, or, if the type can be determined from the context, as just a pair of square brackets surrounding a colon, `[:]`. Type names for dictionaries are written in one of two ways: `Dictionary<K, V>` or `[K: V]` where `K` is the type of the keys in the dictionary and `V` is the type of the values. When creating an empty array, the type must be specified.
+Dictionary literals are written as a series of `key: value` pairs, separated by commas, enclosed in square brackets. Empty dictionaries can be written by following the type name of the dictionary by a pair of parenthesis, e.g. `[Int: String]()`, or, if the type can be determined from the context, as just a pair of square brackets surrounding a colon, `[:]`. Type names for dictionaries are written in one of two ways: `Dictionary<K, V>` or `[K: V]` where `K` is the type of the keys in the dictionary and `V` is the type of the values. When creating an empty dictionary, the type must be specified.
 
 ```swift
 var addresses: Dictionary<String, String> = ["The Munsters": "1313 Mockingbird Lane", "The Simpsons": "742 Evergreen Terrace", "Buffy Summers": "1630 Revello Drive"]
