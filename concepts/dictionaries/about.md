@@ -37,6 +37,18 @@ let betty = addresses["Betty Cooper", default: "Address unknown"]
 - For-in loops can be used to iterate through the _key: value_ pairs of a dictionary
 - Each pair is presented as a tuple and can be destructured like other tuples to assign each element to a name. For example, to print out the address book, on can write:
 
+```swift
+for (name, address) in addresses {
+  print("\(name) lives at \(address)")
+}
+
+// prints out:
+// Betty Cooper lives at 111 Queens Ave.
+// The Munsters lives at 1313 Mockingbird Lane
+// The Simpsons lives at 742 Evergreen Terrace
+// Buffy Summers lives at 1630 Revello Drive
+```
+
 [The other methods][dictionary-docs] available for working with dictionaries can be seen in the Apple Swift API documentation.
 
 [dictionaries]: https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID113
