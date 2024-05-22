@@ -19,7 +19,7 @@ let constants: = ["pi": 3.14159, "e": 2.71828, "phi": 1.618033, "avogadro": 6.02
 - Empty dictionaries can be written by following the type name of the dictionary by a pair of parenthesis, e.g. `[Int: String]()`, or, if the type can be determined from the context, as just a pair of square brackets surrounding a colon, `[:]`.
 - Type names for dictionaries are written in one of two ways: `Dictionary<K, V>` or `[K: V]` where `K` is the type of the keys in the dictionary and `V` is the type of the values.
 - Dictionary elements can be accessed using subscript notation, e.g. `addresses["The Simpsons"]`.
-- Values returned from these look-ups are optionals; `nil` is returned if a requested key is not present in the dictionary.```
+- Values returned from these look-ups are optionals; `nil` is returned if a requested key is not present in the dictionary.
 - To avoid the optional type of the return, one can supply a default value to return if the key in not found in the dictionary.
 
 ```swift
