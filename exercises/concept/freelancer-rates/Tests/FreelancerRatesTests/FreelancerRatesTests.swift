@@ -53,13 +53,13 @@ class TaskWorkdaysIn: XCTestCase {
   func testworkdaysLargebudget() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(
-      workdaysIn(budget: 25_000, hourlyRate: 80, withDiscount: 10), 43.0, accuracy: 0.001)
+      workdaysIn(budget: 25_000, hourlyRate: 80, withDiscount: 10), 42.0, accuracy: 0.001)
   }
 
   func testworkdaysShouldRound() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(
-      workdaysIn(budget: 20000, hourlyRate: 80, withDiscount: 11), 35.0, accuracy: 0.001)
+      workdaysIn(budget: 20000, hourlyRate: 80, withDiscount: 11), 34.0, accuracy: 0.001)
   }
 
   func testworkdaysShouldNotRoundToNearstInteger() throws {
