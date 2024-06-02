@@ -19,7 +19,7 @@ let constants: = ["pi": 3.14159, "e": 2.71828, "phi": 1.618033, "avogadro": 6.02
 - Empty dictionaries can be written by following the type name of the dictionary by a pair of parenthesis, e.g. `[Int: String]()`, or, if the type can be determined from the context, as just a pair of square brackets surrounding a colon, `[:]`.
 - Type names for dictionaries are written in one of two ways: `Dictionary<K, V>` or `[K: V]` where `K` is the type of the keys in the dictionary and `V` is the type of the values.
 - Dictionary elements can be accessed using subscript notation, e.g. `addresses["The Simpsons"]`.
-- Values returned from these look-ups are optionals; `nil` is returned if a requested key is not present in the dictionary.```
+- Values returned from these look-ups are optionals; `nil` is returned if a requested key is not present in the dictionary.
 - To avoid the optional type of the return, one can supply a default value to return if the key in not found in the dictionary.
 
 ```swift
@@ -35,7 +35,19 @@ let betty = addresses["Betty Cooper", default: "Address unknown"]
 - This can be used to update the value associated with a key or to add a new _key: value_ pair to the dictionary.
 - Dictionaries can be sorted by passing a sorting function into the dictionary's `sorted(by:)` method.
 - For-in loops can be used to iterate through the _key: value_ pairs of a dictionary
-- Each pair is presented as a tuple and can be destructured like other tuples to assign each element to a name. For example, to print out the address book, on can write:
+- Each pair is presented as a tuple and can be destructured like other tuples to assign each element to a name. For example, to print out the address book, one can write:
+
+```swift
+for (name, address) in addresses {
+  print("\(name) lives at \(address)")
+}
+
+// prints out:
+// Betty Cooper lives at 111 Queens Ave.
+// The Munsters lives at 1313 Mockingbird Lane
+// The Simpsons lives at 742 Evergreen Terrace
+// Buffy Summers lives at 1630 Revello Drive
+```
 
 [The other methods][dictionary-docs] available for working with dictionaries can be seen in the Apple Swift API documentation.
 
