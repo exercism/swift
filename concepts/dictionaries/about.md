@@ -35,7 +35,7 @@ let betty = addresses["Betty Cooper", default: "Address unknown"]
 - This can be used to update the value associated with a key or to add a new _key: value_ pair to the dictionary.
 - Dictionaries can be sorted by passing a sorting function into the dictionary's `sorted(by:)` method.
 - For-in loops can be used to iterate through the _key: value_ pairs of a dictionary
-- Each pair is presented as a tuple and can be destructured like other tuples to assign each element to a name. For example, to print out the address book, on can write:
+- Each pair is presented as a tuple and can be destructured like other tuples to assign each element to a name. For example, to print out the address book, one can write:
 
 ```swift
 for (name, address) in addresses {
