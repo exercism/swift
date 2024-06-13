@@ -6,7 +6,7 @@ let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
 class TaskExpectedMinutesInOvenTests: XCTestCase {
   func testExpectedMinutes() {
-    XCTAssertEqual(expectedMinutesInOven, 40)
+    XCTAssertEqual(expectedMinutesInOven(), 40)
   }
 }
 
