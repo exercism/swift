@@ -102,7 +102,7 @@ Swift arguments are a bit special compared to other languages, they use [argumen
 The argument label is used when calling the function.
 The parameter name is used inside the function body to refer to the argument value.
 If you only assign one name to the argument it will be used as both the argument label and the parameter name.
-When assigning the argument label name as: `_` so will the argument not have a label when calling the function, e.g: `functionName(argumentValue)`
+When assigning the argument label name as: `_` the argument will not have a label when calling the function, e.g: `functionName(argumentValue)`
 
 To call a function you use the function name followed by the argument label and the argument value, like this:
 
