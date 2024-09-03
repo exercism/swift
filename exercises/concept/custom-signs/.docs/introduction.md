@@ -46,7 +46,7 @@ let badChar: Character = "Too many characters"
 
 ## Concatenation
 
-In Swift can strings be [concatenated][] using the `+` operator.
+In Swift, strings can be [concatenated][] using the `+` operator.
 Characters can **not** be concatenated with strings using the `+` operator without first converting the character to a string.
 
 ```swift
