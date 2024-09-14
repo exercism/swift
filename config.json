@@ -839,6 +839,14 @@
         "topics": ["algorithms", "text_formatting"]
       },
       {
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "1e5a75f5-b269-4297-a6db-d148d81eee5a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "linked-list",
         "name": "Linked List",
         "uuid": "ecedbfe8-b578-4af7-8e8c-470809adbc42",
