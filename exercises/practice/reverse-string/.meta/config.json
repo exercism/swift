@@ -1,5 +1,7 @@
 {
-  "authors": ["meatball133"],
+  "authors": [
+    "meatball133"
+  ],
   "files": {
     "solution": [
       "Sources/ReverseString/ReverseString.swift"
