@@ -1,54 +1,173 @@
 # About
 
-[Arrays][array] are one of Swift's three primary collection types. Arrays are ordered lists of elements where the elements can be of any type, however, all elements of any given list must have the same type.
+[Arrays][array] are one of Swift's three primary collection types.
+Arrays are ordered lists of elements where the elements can be of any type, however, all elements of any given list must have the same type.
+Arrays are mutable when assigned to a variable, meaning that the elements of an array can be modified after the array is created.
+This is not the case when an array is assigned to a constant, in which case the array is immutable.
 
-Arrays literals are written as a series of elements, each separated by commas, enclosed in square brackets. Empty arrays are just a pair of square brackets. Type names for arrays are written in one of two ways: `Array<T>` or `[T]` where `T` is the type of the elements in thee array. When creating an empty array, the type must be specified.
+Arrays literals are written as a series of elements, each separated by commas, enclosed in square brackets.
+Swift will infer the type of the array from the types of the elements in the array literal.
+
+```swift
+let evenInts = [2, 4, 6, 8, 10, 12]
+var oddInts = [1, 3, 5, 7, 9, 11, 13]
+let greetings = ["Hello!", "Hi!", "¡Hola!"]
+```
+
+Arrays can also be explicitly typed by specifying the type of the elements in the array.
+Type names for arrays are written in one of two ways: `Array<T>` or `[T]` where `T` is the type of the elements in thee array.
 
 ```swift
 let evenInts: Array<Int> = [2, 4, 6, 8, 10, 12]
 var oddInts: [Int] = [1, 3, 5, 7, 9, 11, 13]
-let greetings = ["Hello!", "Hi!", "¡Hola!"]
-var myStringArray: [String] = []
+let greetings : [String] = ["Hello!", "Hi!", "¡Hola!"]
 ```
 
-Elements of an array can be accessed individually by supplying the index of the element inside square brackets following the array; array indices are `Int`s and start with `0` for the first (leftmost) element. This subscript notation can be used to get the element at that index as well as to set the element at that index, provided the array was defined as a variable (i.e. using `var`).
+## Size of an Array
 
-Trying to access elements at indices outside the valid range of indices will result in a runtime error that crashes the program. Since any invalid array index access will crash a program, it is common to test arrays to see if the are empty before working with them by checking the `isEmpty` property or checking if an index is valid by ensuring that it is greater than or equal to 0 and less than the array's `count` property.
+The number of elements in an array can be determined using the [`count`][count] property.
 
 ```swift
-guard !evenInts.isEmpty, !oddInts.isEmpty else { return }
+evenInts.count
+// returns 6
+```
+
+## Empty Arrays
+
+When wanting an empty array, the type must be specified.
+This can be done by using either the array initializer syntax or by using the type annotation syntax.
+
+```swift
+let emptyArray = [Int]()
+let emptyArray2 = Array<Int>()
+let emptyArray3: [Int] = []
+```
+
+## Multi-dimensional Arrays
+
+Arrays can be nested to create multi-dimensional arrays.
+When explicitly typing a multi-dimensional array, the type of the elements of the innermost array must be specified, using: `Array<Array<T>>` or `[[T]]`.
+
+```swift
+let multiDimArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+let multiDimArray2: [[Int]] = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+```
+
+## Append to an Array
+
+Elements can be appended to the end of an array using the [`append(_:)`][append] method.
+The `append(_:)` method takes a single argument, the element to be appended to the array.
+
+```swift
+var oddInts = [1, 3, 5, 7, 9, 11, 13]
+oddInts.append(15)
+// oddInts is now [1, 3, 5, 7, 9, 11, 13, 15]
+```
+
+## Insert into an Array
+
+Elements can be inserted into an array using the [`insert(_:at:)`][insert] method.
+The `insert(_:at:)` method takes two arguments, the element to be inserted into the array and the index at which the element should be inserted.
+
+```swift
+var oddInts = [1, 3, 5, 7, 9, 11, 13]
+oddInts.insert(0, at: 0)
+// oddInts is now [0, 1, 3, 5, 7, 9, 11, 13]
+```
+
+## Add an Array to an Array
+
+Array can be added to the end of an array using the `+` operator.
+It is important to note that the `+` operator creates a new array and does not modify the original array, which is different from the `append(_:)` or `insert(_:at:)` methods.
+
+```swift
+var oddInts = [1, 3, 5, 7, 9, 11, 13]
+oddInts + [15, 17, 19]
+// returns [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+print(oddInts)
+// prints [1, 3, 5, 7, 9, 11, 13]
+```
+
+## Accessing Elements of an Array
+
+Elements of an array can be accessed individually by supplying the index of the element inside square brackets following the array.
+The index of an element is an `Int` and starts with `0` for the first (leftmost) element.
+If the index is outside the valid range of indices, a runtime error will occur and the program will crash.
+
+```swift
+let evenInts = [2, 4, 6, 8, 10, 12]
+let oddInts = [1, 3, 5, 7, 9, 11, 13]
+
 evenInts[2]
-// => 6
-oddInts[0] = 27
-// oddInts is now [27, 3, 5, 7, 9, 11, 13]
+// returns 6
 
-// these operations are not allowed
-greetings[3]
-// error: Execution was interrupted, reason: EXC_BAD_INSTRUCTION (code=EXC_I386_INVOP, subcode=0x0).
-evenInts[1] = 0
-// Cannot assign through subscript: 'evenInts' is a 'let' constant
+oddInts[7]
+// Fatal error: Index out of range
 ```
 
-Arrays in Swift are not fixed size (though constant arrays, defined using `let` cannot be modified, including adding and removing elements). Elements can quickly be appended or dropped from the end of an array, and elements can be inserted or removed at any other location, though these operations are slower. The entire contents of another array can also be inserted at a given position in the original array.
+## Modifying Elements of an Array
 
-The elements of an array can be stepped through one at a time using a for-in loop. This type of loop takes each element of the array, in order, and binds the element to a specified name for further processing inside the loop body. For example, to print out all of the odd integers in an array one can write:
+Elements of an array can be modified by assigning a new value to the element at a given index.
+The index of an element is an `Int` and starts with `0` for the first (leftmost) element.
+If the index is outside the valid range of indices, a runtime error will occur and the program will crash.
 
 ```swift
-let ints = [1, 3, 6, 14, 17, 8, 23, 5, 18, 11]
+var evenInts = [2, 4, 6, 8, 10, 12]
 
-for int in ints {
-  if !int.isMultiple(of: 2) {
-    print(int)
-  }
-}
+evenInts[2] = 0
+// evenInts is now [2, 4, 0, 8, 10, 12]
+```
 
-// prints out:
-// 1
-// 3
-// 17
-// 23
-// 5
-// 11
+## Converting an Array to a String and Back
+
+An array ofn strings can be converted to a single string using the [`joined(separator:)`][joined] method.
+The `joined(separator:)` property takes a single argument, the separator to be used between elements of the array.
+The separator must be a string.
+
+```swift
+let evenInts = ["2", "4", "6", "8", "10", "12"]
+let evenIntsString = evenInts.joined(separator: ", ")
+// returns "2, 4, 6, 8, 10, 12"
+```
+
+An array can be converted from a string using the [`split(separator:)`][split] method.
+The `split(separator:)` method takes a single argument, the separator to be used between elements of the array.
+
+```swift
+let evenIntsString = "2, 4, 6, 8, 10, 12"
+let evenInts = evenIntsString.split(separator: ", ")
+// returns ["2", "4", "6", "8", "10", "12"]
+```
+
+## Delete an Element from an Array
+
+Elements can be deleted from an array using the [`remove(at:)`][remove] method.
+The `remove(at:)` method takes a single argument, the index of the element to be removed from the array.
+The index of an element is an `Int` and starts with `0` for the first (leftmost) element.
+If the index is outside the valid range of indices, a runtime error will occur and the program will crash.
+
+```swift
+var oddInts = [1, 3, 5, 7, 9, 11, 13]
+oddInts.remove(at: 3)
+// oddInts is now [1, 3, 5, 9, 11, 13]
+```
+
+If the last element of an array is to be removed, the [`removeLast()`][removeLast] method can be used.
+The `removeLast()` method takes no arguments.
+If the array is empty, a runtime error will occur and the program will crash.
+
+```swift
+var oddInts = [1, 3, 5, 7, 9, 11, 13]
+oddInts.removeLast()
+// oddInts is now [1, 3, 5, 7, 9, 11]
 ```
 
 [array]: https://developer.apple.com/documentation/swift/array
+[count]: https://developer.apple.com/documentation/swift/array/count
+[insert]: https://developer.apple.com/documentation/swift/array/insert(_:at:)-3erb3
+[remove]: https://developer.apple.com/documentation/swift/array/remove(at:)-1p2pj
+[removeLast]: https://developer.apple.com/documentation/swift/array/removelast()
+[append]: https://developer.apple.com/documentation/swift/array/append(_:)-1ytnt
+[joined]: https://developer.apple.com/documentation/swift/array/joined(separator:)-5do1g
+[split]: https://developer.apple.com/documentation/swift/string/2894564-split
