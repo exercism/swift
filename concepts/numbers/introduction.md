@@ -62,13 +62,13 @@ print(5 / 0) // error: division by zero
 
 ### Remainder
 
-The [`%` operator][reminder-operator] is used to get the remainder of a division and does only work with integers.
+The [`%` operator][reminder-operator] is used to get the remainder of a division and only works with integers.
 The operator returns the remainder of the division of the first argument by the second argument.
-And as with division, having the second argument having the value of zero will result in a compile error.
+And as with division, the second argument having the value of zero will result in a compile error.
 
 ~~~~exercism/note
 In other languages, is this operator also known as the modulo operator.
-But in Swift, it does not work the same way as the modulo operator, since it strictly speaking, returns the remainder, not the modulo.
+But in Swift, it does not work the same way as the modulo operator. Strictly speaking, it returns the remainder, not the modulo.
 ~~~~
 
 ```swift
@@ -83,7 +83,7 @@ But in Swift, it does not work the same way as the modulo operator, since it str
 
 Rounding numbers is done by using the `rounded()` method on a floating-point number.
 To round to the nearest integer, you can use the `rounded()` method without any arguments.
-To round up or down, you can use the `rounded(.up)` or `rounded(.down)` methods respectively.
+To round up or down, you can use the `rounded(.up)` or `rounded(.down)` methods, respectively.
 
 ```swift
 let x = 3.14
@@ -94,8 +94,8 @@ let z = x.rounded(.up)   // z equals 4.0
 
 ## Type inference
 
-Swift can [infer what type][typeinference] a number is based on the context, without extra context will the compiler assume that number is an `Int`.
-If you want to tell the compiler that you want a whole number to be a `Double` you must use either a type annotation or append a `.0` onto the end of the number literal. E.g.
+Swift can [infer what type][typeinference] a number is based on the context; without extra context the compiler will assume that number is an `Int`.
+If you want to tell the compiler that you want a whole number to be a `Double`, you must use either a type annotation or append a `.0` onto the end of the number literal, e.g.:
 
 ```swift
 let x = 42         // x is an Int
