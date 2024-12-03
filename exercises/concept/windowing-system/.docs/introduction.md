@@ -17,7 +17,6 @@ The body may consist of stored properties, which are defined and behave just lik
 ```swift
 struct CharacterStats {
   var health = 0.0
-  var speed = 0
   var strength = 0
 }
 
@@ -81,7 +80,6 @@ Methods are defined in the same way as a regular function, only inside the body 
 ```swift
 struct CharacterStats {
   var health = 0.0
-  var speed = 0
   var strength = 0
 
   mutating func takeHit(_ damage: Double) {
