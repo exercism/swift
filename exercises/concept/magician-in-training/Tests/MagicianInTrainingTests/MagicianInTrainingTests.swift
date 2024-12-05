@@ -86,7 +86,7 @@ final class MagicianInTrainingTests: XCTestCase {
   func testRemoveBottomCardFromEmptyStack() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let stack = [Int]()
-    XCTAssertEqual(removeTopCard(stack), stack)
+    XCTAssertEqual(removeBottomCard(stack), stack)
   }
 
   func testCheckSizeTrue() throws {
