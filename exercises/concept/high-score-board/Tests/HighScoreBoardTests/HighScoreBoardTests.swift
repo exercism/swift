@@ -81,6 +81,20 @@ final class HighScoreBoardTests: XCTestCase {
     )
   }
 
+  func testResetScoreNonexistentPlayer() throws {
+    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    var scoreboard = [String: Int]()
+    addPlayer(&scoreboard, "Jesse Johnson", 1337)
+    addPlayer(&scoreboard, "Amil PAstorius", 99373)
+    addPlayer(&scoreboard, "Min-seo Shin")
+    resetScore(&scoreboard, "Bruno Santangelo")
+    XCTAssertEqual(
+      scoreboard,
+      ["Jesse Johnson": 1337, "Amil PAstorius": 99373, "Min-seo Shin": 0],
+      "Resetting a non-existent player's score should leave the dictionary unchanged."
+    )
+  }
+
   func testUpdateScore() throws {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     var scoreboard = [String: Int]()

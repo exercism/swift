@@ -2,12 +2,12 @@
 
 Dictionaries are one of Swift's three primary collection types. Dictionaries store mappings between _keys_ which are elements of one type and _values_ which are elements of another type (possibly the same type as that of the keys).
 
-Dictionary literals are written as a series of `key: value` pairs, separated by commas, enclosed in square brackets. Empty dictionaries can be written by following the type name of the dictionary by a pair of parenthesis, e.g. `[Int: String]()`, or, if the type can be determined from the context, as just a pair of square brackets surrounding a colon, `[:]`. Type names for dictionaries are written in one of two ways: `Dictionary<K, V>` or `[K: V]` where `K` is the type of the keys in the dictionary and `V` is the type of the values. When creating an empty array, the type must be specified.
+Dictionary literals are written as a series of `key: value` pairs, separated by commas, enclosed in square brackets. Empty dictionaries can be written by following the type name of the dictionary by a pair of parenthesis, e.g. `[Int: String]()`, or, if the type can be determined from the context, as just a pair of square brackets surrounding a colon, `[:]`. Type names for dictionaries are written in one of two ways: `Dictionary<K, V>` or `[K: V]` where `K` is the type of the keys in the dictionary and `V` is the type of the values. When creating an empty dictionary, the type must be specified.
 
 ```swift
 var addresses: Dictionary<String, String> = ["The Munsters": "1313 Mockingbird Lane", "The Simpsons": "742 Evergreen Terrace", "Buffy Summers": "1630 Revello Drive"]
 var sequences: [String: [Int]] = ["Euler's totient": [1, 1, 2, 2, 4, 2, 6, 4], "Lazy caterer": [1, 2, 4, 7, 11, 16, 22, 29, 37], "Carmichael": [561, 1105, 1729, 2465, 2821, 6601, 8911, 10585, 15841]]
-let constants = ["pi": 3.14159, "e": 2.71828, "phi": 1.618033, "avogadro": 6.02214076e22]
+let constants = ["pi": 3.14159, "e": 2.71828, "phi": 1.618033, "avogadro": 6.02214076e23]
 var emptyDict1: [Int: Int] = [:]
 var emptyDict2 = [Character: String]()
 var emptyDict3 = Dictionary<Int, Double>()

@@ -235,6 +235,15 @@ class GeneratorPlugins {
       return nil
     }
 
+    ext.registerFilter("knapsackItem") { (value: Any?) in
+      if let item = value as? [String: Any] {
+        let itemWeight = String(describing: item["weight", default: ""])
+        let itemValue = String(describing: item["value", default: ""])
+        return "Item(weight:\(itemWeight), value:\(itemValue))"
+      }
+      return "// Something else ..."
+    }
+
     let environment = Environment(extensions: [ext])
     return environment
   }
