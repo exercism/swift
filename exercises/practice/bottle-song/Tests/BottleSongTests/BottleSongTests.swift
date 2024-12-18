@@ -1,10 +1,13 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import BottleSong
 
-class BottleSongTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct BottleSongTests {
+
+  @Test("first generic verse")
   func testFirstGenericVerse1() {
     let bottleSong = BottleSong(bottles: 10)
     let expected = [
@@ -12,44 +15,44 @@ class BottleSongTests: XCTestCase {
       "And if one green bottle should accidentally fall,",
       "There'll be nine green bottles hanging on the wall.",
     ]
-    XCTAssertEqual(bottleSong.song(takedown: 1), expected)
+    #expect(bottleSong.song(takedown: 1) == expected)
   }
 
-  func testLastGenericVerse1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last generic verse", .enabled(if: RUNALL))
+  func testLastGenericVerse1() {
     let bottleSong = BottleSong(bottles: 3)
     let expected = [
       "Three green bottles hanging on the wall,", "Three green bottles hanging on the wall,",
       "And if one green bottle should accidentally fall,",
       "There'll be two green bottles hanging on the wall.",
     ]
-    XCTAssertEqual(bottleSong.song(takedown: 1), expected)
+    #expect(bottleSong.song(takedown: 1) == expected)
   }
 
-  func testVerseWith2Bottles1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("verse with 2 bottles", .enabled(if: RUNALL))
+  func testVerseWith2Bottles1() {
     let bottleSong = BottleSong(bottles: 2)
     let expected = [
       "Two green bottles hanging on the wall,", "Two green bottles hanging on the wall,",
       "And if one green bottle should accidentally fall,",
       "There'll be one green bottle hanging on the wall.",
     ]
-    XCTAssertEqual(bottleSong.song(takedown: 1), expected)
+    #expect(bottleSong.song(takedown: 1) == expected)
   }
 
-  func testVerseWith1Bottle1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("verse with 1 bottle", .enabled(if: RUNALL))
+  func testVerseWith1Bottle1() {
     let bottleSong = BottleSong(bottles: 1)
     let expected = [
       "One green bottle hanging on the wall,", "One green bottle hanging on the wall,",
       "And if one green bottle should accidentally fall,",
       "There'll be no green bottles hanging on the wall.",
     ]
-    XCTAssertEqual(bottleSong.song(takedown: 1), expected)
+    #expect(bottleSong.song(takedown: 1) == expected)
   }
 
-  func testFirstTwoVerses1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("first two verses", .enabled(if: RUNALL))
+  func testFirstTwoVerses1() {
     let bottleSong = BottleSong(bottles: 10)
     let expected = [
       "Ten green bottles hanging on the wall,", "Ten green bottles hanging on the wall,",
@@ -59,11 +62,11 @@ class BottleSongTests: XCTestCase {
       "And if one green bottle should accidentally fall,",
       "There'll be eight green bottles hanging on the wall.",
     ]
-    XCTAssertEqual(bottleSong.song(takedown: 2), expected)
+    #expect(bottleSong.song(takedown: 2) == expected)
   }
 
-  func testLastThreeVerses1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last three verses", .enabled(if: RUNALL))
+  func testLastThreeVerses1() {
     let bottleSong = BottleSong(bottles: 3)
     let expected = [
       "Three green bottles hanging on the wall,", "Three green bottles hanging on the wall,",
@@ -76,11 +79,11 @@ class BottleSongTests: XCTestCase {
       "And if one green bottle should accidentally fall,",
       "There'll be no green bottles hanging on the wall.",
     ]
-    XCTAssertEqual(bottleSong.song(takedown: 3), expected)
+    #expect(bottleSong.song(takedown: 3) == expected)
   }
 
-  func testAllVerses1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("all verses", .enabled(if: RUNALL))
+  func testAllVerses1() {
     let bottleSong = BottleSong(bottles: 10)
     let expected = [
       "Ten green bottles hanging on the wall,", "Ten green bottles hanging on the wall,",
@@ -114,7 +117,7 @@ class BottleSongTests: XCTestCase {
       "And if one green bottle should accidentally fall,",
       "There'll be no green bottles hanging on the wall.",
     ]
-    XCTAssertEqual(bottleSong.song(takedown: 10), expected)
+    #expect(bottleSong.song(takedown: 10) == expected)
   }
 
 }
