@@ -1,134 +1,149 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Anagram
 
-class AnagramTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct AnagramTests {
+
+  @Test("no matches")
   func testNoMatches() {
     let anagram = Anagram(word: "diaper")
     let results = anagram.match(["hello", "world", "zombies", "pants"])
     let expected = [String]()
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testDetectsTwoAnagrams() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("detects two anagrams", .enabled(if: RUNALL))
+  func testDetectsTwoAnagrams() {
     let anagram = Anagram(word: "solemn")
     let results = anagram.match(["lemons", "cherry", "melons"])
     let expected = ["lemons", "melons"]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testDoesNotDetectAnagramSubsets() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("does not detect anagram subsets", .enabled(if: RUNALL))
+  func testDoesNotDetectAnagramSubsets() {
     let anagram = Anagram(word: "good")
     let results = anagram.match(["dog", "goody"])
     let expected = [String]()
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testDetectsAnagram() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("detects anagram", .enabled(if: RUNALL))
+  func testDetectsAnagram() {
     let anagram = Anagram(word: "listen")
     let results = anagram.match(["enlists", "google", "inlets", "banana"])
     let expected = ["inlets"]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testDetectsThreeAnagrams() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("detects three anagrams", .enabled(if: RUNALL))
+  func testDetectsThreeAnagrams() {
     let anagram = Anagram(word: "allergy")
     let results = anagram.match(["gallery", "ballerina", "regally", "clergy", "largely", "leading"])
     let expected = ["gallery", "regally", "largely"]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testDetectsMultipleAnagramsWithDifferentCase() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("detects multiple anagrams with different case", .enabled(if: RUNALL))
+  func testDetectsMultipleAnagramsWithDifferentCase() {
     let anagram = Anagram(word: "nose")
     let results = anagram.match(["Eons", "ONES"])
     let expected = ["Eons", "ONES"]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testDoesNotDetectNonAnagramsWithIdenticalChecksum() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("does not detect non-anagrams with identical checksum", .enabled(if: RUNALL))
+  func testDoesNotDetectNonAnagramsWithIdenticalChecksum() {
     let anagram = Anagram(word: "mass")
     let results = anagram.match(["last"])
     let expected = [String]()
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testDetectsAnagramsCaseInsensitively() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("detects anagrams case-insensitively", .enabled(if: RUNALL))
+  func testDetectsAnagramsCaseInsensitively() {
     let anagram = Anagram(word: "Orchestra")
     let results = anagram.match(["cashregister", "Carthorse", "radishes"])
     let expected = ["Carthorse"]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testDetectsAnagramsUsingCaseInsensitiveSubject() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("detects anagrams using case-insensitive subject", .enabled(if: RUNALL))
+  func testDetectsAnagramsUsingCaseInsensitiveSubject() {
     let anagram = Anagram(word: "Orchestra")
     let results = anagram.match(["cashregister", "carthorse", "radishes"])
     let expected = ["carthorse"]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testDetectsAnagramsUsingCaseInsensitivePossibleMatches() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("detects anagrams using case-insensitive possible matches", .enabled(if: RUNALL))
+  func testDetectsAnagramsUsingCaseInsensitivePossibleMatches() {
     let anagram = Anagram(word: "orchestra")
     let results = anagram.match(["cashregister", "Carthorse", "radishes"])
     let expected = ["Carthorse"]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testDoesNotDetectAnAnagramIfTheOriginalWordIsRepeated() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("does not detect an anagram if the original word is repeated", .enabled(if: RUNALL))
+  func testDoesNotDetectAnAnagramIfTheOriginalWordIsRepeated() {
     let anagram = Anagram(word: "go")
-    let results = anagram.match(["go Go GO"])
+    let results = anagram.match(["goGoGO"])
     let expected = [String]()
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testAnagramsMustUseAllLettersExactlyOnce() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("anagrams must use all letters exactly once", .enabled(if: RUNALL))
+  func testAnagramsMustUseAllLettersExactlyOnce() {
     let anagram = Anagram(word: "tapper")
     let results = anagram.match(["patter"])
     let expected = [String]()
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testWordsAreNotAnagramsOfThemselves() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("words are not anagrams of themselves (case-insensitive)", .enabled(if: RUNALL))
+  func testWordsAreNotAnagramsOfThemselvesCaseInsensitive() {
+    let anagram = Anagram(word: "BANANA")
+    let results = anagram.match(["BANANA", "Banana", "banana"])
+    let expected = [String]()
+    #expect(results == expected)
+  }
+
+  @Test("words are not anagrams of themselves", .enabled(if: RUNALL))
+  func testWordsAreNotAnagramsOfThemselves() {
     let anagram = Anagram(word: "BANANA")
     let results = anagram.match(["BANANA"])
     let expected = [String]()
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testWordsAreNotAnagramsOfThemselvesEvenIfLetterCaseIsPartiallyDifferent() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "words are not anagrams of themselves even if letter case is partially different",
+    .enabled(if: RUNALL))
+  func testWordsAreNotAnagramsOfThemselvesEvenIfLetterCaseIsPartiallyDifferent() {
     let anagram = Anagram(word: "BANANA")
     let results = anagram.match(["Banana"])
     let expected = [String]()
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testWordsAreNotAnagramsOfThemselvesEvenIfLetterCaseIsCompletelyDifferent() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "words are not anagrams of themselves even if letter case is completely different",
+    .enabled(if: RUNALL))
+  func testWordsAreNotAnagramsOfThemselvesEvenIfLetterCaseIsCompletelyDifferent() {
     let anagram = Anagram(word: "BANANA")
     let results = anagram.match(["banana"])
     let expected = [String]()
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testWordsOtherThanThemselvesCanBeAnagrams() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("words other than themselves can be anagrams", .enabled(if: RUNALL))
+  func testWordsOtherThanThemselvesCanBeAnagrams() {
     let anagram = Anagram(word: "LISTEN")
     let results = anagram.match(["LISTEN", "Silent"])
     let expected = ["Silent"]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 }
