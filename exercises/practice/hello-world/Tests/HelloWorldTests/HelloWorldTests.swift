@@ -1,9 +1,8 @@
-import XCTest
+import Testing
 
 @testable import HelloWorld
 
-class HelloWorldTests: XCTestCase {
-  func testHello() {
-    XCTAssertEqual(hello(), "Hello, World!")
-  }
+@Test("Hello, World!")
+func testHello() {
+  #expect(hello() == "Hello, World!")
 }
