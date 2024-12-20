@@ -1,67 +1,73 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Grains
 
-class GrainsTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "true"]) ?? false
 
+@Suite struct GrainsTests {
+
+  @Test("grains on square 1")
   func testGrainsOnSquare1() {
-    XCTAssertEqual(try! Grains.square(1), 1)
+    #expect(try! Grains.square(1) == 1)
   }
 
-  func testGrainsOnSquare2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! Grains.square(2), 2)
+  @Test("grains on square 2", .enabled(if: RUNALL))
+  func testGrainsOnSquare2() {
+    #expect(try! Grains.square(2) == 2)
   }
 
-  func testGrainsOnSquare3() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! Grains.square(3), 4)
+  @Test("grains on square 3", .enabled(if: RUNALL))
+  func testGrainsOnSquare3() {
+    #expect(try! Grains.square(3) == 4)
   }
 
-  func testGrainsOnSquare4() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! Grains.square(4), 8)
+  @Test("grains on square 4", .enabled(if: RUNALL))
+  func testGrainsOnSquare4() {
+    #expect(try! Grains.square(4) == 8)
   }
 
-  func testGrainsOnSquare16() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! Grains.square(16), 32768)
+  @Test("grains on square 16", .enabled(if: RUNALL))
+  func testGrainsOnSquare16() {
+    #expect(try! Grains.square(16) == 32768)
   }
 
-  func testGrainsOnSquare32() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! Grains.square(32), 2_147_483_648)
+  @Test("grains on square 32", .enabled(if: RUNALL))
+  func testGrainsOnSquare32() {
+    #expect(try! Grains.square(32) == 2_147_483_648)
   }
 
-  func testGrainsOnSquare64() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! Grains.square(64), 9_223_372_036_854_775_808)
+  @Test("grains on square 64", .enabled(if: RUNALL))
+  func testGrainsOnSquare64() {
+    #expect(try! Grains.square(64) == 9_223_372_036_854_775_808)
   }
 
-  func testSquare0IsInvalid() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try Grains.square(0)) { error in
-      XCTAssertEqual(error as? GrainsError, GrainsError.inputTooLow)
-    }
+  @Test("square 0 is invalid", .enabled(if: RUNALL))
+  func testSquare0IsInvalid() {
+    #expect(
+      throws:
+        GrainsError.inputTooLow
+    ) { try Grains.square(0) }
   }
 
-  func testNegativeSquareIsInvalid() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try Grains.square(-1)) { error in
-      XCTAssertEqual(error as? GrainsError, GrainsError.inputTooLow)
-    }
+  @Test("negative square is invalid", .enabled(if: RUNALL))
+  func testNegativeSquareIsInvalid() {
+    #expect(
+      throws:
+        GrainsError.inputTooLow
+    ) { try Grains.square(-1) }
   }
 
-  func testSquareGreaterThan64IsInvalid() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try Grains.square(65)) { error in
-      XCTAssertEqual(error as? GrainsError, GrainsError.inputTooHigh)
-    }
+  @Test("square greater than 64 is invalid", .enabled(if: RUNALL))
+  func testSquareGreaterThan64IsInvalid() {
+    #expect(
+      throws:
+        GrainsError.inputTooHigh
+    ) { try Grains.square(65) }
   }
 
-  func test2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! Grains.total, 18_446_744_073_709_551_615)
+  @Test("", .enabled(if: RUNALL))
+  func test2() {
+    #expect(try! Grains.total == 18_446_744_073_709_551_615)
   }
 }
