@@ -1,46 +1,49 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import NucleotideCount
 
-class NucleotideCountTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct NucleotideCountTests {
+
+  @Test("empty strand")
   func testEmptyStrand() {
     let dna = try! DNA(strand: "")
     let results = dna.counts()
     let expected = ["A": 0, "C": 0, "G": 0, "T": 0]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testCanCountOneNucleotideInSingleCharacterInput() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("can count one nucleotide in single-character input", .enabled(if: RUNALL))
+  func testCanCountOneNucleotideInSingleCharacterInput() {
     let dna = try! DNA(strand: "G")
     let results = dna.counts()
     let expected = ["A": 0, "C": 0, "G": 1, "T": 0]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testStrandWithRepeatedNucleotide() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("strand with repeated nucleotide", .enabled(if: RUNALL))
+  func testStrandWithRepeatedNucleotide() {
     let dna = try! DNA(strand: "GGGGGGG")
     let results = dna.counts()
     let expected = ["A": 0, "C": 0, "G": 7, "T": 0]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testStrandWithMultipleNucleotides() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("strand with multiple nucleotides", .enabled(if: RUNALL))
+  func testStrandWithMultipleNucleotides() {
     let dna = try! DNA(
       strand: "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
     let results = dna.counts()
     let expected = ["A": 20, "C": 12, "G": 17, "T": 21]
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testStrandWithInvalidNucleotides() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try DNA(strand: "AGXXACT")) { error in
-      XCTAssertEqual(error as? NucleotideCountErrors, NucleotideCountErrors.invalidNucleotide)
+  @Test("strand with invalid nucleotides", .enabled(if: RUNALL))
+  func testStrandWithInvalidNucleotides() {
+    #expect(throws: NucleotideCountErrors.invalidNucleotide) {
+      try DNA(strand: "AGXXACT")
     }
   }
 }
