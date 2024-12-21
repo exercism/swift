@@ -1,36 +1,39 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import ReverseString
 
-class ReverseStringTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct ReverseStringTests {
+
+  @Test("an empty string")
   func testAnEmptyString() {
-    XCTAssertEqual(reverseString(""), "")
+    #expect(reverseString("") == "")
   }
 
-  func testAWord() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(reverseString("robot"), "tobor")
+  @Test("a word", .enabled(if: RUNALL))
+  func testAWord() {
+    #expect(reverseString("robot") == "tobor")
   }
 
-  func testACapitalizedWord() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(reverseString("Ramen"), "nemaR")
+  @Test("a capitalized word", .enabled(if: RUNALL))
+  func testACapitalizedWord() {
+    #expect(reverseString("Ramen") == "nemaR")
   }
 
-  func testASentenceWithPunctuation() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(reverseString("I'm hungry!"), "!yrgnuh m'I")
+  @Test("a sentence with punctuation", .enabled(if: RUNALL))
+  func testASentenceWithPunctuation() {
+    #expect(reverseString("I'm hungry!") == "!yrgnuh m'I")
   }
 
-  func testAPalindrome() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(reverseString("racecar"), "racecar")
+  @Test("a palindrome", .enabled(if: RUNALL))
+  func testAPalindrome() {
+    #expect(reverseString("racecar") == "racecar")
   }
 
-  func testAnEvenSizedWord() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(reverseString("drawer"), "reward")
+  @Test("an even-sized word", .enabled(if: RUNALL))
+  func testAnEvenSizedWord() {
+    #expect(reverseString("drawer") == "reward")
   }
 }
