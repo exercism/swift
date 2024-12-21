@@ -1,108 +1,111 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Strain
 
-class StrainTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct StrainTests {
+
+  @Test("keep on empty list returns empty list")
   func testKeepOnEmptyListReturnsEmptyList() {
     let input: [Int] = []
     let expected: [Int] = []
-    XCTAssertEqual(input.keep { x in true }, expected)
+    #expect(input.keep { x in true } == expected)
   }
 
-  func testKeepsEverything() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("keeps everything", .enabled(if: RUNALL))
+  func testKeepsEverything() {
     let input = [1, 3, 5]
     let expected = [1, 3, 5]
-    XCTAssertEqual(input.keep { x in true }, expected)
+    #expect(input.keep { x in true } == expected)
   }
 
-  func testKeepsNothing() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("keeps nothing", .enabled(if: RUNALL))
+  func testKeepsNothing() {
     let input = [1, 3, 5]
     let expected: [Int] = []
-    XCTAssertEqual(input.keep { x in false }, expected)
+    #expect(input.keep { x in false } == expected)
   }
 
-  func testKeepsFirstAndLast() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("keeps first and last", .enabled(if: RUNALL))
+  func testKeepsFirstAndLast() {
     let input = [1, 2, 3]
     let expected = [1, 3]
-    XCTAssertEqual(input.keep { x in x % 2 == 1 }, expected)
+    #expect(input.keep { x in x % 2 == 1 } == expected)
   }
 
-  func testKeepsNeitherFirstNorLast() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("keeps neither first nor last", .enabled(if: RUNALL))
+  func testKeepsNeitherFirstNorLast() {
     let input = [1, 2, 3]
     let expected = [2]
-    XCTAssertEqual(input.keep { x in x % 2 == 0 }, expected)
+    #expect(input.keep { x in x % 2 == 0 } == expected)
   }
 
-  func testKeepsStrings() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("keeps strings", .enabled(if: RUNALL))
+  func testKeepsStrings() {
     let input = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
     let expected = ["zebra", "zombies", "zealot"]
-    XCTAssertEqual(input.keep { x in x.starts(with: "z") }, expected)
+    #expect(input.keep { x in x.starts(with: "z") } == expected)
   }
 
-  func testKeepsLists() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("keeps lists", .enabled(if: RUNALL))
+  func testKeepsLists() {
     let input = [
       [1, 2, 3], [5, 5, 5], [5, 1, 2], [2, 1, 2], [1, 5, 2], [2, 2, 1], [1, 2, 5],
     ]
     let expected = [[5, 5, 5], [5, 1, 2], [1, 5, 2], [1, 2, 5]]
-    XCTAssertEqual(input.keep { x in x.contains(5) }, expected)
+    #expect(input.keep { x in x.contains(5) } == expected)
   }
 
-  func testDiscardOnEmptyListReturnsEmptyList() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("discard on empty list returns empty list", .enabled(if: RUNALL))
+  func testDiscardOnEmptyListReturnsEmptyList() {
     let input: [Int] = []
     let expected: [Int] = []
-    XCTAssertEqual(input.discard { x in true }, expected)
+    #expect(input.discard { x in true } == expected)
   }
 
-  func testDiscardsEverything() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("discards everything", .enabled(if: RUNALL))
+  func testDiscardsEverything() {
     let input = [1, 3, 5]
     let expected: [Int] = []
-    XCTAssertEqual(input.discard { x in true }, expected)
+    #expect(input.discard { x in true } == expected)
   }
 
-  func testDiscardsNothing() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("discards nothing", .enabled(if: RUNALL))
+  func testDiscardsNothing() {
     let input = [1, 3, 5]
     let expected = [1, 3, 5]
-    XCTAssertEqual(input.discard { x in false }, expected)
+    #expect(input.discard { x in false } == expected)
   }
 
-  func testDiscardsFirstAndLast() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("discards first and last", .enabled(if: RUNALL))
+  func testDiscardsFirstAndLast() {
     let input = [1, 2, 3]
     let expected = [2]
-    XCTAssertEqual(input.discard { x in x % 2 == 1 }, expected)
+    #expect(input.discard { x in x % 2 == 1 } == expected)
   }
 
-  func testDiscardsNeitherFirstNorLast() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("discards neither first nor last", .enabled(if: RUNALL))
+  func testDiscardsNeitherFirstNorLast() {
     let input = [1, 2, 3]
     let expected = [1, 3]
-    XCTAssertEqual(input.discard { x in x % 2 == 0 }, expected)
+    #expect(input.discard { x in x % 2 == 0 } == expected)
   }
 
-  func testDiscardsStrings() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("discards strings", .enabled(if: RUNALL))
+  func testDiscardsStrings() {
     let input = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
     let expected = ["apple", "banana", "cherimoya"]
-    XCTAssertEqual(input.discard { x in x.starts(with: "z") }, expected)
+    #expect(input.discard { x in x.starts(with: "z") } == expected)
   }
 
-  func testDiscardsLists() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("discards lists", .enabled(if: RUNALL))
+  func testDiscardsLists() {
     let input = [
       [1, 2, 3], [5, 5, 5], [5, 1, 2], [2, 1, 2], [1, 5, 2], [2, 2, 1], [1, 2, 5],
     ]
     let expected = [[1, 2, 3], [2, 1, 2], [2, 2, 1]]
-    XCTAssertEqual(input.discard { x in x.contains(5) }, expected)
+    #expect(input.discard { x in x.contains(5) } == expected)
   }
 }
