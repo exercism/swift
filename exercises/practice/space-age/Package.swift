@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.0
 
 import PackageDescription
 
@@ -9,13 +9,15 @@ let package = Package(
       name: "SpaceAge",
       targets: ["SpaceAge"])
   ],
-  dependencies: [],
+  dependencies: [
+    .package(url: "https://github.com/apple/swift-numerics", from: "1.0.2"),
+  ],
   targets: [
     .target(
       name: "SpaceAge",
-      dependencies: []),
+      dependencies: [.product(name: "Numerics", package: "swift-numerics")]),
     .testTarget(
       name: "SpaceAgeTests",
-      dependencies: ["SpaceAge"]),
+      dependencies: [.product(name: "Numerics", package: "swift-numerics"), "SpaceAge"]),
   ]
 )
