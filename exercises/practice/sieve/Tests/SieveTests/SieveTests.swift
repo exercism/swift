@@ -1,34 +1,36 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Sieve
 
-class SieveTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct SieveTests {
+
+  @Test("no primes under two")
   func testNoPrimesUnderTwo() {
-    XCTAssertEqual(sieve(limit: 1), [])
+    #expect(sieve(limit: 1) == [])
   }
 
-  func testFindFirstPrime() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(sieve(limit: 2), [2])
+  @Test("find first prime", .enabled(if: RUNALL))
+  func testFindFirstPrime() {
+    #expect(sieve(limit: 2) == [2])
   }
 
-  func testFindPrimesUpTo10() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(sieve(limit: 10), [2, 3, 5, 7])
+  @Test("find primes up to 10", .enabled(if: RUNALL))
+  func testFindPrimesUpTo10() {
+    #expect(sieve(limit: 10) == [2, 3, 5, 7])
   }
 
-  func testLimitIsPrime() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(sieve(limit: 13), [2, 3, 5, 7, 11, 13])
+  @Test("limit is prime", .enabled(if: RUNALL))
+  func testLimitIsPrime() {
+    #expect(sieve(limit: 13) == [2, 3, 5, 7, 11, 13])
   }
 
-  func testFindPrimesUpTo1000() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      sieve(limit: 1000),
-      [
+  @Test("find primes up to 1000", .enabled(if: RUNALL))
+  func testFindPrimesUpTo1000() {
+    #expect(
+      sieve(limit: 1000) == [
         2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89,
         97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181,
         191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281,
