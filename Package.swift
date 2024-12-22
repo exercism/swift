@@ -49,11 +49,13 @@ let practiceExerciseTargets: [Target] = practiceExercises.flatMap {
     return [
         .target(
             name:"\($0.pascalCased)", 
+            dependencies: [.product(name: "Numerics", package: "swift-numerics")],
             path:"./exercises/practice/\($0)/.meta/Sources"),
         .testTarget(
             name:"\($0.pascalCased)Tests", 
             dependencies: [
-                .target(name:"\($0.pascalCased)")
+                .target(name:"\($0.pascalCased)"),
+                .product(name: "Numerics", package: "swift-numerics")
             ], 
             path:"./exercises/practice/\($0)/Tests")
     ]
@@ -68,5 +70,6 @@ let package = Package(
             name: "xswift", 
             targets: allTargets.filter { $0.type == .regular }.map { $0.name })
     ],
+    dependencies: [.package(url: "https://github.com/apple/swift-numerics", from: "1.0.2")],
     targets: allTargets
 )
