@@ -1,4 +1,4 @@
-class Node<T> {
+class Node<T : Equatable > : Equatable  {
     var value: T?
     var next: Node?
     var prev: Node?
@@ -10,9 +10,12 @@ class Node<T> {
         self.value = value
     }
 
+    static func == (lhs: Node<T>, rhs: Node<T>) -> Bool {
+        return lhs.value == rhs.value
+    }
 }
 
-class Deque<T> {
+class Deque<T : Equatable > {
     var count: Int = 0
     var head: Node<T>
     var tail: Node<T>
@@ -25,6 +28,27 @@ class Deque<T> {
 
     func isEmpty() -> Bool {
         return self.count == 0
+    }
+
+    func delete(_ value: T) {
+        var current: Node<T>? = self.head
+        while current != nil {
+            if current?.value == value {
+                if current == self.head {
+                    self.head = self.head.next ?? Node<T>()
+                    self.head.prev = nil
+                } else if current == self.tail {
+                    self.tail = self.tail.prev ?? Node<T>()
+                    self.tail.next = nil
+                } else {
+                    current?.prev?.next = current?.next
+                    current?.next?.prev = current?.prev
+                }
+                self.count -= 1
+                break
+            }
+            current = current?.next
+        }
     }
 
     func push(_ value: T) {
