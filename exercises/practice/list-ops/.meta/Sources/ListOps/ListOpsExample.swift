@@ -9,11 +9,13 @@ struct ListOps {
         return result
     }
 
-    static func concat<T: Equatable>(_ arrays: [T]...) -> [T] {
+    static func concat<T: Equatable>(_ arrays: [[T]]) -> [T] {
         var result = [T]()
 
         for array in arrays {
-            result = append(result, array)
+            for value in array {
+                result.append(value)
+            }
         }
 
         return result
@@ -54,7 +56,7 @@ struct ListOps {
         if length(array) == 0 {
             return accumulated
         } else {
-            return foldLeft(Array(array.dropFirst()), accumulated: combine(accumulated, array[0]), combine: combine)
+            return foldLeft(Array(array.dropFirst()), accumulated: combine(array[0], accumulated), combine: combine)
         }
     }
 
