@@ -1323,11 +1323,11 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 2,
+        "status": "deprecated",
         "topics": [
           "recursion",
           "transforming"
-        ],
-        "status": "deprecated"
+        ]
       },
       {
         "slug": "scale-generator",
@@ -1336,12 +1336,12 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 3,
+        "status": "deprecated",
         "topics": [
           "loops",
           "pattern_matching",
           "strings"
-        ],
-        "status": "deprecated"
+        ]
       },
       {
         "slug": "beer-song",
