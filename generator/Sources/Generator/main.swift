@@ -1,7 +1,6 @@
 import Foundation
 import Stencil
 import SwiftFormat
-import SwiftFormatConfiguration
 
 enum GeneratorError: Error {
   case invalidArgumentCount
