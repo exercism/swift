@@ -1,7 +1,6 @@
 import Foundation
 import Stencil
 import SwiftFormat
-import SwiftFormatConfiguration
 
 enum GeneratorError: Error {
   case invalidArgumentCount
@@ -42,7 +41,7 @@ class Generator {
     var text = ""
     let configuration = Configuration()
     let swiftFormat = SwiftFormatter(configuration: configuration)
-    try swiftFormat.format(source: template, assumingFileURL: nil, to: &text)
+    try swiftFormat.format(source: template, assumingFileURL: nil, selection: .infinite, to: &text)
     try text.write(toFile: path, atomically: true, encoding: .utf8)
   }
 
