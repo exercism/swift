@@ -409,6 +409,14 @@
         ]
       },
       {
+        "slug": "darts",
+        "name": "Darts",
+        "uuid": "bdbc6f27-bc98-4edf-9f1d-93dbe49da361",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "bob",
         "name": "Bob",
         "uuid": "49051b88-063a-4fa1-b920-6ca9a6f9bc60",
@@ -431,6 +439,14 @@
           "maps",
           "transforming"
         ]
+      },
+      {
+        "slug": "armstrong-numbers",
+        "name": "Armstrong Numbers",
+        "uuid": "6bd76515-cc17-4238-bc08-7fbdfea14131",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
       },
       {
         "slug": "grade-school",
