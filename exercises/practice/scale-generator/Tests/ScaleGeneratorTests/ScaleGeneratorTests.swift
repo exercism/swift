@@ -1,117 +1,118 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import ScaleGenerator
 
-class ScaleGeneratorTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct ScaleGeneratorTests {
+
+  @Test("Chromatic scale with sharps")
   func testChromaticScaleWithSharps() {
     let scaleGenerator = ScaleGenerator(tonic: "C")
-    XCTAssertEqual(
-      scaleGenerator.chromatic(), ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"])
+    #expect(
+      scaleGenerator.chromatic() == [
+        "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B",
+      ])
   }
 
-  func testChromaticScaleWithFlats() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Chromatic scale with flats", .enabled(if: RUNALL))
+  func testChromaticScaleWithFlats() {
     let scaleGenerator = ScaleGenerator(tonic: "F")
-    XCTAssertEqual(
-      scaleGenerator.chromatic(), ["F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E"])
+    #expect(
+      scaleGenerator.chromatic() == [
+        "F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E",
+      ])
   }
 
-  func testSimpleMajorScale() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Simple major scale", .enabled(if: RUNALL))
+  func testSimpleMajorScale() {
     let scaleGenerator = ScaleGenerator(tonic: "C")
-    XCTAssertEqual(scaleGenerator.interval("MMmMMMm"), ["C", "D", "E", "F", "G", "A", "B", "C"])
+    #expect(scaleGenerator.interval("MMmMMMm") == ["C", "D", "E", "F", "G", "A", "B", "C"])
   }
 
-  func testMajorScaleWithSharps() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Major scale with sharps", .enabled(if: RUNALL))
+  func testMajorScaleWithSharps() {
     let scaleGenerator = ScaleGenerator(tonic: "G")
-    XCTAssertEqual(scaleGenerator.interval("MMmMMMm"), ["G", "A", "B", "C", "D", "E", "F#", "G"])
+    #expect(scaleGenerator.interval("MMmMMMm") == ["G", "A", "B", "C", "D", "E", "F#", "G"])
   }
 
-  func testMajorScaleWithFlats() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Major scale with flats", .enabled(if: RUNALL))
+  func testMajorScaleWithFlats() {
     let scaleGenerator = ScaleGenerator(tonic: "F")
-    XCTAssertEqual(scaleGenerator.interval("MMmMMMm"), ["F", "G", "A", "Bb", "C", "D", "E", "F"])
+    #expect(scaleGenerator.interval("MMmMMMm") == ["F", "G", "A", "Bb", "C", "D", "E", "F"])
   }
 
-  func testMinorScaleWithSharps() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Minor scale with sharps", .enabled(if: RUNALL))
+  func testMinorScaleWithSharps() {
     let scaleGenerator = ScaleGenerator(tonic: "f#")
-    XCTAssertEqual(
-      scaleGenerator.interval("MmMMmMM"), ["F#", "G#", "A", "B", "C#", "D", "E", "F#"])
+    #expect(scaleGenerator.interval("MmMMmMM") == ["F#", "G#", "A", "B", "C#", "D", "E", "F#"])
   }
 
-  func testMinorScaleWithFlats() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Minor scale with flats", .enabled(if: RUNALL))
+  func testMinorScaleWithFlats() {
     let scaleGenerator = ScaleGenerator(tonic: "bb")
-    XCTAssertEqual(
-      scaleGenerator.interval("MmMMmMM"), ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab", "Bb"])
+    #expect(scaleGenerator.interval("MmMMmMM") == ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab", "Bb"])
   }
 
-  func testDorianMode() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Dorian mode", .enabled(if: RUNALL))
+  func testDorianMode() {
     let scaleGenerator = ScaleGenerator(tonic: "d")
-    XCTAssertEqual(scaleGenerator.interval("MmMMMmM"), ["D", "E", "F", "G", "A", "B", "C", "D"])
+    #expect(scaleGenerator.interval("MmMMMmM") == ["D", "E", "F", "G", "A", "B", "C", "D"])
   }
 
-  func testMixolydianMode() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Mixolydian mode", .enabled(if: RUNALL))
+  func testMixolydianMode() {
     let scaleGenerator = ScaleGenerator(tonic: "Eb")
-    XCTAssertEqual(
-      scaleGenerator.interval("MMmMMmM"), ["Eb", "F", "G", "Ab", "Bb", "C", "Db", "Eb"])
+    #expect(scaleGenerator.interval("MMmMMmM") == ["Eb", "F", "G", "Ab", "Bb", "C", "Db", "Eb"])
   }
 
-  func testLydianMode() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Lydian mode", .enabled(if: RUNALL))
+  func testLydianMode() {
     let scaleGenerator = ScaleGenerator(tonic: "a")
-    XCTAssertEqual(
-      scaleGenerator.interval("MMMmMMm"), ["A", "B", "C#", "D#", "E", "F#", "G#", "A"])
+    #expect(scaleGenerator.interval("MMMmMMm") == ["A", "B", "C#", "D#", "E", "F#", "G#", "A"])
   }
 
-  func testPhrygianMode() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Phrygian mode", .enabled(if: RUNALL))
+  func testPhrygianMode() {
     let scaleGenerator = ScaleGenerator(tonic: "e")
-    XCTAssertEqual(scaleGenerator.interval("mMMMmMM"), ["E", "F", "G", "A", "B", "C", "D", "E"])
+    #expect(scaleGenerator.interval("mMMMmMM") == ["E", "F", "G", "A", "B", "C", "D", "E"])
   }
 
-  func testLocrianMode() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Locrian mode", .enabled(if: RUNALL))
+  func testLocrianMode() {
     let scaleGenerator = ScaleGenerator(tonic: "g")
-    XCTAssertEqual(
-      scaleGenerator.interval("mMMmMMM"), ["G", "Ab", "Bb", "C", "Db", "Eb", "F", "G"])
+    #expect(scaleGenerator.interval("mMMmMMM") == ["G", "Ab", "Bb", "C", "Db", "Eb", "F", "G"])
   }
 
-  func testHarmonicMinor() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Harmonic minor", .enabled(if: RUNALL))
+  func testHarmonicMinor() {
     let scaleGenerator = ScaleGenerator(tonic: "d")
-    XCTAssertEqual(scaleGenerator.interval("MmMMmAm"), ["D", "E", "F", "G", "A", "Bb", "Db", "D"])
+    #expect(scaleGenerator.interval("MmMMmAm") == ["D", "E", "F", "G", "A", "Bb", "Db", "D"])
   }
 
-  func testOctatonic() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Octatonic", .enabled(if: RUNALL))
+  func testOctatonic() {
     let scaleGenerator = ScaleGenerator(tonic: "C")
-    XCTAssertEqual(
-      scaleGenerator.interval("MmMmMmMm"), ["C", "D", "D#", "F", "F#", "G#", "A", "B", "C"])
+    #expect(
+      scaleGenerator.interval("MmMmMmMm") == ["C", "D", "D#", "F", "F#", "G#", "A", "B", "C"])
   }
 
-  func testHexatonic() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Hexatonic", .enabled(if: RUNALL))
+  func testHexatonic() {
     let scaleGenerator = ScaleGenerator(tonic: "Db")
-    XCTAssertEqual(scaleGenerator.interval("MMMMMM"), ["Db", "Eb", "F", "G", "A", "B", "Db"])
+    #expect(scaleGenerator.interval("MMMMMM") == ["Db", "Eb", "F", "G", "A", "B", "Db"])
   }
 
-  func testPentatonic() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Pentatonic", .enabled(if: RUNALL))
+  func testPentatonic() {
     let scaleGenerator = ScaleGenerator(tonic: "A")
-    XCTAssertEqual(scaleGenerator.interval("MMAMA"), ["A", "B", "C#", "E", "F#", "A"])
+    #expect(scaleGenerator.interval("MMAMA") == ["A", "B", "C#", "E", "F#", "A"])
   }
 
-  func testEnigmatic() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Enigmatic", .enabled(if: RUNALL))
+  func testEnigmatic() {
     let scaleGenerator = ScaleGenerator(tonic: "G")
-    XCTAssertEqual(
-      scaleGenerator.interval("mAMMMmm"), ["G", "G#", "B", "C#", "D#", "F", "F#", "G"])
+    #expect(scaleGenerator.interval("mAMMMmm") == ["G", "G#", "B", "C#", "D#", "F", "F#", "G"])
   }
 }
