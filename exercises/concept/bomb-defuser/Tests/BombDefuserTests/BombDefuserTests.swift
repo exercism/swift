@@ -55,12 +55,4 @@ final class BombDefuserTests: XCTestCase {
       stringify(expected), stringify(got),
       "shuffle(0, (\"Brown\", \"Orange\", \"White\")): Expected \(expected), got \(got)")
   }
-
-  static var allTests = [
-    ("testFlip", testFlip),
-    ("testRotate", testRotate),
-    ("testShuffle1", testShuffle1),
-    ("testShuffle2", testShuffle2),
-    ("testShuffle3", testShuffle3),
-  ]
 }
