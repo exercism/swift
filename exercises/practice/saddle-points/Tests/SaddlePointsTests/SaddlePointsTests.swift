@@ -1,60 +1,135 @@
-import XCTest
+import Foundation
+import Testing
+
 @testable import SaddlePoints
 
-private extension XCTest {
-    func XCTAssertEqualMultiArray(_ aArray1: [[Int]], _ aArray2: [[Int]]) {
-        XCTAssertEqual(Array(aArray1.joined()), Array(aArray2.joined()))
-    }
-}
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "true"]) ?? false
 
-class SaddlePointsTests: XCTestCase {
-    func testExtractARow() {
-        let matrix = SaddlePointsMatrix("1 2\n10 20")
-        XCTAssertEqual([1, 2], matrix.rows[0])
-    }
+@Suite struct SaddlePointsTests {
 
-    func testExtractSameRowAgain() {
-        let matrix = SaddlePointsMatrix("9 7\n8 6")
-        XCTAssertEqual([9, 7], matrix.rows[0])
+  @Test("Can identify single saddle point")
+  func testCanIdentifySingleSaddlePoint() {
+    let input = [[9, 8, 7], [5, 3, 2], [6, 6, 7]]
+    let saddlePoints = SaddlePoints.saddlePoints(input).sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
     }
+    let expected: [Position] = [
+      Position(row: 2, column: 1)
+    ].sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
+    }
+    #expect(saddlePoints == expected)
+  }
 
-    func testExtractOtherRow() {
-        let matrix = SaddlePointsMatrix("9 8 7\n19 18 17")
-        XCTAssertEqual([19, 18, 17], matrix.rows[1])
+  @Test("Can identify that empty matrix has no saddle points", .enabled(if: RUNALL))
+  func testCanIdentifyThatEmptyMatrixHasNoSaddlePoints() {
+    let input = [[Int]]()
+    let saddlePoints = SaddlePoints.saddlePoints(input).sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
     }
+    let expected: [Position] = [].sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
+    }
+    #expect(saddlePoints == expected)
+  }
 
-    func testExtractOtherRowAgain() {
-        let matrix = SaddlePointsMatrix("1 4 9\n16 25 36")
-        XCTAssertEqual([16, 25, 36], matrix.rows[1])
+  @Test("Can identify lack of saddle points when there are none", .enabled(if: RUNALL))
+  func testCanIdentifyLackOfSaddlePointsWhenThereAreNone() {
+    let input = [[1, 2, 3], [3, 1, 2], [2, 3, 1]]
+    let saddlePoints = SaddlePoints.saddlePoints(input).sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
     }
+    let expected: [Position] = [].sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
+    }
+    #expect(saddlePoints == expected)
+  }
 
-    func testExtractAColumn() {
-        let matrix = SaddlePointsMatrix("1 2 3\n4 5 6\n7 8 9\n 8 7 6")
-        XCTAssertEqual([1, 4, 7, 8], matrix.columns[0])
+  @Test("Can identify multiple saddle points in a column", .enabled(if: RUNALL))
+  func testCanIdentifyMultipleSaddlePointsInAColumn() {
+    let input = [[4, 5, 4], [3, 5, 5], [1, 5, 4]]
+    let saddlePoints = SaddlePoints.saddlePoints(input).sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
     }
+    let expected: [Position] = [
+      Position(row: 1, column: 2), Position(row: 2, column: 2), Position(row: 3, column: 2),
+    ].sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
+    }
+    #expect(saddlePoints == expected)
+  }
 
-    func testExtractAnotherColumn() {
-        let matrix = SaddlePointsMatrix("89 1903 3\n18 3 1\n9 4 800")
-        XCTAssertEqual([1903, 3, 4], matrix.columns[1])
+  @Test("Can identify multiple saddle points in a row", .enabled(if: RUNALL))
+  func testCanIdentifyMultipleSaddlePointsInARow() {
+    let input = [[6, 7, 8], [5, 5, 5], [7, 5, 6]]
+    let saddlePoints = SaddlePoints.saddlePoints(input).sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
     }
+    let expected: [Position] = [
+      Position(row: 2, column: 1), Position(row: 2, column: 2), Position(row: 2, column: 3),
+    ].sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
+    }
+    #expect(saddlePoints == expected)
+  }
 
-    func testNoSaddlePoint() {
-        let matrix = SaddlePointsMatrix("2 1\n1 2")
-        XCTAssertEqualMultiArray([[Int]()], matrix.saddlePoints)
+  @Test("Can identify saddle point in bottom right corner", .enabled(if: RUNALL))
+  func testCanIdentifySaddlePointInBottomRightCorner() {
+    let input = [[8, 7, 9], [6, 7, 6], [3, 2, 5]]
+    let saddlePoints = SaddlePoints.saddlePoints(input).sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
     }
+    let expected: [Position] = [
+      Position(row: 3, column: 3)
+    ].sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
+    }
+    #expect(saddlePoints == expected)
+  }
 
-    func testASaddlePoint() {
-        let matrix = SaddlePointsMatrix("1 2\n3 4")
-        XCTAssertEqualMultiArray([[0, 1]], matrix.saddlePoints)
+  @Test("Can identify saddle points in a non square matrix", .enabled(if: RUNALL))
+  func testCanIdentifySaddlePointsInANonSquareMatrix() {
+    let input = [[3, 1, 3], [3, 2, 4]]
+    let saddlePoints = SaddlePoints.saddlePoints(input).sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
     }
+    let expected: [Position] = [
+      Position(row: 1, column: 3), Position(row: 1, column: 1),
+    ].sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
+    }
+    #expect(saddlePoints == expected)
+  }
 
-    func testAnotherSaddlePoint() {
-        let matrix = SaddlePointsMatrix("18 3 39 19 91\n38 10 8 77 320\n3 4 8 6 7")
-        XCTAssertEqualMultiArray([[2, 2]], matrix.saddlePoints)
+  @Test(
+    "Can identify that saddle points in a single column matrix are those with the minimum value",
+    .enabled(if: RUNALL))
+  func testCanIdentifyThatSaddlePointsInASingleColumnMatrixAreThoseWithTheMinimumValue() {
+    let input = [[2], [1], [4], [1]]
+    let saddlePoints = SaddlePoints.saddlePoints(input).sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
     }
+    let expected: [Position] = [
+      Position(row: 2, column: 1), Position(row: 4, column: 1),
+    ].sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
+    }
+    #expect(saddlePoints == expected)
+  }
 
-    func testMultipleSaddlePoints() {
-        let matrix = SaddlePointsMatrix("4 5 4\n3 5 5\n1 5 4")
-        XCTAssertEqualMultiArray([[0, 1], [1, 1], [2, 1]], matrix.saddlePoints)
+  @Test(
+    "Can identify that saddle points in a single row matrix are those with the maximum value",
+    .enabled(if: RUNALL))
+  func testCanIdentifyThatSaddlePointsInASingleRowMatrixAreThoseWithTheMaximumValue() {
+    let input = [[2, 5, 3, 5]]
+    let saddlePoints = SaddlePoints.saddlePoints(input).sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
     }
+    let expected: [Position] = [
+      Position(row: 1, column: 2), Position(row: 1, column: 4),
+    ].sorted {
+      $0.row < $1.row || $0.row == $1.row && $0.column > $1.column
+    }
+    #expect(saddlePoints == expected)
+  }
 }

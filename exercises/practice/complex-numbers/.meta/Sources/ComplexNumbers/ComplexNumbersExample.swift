@@ -1,66 +1,51 @@
 import Foundation
+import Numerics
 
-struct ComplexNumber {
+struct ComplexNumbers: Equatable {
 
-    var realComponent: Double
+    var real: Double
+    var imaginary: Double
 
-    var imaginaryComponent: Double
-
-    func getRealComponent() -> Double {
-
-        return self.realComponent
+    init(realComponent: Double, imaginaryComponent: Double? = 0) {
+        real = realComponent
+        imaginary = imaginaryComponent ?? 0
     }
 
-    func getImaginaryComponent() -> Double {
-
-        return self.imaginaryComponent
+    func add(complexNumber: ComplexNumbers) -> ComplexNumbers {
+        ComplexNumbers(realComponent: real + complexNumber.real, imaginaryComponent: imaginary + complexNumber.imaginary)
     }
 
-    func add(complexNumber: ComplexNumber) -> ComplexNumber {
 
-        return ComplexNumber(realComponent: self.realComponent + complexNumber.realComponent, imaginaryComponent: self.imaginaryComponent + complexNumber.imaginaryComponent)
-
+    func sub(complexNumber: ComplexNumbers) -> ComplexNumbers {
+        ComplexNumbers(realComponent: real - complexNumber.real, imaginaryComponent: imaginary - complexNumber.imaginary)
     }
 
-    func subtract(complexNumber: ComplexNumber) -> ComplexNumber {
-
-        return ComplexNumber(realComponent: self.realComponent - complexNumber.realComponent, imaginaryComponent: self.imaginaryComponent - complexNumber.imaginaryComponent)
+    func mul(complexNumber: ComplexNumbers) -> ComplexNumbers {
+        ComplexNumbers(realComponent: real * complexNumber.real - imaginary * complexNumber.imaginary, imaginaryComponent: real * complexNumber.imaginary + imaginary * complexNumber.real)
     }
 
-    func multiply(complexNumber: ComplexNumber) -> ComplexNumber {
-
-        return ComplexNumber(realComponent: self.realComponent * complexNumber.realComponent - self.imaginaryComponent * complexNumber.imaginaryComponent, imaginaryComponent: self.imaginaryComponent * complexNumber.realComponent + self.realComponent * complexNumber.imaginaryComponent)
-    }
-
-    func divide(complexNumber: ComplexNumber) -> ComplexNumber {
-
-        let amplitudeOfComplexNumber = (complexNumber.realComponent *  complexNumber.realComponent) + (complexNumber.imaginaryComponent * complexNumber.imaginaryComponent)
-
-        let realPartOfQuotient = (self.realComponent * complexNumber.realComponent + self.imaginaryComponent * complexNumber.imaginaryComponent) / amplitudeOfComplexNumber
-
-        let imaginaryPartOfQuotient = (self.imaginaryComponent * complexNumber.realComponent - self.realComponent * self.realComponent * complexNumber.imaginaryComponent) / amplitudeOfComplexNumber
-
-        return ComplexNumber(realComponent: realPartOfQuotient, imaginaryComponent: imaginaryPartOfQuotient)
-    }
-
-    func conjugate() -> ComplexNumber {
-
-        return ComplexNumber(realComponent: self.realComponent, imaginaryComponent: (-1 * self.imaginaryComponent))
+    func div(complexNumber: ComplexNumbers) -> ComplexNumbers {
+        let denominator = complexNumber.real * complexNumber.real + complexNumber.imaginary * complexNumber.imaginary
+        let realComponent = (real * complexNumber.real + imaginary * complexNumber.imaginary) / denominator
+        let imaginaryComponent = (imaginary * complexNumber.real - real * complexNumber.imaginary) / denominator
+        return ComplexNumbers(realComponent: realComponent, imaginaryComponent: imaginaryComponent)
     }
 
     func absolute() -> Double {
-
-        return sqrt(pow(self.realComponent, 2.0) + pow(self.imaginaryComponent, 2.0))
+        sqrt(Double(real * real + imaginary * imaginary))
     }
 
-    func exponent() -> ComplexNumber {
-
-        let realPartOfResult = cos(self.imaginaryComponent)
-        let imaginaryPartOfResult = sin(self.imaginaryComponent)
-        let factor = exp(self.realComponent)
-
-        return ComplexNumber(realComponent: realPartOfResult * factor, imaginaryComponent: imaginaryPartOfResult * factor)
-
+    func conjugate() -> ComplexNumbers {
+        ComplexNumbers(realComponent: real, imaginaryComponent: -imaginary)
     }
 
+    func exponent() -> ComplexNumbers {
+        let expReal = exp(Double(real)) * cos(Double(imaginary))
+        let expImaginary = exp(Double(real)) * sin(Double(imaginary))
+        return ComplexNumbers(realComponent: expReal, imaginaryComponent: expImaginary)
+    }
+
+    static func == (lhs: ComplexNumbers, rhs: ComplexNumbers) -> Bool {
+        lhs.real.isApproximatelyEqual(to: rhs.real, absoluteTolerance: 0.0001) && lhs.imaginary.isApproximatelyEqual(to: rhs.imaginary, absoluteTolerance: 0.0001)
+    }
 }
