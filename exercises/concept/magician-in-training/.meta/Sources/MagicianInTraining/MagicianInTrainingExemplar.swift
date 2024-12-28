@@ -3,7 +3,7 @@ func getCard(at index: Int, from stack: [Int]) -> Int {
 }
 
 func setCard(at index: Int, in stack: [Int], to newCard: Int) -> [Int] {
-  if index > stack.count {
+  if index >= stack.count {
     return stack
   }
   var newStack = stack
@@ -16,7 +16,7 @@ func insert(_ newCard: Int, atTopOf stack: [Int]) -> [Int] {
 }
 
 func removeCard(at index: Int, from stack: [Int]) -> [Int] {
-  if index > stack.count {
+  if index >= stack.count {
     return stack
   }
   var newStack = stack

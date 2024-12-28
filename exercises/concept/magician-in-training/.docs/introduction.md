@@ -15,12 +15,12 @@ let greetings = ["Hello!", "Hi!", "¡Hola!"]
 ```
 
 Arrays can also be explicitly typed by specifying the type of the elements in the array.
-Type names for arrays are written in one of two ways: `Array<T>` or `[T]` where `T` is the type of the elements in thee array.
+Type names for arrays are written in one of two ways: `Array<T>` or `[T]` where `T` is the type of the elements in the array.
 
 ```swift
 let evenInts: Array<Int> = [2, 4, 6, 8, 10, 12]
 var oddInts: [Int] = [1, 3, 5, 7, 9, 11, 13]
-let greetings : [String] = ["Hello!", "Hi!", "¡Hola!"]
+let greetings: [String] = ["Hello!", "Hi!", "¡Hola!"]
 ```
 
 ## Size of an Array
@@ -121,8 +121,8 @@ evenInts[2] = 0
 
 ## Converting an Array to a String and Back
 
-An array ofn strings can be converted to a single string using the [`joined(separator:)`][joined] method.
-The `joined(separator:)` property takes a single argument, the separator to be used between elements of the array.
+An array of `n` strings can be converted to a single string using the [`joined(separator:)`][joined] method.
+The `joined(separator:)` method takes a single argument, the separator to be used between elements of the array.
 The separator must be a string.
 
 ```swift

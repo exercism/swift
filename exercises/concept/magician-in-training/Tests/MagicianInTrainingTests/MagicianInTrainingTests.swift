@@ -1,134 +1,128 @@
-import XCTest
+import Testing
+import Foundation
 
 @testable import MagicianInTraining
 
-let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "true"]) ?? false
 
-class TaskGetCardTests: XCTestCase {
+@Suite struct MagicianInTrainingTest {
+  @Test("Can get the first card")
   func testGetFirstCard() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(getCard(at: 0, from: stack), 1)
+    #expect(getCard(at: 0, from: stack) == 1)
   }
 
+  @Test("Can get a middle card", .enabled(if: RUNALL))
   func testGetMiddleCard() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(getCard(at: 2, from: stack), 3)
+    #expect(getCard(at: 2, from: stack) == 3)
   }
 
+  @Test("Can get the last card", .enabled(if: RUNALL))
   func testGetLastCard() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(getCard(at: 4, from: stack), 5)
+    #expect(getCard(at: 4, from: stack) == 5)
   }
-}
 
-class TaskSetCardTests: XCTestCase {
-  func testSetFirstCard() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Can set the first card", .enabled(if: RUNALL))
+  func testSetFirstCard() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(setCard(at: 0, in: stack, to: 10), [10, 2, 3, 4, 5])
+    #expect(setCard(at: 0, in: stack, to: 10) == [10, 2, 3, 4, 5])
   }
 
-  func testSetMiddleCard() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Can set a middle card", .enabled(if: RUNALL))
+  func testSetMiddleCard() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(setCard(at: 2, in: stack, to: 10), [1, 2, 10, 4, 5])
+    #expect(setCard(at: 2, in: stack, to: 10) == [1, 2, 10, 4, 5])
   }
 
-  func testSetLastCard() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Can set the last card", .enabled(if: RUNALL))
+  func testSetLastCard() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(setCard(at: 4, in: stack, to: 10), [1, 2, 3, 4, 10])
+    #expect(setCard(at: 4, in: stack, to: 10) == [1, 2, 3, 4, 10])
   }
 
-  func testSetCardIndexOutOfBounds() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Cannot set a card index out of bounds", .enabled(if: RUNALL))
+  func testSetCardIndexOutOfBounds() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(setCard(at: 5, in: stack, to: 10), stack)
+    #expect(setCard(at: 5, in: stack, to: 10) == stack)
   }
-}
 
-class TaskInsertAtTopTests: XCTestCase {
-  func testInsertAtTop() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Can insert a card at the top", .enabled(if: RUNALL))
+  func testInsertAtTop() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(insert(10, atTopOf: stack), [1, 2, 3, 4, 5, 10])
+    #expect(insert(10, atTopOf: stack) == [1, 2, 3, 4, 5, 10])
   }
 
-  func testInsertAnotherAtTop() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Can insert another card at the top", .enabled(if: RUNALL))
+  func testInsertAnotherAtTop() {
     let stack = [6, 7, 8, 9, 10]
-    XCTAssertEqual(insert(5, atTopOf: stack), [6, 7, 8, 9, 10, 5])
+    #expect(insert(5, atTopOf: stack) == [6, 7, 8, 9, 10, 5])
   }
 
-  func testInsertAtTopOfEmptyStack() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Can insert a card at the top of an empty stack", .enabled(if: RUNALL))
+  func testInsertAtTopOfEmptyStack() {
     let stack = [Int]()
-    XCTAssertEqual(insert(5, atTopOf: stack), [5])
+    #expect(insert(5, atTopOf: stack) == [5])
   }
-}
 
-class TaskRemoveCardTests: XCTestCase {
-  func testRemoveFirstCard() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Can remove the first card", .enabled(if: RUNALL))
+  func testRemoveFirstCard() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(removeCard(at: 0, from: stack), [2, 3, 4, 5])
+    #expect(removeCard(at: 0, from: stack) == [2, 3, 4, 5])
   }
 
-  func testRemoveMiddleCard() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Can remove a middle card", .enabled(if: RUNALL))
+  func testRemoveMiddleCard() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(removeCard(at: 2, from: stack), [1, 2, 4, 5])
+    #expect(removeCard(at: 2, from: stack) == [1, 2, 4, 5])
   }
 
-  func testRemoveLastCard() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Can remove the last card", .enabled(if: RUNALL))
+  func testRemoveLastCard() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(removeCard(at: 4, from: stack), [1, 2, 3, 4])
+    #expect(removeCard(at: 4, from: stack) == [1, 2, 3, 4])
   }
 
-  func testRemoveCardIndexOutOfBounds() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Cannot remove a card index out of bounds", .enabled(if: RUNALL))
+  func testRemoveCardIndexOutOfBounds() {
     let stack = [1, 2, 3, 4, 5]
-    XCTAssertEqual(removeCard(at: 5, from: stack), stack)
-  }
-}
-
-class TaskInsertAtTask: XCTestCase{
-  func testInsertAtTask() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let stack = [1,2,3,4,5]
-    XCTAssertEqual(insert(10, at: 2, from: stack), [1,2,10,3,4,5])
+    #expect(removeCard(at: 5, from: stack) == stack)
   }
 
-  func testInsertAnotherAtTask() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let stack = [6,7,8,9,10]
-    XCTAssertEqual(insert(5, at: 3, from: stack), [6,7,8,5,9,10])
+  @Test("Can insert a card at a specific index", .enabled(if: RUNALL))
+  func testInsertAt() {
+    let stack = [1, 2, 3, 4, 5]
+    #expect(insert(10, at: 2, from: stack) == [1, 2, 10, 3, 4, 5])
   }
 
-  func testInsertAtTaskOfEmptyStack() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Can insert another card at a specific index", .enabled(if: RUNALL))
+  func testInsertAnotherAt() {
+    let stack = [6, 7, 8, 9, 10]
+    #expect(insert(5, at: 3, from: stack) == [6, 7, 8, 5, 9, 10])
+  }
+
+  @Test("Can insert a card at a specific index of an empty stack", .enabled(if: RUNALL))
+  func testInsertAtOfEmptyStack() {
     let stack = [Int]()
-    XCTAssertEqual(insert(5, at: 0, from: stack), [5])
+    #expect(insert(5, at: 0, from: stack) == [5])
   }
 
-  func testInsertAtTaskIndexOutOfBounds() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let stack = [1,2,3,4,5]
-    XCTAssertEqual(insert(10, at: 6, from: stack), stack)
-  }
-}
-
-class TaskCheckSizeOfStackTests: XCTestCase {
-  func testCheckSizeOfStackTrue() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let stack = [1,2,3,4,5]
-    XCTAssertTrue(checkSizeOfStack(stack, 5))
+  @Test("Cannot insert a card at an index out of bounds", .enabled(if: RUNALL))
+  func testInsertAtIndexOutOfBounds() {
+    let stack = [1, 2, 3, 4, 5]
+    #expect(insert(10, at: 6, from: stack) == stack)
   }
 
-  func testCheckSizeOfStackFalse() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let stack = [1,2,3,4,5]
-    XCTAssertFalse(checkSizeOfStack(stack, 4))
+  @Test("Can check the size of a stack", .enabled(if: RUNALL))
+  func testCheckSizeOfStackTrue() {
+    let stack = [1, 2, 3, 4, 5]
+    #expect(checkSizeOfStack(stack, 5) == true)
+  }
+
+  @Test("Can check the size of a stack", .enabled(if: RUNALL))
+  func testCheckSizeOfStackFalse() {
+    let stack = [1, 2, 3, 4, 5]
+    #expect(checkSizeOfStack(stack, 4) == false)
   }
 }
