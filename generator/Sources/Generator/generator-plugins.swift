@@ -223,6 +223,9 @@ class GeneratorPlugins {
     }
 
     ext.registerFilter("round") { (value: Any?, args: [Any?]) in
+      if let inputNumber = value as? Int {
+        return inputNumber
+      }
       if let inputNumber = value as? Double {
         if let precision = args.first as? Int {
           let divisor = pow(10.0, Double(precision))
@@ -230,6 +233,15 @@ class GeneratorPlugins {
         }
       }
       return nil
+    }
+
+    ext.registerFilter("knapsackItem") { (value: Any?) in
+      if let item = value as? [String: Any] {
+        let itemWeight = String(describing: item["weight", default: ""])
+        let itemValue = String(describing: item["value", default: ""])
+        return "Item(weight:\(itemWeight), value:\(itemValue))"
+      }
+      return "// Something else ..."
     }
 
     let environment = Environment(extensions: [ext])

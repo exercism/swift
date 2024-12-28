@@ -47,3 +47,5 @@ func makeAdder(base: Int) -> (Int) -> Int {
   { (x: Int) -> Int in base + x }
 }
 ```
+
+[closure-expressions]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/#Closure-Expressions
