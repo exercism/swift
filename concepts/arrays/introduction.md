@@ -5,8 +5,8 @@ Arrays are ordered lists of elements where the elements can be of any type, howe
 Arrays are mutable when assigned to a variable, meaning that the elements of an array can be modified after the array is created.
 This is not the case when an array is assigned to a constant, in which case the array is immutable.
 
-Arrays literals are written as a series of elements, each separated by commas, enclosed in square brackets.
-Swift will infer the type of the array from the types of the elements in the array literal.
+Array literals are written as a series of elements, each separated by a comma, enclosed in square brackets.
+Swift will infer the type of the array from the type of the elements in the array literal.
 
 ```swift
 let evenInts = [2, 4, 6, 8, 10, 12]
@@ -77,7 +77,7 @@ oddInts.insert(0, at: 0)
 
 ## Add an Array to an Array
 
-Array can be added to the end of an array using the `+` operator.
+An array can be added to the end of another array using the `+` operator.
 It is important to note that the `+` operator creates a new array and does not modify the original array, which is different from the `append(_:)` or `insert(_:at:)` methods.
 
 ```swift
@@ -110,7 +110,7 @@ oddInts[7]
 
 Elements of an array can be modified by assigning a new value to the element at a given index.
 The index of an element is an `Int` and starts with `0` for the first (leftmost) element.
-If the index is outside the valid range of indices, a runtime error will occur and the program will crash.
+If the given index is outside the valid range of indices for the array, a runtime error will occur and the program will crash.
 
 ```swift
 var evenInts = [2, 4, 6, 8, 10, 12]
@@ -145,7 +145,7 @@ let evenInts = evenIntsString.split(separator: ", ")
 Elements can be deleted from an array using the [`remove(at:)`][remove] method.
 The `remove(at:)` method takes a single argument, the index of the element to be removed from the array.
 The index of an element is an `Int` and starts with `0` for the first (leftmost) element.
-If the index is outside the valid range of indices, a runtime error will occur and the program will crash.
+If the given index is outside the valid range of indices for the array, a runtime error will occur and the program will crash.
 
 ```swift
 var oddInts = [1, 3, 5, 7, 9, 11, 13]
