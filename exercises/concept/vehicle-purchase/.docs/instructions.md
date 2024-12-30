@@ -9,15 +9,17 @@ You have three tasks, one to determine if you will need one to help you choose b
 The auto dealers in your town are all running a five year, 0% interest promotion that you would like to take advantage of.
 But you are not sure if you can afford the monthly payments on the car you want.
 
+The monthly payment is the cars total price divided by the number of months under the five year period.
+
 Implement the `canIBuy(vehicle:price:monthlyBudget:)` function that takes the following arguments:
 - `vehicle` - The name of the vehicle you want to buy.
 - `price` - The price of the vehicle you want to buy.
 - `monthlyBudget` - The amount of money you can afford to pay each month.
 
 The function should return the following message based on the following conditions:
-- If the price of the vehicle is less than or equal to the monthly budget, return the message `"Yes! I'm getting a <vehicle>"`.
-- If the price of the vehicle is 10% above your monthly budget, return the message `"I'll have to be frugal if I want a <vehicle>"`.
-- If the price of the vehicle is more than 10% above your monthly budget, return the message `"Darn! No <vehicle> for me"`.
+- If the monthly payment is less than or equal to the monthly budget, return the message `"Yes! I'm getting a <vehicle>"`.
+- If the monthly payment of the vehicle is within 10% your monthly budget, return the message `"I'll have to be frugal if I want a <vehicle>"`.
+- If the monthly payment of the vehicle is more than 10% above your monthly budget, return the message `"Darn! No <vehicle> for me"`.
 
 ```swift
 canIBuy(vehicle: "1974 Ford Pinto", price: 516.32, monthlyBudget: 100.00)
