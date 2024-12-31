@@ -18,7 +18,7 @@ Implement the `canIBuy(vehicle:price:monthlyBudget:)` function that takes the fo
 
 The function should return the following message based on the following conditions:
 - If the monthly payment of the vehicle is less than or equal to the monthly budget, return the message `"Yes! I'm getting a <vehicle>"`.
-- If the monthly payment of the vehicle is within 10% your monthly budget, return the message `"I'll have to be frugal if I want a <vehicle>"`.
+- If the monthly payment of the vehicle is above your monthly budget by up to 10% (inclusive), return the message `"I'll have to be frugal if I want a <vehicle>"`.
 - If the monthly payment of the vehicle is more than 10% above your monthly budget, return the message `"Darn! No <vehicle> for me"`.
 
 ```swift
