@@ -3,7 +3,7 @@ import Testing
 
 @testable import Poker
 
-let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "true"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
 @Suite struct PokerTests {
 

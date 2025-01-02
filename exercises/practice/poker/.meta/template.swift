@@ -12,7 +12,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
         @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
     func test{{case.description |camelCase }}() {
-        let poker = {{exercise|camelCase}}({{case.input.hands}})
+        let poker = {{exercise|camelCase}}({{case.input.hands | toStringArray }})
         let bestHand = poker.{{case.property}}()
         let expected = "{{case.expected[0]}}"
         #expect(bestHand == expected)
