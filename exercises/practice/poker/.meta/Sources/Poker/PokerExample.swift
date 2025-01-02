@@ -126,7 +126,7 @@ class Poker {
     if rank == .highCard || rank == .straightFlush || rank == .straight || rank == .flush {
       return hands.max { hand1, hand2 in
         let isFlush = rank == .straight || rank == .straightFlush
-        
+
         func highestCard(_ hand: [String]) -> String {
           return hand.max { card1, card2 in
             convertValue(card1, isFlush) < convertValue(card2, isFlush)
@@ -137,7 +137,7 @@ class Poker {
         var hand2High = highestCard(hand2)
 
         var hand1 = hand1
-        var hand2 = hand2      
+        var hand2 = hand2
 
         while convertValue(hand1High) == convertValue(hand2High) {
           hand1 = hand1.filter { $0 != hand1High }
