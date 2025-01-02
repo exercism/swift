@@ -11,7 +11,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL"] ?? "false") ?? f
     let cipher = Cipher()
     let plaintext = "aaaaaaaaaa"
     let expected = String(
-      cipher.key[..<cipher.key.index(cipher.key.startIndex, offsetBy: plaintext.length)])
+      cipher.key[..<cipher.key.index(cipher.key.startIndex, offsetBy: plaintext.count)])
     #expect(expected == cipher.encode(plaintext))
   }
 
@@ -20,7 +20,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL"] ?? "false") ?? f
     let cipher = Cipher()
     let plaintext = "aaaaaaaaaa"
     let expected = String(
-      cipher.key[..<cipher.key.index(cipher.key.startIndex, offsetBy: plaintext.length)])
+      cipher.key[..<cipher.key.index(cipher.key.startIndex, offsetBy: plaintext.count)])
     #expect(plaintext == cipher.decode(expected))
   }
 
