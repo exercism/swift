@@ -1,16 +1,18 @@
-import XCTest
-@testable import Bob
-class BobTests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
-    
+import Testing
+import Foundation
+@testable import {{exercise|camelCase}}
+
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
-    {% if forloop.first -%}
-        func test{{case.description | camelCase }}() {
-    {% else -%}
-        func test{{case.description | camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
-    {% endif -%}
-       XCTAssertEqual("{{case.expected}}", Bob.response("{{case.input.heyBob | inspect}}"))
+        {% if forloop.first -%}
+            @Test("{{case.description}}")
+        {% else -%}
+            @Test("{{case.description}}", .enabled(if: RUNALL))
+        {% endif -%}
+        func test{{case.description |camelCase }}() {
+        #expect("{{case.expected}}" == Bob.response("{{case.input.heyBob | inspect}}"))
     }
     {% endfor %}
 }
