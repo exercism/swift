@@ -1,46 +1,48 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
     {% if forloop.first -%}
-        func test{{case.description |camelCase }}() {
+        @Test("{{case.description}}")
     {% else -%}
-        func test{{case.description |camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
+        @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
+    func test{{case.description |camelCase }}() {
         {%- if case.property == "largest" and case.expected.error -%}
-            XCTAssertThrowsError(try PalindromeProducts.largest(from: {{case.input.min}}, to: {{case.input.max}})) { error in
-                XCTAssertEqual(error as? PalindromeError, PalindromeError.invalidRange)
+            #expect(throws: PalindromeError.invalidRange) {
+                try PalindromeProducts.largest(from: {{case.input.min}}, to: {{case.input.max}})
             }
         {%- elif case.expected.error -%}
-            XCTAssertThrowsError(try PalindromeProducts.smallest(from: {{case.input.min}}, to: {{case.input.max}})) { error in
-                XCTAssertEqual(error as? PalindromeError, PalindromeError.invalidRange)
+            #expect(throws: PalindromeError.invalidRange) {
+                try PalindromeProducts.smallest(from: {{case.input.min}}, to: {{case.input.max}})
             }
         {%- elif case.property == "largest" -%}
             let largest = try! PalindromeProducts.largest(from: {{case.input.min}}, to: {{case.input.max}})
             {%- ifnot case.expected.value | isNull %}
-            XCTAssertEqual(largest.value, {{case.expected.value}})
+            #expect(largest.value == {{case.expected.value}})
             {%- else %}
-            XCTAssertNil(largest.value)
+            #expect(largest.value == nil)
             {%- endif %}
             {%- if case.expected.factors.count == 0 %}
-            XCTAssertEqual(largest.factors, Set())
+            #expect(largest.factors == Set())
             {% else %}
-            XCTAssertEqual(largest.factors, Set(arrayLiteral: {% for value in case.expected.factors %}{% ifnot forloop.first %}, {%- endif %}{{value}}{% endfor %}))
+            #expect(largest.factors == Set(arrayLiteral: {% for value in case.expected.factors %}{% ifnot forloop.first %}, {%- endif %}{{value}}{% endfor %}))
             {%- endif %}
         {%- else -%}
             let smallest = try! PalindromeProducts.smallest(from: {{case.input.min}}, to: {{case.input.max}})
             {%- ifnot case.expected.value | isNull %}
-            XCTAssertEqual(smallest.value, {{case.expected.value}})
+            #expect(smallest.value == {{case.expected.value}})
             {%- else %}
-            XCTAssertNil(smallest.value)
+            #expect(smallest.value == nil)
             {%- endif %}
             {%- if case.expected.factors.count == 0 %}
-            XCTAssertEqual(smallest.factors, Set())
+            #expect(smallest.factors == Set())
             {% else %}
-            XCTAssertEqual(smallest.factors, Set(arrayLiteral: {% for value in case.expected.factors %}{% ifnot forloop.first %}, {%- endif %}{{value}}{% endfor %}))
+            #expect(smallest.factors == Set(arrayLiteral: {% for value in case.expected.factors %}{% ifnot forloop.first %}, {%- endif %}{{value}}{% endfor %}))
             {%- endif %}
         {% endif -%}
     }
