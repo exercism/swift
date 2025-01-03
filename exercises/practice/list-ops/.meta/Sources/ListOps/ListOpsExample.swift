@@ -1,83 +1,85 @@
 struct ListOps {
 
-    static func append<T: Equatable>(_ array1: [T], _ array2: [T]) -> [T] {
-        var result = array1
-        for value in array2 {
-            result.append(value)
-        }
-
-        return result
+  static func append<T: Equatable>(_ array1: [T], _ array2: [T]) -> [T] {
+    var result = array1
+    for value in array2 {
+      result.append(value)
     }
 
-    static func concat<T: Equatable>(_ arrays: [[T]]) -> [T] {
-        var result = [T]()
+    return result
+  }
 
-        for array in arrays {
-            for value in array {
-                result.append(value)
-            }
-        }
+  static func concat<T: Equatable>(_ arrays: [[T]]) -> [T] {
+    var result = [T]()
 
-        return result
+    for array in arrays {
+      for value in array {
+        result.append(value)
+      }
     }
 
-    static func filter<T: Equatable>(_ array: [T], predicate: (T) -> Bool) -> [T] {
-        var filtered = [T]()
-        for value in array {
-            if predicate(value) {
-                filtered.append(value)
-            }
-        }
+    return result
+  }
 
-        return filtered
+  static func filter<T: Equatable>(_ array: [T], predicate: (T) -> Bool) -> [T] {
+    var filtered = [T]()
+    for value in array {
+      if predicate(value) {
+        filtered.append(value)
+      }
     }
 
-    static func length<T>(_ array: [T]) -> Int {
-        var length = 0
+    return filtered
+  }
 
-        for _ in array {
-            length += 1
-        }
+  static func length<T>(_ array: [T]) -> Int {
+    var length = 0
 
-        return length
+    for _ in array {
+      length += 1
     }
 
-    static func map<T: Equatable>(_ array: [T], transform: (T) -> T) -> [T] {
-        var result = [T]()
+    return length
+  }
 
-        for value in array {
-            result.append(transform(value))
-        }
+  static func map<T: Equatable>(_ array: [T], transform: (T) -> T) -> [T] {
+    var result = [T]()
 
-        return result
+    for value in array {
+      result.append(transform(value))
     }
 
-    static func foldLeft<T: Equatable>(_ array: [T], accumulated: T, combine: (T, T) -> T) -> T {
-        if length(array) == 0 {
-            return accumulated
-        } else {
-            return foldLeft(Array(array.dropFirst()), accumulated: combine(array[0], accumulated), combine: combine)
-        }
+    return result
+  }
+
+  static func foldLeft<T: Equatable>(_ array: [T], accumulated: T, combine: (T, T) -> T) -> T {
+    if length(array) == 0 {
+      return accumulated
+    } else {
+      return foldLeft(
+        Array(array.dropFirst()), accumulated: combine(array[0], accumulated), combine: combine)
+    }
+  }
+
+  static func foldRight<T: Equatable>(_ array: [T], accumulated: T, combine: (T, T) -> T) -> T {
+    if length(array) == 0 {
+      return accumulated
+    } else {
+      return combine(
+        array[0], foldRight(Array(array.dropFirst()), accumulated: accumulated, combine: combine))
+    }
+  }
+
+  static func reverse<T: Equatable>(_ array: [T]) -> [T] {
+    var result = [T]()
+    var index = length(array) - 1
+
+    while index >= 0 {
+      result.append(array[index])
+      index -= 1
     }
 
-    static func foldRight<T: Equatable>(_ array: [T], accumulated: T, combine: (T, T) -> T) -> T {
-        if length(array) == 0 {
-            return accumulated
-        } else {
-            return combine(array[0], foldRight(Array(array.dropFirst()), accumulated: accumulated, combine: combine))
-        }
-    }
-
-    static func reverse<T: Equatable>(_ array: [T]) -> [T] {
-        var result = [T]()
-        var index = length(array) - 1
-
-        while index >= 0 {
-            result.append(array[index])
-            index -= 1
-        }
-
-        return result
-    }
+    return result
+  }
 
 }
