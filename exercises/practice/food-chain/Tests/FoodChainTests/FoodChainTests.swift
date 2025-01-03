@@ -1,61 +1,64 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import FoodChain
 
-class FoodChainTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct FoodChainTests {
+
+  @Test("fly")
   func testFly() {
     let expected =
       "I know an old lady who swallowed a fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die."
-    XCTAssertEqual(expected, FoodChain.song(start: 1, end: 1))
+    #expect(expected == FoodChain.song(start: 1, end: 1))
   }
 
-  func testSpider() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("spider", .enabled(if: RUNALL))
+  func testSpider() {
     let expected =
       "I know an old lady who swallowed a spider.\n"
       + "It wriggled and jiggled and tickled inside her.\n"
       + "She swallowed the spider to catch the fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die."
-    XCTAssertEqual(expected, FoodChain.song(start: 2, end: 2))
+    #expect(expected == FoodChain.song(start: 2, end: 2))
   }
 
-  func testBird() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("bird", .enabled(if: RUNALL))
+  func testBird() {
     let expected =
       "I know an old lady who swallowed a bird.\n" + "How absurd to swallow a bird!\n"
       + "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n"
       + "She swallowed the spider to catch the fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die."
-    XCTAssertEqual(expected, FoodChain.song(start: 3, end: 3))
+    #expect(expected == FoodChain.song(start: 3, end: 3))
   }
 
-  func testCat() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("cat", .enabled(if: RUNALL))
+  func testCat() {
     let expected =
       "I know an old lady who swallowed a cat.\n" + "Imagine that, to swallow a cat!\n"
       + "She swallowed the cat to catch the bird.\n"
       + "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n"
       + "She swallowed the spider to catch the fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die."
-    XCTAssertEqual(expected, FoodChain.song(start: 4, end: 4))
+    #expect(expected == FoodChain.song(start: 4, end: 4))
   }
 
-  func testDog() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("dog", .enabled(if: RUNALL))
+  func testDog() {
     let expected =
       "I know an old lady who swallowed a dog.\n" + "What a hog, to swallow a dog!\n"
       + "She swallowed the dog to catch the cat.\n" + "She swallowed the cat to catch the bird.\n"
       + "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n"
       + "She swallowed the spider to catch the fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die."
-    XCTAssertEqual(expected, FoodChain.song(start: 5, end: 5))
+    #expect(expected == FoodChain.song(start: 5, end: 5))
   }
 
-  func testGoat() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("goat", .enabled(if: RUNALL))
+  func testGoat() {
     let expected =
       "I know an old lady who swallowed a goat.\n"
       + "Just opened her throat and swallowed a goat!\n"
@@ -64,11 +67,11 @@ class FoodChainTests: XCTestCase {
       + "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n"
       + "She swallowed the spider to catch the fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die."
-    XCTAssertEqual(expected, FoodChain.song(start: 6, end: 6))
+    #expect(expected == FoodChain.song(start: 6, end: 6))
   }
 
-  func testCow() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("cow", .enabled(if: RUNALL))
+  func testCow() {
     let expected =
       "I know an old lady who swallowed a cow.\n" + "I don't know how she swallowed a cow!\n"
       + "She swallowed the cow to catch the goat.\n" + "She swallowed the goat to catch the dog.\n"
@@ -76,17 +79,17 @@ class FoodChainTests: XCTestCase {
       + "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n"
       + "She swallowed the spider to catch the fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die."
-    XCTAssertEqual(expected, FoodChain.song(start: 7, end: 7))
+    #expect(expected == FoodChain.song(start: 7, end: 7))
   }
 
-  func testHorse() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("horse", .enabled(if: RUNALL))
+  func testHorse() {
     let expected = "I know an old lady who swallowed a horse.\n" + "She's dead, of course!"
-    XCTAssertEqual(expected, FoodChain.song(start: 8, end: 8))
+    #expect(expected == FoodChain.song(start: 8, end: 8))
   }
 
-  func testMultipleVerses() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("multiple verses", .enabled(if: RUNALL))
+  func testMultipleVerses() {
     let expected =
       "I know an old lady who swallowed a fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die.\n" + "\n"
@@ -98,11 +101,11 @@ class FoodChainTests: XCTestCase {
       + "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n"
       + "She swallowed the spider to catch the fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die."
-    XCTAssertEqual(expected, FoodChain.song(start: 1, end: 3))
+    #expect(expected == FoodChain.song(start: 1, end: 3))
   }
 
-  func testFullSong() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("full song", .enabled(if: RUNALL))
+  func testFullSong() {
     let expected =
       "I know an old lady who swallowed a fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die.\n" + "\n"
@@ -138,6 +141,6 @@ class FoodChainTests: XCTestCase {
       + "She swallowed the spider to catch the fly.\n"
       + "I don't know why she swallowed the fly. Perhaps she'll die.\n" + "\n"
       + "I know an old lady who swallowed a horse.\n" + "She's dead, of course!"
-    XCTAssertEqual(expected, FoodChain.song(start: 1, end: 8))
+    #expect(expected == FoodChain.song(start: 1, end: 8))
   }
 }
