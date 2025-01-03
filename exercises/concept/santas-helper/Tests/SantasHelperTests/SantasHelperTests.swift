@@ -47,9 +47,4 @@ final class SantasHelperTests: XCTestCase {
         && actual.recipients == recipients
     )
   }
-  static var allTests = [
-    ("testCartesianToPolar", testCartesianToPolar),
-    ("testCartesianToPolarQ3", testCartesianToPolarQ3),
-    ("testCombineRecords", testCombineRecords),
-  ]
 }
