@@ -1,33 +1,34 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import NthPrime
 
-class NthPrimeTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct NthPrimeTests {
+
+  @Test("first prime")
   func testFirstPrime() {
-    XCTAssertEqual(try! nthPrime(1), 2)
+    #expect(try! nthPrime(1) == 2)
   }
 
-  func testSecondPrime() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! nthPrime(2), 3)
+  @Test("second prime", .enabled(if: RUNALL))
+  func testSecondPrime() {
+    #expect(try! nthPrime(2) == 3)
   }
 
-  func testSixthPrime() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! nthPrime(6), 13)
+  @Test("sixth prime", .enabled(if: RUNALL))
+  func testSixthPrime() {
+    #expect(try! nthPrime(6) == 13)
   }
 
-  func testBigPrime() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! nthPrime(10001), 104743)
+  @Test("big prime", .enabled(if: RUNALL))
+  func testBigPrime() {
+    #expect(try! nthPrime(10001) == 104743)
   }
 
-  func testThereIsNoZerothPrime() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try nthPrime(0)) { error in
-      XCTAssertEqual(error as? PrimeError, PrimeError.noZerothPrime)
-    }
+  @Test("there is no zeroth prime", .enabled(if: RUNALL))
+  func testThereIsNoZerothPrime() {
+    #expect(throws: PrimeError.noZerothPrime) { try nthPrime(0) }
   }
 }
