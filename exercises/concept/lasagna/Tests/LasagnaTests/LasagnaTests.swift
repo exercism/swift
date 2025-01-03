@@ -1,62 +1,58 @@
-import XCTest
+import Testing
+import Foundation
 
 @testable import Lasagna
 
-let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-class TaskExpectedMinutesInOvenTests: XCTestCase {
+@Suite struct LasagnaTests {
+  @Test("Expected minutes in oven")
   func testExpectedMinutes() {
-    XCTAssertEqual(expectedMinutesInOven, 40)
-  }
-}
-
-class TaskRemainingMinutesInOven: XCTestCase {
-  func testRemainingMinutes() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(remainingMinutesInOven(elapsedMinutes: 13), 27)
+    #expect(expectedMinutesInOven == 40)
   }
 
-  func testRemainingMinutesWhenDone() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(remainingMinutesInOven(elapsedMinutes: 40), 0)
+  @Test("Remaining minutes in oven", .enabled(if: RUNALL))
+  func testRemainingMinutes() {
+    #expect(remainingMinutesInOven(elapsedMinutes: 13) == 27)
   }
 
-  func testRemainingMinutesWhenLessThanOne() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(remainingMinutesInOven(elapsedMinutes: 39), 1)
-  }
-}
-
-class TaskPreparationTimeInMinutes: XCTestCase {
-  func testPreparationMinutes() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(preparationTimeInMinutes(layers: 6), 12)
+  @Test("Remaining minutes in oven when done", .enabled(if: RUNALL))
+  func testRemainingMinutesWhenDone() {
+    #expect(remainingMinutesInOven(elapsedMinutes: 40) == 0)
   }
 
-  func testPreparationMinutesForOneLayer() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(preparationTimeInMinutes(layers: 1), 2)
+  @Test("Remaining minutes in oven when less than one", .enabled(if: RUNALL))
+  func testRemainingMinutesWhenLessThanOne() {
+    #expect(remainingMinutesInOven(elapsedMinutes: 39) == 1)
   }
 
-  func testPreparationMinutesForZeroLayers() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(preparationTimeInMinutes(layers: 0), 0)
-  }
-}
-
-class TaskTotalTimeInMinutes: XCTestCase {
-  func testTotalMinutes() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(totalTimeInMinutes(layers: 1, elapsedMinutes: 30), 32)
+  @Test("Preparation time in minutes", .enabled(if: RUNALL))
+  func testPreparationMinutes() {
+    #expect(preparationTimeInMinutes(layers: 6) == 12)
   }
 
-  func testTotalMinutesWhenDone() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(totalTimeInMinutes(layers: 2, elapsedMinutes: 25), 29)
+  @Test("Preparation time in minutes for one layer", .enabled(if: RUNALL))
+  func testPreparationMinutesForOneLayer() {
+    #expect(preparationTimeInMinutes(layers: 1) == 2)
   }
 
-  func testTotalMinutesWhenLessThanOne() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(totalTimeInMinutes(layers: 4, elapsedMinutes: 8), 16)
+  @Test("Preparation time in minutes for zero layers", .enabled(if: RUNALL))
+  func testPreparationMinutesForZeroLayers() {
+    #expect(preparationTimeInMinutes(layers: 0) == 0)
+  }
+
+  @Test("Total time in minutes", .enabled(if: RUNALL))
+  func testTotalMinutes() {
+    #expect(totalTimeInMinutes(layers: 1, elapsedMinutes: 30) == 32)
+  }
+
+  @Test("Total time in minutes when done", .enabled(if: RUNALL))
+  func testTotalMinutesWhenDone() {
+    #expect(totalTimeInMinutes(layers: 2, elapsedMinutes: 25) == 29)
+  }
+
+  @Test("Total time in minutes when less than one", .enabled(if: RUNALL))
+  func testTotalMinutesWhenLessThanOne() {
+    #expect(totalTimeInMinutes(layers: 4, elapsedMinutes: 8) == 16)
   }
 }
