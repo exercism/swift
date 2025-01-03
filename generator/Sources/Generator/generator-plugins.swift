@@ -244,6 +244,23 @@ class GeneratorPlugins {
       return "// Something else ..."
     }
 
+    ext.registerFilter("listOps") { (value: Any?) in
+      if let inputString = value as? String {
+        return inputString.replacingOccurrences(of: "foldl", with: "foldLeft")
+          .replacingOccurrences(of: "foldr", with: "foldRight")
+      }
+      return nil
+    }
+
+    ext.registerFilter("defaultArray") { (value: Any?, args ) in
+      if let inputArray = value as? [Any?] {
+        let type = args.first as? String ?? "Int"
+        return inputArray.isEmpty ? "[\(type)]()" : inputArray
+      }
+      let type = args.first as? String ?? "Int"
+      return "[\(type)]()"
+    }
+
     let environment = Environment(extensions: [ext])
     return environment
   }
