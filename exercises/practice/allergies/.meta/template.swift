@@ -1,26 +1,28 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% outer: for case in cases %}
         {%- for subCases in case.cases %}
         {%- if forloop.outer.first and forloop.first %}
-            func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() {
+            @Test("{{subCases.description}}")
         {%- else %}
-            func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() throws {
-            try XCTSkipIf(true && !runAll) // change true to false to run this test
+            @Test("{{subCases.description}}", .enabled(if: RUNALL))
         {%- endif %}
+            func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() {
             let allergies = Allergies({{subCases.input.score}})
         {%- if subCases.property == "allergicTo" %}
             {%- if subCases.expected %}
-                XCTAssertTrue(allergies.{{subCases.property}}(item: "{{subCases.input.item}}"))
+                #expect(allergies.{{subCases.property}}(item: "{{subCases.input.item}}"))
             {%- else %}
-                XCTAssertFalse(allergies.{{subCases.property}}(item: "{{subCases.input.item}}"))
+                #expect(!allergies.{{subCases.property}}(item: "{{subCases.input.item}}"))
             {%- endif %}
         {%- else %}
             {%- if subCases.expected %}
-                XCTAssertEqual(allergies.{{subCases.property}}(), {{subCases.expected | toStringArray }})
+                #expect(allergies.{{subCases.property}}() == {{subCases.expected | toStringArray }})
             {%- endif %}
         {%- endif %}
         }

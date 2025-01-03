@@ -1,82 +1,86 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import AtbashCipher
 
-class AtbashCipherTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct AtbashCipherTests {
+
+  @Test("encode yes")
   func testEncodeYes() {
-    XCTAssertEqual("bvh", AtbashCipher.encode("yes"))
+    #expect("bvh" == AtbashCipher.encode("yes"))
   }
 
-  func testEncodeNo() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("ml", AtbashCipher.encode("no"))
+  @Test("encode no", .enabled(if: RUNALL))
+  func testEncodeNo() {
+    #expect("ml" == AtbashCipher.encode("no"))
   }
 
-  func testEncodeOmg() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("lnt", AtbashCipher.encode("OMG"))
+  @Test("encode OMG", .enabled(if: RUNALL))
+  func testEncodeOmg() {
+    #expect("lnt" == AtbashCipher.encode("OMG"))
   }
 
-  func testEncodeSpaces() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("lnt", AtbashCipher.encode("O M G"))
+  @Test("encode spaces", .enabled(if: RUNALL))
+  func testEncodeSpaces() {
+    #expect("lnt" == AtbashCipher.encode("O M G"))
   }
 
-  func testEncodeMindblowingly() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("nrmwy oldrm tob", AtbashCipher.encode("mindblowingly"))
+  @Test("encode mindblowingly", .enabled(if: RUNALL))
+  func testEncodeMindblowingly() {
+    #expect("nrmwy oldrm tob" == AtbashCipher.encode("mindblowingly"))
   }
 
-  func testEncodeNumbers() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("gvhgr mt123 gvhgr mt", AtbashCipher.encode("Testing,1 2 3, testing."))
+  @Test("encode numbers", .enabled(if: RUNALL))
+  func testEncodeNumbers() {
+    #expect("gvhgr mt123 gvhgr mt" == AtbashCipher.encode("Testing,1 2 3, testing."))
   }
 
-  func testEncodeDeepThought() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("gifgs rhurx grlm", AtbashCipher.encode("Truth is fiction."))
+  @Test("encode deep thought", .enabled(if: RUNALL))
+  func testEncodeDeepThought() {
+    #expect("gifgs rhurx grlm" == AtbashCipher.encode("Truth is fiction."))
   }
 
-  func testEncodeAllTheLetters() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt",
-      AtbashCipher.encode("The quick brown fox jumps over the lazy dog."))
+  @Test("encode all the letters", .enabled(if: RUNALL))
+  func testEncodeAllTheLetters() {
+    #expect(
+      "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
+        == AtbashCipher.encode("The quick brown fox jumps over the lazy dog."))
   }
 
+  @Test("decode exercism")
   func testDecodeExercism() {
-    XCTAssertEqual("exercism", AtbashCipher.decode("vcvix rhn"))
+    #expect("exercism" == AtbashCipher.decode("vcvix rhn"))
   }
 
-  func testDecodeASentence() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      "anobstacleisoftenasteppingstone",
-      AtbashCipher.decode("zmlyh gzxov rhlug vmzhg vkkrm thglm v"))
+  @Test("decode a sentence", .enabled(if: RUNALL))
+  func testDecodeASentence() {
+    #expect(
+      "anobstacleisoftenasteppingstone"
+        == AtbashCipher.decode("zmlyh gzxov rhlug vmzhg vkkrm thglm v"))
   }
 
-  func testDecodeNumbers() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("testing123testing", AtbashCipher.decode("gvhgr mt123 gvhgr mt"))
+  @Test("decode numbers", .enabled(if: RUNALL))
+  func testDecodeNumbers() {
+    #expect("testing123testing" == AtbashCipher.decode("gvhgr mt123 gvhgr mt"))
   }
 
-  func testDecodeAllTheLetters() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      "thequickbrownfoxjumpsoverthelazydog",
-      AtbashCipher.decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"))
+  @Test("decode all the letters", .enabled(if: RUNALL))
+  func testDecodeAllTheLetters() {
+    #expect(
+      "thequickbrownfoxjumpsoverthelazydog"
+        == AtbashCipher.decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"))
   }
 
-  func testDecodeWithTooManySpaces() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("exercism", AtbashCipher.decode("vc vix    r hn"))
+  @Test("decode with too many spaces", .enabled(if: RUNALL))
+  func testDecodeWithTooManySpaces() {
+    #expect("exercism" == AtbashCipher.decode("vc vix    r hn"))
   }
 
-  func testDecodeWithNoSpaces() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      "anobstacleisoftenasteppingstone", AtbashCipher.decode("zmlyhgzxovrhlugvmzhgvkkrmthglmv"))
+  @Test("decode with no spaces", .enabled(if: RUNALL))
+  func testDecodeWithNoSpaces() {
+    #expect(
+      "anobstacleisoftenasteppingstone" == AtbashCipher.decode("zmlyhgzxovrhlugvmzhgvkkrmthglmv"))
   }
 }

@@ -1,23 +1,24 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
     {% if forloop.first -%}
-        func test{{case.description |camelCase }}() {
+        @Test("{{case.description}}")
     {% else -%}
-        func test{{case.description |camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
+        @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
-    let binarySearch = BinarySearch({{case.input.array}})
-    {% if case.expected.error %}
-        XCTAssertThrowsError(try binarySearch.searchFor({{case.input.value}})) { error in
-            XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
-        }
-    {%- else -%}
-        XCTAssertEqual(try! binarySearch.searchFor({{case.input.value}}), {{case.expected}})
-    {%- endif -%}
+        func test{{case.description |camelCase }}() {
+        let binarySearch = BinarySearch({{case.input.array}})
+        {% if case.expected.error %}
+            #expect(throws: BinarySearchError.valueNotFound) { try binarySearch.searchFor({{case.input.value}})}
+            
+        {%- else -%}
+            #expect(try! binarySearch.searchFor({{case.input.value}}) == {{case.expected}})
+        {%- endif -%}
     }
     {% endfor -%}
 }

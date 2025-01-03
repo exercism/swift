@@ -1,309 +1,314 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Allergies
 
-class AllergiesTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct AllergiesTests {
+
+  @Test("not allergic to anything")
   func testNotAllergicToAnything1() {
     let allergies = Allergies(0)
-    XCTAssertFalse(allergies.allergicTo(item: "eggs"))
+    #expect(!allergies.allergicTo(item: "eggs"))
   }
 
-  func testAllergicOnlyToEggs1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic only to eggs", .enabled(if: RUNALL))
+  func testAllergicOnlyToEggs1() {
     let allergies = Allergies(1)
-    XCTAssertTrue(allergies.allergicTo(item: "eggs"))
+    #expect(allergies.allergicTo(item: "eggs"))
   }
 
-  func testAllergicToEggsAndSomethingElse1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to eggs and something else", .enabled(if: RUNALL))
+  func testAllergicToEggsAndSomethingElse1() {
     let allergies = Allergies(3)
-    XCTAssertTrue(allergies.allergicTo(item: "eggs"))
+    #expect(allergies.allergicTo(item: "eggs"))
   }
 
-  func testAllergicToSomethingButNotEggs1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to something, but not eggs", .enabled(if: RUNALL))
+  func testAllergicToSomethingButNotEggs1() {
     let allergies = Allergies(2)
-    XCTAssertFalse(allergies.allergicTo(item: "eggs"))
+    #expect(!allergies.allergicTo(item: "eggs"))
   }
 
-  func testAllergicToEverything1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to everything", .enabled(if: RUNALL))
+  func testAllergicToEverything1() {
     let allergies = Allergies(255)
-    XCTAssertTrue(allergies.allergicTo(item: "eggs"))
+    #expect(allergies.allergicTo(item: "eggs"))
   }
 
-  func testNotAllergicToAnything2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("not allergic to anything", .enabled(if: RUNALL))
+  func testNotAllergicToAnything2() {
     let allergies = Allergies(0)
-    XCTAssertFalse(allergies.allergicTo(item: "peanuts"))
+    #expect(!allergies.allergicTo(item: "peanuts"))
   }
 
-  func testAllergicOnlyToPeanuts2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic only to peanuts", .enabled(if: RUNALL))
+  func testAllergicOnlyToPeanuts2() {
     let allergies = Allergies(2)
-    XCTAssertTrue(allergies.allergicTo(item: "peanuts"))
+    #expect(allergies.allergicTo(item: "peanuts"))
   }
 
-  func testAllergicToPeanutsAndSomethingElse2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to peanuts and something else", .enabled(if: RUNALL))
+  func testAllergicToPeanutsAndSomethingElse2() {
     let allergies = Allergies(7)
-    XCTAssertTrue(allergies.allergicTo(item: "peanuts"))
+    #expect(allergies.allergicTo(item: "peanuts"))
   }
 
-  func testAllergicToSomethingButNotPeanuts2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to something, but not peanuts", .enabled(if: RUNALL))
+  func testAllergicToSomethingButNotPeanuts2() {
     let allergies = Allergies(5)
-    XCTAssertFalse(allergies.allergicTo(item: "peanuts"))
+    #expect(!allergies.allergicTo(item: "peanuts"))
   }
 
-  func testAllergicToEverything2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to everything", .enabled(if: RUNALL))
+  func testAllergicToEverything2() {
     let allergies = Allergies(255)
-    XCTAssertTrue(allergies.allergicTo(item: "peanuts"))
+    #expect(allergies.allergicTo(item: "peanuts"))
   }
 
-  func testNotAllergicToAnything3() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("not allergic to anything", .enabled(if: RUNALL))
+  func testNotAllergicToAnything3() {
     let allergies = Allergies(0)
-    XCTAssertFalse(allergies.allergicTo(item: "shellfish"))
+    #expect(!allergies.allergicTo(item: "shellfish"))
   }
 
-  func testAllergicOnlyToShellfish3() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic only to shellfish", .enabled(if: RUNALL))
+  func testAllergicOnlyToShellfish3() {
     let allergies = Allergies(4)
-    XCTAssertTrue(allergies.allergicTo(item: "shellfish"))
+    #expect(allergies.allergicTo(item: "shellfish"))
   }
 
-  func testAllergicToShellfishAndSomethingElse3() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to shellfish and something else", .enabled(if: RUNALL))
+  func testAllergicToShellfishAndSomethingElse3() {
     let allergies = Allergies(14)
-    XCTAssertTrue(allergies.allergicTo(item: "shellfish"))
+    #expect(allergies.allergicTo(item: "shellfish"))
   }
 
-  func testAllergicToSomethingButNotShellfish3() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to something, but not shellfish", .enabled(if: RUNALL))
+  func testAllergicToSomethingButNotShellfish3() {
     let allergies = Allergies(10)
-    XCTAssertFalse(allergies.allergicTo(item: "shellfish"))
+    #expect(!allergies.allergicTo(item: "shellfish"))
   }
 
-  func testAllergicToEverything3() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to everything", .enabled(if: RUNALL))
+  func testAllergicToEverything3() {
     let allergies = Allergies(255)
-    XCTAssertTrue(allergies.allergicTo(item: "shellfish"))
+    #expect(allergies.allergicTo(item: "shellfish"))
   }
 
-  func testNotAllergicToAnything4() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("not allergic to anything", .enabled(if: RUNALL))
+  func testNotAllergicToAnything4() {
     let allergies = Allergies(0)
-    XCTAssertFalse(allergies.allergicTo(item: "strawberries"))
+    #expect(!allergies.allergicTo(item: "strawberries"))
   }
 
-  func testAllergicOnlyToStrawberries4() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic only to strawberries", .enabled(if: RUNALL))
+  func testAllergicOnlyToStrawberries4() {
     let allergies = Allergies(8)
-    XCTAssertTrue(allergies.allergicTo(item: "strawberries"))
+    #expect(allergies.allergicTo(item: "strawberries"))
   }
 
-  func testAllergicToStrawberriesAndSomethingElse4() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to strawberries and something else", .enabled(if: RUNALL))
+  func testAllergicToStrawberriesAndSomethingElse4() {
     let allergies = Allergies(28)
-    XCTAssertTrue(allergies.allergicTo(item: "strawberries"))
+    #expect(allergies.allergicTo(item: "strawberries"))
   }
 
-  func testAllergicToSomethingButNotStrawberries4() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to something, but not strawberries", .enabled(if: RUNALL))
+  func testAllergicToSomethingButNotStrawberries4() {
     let allergies = Allergies(20)
-    XCTAssertFalse(allergies.allergicTo(item: "strawberries"))
+    #expect(!allergies.allergicTo(item: "strawberries"))
   }
 
-  func testAllergicToEverything4() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to everything", .enabled(if: RUNALL))
+  func testAllergicToEverything4() {
     let allergies = Allergies(255)
-    XCTAssertTrue(allergies.allergicTo(item: "strawberries"))
+    #expect(allergies.allergicTo(item: "strawberries"))
   }
 
-  func testNotAllergicToAnything5() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("not allergic to anything", .enabled(if: RUNALL))
+  func testNotAllergicToAnything5() {
     let allergies = Allergies(0)
-    XCTAssertFalse(allergies.allergicTo(item: "tomatoes"))
+    #expect(!allergies.allergicTo(item: "tomatoes"))
   }
 
-  func testAllergicOnlyToTomatoes5() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic only to tomatoes", .enabled(if: RUNALL))
+  func testAllergicOnlyToTomatoes5() {
     let allergies = Allergies(16)
-    XCTAssertTrue(allergies.allergicTo(item: "tomatoes"))
+    #expect(allergies.allergicTo(item: "tomatoes"))
   }
 
-  func testAllergicToTomatoesAndSomethingElse5() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to tomatoes and something else", .enabled(if: RUNALL))
+  func testAllergicToTomatoesAndSomethingElse5() {
     let allergies = Allergies(56)
-    XCTAssertTrue(allergies.allergicTo(item: "tomatoes"))
+    #expect(allergies.allergicTo(item: "tomatoes"))
   }
 
-  func testAllergicToSomethingButNotTomatoes5() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to something, but not tomatoes", .enabled(if: RUNALL))
+  func testAllergicToSomethingButNotTomatoes5() {
     let allergies = Allergies(40)
-    XCTAssertFalse(allergies.allergicTo(item: "tomatoes"))
+    #expect(!allergies.allergicTo(item: "tomatoes"))
   }
 
-  func testAllergicToEverything5() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to everything", .enabled(if: RUNALL))
+  func testAllergicToEverything5() {
     let allergies = Allergies(255)
-    XCTAssertTrue(allergies.allergicTo(item: "tomatoes"))
+    #expect(allergies.allergicTo(item: "tomatoes"))
   }
 
-  func testNotAllergicToAnything6() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("not allergic to anything", .enabled(if: RUNALL))
+  func testNotAllergicToAnything6() {
     let allergies = Allergies(0)
-    XCTAssertFalse(allergies.allergicTo(item: "chocolate"))
+    #expect(!allergies.allergicTo(item: "chocolate"))
   }
 
-  func testAllergicOnlyToChocolate6() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic only to chocolate", .enabled(if: RUNALL))
+  func testAllergicOnlyToChocolate6() {
     let allergies = Allergies(32)
-    XCTAssertTrue(allergies.allergicTo(item: "chocolate"))
+    #expect(allergies.allergicTo(item: "chocolate"))
   }
 
-  func testAllergicToChocolateAndSomethingElse6() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to chocolate and something else", .enabled(if: RUNALL))
+  func testAllergicToChocolateAndSomethingElse6() {
     let allergies = Allergies(112)
-    XCTAssertTrue(allergies.allergicTo(item: "chocolate"))
+    #expect(allergies.allergicTo(item: "chocolate"))
   }
 
-  func testAllergicToSomethingButNotChocolate6() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to something, but not chocolate", .enabled(if: RUNALL))
+  func testAllergicToSomethingButNotChocolate6() {
     let allergies = Allergies(80)
-    XCTAssertFalse(allergies.allergicTo(item: "chocolate"))
+    #expect(!allergies.allergicTo(item: "chocolate"))
   }
 
-  func testAllergicToEverything6() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to everything", .enabled(if: RUNALL))
+  func testAllergicToEverything6() {
     let allergies = Allergies(255)
-    XCTAssertTrue(allergies.allergicTo(item: "chocolate"))
+    #expect(allergies.allergicTo(item: "chocolate"))
   }
 
-  func testNotAllergicToAnything7() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("not allergic to anything", .enabled(if: RUNALL))
+  func testNotAllergicToAnything7() {
     let allergies = Allergies(0)
-    XCTAssertFalse(allergies.allergicTo(item: "pollen"))
+    #expect(!allergies.allergicTo(item: "pollen"))
   }
 
-  func testAllergicOnlyToPollen7() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic only to pollen", .enabled(if: RUNALL))
+  func testAllergicOnlyToPollen7() {
     let allergies = Allergies(64)
-    XCTAssertTrue(allergies.allergicTo(item: "pollen"))
+    #expect(allergies.allergicTo(item: "pollen"))
   }
 
-  func testAllergicToPollenAndSomethingElse7() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to pollen and something else", .enabled(if: RUNALL))
+  func testAllergicToPollenAndSomethingElse7() {
     let allergies = Allergies(224)
-    XCTAssertTrue(allergies.allergicTo(item: "pollen"))
+    #expect(allergies.allergicTo(item: "pollen"))
   }
 
-  func testAllergicToSomethingButNotPollen7() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to something, but not pollen", .enabled(if: RUNALL))
+  func testAllergicToSomethingButNotPollen7() {
     let allergies = Allergies(160)
-    XCTAssertFalse(allergies.allergicTo(item: "pollen"))
+    #expect(!allergies.allergicTo(item: "pollen"))
   }
 
-  func testAllergicToEverything7() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to everything", .enabled(if: RUNALL))
+  func testAllergicToEverything7() {
     let allergies = Allergies(255)
-    XCTAssertTrue(allergies.allergicTo(item: "pollen"))
+    #expect(allergies.allergicTo(item: "pollen"))
   }
 
-  func testNotAllergicToAnything8() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("not allergic to anything", .enabled(if: RUNALL))
+  func testNotAllergicToAnything8() {
     let allergies = Allergies(0)
-    XCTAssertFalse(allergies.allergicTo(item: "cats"))
+    #expect(!allergies.allergicTo(item: "cats"))
   }
 
-  func testAllergicOnlyToCats8() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic only to cats", .enabled(if: RUNALL))
+  func testAllergicOnlyToCats8() {
     let allergies = Allergies(128)
-    XCTAssertTrue(allergies.allergicTo(item: "cats"))
+    #expect(allergies.allergicTo(item: "cats"))
   }
 
-  func testAllergicToCatsAndSomethingElse8() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to cats and something else", .enabled(if: RUNALL))
+  func testAllergicToCatsAndSomethingElse8() {
     let allergies = Allergies(192)
-    XCTAssertTrue(allergies.allergicTo(item: "cats"))
+    #expect(allergies.allergicTo(item: "cats"))
   }
 
-  func testAllergicToSomethingButNotCats8() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to something, but not cats", .enabled(if: RUNALL))
+  func testAllergicToSomethingButNotCats8() {
     let allergies = Allergies(64)
-    XCTAssertFalse(allergies.allergicTo(item: "cats"))
+    #expect(!allergies.allergicTo(item: "cats"))
   }
 
-  func testAllergicToEverything8() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("allergic to everything", .enabled(if: RUNALL))
+  func testAllergicToEverything8() {
     let allergies = Allergies(255)
-    XCTAssertTrue(allergies.allergicTo(item: "cats"))
+    #expect(allergies.allergicTo(item: "cats"))
   }
 
-  func testNoAllergies9() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("no allergies", .enabled(if: RUNALL))
+  func testNoAllergies9() {
     let allergies = Allergies(0)
   }
 
-  func testJustEggs9() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("just eggs", .enabled(if: RUNALL))
+  func testJustEggs9() {
     let allergies = Allergies(1)
-    XCTAssertEqual(allergies.list(), ["eggs"])
+    #expect(allergies.list() == ["eggs"])
   }
 
-  func testJustPeanuts9() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("just peanuts", .enabled(if: RUNALL))
+  func testJustPeanuts9() {
     let allergies = Allergies(2)
-    XCTAssertEqual(allergies.list(), ["peanuts"])
+    #expect(allergies.list() == ["peanuts"])
   }
 
-  func testJustStrawberries9() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("just strawberries", .enabled(if: RUNALL))
+  func testJustStrawberries9() {
     let allergies = Allergies(8)
-    XCTAssertEqual(allergies.list(), ["strawberries"])
+    #expect(allergies.list() == ["strawberries"])
   }
 
-  func testEggsAndPeanuts9() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("eggs and peanuts", .enabled(if: RUNALL))
+  func testEggsAndPeanuts9() {
     let allergies = Allergies(3)
-    XCTAssertEqual(allergies.list(), ["eggs", "peanuts"])
+    #expect(allergies.list() == ["eggs", "peanuts"])
   }
 
-  func testMoreThanEggsButNotPeanuts9() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("more than eggs but not peanuts", .enabled(if: RUNALL))
+  func testMoreThanEggsButNotPeanuts9() {
     let allergies = Allergies(5)
-    XCTAssertEqual(allergies.list(), ["eggs", "shellfish"])
+    #expect(allergies.list() == ["eggs", "shellfish"])
   }
 
-  func testLotsOfStuff9() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("lots of stuff", .enabled(if: RUNALL))
+  func testLotsOfStuff9() {
     let allergies = Allergies(248)
-    XCTAssertEqual(allergies.list(), ["strawberries", "tomatoes", "chocolate", "pollen", "cats"])
+    #expect(allergies.list() == ["strawberries", "tomatoes", "chocolate", "pollen", "cats"])
   }
 
-  func testEverything9() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("everything", .enabled(if: RUNALL))
+  func testEverything9() {
     let allergies = Allergies(255)
-    XCTAssertEqual(
-      allergies.list(),
-      ["eggs", "peanuts", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats"])
+    #expect(
+      allergies.list() == [
+        "eggs", "peanuts", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats",
+      ])
   }
 
-  func testNoAllergenScoreParts9() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("no allergen score parts", .enabled(if: RUNALL))
+  func testNoAllergenScoreParts9() {
     let allergies = Allergies(509)
-    XCTAssertEqual(
-      allergies.list(),
-      ["eggs", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats"])
+    #expect(
+      allergies.list() == [
+        "eggs", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats",
+      ])
   }
 
-  func testNoAllergenScorePartsWithoutHighestValidScore9() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("no allergen score parts without highest valid score", .enabled(if: RUNALL))
+  func testNoAllergenScorePartsWithoutHighestValidScore9() {
     let allergies = Allergies(257)
-    XCTAssertEqual(allergies.list(), ["eggs"])
+    #expect(allergies.list() == ["eggs"])
   }
 }
