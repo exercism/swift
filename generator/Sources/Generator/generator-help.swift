@@ -25,7 +25,7 @@ class GeneratorHelp {
     } catch {
       throw GeneratorError.remoteError("No remote file found")
     }
-    let data = try String(contentsOf: url) ?? ""
+    let data = try String(contentsOf: url, encoding: .utf8)
     let fileData = Data(data.utf8)
     json = try JSONSerialization.jsonObject(with: fileData, options: []) as? [String: Any] ?? [:]
   }

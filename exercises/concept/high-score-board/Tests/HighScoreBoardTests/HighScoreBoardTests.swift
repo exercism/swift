@@ -140,16 +140,4 @@ final class HighScoreBoardTests: XCTestCase {
       "Expected: \(expected)\nGot: \(got)\norderByPlayers should return the key/value pairs odered ascending by the player's score."
     )
   }
-
-  static var allTests = [
-    ("testEmptyScores", testEmptyScores),
-    ("testAddPlayerExplicit", testAddPlayerExplicit),
-    ("testAddPlayerDefault", testAddPlayerDefault),
-    ("testRemovePlayer", testRemovePlayer),
-    ("testRemoveNonexistentPlayer", testRemoveNonexistentPlayer),
-    ("testResetScore", testResetScore),
-    ("testUpdateScore", testUpdateScore),
-    ("testOrderByPlayers", testOrderByPlayers),
-    ("testOrderByScores", testOrderByScores),
-  ]
 }
