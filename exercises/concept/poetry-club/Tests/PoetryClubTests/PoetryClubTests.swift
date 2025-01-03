@@ -79,20 +79,4 @@ final class PoetryClubTests: XCTestCase {
     try XCTSkipIf(true && !runAll)  // change true to false to run this test
     XCTAssertEqual(secretRoomPassword("Open Sesame"), "OPEN SESAME!")
   }
-
-  static var allTests = [
-    ("testSplitNewlines", testSplitNewlines),
-    ("testSplitNoNewlines", testSplitNoNewlines),
-    ("testFirstLetter", testFirstLetter),
-    ("testFirstLetterEmpty", testFirstLetterEmpty),
-    ("testCapitalize", testCapitalize),
-    ("testTrimWithWhitespace", testTrimWithWhitespace),
-    ("testTrimWithoutWhitespace", testTrimWithoutWhitespace),
-    ("testLastLetter", testLastLetter),
-    ("testLastLetterEmpty", testLastLetterEmpty),
-    ("testBackdoorPassword", testBackdoorPassword),
-    ("testIthLetter", testIthLetter),
-    ("testIthLetterInvalid", testIthLetterInvalid),
-    ("testSecretRoomPassword", testSecretRoomPassword),
-  ]
 }
