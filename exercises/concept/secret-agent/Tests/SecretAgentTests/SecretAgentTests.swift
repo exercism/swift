@@ -34,11 +34,4 @@ final class SecretAgentTests: XCTestCase {
       })
     XCTAssertTrue(combo == (234, 91, 148))
   }
-
-  static var allTests = [
-    ("testPasswordSuccess", testPasswordSuccess),
-    ("testPasswordFail", testPasswordFail),
-    ("testCombination1", testCombination1),
-    ("testCombination2", testCombination2),
-  ]
 }
