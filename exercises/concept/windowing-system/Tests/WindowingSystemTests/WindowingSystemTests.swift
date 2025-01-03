@@ -158,18 +158,4 @@ final class WindowingSystemTests: XCTestCase {
       window.display(),
       "New Window\nPosition: (0, 0), Size: (80 x 60)\n[This window intentionally left blank]\n")
   }
-
-  static var allTests = [
-    ("testNewWindow", testNewWindow),
-    ("testMainWindow", testMainWindow),
-    ("testMoveValid", testMoveValid),
-    ("testMoveTooFar", testMoveTooFar),
-    ("testMoveNegative", testMoveNegative),
-    ("testResizeValid", testResizeValid),
-    ("testResizeTooFar", testResizeTooFar),
-    ("testResizeNegative", testResizeNegative),
-    ("testUpdateTitle", testUpdateTitle),
-    ("testUpdateText", testUpdateText),
-    ("testUpdateTextNil", testUpdateTextNil),
-  ]
 }

@@ -1,9 +1,11 @@
-let flip = { (tuple: (String, String, String)) -> (String, String, String) in
+typealias RotationClosure = @Sendable ((String, String, String)) -> (String, String, String)
+
+let flip: RotationClosure = { (tuple: (String, String, String)) -> (String, String, String) in
   let (a, b, c) = tuple
   return (b, a, c)
 }
 
-let rotate = { (tuple: (String, String, String)) -> (String, String, String) in
+let rotate: RotationClosure = { (tuple: (String, String, String)) -> (String, String, String) in
   let (a, b, c) = tuple
   return (b, c, a)
 }
