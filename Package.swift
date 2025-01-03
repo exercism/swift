@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.0
 
 import PackageDescription
 import Foundation
@@ -49,6 +49,7 @@ let practiceExerciseTargets: [Target] = practiceExercises.flatMap {
     return [
         .target(
             name:"\($0.pascalCased)", 
+            dependencies: [.product(name: "Numerics", package: "swift-numerics")],
             path:"./exercises/practice/\($0)/.meta/Sources"),
         .testTarget(
             name:"\($0.pascalCased)Tests", 
@@ -69,6 +70,6 @@ let package = Package(
             name: "xswift", 
             targets: allTargets.filter { $0.type == .regular }.map { $0.name })
     ],
-    dependencies: [.package(url: "https://github.com/apple/swift-numerics", from: "1.0.0"),],
+    dependencies: [.package(url: "https://github.com/apple/swift-numerics", from: "1.0.2")],
     targets: allTargets
 )
