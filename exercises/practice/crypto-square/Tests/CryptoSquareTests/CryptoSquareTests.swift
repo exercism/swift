@@ -1,48 +1,55 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import CryptoSquare
 
-class CryptoSquareTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct CryptoSquareTests {
+
+  @Test("empty plaintext results in an empty ciphertext")
   func testEmptyPlaintextResultsInAnEmptyCiphertext() {
-    XCTAssertEqual(cryptoSquare(text: ""), "")
+    #expect(cryptoSquare(text: "") == "")
   }
 
-  func testNormalizationResultsInEmptyPlaintext() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(cryptoSquare(text: "... --- ..."), "")
+  @Test("normalization results in empty plaintext", .enabled(if: RUNALL))
+  func testNormalizationResultsInEmptyPlaintext() {
+    #expect(cryptoSquare(text: "... --- ...") == "")
   }
 
-  func testLowercase() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(cryptoSquare(text: "A"), "a")
+  @Test("Lowercase", .enabled(if: RUNALL))
+  func testLowercase() {
+    #expect(cryptoSquare(text: "A") == "a")
   }
 
-  func testRemoveSpaces() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(cryptoSquare(text: "  b "), "b")
+  @Test("Remove spaces", .enabled(if: RUNALL))
+  func testRemoveSpaces() {
+    #expect(cryptoSquare(text: "  b ") == "b")
   }
 
-  func testRemovePunctuation() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(cryptoSquare(text: "@1,%!"), "1")
+  @Test("Remove punctuation", .enabled(if: RUNALL))
+  func testRemovePunctuation() {
+    #expect(cryptoSquare(text: "@1,%!") == "1")
   }
 
-  func test9CharacterPlaintextResultsIn3ChunksOf3Characters() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(cryptoSquare(text: "This is fun!"), "tsf hiu isn")
+  @Test("9 character plaintext results in 3 chunks of 3 characters", .enabled(if: RUNALL))
+  func test9CharacterPlaintextResultsIn3ChunksOf3Characters() {
+    #expect(cryptoSquare(text: "This is fun!") == "tsf hiu isn")
   }
 
-  func test8CharacterPlaintextResultsIn3ChunksTheLastOneWithATrailingSpace() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(cryptoSquare(text: "Chill out."), "clu hlt io ")
+  @Test(
+    "8 character plaintext results in 3 chunks, the last one with a trailing space",
+    .enabled(if: RUNALL))
+  func test8CharacterPlaintextResultsIn3ChunksTheLastOneWithATrailingSpace() {
+    #expect(cryptoSquare(text: "Chill out.") == "clu hlt io ")
   }
 
-  func test54CharacterPlaintextResultsIn7ChunksTheLastTwoWithTrailingSpaces() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      cryptoSquare(text: "If man was meant to stay on the ground, god would have given us roots."),
-      "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau ")
+  @Test(
+    "54 character plaintext results in 7 chunks, the last two with trailing spaces",
+    .enabled(if: RUNALL))
+  func test54CharacterPlaintextResultsIn7ChunksTheLastTwoWithTrailingSpaces() {
+    #expect(
+      cryptoSquare(text: "If man was meant to stay on the ground, god would have given us roots.")
+        == "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau ")
   }
 }
