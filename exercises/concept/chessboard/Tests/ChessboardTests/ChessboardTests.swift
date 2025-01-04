@@ -1,11 +1,11 @@
 import Testing
 import Foundation
 
-@testable import ChessBoard
+@testable import Chessboard
 
 let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "true"]) ?? false
 
-@Suite struct ChessBoardTests {
+@Suite struct ChessboardTests {
   func generateBoard() -> [String] {
     var board = [String]()
     let files2 = ["A", "B", "C", "D", "E", "F", "G", "H"]
