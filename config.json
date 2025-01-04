@@ -120,8 +120,8 @@
         "status": "active"
       },
       {
-        "slug": "chess-game",
-        "name": "Chess Game",
+        "slug": "chessboard",
+        "name": "ChessBoard",
         "uuid": "162bf709-ed48-438d-9a32-f572099cf42e",
         "concepts": [
           "ranges"
