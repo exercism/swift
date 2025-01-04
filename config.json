@@ -120,6 +120,18 @@
         "status": "active"
       },
       {
+        "slug": "chess-game",
+        "name": "Chess Game",
+        "uuid": "162bf709-ed48-438d-9a32-f572099cf42e",
+        "concepts": [
+          "ranges"
+        ],
+        "prerequisites": [
+          "arrays"
+        ],
+        "status": "active"
+      },
+      {
         "slug": "santas-helper",
         "name": "Santa's Swifty Helper",
         "uuid": "f371c072-082b-496b-aa58-45b6cba203f6",
@@ -1502,6 +1514,11 @@
       "uuid": "d9e8d5fd-4f64-49fc-8b0f-b04b71421cd2",
       "slug": "repeat-while",
       "name": "repeat while"
+    },
+    {
+      "uuid": "cb0d8166-672c-4bdf-820b-d60531574d73",
+      "slug": "ranges",
+      "name": "Ranges"
     },
     {
       "uuid": "a4b7ebd1-28f4-4270-910f-cf511ec4b45a",
