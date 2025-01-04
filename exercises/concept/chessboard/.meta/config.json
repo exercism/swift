@@ -4,13 +4,13 @@
   ],
   "files": {
     "solution": [
-      "Sources/ChessBoard/ChessBoard.swift"
+      "Sources/Chessboard/Chessboard.swift"
     ],
     "test": [
-      "Tests/ChessBoardTests/ChessBoardTests.swift"
+      "Tests/ChessboardTests/ChessboardTests.swift"
     ],
     "exemplar": [
-      ".meta/Sources/ChessBoard/ChessBoardExemplar.swift"
+      ".meta/Sources/Chessboard/ChessboardExemplar.swift"
     ]
   },
   "blurb": "Learn about ranges while making a chess board.",
