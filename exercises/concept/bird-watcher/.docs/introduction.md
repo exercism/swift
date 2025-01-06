@@ -1,51 +1,108 @@
-# Introduction
+# For loops
 
-Closures in Swift are self-contained blocks of code that can be passed parameters to trigger their computation and return values. Closures also capture values from their environment and use them in their computations. As they are self contained, they may be passed around in a program like other values or assigned to constants and variables.
+Looping is a fundamental concept in programming that allows you to execute a block of code multiple times.
+In Swift, there are two types of loops: [`for-in` loops][for-loops] and `while` loops. 
+In this chapter, you'll learn about `for-in` loops.
 
-Closures may sound a lot like Swift functions; they do, and for good reason. Functions in swift are just special cases of closures which are required to have a name and are defined using a slightly different syntax.
+For loops allows you to iterate over a sequence of values, taking each element in turn, binding it to a variable of your choosing.
+Swift allows you to iterate over a variety of sequences, such as ranges, arrays, and strings (and more types which will be covered later).
+When every element of the sequence has been iterated over, the loop exits.
 
-While functions in Swift are technically closures, when people refer to "closures" in Swift, they are referring to [closure expressions][closure-expressions]. Closure expressions are written as a parameter list followed by a return type and the keyword `in` followed by the body of the closure, all contained in a pair of curly braces:
+For loops are declared by using the `for` keyword, followed by a variable name, the `in` keyword, and a sequence of values to iterate over.
+The variable given in the `for-in` loop is inmutable, meaning you can't change its value inside the loop.
+Here's an example of a `for-in` loop that iterates over an array of numbers:
 
 ```swift
-{ (a: Double, b: Double) -> Double in
-  return a + b / 2.0
+let numbers = [3, 10, 7, 11]
+
+for number in numbers {
+  print(number)
 }
+print("Done with numbers")
+
+// prints:
+// 3
+// 10
+// 7
+// 11
+// Done with numbers
 ```
 
-This defines a closure expression of type `(Double, Double) -> Double`, and it can be executed in a similar manner to a function of this type, by applying it to parameters of the appropriate type:
+~~~~exercism/note
+The `number` variable is declared in the `for-in` loop and is only available within the loop's scope.
 
 ```swift
-{ (a: Double, b: Double) -> Double in
-  return a + b / 2.0
-}(10.0, 15.0)
-// => 12.5
+let numbers = [3, 10, 7, 11]
+
+for number in numbers {
+    number + 1
+}
+number + 1 // Error: Use of unresolved identifier 'number'
 ```
+~~~~
 
-As it's not very convenient to write out the full closure expression every time one wants to execute it, closures can be assigned to names, like any other value in Swift. They can then be called by applying the name to the parameters:
+## Iterating over a range
+
+You can also iterate over a range of numbers using a `for-in` loop.
+This allows you to execute a block of code a specific number of times, for example, the range `1...5` will iterate over the numbers 1, 2, 3, 4, and 5, so the loop will execute 5 times.
+Sometimes you might want to iterate over indexes, in a datastructure like an array, then you can use a `0..<array.count` range.
 
 ```swift
-let mean = { (a: Double, b: Double) -> Double in
-  a + b / 2.0
+let numbers = [3, 10, 7, 11]
+
+for i in 0..<numbers.count {
+  print(numbers[i])
 }
 
-mean(13.0, 100.0)
-// => 56.5
+// prints:
+// 3
+// 10
+// 7
+// 11
 ```
 
-As seen above, closures, like regular functions, may omit the `return` keyword if the body of the closure is a single expression.
+## Iterating over a string
 
-Most often, closures are used with higher-order functions, either passed in as parameters or returned as results:
+You can also iterate over a string using a `for-in` loop.
+This allows you to iterate over each character in the string, and note specifically that the type given in the loop is a `Character`.
 
 ```swift
-[11, 75, 3, 99, 53].contains(where: { (x: Int) -> Bool in x > 100 })
-// => false
+let message = "Hello!"
 
-["apple", "ball", "carrot"].sorted(by: { (s1: String, s2: String) -> Bool in s1.count < s2.count })
-// => ["ball", "apple", "carrot"]
-
-func makeAdder(base: Int) -> (Int) -> Int {
-  { (x: Int) -> Int in base + x }
+for character in message {
+  print(character)
 }
+
+// prints:
+// H
+// e
+// l
+// l
+// o
+// !
 ```
 
-[closure-expressions]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/#Closure-Expressions
+## stride
+
+Swift also provides a `stride` function that allows you to create a sequence over a range with a specific step.
+Which can be then iterated over using a `for-in` loop.
+`stride` is defined as [`stride(from:to:by:)`][stride-to] or [`stride(from:through:by:)`][stride-through], the first one is exclusive and the second one is inclusive.
+
+```swift
+for i in stride(from: 0, to: 10, by: 2) {
+  print(i)
+}
+
+// prints:
+// 0
+// 2
+// 4
+// 6
+// 8
+```
+
+Note that the `to` parameter is exclusive, so the loop will iterate until the number before the `to` parameter, while the `through` parameter is inclusive, so in this case it would also include the `10`.
+
+[stride-to]: https://developer.apple.com/documentation/swift/stride(from:to:by:)
+[stride-through]: https://developer.apple.com/documentation/swift/stride(from:through:by:)
+[for-loops]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#For-In-Loops
