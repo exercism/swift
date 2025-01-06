@@ -1,1 +1,11 @@
-[]
+[
+    {
+      "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#For-In-Loops",
+      "description": "Swift Book: For-In Loops"
+    },
+    {
+      "url": "https://developer.apple.com/documentation/swift/stride(from:through:by:)",
+      "description": "Swift docs: stride"
+    }
+  ]
+  
