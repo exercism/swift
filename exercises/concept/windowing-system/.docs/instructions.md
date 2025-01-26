@@ -30,12 +30,12 @@ Define a struct named `Size` with two `Int` properties, `width` and `height` tha
 
 ```swift
 let size1080x764 = Size(width: 1080, height: 764)
-// => Size
+// returns Size
 var size1200x800 = size1080x764
-// => Size
+// returns Size
 size1200x800.resize(newWidth: 1200, newHeight: 800)
 size1200x800.height
-// => 800
+// returns 800
 ```
 
 ## 2. Define a Position struct
@@ -46,10 +46,10 @@ Include a method `moveTo(newX:newY:)` that takes new x and y parameters and chan
 
 ```swift
 var point = Position(x: 10, y: 20)
-// => Position
+// returns Position
 point.moveTo(newX: 100, newY: -100)
 point.y
-// => -100
+// returns -100
 ```
 
 ## 3. Define a Window class
@@ -61,6 +61,14 @@ Define a window class with the following properties:
 - `size` : `Size`, initial value is the default value of the `Size` struct
 - `position` : `Position`, initial value is the default value of the `Position` struct
 - `contents` : `String?`, initial value is `nil`
+
+You should also define an empty initializer for the class.
+
+```swift
+let window = Window()
+window.display()
+// returns "New Window\nPosition: (0, 0), Size: (80 x 60)\n[This window intentionally left blank]"
+```
 
 ## 4. Add a method to resize windows
 
@@ -76,8 +84,19 @@ Define a window class with the following properties:
 - `update(text:)` : `(String?) -> ()` - This method sets the `contents` property to the value of the optional string that was passed in.
 - `display()` : `() -> String` - This method returns a string describing the current state of the window. For example, if the window has the `title` "My First Window" with position: x = 10, y = 100; size: width = 200, height = 150; and contents: "I 😍 my window", it should return the string: `"My First Window\nPosition: (10, 100), Size: (200 x 150)\nI 😍 my window\n"` - If `contents` is nil, the last line should read "[This window intentionally left blank]"
 
-## 7. Create a new Window
+## 7. Create an initilazer for the Window class
 
-Create an instances of the Window class and modify it via their methods as follows:
+The window system should have an initializer so the that the window can be created with custom inputs.
+Create **another** initializer for the `Window` class.
+The initializer should take the following parameters: `title`, `contents`, and two optional parameters `size` and `position`.
+The `size` and `position` parameters should default to the default values of the `Size` and `Position` structs.
 
-- The window should be given the title "Main Window", with a width of 400, a height of 300 and positioned at x = 100, y = 100. Its contents should be "This is the main window". Assign this instance to the name `mainWindow`.
+```swift
+let window = Window(title: "My First Window", contents: "I 😍 my window")
+window.display()
+// returns "My First Window\nPosition: (0, 0), Size: (80 x 60)\nI 😍 my window\n"
+
+let window2 = Window(title: "My Second Window", contents: "I 😍 my window", size: Size(width: 200, height: 150), position: Position(x: 10, y: 100))
+window2.display()
+// returns "My Second Window\nPosition: (10, 100), Size: (200 x 150)\nI 😍 my window\n"
+```

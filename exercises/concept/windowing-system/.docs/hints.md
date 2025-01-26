@@ -20,11 +20,6 @@
 - Constant properties should be defined using `let`.
 - Properties can be changed using their own methods, where available.
 
-## 4. Create some Windows
-
-- This will require the class to be both initialized and modified.
-- Initialization and modification is often done [using a closure][initializing-via-closure]
-
 [structs-and-classes]: https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html
 [memberwise-initializers]: https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#ID87
 [initializing-via-closure]: https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID232
