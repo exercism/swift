@@ -1,13 +1,3 @@
-struct Position {
-  var x = 0
-  var y = 0
-
-  mutating func moveTo(newX: Int, newY: Int) {
-    x = newX
-    y = newY
-  }
-}
-
 struct Size {
   var width = 80
   var height = 60
@@ -15,6 +5,16 @@ struct Size {
   mutating func resize(newWidth: Int, newHeight: Int) {
     width = newWidth
     height = newHeight
+  }
+}
+
+struct Position {
+  var x = 0
+  var y = 0
+
+  mutating func moveTo(newX: Int, newY: Int) {
+    x = newX
+    y = newY
   }
 }
 
