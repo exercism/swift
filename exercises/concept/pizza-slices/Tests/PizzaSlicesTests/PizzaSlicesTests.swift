@@ -1,74 +1,82 @@
-import XCTest
+import Testing
+import Foundation
+import Numerics
 
 @testable import PizzaSlices
 
-final class PizzaSlicesTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-  func testSliceNormal() throws {
-    let size = try XCTUnwrap(sliceSize(diameter: 16, slices: 10))
-    XCTAssertEqual(size, Double.pi * 6.4, accuracy: 0.01)
+@Suite struct PizzaSlicesTests {
+  @Test("A normal slice") 
+  func testSliceNormal() {
+    let size = sliceSize(diameter: 16, slices: 10)
+    #expect(size!.isApproximatelyEqual(to: Double.pi * 6.4, relativeTolerance: 0.01))
   }
 
-  func testSliceNilDiameter() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertNil(sliceSize(diameter: nil, slices: 10))
+  @Test("A slice with nil diameter", .enabled(if: RUNALL))
+  func testSliceNilDiameter() {
+    let size = sliceSize(diameter: nil, slices: 10)
+    #expect(size == nil)
   }
 
-  func testSliceNilSlices() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertNil(sliceSize(diameter: 16, slices: nil))
+  @Test("A slice with nil slices", .enabled(if: RUNALL))
+  func testSliceNilSlices() {
+    let size = sliceSize(diameter: 16, slices: nil)
+    #expect(size == nil)
   }
 
-  func testSliceBadDiameter() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertNil(sliceSize(diameter: -16, slices: 10))
+  @Test("A slice with invalid diameter", .enabled(if: RUNALL))
+  func testSliceBadDiameter() {
+    let size = sliceSize(diameter: -16, slices: 10)
+    #expect(size == nil)
   }
 
-  func testSliceBadSlices() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertNil(sliceSize(diameter: 16, slices: 0))
+  @Test("A slice with invalid slices", .enabled(if: RUNALL))
+  func testSliceBadSlices() {
+    let size = sliceSize(diameter: 16, slices: 0)
+    #expect(size == nil)
   }
 
-  func testABiggest() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("When slice A is bigger", .enabled(if: RUNALL))
+  func testABiggest() {
     let biggest = biggestSlice(diameterA: "16", slicesA: "8", diameterB: "12", slicesB: "6")
-    XCTAssertEqual(biggest, "Slice A is bigger")
+    #expect(biggest == "Slice A is bigger")
   }
 
-  func testBBiggest() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+
+  @Test("When slice B is bigger", .enabled(if: RUNALL))
+  func testBBiggest() {
     let biggest = biggestSlice(diameterA: "16", slicesA: "10", diameterB: "18", slicesB: "12")
-    XCTAssertEqual(biggest, "Slice B is bigger")
+    #expect(biggest == "Slice B is bigger")
   }
 
-  func testBothSame() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("When both slices are the same", .enabled(if: RUNALL))
+  func testBothSame() {
     let biggest = biggestSlice(diameterA: "16", slicesA: "10", diameterB: "16", slicesB: "10")
-    XCTAssertEqual(biggest, "Neither slice is bigger")
+    #expect(biggest == "Neither slice is bigger")
   }
 
-  func testANil() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("When A is nil", .enabled(if: RUNALL))
+  func testANil() {
     let biggest = biggestSlice(diameterA: "-16", slicesA: "8", diameterB: "12", slicesB: "6")
-    XCTAssertEqual(biggest, "Slice B is bigger")
+    #expect(biggest == "Slice B is bigger")
   }
 
-  func testBNil() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("When B is nil", .enabled(if: RUNALL))
+  func testBNil() {
     let biggest = biggestSlice(diameterA: "16", slicesA: "8", diameterB: "-18", slicesB: "12")
-    XCTAssertEqual(biggest, "Slice A is bigger")
+    #expect(biggest == "Slice A is bigger")
   }
 
-  func testBothNil() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("When both are nil", .enabled(if: RUNALL))
+  func testBothNil() {
     let biggest = biggestSlice(diameterA: "16", slicesA: "-8", diameterB: "16 inches", slicesB: "8")
-    XCTAssertEqual(biggest, "Neither slice is bigger")
+    #expect(biggest == "Neither slice is bigger")
   }
 
-  func testZeroIsValid() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("That zero is valid", .enabled(if: RUNALL))
+  func testZeroIsValid() {
     let biggest = biggestSlice(diameterA: "0", slicesA: "8", diameterB: "16 inches", slicesB: "8")
-    XCTAssertEqual(biggest, "Slice A is bigger")
+    #expect(biggest == "Slice A is bigger")
   }
 }
