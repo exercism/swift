@@ -13,7 +13,7 @@ As [dictionaries][dictionaries] are one of Swift's three primary collection type
 ```swift
 var addresses: Dictionary<String, String> = ["The Munsters": "1313 Mockingbird Lane", "The Simpsons": "742 Evergreen Terrace", "Buffy Summers": "1630 Revello Drive"]
 var sequences: [String: [Int]] = ["Euler's totient": [1, 1, 2, 2, 4, 2, 6, 4], "Lazy caterer": [1, 2, 4, 7, 11, 16, 22, 29, 37], "Carmichael": [561, 1105, 1729, 2465, 2821, 6601, 8911, 10585, 15841]]
-let constants: = ["pi": 3.14159, "e": 2.71828, "phi": 1.618033, "avogadro": 6.02214076e22]
+let constants: = ["pi": 3.14159, "e": 2.71828, "phi": 1.618033, "avogadro": 6.02214076e23]
 ```
 
 - Empty dictionaries can be written by following the type name of the dictionary by a pair of parenthesis, e.g. `[Int: String]()`, or, if the type can be determined from the context, as just a pair of square brackets surrounding a colon, `[:]`.

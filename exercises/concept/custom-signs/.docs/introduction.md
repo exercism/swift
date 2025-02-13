@@ -1,7 +1,7 @@
 # About
 
 Strings are a data type that represent a text value.
-[`Strings`][strings-and-characters] in Swift are a collection of `Character`s, which themselves hold a [Unicode scalar values][unicode-scalar-values].
+[`Strings`][strings-and-characters] in Swift are a collection of `Character`s, which themselves hold a [Unicode scalar value][unicode-scalar-values].
 
 You can create a String through a string literal, which is a series of characters enclosed in double quotation marks (`"`).
 For multi-line strings, you can use triple quotation marks (`"""`).
@@ -46,7 +46,7 @@ let badChar: Character = "Too many characters"
 
 ## Concatenation
 
-In Swift can strings be [concatenated][] using the `+` operator.
+In Swift, strings can be [concatenated][] using the `+` operator.
 Characters can **not** be concatenated with strings using the `+` operator without first converting the character to a string.
 
 ```swift

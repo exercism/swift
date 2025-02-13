@@ -71,19 +71,4 @@ final class PizzaSlicesTests: XCTestCase {
     let biggest = biggestSlice(diameterA: "0", slicesA: "8", diameterB: "16 inches", slicesB: "8")
     XCTAssertEqual(biggest, "Slice A is bigger")
   }
-
-  static var allTests = [
-    ("testSliceNormal", testSliceNormal),
-    ("testSliceNilDiameter", testSliceNilDiameter),
-    ("testSliceNilSlices", testSliceNilSlices),
-    ("testSliceBadDiameter", testSliceBadDiameter),
-    ("testSliceBadSlices", testSliceBadSlices),
-    ("testABiggest", testABiggest),
-    ("testBBiggest", testBBiggest),
-    ("testBothSame", testBothSame),
-    ("testANil", testANil),
-    ("testBNil", testBNil),
-    ("testBothNil", testBothNil),
-    ("testZeroIsValid", testZeroIsValid),
-  ]
 }

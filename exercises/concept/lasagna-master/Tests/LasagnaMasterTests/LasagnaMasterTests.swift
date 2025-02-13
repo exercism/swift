@@ -81,18 +81,4 @@ final class LasagnaMasterTests: XCTestCase {
         layers: "sauce", "noodles", "béchamel", "meat", "mozzarella", "noodles", "sauce", "ricotta",
         "eggplant", "mozzarella", "béchamel", "noodles", "meat", "sauce", "mozzarella"))
   }
-
-  static var allTests = [
-    ("testRemainingMinutesExplicit", testRemainingMinutesExplicit),
-    ("testRemainingMinutesDefault", testRemainingMinutesDefault),
-    ("testPreparationTime", testPreparationTime),
-    ("testPreparationTimeEmpty", testPreparationTimeEmpty),
-    ("testQuantities", testQuantities),
-    ("testQuantitiesNoSauce", testQuantitiesNoSauce),
-    ("testQuantitiesNoNoodles", testQuantitiesNoNoodles),
-    ("testToOz", testToOz),
-    ("testRedWineRedInequalLayerCount", testRedWineRedInequalLayerCount),
-    ("testRedWineRedEqualLayerCount", testRedWineRedEqualLayerCount),
-    ("testRedWineWhite", testRedWineWhite),
-  ]
 }

@@ -153,20 +153,4 @@ final class MasterMixologistTests: XCTestCase {
       checkTest(e: expectedBeers, g: got.beer) && checkTest(e: expectedSodas, g: got.soda),
       "Expected (beer: nil, soda: nil), got: \(got)")
   }
-
-  static var allTests = [
-    ("testTimeToPrepare", testTimeToPrepare),
-    ("testMakeWedges", testMakeWedges),
-    ("testMakeWedgesNoNeed", testMakeWedgesNoNeed),
-    ("testMakeWedgesNoLimes", testMakeWedgesNoLimes),
-    ("testMakeWedgesTooFewLimes", testMakeWedgesTooFewLimes),
-    ("testFinishShift", testFinishShift),
-    ("testFinishShiftJustRunOver", testFinishShiftJustRunOver),
-    ("testFinishShiftLeaveEarly", testFinishShiftLeaveEarly),
-    ("testOrderTracker", testOrderTracker),
-    ("testOrderOneEach", testOrderOneEach),
-    ("testOrderTrackerNoBeer", testOrderTrackerNoBeer),
-    ("testOrderTrackerNoSoda", testOrderTrackerNoSoda),
-    ("testOrderTrackerNils", testOrderTrackerNils),
-  ]
 }

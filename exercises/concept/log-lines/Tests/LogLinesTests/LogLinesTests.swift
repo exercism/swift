@@ -95,22 +95,4 @@ final class LogLinesTests: XCTestCase {
     let message = "Wha happon?"
     XCTAssertEqual(LogLevel.unknown.shortFormat(message: message), "42:Wha happon?")
   }
-
-  static var allTests = [
-    ("testInitTrace", testInitTrace),
-    ("testInitDebug", testInitDebug),
-    ("testInitInfo", testInitInfo),
-    ("testInitWarning", testInitWarning),
-    ("testInitError", testInitError),
-    ("testInitFatal", testInitFatal),
-    ("testInitUnknownEmpty", testInitUnknownEmpty),
-    ("testInitUnknownNonStandard", testInitUnknownNonStandard),
-    ("testShortTrace", testShortTrace),
-    ("testShortDebug", testShortDebug),
-    ("testShortInfo", testShortInfo),
-    ("testShortWarning", testShortWarning),
-    ("testShortError", testShortError),
-    ("testShortFatal", testShortFatal),
-    ("testShortUnknownEmpty", testShortUnknownEmpty),
-  ]
 }

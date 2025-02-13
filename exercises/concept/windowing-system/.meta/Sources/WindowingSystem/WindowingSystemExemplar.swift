@@ -18,7 +18,7 @@ struct Size {
   }
 }
 
-class Window {
+class Window: @unchecked Sendable  {
   var title = "New Window"
   let screenSize = Size(width: 800, height: 600)
   var size = Size()

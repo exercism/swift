@@ -37,7 +37,7 @@ enum NESButton {
 }
 ```
 
-This defines a new type named `NESButtons` with possible values `up`, `down`, `left`, `right`, `a`, `b`, `select`, and `start`. These values can be referred to by following the name of the type with a dot (`.`) and the value. In cases where the type name can be inferred, only the dot and value are needed. These values can then be used like any other values in Swift.
+This defines a new type named `NESButton` with possible values `up`, `down`, `left`, `right`, `a`, `b`, `select`, and `start`. These values can be referred to by following the name of the type with a dot (`.`) and the value. In cases where the type name can be inferred, only the dot and value are needed. These values can then be used like any other values in Swift.
 
 ```swift
 var lastPressed = NESButton.up

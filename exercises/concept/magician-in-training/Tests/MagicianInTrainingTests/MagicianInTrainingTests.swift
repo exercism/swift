@@ -112,24 +112,4 @@ final class MagicianInTrainingTests: XCTestCase {
     let stack = [7, 3, 7, 1, 5, 5, 3, 9, 9]
     XCTAssertEqual(evenCardCount(stack), 0)
   }
-
-  static var allTests = [
-    ("testGetCard", testGetCard),
-    ("testSetCard", testSetCard),
-    ("testSetCardIndexTooLow", testSetCardIndexTooLow),
-    ("testSetCardIndexTooHigh", testSetCardIndexTooHigh),
-    ("testInsertAtTop", testInsertAtTop),
-    ("testRemoveCard", testRemoveCard),
-    ("testRemoveCardIndexTooLow", testRemoveCardIndexTooLow),
-    ("testRemoveCardIndexTooHigh", testRemoveCardIndexTooHigh),
-    ("testRemoveTopCard", testRemoveTopCard),
-    ("testRemoveTopCardFromEmptyStack", testRemoveTopCardFromEmptyStack),
-    ("testInsertAtBottom", testInsertAtBottom),
-    ("testRemoveBottomCard", testRemoveBottomCard),
-    ("testRemoveBottomCardFromEmptyStack", testRemoveBottomCardFromEmptyStack),
-    ("testCheckSizeTrue", testCheckSizeTrue),
-    ("testCheckSizeFalse", testCheckSizeFalse),
-    ("testEvenCardCount", testEvenCardCount),
-    ("testEvenCardCountZero", testEvenCardCountZero),
-  ]
 }
