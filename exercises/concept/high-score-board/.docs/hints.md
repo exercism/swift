@@ -2,7 +2,7 @@
 
 ## 1. Define a new high score dictionary
 
-- Empty dictionaries can be initialized by following the type name with a pair of empty parentheses or, if the type can be determined from context, by using the empty dictionary literal.
+- [Empty dictionaries][empty-dictionary] can be initialized by following the type name with a pair of empty parentheses or, if the type can be determined from context, by using the empty dictionary literal.
 
 ## 2. Add players to the high score dictionary
 
@@ -36,6 +36,7 @@
 - You will need to define a sorting function of type `((String, Int), (String, Int)) -> Bool` to pass in to the `sorted(by:)` method.
 - The sorting function should return `true` if the left-hand key/value pair should appear _before_ the right-hand key/value pair in the sorted output.
 
-[dictionaries]: https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID113
+[dictionaries]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes/#Dictionaries
+[empty-dictionary]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes/#Creating-an-Empty-Dictionary
 [dictionary-docs]: https://developer.apple.com/documentation/swift/Dictionary
-[dictionary-subscripts]: https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID116
+[dictionary-subscripts]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes/#Accessing-and-Modifying-a-Dictionary

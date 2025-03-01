@@ -1,27 +1,27 @@
 func newScoreBoard() -> [String: Int] {
-  fatalError("newScoreBoard not implemented - please add implementation here")
+  fatalError("Please implement the addPlayer() function")
 }
 
 func addPlayer(_ scores: inout [String: Int], _ name: String, _ score: Int = 0) {
-  fatalError("addPlayer not implemented - please add implementation here")
+  fatalError("Please implement the addPlayer(_:_:_:) function")
 }
 
 func removePlayer(_ scores: inout [String: Int], _ name: String) {
-  fatalError("removePlayer not implemented - please add implementation here")
+  fatalError("Please implement the removePlayer(_:_:) function")
 }
 
 func resetScore(_ scores: inout [String: Int], _ name: String) {
-  fatalError("resetScore not implemented - please add implementation here")
+  fatalError("Please implement the resetScore(_:_:) function")
 }
 
 func updateScore(_ scores: inout [String: Int], _ name: String, _ delta: Int) {
-  fatalError("updateScore not implemented - please add implementation here")
+  fatalError("Please implement the updateScore(_:_:) function")
 }
 
 func orderByPlayers(_ scores: [String: Int]) -> [(String, Int)] {
-  fatalError("orderByPlayers not implemented - please add implementation here")
+ fatalError("Please implement the orderByPlayers(_:) function")
 }
 
 func orderByScores(_ scores: [String: Int]) -> [(String, Int)] {
-  fatalError("orderByScores not implemented - please add implementation here")
+  fatalError("Please implement the orderByScores(_:) function")
 }
