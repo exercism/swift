@@ -2,6 +2,9 @@
   "authors": [
     "wneumann"
   ],
+  "contributors": [
+    "meatball133"
+  ],
   "files": {
     "solution": [
       "Sources/MasterMixologist/MasterMixologist.swift"
