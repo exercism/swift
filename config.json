@@ -173,7 +173,7 @@
         "prerequisites": [
           "basics",
           "higher-order-functions",
-          "loops"
+          "while-and-repeat-loops"
         ],
         "status": "active"
       },

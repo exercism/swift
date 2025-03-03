@@ -7,13 +7,13 @@
   ],
   "files": {
     "solution": [
-      "Sources/MasterMixologist/MasterMixologist.swift"
+      "Sources/ExpertMixologist/ExpertMixologist.swift"
     ],
     "test": [
-      "Tests/MasterMixologistTests/MasterMixologistTests.swift"
+      "Tests/ExpertMixologistTests/ExpertMixologistTests.swift"
     ],
     "exemplar": [
-      ".meta/Sources/MasterMixologist/MasterMixologistExemplar.swift"
+      ".meta/Sources/ExpertMixologist/ExpertMixologistExemplar.swift"
     ]
   },
   "blurb": "Learn about loops by making tasty drinks for the public to enjoy on their nights out."
