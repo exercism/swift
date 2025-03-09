@@ -1,6 +1,7 @@
 # In-out parameters
 
-Within the body of a function, parameters are treated as constants, not variables; trying to modify the value of a parameter will raise a compile-time error. If a function wishes to modify the value of a parameter, it must use an [_in-out parameter_][in-out-parameters] to make this mutability explicit.
+Within the body of a function, parameters are treated as constants, not variables; trying to modify the value of a parameter will raise a compile-time error.
+If a function wishes to modify the value of a parameter, it must use an [_in-out parameter_][in-out-parameters] to make this mutability explicit.
 
 To use in-out parameters, a programmer must be sure of three things:
 
@@ -21,6 +22,7 @@ updateVersion(&dbRecord)
 // dbRecord is now (3, "Exercism")
 ```
 
+~~~~exercism/warrning
 There are a couple of extra rules one should be aware of regarding in-out parameters.
 
 1.  Inside a function with in-out parameters, you are not allowed to reference the variable that was passed in as the in-out parameter.
@@ -36,5 +38,6 @@ var mutVar = 0
 inoutFunc(&mutVar, &mutVar)
 // raises a compiler error: "Inout arguments are not allowed to alias each other"
 ```
+~~~~
 
-[in-out-parameters]: https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID545
+[in-out-parameters]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/declarations/#In-Out-Parameters
