@@ -1,83 +1,88 @@
-import XCTest
+import Testing
+import Foundation
 
 @testable import LasagnaMaster
 
-final class LasagnaMasterTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct LasagnaMasterTests {
+  @Test("Remaning minutes explicit")
   func testRemainingMinutesExplicit() {
-    XCTAssertEqual(remainingMinutesInOven(elapsedMinutes: 22, expectedMinutesInOven: 100), 78)
+    #expect(remainingMinutesInOven(elapsedMinutes: 22, expectedMinutesInOven: 100) == 78)
   }
 
-  func testRemainingMinutesDefault() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(remainingMinutesInOven(elapsedMinutes: 22), 18)
+  @Test("Remaining minutes default", .enabled(if: RUNALL))
+  func testRemainingMinutesDefault() {
+    #expect(remainingMinutesInOven(elapsedMinutes: 22) == 18)
   }
 
-  func testPreparationTime() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
+  @Test("Preparation time", .enabled(if: RUNALL))
+  func testPreparationTime() {
+    #expect(
       preparationTimeInMinutes(
         layers: "sauce", "noodles", "béchamel", "meat", "mozzarella", "noodles", "ricotta",
-        "eggplant", "béchamel", "noodles", "sauce", "mozzarella"), 24)
+        "eggplant", "béchamel", "noodles", "sauce", "mozzarella") == 24)
   }
 
-  func testPreparationTimeEmpty() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(preparationTimeInMinutes(), 0)
+  @Test("Prepatation time empty", .enabled(if: RUNALL))
+  func testPreparationTimeEmpty() {
+    #expect(preparationTimeInMinutes() == 0)
   }
 
-  func testQuantities() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Quantities", .enabled(if: RUNALL))
+  func testQuantities() {
     let amount = quantities(
       layers: "sauce", "noodles", "béchamel", "meat", "mozzarella", "noodles", "ricotta",
       "eggplant", "béchamel", "noodles", "sauce", "mozzarella")
-    XCTAssertTrue(
-      amount.noodles == 9 && amount.sauce == 0.4, "expected (noodles: 9, sauce: 0.4, got \(amount)")
+    #expect(amount.noodles == 9 && amount.sauce == 0.4)
   }
 
-  func testQuantitiesNoSauce() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Quantities no sauce", .enabled(if: RUNALL))
+  func testQuantitiesNoSauce() {
     let amount = quantities(
       layers: "noodles", "béchamel", "noodles", "ricotta", "eggplant", "mozzarella")
-    XCTAssertTrue(
-      amount.noodles == 6 && amount.sauce == 0, "expected (noodles: 6, sauce: 0, got \(amount)")
+    #expect(amount.noodles == 6 && amount.sauce == 0)
   }
 
-  func testQuantitiesNoNoodles() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Quantities no noodles", .enabled(if: RUNALL))
+  func testQuantitiesNoNoodles() {
     let amount = quantities(
       layers: "sauce", "meat", "mozzarella", "eggplant", "béchamel", "sauce", "mozzarella")
-    XCTAssertTrue(
-      amount.noodles == 0 && amount.sauce == 0.4, "expected (noodles: 0, sauce: 0.4, got \(amount)")
+    #expect(amount.noodles == 0 && amount.sauce == 0.4)
   }
 
-  func testToOz() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("Quantities no sauce no noodles", .enabled(if: RUNALL))
+  func testQuantitiesNoSauceNoNoodles() {
+    let amount = quantities(
+      layers: "meat", "mozzarella", "eggplant", "béchamel", "mozzarella")
+    #expect(amount.noodles == 0 && amount.sauce == 0)
+  }
+
+  @Test("To oz", .enabled(if: RUNALL))
+  func testToOz() {
     var amount = quantities(
       layers: "sauce", "noodles", "béchamel", "meat", "sauce", "noodles", "sauce", "mozzarella")
     toOz(&amount)
-    XCTAssertEqual(amount.sauce, 20.2884, accuracy: 0.001)
+    #expect(amount.sauce == 20.2884)
   }
 
-  func testRedWineRedInequalLayerCount() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertTrue(
-      redWine(layers: "sauce", "noodles", "sauce", "noodles", "meat", "noodles", "mozzarella"))
+  @Test("Red wine red inequal layer count", .enabled(if: RUNALL))
+  func testRedWineRedInequalLayerCount() {
+    #expect(redWine(layers: "sauce", "noodles", "sauce", "noodles", "meat", "noodles", "mozzarella"))
   }
-  
-  func testRedWineRedEqualLayerCount() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertTrue(
+
+  @Test("Red wine red equal layer count", .enabled(if: RUNALL))
+  func testRedWineRedEqualLayerCount() {
+    #expect(
       redWine(
-        layers: "sauce", "noodles", "ricotta", "sauce", "noodles", "béchamel", "meat", "noodles", 
+        layers: "sauce", "noodles", "ricotta", "sauce", "noodles", "béchamel", "meat", "noodles",
         "mozzarella"))
   }
 
-  func testRedWineWhite() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(
-      redWine(
+  @Test("Red wine white", .enabled(if: RUNALL))
+  func testRedWineWhite() {
+    #expect(
+      !redWine(
         layers: "sauce", "noodles", "béchamel", "meat", "mozzarella", "noodles", "sauce", "ricotta",
         "eggplant", "mozzarella", "béchamel", "noodles", "meat", "sauce", "mozzarella"))
   }

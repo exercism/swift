@@ -8,13 +8,13 @@ func greeting(name: String = "guest", duration: Int = 2) -> String {
 }
 
 greeting(name: "Bobo", duration: 7)
-// => "Welcome, Bobo. Enjoy your 7 night stay."
+// Returns "Welcome, Bobo. Enjoy your 7 night stay."
 greeting(duration: 3)
-// => "Welcome, guest. Enjoy your 3 night stay."
+// Returns "Welcome, guest. Enjoy your 3 night stay."
 greeting(name: "Wynona")
-// => "Welcome, Wynona. Enjoy your 2 night stay."
+// Returns "Welcome, Wynona. Enjoy your 2 night stay."
 greeting()
-// => "Welcome, guest. Enjoy your 2 night stay."
+// Returns "Welcome, guest. Enjoy your 2 night stay."
 ```
 
-[default-parameter-values]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID169
+[default-parameter-values]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Default-Parameter-Values
