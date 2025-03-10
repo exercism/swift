@@ -1,224 +1,272 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Bowling
 
-class BowlingTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct BowlingTests {
+
+  @Test("should be able to score a game with all zeros")
   func testShouldBeAbleToScoreAGameWithAllZeros() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    XCTAssertEqual(try! bowling.score(), 0)
+    #expect(try! bowling.score() == 0)
   }
 
-  func testShouldBeAbleToScoreAGameWithNoStrikesOrSpares() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("should be able to score a game with no strikes or spares", .enabled(if: RUNALL))
+  func testShouldBeAbleToScoreAGameWithNoStrikesOrSpares() {
     let bowling = Bowling([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])
-    XCTAssertEqual(try! bowling.score(), 90)
+    #expect(try! bowling.score() == 90)
   }
 
-  func testASpareFollowedByZerosIsWorthTenPoints() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("a spare followed by zeros is worth ten points", .enabled(if: RUNALL))
+  func testASpareFollowedByZerosIsWorthTenPoints() {
     let bowling = Bowling([6, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    XCTAssertEqual(try! bowling.score(), 10)
+    #expect(try! bowling.score() == 10)
   }
 
-  func testPointsScoredInTheRollAfterASpareAreCountedTwice() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("points scored in the roll after a spare are counted twice", .enabled(if: RUNALL))
+  func testPointsScoredInTheRollAfterASpareAreCountedTwice() {
     let bowling = Bowling([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    XCTAssertEqual(try! bowling.score(), 16)
+    #expect(try! bowling.score() == 16)
   }
 
-  func testConsecutiveSparesEachGetAOneRollBonus() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("consecutive spares each get a one roll bonus", .enabled(if: RUNALL))
+  func testConsecutiveSparesEachGetAOneRollBonus() {
     let bowling = Bowling([5, 5, 3, 7, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    XCTAssertEqual(try! bowling.score(), 31)
+    #expect(try! bowling.score() == 31)
   }
 
-  func testASpareInTheLastFrameGetsAOneRollBonusThatIsCountedOnce() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "a spare in the last frame gets a one roll bonus that is counted once", .enabled(if: RUNALL))
+  func testASpareInTheLastFrameGetsAOneRollBonusThatIsCountedOnce() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 7])
-    XCTAssertEqual(try! bowling.score(), 17)
+    #expect(try! bowling.score() == 17)
   }
 
-  func testAStrikeEarnsTenPointsInAFrameWithASingleRoll() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("a strike earns ten points in a frame with a single roll", .enabled(if: RUNALL))
+  func testAStrikeEarnsTenPointsInAFrameWithASingleRoll() {
     let bowling = Bowling([10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    XCTAssertEqual(try! bowling.score(), 10)
+    #expect(try! bowling.score() == 10)
   }
 
-  func testPointsScoredInTheTwoRollsAfterAStrikeAreCountedTwiceAsABonus() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "points scored in the two rolls after a strike are counted twice as a bonus",
+    .enabled(if: RUNALL))
+  func testPointsScoredInTheTwoRollsAfterAStrikeAreCountedTwiceAsABonus() {
     let bowling = Bowling([10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    XCTAssertEqual(try! bowling.score(), 26)
+    #expect(try! bowling.score() == 26)
   }
 
-  func testConsecutiveStrikesEachGetTheTwoRollBonus() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("consecutive strikes each get the two roll bonus", .enabled(if: RUNALL))
+  func testConsecutiveStrikesEachGetTheTwoRollBonus() {
     let bowling = Bowling([10, 10, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    XCTAssertEqual(try! bowling.score(), 81)
+    #expect(try! bowling.score() == 81)
   }
 
-  func testAStrikeInTheLastFrameGetsATwoRollBonusThatIsCountedOnce() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "a strike in the last frame gets a two roll bonus that is counted once", .enabled(if: RUNALL))
+  func testAStrikeInTheLastFrameGetsATwoRollBonusThatIsCountedOnce() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 1])
-    XCTAssertEqual(try! bowling.score(), 18)
+    #expect(try! bowling.score() == 18)
   }
 
-  func testRollingASpareWithTheTwoRollBonusDoesNotGetABonusRoll() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("rolling a spare with the two roll bonus does not get a bonus roll", .enabled(if: RUNALL))
+  func testRollingASpareWithTheTwoRollBonusDoesNotGetABonusRoll() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 3])
-    XCTAssertEqual(try! bowling.score(), 20)
+    #expect(try! bowling.score() == 20)
   }
 
-  func testStrikesWithTheTwoRollBonusDoNotGetBonusRolls() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("strikes with the two roll bonus do not get bonus rolls", .enabled(if: RUNALL))
+  func testStrikesWithTheTwoRollBonusDoNotGetBonusRolls() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10])
-    XCTAssertEqual(try! bowling.score(), 30)
+    #expect(try! bowling.score() == 30)
   }
 
-  func testLastTwoStrikesFollowedByOnlyLastBonusWithNonStrikePoints() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last two strikes followed by only last bonus with non strike points", .enabled(if: RUNALL))
+  func testLastTwoStrikesFollowedByOnlyLastBonusWithNonStrikePoints() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 1])
-    XCTAssertEqual(try! bowling.score(), 31)
+    #expect(try! bowling.score() == 31)
   }
 
-  func testAStrikeWithTheOneRollBonusAfterASpareInTheLastFrameDoesNotGetABonus() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "a strike with the one roll bonus after a spare in the last frame does not get a bonus",
+    .enabled(if: RUNALL))
+  func testAStrikeWithTheOneRollBonusAfterASpareInTheLastFrameDoesNotGetABonus() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 10])
-    XCTAssertEqual(try! bowling.score(), 20)
+    #expect(try! bowling.score() == 20)
   }
 
-  func testAllStrikesIsAPerfectGame() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("all strikes is a perfect game", .enabled(if: RUNALL))
+  func testAllStrikesIsAPerfectGame() {
     let bowling = Bowling([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10])
-    XCTAssertEqual(try! bowling.score(), 300)
+    #expect(try! bowling.score() == 300)
   }
 
-  func testRollsCannotScoreNegativePoints() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("rolls cannot score negative points", .enabled(if: RUNALL))
+  func testRollsCannotScoreNegativePoints() {
     let bowling = Bowling([])
-    XCTAssertThrowsError(try bowling.roll(pins: -1)) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.negativePins)
-    }
+    #expect(
+      throws:
+        BowlingError.negativePins
+    ) { try bowling.roll(pins: -1) }
+
   }
 
-  func testARollCannotScoreMoreThan10Points() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("a roll cannot score more than 10 points", .enabled(if: RUNALL))
+  func testARollCannotScoreMoreThan10Points() {
     let bowling = Bowling([])
-    XCTAssertThrowsError(try bowling.roll(pins: 11)) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.tooManyPinsInFrame)
-    }
+    #expect(
+      throws:
+        BowlingError.tooManyPinsInFrame
+    ) { try bowling.roll(pins: 11) }
+
   }
 
-  func testTwoRollsInAFrameCannotScoreMoreThan10Points() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("two rolls in a frame cannot score more than 10 points", .enabled(if: RUNALL))
+  func testTwoRollsInAFrameCannotScoreMoreThan10Points() {
     let bowling = Bowling([5])
-    XCTAssertThrowsError(try bowling.roll(pins: 6)) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.tooManyPinsInFrame)
-    }
+    #expect(
+      throws:
+        BowlingError.tooManyPinsInFrame
+    ) { try bowling.roll(pins: 6) }
+
   }
 
-  func testBonusRollAfterAStrikeInTheLastFrameCannotScoreMoreThan10Points() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "bonus roll after a strike in the last frame cannot score more than 10 points",
+    .enabled(if: RUNALL))
+  func testBonusRollAfterAStrikeInTheLastFrameCannotScoreMoreThan10Points() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10])
-    XCTAssertThrowsError(try bowling.roll(pins: 11)) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.tooManyPinsInFrame)
-    }
+    #expect(
+      throws:
+        BowlingError.tooManyPinsInFrame
+    ) { try bowling.roll(pins: 11) }
+
   }
 
-  func testTwoBonusRollsAfterAStrikeInTheLastFrameCannotScoreMoreThan10Points() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "two bonus rolls after a strike in the last frame cannot score more than 10 points",
+    .enabled(if: RUNALL))
+  func testTwoBonusRollsAfterAStrikeInTheLastFrameCannotScoreMoreThan10Points() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 5])
-    XCTAssertThrowsError(try bowling.roll(pins: 6)) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.tooManyPinsInFrame)
-    }
+    #expect(
+      throws:
+        BowlingError.tooManyPinsInFrame
+    ) { try bowling.roll(pins: 6) }
+
   }
 
-  func testTwoBonusRollsAfterAStrikeInTheLastFrameCanScoreMoreThan10PointsIfOneIsAStrike() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "two bonus rolls after a strike in the last frame can score more than 10 points if one is a strike",
+    .enabled(if: RUNALL))
+  func testTwoBonusRollsAfterAStrikeInTheLastFrameCanScoreMoreThan10PointsIfOneIsAStrike() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 6])
-    XCTAssertEqual(try! bowling.score(), 26)
+    #expect(try! bowling.score() == 26)
   }
 
-  func testTheSecondBonusRollsAfterAStrikeInTheLastFrameCannotBeAStrikeIfTheFirstOneIsNotAStrike()
-    throws
-  {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "the second bonus rolls after a strike in the last frame cannot be a strike if the first one is not a strike",
+    .enabled(if: RUNALL))
+  func testTheSecondBonusRollsAfterAStrikeInTheLastFrameCannotBeAStrikeIfTheFirstOneIsNotAStrike() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 6])
-    XCTAssertThrowsError(try bowling.roll(pins: 10)) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.tooManyPinsInFrame)
-    }
+    #expect(
+      throws:
+        BowlingError.tooManyPinsInFrame
+    ) { try bowling.roll(pins: 10) }
+
   }
 
-  func testSecondBonusRollAfterAStrikeInTheLastFrameCannotScoreMoreThan10Points() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "second bonus roll after a strike in the last frame cannot score more than 10 points",
+    .enabled(if: RUNALL))
+  func testSecondBonusRollAfterAStrikeInTheLastFrameCannotScoreMoreThan10Points() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10])
-    XCTAssertThrowsError(try bowling.roll(pins: 11)) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.tooManyPinsInFrame)
-    }
+    #expect(
+      throws:
+        BowlingError.tooManyPinsInFrame
+    ) { try bowling.roll(pins: 11) }
+
   }
 
-  func testAnUnstartedGameCannotBeScored() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("an unstarted game cannot be scored", .enabled(if: RUNALL))
+  func testAnUnstartedGameCannotBeScored() {
     let bowling = Bowling([])
-    XCTAssertThrowsError(try bowling.score()) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.gameInProgress)
-    }
+    #expect(
+      throws:
+        BowlingError.gameInProgress
+    ) { try bowling.score() }
   }
 
-  func testAnIncompleteGameCannotBeScored() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("an incomplete game cannot be scored", .enabled(if: RUNALL))
+  func testAnIncompleteGameCannotBeScored() {
     let bowling = Bowling([0, 0])
-    XCTAssertThrowsError(try bowling.score()) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.gameInProgress)
-    }
+    #expect(
+      throws:
+        BowlingError.gameInProgress
+    ) { try bowling.score() }
   }
 
-  func testCannotRollIfGameAlreadyHasTenFrames() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("cannot roll if game already has ten frames", .enabled(if: RUNALL))
+  func testCannotRollIfGameAlreadyHasTenFrames() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    XCTAssertThrowsError(try bowling.roll(pins: 0)) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.gameIsOver)
-    }
+    #expect(
+      throws:
+        BowlingError.gameIsOver
+    ) { try bowling.roll(pins: 0) }
+
   }
 
-  func testBonusRollsForAStrikeInTheLastFrameMustBeRolledBeforeScoreCanBeCalculated() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "bonus rolls for a strike in the last frame must be rolled before score can be calculated",
+    .enabled(if: RUNALL))
+  func testBonusRollsForAStrikeInTheLastFrameMustBeRolledBeforeScoreCanBeCalculated() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10])
-    XCTAssertThrowsError(try bowling.score()) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.gameInProgress)
-    }
+    #expect(
+      throws:
+        BowlingError.gameInProgress
+    ) { try bowling.score() }
   }
 
-  func testBothBonusRollsForAStrikeInTheLastFrameMustBeRolledBeforeScoreCanBeCalculated() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "both bonus rolls for a strike in the last frame must be rolled before score can be calculated",
+    .enabled(if: RUNALL))
+  func testBothBonusRollsForAStrikeInTheLastFrameMustBeRolledBeforeScoreCanBeCalculated() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10])
-    XCTAssertThrowsError(try bowling.score()) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.gameInProgress)
-    }
+    #expect(
+      throws:
+        BowlingError.gameInProgress
+    ) { try bowling.score() }
   }
 
-  func testBonusRollForASpareInTheLastFrameMustBeRolledBeforeScoreCanBeCalculated() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "bonus roll for a spare in the last frame must be rolled before score can be calculated",
+    .enabled(if: RUNALL))
+  func testBonusRollForASpareInTheLastFrameMustBeRolledBeforeScoreCanBeCalculated() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3])
-    XCTAssertThrowsError(try bowling.score()) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.gameInProgress)
-    }
+    #expect(
+      throws:
+        BowlingError.gameInProgress
+    ) { try bowling.score() }
   }
 
-  func testCannotRollAfterBonusRollForSpare() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("cannot roll after bonus roll for spare", .enabled(if: RUNALL))
+  func testCannotRollAfterBonusRollForSpare() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 2])
-    XCTAssertThrowsError(try bowling.roll(pins: 2)) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.gameIsOver)
-    }
+    #expect(
+      throws:
+        BowlingError.gameIsOver
+    ) { try bowling.roll(pins: 2) }
+
   }
 
-  func testCannotRollAfterBonusRollsForStrike() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("cannot roll after bonus rolls for strike", .enabled(if: RUNALL))
+  func testCannotRollAfterBonusRollsForStrike() {
     let bowling = Bowling([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 3, 2])
-    XCTAssertThrowsError(try bowling.roll(pins: 2)) { error in
-      XCTAssertEqual(error as? BowlingError, BowlingError.gameIsOver)
-    }
+    #expect(
+      throws:
+        BowlingError.gameIsOver
+    ) { try bowling.roll(pins: 2) }
+
   }
 }
