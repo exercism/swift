@@ -1,13 +1,3 @@
-struct Position {
-  var x = 0
-  var y = 0
-
-  mutating func moveTo(newX: Int, newY: Int) {
-    x = newX
-    y = newY
-  }
-}
-
 struct Size {
   var width = 80
   var height = 60
@@ -18,12 +8,31 @@ struct Size {
   }
 }
 
-class Window: @unchecked Sendable  {
+struct Position {
+  var x = 0
+  var y = 0
+
+  mutating func moveTo(newX: Int, newY: Int) {
+    x = newX
+    y = newY
+  }
+}
+
+class Window {
   var title = "New Window"
   let screenSize = Size(width: 800, height: 600)
   var size = Size()
   var position = Position()
   var contents: String?
+
+  init() {}
+
+  init(title: String, contents: String?, size : Size = Size(), position: Position = Position()) {
+    self.title = title
+    self.contents = contents
+    self.size = size
+    self.position = position
+  }
 
   func move(to newPosition: Position) {
     let minX = min(max(0, newPosition.x), screenSize.width - size.width)
@@ -45,12 +54,3 @@ class Window: @unchecked Sendable  {
     "\(title)\nPosition: (\(position.x), \(position.y)), Size: (\(size.width) x \(size.height))\n\(contents ?? "[This window intentionally left blank]")\n"
   }
 }
-
-let mainWindow: Window = {
-  var window = Window()
-  window.title = "Main Window"
-  window.contents = "This is the main window"
-  window.move(to: Position(x: 100, y: 100))
-  window.resize(to: Size(width: 400, height: 300))
-  return window
-}()
