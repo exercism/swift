@@ -1,87 +1,80 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import BinarySearch
 
-class BinarySearchTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct BinarySearchTests {
+
+  @Test("finds a value in an array with one element")
   func testFindsAValueInAnArrayWithOneElement() {
     let binarySearch = BinarySearch([6])
-    XCTAssertEqual(try! binarySearch.searchFor(6), 0)
+    #expect(try! binarySearch.searchFor(6) == 0)
   }
 
-  func testFindsAValueInTheMiddleOfAnArray() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("finds a value in the middle of an array", .enabled(if: RUNALL))
+  func testFindsAValueInTheMiddleOfAnArray() {
     let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
-    XCTAssertEqual(try! binarySearch.searchFor(6), 3)
+    #expect(try! binarySearch.searchFor(6) == 3)
   }
 
-  func testFindsAValueAtTheBeginningOfAnArray() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("finds a value at the beginning of an array", .enabled(if: RUNALL))
+  func testFindsAValueAtTheBeginningOfAnArray() {
     let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
-    XCTAssertEqual(try! binarySearch.searchFor(1), 0)
+    #expect(try! binarySearch.searchFor(1) == 0)
   }
 
-  func testFindsAValueAtTheEndOfAnArray() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("finds a value at the end of an array", .enabled(if: RUNALL))
+  func testFindsAValueAtTheEndOfAnArray() {
     let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
-    XCTAssertEqual(try! binarySearch.searchFor(11), 6)
+    #expect(try! binarySearch.searchFor(11) == 6)
   }
 
-  func testFindsAValueInAnArrayOfOddLength() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("finds a value in an array of odd length", .enabled(if: RUNALL))
+  func testFindsAValueInAnArrayOfOddLength() {
     let binarySearch = BinarySearch([1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634])
-    XCTAssertEqual(try! binarySearch.searchFor(144), 9)
+    #expect(try! binarySearch.searchFor(144) == 9)
   }
 
-  func testFindsAValueInAnArrayOfEvenLength() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("finds a value in an array of even length", .enabled(if: RUNALL))
+  func testFindsAValueInAnArrayOfEvenLength() {
     let binarySearch = BinarySearch([1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377])
-    XCTAssertEqual(try! binarySearch.searchFor(21), 5)
+    #expect(try! binarySearch.searchFor(21) == 5)
   }
 
-  func testIdentifiesThatAValueIsNotIncludedInTheArray() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("identifies that a value is not included in the array", .enabled(if: RUNALL))
+  func testIdentifiesThatAValueIsNotIncludedInTheArray() {
     let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
 
-    XCTAssertThrowsError(try binarySearch.searchFor(7)) { error in
-      XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
-    }
+    #expect(throws: BinarySearchError.valueNotFound) { try binarySearch.searchFor(7) }
   }
 
-  func testAValueSmallerThanTheArraysSmallestValueIsNotFound() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("a value smaller than the array's smallest value is not found", .enabled(if: RUNALL))
+  func testAValueSmallerThanTheArraysSmallestValueIsNotFound() {
     let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
 
-    XCTAssertThrowsError(try binarySearch.searchFor(0)) { error in
-      XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
-    }
+    #expect(throws: BinarySearchError.valueNotFound) { try binarySearch.searchFor(0) }
   }
 
-  func testAValueLargerThanTheArraysLargestValueIsNotFound() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("a value larger than the array's largest value is not found", .enabled(if: RUNALL))
+  func testAValueLargerThanTheArraysLargestValueIsNotFound() {
     let binarySearch = BinarySearch([1, 3, 4, 6, 8, 9, 11])
 
-    XCTAssertThrowsError(try binarySearch.searchFor(13)) { error in
-      XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
-    }
+    #expect(throws: BinarySearchError.valueNotFound) { try binarySearch.searchFor(13) }
   }
 
-  func testNothingIsFoundInAnEmptyArray() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("nothing is found in an empty array", .enabled(if: RUNALL))
+  func testNothingIsFoundInAnEmptyArray() {
     let binarySearch = BinarySearch([])
 
-    XCTAssertThrowsError(try binarySearch.searchFor(1)) { error in
-      XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
-    }
+    #expect(throws: BinarySearchError.valueNotFound) { try binarySearch.searchFor(1) }
   }
 
-  func testNothingIsFoundWhenTheLeftAndRightBoundsCross() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("nothing is found when the left and right bounds cross", .enabled(if: RUNALL))
+  func testNothingIsFoundWhenTheLeftAndRightBoundsCross() {
     let binarySearch = BinarySearch([1, 2])
 
-    XCTAssertThrowsError(try binarySearch.searchFor(0)) { error in
-      XCTAssertEqual(error as? BinarySearchError, BinarySearchError.valueNotFound)
-    }
+    #expect(throws: BinarySearchError.valueNotFound) { try binarySearch.searchFor(0) }
   }
 }
