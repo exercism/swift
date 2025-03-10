@@ -1,85 +1,163 @@
-import XCTest
+import Foundation
+import Testing
+
 @testable import ListOps
 
-class ListOpsTests: XCTestCase {
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testAppendEmptyLists() {
-        XCTAssertEqual(ListOps.append([Int](), []), [])
-    }
+@Suite struct ListOpsTests {
 
-    func testAppendEmptyListToList() {
-        XCTAssertEqual(ListOps.append([], [1, 2, 3, 4]), [1, 2, 3, 4])
-    }
+  @Test("empty lists")
+  func testEmptyLists1() {
+    let list = ListOps.append([Int](), [Int]())
+    let expected = [Int]()
+    #expect(list == expected)
+  }
 
-    func testAppendNonemptyLists() {
-        XCTAssertEqual(ListOps.append([1, 2], [2, 3, 4, 5]), [1, 2, 2, 3, 4, 5])
-    }
+  @Test("list to empty list", .enabled(if: RUNALL))
+  func testListToEmptyList1() {
+    let list = ListOps.append([Int](), [1, 2, 3, 4])
+    let expected = [1, 2, 3, 4]
+    #expect(list == expected)
+  }
 
-    func testConcatEmptyList() {
-        XCTAssertEqual(ListOps.concat([Int]()), [])
-    }
+  @Test("empty list to list", .enabled(if: RUNALL))
+  func testEmptyListToList1() {
+    let list = ListOps.append([1, 2, 3, 4], [Int]())
+    let expected = [1, 2, 3, 4]
+    #expect(list == expected)
+  }
 
-    func testConcatListOfLists() {
-        XCTAssertEqual(ListOps.concat([1, 2], [3], [], [4, 5, 6]), [1, 2, 3, 4, 5, 6])
-    }
+  @Test("non-empty lists", .enabled(if: RUNALL))
+  func testNonEmptyLists1() {
+    let list = ListOps.append([1, 2], [2, 3, 4, 5])
+    let expected = [1, 2, 2, 3, 4, 5]
+    #expect(list == expected)
+  }
 
-    func testFilterEmptyList() {
-        XCTAssertEqual(ListOps.filter([]) { $0 % 2 == 1 }, [])
-    }
+  @Test("empty list", .enabled(if: RUNALL))
+  func testEmptyList2() {
+    let list = ListOps.concat([[Int]]())
+    let expected = [Int]()
+    #expect(list == expected)
+  }
 
-    func testFilterNonemptyList() {
-        XCTAssertEqual(ListOps.filter([1, 2, 3, 4, 5]) { $0 % 2 == 1 }, [1, 3, 5])
-    }
+  @Test("list of lists", .enabled(if: RUNALL))
+  func testListOfLists2() {
+    let list = ListOps.concat([[1, 2], [3], [], [4, 5, 6]])
+    let expected = [1, 2, 3, 4, 5, 6]
+    #expect(list == expected)
+  }
 
-    func testLengthEmptyList() {
-        XCTAssertEqual(ListOps.length([]), 0)
-    }
+  @Test("list of nested lists", .enabled(if: RUNALL))
+  func testListOfNestedLists2() {
+    let list = ListOps.concat([[[1], [2]], [[3]], [[]], [[4, 5, 6]]])
+    let expected = [[1], [2], [3], [], [4, 5, 6]]
+    #expect(list == expected)
+  }
 
-    func testLengthNonemptyList() {
-        XCTAssertEqual(ListOps.length([1, 2, 3, 4]), 4)
-    }
+  @Test("empty list", .enabled(if: RUNALL))
+  func testEmptyList3() {
+    let list = ListOps.filter([Int]()) { $0 % 2 == 1 }
+    let expected = [Int]()
+    #expect(list == expected)
+  }
 
-    func testMapEmptyList() {
-        XCTAssertEqual(ListOps.map([]) { $0 + 1 }, [])
-    }
+  @Test("non-empty list", .enabled(if: RUNALL))
+  func testNonEmptyList3() {
+    let list = ListOps.filter([1, 2, 3, 5]) { $0 % 2 == 1 }
+    let expected = [1, 3, 5]
+    #expect(list == expected)
+  }
 
-    func testMapNonemptyList() {
-        XCTAssertEqual(ListOps.map([1, 3, 5, 7]) { $0 + 1 }, [2, 4, 6, 8])
-    }
+  @Test("empty list", .enabled(if: RUNALL))
+  func testEmptyList4() {
+    let length = ListOps.length([])
+    let expected = 0
+    #expect(length == expected)
+  }
 
-    func testFoldLeftEmptyList() {
-        XCTAssertEqual(ListOps.foldLeft([], accumulated: 2, combine: +), 2)
-    }
+  @Test("non-empty list", .enabled(if: RUNALL))
+  func testNonEmptyList4() {
+    let length = ListOps.length([1, 2, 3, 4])
+    let expected = 4
+    #expect(length == expected)
+  }
 
-    func testFoldLeftNonemptyListAddition() {
-        XCTAssertEqual(ListOps.foldLeft([1, 2, 3, 4], accumulated: 5, combine: +), 15)
-    }
+  @Test("empty list", .enabled(if: RUNALL))
+  func testEmptyList5() {
+    let list = ListOps.map([Int]()) { $0 + 1 }
+    let expected = [Int]()
+    #expect(list == expected)
+  }
 
-    func testFoldLeftNonemptyListDivision() {
-        XCTAssertEqual(ListOps.foldLeft([2, 5], accumulated: 5, combine: /), 0)
-    }
+  @Test("non-empty list", .enabled(if: RUNALL))
+  func testNonEmptyList5() {
+    let list = ListOps.map([1, 3, 5, 7]) { $0 + 1 }
+    let expected = [2, 4, 6, 8]
+    #expect(list == expected)
+  }
 
-    func testFoldRightEmptyList() {
-        XCTAssertEqual(ListOps.foldRight([], accumulated: 2, combine: *), 2)
-    }
+  @Test("empty list", .enabled(if: RUNALL))
+  func testEmptyList6() {
+    let value = ListOps.foldLeft([], accumulated: 2.0) { $0 * $1 }
+    let expected = 2.0
+    #expect(value == expected)
+  }
 
-    func testFoldRightNonemptyListAddition() {
-        XCTAssertEqual(ListOps.foldRight([1, 2, 3, 4], accumulated: 5, combine: +), 15)
-    }
+  @Test("direction independent function applied to non-empty list", .enabled(if: RUNALL))
+  func testDirectionIndependentFunctionAppliedToNonEmptyList6() {
+    let value = ListOps.foldLeft([1, 2, 3, 4], accumulated: 5.0) { $0 + $1 }
+    let expected = 15.0
+    #expect(value == expected)
+  }
 
-    func testFoldRightNonemptyListDivision() {
-        XCTAssertEqual(ListOps.foldRight([2, 5], accumulated: 5, combine: /), 2)
-    }
+  @Test("direction dependent function applied to non-empty list", .enabled(if: RUNALL))
+  func testDirectionDependentFunctionAppliedToNonEmptyList6() {
+    let value = ListOps.foldLeft([1, 2, 3, 4], accumulated: 24.0) { $0 / $1 }
+    let expected = 64.0
+    #expect(value == expected)
+  }
 
-    func testFoldRightAddString() {
-        XCTAssertEqual(ListOps.foldRight(["e", "x", "e", "r", "c", "i", "s", "m"], accumulated: "!", combine: +), "exercism!")
-    }
+  @Test("empty list", .enabled(if: RUNALL))
+  func testEmptyList7() {
+    let value = ListOps.foldRight([], accumulated: 2.0) { $0 * $1 }
+    let expected = 2.0
+    #expect(value == expected)
+  }
 
-    func testReverseEmptyList() {
-        XCTAssertEqual(ListOps.reverse([Int]()), [])
-    }
+  @Test("direction independent function applied to non-empty list", .enabled(if: RUNALL))
+  func testDirectionIndependentFunctionAppliedToNonEmptyList7() {
+    let value = ListOps.foldRight([1, 2, 3, 4], accumulated: 5.0) { $0 + $1 }
+    let expected = 15.0
+    #expect(value == expected)
+  }
 
-    func testReverseNonemptyList() {
-        XCTAssertEqual(ListOps.reverse([1, 3, 5, 7]), [7, 5, 3, 1])
-    }
+  @Test("direction dependent function applied to non-empty list", .enabled(if: RUNALL))
+  func testDirectionDependentFunctionAppliedToNonEmptyList7() {
+    let value = ListOps.foldRight([1, 2, 3, 4], accumulated: 24.0) { $0 / $1 }
+    let expected = 9.0
+    #expect(value == expected)
+  }
+
+  @Test("empty list", .enabled(if: RUNALL))
+  func testEmptyList8() {
+    let list = ListOps.reverse([Int]())
+    let expected = [Int]()
+    #expect(list == expected)
+  }
+
+  @Test("non-empty list", .enabled(if: RUNALL))
+  func testNonEmptyList8() {
+    let list = ListOps.reverse([1, 3, 5, 7])
+    let expected = [7, 5, 3, 1]
+    #expect(list == expected)
+  }
+
+  @Test("list of lists is not flattened", .enabled(if: RUNALL))
+  func testListOfListsIsNotFlattened8() {
+    let list = ListOps.reverse([[1, 2], [3], [], [4, 5, 6]])
+    let expected = [[4, 5, 6], [], [3], [1, 2]]
+    #expect(list == expected)
+  }
 }
