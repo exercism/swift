@@ -1,21 +1,23 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
     {% if forloop.first -%}
-        func test{{case.description |camelCase }}() {
+        @Test("{{case.description}}")
     {% else -%}
-        func test{{case.description |camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
+        @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
+    func test{{case.description |camelCase }}() {
         {% if case.expected.error -%}
-        XCTAssertThrowsError(try PhoneNumber("{{case.input.phrase}}").clean()) {
-            XCTAssertEqual($0 as? PhoneNumberError, .invalidPhoneNumber)
+        #expect(throws: PhoneNumberError.invalidPhoneNumber) {
+            try PhoneNumber("{{case.input.phrase}}").clean()
         }
         {% else -%}
-        XCTAssertEqual(try! PhoneNumber("{{case.input.phrase}}").clean(), "{{case.expected}}")
+        #expect(try! PhoneNumber("{{case.input.phrase}}").clean() == "{{case.expected}}")
         {% endif -%}
     }
     {% endfor -%}
