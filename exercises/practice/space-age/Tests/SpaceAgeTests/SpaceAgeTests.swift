@@ -1,54 +1,58 @@
-import XCTest
+import Foundation
+import Numerics
+import Testing
 
 @testable import SpaceAge
 
-class SpaceAgeTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct SpaceAgeTests {
+
+  @Test("age on Earth")
   func testAgeOnEarth() {
     let age = SpaceAge(1_000_000_000)
-    XCTAssertEqual(age.onEarth, 31.69, accuracy: 0.02)
+    #expect(age.onEarth.isApproximatelyEqual(to: 31.69, relativeTolerance: 0.03))
   }
 
-  func testAgeOnMercury() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("age on Mercury", .enabled(if: RUNALL))
+  func testAgeOnMercury() {
     let age = SpaceAge(2_134_835_688)
-    XCTAssertEqual(age.onMercury, 280.88, accuracy: 0.02)
+    #expect(age.onMercury.isApproximatelyEqual(to: 280.88, relativeTolerance: 0.03))
   }
 
-  func testAgeOnVenus() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("age on Venus", .enabled(if: RUNALL))
+  func testAgeOnVenus() {
     let age = SpaceAge(189_839_836)
-    XCTAssertEqual(age.onVenus, 9.78, accuracy: 0.02)
+    #expect(age.onVenus.isApproximatelyEqual(to: 9.78, relativeTolerance: 0.03))
   }
 
-  func testAgeOnMars() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("age on Mars", .enabled(if: RUNALL))
+  func testAgeOnMars() {
     let age = SpaceAge(2_129_871_239)
-    XCTAssertEqual(age.onMars, 35.88, accuracy: 0.02)
+    #expect(age.onMars.isApproximatelyEqual(to: 35.88, relativeTolerance: 0.03))
   }
 
-  func testAgeOnJupiter() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("age on Jupiter", .enabled(if: RUNALL))
+  func testAgeOnJupiter() {
     let age = SpaceAge(901_876_382)
-    XCTAssertEqual(age.onJupiter, 2.41, accuracy: 0.02)
+    #expect(age.onJupiter.isApproximatelyEqual(to: 2.41, relativeTolerance: 0.03))
   }
 
-  func testAgeOnSaturn() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("age on Saturn", .enabled(if: RUNALL))
+  func testAgeOnSaturn() {
     let age = SpaceAge(2_000_000_000)
-    XCTAssertEqual(age.onSaturn, 2.15, accuracy: 0.02)
+    #expect(age.onSaturn.isApproximatelyEqual(to: 2.15, relativeTolerance: 0.03))
   }
 
-  func testAgeOnUranus() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("age on Uranus", .enabled(if: RUNALL))
+  func testAgeOnUranus() {
     let age = SpaceAge(1_210_123_456)
-    XCTAssertEqual(age.onUranus, 0.46, accuracy: 0.02)
+    #expect(age.onUranus.isApproximatelyEqual(to: 0.46, relativeTolerance: 0.03))
   }
 
-  func testAgeOnNeptune() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("age on Neptune", .enabled(if: RUNALL))
+  func testAgeOnNeptune() {
     let age = SpaceAge(1_821_023_456)
-    XCTAssertEqual(age.onNeptune, 0.35, accuracy: 0.02)
+    #expect(age.onNeptune.isApproximatelyEqual(to: 0.35, relativeTolerance: 0.03))
   }
 }
