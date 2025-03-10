@@ -1,576 +1,583 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Meetup
 
-class MeetupTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct MeetupTests {
+
+  @Test("when teenth Monday is the 13th, the first day of the teenth week")
   func testWhenTeenthMondayIsThe13ThTheFirstDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 5, week: "teenth", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-05-13")
+    #expect(meetUp.description == "2013-05-13")
   }
 
-  func testWhenTeenthMondayIsThe19ThTheLastDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Monday is the 19th, the last day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthMondayIsThe19ThTheLastDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 8, week: "teenth", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-08-19")
+    #expect(meetUp.description == "2013-08-19")
   }
 
-  func testWhenTeenthMondayIsSomeDayInTheMiddleOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Monday is some day in the middle of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthMondayIsSomeDayInTheMiddleOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 9, week: "teenth", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-09-16")
+    #expect(meetUp.description == "2013-09-16")
   }
 
-  func testWhenTeenthTuesdayIsThe19ThTheLastDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Tuesday is the 19th, the last day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthTuesdayIsThe19ThTheLastDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 3, week: "teenth", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-03-19")
+    #expect(meetUp.description == "2013-03-19")
   }
 
-  func testWhenTeenthTuesdayIsSomeDayInTheMiddleOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Tuesday is some day in the middle of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthTuesdayIsSomeDayInTheMiddleOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "teenth", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-04-16")
+    #expect(meetUp.description == "2013-04-16")
   }
 
-  func testWhenTeenthTuesdayIsThe13ThTheFirstDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Tuesday is the 13th, the first day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthTuesdayIsThe13ThTheFirstDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 8, week: "teenth", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-08-13")
+    #expect(meetUp.description == "2013-08-13")
   }
 
-  func testWhenTeenthWednesdayIsSomeDayInTheMiddleOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Wednesday is some day in the middle of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthWednesdayIsSomeDayInTheMiddleOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 1, week: "teenth", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-01-16")
+    #expect(meetUp.description == "2013-01-16")
   }
 
-  func testWhenTeenthWednesdayIsThe13ThTheFirstDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Wednesday is the 13th, the first day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthWednesdayIsThe13ThTheFirstDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 2, week: "teenth", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-02-13")
+    #expect(meetUp.description == "2013-02-13")
   }
 
-  func testWhenTeenthWednesdayIsThe19ThTheLastDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Wednesday is the 19th, the last day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthWednesdayIsThe19ThTheLastDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 6, week: "teenth", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-06-19")
+    #expect(meetUp.description == "2013-06-19")
   }
 
-  func testWhenTeenthThursdayIsSomeDayInTheMiddleOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Thursday is some day in the middle of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthThursdayIsSomeDayInTheMiddleOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 5, week: "teenth", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-05-16")
+    #expect(meetUp.description == "2013-05-16")
   }
 
-  func testWhenTeenthThursdayIsThe13ThTheFirstDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Thursday is the 13th, the first day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthThursdayIsThe13ThTheFirstDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 6, week: "teenth", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-06-13")
+    #expect(meetUp.description == "2013-06-13")
   }
 
-  func testWhenTeenthThursdayIsThe19ThTheLastDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Thursday is the 19th, the last day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthThursdayIsThe19ThTheLastDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 9, week: "teenth", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-09-19")
+    #expect(meetUp.description == "2013-09-19")
   }
 
-  func testWhenTeenthFridayIsThe19ThTheLastDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Friday is the 19th, the last day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthFridayIsThe19ThTheLastDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "teenth", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-04-19")
+    #expect(meetUp.description == "2013-04-19")
   }
 
-  func testWhenTeenthFridayIsSomeDayInTheMiddleOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Friday is some day in the middle of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthFridayIsSomeDayInTheMiddleOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 8, week: "teenth", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-08-16")
+    #expect(meetUp.description == "2013-08-16")
   }
 
-  func testWhenTeenthFridayIsThe13ThTheFirstDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Friday is the 13th, the first day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthFridayIsThe13ThTheFirstDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 9, week: "teenth", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-09-13")
+    #expect(meetUp.description == "2013-09-13")
   }
 
-  func testWhenTeenthSaturdayIsSomeDayInTheMiddleOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Saturday is some day in the middle of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthSaturdayIsSomeDayInTheMiddleOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 2, week: "teenth", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-02-16")
+    #expect(meetUp.description == "2013-02-16")
   }
 
-  func testWhenTeenthSaturdayIsThe13ThTheFirstDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Saturday is the 13th, the first day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthSaturdayIsThe13ThTheFirstDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "teenth", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-04-13")
+    #expect(meetUp.description == "2013-04-13")
   }
 
-  func testWhenTeenthSaturdayIsThe19ThTheLastDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Saturday is the 19th, the last day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthSaturdayIsThe19ThTheLastDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 10, week: "teenth", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-10-19")
+    #expect(meetUp.description == "2013-10-19")
   }
 
-  func testWhenTeenthSundayIsThe19ThTheLastDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Sunday is the 19th, the last day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthSundayIsThe19ThTheLastDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 5, week: "teenth", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-05-19")
+    #expect(meetUp.description == "2013-05-19")
   }
 
-  func testWhenTeenthSundayIsSomeDayInTheMiddleOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Sunday is some day in the middle of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthSundayIsSomeDayInTheMiddleOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 6, week: "teenth", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-06-16")
+    #expect(meetUp.description == "2013-06-16")
   }
 
-  func testWhenTeenthSundayIsThe13ThTheFirstDayOfTheTeenthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when teenth Sunday is the 13th, the first day of the teenth week", .enabled(if: RUNALL))
+  func testWhenTeenthSundayIsThe13ThTheFirstDayOfTheTeenthWeek() {
     let meetUp = Meetup(year: 2013, month: 10, week: "teenth", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-10-13")
+    #expect(meetUp.description == "2013-10-13")
   }
 
-  func testWhenFirstMondayIsSomeDayInTheMiddleOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Monday is some day in the middle of the first week", .enabled(if: RUNALL))
+  func testWhenFirstMondayIsSomeDayInTheMiddleOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 3, week: "first", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-03-04")
+    #expect(meetUp.description == "2013-03-04")
   }
 
-  func testWhenFirstMondayIsThe1StTheFirstDayOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Monday is the 1st, the first day of the first week", .enabled(if: RUNALL))
+  func testWhenFirstMondayIsThe1StTheFirstDayOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "first", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-04-01")
+    #expect(meetUp.description == "2013-04-01")
   }
 
-  func testWhenFirstTuesdayIsThe7ThTheLastDayOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Tuesday is the 7th, the last day of the first week", .enabled(if: RUNALL))
+  func testWhenFirstTuesdayIsThe7ThTheLastDayOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 5, week: "first", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-05-07")
+    #expect(meetUp.description == "2013-05-07")
   }
 
-  func testWhenFirstTuesdayIsSomeDayInTheMiddleOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Tuesday is some day in the middle of the first week", .enabled(if: RUNALL))
+  func testWhenFirstTuesdayIsSomeDayInTheMiddleOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 6, week: "first", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-06-04")
+    #expect(meetUp.description == "2013-06-04")
   }
 
-  func testWhenFirstWednesdayIsSomeDayInTheMiddleOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Wednesday is some day in the middle of the first week", .enabled(if: RUNALL))
+  func testWhenFirstWednesdayIsSomeDayInTheMiddleOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 7, week: "first", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-07-03")
+    #expect(meetUp.description == "2013-07-03")
   }
 
-  func testWhenFirstWednesdayIsThe7ThTheLastDayOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Wednesday is the 7th, the last day of the first week", .enabled(if: RUNALL))
+  func testWhenFirstWednesdayIsThe7ThTheLastDayOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 8, week: "first", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-08-07")
+    #expect(meetUp.description == "2013-08-07")
   }
 
-  func testWhenFirstThursdayIsSomeDayInTheMiddleOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Thursday is some day in the middle of the first week", .enabled(if: RUNALL))
+  func testWhenFirstThursdayIsSomeDayInTheMiddleOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 9, week: "first", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-09-05")
+    #expect(meetUp.description == "2013-09-05")
   }
 
-  func testWhenFirstThursdayIsAnotherDayInTheMiddleOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Thursday is another day in the middle of the first week", .enabled(if: RUNALL))
+  func testWhenFirstThursdayIsAnotherDayInTheMiddleOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 10, week: "first", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-10-03")
+    #expect(meetUp.description == "2013-10-03")
   }
 
-  func testWhenFirstFridayIsThe1StTheFirstDayOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Friday is the 1st, the first day of the first week", .enabled(if: RUNALL))
+  func testWhenFirstFridayIsThe1StTheFirstDayOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 11, week: "first", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-11-01")
+    #expect(meetUp.description == "2013-11-01")
   }
 
-  func testWhenFirstFridayIsSomeDayInTheMiddleOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Friday is some day in the middle of the first week", .enabled(if: RUNALL))
+  func testWhenFirstFridayIsSomeDayInTheMiddleOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 12, week: "first", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-12-06")
+    #expect(meetUp.description == "2013-12-06")
   }
 
-  func testWhenFirstSaturdayIsSomeDayInTheMiddleOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Saturday is some day in the middle of the first week", .enabled(if: RUNALL))
+  func testWhenFirstSaturdayIsSomeDayInTheMiddleOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 1, week: "first", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-01-05")
+    #expect(meetUp.description == "2013-01-05")
   }
 
-  func testWhenFirstSaturdayIsAnotherDayInTheMiddleOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Saturday is another day in the middle of the first week", .enabled(if: RUNALL))
+  func testWhenFirstSaturdayIsAnotherDayInTheMiddleOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 2, week: "first", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-02-02")
+    #expect(meetUp.description == "2013-02-02")
   }
 
-  func testWhenFirstSundayIsSomeDayInTheMiddleOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Sunday is some day in the middle of the first week", .enabled(if: RUNALL))
+  func testWhenFirstSundayIsSomeDayInTheMiddleOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 3, week: "first", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-03-03")
+    #expect(meetUp.description == "2013-03-03")
   }
 
-  func testWhenFirstSundayIsThe7ThTheLastDayOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Sunday is the 7th, the last day of the first week", .enabled(if: RUNALL))
+  func testWhenFirstSundayIsThe7ThTheLastDayOfTheFirstWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "first", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-04-07")
+    #expect(meetUp.description == "2013-04-07")
   }
 
-  func testWhenSecondMondayIsSomeDayInTheMiddleOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Monday is some day in the middle of the second week", .enabled(if: RUNALL))
+  func testWhenSecondMondayIsSomeDayInTheMiddleOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 3, week: "second", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-03-11")
+    #expect(meetUp.description == "2013-03-11")
   }
 
-  func testWhenSecondMondayIsThe8ThTheFirstDayOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Monday is the 8th, the first day of the second week", .enabled(if: RUNALL))
+  func testWhenSecondMondayIsThe8ThTheFirstDayOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "second", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-04-08")
+    #expect(meetUp.description == "2013-04-08")
   }
 
-  func testWhenSecondTuesdayIsThe14ThTheLastDayOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Tuesday is the 14th, the last day of the second week", .enabled(if: RUNALL))
+  func testWhenSecondTuesdayIsThe14ThTheLastDayOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 5, week: "second", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-05-14")
+    #expect(meetUp.description == "2013-05-14")
   }
 
-  func testWhenSecondTuesdayIsSomeDayInTheMiddleOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Tuesday is some day in the middle of the second week", .enabled(if: RUNALL))
+  func testWhenSecondTuesdayIsSomeDayInTheMiddleOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 6, week: "second", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-06-11")
+    #expect(meetUp.description == "2013-06-11")
   }
 
-  func testWhenSecondWednesdayIsSomeDayInTheMiddleOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Wednesday is some day in the middle of the second week", .enabled(if: RUNALL))
+  func testWhenSecondWednesdayIsSomeDayInTheMiddleOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 7, week: "second", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-07-10")
+    #expect(meetUp.description == "2013-07-10")
   }
 
-  func testWhenSecondWednesdayIsThe14ThTheLastDayOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Wednesday is the 14th, the last day of the second week", .enabled(if: RUNALL))
+  func testWhenSecondWednesdayIsThe14ThTheLastDayOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 8, week: "second", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-08-14")
+    #expect(meetUp.description == "2013-08-14")
   }
 
-  func testWhenSecondThursdayIsSomeDayInTheMiddleOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Thursday is some day in the middle of the second week", .enabled(if: RUNALL))
+  func testWhenSecondThursdayIsSomeDayInTheMiddleOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 9, week: "second", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-09-12")
+    #expect(meetUp.description == "2013-09-12")
   }
 
-  func testWhenSecondThursdayIsAnotherDayInTheMiddleOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "when second Thursday is another day in the middle of the second week", .enabled(if: RUNALL))
+  func testWhenSecondThursdayIsAnotherDayInTheMiddleOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 10, week: "second", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-10-10")
+    #expect(meetUp.description == "2013-10-10")
   }
 
-  func testWhenSecondFridayIsThe8ThTheFirstDayOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Friday is the 8th, the first day of the second week", .enabled(if: RUNALL))
+  func testWhenSecondFridayIsThe8ThTheFirstDayOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 11, week: "second", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-11-08")
+    #expect(meetUp.description == "2013-11-08")
   }
 
-  func testWhenSecondFridayIsSomeDayInTheMiddleOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Friday is some day in the middle of the second week", .enabled(if: RUNALL))
+  func testWhenSecondFridayIsSomeDayInTheMiddleOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 12, week: "second", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-12-13")
+    #expect(meetUp.description == "2013-12-13")
   }
 
-  func testWhenSecondSaturdayIsSomeDayInTheMiddleOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Saturday is some day in the middle of the second week", .enabled(if: RUNALL))
+  func testWhenSecondSaturdayIsSomeDayInTheMiddleOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 1, week: "second", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-01-12")
+    #expect(meetUp.description == "2013-01-12")
   }
 
-  func testWhenSecondSaturdayIsAnotherDayInTheMiddleOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "when second Saturday is another day in the middle of the second week", .enabled(if: RUNALL))
+  func testWhenSecondSaturdayIsAnotherDayInTheMiddleOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 2, week: "second", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-02-09")
+    #expect(meetUp.description == "2013-02-09")
   }
 
-  func testWhenSecondSundayIsSomeDayInTheMiddleOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Sunday is some day in the middle of the second week", .enabled(if: RUNALL))
+  func testWhenSecondSundayIsSomeDayInTheMiddleOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 3, week: "second", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-03-10")
+    #expect(meetUp.description == "2013-03-10")
   }
 
-  func testWhenSecondSundayIsThe14ThTheLastDayOfTheSecondWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when second Sunday is the 14th, the last day of the second week", .enabled(if: RUNALL))
+  func testWhenSecondSundayIsThe14ThTheLastDayOfTheSecondWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "second", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-04-14")
+    #expect(meetUp.description == "2013-04-14")
   }
 
-  func testWhenThirdMondayIsSomeDayInTheMiddleOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Monday is some day in the middle of the third week", .enabled(if: RUNALL))
+  func testWhenThirdMondayIsSomeDayInTheMiddleOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 3, week: "third", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-03-18")
+    #expect(meetUp.description == "2013-03-18")
   }
 
-  func testWhenThirdMondayIsThe15ThTheFirstDayOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Monday is the 15th, the first day of the third week", .enabled(if: RUNALL))
+  func testWhenThirdMondayIsThe15ThTheFirstDayOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "third", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-04-15")
+    #expect(meetUp.description == "2013-04-15")
   }
 
-  func testWhenThirdTuesdayIsThe21StTheLastDayOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Tuesday is the 21st, the last day of the third week", .enabled(if: RUNALL))
+  func testWhenThirdTuesdayIsThe21StTheLastDayOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 5, week: "third", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-05-21")
+    #expect(meetUp.description == "2013-05-21")
   }
 
-  func testWhenThirdTuesdayIsSomeDayInTheMiddleOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Tuesday is some day in the middle of the third week", .enabled(if: RUNALL))
+  func testWhenThirdTuesdayIsSomeDayInTheMiddleOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 6, week: "third", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-06-18")
+    #expect(meetUp.description == "2013-06-18")
   }
 
-  func testWhenThirdWednesdayIsSomeDayInTheMiddleOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Wednesday is some day in the middle of the third week", .enabled(if: RUNALL))
+  func testWhenThirdWednesdayIsSomeDayInTheMiddleOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 7, week: "third", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-07-17")
+    #expect(meetUp.description == "2013-07-17")
   }
 
-  func testWhenThirdWednesdayIsThe21StTheLastDayOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Wednesday is the 21st, the last day of the third week", .enabled(if: RUNALL))
+  func testWhenThirdWednesdayIsThe21StTheLastDayOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 8, week: "third", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-08-21")
+    #expect(meetUp.description == "2013-08-21")
   }
 
-  func testWhenThirdThursdayIsSomeDayInTheMiddleOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Thursday is some day in the middle of the third week", .enabled(if: RUNALL))
+  func testWhenThirdThursdayIsSomeDayInTheMiddleOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 9, week: "third", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-09-19")
+    #expect(meetUp.description == "2013-09-19")
   }
 
-  func testWhenThirdThursdayIsAnotherDayInTheMiddleOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Thursday is another day in the middle of the third week", .enabled(if: RUNALL))
+  func testWhenThirdThursdayIsAnotherDayInTheMiddleOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 10, week: "third", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-10-17")
+    #expect(meetUp.description == "2013-10-17")
   }
 
-  func testWhenThirdFridayIsThe15ThTheFirstDayOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Friday is the 15th, the first day of the third week", .enabled(if: RUNALL))
+  func testWhenThirdFridayIsThe15ThTheFirstDayOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 11, week: "third", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-11-15")
+    #expect(meetUp.description == "2013-11-15")
   }
 
-  func testWhenThirdFridayIsSomeDayInTheMiddleOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Friday is some day in the middle of the third week", .enabled(if: RUNALL))
+  func testWhenThirdFridayIsSomeDayInTheMiddleOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 12, week: "third", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-12-20")
+    #expect(meetUp.description == "2013-12-20")
   }
 
-  func testWhenThirdSaturdayIsSomeDayInTheMiddleOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Saturday is some day in the middle of the third week", .enabled(if: RUNALL))
+  func testWhenThirdSaturdayIsSomeDayInTheMiddleOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 1, week: "third", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-01-19")
+    #expect(meetUp.description == "2013-01-19")
   }
 
-  func testWhenThirdSaturdayIsAnotherDayInTheMiddleOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Saturday is another day in the middle of the third week", .enabled(if: RUNALL))
+  func testWhenThirdSaturdayIsAnotherDayInTheMiddleOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 2, week: "third", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-02-16")
+    #expect(meetUp.description == "2013-02-16")
   }
 
-  func testWhenThirdSundayIsSomeDayInTheMiddleOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Sunday is some day in the middle of the third week", .enabled(if: RUNALL))
+  func testWhenThirdSundayIsSomeDayInTheMiddleOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 3, week: "third", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-03-17")
+    #expect(meetUp.description == "2013-03-17")
   }
 
-  func testWhenThirdSundayIsThe21StTheLastDayOfTheThirdWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when third Sunday is the 21st, the last day of the third week", .enabled(if: RUNALL))
+  func testWhenThirdSundayIsThe21StTheLastDayOfTheThirdWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "third", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-04-21")
+    #expect(meetUp.description == "2013-04-21")
   }
 
-  func testWhenFourthMondayIsSomeDayInTheMiddleOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Monday is some day in the middle of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthMondayIsSomeDayInTheMiddleOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 3, week: "fourth", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-03-25")
+    #expect(meetUp.description == "2013-03-25")
   }
 
-  func testWhenFourthMondayIsThe22NdTheFirstDayOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Monday is the 22nd, the first day of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthMondayIsThe22NdTheFirstDayOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "fourth", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-04-22")
+    #expect(meetUp.description == "2013-04-22")
   }
 
-  func testWhenFourthTuesdayIsThe28ThTheLastDayOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Tuesday is the 28th, the last day of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthTuesdayIsThe28ThTheLastDayOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 5, week: "fourth", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-05-28")
+    #expect(meetUp.description == "2013-05-28")
   }
 
-  func testWhenFourthTuesdayIsSomeDayInTheMiddleOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Tuesday is some day in the middle of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthTuesdayIsSomeDayInTheMiddleOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 6, week: "fourth", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-06-25")
+    #expect(meetUp.description == "2013-06-25")
   }
 
-  func testWhenFourthWednesdayIsSomeDayInTheMiddleOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Wednesday is some day in the middle of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthWednesdayIsSomeDayInTheMiddleOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 7, week: "fourth", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-07-24")
+    #expect(meetUp.description == "2013-07-24")
   }
 
-  func testWhenFourthWednesdayIsThe28ThTheLastDayOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Wednesday is the 28th, the last day of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthWednesdayIsThe28ThTheLastDayOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 8, week: "fourth", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-08-28")
+    #expect(meetUp.description == "2013-08-28")
   }
 
-  func testWhenFourthThursdayIsSomeDayInTheMiddleOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Thursday is some day in the middle of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthThursdayIsSomeDayInTheMiddleOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 9, week: "fourth", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-09-26")
+    #expect(meetUp.description == "2013-09-26")
   }
 
-  func testWhenFourthThursdayIsAnotherDayInTheMiddleOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "when fourth Thursday is another day in the middle of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthThursdayIsAnotherDayInTheMiddleOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 10, week: "fourth", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-10-24")
+    #expect(meetUp.description == "2013-10-24")
   }
 
-  func testWhenFourthFridayIsThe22NdTheFirstDayOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Friday is the 22nd, the first day of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthFridayIsThe22NdTheFirstDayOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 11, week: "fourth", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-11-22")
+    #expect(meetUp.description == "2013-11-22")
   }
 
-  func testWhenFourthFridayIsSomeDayInTheMiddleOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Friday is some day in the middle of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthFridayIsSomeDayInTheMiddleOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 12, week: "fourth", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-12-27")
+    #expect(meetUp.description == "2013-12-27")
   }
 
-  func testWhenFourthSaturdayIsSomeDayInTheMiddleOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Saturday is some day in the middle of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthSaturdayIsSomeDayInTheMiddleOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 1, week: "fourth", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-01-26")
+    #expect(meetUp.description == "2013-01-26")
   }
 
-  func testWhenFourthSaturdayIsAnotherDayInTheMiddleOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "when fourth Saturday is another day in the middle of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthSaturdayIsAnotherDayInTheMiddleOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 2, week: "fourth", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-02-23")
+    #expect(meetUp.description == "2013-02-23")
   }
 
-  func testWhenFourthSundayIsSomeDayInTheMiddleOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Sunday is some day in the middle of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthSundayIsSomeDayInTheMiddleOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 3, week: "fourth", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-03-24")
+    #expect(meetUp.description == "2013-03-24")
   }
 
-  func testWhenFourthSundayIsThe28ThTheLastDayOfTheFourthWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when fourth Sunday is the 28th, the last day of the fourth week", .enabled(if: RUNALL))
+  func testWhenFourthSundayIsThe28ThTheLastDayOfTheFourthWeek() {
     let meetUp = Meetup(year: 2013, month: 4, week: "fourth", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-04-28")
+    #expect(meetUp.description == "2013-04-28")
   }
 
-  func testLastMondayInAMonthWithFourMondays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Monday in a month with four Mondays", .enabled(if: RUNALL))
+  func testLastMondayInAMonthWithFourMondays() {
     let meetUp = Meetup(year: 2013, month: 3, week: "last", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-03-25")
+    #expect(meetUp.description == "2013-03-25")
   }
 
-  func testLastMondayInAMonthWithFiveMondays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Monday in a month with five Mondays", .enabled(if: RUNALL))
+  func testLastMondayInAMonthWithFiveMondays() {
     let meetUp = Meetup(year: 2013, month: 4, week: "last", weekday: "Monday")
-    XCTAssertEqual(meetUp.description, "2013-04-29")
+    #expect(meetUp.description == "2013-04-29")
   }
 
-  func testLastTuesdayInAMonthWithFourTuesdays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Tuesday in a month with four Tuesdays", .enabled(if: RUNALL))
+  func testLastTuesdayInAMonthWithFourTuesdays() {
     let meetUp = Meetup(year: 2013, month: 5, week: "last", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-05-28")
+    #expect(meetUp.description == "2013-05-28")
   }
 
-  func testLastTuesdayInAnotherMonthWithFourTuesdays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Tuesday in another month with four Tuesdays", .enabled(if: RUNALL))
+  func testLastTuesdayInAnotherMonthWithFourTuesdays() {
     let meetUp = Meetup(year: 2013, month: 6, week: "last", weekday: "Tuesday")
-    XCTAssertEqual(meetUp.description, "2013-06-25")
+    #expect(meetUp.description == "2013-06-25")
   }
 
-  func testLastWednesdayInAMonthWithFiveWednesdays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Wednesday in a month with five Wednesdays", .enabled(if: RUNALL))
+  func testLastWednesdayInAMonthWithFiveWednesdays() {
     let meetUp = Meetup(year: 2013, month: 7, week: "last", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-07-31")
+    #expect(meetUp.description == "2013-07-31")
   }
 
-  func testLastWednesdayInAMonthWithFourWednesdays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Wednesday in a month with four Wednesdays", .enabled(if: RUNALL))
+  func testLastWednesdayInAMonthWithFourWednesdays() {
     let meetUp = Meetup(year: 2013, month: 8, week: "last", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2013-08-28")
+    #expect(meetUp.description == "2013-08-28")
   }
 
-  func testLastThursdayInAMonthWithFourThursdays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Thursday in a month with four Thursdays", .enabled(if: RUNALL))
+  func testLastThursdayInAMonthWithFourThursdays() {
     let meetUp = Meetup(year: 2013, month: 9, week: "last", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-09-26")
+    #expect(meetUp.description == "2013-09-26")
   }
 
-  func testLastThursdayInAMonthWithFiveThursdays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Thursday in a month with five Thursdays", .enabled(if: RUNALL))
+  func testLastThursdayInAMonthWithFiveThursdays() {
     let meetUp = Meetup(year: 2013, month: 10, week: "last", weekday: "Thursday")
-    XCTAssertEqual(meetUp.description, "2013-10-31")
+    #expect(meetUp.description == "2013-10-31")
   }
 
-  func testLastFridayInAMonthWithFiveFridays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Friday in a month with five Fridays", .enabled(if: RUNALL))
+  func testLastFridayInAMonthWithFiveFridays() {
     let meetUp = Meetup(year: 2013, month: 11, week: "last", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-11-29")
+    #expect(meetUp.description == "2013-11-29")
   }
 
-  func testLastFridayInAMonthWithFourFridays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Friday in a month with four Fridays", .enabled(if: RUNALL))
+  func testLastFridayInAMonthWithFourFridays() {
     let meetUp = Meetup(year: 2013, month: 12, week: "last", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2013-12-27")
+    #expect(meetUp.description == "2013-12-27")
   }
 
-  func testLastSaturdayInAMonthWithFourSaturdays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Saturday in a month with four Saturdays", .enabled(if: RUNALL))
+  func testLastSaturdayInAMonthWithFourSaturdays() {
     let meetUp = Meetup(year: 2013, month: 1, week: "last", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-01-26")
+    #expect(meetUp.description == "2013-01-26")
   }
 
-  func testLastSaturdayInAnotherMonthWithFourSaturdays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Saturday in another month with four Saturdays", .enabled(if: RUNALL))
+  func testLastSaturdayInAnotherMonthWithFourSaturdays() {
     let meetUp = Meetup(year: 2013, month: 2, week: "last", weekday: "Saturday")
-    XCTAssertEqual(meetUp.description, "2013-02-23")
+    #expect(meetUp.description == "2013-02-23")
   }
 
-  func testLastSundayInAMonthWithFiveSundays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Sunday in a month with five Sundays", .enabled(if: RUNALL))
+  func testLastSundayInAMonthWithFiveSundays() {
     let meetUp = Meetup(year: 2013, month: 3, week: "last", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-03-31")
+    #expect(meetUp.description == "2013-03-31")
   }
 
-  func testLastSundayInAMonthWithFourSundays() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Sunday in a month with four Sundays", .enabled(if: RUNALL))
+  func testLastSundayInAMonthWithFourSundays() {
     let meetUp = Meetup(year: 2013, month: 4, week: "last", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2013-04-28")
+    #expect(meetUp.description == "2013-04-28")
   }
 
-  func testWhenLastWednesdayInFebruaryInALeapYearIsThe29Th() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when last Wednesday in February in a leap year is the 29th", .enabled(if: RUNALL))
+  func testWhenLastWednesdayInFebruaryInALeapYearIsThe29Th() {
     let meetUp = Meetup(year: 2012, month: 2, week: "last", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2012-02-29")
+    #expect(meetUp.description == "2012-02-29")
   }
 
-  func testLastWednesdayInDecemberThatIsAlsoTheLastDayOfTheYear() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("last Wednesday in December that is also the last day of the year", .enabled(if: RUNALL))
+  func testLastWednesdayInDecemberThatIsAlsoTheLastDayOfTheYear() {
     let meetUp = Meetup(year: 2014, month: 12, week: "last", weekday: "Wednesday")
-    XCTAssertEqual(meetUp.description, "2014-12-31")
+    #expect(meetUp.description == "2014-12-31")
   }
 
-  func testWhenLastSundayInFebruaryInANonLeapYearIsNotThe29Th() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when last Sunday in February in a non-leap year is not the 29th", .enabled(if: RUNALL))
+  func testWhenLastSundayInFebruaryInANonLeapYearIsNotThe29Th() {
     let meetUp = Meetup(year: 2015, month: 2, week: "last", weekday: "Sunday")
-    XCTAssertEqual(meetUp.description, "2015-02-22")
+    #expect(meetUp.description == "2015-02-22")
   }
 
-  func testWhenFirstFridayIsThe7ThTheLastDayOfTheFirstWeek() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when first Friday is the 7th, the last day of the first week", .enabled(if: RUNALL))
+  func testWhenFirstFridayIsThe7ThTheLastDayOfTheFirstWeek() {
     let meetUp = Meetup(year: 2012, month: 12, week: "first", weekday: "Friday")
-    XCTAssertEqual(meetUp.description, "2012-12-07")
+    #expect(meetUp.description == "2012-12-07")
   }
 }
