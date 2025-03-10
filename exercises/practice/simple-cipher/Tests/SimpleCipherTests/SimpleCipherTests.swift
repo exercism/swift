@@ -1,96 +1,118 @@
-import XCTest
+import Foundation
+import Testing
+
 @testable import SimpleCipher
 
-class SimpleCipherTests: XCTestCase {
-    func testCipherEncode() {
-        let cipher = Cipher()
-        let plaintext = "aaaaaaaaaa"
-        let expected  = String(cipher.key[..<cipher.key.index(cipher.key.startIndex, offsetBy: 10)])
-        XCTAssertEqual(expected, cipher.encode(plaintext))
-    }
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL"] ?? "false") ?? false
 
-    func testCipherDecode() {
-        let cipher = Cipher()
-        let plaintext = "aaaaaaaaaa"
-        let expected  = String(cipher.key[..<cipher.key.index(cipher.key.startIndex, offsetBy: 10)])
-        XCTAssertEqual(plaintext, cipher.decode(expected))
-    }
+@Suite struct SimpleCipherTests {
+  @Test("Can encode")
+  func testCipherEncode() {
+    let cipher = Cipher()
+    let plaintext = "aaaaaaaaaa"
+    let expected = String(
+      cipher.key[..<cipher.key.index(cipher.key.startIndex, offsetBy: plaintext.count)])
+    #expect(expected == cipher.encode(plaintext))
+  }
 
-    func testCipherReversible() {
-        let cipher = Cipher()
-        let plaintext = "abcdefghij"
-        XCTAssertEqual(plaintext, cipher.decode(cipher.encode(plaintext)))
-    }
+  @Test("Can decode", .enabled(if: RUNALL))
+  func testCipherDecode() {
+    let cipher = Cipher()
+    let plaintext = "aaaaaaaaaa"
+    let expected = String(
+      cipher.key[..<cipher.key.index(cipher.key.startIndex, offsetBy: plaintext.count)])
+    #expect(plaintext == cipher.decode(expected))
+  }
 
-    // MARK: TestIncorrectKey
+  @Test(
+    "Is reversible. I.e., if you apply decode in a encoded result, you must see the same plaintext encode parameter as a result of the decode method",
+    .enabled(if: RUNALL))
+  func testCipherReversible() {
+    let cipher = Cipher()
+    let plaintext = "abcdefghij"
+    #expect(plaintext == cipher.decode(cipher.encode(plaintext)))
+  }
 
-    func testCipherWithCapsKey() {
-        XCTAssertNil(Cipher(key: "ABCDEF"))
-    }
+  @Test("Key is made only of lowercase letters", .enabled(if: RUNALL))
+  func testCipherKey() {
+    let cipher = Cipher()
+    let pattern = "^[a-z]+$"
+    #expect(cipher.key.range(of: pattern, options: .regularExpression) != nil)
+  }
 
-    func testCipherWithNumericKey() {
-        XCTAssertNil(Cipher(key: "12345"))
-    }
+  // MARK: TestSubstitution
 
-    func testCipherWithEmptyKey() {
-        XCTAssertNil(Cipher(key: ""))
-    }
+  @Test("Can encode", .enabled(if: RUNALL))
+  func testCipherKeyIsAsSubmitted() {
+    let cipher = Cipher(key: "abcdefghij") ?? Cipher()
+    let plaintext = "aaaaaaaaaa"
+    let expected = "abcdefghij"
 
-    // MARK: TestSubstitution
+    #expect(expected == cipher.encode(plaintext))
+  }
 
-    let cipherSubstitution = Cipher(key: "abcdefghij") ?? Cipher()
+  @Test("Can decode", .enabled(if: RUNALL))
+  func testCipherKeyIsAsSubmittedDecode() {
+    let cipher = Cipher(key: "abcdefghij") ?? Cipher()
+    let plaintext = "abcdefghij"
+    let expected = "aaaaaaaaaa"
 
-    func testCipherKeyIsAsSubmitted() {
-        XCTAssertEqual(cipherSubstitution.key, "abcdefghij")
-    }
+    #expect(expected == cipher.decode(plaintext))
+  }
 
-    func testCipherEncodeSubstitution() {
-        let plaintext = "aaaaaaaaaa"
-        let ciphertext = "abcdefghij"
-        XCTAssertEqual(ciphertext, cipherSubstitution.encode(plaintext))
-    }
+  @Test(
+    "Is reversible. I.e., if you apply decode in a encoded result, you must see the same plaintext encode parameter as a result of the decode method",
+    .enabled(if: RUNALL))
+  func testCipherKeyIsAsSubmittedReversible() {
+    let cipher = Cipher(key: "abcdefghij") ?? Cipher()
+    let plaintext = "abcdefghij"
 
-    func testCipherDecodeSubstitution() {
-        let plaintext = "aaaaaaaaaa"
-        let ciphertext = "abcdefghij"
-        XCTAssertEqual(plaintext, cipherSubstitution.decode(ciphertext))
-    }
+    #expect(plaintext == cipher.decode(cipher.encode(plaintext)))
+  }
 
-    func testCipherReversibleSubstitution() {
-        let plaintext = "abcdefghij"
-        XCTAssertEqual(plaintext, cipherSubstitution.decode(cipherSubstitution.encode(plaintext)))
-    }
+  @Test("Can double shift encode", .enabled(if: RUNALL))
+  func testCipherKeyIsAsSubmittedDoubleShiftEncode() {
+    let cipher = Cipher(key: "iamapandabear") ?? Cipher()
+    let plaintext = "iamapandabear"
+    let expected = "qayaeaagaciai"
 
-    func testDoubleShiftEncode() {
-        let plaintext = "iamapandabear"
-        let ciphertext = "qayaeaagaciai"
-        XCTAssertEqual(ciphertext, Cipher(key: "iamapandabear")?.encode(plaintext) ?? "")
-    }
+    #expect(expected == cipher.encode(plaintext))
+  }
 
-    func testCipherEncodeWrap() {
-        let plaintext = "zzzzzzzzzz"
-        let ciphertext = "zabcdefghi"
-        XCTAssertEqual(ciphertext, cipherSubstitution.encode(plaintext))
-    }
+  @Test("Can wrap on encode", .enabled(if: RUNALL))
+  func testCipherKeyIsAsSubmittedWrapEncode() {
+    let cipher = Cipher(key: "abcdefghij") ?? Cipher()
+    let plaintext = "zzzzzzzzzz"
+    let expected = "zabcdefghi"
 
-    // MARK: TestPseudoShift
+    #expect(expected == cipher.encode(plaintext))
+  }
 
-    let cipherPseudo = Cipher(key: "dddddddddd") ?? Cipher()
+  @Test("Can wrap on decode", .enabled(if: RUNALL))
+  func testCipherKeyIsAsSubmittedWrapDecode() {
+    let cipher = Cipher(key: "abcdefghij") ?? Cipher()
+    let plaintext = "zabcdefghi"
+    let expected = "zzzzzzzzzz"
 
-    func testCipherEncodePseudo() {
-        let plaintext = "aaaaaaaaaa"
-        let ciphertext = "dddddddddd"
-        XCTAssertEqual(ciphertext, cipherPseudo.encode(plaintext))
-    }
+    #expect(expected == cipher.decode(plaintext))
+  }
 
-    func testCipherDecodePseudo() {
-        let plaintext = "aaaaaaaaaa"
-        let ciphertext = "dddddddddd"
-        XCTAssertEqual(plaintext, cipherPseudo.decode(ciphertext))
-    }
+  @Test("Can encode messages longer than the key", .enabled(if: RUNALL))
+  func testCipherKeyIsAsSubmittedLongerKey() {
+    let cipher = Cipher(key: "abc") ?? Cipher()
+    let plaintext = "iamapandabear"
+    let expected = "iboaqcnecbfcr"
 
-    func testCipherReversiblePseudo() {
-        let plaintext = "abcdefghij"
-        XCTAssertEqual(plaintext, cipherPseudo.decode(cipherPseudo.encode(plaintext)))
-    }
+    #expect(expected == cipher.encode(plaintext))
+  }
+
+  @Test("Can decode messages longer than the key", .enabled(if: RUNALL))
+  func testCipherKeyIsAsSubmittedLongerKeyDecode() {
+    let cipher = Cipher(key: "abc") ?? Cipher()
+    let plaintext = "iboaqcnecbfcr"
+    let expected = "iamapandabear"
+
+    #expect(expected == cipher.decode(plaintext))
+  }
+
 }
