@@ -1,37 +1,33 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import SecretAgent
 
-final class SecretAgentTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct SecretAgentTests {
   let protected = protectSecret(
     "UMBRA will fill everyone's sugar bowls with salt!", withPassword: "P455w0rd")
 
+  @Test("password success")
   func testPasswordSuccess() {
-    XCTAssertEqual(protected("P455w0rd"), "UMBRA will fill everyone's sugar bowls with salt!")
+    #expect(protected("P455w0rd") == "UMBRA will fill everyone's sugar bowls with salt!")
   }
 
-  func testPasswordFail() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(protected("hunter2"), "Sorry. No hidden secrets here.")
+  @Test("password fail", .enabled(if: RUNALL))
+  func testPasswordFail() {
+    #expect(protected("hunter2") == "Sorry. No hidden secrets here.")
   }
 
-  func testCombination1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct
-    // results.
+  @Test("combination 1", .enabled(if: RUNALL))
+  func testCombination1() {
     let combo = generateCombination(forRoom: 1, usingFunction: { ($0 * 127 + 19) % 256 })
-    XCTAssertTrue(combo == (146, 129, 18))
+    #expect(combo == (146, 129, 18))
   }
 
-  func testCombination2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let combo = generateCombination(
-      forRoom: 1,
-      usingFunction: {
-        ($0 * 73 + 161) % 256
-      })
-    XCTAssertTrue(combo == (234, 91, 148))
+  @Test("combination 2", .enabled(if: RUNALL))
+  func testCombination2() {
+    let combo = generateCombination(forRoom: 1, usingFunction: { ($0 * 73 + 161) % 256 })
+    #expect(combo == (234, 91, 148))
   }
 }
