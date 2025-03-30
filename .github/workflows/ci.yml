@@ -10,11 +10,11 @@ on:
 jobs:
   test:
     name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-24.04, macos-15]
+        os: [ubuntu-22.04, macos-15]
         swift: ["6.0"]
-    runs-on: ${{ matrix.os }}
     env:
       RUNALL: "true"
     steps:
