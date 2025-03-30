@@ -12,7 +12,8 @@
 
 ## 3. Finish up your shift
 
-- If we know we still have time left in our shift, we know that we will have to make at least one order. This is a good indication that a [repeat-while loop][repeat-loops] would be a good choice to use.
+- If we know we still have time left in our shift, we know that we will have to make at least one order.
+    This is a good indication that a [repeat-while loop][repeat-loops] would be a good choice to use.
 - [Arrays have a method][array-docs] for removing the first element of an array and returning it to you.
 
 ## 4. Track certain orders
@@ -21,10 +22,10 @@
 - Tuple decomposition can be used to name the individual elements of the tuple in the for-in loop.
 - You can use [control transfer statements][control-transfer] to skip to the next iteration of the loop for drinks we don't care about.
 
-[for-in-loops]: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID121
-[while-loops]: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID124
-[repeat-loops]: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID126
-[control-transfer]: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID135
-[labeled-statements]: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID141
-[tuples]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID329
+[for-in-loops]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#For-In-Loops
+[while-loops]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#While-Loops
+[repeat-loops]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#While-Loops
+[control-transfer]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Control-Transfer-Statements
+[labeled-statements]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Labeled-Statements
+[tuples]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Tuples
 [array-docs]: https://developer.apple.com/documentation/swift/array
