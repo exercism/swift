@@ -33,7 +33,8 @@ if
 let conceptExerciseTargets: [Target] = conceptExercises.flatMap {
     return [
         .target(
-            name:"\($0.pascalCased)", 
+            name:"\($0.pascalCased)",
+            dependencies: [.product(name: "Numerics", package: "swift-numerics")],
             path:"./exercises/concept/\($0)/.meta/Sources"),
         .testTarget(
             name:"\($0.pascalCased)Tests", 
