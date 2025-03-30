@@ -1,58 +1,61 @@
-import XCTest
+import Testing
+import Foundation
 
 @testable import BombDefuser
 
-final class BombDefuserTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct BombDefuserTests {
   let stringify = { (tuple: (String, String, String)) in "\(tuple)" }
 
+  @Test("flip")
   func testFlip() {
     let expected = ("Dabba", "Yabba", "Doo")
     let got = flip(("Yabba", "Dabba", "Doo"))
-    XCTAssertEqual(
-      stringify(expected), stringify(got),
+    #expect(
+      stringify(expected) == stringify(got),
       "flip((\"Yabba\", \"Dabba\", \"Doo\"): Expected \(expected), got \(got)")
   }
 
+  @Test("rotate", .enabled(if: RUNALL))
   func testRotate() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let expected = ("Dooby", "Doo", "Scooby")
     let got = rotate(("Scooby", "Dooby", "Doo"))
-    XCTAssertEqual(
-      stringify(expected), stringify(got),
+    #expect(
+      stringify(expected) == stringify(got),
       "rotate((\"Scooby\", \"Dooby\", \"Doo\"): Expected \(expected), got \(got)")
   }
 
+  @Test("shuffle", .enabled(if: RUNALL))
   func testShuffle1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let wires = ("Red", "Yellow", "Black")
     let shuffle = makeShuffle(flipper: flip, rotator: rotate)
     let expected = ("Yellow", "Black", "Red")
     let got = shuffle(113, wires)
-    XCTAssertEqual(
-      stringify(expected), stringify(got),
+    #expect(
+      stringify(expected) == stringify(got),
       "shuffle(113, (\"Red\", \"Yellow\", \"Black\")): Expected \(expected), got \(got)")
   }
 
+  @Test("shuffle with other wires", .enabled(if: RUNALL))
   func testShuffle2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let wires = ("Purple", "Cyan", "Marigold")
     let shuffle = makeShuffle(flipper: flip, rotator: rotate)
     let expected = ("Marigold", "Cyan", "Purple")
     let got = shuffle(253, wires)
-    XCTAssertEqual(
-      stringify(expected), stringify(got),
+    #expect(
+      stringify(expected) == stringify(got),
       "shuffle(253, (\"Purple\", \"Cyan\", \"Marigold\")): Expected \(expected), got \(got)")
   }
 
+  @Test("shuffle with another set of wires", .enabled(if: RUNALL))
   func testShuffle3() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
     let wires = ("Brown", "Orange", "White")
     let shuffle = makeShuffle(flipper: flip, rotator: rotate)
     let expected = ("Brown", "Orange", "White")
     let got = shuffle(0, wires)
-    XCTAssertEqual(
-      stringify(expected), stringify(got),
+    #expect(
+      stringify(expected) == stringify(got),
       "shuffle(0, (\"Brown\", \"Orange\", \"White\")): Expected \(expected), got \(got)")
   }
 }
