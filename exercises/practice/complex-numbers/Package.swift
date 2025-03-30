@@ -10,7 +10,7 @@ let package = Package(
       targets: ["ComplexNumbers"])
   ],
   dependencies: [
-    .package(url: "https://github.com/apple/swift-numerics", from: "1.0.2")
+    .package(url: "https://github.com/apple/swift-numerics", from: "1.0.3")
   ],
   targets: [
     .target(
