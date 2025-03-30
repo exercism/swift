@@ -1,5 +1,6 @@
 import Testing
 import Foundation
+import Numerics
 
 @testable import LasagnaMaster
 
@@ -63,7 +64,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     var amount = quantities(
       layers: "sauce", "noodles", "béchamel", "meat", "sauce", "noodles", "sauce", "mozzarella")
     toOz(&amount)
-    #expect(amount.sauce == 20.2884)
+    #expect(amount.sauce.isApproximatelyEqual(to: 20.2884, relativeTolerance: 0.001))
   }
 
   @Test("Red wine red inequal layer count", .enabled(if: RUNALL))
