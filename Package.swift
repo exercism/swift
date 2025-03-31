@@ -39,7 +39,7 @@ let conceptExerciseTargets: [Target] = conceptExercises.flatMap {
         .testTarget(
             name:"\($0.pascalCased)Tests", 
             dependencies: [
-                .target(name:"\($0.pascalCased)")
+                .target(name:"\($0.pascalCased)"),
                 .product(name: "Numerics", package: "swift-numerics")
             ], 
             path:"./exercises/concept/\($0)/Tests",
