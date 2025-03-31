@@ -20,7 +20,7 @@ Additional versions of Xcode (including the most recent beta) are available at [
 
 ## macOS & Linux
 
-For macOS and Linux, there is a Swjft installation manager called [swiftly][swiftly].
+For macOS and Linux, there is a Swift installation manager called [swiftly][swiftly].
 It is a command line tool that allows you to install and manage multiple versions of Swift on your system.
 The command to install swiftly on macOS can be found [here][swiftly-macos], and [bere][swiftly-linux] for linux.
 
