@@ -1,82 +1,108 @@
-import XCTest
+import Testing
+import Foundation
 
 @testable import PoetryClub
 
-final class PoetryClubTests: XCTestCase {
-  let runAll =
-    Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"])
-    ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-  func testSplitNewlines() {
-    XCTAssertEqual(
-      splitOnNewlines("Winken.\nBlinken\n\nAnd Nod."),
+@Suite struct PoetryClubTests {
+  @Test("splitOnNewlines")
+  func testSplitOnNewlines() {
+    #expect(
+      splitOnNewlines("Winken.\nBlinken\n\nAnd Nod.") ==
       ["Winken.", "Blinken", "", "And Nod."]
     )
   }
 
-  func testSplitNoNewlines() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(splitOnNewlines("Hello."), ["Hello."])
-  }
-
-  func testFirstLetter() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(firstLetter("Lorem ipsum"), "L")
-  }
-
-  func testFirstLetterEmpty() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(firstLetter(""), "_")
-  }
-
-  func testCapitalize() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(capitalize("HORSES for CoUrSeS!"), "Horses For Courses!")
-  }
-
-  func testTrimWithWhitespace() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      trimSentence("Is all the whitespace gone?   \t  \t"),
-      "Is all the whitespace gone?"
+  @Test("splitOnNewlines with only one Line", .enabled(if: RUNALL))
+  func testSplitNoNewlines() {
+    #expect(
+      splitOnNewlines("Hello.") == ["Hello."]
     )
   }
 
-  func testTrimWithoutWhitespace() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      trimSentence("Is all the whitespace gone?"),
-      "Is all the whitespace gone?"
+  @Test("splitOnNewlines with empty string", .enabled(if: RUNALL))
+  func testSplitEmptyString() {
+    #expect(
+      splitOnNewlines("") == [""]
     )
   }
 
-  func testLastLetter() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(lastLetter("Lorem ipsum"), "m")
+  @Test("frontDoorPassword")
+  func testFrontDoorPassword() {
+    #expect(
+      frontDoorPassword("Winken.\nBlinken\nAnd Nod.") == "WBA"
+    )
   }
 
-  func testLastLetterEmpty() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(lastLetter(""), "_")
+  @Test("frontDoorPassword with another string", .enabled(if: RUNALL))
+  func testFrontDoorPasswordAnotherString() {
+    #expect(
+      frontDoorPassword("Hello.\nWorld") == "HW"
+    )
   }
 
-  func testBackdoorPassword() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(backDoorPassword("scoobyDOO!"), "Scoobydoo!, please")
+  @Test("frontDoorPassword with only one Line", .enabled(if: RUNALL))
+  func testFrontDoorPasswordNoNewlines() {
+    #expect(
+      frontDoorPassword("Hello.") == "H"
+    )
   }
 
-  func testIthLetter() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(ithLetter("Inquisitive", i: 2), "q")
+  @Test("frontDoorPassword with empty string", .enabled(if: RUNALL))
+  func testFrontDoorPasswordEmptyString() {
+    #expect(
+      frontDoorPassword("") == "_"
+    )
   }
 
-  func testIthLetterInvalid() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(ithLetter("Inquisitive", i: 100), " ")
+  @Test("backDoorPassword", .enabled(if: RUNALL))
+  func testBackDoorPassword() {
+    #expect(
+      backDoorPassword("Allow\nForumla\nIn\nAcid")
+        == "wand, please"
+    )
   }
 
-  func testSecretRoomPassword() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(secretRoomPassword("Open Sesame"), "OPEN SESAME!")
+  @Test("backDoorPassword trailing whitespace", .enabled(if: RUNALL))
+  func testBackDoorPasswordAnotherString() {
+    #expect(
+      backDoorPassword("Hello   \nWorld         ") == "od, please"
+    )
+  }
+
+  @Test("backDoorPassword with only one Line", .enabled(if: RUNALL))
+  func testBackDoorPasswordNoNewlines() {
+    #expect(
+      backDoorPassword("Hello        ") == "o, please"
+    )
+  }
+
+  @Test("backDoorPassword with only last line having trailing space", .enabled(if: RUNALL))
+  func testBackDoorPasswordLastLineTrailingSpace() {
+    #expect(
+      backDoorPassword("Hello\nWorld        ") == "od, please"
+    )
+  }
+
+  @Test("secretRoomPassword", .enabled(if: RUNALL))
+  func testSecretRoomPassword() {
+    #expect(
+      secretRoomPassword("Winken.\nBlinken\nWhisper") == "WLI!"
+    )
+  }
+
+  @Test("secretRoomPassword with another string", .enabled(if: RUNALL))
+  func testSecretRoomPasswordAnotherString() {
+    #expect(
+      secretRoomPassword("Hello\nWorld\nHappy\nHere") == "HOPE!"
+    )
+  }
+
+  @Test("secretRoomPassword with only one Line", .enabled(if: RUNALL))
+  func testsecretRoomPasswordWithOnlyOneLine() {
+    #expect(
+      secretRoomPassword("Hello") == "H!"
+    )
   }
 }
