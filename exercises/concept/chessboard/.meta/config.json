@@ -13,6 +13,6 @@
       ".meta/Sources/Chessboard/ChessboardExemplar.swift"
     ]
   },
-  "blurb": "Learn about ranges while making a chess board.",
-  "icon": "chessboard"
+  "icon": "chessboard",
+  "blurb": "Learn about ranges while making a chess board."
 }
