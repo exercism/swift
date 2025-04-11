@@ -88,7 +88,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
   @Test("secretRoomPassword", .enabled(if: RUNALL))
   func testSecretRoomPassword() {
     #expect(
-      secretRoomPassword("Winken.\nBlinken\nWhisper") == "WLS!"
+      secretRoomPassword("Winken.\nBlinken\nWhisper") == "WLI!"
     )
   }
 
