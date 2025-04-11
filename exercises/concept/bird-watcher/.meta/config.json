@@ -13,8 +13,8 @@
       ".meta/Sources/BirdWatcher/BirdWatcherExemplar.swift"
     ]
   },
-  "blurb": "Count the birds in your garden with for loops.",
   "forked_from": [
     "go/bird-watcher"
-  ]
+  ],
+  "blurb": "Count the birds in your garden with for loops."
 }
