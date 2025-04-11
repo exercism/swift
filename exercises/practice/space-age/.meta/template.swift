@@ -1,17 +1,20 @@
-import XCTest
+import Testing
+import Foundation
+import Numerics
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
     {% if forloop.first -%}
-        func test{{case.description |camelCase }}() {
+        @Test("{{case.description}}")
     {% else -%}
-        func test{{case.description |camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
+        @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
+    func test{{case.description |camelCase }}() {
         let age = SpaceAge({{case.input.seconds}})
-        XCTAssertEqual(age.on{{case.input.planet |camelCase}}, {{case.expected | round:2 }}, accuracy: 0.02)
+        #expect(age.on{{case.input.planet |camelCase}}.isApproximatelyEqual(to: {{case.expected | round:2 }}, relativeTolerance: 0.03))
     }
     {% endfor -%}
 }
