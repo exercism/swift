@@ -1,21 +1,28 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.0
 
 import PackageDescription
 
 let package = Package(
-    name: "ComplexNumbers",
-    products: [
-        .library(
-            name: "ComplexNumbers",
-            targets: ["ComplexNumbers"]),
-    ],
-    dependencies: [],
-    targets: [
-        .target(
-            name: "ComplexNumbers",
-            dependencies: []),
-        .testTarget(
-            name: "ComplexNumbersTests",
-            dependencies: ["ComplexNumbers"]),
-    ]
+  name: "ComplexNumbers",
+  products: [
+    .library(
+      name: "ComplexNumbers",
+      targets: ["ComplexNumbers"])
+  ],
+  dependencies: [
+    .package(url: "https://github.com/apple/swift-numerics", from: "1.0.3")
+  ],
+  targets: [
+    .target(
+      name: "ComplexNumbers",
+      dependencies: [
+        .product(name: "Numerics", package: "swift-numerics")
+      ]),
+    .testTarget(
+      name: "ComplexNumbersTests",
+      dependencies: [
+        "ComplexNumbers",
+        .product(name: "Numerics", package: "swift-numerics"),
+      ]),
+  ]
 )
