@@ -1,7 +1,9 @@
-//let flip: (String, String, String) -> (String, String, String) = TODO: Please define the flip closure
+typealias ChangeClosure = @Sendable ((String, String, String)) -> (String, String, String)
+
+//let flip: ChangeClosure = TODO: Please define the flip closure
 //
 //
-//let rotate: (String, String, String) -> (String, String, String) = TODO: Please define the stopAtOne closure
+//let rotate: ChangeClosure = TODO: Please define the rotate closure
 
 func makeShuffle(
   flipper: @escaping ((String, String, String)) -> (String, String, String),
