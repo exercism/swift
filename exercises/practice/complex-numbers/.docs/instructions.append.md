@@ -6,6 +6,6 @@ It might be useful to use the method `isApproximatelyEqual(to:absoluteTolerance:
 A given tolerance of `0.00001` should be enough to pass the tests.
 The library is already imported in the project so it is just to import it in your file.
 
-You are aLso free to implement your own method to compare the two complex numbers.
+You are also free to implement your own method to compare the two complex numbers.
 
 [swift-numberics]: https://github.com/apple/swift-numerics
