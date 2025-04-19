@@ -1,7 +1,7 @@
-struct GradeSchool {
+class GradeSchool {
   var rosters = [Int: [String]]()
 
-  mutating func addStudent(_ name: String, grade: Int) -> Bool {
+   func addStudent(_ name: String, grade: Int) -> Bool {
     if rosters.values.contains { $0.contains(name) } {
       return false
     }
@@ -14,7 +14,6 @@ struct GradeSchool {
   }
 
   func roster() -> [String] {
-    print(rosters)
     return rosters.keys.sorted().flatMap { (rosters[$0] ?? [String]()).sorted() }
   }
 }
