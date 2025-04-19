@@ -10,4 +10,4 @@
 [a-swift-tour]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/guidedtour/
 [swift-documentation]: https://www.swift.org/documentation/
 [swift-playground]: https://www.apple.com/swift/playgrounds/
-[develop-in-swift-fundamentals]: https://books.apple.com/us/book/develop-in-swift-fundamentals/id1581182804
+[develop-in-swift-fundamentals]: https://books.apple.com/us/book/develop-in-swift-fundamentals/id6468967906
