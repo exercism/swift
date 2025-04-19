@@ -1,24 +1,26 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% outer: for case in cases %}
         {%- for subCases in case.cases %}
         {%- if forloop.outer.first and forloop.first %}
-            func test{{subCases.property |camelCase}}{{subCases.description |camelCase }}() {
+            @Test("{{subCases.description}}")
         {%- else %}
-            func test{{subCases.property |camelCase}}{{subCases.description |camelCase }}() throws {
-            try XCTSkipIf(true && !runAll) // change true to false to run this test
+            @Test("{{subCases.description}}", .enabled(if: RUNALL))
         {%- endif %}
+            func test{{subCases.property |camelCase}}{{subCases.description |camelCase }}() {
         {%- if subCases.property == "encode" %}
-            XCTAssertEqual(RunLengthEncoding.encode("{{subCases.input.string}}"), "{{subCases.expected}}")
+            #expect(RunLengthEncoding.encode("{{subCases.input.string}}") == "{{subCases.expected}}")
         {%- elif subCases.property == "consistency" %}
             let encoded = RunLengthEncoding.encode("{{subCases.input.string}}")
             let decoded = RunLengthEncoding.decode(encoded)
-            XCTAssertEqual(decoded, "{{subCases.expected}}")
+            #expect(decoded == "{{subCases.expected}}")
         {%- else %}
-            XCTAssertEqual(RunLengthEncoding.decode("{{subCases.input.string}}"), "{{subCases.expected}}")
+            #expect(RunLengthEncoding.decode("{{subCases.input.string}}") == "{{subCases.expected}}")
         {%- endif %}
         }
         {% endfor -%}
