@@ -38,9 +38,9 @@ func makeWedges(needed: Int, limes: [String]) -> Int {
 func finishShift(minutesLeft: Int, remainingOrders: [[String]]) -> [[String]] {
   var timeLeft = Double(minutesLeft)
   var orders = remainingOrders
-  repeat {
+  while timeLeft > 0 && !orders.isEmpty {
     timeLeft -= timeToPrepare(drinks: orders.removeFirst())
-  } while timeLeft > 0 && !orders.isEmpty
+  }
   return orders
 }
 
