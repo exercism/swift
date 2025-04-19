@@ -1,117 +1,94 @@
-import XCTest
+import Testing
+import Foundation
 
 @testable import HighScoreBoard
 
-final class HighScoreBoardTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "true"]) ?? false
 
+@Suite struct HighScoreBoardTests {
+  @Test("to create an empty scoreboard")
   func testEmptyScores() {
-    XCTAssertEqual(newScoreBoard(), [String: Int]())
+    #expect(newScoreBoard() == [:])
   }
 
-  func testAddPlayerExplicit() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("to add a player with a score", .enabled(if: RUNALL))
+  func testAddPlayerExplicit() {
     var scoreboard = [String: Int]()
     let score = 1337
     addPlayer(&scoreboard, "Jesse Johnson", score)
-    if let jjScore = scoreboard["Jesse Johnson"] {
-      XCTAssertEqual(
-        jjScore,
-        score,
-        "Called 'addPlayer(&scoreboard, \"Jesse Johnson\", 1337)'\nscoreboard[\"Jesse Johnson\"] expected to be \(score), got \(jjScore) instead"
-      )
-    } else {
-      XCTFail("addPlayer failed to add player to dictionary")
-    }
+    #expect(scoreboard["Jesse Johnson"] == score)
   }
 
-  func testAddPlayerDefault() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("to add a player with a default score", .enabled(if: RUNALL))
+  func testAddPlayerDefault() {
     var scoreboard = [String: Int]()
     addPlayer(&scoreboard, "Jesse Johnson")
-    if let jjScore = scoreboard["Jesse Johnson"] {
-      XCTAssertEqual(
-        jjScore,
-        0,
-        "Called 'addPlayer(&scoreboard, \"Jesse Johnson\"'\nscoreboard[\"Jesse Johnson\"] expected to be \(0), got \(jjScore) instead"
-      )
-    } else {
-      XCTFail("addPlayer failed to add player to dictionary")
-    }
+    #expect(scoreboard["Jesse Johnson"] == 0)
   }
 
-  func testRemovePlayer() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("to remove a player", .enabled(if: RUNALL))
+  func testRemovePlayer() {
     var scoreboard = [String: Int]()
     addPlayer(&scoreboard, "Jesse Johnson", 1337)
     addPlayer(&scoreboard, "Amil PAstorius", 99373)
     addPlayer(&scoreboard, "Min-seo Shin")
     removePlayer(&scoreboard, "Jesse Johnson")
-    XCTAssertNil(
-      scoreboard["Jesse Johnson"],
-      "Removed player \"Jesse Johnson\", \nscoreboard[\"Jesse Johnson\"] expected to be nil, got \(scoreboard["Jesse Johnson"]!) instead"
-    )
+    #expect(scoreboard["Jesse Johnson"] == nil)
   }
 
-  func testRemoveNonexistentPlayer() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("to remove a non-existent player", .enabled(if: RUNALL))
+  func testRemoveNonexistentPlayer() {
     var scoreboard = [String: Int]()
     addPlayer(&scoreboard, "Jesse Johnson", 1337)
     addPlayer(&scoreboard, "Amil PAstorius", 99373)
     addPlayer(&scoreboard, "Min-seo Shin")
     removePlayer(&scoreboard, "Bruno Santangelo")
-    XCTAssertEqual(
-      scoreboard,
-      ["Jesse Johnson": 1337, "Amil PAstorius": 99373, "Min-seo Shin": 0],
-      "Removing a non-existent player from the dictionary should leave the dictionary unchanged."
-    )
+    #expect(scoreboard == ["Jesse Johnson": 1337, "Amil PAstorius": 99373, "Min-seo Shin": 0])
   }
 
-  func testResetScore() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("to reset a player's score", .enabled(if: RUNALL))
+  func testResetScore() {
     var scoreboard = [String: Int]()
     addPlayer(&scoreboard, "Jesse Johnson", 1337)
     addPlayer(&scoreboard, "Amil PAstorius", 99373)
     addPlayer(&scoreboard, "Min-seo Shin")
     resetScore(&scoreboard, "Amil PAstorius")
-    XCTAssertEqual(
-      scoreboard,
-      ["Jesse Johnson": 1337, "Amil PAstorius": 0, "Min-seo Shin": 0],
-      "Resetting a player's score should change their score to 0 and leave the rest unchanged."
-    )
+    #expect(scoreboard == ["Jesse Johnson": 1337, "Amil PAstorius": 0, "Min-seo Shin": 0])
   }
 
-  func testResetScoreNonexistentPlayer() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("to reset a non-existent player's score", .enabled(if: RUNALL))
+  func testResetScoreNonexistentPlayer() {
     var scoreboard = [String: Int]()
     addPlayer(&scoreboard, "Jesse Johnson", 1337)
     addPlayer(&scoreboard, "Amil PAstorius", 99373)
     addPlayer(&scoreboard, "Min-seo Shin")
     resetScore(&scoreboard, "Bruno Santangelo")
-    XCTAssertEqual(
-      scoreboard,
-      ["Jesse Johnson": 1337, "Amil PAstorius": 99373, "Min-seo Shin": 0],
-      "Resetting a non-existent player's score should leave the dictionary unchanged."
-    )
+    #expect(scoreboard == ["Jesse Johnson": 1337, "Amil PAstorius": 99373, "Min-seo Shin": 0])
   }
 
-  func testUpdateScore() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("to update a player's score", .enabled(if: RUNALL))
+  func testUpdateScore() {
     var scoreboard = [String: Int]()
     addPlayer(&scoreboard, "Jesse Johnson", 1337)
     addPlayer(&scoreboard, "Amil PAstorius", 99373)
     addPlayer(&scoreboard, "Min-seo Shin")
     updateScore(&scoreboard, "Min-seo Shin", 1999)
     updateScore(&scoreboard, "Jesse Johnson", 1337)
-    XCTAssertEqual(
-      scoreboard,
-      ["Jesse Johnson": 2674, "Amil PAstorius": 99373, "Min-seo Shin": 1999],
-      "Updating a player's score should add the update to their score and leave the rest unchanged."
-    )
+    #expect(scoreboard == ["Jesse Johnson": 2674, "Amil PAstorius": 99373, "Min-seo Shin": 1999])
   }
 
-  func testOrderByPlayers() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("to update a non-existent player's score", .enabled(if: RUNALL))
+  func testUpdateScoreNonexistentPlayer() {
+    var scoreboard = [String: Int]()
+    addPlayer(&scoreboard, "Jesse Johnson", 1337)
+    addPlayer(&scoreboard, "Amil PAstorius", 99373)
+    addPlayer(&scoreboard, "Min-seo Shin")
+    updateScore(&scoreboard, "Bruno Santangelo", 1999)
+    #expect(scoreboard == ["Jesse Johnson": 1337, "Amil PAstorius": 99373, "Min-seo Shin": 0])
+  }
+
+  @Test("to order by players", .enabled(if: RUNALL))
+  func testOrderByPlayers() {
     var scoreboard = [String: Int]()
     addPlayer(&scoreboard, "Jesse Johnson", 1337)
     addPlayer(&scoreboard, "Amil PAstorius", 99373)
@@ -120,14 +97,13 @@ final class HighScoreBoardTests: XCTestCase {
     updateScore(&scoreboard, "Jesse Johnson", 1337)
     let expected = [("Amil PAstorius", 99373), ("Jesse Johnson", 2674), ("Min-seo Shin", 1999)]
     let got = orderByPlayers(scoreboard)
-    XCTAssertTrue(
-      expected.map(\.0) == got.map(\.0) && expected.map(\.1) == got.map(\.1),
-      "Expected: \(expected)\nGot: \(got)\norderByPlayers should return the key/value pairs odered descending by the player's name."
-    )
+    for (index, (name, score)) in got.enumerated() {
+      #expect(name == expected[index].0 && score == expected[index].1, "Got the name: \(name) and score: \(score), but expected \(expected[index])")
+    }
   }
 
-  func testOrderByScores() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("to order by scores", .enabled(if: RUNALL))
+  func testOrderByScores() {
     var scoreboard = [String: Int]()
     addPlayer(&scoreboard, "Jesse Johnson", 1337)
     addPlayer(&scoreboard, "Amil PAstorius", 99373)
@@ -135,9 +111,8 @@ final class HighScoreBoardTests: XCTestCase {
     updateScore(&scoreboard, "Min-seo Shin", 1999)
     let expected = [("Amil PAstorius", 99373), ("Min-seo Shin", 1999), ("Jesse Johnson", 1337)]
     let got = orderByScores(scoreboard)
-    XCTAssertTrue(
-      expected.map(\.0) == got.map(\.0) && expected.map(\.1) == got.map(\.1),
-      "Expected: \(expected)\nGot: \(got)\norderByPlayers should return the key/value pairs odered ascending by the player's score."
-    )
+    for (index, (name, score)) in got.enumerated() {
+      #expect(name == expected[index].0 && score == expected[index].1, "Got the name: \(name) and score: \(score), but expected \(expected[index])")
+    }
   }
 }
