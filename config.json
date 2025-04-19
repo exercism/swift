@@ -90,7 +90,7 @@
           "higher-order-functions"
         ],
         "prerequisites": [
-          "basics"
+          "optionals"
         ],
         "status": "active"
       },
