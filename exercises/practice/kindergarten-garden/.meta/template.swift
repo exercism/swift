@@ -1,27 +1,29 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% outer: for case in cases %}
         {%- for subCases in case.cases %}
         {%- if subCases.cases %}
         {%- for subSubCases in subCases.cases %}
-            func test{{subSubCases.description |camelCase }}() throws {
-            try XCTSkipIf(true && !runAll) // change true to false to run this test
+            @Test("{{subSubCases.description}}", .enabled(if: RUNALL))
+            func test{{subSubCases.description |camelCase }}() {
             let garden = Garden("{{subSubCases.input.diagram | inspect}}")
-            XCTAssertEqual(garden.plantsForChild("{{subSubCases.input.student}}"), {{subSubCases.expected | toEnumArray}})
+            #expect(garden.plantsForChild("{{subSubCases.input.student}}") == {{subSubCases.expected | toEnumArray}})
         }
         {% endfor -%}
         {%- else %}
         {%- if forloop.outer.first and forloop.first %}
-            func test{{subCases.description |camelCase }}() {
+            @Test("{{subCases.description}}")
         {%- else %}
-            func test{{subCases.description |camelCase }}() throws {
-            try XCTSkipIf(true && !runAll) // change true to false to run this test
+            @Test("{{subCases.description}}", .enabled(if: RUNALL))
         {%- endif %}
+            func test{{subCases.description |camelCase }}() {
             let garden = Garden("{{subCases.input.diagram | inspect}}")
-            XCTAssertEqual(garden.plantsForChild("{{subCases.input.student}}"), {{subCases.expected | toEnumArray}})
+            #expect(garden.plantsForChild("{{subCases.input.student}}") == {{subCases.expected | toEnumArray}})
         }
         {%- endif %}
         {% endfor -%}

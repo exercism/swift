@@ -1,101 +1,76 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import IsbnVerifier
 
-class IsbnVerifierTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-  func testValidIsbn() {
-    XCTAssertTrue(IsbnVerifier.isValid("3-598-21508-8"))
+@Suite struct IsbnVerifierTests {
+
+  @Test("valid isbn")
+  func testValidIsbn() { #expect(IsbnVerifier.isValid("3-598-21508-8")) }
+
+  @Test("invalid isbn check digit", .enabled(if: RUNALL))
+  func testInvalidIsbnCheckDigit() { #expect(!IsbnVerifier.isValid("3-598-21508-9")) }
+
+  @Test("valid isbn with a check digit of 10", .enabled(if: RUNALL))
+  func testValidIsbnWithACheckDigitOf10() { #expect(IsbnVerifier.isValid("3-598-21507-X")) }
+
+  @Test("check digit is a character other than X", .enabled(if: RUNALL))
+  func testCheckDigitIsACharacterOtherThanX() { #expect(!IsbnVerifier.isValid("3-598-21507-A")) }
+
+  @Test("invalid check digit in isbn is not treated as zero", .enabled(if: RUNALL))
+  func testInvalidCheckDigitInIsbnIsNotTreatedAsZero() {
+    #expect(!IsbnVerifier.isValid("4-598-21507-B"))
   }
 
-  func testInvalidIsbnCheckDigit() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("3-598-21508-9"))
+  @Test("invalid character in isbn is not treated as zero", .enabled(if: RUNALL))
+  func testInvalidCharacterInIsbnIsNotTreatedAsZero() {
+    #expect(!IsbnVerifier.isValid("3-598-P1581-X"))
   }
 
-  func testValidIsbnWithACheckDigitOf10() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertTrue(IsbnVerifier.isValid("3-598-21507-X"))
+  @Test("X is only valid as a check digit", .enabled(if: RUNALL))
+  func testXIsOnlyValidAsACheckDigit() { #expect(!IsbnVerifier.isValid("3-598-2X507-9")) }
+
+  @Test("valid isbn without separating dashes", .enabled(if: RUNALL))
+  func testValidIsbnWithoutSeparatingDashes() { #expect(IsbnVerifier.isValid("3598215088")) }
+
+  @Test("isbn without separating dashes and X as check digit", .enabled(if: RUNALL))
+  func testIsbnWithoutSeparatingDashesAndXAsCheckDigit() {
+    #expect(IsbnVerifier.isValid("359821507X"))
   }
 
-  func testCheckDigitIsACharacterOtherThanX() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("3-598-21507-A"))
+  @Test("isbn without check digit and dashes", .enabled(if: RUNALL))
+  func testIsbnWithoutCheckDigitAndDashes() { #expect(!IsbnVerifier.isValid("359821507")) }
+
+  @Test("too long isbn and no dashes", .enabled(if: RUNALL))
+  func testTooLongIsbnAndNoDashes() { #expect(!IsbnVerifier.isValid("3598215078X")) }
+
+  @Test("too short isbn", .enabled(if: RUNALL))
+  func testTooShortIsbn() { #expect(!IsbnVerifier.isValid("00")) }
+
+  @Test("isbn without check digit", .enabled(if: RUNALL))
+  func testIsbnWithoutCheckDigit() { #expect(!IsbnVerifier.isValid("3-598-21507")) }
+
+  @Test("check digit of X should not be used for 0", .enabled(if: RUNALL))
+  func testCheckDigitOfXShouldNotBeUsedFor0() { #expect(!IsbnVerifier.isValid("3-598-21515-X")) }
+
+  @Test("empty isbn", .enabled(if: RUNALL))
+  func testEmptyIsbn() { #expect(!IsbnVerifier.isValid("")) }
+
+  @Test("input is 9 characters", .enabled(if: RUNALL))
+  func testInputIs9Characters() { #expect(!IsbnVerifier.isValid("134456729")) }
+
+  @Test("invalid characters are not ignored after checking length", .enabled(if: RUNALL))
+  func testInvalidCharactersAreNotIgnoredAfterCheckingLength() {
+    #expect(!IsbnVerifier.isValid("3132P34035"))
   }
 
-  func testInvalidCheckDigitInIsbnIsNotTreatedAsZero() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("4-598-21507-B"))
+  @Test("invalid characters are not ignored before checking length", .enabled(if: RUNALL))
+  func testInvalidCharactersAreNotIgnoredBeforeCheckingLength() {
+    #expect(!IsbnVerifier.isValid("3598P215088"))
   }
 
-  func testInvalidCharacterInIsbnIsNotTreatedAsZero() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("3-598-P1581-X"))
-  }
-
-  func testXIsOnlyValidAsACheckDigit() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("3-598-2X507-9"))
-  }
-
-  func testValidIsbnWithoutSeparatingDashes() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertTrue(IsbnVerifier.isValid("3598215088"))
-  }
-
-  func testIsbnWithoutSeparatingDashesAndXAsCheckDigit() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertTrue(IsbnVerifier.isValid("359821507X"))
-  }
-
-  func testIsbnWithoutCheckDigitAndDashes() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("359821507"))
-  }
-
-  func testTooLongIsbnAndNoDashes() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("3598215078X"))
-  }
-
-  func testTooShortIsbn() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("00"))
-  }
-
-  func testIsbnWithoutCheckDigit() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("3-598-21507"))
-  }
-
-  func testCheckDigitOfXShouldNotBeUsedFor0() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("3-598-21515-X"))
-  }
-
-  func testEmptyIsbn() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid(""))
-  }
-
-  func testInputIs9Characters() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("134456729"))
-  }
-
-  func testInvalidCharactersAreNotIgnoredAfterCheckingLength() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("3132P34035"))
-  }
-
-  func testInvalidCharactersAreNotIgnoredBeforeCheckingLength() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("3598P215088"))
-  }
-
-  func testInputIsTooLongButContainsAValidIsbn() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(IsbnVerifier.isValid("98245726788"))
-  }
+  @Test("input is too long but contains a valid isbn", .enabled(if: RUNALL))
+  func testInputIsTooLongButContainsAValidIsbn() { #expect(!IsbnVerifier.isValid("98245726788")) }
 }
