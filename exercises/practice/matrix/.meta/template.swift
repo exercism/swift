@@ -1,20 +1,22 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
     {% if forloop.first -%}
-        func test{{case.description |camelCase }}() {
+        @Test("{{case.description}}")
     {% else -%}
-        func test{{case.description |camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
+        @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
+    func test{{case.description |camelCase }}() {
         let matrix = Matrix("{{case.input.string | inspect}}")
         {% if case.property == "row" -%}
-        XCTAssertEqual({{case.expected}}, matrix.rows[{{case.input.index | minus: 1}}])
+        #expect({{case.expected}} == matrix.rows[{{case.input.index | minus: 1}}])
         {% else -%}
-        XCTAssertEqual({{case.expected}}, matrix.columns[{{case.input.index | minus: 1}}])
+        #expect({{case.expected}} == matrix.columns[{{case.input.index | minus: 1}}])
         {% endif -%}
     }
     {% endfor -%}
