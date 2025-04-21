@@ -36,7 +36,7 @@ The method should return `true` if the rank and file are within the range of ran
 
 ```swift
 isValidSquare(rank: 1, file: "A")
-// returns true
+// Returns true
 ```
 
 ## 3. Get row
