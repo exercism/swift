@@ -22,7 +22,7 @@ This repo holds all the instructions, tests, code, & support files for Swift _ex
 
 Currently, the track uses the new [swift-testing][swift-testing] library, requiring Swift 6.0.0 or higher to run the tests.
 If you wish to still run the tests with the old XCTest framework, you can do so by pulling the `5.x` branch.
-**Note:** The `5.x` branch is no longer maintained and will not receive any updates.
+**Note:** The `5.x` branch is no longer maintained and will not receive any updates and the solutions uploaded to the website may not work with the old XCTest framework.
 
 This track is made up of **Practice Exercises**. Practice exercises are open-ended, and can be used to practice concepts learned, try out new techniques, and play.
 
