@@ -20,7 +20,7 @@ Define the `ranks` and `files` constants that store the range of ranks and files
 
 ```swift
 ranks
-// returns 1..8
+// Returns 1..8
 
 files
 // returns 'A'..'H'
