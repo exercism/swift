@@ -57,7 +57,7 @@ For example, these methods can be used to get the sum of all the values in the r
 
 A range can be endless and beginless.
 
-Using beginless and endless ranges is useful when you want to, for example, slice an array from the beginning or to the end.
+Using endless and beginless ranges is useful when you want to, for example, slice an array from the beginning or to the end.
 
 ~~~~exercism/caution
 If not used on a collection, the endless range can cause an endless sequence, if not used with caution.
