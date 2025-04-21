@@ -38,7 +38,9 @@ Ranges can be used to slice an array.
 
 ```swift
 let array = [1, 2, 3, 4, 5]
-let slice = array[1...3] // Returns [2, 3, 4]
+// Returns [1, 2, 3, 4, 5]
+let slice = array[1...3]
+// Returns [2, 3, 4]
 ```
 
 ## Range methods
