@@ -53,7 +53,7 @@ For example, these methods can be used to get the sum of all the values in the r
 | `count`       | Returns the size of the range                                           | `(1...5).count // returns 5`          |
 | [`contains`][contains]  | Returns `true` if the range includes the given value, otherwise `false` | `(1...5).contains(3) // Returns true` |
 
-## Endless & Beginningless ranges
+## Endless & beginless ranges
 
 A range can be endless and beginless.
 
