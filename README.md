@@ -20,7 +20,7 @@ This repo holds all the instructions, tests, code, & support files for Swift _ex
 🌟 &nbsp;&nbsp;Track tooling (_test-runner and Continuous Integration_) runs on Swift `6.1.0`. <br>
 🌟 &nbsp;&nbsp;Most exercises are solvable with Swift `6.0.0` or higher.
 
-As of 2025 does the track use the new [swift-testing][swift-testing] library for testing. This makes the so you have to use Swift 6.0.0 or higher to run the tests.
+Currently, the track uses the new [swift-testing][swift-testing] library, requiring Swift 6.0.0 or higher to run the tests.
 If you wish to still run the tests with the old XCTest framework, you can do so by pulling the `5.x` branch.
 **Note:** The `5.x` branch is no longer maintained and will not receive any updates.
 
