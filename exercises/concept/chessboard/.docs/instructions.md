@@ -23,7 +23,7 @@ ranks
 // Returns 1..8
 
 files
-// returns 'A'..'H'
+// Returns 'A'..'H'
 ```
 
 ## 2. Check if square is valid
