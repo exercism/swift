@@ -70,6 +70,7 @@ Please keep in mind [Chesterton's Fence][chestertons-fence].
 ## Swift Software and Documentation
 
 **Copyright © 2025 Apple Inc. All rights reserved.**
+The Swift logo is a trademark of Apple Inc.
 
 Swift software and documentation are licensed under the [Apache License v2.0][swift-license].
 
@@ -85,7 +86,7 @@ Thanks to Bethany for the allowing us to use her [template][exercism-template] f
 [chestertons-fence]: https://github.com/exercism/docs/blob/main/community/good-member/chestertons-fence.md
 [concept-exercises]: https://github.com/exercism/docs/blob/main/building/tracks/concept-exercises.md
 [config-json]: https://github.com/exercism/swift/blob/main/config.json
-[swift-license]: https://github.com/apple/swift/blob/main/LICENSE.txt
+[swift-license]: https://github.com/swiftlang/swift/blob/main/LICENSE.txt
 [good-first-issues]: https://github.com/exercism/swift/labels/good%20first%20patch
 [exercise-presentation]: https://github.com/exercism/docs/blob/main/building/tracks/presentation.md
 [exercism-admins]: https://github.com/exercism/docs/blob/main/community/administrators.md
