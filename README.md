@@ -87,6 +87,7 @@ Thanks to Bethany for the allowing us to use her [template][exercism-template] f
 [concept-exercises]: https://github.com/exercism/docs/blob/main/building/tracks/concept-exercises.md
 [config-json]: https://github.com/exercism/swift/blob/main/config.json
 [swift-license]: https://github.com/swiftlang/swift/blob/main/LICENSE.txt
+[swift-testing]: https://github.com/swiftlang/swift-testing
 [good-first-issues]: https://github.com/exercism/swift/labels/good%20first%20patch
 [exercise-presentation]: https://github.com/exercism/docs/blob/main/building/tracks/presentation.md
 [exercism-admins]: https://github.com/exercism/docs/blob/main/community/administrators.md
