@@ -32,7 +32,7 @@ if str == "apple" {
 }
 ```
 
-Could instead be written as:
+This could instead be written as:
 
 ```swift
 switch str {
