@@ -29,7 +29,8 @@ This can be useful when you want to create a collection of values, without havin
 
 ```swift
 let range = 1...5
-let array = Array(range) // Returns [1, 2, 3, 4, 5]
+let array = Array(range)
+// Returns [1, 2, 3, 4, 5]
 ```
 
 ## Slice an array
@@ -38,12 +39,14 @@ Ranges can be used to slice an array.
 
 ```swift
 let array = [1, 2, 3, 4, 5]
-let slice = array[1...3] // Returns [2, 3, 4]
+// Returns [1, 2, 3, 4, 5]
+let slice = array[1...3]
+// Returns [2, 3, 4]
 ```
 
 ## Range methods
 
-Ranges do have a set of methods that can be used to work with them.
+Ranges have a set of methods that can be used to work with them.
 For example, these methods can be used to get the sum of all the values in the range or check if the range includes a value.
 
 | Method                  | Description                                                             | Example                               |
@@ -51,11 +54,11 @@ For example, these methods can be used to get the sum of all the values in the r
 | `count`                 | Returns the size of the range                                           | `(1...5).count // returns 5`          |
 | [`contains`][contains]  | Returns `true` if the range includes the given value, otherwise `false` | `(1...5).contains(3) // Returns true` |
 
-## Endless & Beginningless ranges
+## Endless and beginless ranges
 
 A range can be endless and beginless.
 
-Using beginless and endless ranges is useful when you want to, for example, slice an array from the beginning or to the end.
+Using endless and beginless ranges is useful when you want to, for example, slice an array from the beginning or to the end.
 
 ~~~~exercism/caution
 If not used on a collection, the endless range can cause an endless sequence, if not used with caution.

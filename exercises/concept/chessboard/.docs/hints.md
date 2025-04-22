@@ -2,7 +2,7 @@
 
 ## 1. Define rank & file range
 
-- There is an [operator][swift-range-docs] for creating a range, which can be used for both characters and integers.
+- There is an [operator][swift-range-docs] for creating a range, which can be used for both strings and integers.
 
 ## 2. Check if square is valid
 

@@ -29,7 +29,8 @@ This can be useful when you want to create a collection of values, without havin
 
 ```swift
 let range = 1...5
-let array = Array(range) // Returns [1, 2, 3, 4, 5]
+let array = Array(range)
+// Returns [1, 2, 3, 4, 5]
 ```
 
 ## Slice an array
@@ -45,7 +46,7 @@ let slice = array[1...3]
 
 ## Range methods
 
-Ranges do have a set of methods that can be used to work with them.
+Ranges have a set of methods that can be used to work with them.
 For example, these methods can be used to get the sum of all the values in the range or check if the range includes a value.
 
 | Method                  | Description                                                             | Example                               |
@@ -53,7 +54,7 @@ For example, these methods can be used to get the sum of all the values in the r
 | `count`                 | Returns the size of the range                                           | `(1...5).count // returns 5`          |
 | [`contains`][contains]  | Returns `true` if the range includes the given value, otherwise `false` | `(1...5).contains(3) // Returns true` |
 
-## Endless & beginless ranges
+## Endless and beginless ranges
 
 A range can be endless and beginless.
 
