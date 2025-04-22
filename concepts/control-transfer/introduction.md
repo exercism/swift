@@ -5,7 +5,7 @@ These are known as control transfer statements.
 You have already seen `return`; this concept will introduce other, which include `continue`, `break`, and labels.
 We won't cover `fallthrough` in this concept, but you can read about it in the [Swift book][fallthrough].
 
-## continue
+## Continue
 
 Sometimes it is necessary to skip to the next iteration of a loop early, without completing the rest of the statements in the current iteration of the loop.
 The `continue` keyword can be used for this.
