@@ -10,7 +10,7 @@ If either parameter is `nil`, also return `nil`
 
 ```swift
 sliceSize(diameter: 16, slices: 12)
-// returns 16.75516081914556
+// Returns 16.75516081914556
 sliceSize(diameter: nil, slices: 8)
 // returns nil
 ```
