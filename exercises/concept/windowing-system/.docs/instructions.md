@@ -34,7 +34,7 @@ Include a method `resize(newWidth:newHeight:)` that takes new width and height p
 
 ```swift
 let size1080x764 = Size(width: 1080, height: 764)
-// returns Size
+// Returns Size
 var size1200x800 = size1080x764
 // returns Size
 size1200x800.resize(newWidth: 1200, newHeight: 800)
