@@ -99,7 +99,7 @@ window.title
 
 ## 7. Create an initilazer for the Window class
 
-The window system should have an initializer so the that the window can be created with custom inputs.
+The window system should have an initializer so that the window can be created with custom inputs.
 Create **another** initializer for the `Window` class.
 The initializer should take the following parameters: `title`, `contents`, and two optional parameters `size` and `position`.
 The `size` and `position` parameters should default to the default values of the `Size` and `Position` structs.
