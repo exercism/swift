@@ -50,7 +50,7 @@ default:
 ## Binding and where statements
 
 The values being matched in `switch` statements can also be bound to names which can be used in the body of the case.
-They can also be used in `where` clauses, which are additional boolean expressions that must evaluate as `true` for the case to match.
+They can also be used in `where` clauses, which are additional Boolean expressions that must evaluate as `true` for the case to match.
 
 ```swift
 let x = 1337
