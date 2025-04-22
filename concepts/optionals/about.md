@@ -64,7 +64,7 @@ if let safeNum = Int("123") {
 ```
 
 Worth noting is that the `safeNum` variable has the type `Int` and not `Int?`.
-In the example below, `num` is of type `Int?` and `safeNum` is of type `Int`:
+In the example below, `num` is of type `Int?` and `safeNum` is of type `Int`.
 
 ```swift
 let num = Int("123")
