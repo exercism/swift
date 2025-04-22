@@ -38,7 +38,7 @@ repeat {
 ```
 
 Here the loop will only execute once, since the condition is false.
-But since it is a repeat-while loop, the loop body will execute once before the condition is evaluated.
+Since it is a repeat-while loop, the loop body will execute once before the condition is evaluated.
 
 ```swift
 var count = 2
