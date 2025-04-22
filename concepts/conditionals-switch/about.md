@@ -2,7 +2,7 @@
 
 A [switch statement][switch] allows you to compare a value against multiple possible matching values.
 It allows you to write more concise code than using multiple `else-if` statements.
-Switch statement starts with the `switch` keyword followed by the value to be compared.
+A switch statement starts with the `switch` keyword followed by the value to be compared.
 Then do define the cases using the `case` keyword followed by the value to be compared against.
 The `default` keyword is used to define the default case when none of the cases match.
 Like `else-if` statements, `switch` statements can execute the first matching case and then exit the switch statement.
