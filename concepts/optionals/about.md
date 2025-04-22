@@ -3,7 +3,7 @@
 ## Optionals
 
 Swift uses [_optionals_][optionals] to allow programmers to represent the possible absence of a value.
-Optionals is a type that can either hold a value or be [`nil`][nil], which represents the absence of a value.
+Optional is a type that can either hold a value or be [`nil`][nil], which represents the absence of a value.
 Using an optional requires a program to check if a value does exist before using it after unwrapping it.
 
 Any type can be made into an optional by appending a `?` onto the end of the type name.
