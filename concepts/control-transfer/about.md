@@ -66,7 +66,7 @@ outerLoop: for fruit in ["banana", "grapes", "apple", "strawberry", "kiwi", "lem
 ## Fallthrough
 
 The `fallthrough` keyword is used to fall through to the next case in a switch statement.
-Meaning that the code in the next case will be executed, even if the value in the next case does not match the value being compared.
+This means the the code within the next case will be executed without checking its condition(s).
 This will make the switch statement behave like other programming languages where the `break` statement is not required to exit the switch statement after a case is matched.
 You can read more about `fallthrough` in the [Swift book][fallthrough].
 
