@@ -3,8 +3,8 @@
 ## Optionals
 
 Swift uses [_optionals_][optionals] to allow programmers to represent the possible absence of a value.
-Optionals is a type that can either hold a value or be [`nil`][nil], which represents the absence of a value.
-Before attempting to use a value that may not exist, optionals allow the program to check first it it exists, then if it does exist unwrap and use it.
+Optional is a type that can either hold a value or be [`nil`][nil], which represents the absence of a value.
+Using an optional requires a program to check if a value does exist before using it after unwrapping it.
 
 Any type can be made into an optional by appending a `?` onto the end of the type name.
 So an optional integer would have type `Int?` and an optional string would have type `String?`.
@@ -17,7 +17,7 @@ y = "Goodbye"
 ```
 
 You can assign the absence of a value to a variable of optional type by assigning it the special value `nil`.
-`nil` can be used with all optional types, but `nil`s assigned to two different optional types do not have the same type, and cannot be interchanged or even compared. E.g.
+`nil` can be used with all optional types, but `nil`s assigned to two different optional types do not have the same type, and cannot be interchanged or even compared.
 
 ```swift
 let intOpt: Int? = nil
@@ -63,8 +63,8 @@ if let safeNum = Int("123") {
 }
 ```
 
-Worth noting is that the `safeNum` variable has the type `Int` and not `Int?`.
-In the example below, `num` is of type `Int?` and `safeNum` is of type `Int`:
+It is worth noting that the `safeNum` variable has the type `Int` and not `Int?`.
+In the example below, `num` is of type `Int?` and `safeNum` is of type `Int`.
 
 ```swift
 let num = Int("123")
@@ -97,9 +97,9 @@ Note that even if the base type of a pair of optionals can be compared using the
 They can only be checked for equality.
 Two optionals are equal if they are both `nil` or if the values they wrap are equal within their base types.
 
-However, code can of course, be written to perform a custom comparison of two optional values.
+However, code can be written to perform a custom comparison of two optional values.
 Below is an example of a `switch` statement that will return `true` only if both optional values are non-nil and the first value is less than the second. 
-To do this it uses the _optional pattern_ `varName?` which only matches non-nil optionals, binding the value inside the optional to the name `varName`:
+To do this it uses the _optional pattern_ `varName?` which only matches non-nil optionals, binding the value inside the optional to the name `varName`.
 
 ```swift
 switch (optionalA, optionalB) {
