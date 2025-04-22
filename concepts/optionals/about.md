@@ -17,7 +17,7 @@ y = "Goodbye"
 ```
 
 You can assign the absence of a value to a variable of optional type by assigning it the special value `nil`.
-`nil` can be used with all optional types, but `nil`s assigned to two different optional types do not have the same type, and cannot be interchanged or even compared. E.g.
+`nil` can be used with all optional types, but `nil`s assigned to two different optional types do not have the same type, and cannot be interchanged or even compared.
 
 ```swift
 let intOpt: Int? = nil
