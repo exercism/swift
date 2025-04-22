@@ -1,8 +1,38 @@
-# Introduction
+# About
 
-While the else-if variant of `if` statements cleans things up considerably, there is still a lot of noise in the code from all of the curly braces. This is where the `switch` statement comes into play. In conditional statements with many possible branches, the switch statement shines. Note, however, that `switch` statements do work a bit differently from `if` statements.
+A [switch statement][switch] allows you to compare a value against multiple possible matching values.
+It allows you to write more concise code than using multiple `else-if` statements.
+A switch statement starts with the `switch` keyword followed by the value to be compared.
+Then you can define the cases using the `case` keyword followed by the value to be compared against.
+The `default` keyword is used to define the default case when none of the cases match.
+Like `else-if` statements, `switch` statements only execute the block of code associated with the first matching case.
 
-Rather than evaluating a Boolean expression and using the value of that expression to choose the code branch that is run, a simple switch statement takes an input value (or expression which it evaluates to obtain the input value) of some type and compares against one or more values of the same type. If a case is found that matches the input value, the corresponding block of code is run.
+```swift
+switch value {
+case 1:
+    print("One")
+case 2:
+    print("Two")
+default:
+    print("Other")
+}
+```
+
+Consider the following example:
+
+```swift
+if str == "apple" {
+    print("Let's bake an apple crumble")
+} else if str == "lemon" {
+    print("Let's bake a lemon meringue pie!")
+} else if str == "peach" {
+    print("Let's bake a peach pie!")
+} else {
+    print("Let's buy ice cream.")
+}
+```
+
+This could instead be written as:
 
 ```swift
 switch str {
@@ -16,3 +46,5 @@ default:
     print("Let's buy ice cream.")
 }
 ```
+
+[switch]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Switch
