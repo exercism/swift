@@ -3,10 +3,10 @@
 
 A [switch statement][switch] allows you to compare a value against multiple possible matching values.
 It allows you to write more concise code than using multiple `else-if` statements.
-Switch statement starts with the `switch` keyword followed by the value to be compared.
-Then do define the cases using the `case` keyword followed by the value to be compared against.
+A switch statement starts with the `switch` keyword followed by the value to be compared.
+Then you can define the cases using the `case` keyword followed by the value to be compared against.
 The `default` keyword is used to define the default case when none of the cases match.
-Like `else-if` statements, `switch` statements can execute the first matching case and then exit the switch statement.
+Like `else-if` statements, `switch` statements only execute the block of code associated with the first matching case.
 
 ```swift
 switch value {
@@ -33,7 +33,7 @@ if str == "apple" {
 }
 ```
 
-Could instead be written as:
+This could instead be written as:
 
 ```swift
 switch str {
@@ -52,7 +52,7 @@ default:
 
 A [while loop][while-loops] is a control flow statement that allows code to be executed while a certain condition is true.
 Swift provides two kinds of while loops: while and repeat-while loops.
-While loop's condition is evaluated before the loop body is executed, and if the condition is false, the loop body will not be executed at all.
+While loop's condition is evaluated before the loop body is executed; if the condition is false, the loop body will not be executed at all.
 while-loops in Swift have the following structure:
 
 ```swift
@@ -88,7 +88,7 @@ repeat {
 ```
 
 Here the loop will only execute once, since the condition is false.
-But since it is a repeat-while loop, the loop body will execute once before the condition is evaluated.
+Since it is a repeat-while loop, the loop body will execute once before the condition is evaluated.
 
 ```swift
 var count = 2
@@ -102,14 +102,14 @@ print("Liftoff!")
 
 Swift has a set of statements that can be used to alter the normal control flow of loops.
 These are known as control transfer statements.
-And you have already seen one of them, `return`, but this concept will introduce the other onces, which iclude `continue`, `break`, and labels.
-And one which we wont cover in this concept, `fallthrough`, but you can read about it in the [Swift book][fallthrough].
+You have already seen `return`; this concept will introduce other, which include `continue`, `break`, and labels.
+We won't cover `fallthrough` in this concept, but you can read about it in the [Swift book][fallthrough].
 
-### continue
+### Continue
 
 Sometimes it is necessary to skip to the next iteration of a loop early, without completing the rest of the statements in the current iteration of the loop.
 The `continue` keyword can be used for this.
-When `continue` is executed, the loop jump to the next check to see if the next iteration of the loop can be run, i.e. the `while` in while and repeat-while loops or the check if there's another element in the sequence in for-in loops.
+When `continue` is executed, the loop jumps to the next check to see if the next iteration of the loop can be run, i.e. the `while` in while and repeat-while loops or the check if there's another element in the sequence in for-in loops.
 
 ```swift
 count = 1
