@@ -99,7 +99,7 @@ Two optionals are equal if they are both `nil` or if the values they wrap are eq
 
 However, code can be written to perform a custom comparison of two optional values.
 Below is an example of a `switch` statement that will return `true` only if both optional values are non-nil and the first value is less than the second. 
-To do this it uses the _optional pattern_ `varName?` which only matches non-nil optionals, binding the value inside the optional to the name `varName`:
+To do this it uses the _optional pattern_ `varName?` which only matches non-nil optionals, binding the value inside the optional to the name `varName`.
 
 ```swift
 switch (optionalA, optionalB) {
