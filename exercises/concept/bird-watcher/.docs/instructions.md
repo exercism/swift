@@ -14,7 +14,7 @@ It should return the total number of birds that you counted.
 ```swift
 let birdsPerDay = [2, 5, 0, 7, 4, 1, 3, 0, 2, 5, 0, 1, 3, 1]
 totalBirdCount(birdsPerDay)
-// returns 34
+// Returns 34
 ```
 
 ## 2. Calculate the number of visiting birds in a specific week
@@ -29,7 +29,7 @@ You can assume weeks are always tracked completely.
 ```swift
 let birdsPerDay = [2, 5, 0, 7, 4, 1, 3, 0, 2, 5, 0, 1, 3, 1]
 birdsInWeek(birdsPerDay, weekNumber: 2)
-// returns 12
+// Returns 12
 ```
 
 ## 3. Fix a counting mistake
@@ -47,5 +47,5 @@ Given this new information, write a function `fixBirdCountLog` that takes an arr
 ```swift
 var birdsPerDay = [2, 5, 0, 7, 4, 1]
 fixBirdCountLog(birdsPerDay)
-// returns [3, 5, 1, 7, 5, 1]
+// Returns [3, 5, 1, 7, 5, 1]
 ```

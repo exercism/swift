@@ -37,7 +37,8 @@ let numbers = [3, 10, 7, 11]
 for number in numbers {
     number + 1
 }
-number + 1 // Error: Use of unresolved identifier 'number'
+number + 1
+// Error: Use of unresolved identifier 'number'
 ```
 ~~~~
 
