@@ -69,7 +69,6 @@ Please keep in mind [Chesterton's Fence][chestertons-fence].
 
 ## Swift Software and Documentation
 
-**Copyright © 2025 Apple Inc. All rights reserved.**
 The Swift logo is a trademark of Apple Inc.
 
 Swift software and documentation are licensed under the [Apache License v2.0][swift-license].
