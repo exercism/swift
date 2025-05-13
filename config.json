@@ -735,7 +735,8 @@
           "loops",
           "pattern_matching",
           "strings"
-        ]
+        ],
+        "status": "deprecated"
       },
       {
         "slug": "scrabble-score",
