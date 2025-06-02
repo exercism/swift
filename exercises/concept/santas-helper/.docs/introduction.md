@@ -46,7 +46,7 @@ let orderQuantity = order.quantity
 // Returns 3
 ```
 
-Same as non-named tuples, you can specify the type of each value in a named tuple:
+As with non-named tuples, you can specify the type of each value in a named tuple:
 
 ```swift
 let order: (item: String, price: Double, quantity: Int) = (item: "biscuits", price: 2.99, quantity: 3)
