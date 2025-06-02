@@ -1,27 +1,29 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
     {% if forloop.first -%}
-        func test{{case.description |camelCase }}() {
+        @Test("{{case.description}}")
     {% else -%}
-        func test{{case.description |camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
+        @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
+    func test{{case.description |camelCase }}() {
     {% if case.expected.error -%}
-        XCTAssertThrowsError(try NumberSeries("{{case.input.digits}}").largestProduct({{case.input.span}})) { error in
+        #expect(throws: 
         {% if case.expected.error == "span must be smaller than string length" -%}
-            XCTAssertEqual(error as? NumberSeriesError, NumberSeriesError.spanLongerThanInput)
+            NumberSeriesError.spanLongerThanInput
         {% elif case.expected.error == "digits input must only contain digits" -%}
-            XCTAssertEqual(error as? NumberSeriesError, NumberSeriesError.invalidCharacter)
+            NumberSeriesError.invalidCharacter
         {% else -%}
-            XCTAssertEqual(error as? NumberSeriesError, NumberSeriesError.spanIsZeroOrNegative)
+            NumberSeriesError.spanIsZeroOrNegative
         {% endif -%}
-        }
+        ) {try NumberSeries("{{case.input.digits}}").largestProduct({{case.input.span}})}
     {% else -%}
-        XCTAssertEqual(try! NumberSeries("{{case.input.digits}}").largestProduct({{case.input.span}}), {{case.expected}})
+        #expect(try! NumberSeries("{{case.input.digits}}").largestProduct({{case.input.span}}) == {{case.expected}})
     {% endif -%}
     }
     {% endfor -%}
