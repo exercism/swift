@@ -33,9 +33,9 @@ Next, implement the `LogLevel` initializer to parse the log level of a log line:
 
 ```swift
 LogLevel("[INF]: File deleted")
-// returns LogLevel.info
+// Returns LogLevel.info
 LogLevel("Something went wrong!")
-// returns LogLevel.unknown
+// Returns LogLevel.unknown
 ```
 
 ## 3. Convert log line to short format
@@ -58,5 +58,5 @@ Implement the `shortFormat(message: String) -> String` method that can output th
 ```swift
 let overflow = LogLevel.error
 overflow.shortFormat(message: "Stack overflow")
-// returns "6:Stack overflow"
+// Returns "6:Stack overflow"
 ```
