@@ -1,90 +1,93 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Minesweeper
 
-class MinesweeperTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct MinesweeperTests {
+
+  @Test("no rows")
   func testNoRows() {
     let input = [String]()
     let output = [String]()
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testNoColumns() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("no columns", .enabled(if: RUNALL))
+  func testNoColumns() {
     let input = [""]
     let output = [""]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testNoMines() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("no mines", .enabled(if: RUNALL))
+  func testNoMines() {
     let input = ["   ", "   ", "   "]
     let output = ["   ", "   ", "   "]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testMinefieldWithOnlyMines() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("minefield with only mines", .enabled(if: RUNALL))
+  func testMinefieldWithOnlyMines() {
     let input = ["***", "***", "***"]
     let output = ["***", "***", "***"]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testMineSurroundedBySpaces() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("mine surrounded by spaces", .enabled(if: RUNALL))
+  func testMineSurroundedBySpaces() {
     let input = ["   ", " * ", "   "]
     let output = ["111", "1*1", "111"]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testSpaceSurroundedByMines() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("space surrounded by mines", .enabled(if: RUNALL))
+  func testSpaceSurroundedByMines() {
     let input = ["***", "* *", "***"]
     let output = ["***", "*8*", "***"]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testHorizontalLine() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("horizontal line", .enabled(if: RUNALL))
+  func testHorizontalLine() {
     let input = [" * * "]
     let output = ["1*2*1"]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testHorizontalLineMinesAtEdges() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("horizontal line, mines at edges", .enabled(if: RUNALL))
+  func testHorizontalLineMinesAtEdges() {
     let input = ["*   *"]
     let output = ["*1 1*"]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testVerticalLine() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("vertical line", .enabled(if: RUNALL))
+  func testVerticalLine() {
     let input = [" ", "*", " ", "*", " "]
     let output = ["1", "*", "2", "*", "1"]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testVerticalLineMinesAtEdges() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("vertical line, mines at edges", .enabled(if: RUNALL))
+  func testVerticalLineMinesAtEdges() {
     let input = ["*", " ", " ", " ", "*"]
     let output = ["*", "1", " ", "1", "*"]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testCross() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("cross", .enabled(if: RUNALL))
+  func testCross() {
     let input = ["  *  ", "  *  ", "*****", "  *  ", "  *  "]
     let output = [" 2*2 ", "25*52", "*****", "25*52", " 2*2 "]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 
-  func testLargeMinefield() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("large minefield", .enabled(if: RUNALL))
+  func testLargeMinefield() {
     let input = [" *  * ", "  *   ", "    * ", "   * *", " *  * ", "      "]
     let output = ["1*22*1", "12*322", " 123*2", "112*4*", "1*22*2", "111111"]
-    XCTAssertEqual(output, try! Board(input).transform())
+    #expect(Board(input).transform() == output)
   }
 }
