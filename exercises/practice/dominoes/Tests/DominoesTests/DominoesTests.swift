@@ -1,84 +1,87 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Dominoes
 
-class DominoesTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct DominoesTests {
+
+  @Test("empty input = empty output")
   func testEmptyInputEmptyOutput() {
     let input = [(Int, Int)]()
-    XCTAssertTrue(Dominoes(input).chained)
+    #expect(Dominoes(input).chained)
   }
 
-  func testSingletonInputSingletonOutput() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("singleton input = singleton output", .enabled(if: RUNALL))
+  func testSingletonInputSingletonOutput() {
     let input = [(1, 1)]
-    XCTAssertTrue(Dominoes(input).chained)
+    #expect(Dominoes(input).chained)
   }
 
-  func testSingletonThatCantBeChained() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("singleton that can't be chained", .enabled(if: RUNALL))
+  func testSingletonThatCantBeChained() {
     let input = [(1, 2)]
-    XCTAssertFalse(Dominoes(input).chained)
+    #expect(!Dominoes(input).chained)
   }
 
-  func testThreeElements() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("three elements", .enabled(if: RUNALL))
+  func testThreeElements() {
     let input = [(1, 2), (3, 1), (2, 3)]
-    XCTAssertTrue(Dominoes(input).chained)
+    #expect(Dominoes(input).chained)
   }
 
-  func testCanReverseDominoes() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("can reverse dominoes", .enabled(if: RUNALL))
+  func testCanReverseDominoes() {
     let input = [(1, 2), (1, 3), (2, 3)]
-    XCTAssertTrue(Dominoes(input).chained)
+    #expect(Dominoes(input).chained)
   }
 
-  func testCantBeChained() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("can't be chained", .enabled(if: RUNALL))
+  func testCantBeChained() {
     let input = [(1, 2), (4, 1), (2, 3)]
-    XCTAssertFalse(Dominoes(input).chained)
+    #expect(!Dominoes(input).chained)
   }
 
-  func testDisconnectedSimple() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("disconnected - simple", .enabled(if: RUNALL))
+  func testDisconnectedSimple() {
     let input = [(1, 1), (2, 2)]
-    XCTAssertFalse(Dominoes(input).chained)
+    #expect(!Dominoes(input).chained)
   }
 
-  func testDisconnectedDoubleLoop() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("disconnected - double loop", .enabled(if: RUNALL))
+  func testDisconnectedDoubleLoop() {
     let input = [(1, 2), (2, 1), (3, 4), (4, 3)]
-    XCTAssertFalse(Dominoes(input).chained)
+    #expect(!Dominoes(input).chained)
   }
 
-  func testDisconnectedSingleIsolated() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("disconnected - single isolated", .enabled(if: RUNALL))
+  func testDisconnectedSingleIsolated() {
     let input = [(1, 2), (2, 3), (3, 1), (4, 4)]
-    XCTAssertFalse(Dominoes(input).chained)
+    #expect(!Dominoes(input).chained)
   }
 
-  func testNeedBacktrack() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("need backtrack", .enabled(if: RUNALL))
+  func testNeedBacktrack() {
     let input = [(1, 2), (2, 3), (3, 1), (2, 4), (2, 4)]
-    XCTAssertTrue(Dominoes(input).chained)
+    #expect(Dominoes(input).chained)
   }
 
-  func testSeparateLoops() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("separate loops", .enabled(if: RUNALL))
+  func testSeparateLoops() {
     let input = [(1, 2), (2, 3), (3, 1), (1, 1), (2, 2), (3, 3)]
-    XCTAssertTrue(Dominoes(input).chained)
+    #expect(Dominoes(input).chained)
   }
 
-  func testNineElements() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("nine elements", .enabled(if: RUNALL))
+  func testNineElements() {
     let input = [(1, 2), (5, 3), (3, 1), (1, 2), (2, 4), (1, 6), (2, 3), (3, 4), (5, 6)]
-    XCTAssertTrue(Dominoes(input).chained)
+    #expect(Dominoes(input).chained)
   }
 
-  func testSeparateThreeDominoLoops() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("separate three-domino loops", .enabled(if: RUNALL))
+  func testSeparateThreeDominoLoops() {
     let input = [(1, 2), (2, 3), (3, 1), (4, 5), (5, 6), (6, 4)]
-    XCTAssertFalse(Dominoes(input).chained)
+    #expect(!Dominoes(input).chained)
   }
 }
