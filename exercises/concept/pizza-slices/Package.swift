@@ -24,6 +24,6 @@ let package = Package(
       dependencies: []),
     .testTarget(
       name: "PizzaSlicesTests",
-      dependencies: ["PizzaSlices", .product(name: "Numerics", package: "swift-numerics"),]),
+      dependencies: ["PizzaSlices", .product(name: "RealModule", package: "swift-numerics"),]),
   ]
 )
