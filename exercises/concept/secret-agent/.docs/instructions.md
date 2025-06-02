@@ -10,16 +10,16 @@ Once you have the secret plans, you will need to protect it so that only those w
 
 In order to do this, you will need to implement the function `protectSecret(_ secret: String, withPassword password: String) -> (String) -> String`.
 This function will return another function that takes possible password strings as input.
-If the entered password is correct the new function returns the hidden secret, but if it is the incorrect password the function returns "Sorry. No hidden secrets here."
+If the entered password is correct the new function returns the hidden secret, but if the password is incorrect, the function returns "Sorry. No hidden secrets here."
 
 ```swift
 let secretFunction = protectSecret("Steal the world's supply of french fries!", withPassword: "5up3r53cr37")
 
 secretFunction("Open sesame")
-// returns "Sorry. No hidden secrets here."
+// Returns "Sorry. No hidden secrets here."
 
 secretFunction("5up3r53cr37")
-// returns "Steal the world's supply of french fries!"
+// Returns "Steal the world's supply of french fries!"
 ```
 
 ## 2. Generate a combination to open their safe
@@ -38,5 +38,5 @@ func makeCombo(_ x: Int) -> Int {
 }
 
 generateCombination(forRoom: 227, usingFunction: makeCombo)
-// returns (135, 219, 31)
+// Returns (135, 219, 31)
 ```
