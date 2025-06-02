@@ -1,21 +1,23 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% outer: for case in cases %}
         {%- for subCases in case.cases %}
         {%- if forloop.outer.first and forloop.first %}
-            func test{{subCases.description |camelCase }}() {
+            @Test("{{subCases.description}}")
         {%- else %}
-            func test{{subCases.description |camelCase }}() throws {
-            try XCTSkipIf(true && !runAll) // change true to false to run this test
+            @Test("{{subCases.description}}", .enabled(if: RUNALL))
         {%- endif %}
+            func test{{subCases.description |camelCase }}() {
         {%- ifnot subCases.expected.error %}
-            XCTAssertEqual(try! classify(number: {{subCases.input.number}}), .{{subCases.expected}})
+            #expect(try! classify(number: {{subCases.input.number}}) == .{{subCases.expected}})
         {%- else %}
-            XCTAssertThrowsError(try classify(number: {{subCases.input.number}})) { error in
-                XCTAssertEqual(error as? ClassificationError, .invalidInput)
+            #expect(throws: ClassificationError.invalidInput) {
+                try classify(number: {{subCases.input.number}})
             }
         {%- endif %}
         }

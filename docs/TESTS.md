@@ -7,7 +7,7 @@ When you are in the directory for an exercise, you should see two subdirectories
 * `Sources/<Exercise>` contains your solution to the exercise
 * `Tests/<Exercise>Tests` contains the tests to run for the exercise
 
-If you're in the right directory (i.e. the one containing `Sources` and `Tests`), you can run the tests for that exercise by running `swift test` if you are using 5.4 or later:
+If you're in the right directory (i.e. the one containing `Sources` and `Tests`), you can run the tests for that exercise by running `swift test`:
 
 ```bash
 $ pwd
@@ -19,16 +19,17 @@ HELP.md  Package.swift  README.md  Sources  Tests
 $ swift test
 ```
 
-If you are using `5.1` through `5.3` you may have to add the `--enable-test-discovery` flag:
+When you got a test passing remove `.enabled(if: RUNALL)` in the `@Test` statement to enable the next test, alternatively you can run all the tests with the `RUNALL` environment variable set to `true` on Linux or macOS:
 
 ```bash
-$ swift test --enable-test-discovery
+$ export RUNALL=true
 ```
 
-This will run all of the test files in the `Test` directory.
+Or if you are using PowerShell on Windows:
 
-For concept exercises, when you got a test passing change the `true` in the `XCTSkipIf` to `false` to enable the next test.
-
+```powershell
+set RUNALL=true
+```
 
 ## Submitting Your Solution
 

@@ -90,7 +90,7 @@
           "higher-order-functions"
         ],
         "prerequisites": [
-          "basics"
+          "optionals"
         ],
         "status": "active"
       },
@@ -116,6 +116,18 @@
         ],
         "prerequisites": [
           "conditionals"
+        ],
+        "status": "active"
+      },
+      {
+        "slug": "chessboard",
+        "name": "ChessBoard",
+        "uuid": "162bf709-ed48-438d-9a32-f572099cf42e",
+        "concepts": [
+          "ranges"
+        ],
+        "prerequisites": [
+          "arrays"
         ],
         "status": "active"
       },
@@ -209,7 +221,7 @@
         "uuid": "082d7aeb-ee25-4217-bd6f-82532a65797a",
         "concepts": [
           "importing",
-          "string-components",
+          "string-methods",
           "string-indexing"
         ],
         "prerequisites": [
@@ -261,49 +273,13 @@
           "enumerations"
         ],
         "prerequisites": [
-          "string-components",
+          "string-methods",
           "structs-and-classes"
         ],
         "status": "active"
       }
     ],
     "practice": [
-      {
-        "slug": "binary",
-        "name": "Binary",
-        "uuid": "0930d019-2ccb-48f9-9ee7-467b683d9901",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "status": "deprecated"
-      },
-      {
-        "slug": "hexadecimal",
-        "name": "Hexadecimal",
-        "uuid": "3a9f0e4d-a569-40ea-adb8-ded8d240c949",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "status": "deprecated"
-      },
-      {
-        "slug": "octal",
-        "name": "Octal",
-        "uuid": "128bcbc1-18b3-45e7-9590-c71d8f57c5c1",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "status": "deprecated"
-      },
-      {
-        "slug": "trinary",
-        "name": "Trinary",
-        "uuid": "8b376ef9-ad94-4623-8d0f-e2d7bb6c364a",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "status": "deprecated"
-      },
       {
         "slug": "difference-of-squares",
         "name": "Difference of Squares",
@@ -406,18 +382,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1
-      },
-      {
-        "slug": "accumulate",
-        "name": "Accumulate",
-        "uuid": "cb5bc145-8249-4b3b-bcb3-b8d7805f2a14",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2,
-        "topics": [
-          "recursion",
-          "transforming"
-        ]
       },
       {
         "slug": "darts",
@@ -733,19 +697,6 @@
         "topics": [
           "records",
           "tuples"
-        ]
-      },
-      {
-        "slug": "scale-generator",
-        "name": "Scale Generator",
-        "uuid": "1c9dfe22-de66-4437-862b-8921dc7eb25e",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3,
-        "topics": [
-          "loops",
-          "pattern_matching",
-          "strings"
         ]
       },
       {
@@ -1353,6 +1304,69 @@
         ]
       },
       {
+        "slug": "binary",
+        "name": "Binary",
+        "uuid": "0930d019-2ccb-48f9-9ee7-467b683d9901",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "status": "deprecated"
+      },
+      {
+        "slug": "hexadecimal",
+        "name": "Hexadecimal",
+        "uuid": "3a9f0e4d-a569-40ea-adb8-ded8d240c949",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "status": "deprecated"
+      },
+      {
+        "slug": "octal",
+        "name": "Octal",
+        "uuid": "128bcbc1-18b3-45e7-9590-c71d8f57c5c1",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "status": "deprecated"
+      },
+      {
+        "slug": "trinary",
+        "name": "Trinary",
+        "uuid": "8b376ef9-ad94-4623-8d0f-e2d7bb6c364a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "status": "deprecated"
+      },
+      {
+        "slug": "accumulate",
+        "name": "Accumulate",
+        "uuid": "cb5bc145-8249-4b3b-bcb3-b8d7805f2a14",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "status": "deprecated",
+        "topics": [
+          "recursion",
+          "transforming"
+        ]
+      },
+      {
+        "slug": "scale-generator",
+        "name": "Scale Generator",
+        "uuid": "1c9dfe22-de66-4437-862b-8921dc7eb25e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "status": "deprecated",
+        "topics": [
+          "loops",
+          "pattern_matching",
+          "strings"
+        ]
+      },
+      {
         "slug": "beer-song",
         "name": "Beer Song",
         "uuid": "53f022ee-903e-4ee1-aabc-2db0a68d4b1c",
@@ -1515,6 +1529,11 @@
       "name": "repeat while"
     },
     {
+      "uuid": "cb0d8166-672c-4bdf-820b-d60531574d73",
+      "slug": "ranges",
+      "name": "Ranges"
+    },
+    {
       "uuid": "a4b7ebd1-28f4-4270-910f-cf511ec4b45a",
       "slug": "self",
       "name": "Self"
@@ -1531,8 +1550,8 @@
     },
     {
       "uuid": "343255a9-9931-4887-941e-e768448bf6a4",
-      "slug": "string-components",
-      "name": "String Components"
+      "slug": "string-methods",
+      "name": "String Methods"
     },
     {
       "uuid": "6b721b54-e85e-4156-af34-04f36ec37af0",

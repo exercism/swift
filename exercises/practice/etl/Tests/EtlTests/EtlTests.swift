@@ -1,38 +1,41 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Etl
 
-class EtlTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct EtlTests {
+
+  @Test("single letter")
   func testSingleLetter() {
     let legacy = ["1": ["A"]]
     let expected = ["a": 1]
     let results = ETL.transform(legacy)
 
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testSingleScoreWithMultipleLetters() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("single score with multiple letters", .enabled(if: RUNALL))
+  func testSingleScoreWithMultipleLetters() {
     let legacy = ["1": ["A", "E", "I", "O", "U"]]
     let expected = ["a": 1, "e": 1, "i": 1, "o": 1, "u": 1]
     let results = ETL.transform(legacy)
 
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testMultipleScoresWithMultipleLetters() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("multiple scores with multiple letters", .enabled(if: RUNALL))
+  func testMultipleScoresWithMultipleLetters() {
     let legacy = ["1": ["A", "E"], "2": ["D", "G"]]
     let expected = ["a": 1, "d": 2, "e": 1, "g": 2]
     let results = ETL.transform(legacy)
 
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 
-  func testMultipleScoresWithDifferingNumbersOfLetters() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("multiple scores with differing numbers of letters", .enabled(if: RUNALL))
+  func testMultipleScoresWithDifferingNumbersOfLetters() {
     let legacy = [
       "1": ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"], "10": ["Q", "Z"], "2": ["D", "G"],
       "3": ["B", "C", "M", "P"], "4": ["F", "H", "V", "W", "Y"], "5": ["K"], "8": ["J", "X"],
@@ -44,6 +47,6 @@ class EtlTests: XCTestCase {
     ]
     let results = ETL.transform(legacy)
 
-    XCTAssertEqual(results, expected)
+    #expect(results == expected)
   }
 }

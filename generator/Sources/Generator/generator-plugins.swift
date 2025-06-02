@@ -244,6 +244,42 @@ class GeneratorPlugins {
       return "// Something else ..."
     }
 
+    ext.registerFilter("complexNumber") { (value: Any?) in
+      if let input = value as? String {
+        switch input {
+        case "pi":
+          return "Double.pi"
+        case "e":
+          return "exp(1)"
+        case "ln(2)":
+          return "log(2)"
+        case "ln(2)/2":
+          return "log(2)/2"
+        case "pi/4":
+          return "Double.pi/4"
+        default:
+          return input
+        }
+      }
+      return value
+    }
+    ext.registerFilter("listOps") { (value: Any?) in
+      if let inputString = value as? String {
+        return inputString.replacingOccurrences(of: "foldl", with: "foldLeft")
+          .replacingOccurrences(of: "foldr", with: "foldRight")
+      }
+      return nil
+    }
+
+    ext.registerFilter("defaultArray") { (value: Any?, args ) in
+      if let inputArray = value as? [Any?] {
+        let type = args.first as? String ?? "Int"
+        return inputArray.isEmpty ? "[\(type)]()" : inputArray
+      }
+      let type = args.first as? String ?? "Int"
+      return "[\(type)]()"
+    }
+
     let environment = Environment(extensions: [ext])
     return environment
   }

@@ -1,22 +1,24 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
     {% if forloop.first -%}
-        func test{{case.description |camelCase }}() {
+        @Test("{{case.description}}")
     {% else -%}
-        func test{{case.description |camelCase }}() throws {
-       try XCTSkipIf(true && !runAll) // change true to false to run this test
+        @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
+    func test{{case.description |camelCase }}() {
     var school = GradeSchool()
     {%- if case.property == "add" %}
         {% for student in case.input.students -%}
         {%- if case.expected[forloop.counter0] %}
-        XCTAssertTrue(school.addStudent("{{student[0]}}", grade: {{student[1]}}))
+        #expect(school.addStudent("{{student[0]}}", grade: {{student[1]}}))
         {%- else %}
-        XCTAssertFalse(school.addStudent("{{student[0]}}", grade: {{student[1]}}))
+        #expect(!school.addStudent("{{student[0]}}", grade: {{student[1]}}))
         {%- endif -%}
         {% endfor %}
     {%- else %}
@@ -24,9 +26,9 @@ class {{exercise|camelCase}}Tests: XCTestCase {
             school.addStudent("{{student[0]}}", grade: {{student[1]}})
         {% endfor %}
         {%- if case.property == "roster" %}
-        XCTAssertEqual(school.roster(), {{case.expected | toStringArray}})
+        #expect(school.roster() == {{case.expected | toStringArray}})
             {%- elif case.property == "grade" %}
-        XCTAssertEqual(school.studentsInGrade({{case.input.desiredGrade}}), {{case.expected | toStringArray}})
+        #expect(school.studentsInGrade({{case.input.desiredGrade}}) == {{case.expected | toStringArray}})
             {%- endif %}
     {%- endif -%}
     }

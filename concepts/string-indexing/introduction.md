@@ -1,13 +1,67 @@
 # Introduction
 
-Accessing individual characters in strings is both like and unlike accessing individual elements of an array. The first and last elements are easily accessed using the `first` and `last` properties of the string respectively. Note that, as a string may not have a first or last character, these properties return optional Characters which will need to be unwrapped if they are to be used.
+Individual characters in a `String` can be accessed using the subscripting method used with arrays.
+However, the [indices][string-indices] used for strings are _not_ integers and can not be worked with directly.
+Instead they must be computed based off of some other known index, such as `startIndex`, which points to the position of the first character in a nonempty string, using the methods available in the [`String`][string-docs] and [`NSString`][nsstring-docs] libraries (when the `Foundation` module is imported, strings in Swift have access to all of the NSString properties and methods).
 
-Other individual characters can be accessed using the subscripting method used with arrays. However, the indices used for strings are _not_ integers and can not be worked with directly. Instead they must be computed based off of some other known index, such as `startIndex`, which points to the position of the first character in a nonempty string.
+For example, given the following string:
 
-For example, you cannot write `csv[21]` to get the "g" in "orange", you must instead compute a value of type `String.Index`.
+```swift
+let csv = "apple,pear,peach,orange,cherry,lime,goosberry"
+```
+
+One cannot write `csv[21]` to get the "g" in "orange", they must instead compute a value of type `String.Index` and supply that index instead.
+Note that these indices are not meant to be human-consumable on their own.
+They are what is referred to as _opaque indices_ ,as humans need not know what is inside them.
 
 ```swift
 let index = csv.index(csv.startIndex, offsetBy: 21)
 csv[index]
-// => "g"
+// "g"
+print(index)
+// prints Index(_rawBits: 1376513)
 ```
+
+Note, however, that if the offset is not a valid index, i.e. if it would return the index before `startIndex` or after `endIndex` the operation will raise an error, crashing the program.
+To prevent this problem, one can specify a limiting index.
+This returns an optional index and it will return nil for otherwise invalid indices.
+
+```swift
+let tooFar = csv.index(csv.startIndex, offsetBy: 200)
+// error: Execution was interrupted, reason: EXC_BAD_INSTRUCTION (code=EXC_I386_INVOP, subcode=0x0).
+let tooFarButSafe = csv.index(csv.startIndex, offsetBy: 200, limitedBy: csv.endIndex)
+// nil
+```
+
+Additionally, indices cannot be shared between strings.
+For example, using the `index` of the "g" in "orange" computed above to index into the string `fam = "This is my family: 👨‍👩‍👦‍👦, this is our dog: 🐶, this is our cat: 🐱!"`, i.e. `fam[index]` will crash your program.
+
+There are many reasons for all of this, but they all basically boil down to "Unicode is tricky".
+
+Generally speaking if you need random access to individual characters, you likely want to be using some other data structure, like `Array<Character>`.
+
+## Some useful methods
+
+Swift has the methods `first` and `last` to get the first and last character of a string.
+These methods return an optional character, so if the string is empty, they will return nil.
+
+```swift
+let str = "Hello, world!"
+print(str.first) // Prints Optional("H")
+print(str.last)  // Prints Optional("!")
+```
+
+You can also use the `prefix` and `suffix` methods to get a substring of a string.
+These methods take an integer as an argument and return a substring containing the first or last n characters of the string.
+
+```swift
+let str = "Hello, world!"
+print(str.prefix(5)) // Prints "Hello"
+print(str.suffix(6)) // Prints "world!"
+```
+
+[string-docs]: https://developer.apple.com/documentation/swift/String
+[nsstring-docs]: https://developer.apple.com/documentation/foundation/nsstring
+[string-format-specifiers]: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html
+[string-indices]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/#String-Indices
+[unicode]: https://en.wikipedia.org/wiki/Unicode

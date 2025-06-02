@@ -1,79 +1,95 @@
-import XCTest
+import Foundation
+import Testing
+
 @testable import SimpleLinkedList
 
-class SimpleLinkedListTests: XCTestCase {
-    func testConstructorA() {
-        let one = Element(1, nil)
-        let two = Element(2, one)
-        XCTAssertEqual(1, one.value!)
-        XCTAssertNil(one.next)
-        XCTAssertEqual(2, two.value!)
-    }
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-    func testConstructorB() {
-        let one = Element(1, nil)
-        let two = Element(2, one)
-        let result = one.value
-        let result2 = two.next?.value
-        XCTAssertEqual(result!, result2!)
-    }
+@Suite struct SimpleLinkedListTests {
+  @Test("Test if the constructor works correctly")
+  func testConstructorA() {
+    let one = Element(1, nil)
+    let two = Element(2, one)
+    #expect(1 == one.value!)
+    #expect(one.next == nil)
+    #expect(2 == two.value!)
+  }
 
-    func testToA() {
-        let elementNil = Element<Int>()
-        let elementOne = Element(1, nil)
-        let elementTwo = Element(2, elementOne)
-        let elementThree = Element(3, elementTwo)
-        XCTAssertEqual([], elementNil.toArray() )
-        XCTAssertEqual([1], elementOne.toArray() )
-        XCTAssertEqual([2, 1], elementTwo.toArray() )
-        XCTAssertEqual([3, 2, 1], elementThree.toArray())
-    }
+  @Test("Test if same value can be retrieved from the element", .enabled(if: RUNALL))
+  func testConstructorB() {
+    let one = Element(1, nil)
+    let two = Element(2, one)
+    let result = one.value
+    let result2 = two.next?.value
+    #expect(result! == result2!)
+  }
 
-    func testReverseOne() {
-        let one = Element(1, nil)
-        let oneR = one.reverseElements()
-        XCTAssertEqual(1, oneR.value!)
-        XCTAssertNil(oneR.next?.value)
+  @Test("Test if the next element can be retrieved from the element", .enabled(if: RUNALL))
+  func testToA() {
+    let elementNil = Element<Int>()
+    let elementOne = Element(1, nil)
+    let elementTwo = Element(2, elementOne)
+    let elementThree = Element(3, elementTwo)
+    #expect([] == elementNil.toArray())
+    #expect([1] == elementOne.toArray())
+    #expect([2, 1] == elementTwo.toArray())
+    #expect([3, 2, 1] == elementThree.toArray())
+  }
 
-    }
+  @Test("Test if reverse with size 1 is the same", .enabled(if: RUNALL))
+  func testReverseOne() {
+    let one = Element(1, nil)
+    let oneR = one.reverseElements()
+    #expect(1 == oneR.value!)
+    #expect(oneR.next?.value == nil)
 
-    func testReverseTwo() {
-        let one = Element(1, nil)
-        let two = Element(2, one)
-        let twoR = two.reverseElements()
-        XCTAssertEqual(1, twoR.value!)
-        let expect = twoR.next?.value
-        XCTAssertEqual(2, expect!)
-    }
+  }
 
-    func testFromAOne() {
+  @Test("Test if reverse with size 2 is correct", .enabled(if: RUNALL))
+  func testReverseTwo() {
+    let one = Element(1, nil)
+    let two = Element(2, one)
+    let twoR = two.reverseElements()
+    #expect(1 == twoR.value!)
+    let expect = twoR.next?.value
+    #expect(2 == expect!)
+  }
 
-        XCTAssertNil(Element<Int>.fromArray([]).value)
-        let oneA = Element.fromArray([1])
-        XCTAssertEqual(1, oneA.value!)
-        XCTAssertNil(oneA.next?.value)
+  @Test("Test if a linked list can be created from an array", .enabled(if: RUNALL))
+  func testFromAOne() {
+    #expect(Element<Int>.fromArray([]).value == nil)
+    let oneA = Element.fromArray([1])
+    #expect(1 == oneA.value!)
+    #expect(oneA.next?.value == nil)
 
-    }
+  }
 
-    func testFromATwo() {
+  @Test(
+    "Test if a linked list can be created from an array with two elements", .enabled(if: RUNALL)
+  )
+  func testFromATwo() {
+    let twoA = Element.fromArray([2, 1])
+    #expect(2 == twoA.value!)
+    let expected = twoA.next?.value
+    #expect(1 == expected!)
+    #expect(twoA.next?.next?.value == nil)
+  }
 
-        let twoA = Element.fromArray([2, 1])
-        XCTAssertEqual(2, twoA.value!)
-        let expected = twoA.next?.value
-        XCTAssertEqual(1, expected! )
-        XCTAssertNil(twoA.next?.next?.value)
-    }
+  @Test(
+    "Test if a linked list can be created from an array with ten elements", .enabled(if: RUNALL)
+  )
+  func testFromATen() {
+    let oneToTen = Element.fromArray(Array(1...10))
+    let expected10 = oneToTen.next?.next?.next?.next?.next?.next?.next?.next?.next?.value
+    #expect(10 == expected10!)
+  }
 
-    func testFromATen() {
-
-        let oneToTen = Element.fromArray(Array(1...10))
-        let expected10 = oneToTen.next?.next?.next?.next?.next?.next?.next?.next?.next?.value
-        XCTAssertEqual(10, expected10! )
-    }
-
-    func testRoundtrip() {
-        XCTAssertEqual([1], Element.fromArray([1]).toArray() )
-        XCTAssertEqual([2, 1], Element.fromArray([2, 1]).toArray() )
-        XCTAssertEqual(Array(1...10), Element.fromArray(Array(1...10)).toArray())
-    }
+  @Test(
+    "Test if a linked list can be created from an array and then converted back to an array",
+    .enabled(if: RUNALL))
+  func testRoundtrip() {
+    #expect([1] == Element.fromArray([1]).toArray())
+    #expect([2, 1] == Element.fromArray([2, 1]).toArray())
+    #expect(Array(1...10) == Element.fromArray(Array(1...10)).toArray())
+  }
 }

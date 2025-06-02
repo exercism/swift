@@ -16,5 +16,5 @@
 - The keyword `self` refers to the enum value inside a method's body.
 
 [string-docs]: https://developer.apple.com/documentation/swift/string/
-[switch-statement]: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID129
-[enum-raw-values]: https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html#ID149
+[switch-statement]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Switch
+[enum-raw-values]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/enumerations/#Raw-Values

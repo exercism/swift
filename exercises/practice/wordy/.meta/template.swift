@@ -1,20 +1,22 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
     {% if forloop.first -%}
-        func test{{case.description |camelCase }}() {
+        @Test("{{case.description}}")
     {% else -%}
-        func test{{case.description |camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
+        @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
+    func test{{case.description |camelCase }}() {
         {% ifnot case.expected.error -%}
-        XCTAssertEqual(try! wordyAnswer("{{case.input.question}}"), {{case.expected}})
+        #expect(try! wordyAnswer("{{case.input.question}}") == {{case.expected}})
         {% else -%}
-        XCTAssertThrowsError(try wordyAnswer("{{case.input.question}}")) { error in
-            XCTAssertEqual(error as? WordyError, .syntaxError)
+        #expect(throws: WordyError.syntaxError) {
+            try wordyAnswer("{{case.input.question}}")
         }
         {% endif -%}
     }

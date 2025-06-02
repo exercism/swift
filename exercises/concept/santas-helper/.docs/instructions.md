@@ -2,43 +2,66 @@
 
 You are an elf working in Santa Claus' logistics division and you have been given a pair of tasks from the boss for upgrading the system's software.
 
-## 1. Convert coordinates to polar
+## 1. Get name of the toy
 
-Your first task is updating the complex number array that helps run Santa's sleigh. The boss discovered that the last development team stored the arrays using Cartesian coordinates rather than polar coordinates, which everyone knows are the boss' favorite.
+The system needs to be able to get the name of a toy from the database.
+The database is made of tuples of type `(name: String, quantity: Int)`.
 
-For this task you will need to implement the function `cartesianToPolar(_:)` that takes in a tuple, `(x: Double, y: Double)`, and return a new tuple, `(r: Double, phi: Double)`, where:
-
-- r = √(x<sup>2</sup> + y<sup>2</sup>)
-- phi = _atan2_(y, x)
-
-See this image for an example
-
-![cartesian to polar coordinates](https://exercism-static.s3.eu-west-1.amazonaws.com/content/polar_to_cartesian.png)
-[Attribution: https://en.wikipedia.org/](https://en.wikipedia.org/wiki/Polar_coordinate_system#/media/File:Polar_to_cartesian.svg)
+Implement the function `getName(_:)`, that takes an argument which hold a tuple of type `(name: String, quantity: Int)`.
 
 ```swift
-let coordinate = (x: -78.70524308742053, y: -39.243573777212724)
-cartesianToPolar(coordinate)
-// => (r: 87.94642330565522, phi: -2.6790540755626306)
+let toy = (name: "Doll", quantity: 10)
+getName(toy)
+// Returns "Doll"
 ```
 
-## 2. Merge two database records
+## 2. Add a new toy to the database
 
-For your second task, your boss is upgrading its database and is modifying its record structures. They want to combine the records from the toy production database and the toy recipient databases to save space and give the product leads better visibility into the demand for their toy.
+The toy market is a quick and changing market, what is popular changes very rapidly.
+Thereby a function which creates a new toy is needed.
 
-For this task you will implement the function `combineRecords(production:gifts:)` that takes two tuples as input, `production: (toy: String, id: Int, productLead: String)` and `gifts: (Int, [String])` and your function will return a combined tuple, `(id: Int, toy: String, productLead: String, recipients: [String])`. Note that the two `id` fields in the input tuples are guaranteed to be the same value.
+Implement the function `createToy(name:amount:)`, that takes an argument `name` which holds the name of the toy, and `amount` which holds the quantity of the toy.
 
 ```swift
-combineRecords(
-  production: (
-    toy: "Chemistry set",
-    id: 328509,
-    productLead: "Binkles"
- ),
-  gifts: (
-    328509,
-    ["Inés", "Maxime", "Bandile", "Shaurya", "Екатерина"]
-  )
-)
-// => (id: 328509, toy: "Chemistry set", productLead: "Binkles", recipients: ["Inés", "Maxime", "Bandile", "Shaurya", "Екатерина"])
+getName(name: "Doll", quantity: 10)
+// Returns (name: "Doll", quantity: 10)
+```
+
+## 3. Update quantity of a toy
+
+The elfs in santas workshop is constantly making more toys, and santa needs to keep track of the quantity of each toy.
+To do this, the system needs to be able to update the quantity of a toy in the database.
+
+Implement the function `updateQuantity(_:toy:Amount:)`, that takes the arguments:
+- `toys` which holds an array of tuples of type `(name: String, quantity: Int)`.
+- `toy` which holds the name of the toy to update.
+- `amount` which holds the new quantity of the toy.
+
+You can assume that the toy is already in the database, and don't need to check for that.
+
+```swift
+let toys = [(name: "Doll", quantity: 10), (name: "Car", quantity: 5), (name: "Train", quantity: 3)]
+updateQuantity(toys, toy: "Doll", amount: 15)
+// Returns [(name: "Doll", quantity: 15), (name: "Car", quantity: 5), (name: "Train", quantity: 3)]
+```
+
+## 4. Add category key to a toy
+
+Santa wants to be able to categorize the toys in the database.
+This is so they can easily find the toys when they need to make a delivery, and to be able to sort the toys in the database.
+
+However, when the system was first implemented, the category key was forgotten.
+Now the system needs to be able to add a category key to a toy in the database.
+
+Implement the function `addCategory(_:category:)`, that takes the arguments:
+- `toys` which holds an array of tuples of type `(name: String, quantity: Int)`.
+- `category` which holds the category key to add to the toys.
+
+You can assume that the toy is already in the database, and don't need to check for that.
+You can also assume that there is no category key already in the toy.
+
+```swift
+let toys = [(name: "Car", quantity: 5), (name: "Train", quantity: 3)]
+addCategory(toys,, category: "Vehicle")
+// Returns [(name: "Car", quantity: 5, category: "Vehicle"), (name: "Train", quantity: 3, category: "Vehicle")]
 ```
