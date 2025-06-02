@@ -1,74 +1,87 @@
-import XCTest
+import Foundation
+import Testing
+
 @testable import BinarySearchTree
 
-class BinarySearchTreeTests: XCTestCase {
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL"] ?? "fa,se") ?? false
 
-    func testDataIsRetained() {
-        XCTAssertEqual(4, BinarySearchTree(4).data)
-    }
+@Suite struct BinarySearchTreeTests {
 
-    func testInsertingLess() {
-        var four = BinarySearchTree(4)
-        four.insert(2)
-        XCTAssertEqual(4, four.data)
-        XCTAssertEqual(2, four.left?.data)
-    }
+  @Test("Data is retained")
+  func testDataIsRetained() {
+    #expect(4 == BinarySearchTree(4).data)
+  }
 
-    func testInsertingSame() {
-        var four = BinarySearchTree(4)
-        four.insert(4)
-        XCTAssertEqual(4, four.data)
-        XCTAssertEqual(4, four.left?.data)
-    }
+  @Test("Inserting less", .enabled(if: RUNALL))
+  func testInsertingLess() {
+    var four = BinarySearchTree(4)
+    four.insert(2)
+    #expect(4 == four.data)
+    #expect(2 == four.left?.data)
+  }
 
-    func testInsertingRight() {
-        var four = BinarySearchTree(4)
-        four.insert(5)
-        XCTAssertEqual(4, four.data)
-        XCTAssertEqual(5, four.right?.data)
-    }
+  @Test("Inserting same", .enabled(if: RUNALL))
+  func testInsertingSame() {
+    var four = BinarySearchTree(4)
+    four.insert(4)
+    #expect(4 == four.data)
+    #expect(4 == four.left?.data)
+  }
 
-    func testComplexTree() {
-        var four = BinarySearchTree(4)
-        four.insert(2)
-        four.insert(6)
-        four.insert(1)
-        four.insert(3)
-        four.insert(7)
-        four.insert(5)
-        XCTAssertEqual(4, four.data)
-        XCTAssertEqual(2, four.left?.data)
-        XCTAssertEqual(1, four.left?.left?.data)
-        XCTAssertEqual(3, four.left?.right?.data)
-        XCTAssertEqual(6, four.right?.data)
-        XCTAssertEqual(5, four.right?.left?.data)
-        XCTAssertEqual(7, four.right?.right?.data)
-    }
+  @Test("Inserting right", .enabled(if: RUNALL))
+  func testInsertingRight() {
+    var four = BinarySearchTree(4)
+    four.insert(5)
+    #expect(4 == four.data)
+    #expect(5 == four.right?.data)
+  }
 
-    func testAllDataForOneElement() {
-        XCTAssertEqual([4], BinarySearchTree(4).allData())
-    }
+  @Test("Complex tree", .enabled(if: RUNALL))
+  func testComplexTree() {
+    var four = BinarySearchTree(4)
+    four.insert(2)
+    four.insert(6)
+    four.insert(1)
+    four.insert(3)
+    four.insert(7)
+    four.insert(5)
+    #expect(4 == four.data)
+    #expect(2 == four.left?.data)
+    #expect(1 == four.left?.left?.data)
+    #expect(3 == four.left?.right?.data)
+    #expect(6 == four.right?.data)
+    #expect(5 == four.right?.left?.data)
+    #expect(7 == four.right?.right?.data)
+  }
 
-    func testAllDataForSmallerElement() {
-        var four = BinarySearchTree(4)
-        four.insert(2)
-        XCTAssertEqual([2, 4], four.allData())
-    }
+  @Test("All data for one element", .enabled(if: RUNALL))
+  func testAllDataForOneElement() {
+    #expect([4] == BinarySearchTree(4).allData())
+  }
 
-    func testAllDataForLargerElement() {
-        var four = BinarySearchTree(4)
-        four.insert(5)
-        XCTAssertEqual([4, 5], four.allData())
-    }
+  @Test("All data for smaller element", .enabled(if: RUNALL))
+  func testAllDataForSmallerElement() {
+    var four = BinarySearchTree(4)
+    four.insert(2)
+    #expect([2, 4] == four.allData())
+  }
 
-    func testAllDataForComplexTree() {
-        var four = BinarySearchTree(4)
-        four.insert(2)
-        four.insert(1)
-        four.insert(3)
-        four.insert(6)
-        four.insert(7)
-        four.insert(5)
-        XCTAssertEqual([1, 2, 3, 4, 5, 6, 7], four.allData())
-    }
+  @Test("All data for larger element", .enabled(if: RUNALL))
+  func testAllDataForLargerElement() {
+    var four = BinarySearchTree(4)
+    four.insert(5)
+    #expect([4, 5] == four.allData())
+  }
+
+  @Test("All data for complex tree", .enabled(if: RUNALL))
+  func testAllDataForComplexTree() {
+    var four = BinarySearchTree(4)
+    four.insert(2)
+    four.insert(1)
+    four.insert(3)
+    four.insert(6)
+    four.insert(7)
+    four.insert(5)
+    #expect([1, 2, 3, 4, 5, 6, 7] == four.allData())
+  }
 }
