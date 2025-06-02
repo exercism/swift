@@ -1,33 +1,17 @@
 import Foundation
 
 func splitOnNewlines(_ poem: String) -> [String] {
-  fatalError("splitOnNewlines not implemented -- replace this error with an implementation")
+  fatalError("Please implement the splitOnNewlines(_:) function")
 }
 
-func firstLetter(_ line: String) -> Character {
-  fatalError("firstLetter not implemented -- replace this error with an implementation")
-}
-
-func capitalize(_ phrase: String) -> String {
-  fatalError("capitalize not implemented -- replace this error with an implementation")
-}
-
-func trimSentence(_ line: String) -> String {
-  fatalError("trimSentence not implemented -- replace this error with an implementation")
-}
-
-func lastLetter(_ line: String) -> Character {
-  fatalError("lastLetter not implemented -- replace this error with an implementation")
+func frontDoorPassword(_ phrase: String) -> String {
+  fatalError("Please implement the frontDoorPassword(_:) function")
 }
 
 func backDoorPassword(_ phrase: String) -> String {
-  fatalError("backDoorPassword not implemented -- replace this error with an implementation")
-}
-
-func ithLetter(_ line: String, i: Int) -> Character {
-  fatalError("ithLetter not implemented -- replace this error with an implementation")
+  fatalError("Please implement the backDoorPassword(_:) function")
 }
 
 func secretRoomPassword(_ phrase: String) -> String {
-  fatalError("secretRoomPassword not implemented -- replace this error with an implementation")
+  fatalError("Please implement the secretRoomPassword(_:) function")
 }

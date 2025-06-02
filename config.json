@@ -210,7 +210,7 @@
         "uuid": "082d7aeb-ee25-4217-bd6f-82532a65797a",
         "concepts": [
           "importing",
-          "string-components",
+          "string-methods",
           "string-indexing"
         ],
         "prerequisites": [
@@ -262,7 +262,7 @@
           "enumerations"
         ],
         "prerequisites": [
-          "string-components",
+          "string-methods",
           "structs-and-classes"
         ],
         "status": "active"
@@ -1539,8 +1539,8 @@
     },
     {
       "uuid": "343255a9-9931-4887-941e-e768448bf6a4",
-      "slug": "string-components",
-      "name": "String Components"
+      "slug": "string-methods",
+      "name": "String Methods"
     },
     {
       "uuid": "6b721b54-e85e-4156-af34-04f36ec37af0",

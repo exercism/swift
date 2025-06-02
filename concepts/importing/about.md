@@ -1,8 +1,10 @@
 # About
 
-While Swift includes a lot of functionality in its Standard Library, there is much more functionality available in the form of external libraries. These libraries may be from the Swift project itself, such as the [Swift Argument Parser][argument-parser], closed source libraries from companies Apple's [Network Framework][network-framework], or third-party libraries, like [Swifty Beaver][swifty-beaver].
+While Swift includes a lot of functionality in its Standard Library, there is much more functionality available in the form of external libraries.
+These libraries may be from the Swift project itself, such as the [Swift Argument Parser][argument-parser], closed source libraries from companies Apple's [Network Framework][network-framework], or third-party libraries, like [Swifty Beaver][swifty-beaver].
 
-Some of these modules, like the Network Framework or [Foundation][apple-foundation] (which is probably the most commonly used library in Swift) come with your Swift distribution. External third party libraries need to be added to your project before they can be imported, though that is out of the scope of this exercise.
+Some of these modules, like the Network Framework or [Foundation][apple-foundation] (which is probably the most commonly used library in Swift) come with your Swift distribution.
+External third party libraries need to be added to your project before they can be imported, though that is out of the scope of this exercise.
 
 Importing modules is done by writing the `import` keyword followed by the name of the module. So one can import Foundation by adding the following to their program.
 
