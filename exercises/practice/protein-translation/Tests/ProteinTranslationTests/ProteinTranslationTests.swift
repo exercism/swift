@@ -1,164 +1,140 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import ProteinTranslation
 
-class ProteinTranslationTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-  func testEmptyRnaSequenceResultsInNoProteins() {
-    XCTAssertEqual([], try! translationOfRNA(rna: ""))
+@Suite struct ProteinTranslationTests {
+
+  @Test("Empty RNA sequence results in no proteins")
+  func testEmptyRnaSequenceResultsInNoProteins() { #expect(try! translationOfRNA(rna: "") == []) }
+
+  @Test("Methionine RNA sequence", .enabled(if: RUNALL))
+  func testMethionineRnaSequence() { #expect(try! translationOfRNA(rna: "AUG") == ["Methionine"]) }
+
+  @Test("Phenylalanine RNA sequence 1", .enabled(if: RUNALL))
+  func testPhenylalanineRnaSequence1() {
+    #expect(try! translationOfRNA(rna: "UUU") == ["Phenylalanine"])
   }
 
-  func testMethionineRnaSequence() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Methionine"], try! translationOfRNA(rna: "AUG"))
+  @Test("Phenylalanine RNA sequence 2", .enabled(if: RUNALL))
+  func testPhenylalanineRnaSequence2() {
+    #expect(try! translationOfRNA(rna: "UUC") == ["Phenylalanine"])
   }
 
-  func testPhenylalanineRnaSequence1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Phenylalanine"], try! translationOfRNA(rna: "UUU"))
+  @Test("Leucine RNA sequence 1", .enabled(if: RUNALL))
+  func testLeucineRnaSequence1() { #expect(try! translationOfRNA(rna: "UUA") == ["Leucine"]) }
+
+  @Test("Leucine RNA sequence 2", .enabled(if: RUNALL))
+  func testLeucineRnaSequence2() { #expect(try! translationOfRNA(rna: "UUG") == ["Leucine"]) }
+
+  @Test("Serine RNA sequence 1", .enabled(if: RUNALL))
+  func testSerineRnaSequence1() { #expect(try! translationOfRNA(rna: "UCU") == ["Serine"]) }
+
+  @Test("Serine RNA sequence 2", .enabled(if: RUNALL))
+  func testSerineRnaSequence2() { #expect(try! translationOfRNA(rna: "UCC") == ["Serine"]) }
+
+  @Test("Serine RNA sequence 3", .enabled(if: RUNALL))
+  func testSerineRnaSequence3() { #expect(try! translationOfRNA(rna: "UCA") == ["Serine"]) }
+
+  @Test("Serine RNA sequence 4", .enabled(if: RUNALL))
+  func testSerineRnaSequence4() { #expect(try! translationOfRNA(rna: "UCG") == ["Serine"]) }
+
+  @Test("Tyrosine RNA sequence 1", .enabled(if: RUNALL))
+  func testTyrosineRnaSequence1() { #expect(try! translationOfRNA(rna: "UAU") == ["Tyrosine"]) }
+
+  @Test("Tyrosine RNA sequence 2", .enabled(if: RUNALL))
+  func testTyrosineRnaSequence2() { #expect(try! translationOfRNA(rna: "UAC") == ["Tyrosine"]) }
+
+  @Test("Cysteine RNA sequence 1", .enabled(if: RUNALL))
+  func testCysteineRnaSequence1() { #expect(try! translationOfRNA(rna: "UGU") == ["Cysteine"]) }
+
+  @Test("Cysteine RNA sequence 2", .enabled(if: RUNALL))
+  func testCysteineRnaSequence2() { #expect(try! translationOfRNA(rna: "UGC") == ["Cysteine"]) }
+
+  @Test("Tryptophan RNA sequence", .enabled(if: RUNALL))
+  func testTryptophanRnaSequence() { #expect(try! translationOfRNA(rna: "UGG") == ["Tryptophan"]) }
+
+  @Test("STOP codon RNA sequence 1", .enabled(if: RUNALL))
+  func testStopCodonRnaSequence1() { #expect(try! translationOfRNA(rna: "UAA") == []) }
+
+  @Test("STOP codon RNA sequence 2", .enabled(if: RUNALL))
+  func testStopCodonRnaSequence2() { #expect(try! translationOfRNA(rna: "UAG") == []) }
+
+  @Test("STOP codon RNA sequence 3", .enabled(if: RUNALL))
+  func testStopCodonRnaSequence3() { #expect(try! translationOfRNA(rna: "UGA") == []) }
+
+  @Test("Sequence of two protein codons translates into proteins", .enabled(if: RUNALL))
+  func testSequenceOfTwoProteinCodonsTranslatesIntoProteins() {
+    #expect(try! translationOfRNA(rna: "UUUUUU") == ["Phenylalanine", "Phenylalanine"])
   }
 
-  func testPhenylalanineRnaSequence2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Phenylalanine"], try! translationOfRNA(rna: "UUC"))
+  @Test("Sequence of two different protein codons translates into proteins", .enabled(if: RUNALL))
+  func testSequenceOfTwoDifferentProteinCodonsTranslatesIntoProteins() {
+    #expect(try! translationOfRNA(rna: "UUAUUG") == ["Leucine", "Leucine"])
   }
 
-  func testLeucineRnaSequence1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Leucine"], try! translationOfRNA(rna: "UUA"))
+  @Test("Translate RNA strand into correct protein list", .enabled(if: RUNALL))
+  func testTranslateRnaStrandIntoCorrectProteinList() {
+    #expect(
+      try! translationOfRNA(rna: "AUGUUUUGG") == ["Methionine", "Phenylalanine", "Tryptophan"])
   }
 
-  func testLeucineRnaSequence2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Leucine"], try! translationOfRNA(rna: "UUG"))
+  @Test("Translation stops if STOP codon at beginning of sequence", .enabled(if: RUNALL))
+  func testTranslationStopsIfStopCodonAtBeginningOfSequence() {
+    #expect(try! translationOfRNA(rna: "UAGUGG") == [])
   }
 
-  func testSerineRnaSequence1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Serine"], try! translationOfRNA(rna: "UCU"))
+  @Test("Translation stops if STOP codon at end of two-codon sequence", .enabled(if: RUNALL))
+  func testTranslationStopsIfStopCodonAtEndOfTwoCodonSequence() {
+    #expect(try! translationOfRNA(rna: "UGGUAG") == ["Tryptophan"])
   }
 
-  func testSerineRnaSequence2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Serine"], try! translationOfRNA(rna: "UCC"))
+  @Test("Translation stops if STOP codon at end of three-codon sequence", .enabled(if: RUNALL))
+  func testTranslationStopsIfStopCodonAtEndOfThreeCodonSequence() {
+    #expect(try! translationOfRNA(rna: "AUGUUUUAA") == ["Methionine", "Phenylalanine"])
   }
 
-  func testSerineRnaSequence3() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Serine"], try! translationOfRNA(rna: "UCA"))
+  @Test("Translation stops if STOP codon in middle of three-codon sequence", .enabled(if: RUNALL))
+  func testTranslationStopsIfStopCodonInMiddleOfThreeCodonSequence() {
+    #expect(try! translationOfRNA(rna: "UGGUAGUGG") == ["Tryptophan"])
   }
 
-  func testSerineRnaSequence4() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Serine"], try! translationOfRNA(rna: "UCG"))
+  @Test("Translation stops if STOP codon in middle of six-codon sequence", .enabled(if: RUNALL))
+  func testTranslationStopsIfStopCodonInMiddleOfSixCodonSequence() {
+    #expect(
+      try! translationOfRNA(rna: "UGGUGUUAUUAAUGGUUU") == ["Tryptophan", "Cysteine", "Tyrosine"])
   }
 
-  func testTyrosineRnaSequence1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Tyrosine"], try! translationOfRNA(rna: "UAU"))
+  @Test("Sequence of two non-STOP codons does not translate to a STOP codon", .enabled(if: RUNALL))
+  func testSequenceOfTwoNonStopCodonsDoesNotTranslateToAStopCodon() {
+    #expect(try! translationOfRNA(rna: "AUGAUG") == ["Methionine", "Methionine"])
   }
 
-  func testTyrosineRnaSequence2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Tyrosine"], try! translationOfRNA(rna: "UAC"))
-  }
-
-  func testCysteineRnaSequence1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Cysteine"], try! translationOfRNA(rna: "UGU"))
-  }
-
-  func testCysteineRnaSequence2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Cysteine"], try! translationOfRNA(rna: "UGC"))
-  }
-
-  func testTryptophanRnaSequence() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Tryptophan"], try! translationOfRNA(rna: "UGG"))
-  }
-
-  func testStopCodonRnaSequence1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual([], try! translationOfRNA(rna: "UAA"))
-  }
-
-  func testStopCodonRnaSequence2() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual([], try! translationOfRNA(rna: "UAG"))
-  }
-
-  func testStopCodonRnaSequence3() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual([], try! translationOfRNA(rna: "UGA"))
-  }
-
-  func testSequenceOfTwoProteinCodonsTranslatesIntoProteins() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Phenylalanine", "Phenylalanine"], try! translationOfRNA(rna: "UUUUUU"))
-  }
-
-  func testSequenceOfTwoDifferentProteinCodonsTranslatesIntoProteins() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Leucine", "Leucine"], try! translationOfRNA(rna: "UUAUUG"))
-  }
-
-  func testTranslateRnaStrandIntoCorrectProteinList() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      ["Methionine", "Phenylalanine", "Tryptophan"], try! translationOfRNA(rna: "AUGUUUUGG"))
-  }
-
-  func testTranslationStopsIfStopCodonAtBeginningOfSequence() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual([], try! translationOfRNA(rna: "UAGUGG"))
-  }
-
-  func testTranslationStopsIfStopCodonAtEndOfTwoCodonSequence() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Tryptophan"], try! translationOfRNA(rna: "UGGUAG"))
-  }
-
-  func testTranslationStopsIfStopCodonAtEndOfThreeCodonSequence() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Methionine", "Phenylalanine"], try! translationOfRNA(rna: "AUGUUUUAA"))
-  }
-
-  func testTranslationStopsIfStopCodonInMiddleOfThreeCodonSequence() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Tryptophan"], try! translationOfRNA(rna: "UGGUAGUGG"))
-  }
-
-  func testTranslationStopsIfStopCodonInMiddleOfSixCodonSequence() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      ["Tryptophan", "Cysteine", "Tyrosine"], try! translationOfRNA(rna: "UGGUGUUAUUAAUGGUUU"))
-  }
-
-  func testNonExistingCodonCantTranslate() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try translationOfRNA(rna: "AAA")) { error in
-      XCTAssertEqual(error as? TranslationError, TranslationError.invalidCodon)
+  @Test("Non-existing codon can't translate", .enabled(if: RUNALL))
+  func testNonExistingCodonCantTranslate() {
+    #expect(throws: TranslationError.invalidCodon) {
+      try translationOfRNA(rna: "AAA")
     }
   }
 
-  func testUnknownAminoAcidsNotPartOfACodonCantTranslate() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try translationOfRNA(rna: "XYZ")) { error in
-      XCTAssertEqual(error as? TranslationError, TranslationError.invalidCodon)
+  @Test("Unknown amino acids, not part of a codon, can't translate", .enabled(if: RUNALL))
+  func testUnknownAminoAcidsNotPartOfACodonCantTranslate() {
+    #expect(throws: TranslationError.invalidCodon) {
+      try translationOfRNA(rna: "XYZ")
     }
   }
 
-  func testIncompleteRnaSequenceCantTranslate() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try translationOfRNA(rna: "AUGU")) { error in
-      XCTAssertEqual(error as? TranslationError, TranslationError.invalidCodon)
+  @Test("Incomplete RNA sequence can't translate", .enabled(if: RUNALL))
+  func testIncompleteRnaSequenceCantTranslate() {
+    #expect(throws: TranslationError.invalidCodon) {
+      try translationOfRNA(rna: "AUGU")
     }
   }
 
-  func testIncompleteRnaSequenceCanTranslateIfValidUntilAStopCodon() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(["Phenylalanine", "Phenylalanine"], try! translationOfRNA(rna: "UUCUUCUAAUGGU"))
+  @Test("Incomplete RNA sequence can translate if valid until a STOP codon", .enabled(if: RUNALL))
+  func testIncompleteRnaSequenceCanTranslateIfValidUntilAStopCodon() {
+    #expect(try! translationOfRNA(rna: "UUCUUCUAAUGGU") == ["Phenylalanine", "Phenylalanine"])
   }
 }
