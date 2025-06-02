@@ -14,10 +14,9 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "SpaceAge",
-      dependencies: [.product(name: "Numerics", package: "swift-numerics")]),
+      name: "SpaceAge"
     .testTarget(
       name: "SpaceAgeTests",
-      dependencies: [.product(name: "Numerics", package: "swift-numerics"), "SpaceAge"]),
+      dependencies: [.product(name: "RealModule", package: "swift-numerics"), "SpaceAge"]),
   ]
 )

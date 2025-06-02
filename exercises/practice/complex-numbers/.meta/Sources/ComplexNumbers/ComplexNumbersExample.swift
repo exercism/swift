@@ -1,5 +1,5 @@
 import Foundation
-import Numerics
+import RealModule
 
 struct ComplexNumbers: Equatable {
 
