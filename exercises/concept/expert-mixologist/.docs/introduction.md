@@ -53,7 +53,7 @@ default:
 A [while loop][while-loops] is a control flow statement that allows code to be executed while a certain condition is true.
 Swift provides two kinds of while loops: while and repeat-while loops.
 While loop's condition is evaluated before the loop body is executed; if the condition is false, the loop body will not be executed at all.
-while-loops in Swift have the following structure:
+While loops in Swift have the following structure:
 
 ```swift
 while <#condition#> {

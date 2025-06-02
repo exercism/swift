@@ -3,7 +3,6 @@
 Swift has a set of statements that can be used to alter the normal control flow of loops.
 These are known as control transfer statements.
 You have already seen `return`; this concept will introduce other, which include `continue`, `break`, and labels.
-We won't cover `fallthrough` in this concept, but you can read about it in the [Swift book][fallthrough].
 
 ## Continue
 

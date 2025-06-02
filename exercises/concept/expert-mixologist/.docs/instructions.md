@@ -1,6 +1,6 @@
 # Instructions
 
-You are a master mixologist, making tasty drinks for the public to enjoy on their nights out.
+You are a expert mixologist, making tasty drinks for the public to enjoy on their nights out.
 But you figured that you could make your life easier by writing a bit of code to help you with your job.
 
 ## 1. Determine how long it takes to make an order
