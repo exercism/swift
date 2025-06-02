@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Sources/SaddlePoints/SaddlePointsExample.swift"
+    ],
+    "editor": [
+      "Sources/SaddlePoints/Position.swift"
     ]
   },
   "blurb": "Detect saddle points in a matrix.",
