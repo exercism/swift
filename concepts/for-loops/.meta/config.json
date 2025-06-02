@@ -1,7 +1,8 @@
 {
   "blurb": "For loops can be used to iterate over a sequence of values.",
   "authors": [
-    "wneumann"
+    "wneumann",
+    "meatball133"
   ],
   "contributors": []
 }

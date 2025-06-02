@@ -1,84 +1,121 @@
-# About
+# For loops
 
-[For-in loops][for-in-loops] are used to iterate over a sequence of values, taking each element in turn, binding it to a variable or constant name of the developer's choosing, then executes a block of code that may refer to the element. When every element of the sequence has been iterated over, the loop exits and execution begins with the first line following the body of the loop.
+Looping is a fundamental concept in programming that allows you to execute a block of code multiple times.
+In Swift, there are two types of loops: [`for-in` loops][for-loops] and `while` loops. 
+In this chapter, you'll learn about `for-in` loops.
+
+For loops allows you to iterate over a sequence of values, taking each element in turn, and binding it to a variable of your choosing.
+Swift allows you to iterate over a variety of sequences, such as ranges, arrays, and strings (and more types which will be covered later).
+When every element of the sequence has been iterated over, the loop exits.
+
+For loops are declared by using the `for` keyword, followed by a variable name, the `in` keyword, and a sequence of values to iterate over.
+The variable given in the `for-in` loop is inmutable, meaning you can't change its value inside the loop.
+Here's an example of a `for-in` loop that iterates over an array of numbers:
 
 ```swift
 let numbers = [3, 10, 7, 11]
-let word = "Supercalifragilisticexpialidocious"
 
 for number in numbers {
-  print("\(number) / 2 = \(number / 2)")
+  print(number)
 }
 print("Done with numbers")
 
 // prints:
-// 3 / 2 = 1
-// 10 / 2 = 5
-// 7 / 2 = 3
-// 11 / 2 = 5
+// 3
+// 10
+// 7
+// 11
 // Done with numbers
-
-
-for char in word {
-  if "aeiou".contains(char) {
-    print(char, terminator: "")
-  }
-}
-print(" - those are all the vowels")
-
-// prints:
-// ueaiaiiieiaioiou - those are all the vowels
-
 ```
 
-If one needs to mutate the current element of the iteration, it can be declared as a variable in the for-in loop:
+~~~~exercism/note
+The `number` variable is declared in the `for-in` loop and is only available within the loop's scope.
 
 ```swift
-for var x in [123, 900, 7] {
-  while x > 0 {
-    print(x % 10)
-    x /= 10
-  }
-  print()
+let numbers = [3, 10, 7, 11]
+
+for number in numbers {
+    number + 1
+}
+number + 1
+// Error: Use of unresolved identifier 'number'
+```
+~~~~
+
+## Iterating over a range
+
+You can also iterate over a range of numbers using a `for-in` loop.
+This allows you to execute a block of code a specific number of times, for example, the range `1...5` will iterate over the numbers 1, 2, 3, 4, and 5, so the loop will execute 5 times.
+Sometimes you might want to iterate over indexes, in a datastructure like an array, then you can use a `0..<array.count` range.
+
+```swift
+let numbers = [3, 10, 7, 11]
+
+for i in 0..<numbers.count {
+  print(numbers[i])
 }
 
 // prints:
 // 3
-// 2
-// 1
-//
-// 0
-// 0
-// 9
-//
+// 10
 // 7
+// 11
 ```
 
-If one wants to execute a loop a specified number of times, a for-in loop can be used with a range supplied for the sequence to iterate over:
+## Iterating over a string
+
+You can also iterate over a string using a `for-in` loop.
+This allows you to iterate over each character in the string, and note specifically that the type given in the loop is a `Character`.
 
 ```swift
-for i in 1...3 {
-  print("i: \(i)")
+let message = "Hello!"
+
+for character in message {
+  print(character)
 }
 
 // prints:
-// i: 1
-// i: 2
-// i: 3
+// H
+// e
+// l
+// l
+// o
+// !
 ```
 
-If the body of the loop doesn't refer to the current element of the sequence, an underscore (`_`) can be supplied for the name:
+## Unusued variables
+
+If you don't need the value of the variable in the loop, you can use an underscore `_` to ignore it.
 
 ```swift
-for _ in 1...3 {
-	  print("Perhaps.")
+let numbers = [3, 10, 7, 11]
+
+for _ in numbers {
+  print("Hello!")
+}
+```
+
+## stride
+
+Swift also provides a `stride` function that allows you to create a sequence over a range with a specific step.
+Which can be then iterated over using a `for-in` loop.
+`stride` is defined as [`stride(from:to:by:)`][stride-to] or [`stride(from:through:by:)`][stride-through], the first one is exclusive and the second one is inclusive.
+
+```swift
+for i in stride(from: 0, to: 10, by: 2) {
+  print(i)
 }
 
 // prints:
-// Perhaps.
-// Perhaps.
-// Perhaps.
-
+// 0
+// 2
+// 4
+// 6
+// 8
 ```
 
-[for-in-loops]: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID121
+Note that the `to` parameter is exclusive, so the loop will iterate until the number before the `to` parameter, while the `through` parameter is inclusive, so in this case it would also include the `10`.
+
+[stride-to]: https://developer.apple.com/documentation/swift/stride(from:to:by:)
+[stride-through]: https://developer.apple.com/documentation/swift/stride(from:through:by:)
+[for-loops]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#For-In-Loops

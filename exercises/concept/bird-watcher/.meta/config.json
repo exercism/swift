@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "meatball133"
+  ],
+  "files": {
+    "solution": [
+      "Sources/BirdWatcher/BirdWatcher.swift"
+    ],
+    "test": [
+      "Tests/BirdWatcherTests/BirdWatcherTests.swift"
+    ],
+    "exemplar": [
+      ".meta/Sources/BirdWatcher/BirdWatcherExemplar.swift"
+    ]
+  },
+  "forked_from": [
+    "go/bird-watcher"
+  ],
+  "blurb": "Count the birds in your garden with for loops."
+}

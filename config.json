@@ -132,6 +132,18 @@
         "status": "active"
       },
       {
+        "slug": "bird-watcher",
+        "name": "Bird Watcher",
+        "uuid": "a5efd630-8e6f-49f7-bed5-1576138d2f8a",
+        "concepts": [
+          "for-loops"
+        ],
+        "prerequisites": [
+          "ranges"
+        ],
+        "status": "active"
+      },
+      {
         "slug": "santas-helper",
         "name": "Santa's Swifty Helper",
         "uuid": "f371c072-082b-496b-aa58-45b6cba203f6",
@@ -139,7 +151,8 @@
           "tuples"
         ],
         "prerequisites": [
-          "arrays"
+          "arrays",
+          "for-loops"
         ],
         "status": "active"
       },
@@ -168,7 +181,8 @@
         "prerequisites": [
           "arrays",
           "optionals",
-          "tuples"
+          "tuples",
+          "for-loops"
         ],
         "status": "active"
       },
