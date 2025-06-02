@@ -14,7 +14,7 @@
       ".meta/Sources/FreelancerRates/FreelancerRatesExemplar.swift"
     ]
   },
-  "language_versions": ">=5.0",
+  "language_versions": ">=6.0",
   "forked_from": [
     "javascript/freelancer-rates"
   ],
