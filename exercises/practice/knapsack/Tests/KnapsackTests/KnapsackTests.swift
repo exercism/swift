@@ -1,28 +1,28 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Knapsack
 
-class KnapsackTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct KnapsackTests {
+
+  @Test("no items")
   func testNoItems() {
-
     let items: [Item] = []
-    XCTAssertEqual(Knapsack.maximumValue(items, 100), 0)
+    #expect(Knapsack.maximumValue(items, 100) == 0)
   }
 
-  func testOneItemTooHeavy() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-
+  @Test("one item, too heavy", .enabled(if: RUNALL))
+  func testOneItemTooHeavy() {
     let items: [Item] = [
       Item(weight: 100, value: 1)
     ]
-    XCTAssertEqual(Knapsack.maximumValue(items, 10), 0)
+    #expect(Knapsack.maximumValue(items, 10) == 0)
   }
 
-  func testFiveItemsCannotBeGreedyByWeight() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-
+  @Test("five items (cannot be greedy by weight)", .enabled(if: RUNALL))
+  func testFiveItemsCannotBeGreedyByWeight() {
     let items: [Item] = [
       Item(weight: 2, value: 5),
       Item(weight: 2, value: 5),
@@ -30,12 +30,11 @@ class KnapsackTests: XCTestCase {
       Item(weight: 2, value: 5),
       Item(weight: 10, value: 21),
     ]
-    XCTAssertEqual(Knapsack.maximumValue(items, 10), 21)
+    #expect(Knapsack.maximumValue(items, 10) == 21)
   }
 
-  func testFiveItemsCannotBeGreedyByValue() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-
+  @Test("five items (cannot be greedy by value)", .enabled(if: RUNALL))
+  func testFiveItemsCannotBeGreedyByValue() {
     let items: [Item] = [
       Item(weight: 2, value: 20),
       Item(weight: 2, value: 20),
@@ -43,24 +42,22 @@ class KnapsackTests: XCTestCase {
       Item(weight: 2, value: 20),
       Item(weight: 10, value: 50),
     ]
-    XCTAssertEqual(Knapsack.maximumValue(items, 10), 80)
+    #expect(Knapsack.maximumValue(items, 10) == 80)
   }
 
-  func testExampleKnapsack() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-
+  @Test("example knapsack", .enabled(if: RUNALL))
+  func testExampleKnapsack() {
     let items: [Item] = [
       Item(weight: 5, value: 10),
       Item(weight: 4, value: 40),
       Item(weight: 6, value: 30),
       Item(weight: 4, value: 50),
     ]
-    XCTAssertEqual(Knapsack.maximumValue(items, 10), 90)
+    #expect(Knapsack.maximumValue(items, 10) == 90)
   }
 
-  func test8Items() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-
+  @Test("8 items", .enabled(if: RUNALL))
+  func test8Items() {
     let items: [Item] = [
       Item(weight: 25, value: 350),
       Item(weight: 35, value: 400),
@@ -71,12 +68,11 @@ class KnapsackTests: XCTestCase {
       Item(weight: 2, value: 5),
       Item(weight: 2, value: 5),
     ]
-    XCTAssertEqual(Knapsack.maximumValue(items, 104), 900)
+    #expect(Knapsack.maximumValue(items, 104) == 900)
   }
 
-  func test15Items() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-
+  @Test("15 items", .enabled(if: RUNALL))
+  func test15Items() {
     let items: [Item] = [
       Item(weight: 70, value: 135),
       Item(weight: 73, value: 139),
@@ -94,6 +90,6 @@ class KnapsackTests: XCTestCase {
       Item(weight: 118, value: 229),
       Item(weight: 120, value: 240),
     ]
-    XCTAssertEqual(Knapsack.maximumValue(items, 750), 1458)
+    #expect(Knapsack.maximumValue(items, 750) == 1458)
   }
 }
