@@ -1,36 +1,39 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import RnaTranscription
 
-class RnaTranscriptionTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct RnaTranscriptionTests {
+
+  @Test("Empty RNA sequence")
   func testEmptyRnaSequence() {
-    XCTAssertEqual(toRna(""), "")
+    #expect(toRna("") == "")
   }
 
-  func testRnaComplementOfCytosineIsGuanine() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(toRna("C"), "G")
+  @Test("RNA complement of cytosine is guanine", .enabled(if: RUNALL))
+  func testRnaComplementOfCytosineIsGuanine() {
+    #expect(toRna("C") == "G")
   }
 
-  func testRnaComplementOfGuanineIsCytosine() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(toRna("G"), "C")
+  @Test("RNA complement of guanine is cytosine", .enabled(if: RUNALL))
+  func testRnaComplementOfGuanineIsCytosine() {
+    #expect(toRna("G") == "C")
   }
 
-  func testRnaComplementOfThymineIsAdenine() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(toRna("T"), "A")
+  @Test("RNA complement of thymine is adenine", .enabled(if: RUNALL))
+  func testRnaComplementOfThymineIsAdenine() {
+    #expect(toRna("T") == "A")
   }
 
-  func testRnaComplementOfAdenineIsUracil() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(toRna("A"), "U")
+  @Test("RNA complement of adenine is uracil", .enabled(if: RUNALL))
+  func testRnaComplementOfAdenineIsUracil() {
+    #expect(toRna("A") == "U")
   }
 
-  func testRnaComplement() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(toRna("ACGTGGTCTTAA"), "UGCACCAGAAUU")
+  @Test("RNA complement", .enabled(if: RUNALL))
+  func testRnaComplement() {
+    #expect(toRna("ACGTGGTCTTAA") == "UGCACCAGAAUU")
   }
 }
