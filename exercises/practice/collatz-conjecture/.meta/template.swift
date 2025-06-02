@@ -1,19 +1,21 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
-    {% if forloop.first -%}
+        {% if forloop.first -%}
+            @Test("{{case.description}}")
+        {% else -%}
+            @Test("{{case.description}}", .enabled(if: RUNALL))
+        {% endif -%}
         func test{{case.description |camelCase }}() {
-    {% else -%}
-        func test{{case.description |camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
-    {% endif -%}
         {%- ifnot case.expected.error -%}
-        XCTAssertEqual({{case.expected}}, try! CollatzConjecture.steps({{case.input.number}}))
-        {%- else -%}
-        XCTAssertThrowsError(try CollatzConjecture.steps({{case.input.number}}))
+            #expect(try! CollatzConjecture.steps({{case.input.number}}) == {{case.expected}})
+        {%- else %}
+            #expect(throws: (any Error).self){try CollatzConjecture.steps({{case.input.number}})}
         {%- endif -%}
     }
     {% endfor -%}

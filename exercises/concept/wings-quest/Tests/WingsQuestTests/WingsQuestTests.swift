@@ -1,117 +1,83 @@
-import XCTest
+import Testing
+import Foundation
 
 @testable import WingsQuest
 
-let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-class TaskBonusPoints: XCTestCase {
-  func testGetsBonusPoints() {
-    XCTAssertTrue(
-      bonusPoints(powerUpActive: true, touchingEagle: true)
-    )
+@Suite struct WingsQuestTests {
+  @Test("Get bonus points")
+  func testTaskBonusPoints() {
+    #expect(bonusPoints(powerUpActive: true, touchingEagle: true))
   }
 
-  func testNoBonusPointsWhenNotPowerUpActive() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(
-      bonusPoints(powerUpActive: false, touchingEagle: true)
-    )
+  @Test("No bonus points when not power up active", .enabled(if: RUNALL))
+  func testNoBonusPointsWhenNotPowerUpActive() {
+    #expect(!bonusPoints(powerUpActive: false, touchingEagle: true))
   }
 
-  func testNoBonusPointsWhenNotTouchingOtherBird() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(
-      bonusPoints(powerUpActive: true, touchingEagle: false)
-    )
+  @Test("No bonus points when not touching other bird", .enabled(if: RUNALL))
+  func testNoBonusPointsWhenNotTouchingOtherBird() {
+    #expect(!bonusPoints(powerUpActive: true, touchingEagle: false))
   }
 
-  func testNoBonusPointsWhenNotTouchingOtherBirdnorPowerUp() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(
-      bonusPoints(powerUpActive: false, touchingEagle: false)
-    )
-  }
-}
-
-class TaskScore: XCTestCase {
-  func testGetScore() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertTrue(
-      score(touchingPowerUp: true, touchingSeed: true)
-    )
+  @Test("No bonus points when not touching other bird nor power up", .enabled(if: RUNALL))
+  func testNoBonusPointsWhenNotTouchingOtherBirdnorPowerUp() {
+    #expect(!bonusPoints(powerUpActive: false, touchingEagle: false))
   }
 
-  func testGetScoreWhenNotTouchingSeed() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertTrue(
-      score(touchingPowerUp: false, touchingSeed: true)
-    )
+  @Test("Get score", .enabled(if: RUNALL))
+  func testTaskScore() {
+    #expect(score(touchingPowerUp: true, touchingSeed: true))
   }
 
-  func testGetScoreWhenNotTouchingPowerUp() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertTrue(
-      score(touchingPowerUp: true, touchingSeed: false)
-    )
+  @Test("Get score when not touching seed", .enabled(if: RUNALL))
+  func testGetScoreWhenNotTouchingSeed() {
+    #expect(score(touchingPowerUp: false, touchingSeed: true))
   }
 
-  func testNoScoreWhenBothIsFalse() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(
-      score(touchingPowerUp: false, touchingSeed: false)
-    )
-  }
-}
-
-class TaskLose: XCTestCase {
-  func testLose() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertTrue(
-      lose(powerUpActive: false, touchingEagle: true)
-    )
+  @Test("Get score when not touching power up", .enabled(if: RUNALL))
+  func testGetScoreWhenNotTouchingPowerUp() {
+    #expect(score(touchingPowerUp: true, touchingSeed: false))
   }
 
-  func testDontLoseWhenPowerUp() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(
-      lose(powerUpActive: true, touchingEagle: true)
-    )
+  @Test("No score when both is false", .enabled(if: RUNALL))
+  func testNoScoreWhenBothIsFalse() {
+    #expect(!score(touchingPowerUp: false, touchingSeed: false))
   }
 
-  func testDontLoseWhenNotTouchingAndPowerUp() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(
-      lose(powerUpActive: false, touchingEagle: false)
-    )
+  @Test("Lose", .enabled(if: RUNALL))
+  func testTaskLose() {
+    #expect(lose(powerUpActive: false, touchingEagle: true))
   }
 
-  func testDontLoseWhenNotTouching() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(
-      lose(powerUpActive: true, touchingEagle: false)
-    )
-  }
-}
-
-class TaskWin: XCTestCase {
-  func testWin() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertTrue(
-      win(hasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: false)
-    )
+  @Test("Don't lose when power up", .enabled(if: RUNALL))
+  func testDontLoseWhenPowerUp() {
+    #expect(!lose(powerUpActive: true, touchingEagle: true))
   }
 
-  func testDontWinIfLost() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(
-      win(hasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: true)
-    )
+  @Test("Don't lose when not touching and power up", .enabled(if: RUNALL))
+  func testDontLoseWhenNotTouchingAndPowerUp() {
+    #expect(!lose(powerUpActive: false, touchingEagle: false))
   }
 
-  func testWinIfPickedUpAllSeedsAndTouchingOtherBird() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertFalse(
-      win(hasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: true)
-    )
+  @Test("Don't lose when not touching", .enabled(if: RUNALL))
+  func testDontLoseWhenNotTouching() {
+    #expect(!lose(powerUpActive: true, touchingEagle: false))
+  }
+
+  @Test("Win", .enabled(if: RUNALL))
+  func testTaskWin() {
+    #expect(win(hasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: false))
+  }
+
+  @Test("Don't win if lost", .enabled(if: RUNALL))
+  func testDontWinIfLost() {
+    #expect(!win(hasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: true))
+  }
+
+  @Test("Win if picked up all seeds and touching other bird", .enabled(if: RUNALL))
+  func testWinIfPickedUpAllSeedsAndTouchingOtherBird() {
+    #expect(!win(hasPickedUpAllSeeds: true, powerUpActive: false, touchingEagle: true))
   }
 }

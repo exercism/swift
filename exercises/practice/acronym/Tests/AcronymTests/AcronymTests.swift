@@ -1,54 +1,57 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Acronym
 
-class AcronymTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct AcronymTests {
+
+  @Test("basic")
   func testBasic() {
-    XCTAssertEqual("PNG", Acronym.abbreviate("Portable Network Graphics"))
+    #expect("PNG" == Acronym.abbreviate("Portable Network Graphics"))
   }
 
-  func testLowercaseWords() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("ROR", Acronym.abbreviate("Ruby on Rails"))
+  @Test("lowercase words", .enabled(if: RUNALL))
+  func testLowercaseWords() {
+    #expect("ROR" == Acronym.abbreviate("Ruby on Rails"))
   }
 
-  func testPunctuation() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("FIFO", Acronym.abbreviate("First In, First Out"))
+  @Test("punctuation", .enabled(if: RUNALL))
+  func testPunctuation() {
+    #expect("FIFO" == Acronym.abbreviate("First In, First Out"))
   }
 
-  func testAllCapsWord() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("GIMP", Acronym.abbreviate("GNU Image Manipulation Program"))
+  @Test("all caps word", .enabled(if: RUNALL))
+  func testAllCapsWord() {
+    #expect("GIMP" == Acronym.abbreviate("GNU Image Manipulation Program"))
   }
 
-  func testPunctuationWithoutWhitespace() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("CMOS", Acronym.abbreviate("Complementary metal-oxide semiconductor"))
+  @Test("punctuation without whitespace", .enabled(if: RUNALL))
+  func testPunctuationWithoutWhitespace() {
+    #expect("CMOS" == Acronym.abbreviate("Complementary metal-oxide semiconductor"))
   }
 
-  func testVeryLongAbbreviation() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      "ROTFLSHTMDCOALM",
-      Acronym.abbreviate(
-        "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"))
+  @Test("very long abbreviation", .enabled(if: RUNALL))
+  func testVeryLongAbbreviation() {
+    #expect(
+      "ROTFLSHTMDCOALM"
+        == Acronym.abbreviate(
+          "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"))
   }
 
-  func testConsecutiveDelimiters() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("SIMUFTA", Acronym.abbreviate("Something - I made up from thin air"))
+  @Test("consecutive delimiters", .enabled(if: RUNALL))
+  func testConsecutiveDelimiters() {
+    #expect("SIMUFTA" == Acronym.abbreviate("Something - I made up from thin air"))
   }
 
-  func testApostrophes() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("HC", Acronym.abbreviate("Halley's Comet"))
+  @Test("apostrophes", .enabled(if: RUNALL))
+  func testApostrophes() {
+    #expect("HC" == Acronym.abbreviate("Halley's Comet"))
   }
 
-  func testUnderscoreEmphasis() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual("TRNT", Acronym.abbreviate("The Road _Not_ Taken"))
+  @Test("underscore emphasis", .enabled(if: RUNALL))
+  func testUnderscoreEmphasis() {
+    #expect("TRNT" == Acronym.abbreviate("The Road _Not_ Taken"))
   }
 }

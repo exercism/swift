@@ -258,42 +258,6 @@
     ],
     "practice": [
       {
-        "slug": "binary",
-        "name": "Binary",
-        "uuid": "0930d019-2ccb-48f9-9ee7-467b683d9901",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "status": "deprecated"
-      },
-      {
-        "slug": "hexadecimal",
-        "name": "Hexadecimal",
-        "uuid": "3a9f0e4d-a569-40ea-adb8-ded8d240c949",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "status": "deprecated"
-      },
-      {
-        "slug": "octal",
-        "name": "Octal",
-        "uuid": "128bcbc1-18b3-45e7-9590-c71d8f57c5c1",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "status": "deprecated"
-      },
-      {
-        "slug": "trinary",
-        "name": "Trinary",
-        "uuid": "8b376ef9-ad94-4623-8d0f-e2d7bb6c364a",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "status": "deprecated"
-      },
-      {
         "slug": "difference-of-squares",
         "name": "Difference of Squares",
         "uuid": "ef114733-886b-4d4b-a713-3ba169a85025",
@@ -395,18 +359,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1
-      },
-      {
-        "slug": "accumulate",
-        "name": "Accumulate",
-        "uuid": "cb5bc145-8249-4b3b-bcb3-b8d7805f2a14",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2,
-        "topics": [
-          "recursion",
-          "transforming"
-        ]
       },
       {
         "slug": "darts",
@@ -722,19 +674,6 @@
         "topics": [
           "records",
           "tuples"
-        ]
-      },
-      {
-        "slug": "scale-generator",
-        "name": "Scale Generator",
-        "uuid": "1c9dfe22-de66-4437-862b-8921dc7eb25e",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3,
-        "topics": [
-          "loops",
-          "pattern_matching",
-          "strings"
         ]
       },
       {
@@ -1339,6 +1278,69 @@
           "games",
           "parsing",
           "sorting"
+        ]
+      },
+      {
+        "slug": "binary",
+        "name": "Binary",
+        "uuid": "0930d019-2ccb-48f9-9ee7-467b683d9901",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "status": "deprecated"
+      },
+      {
+        "slug": "hexadecimal",
+        "name": "Hexadecimal",
+        "uuid": "3a9f0e4d-a569-40ea-adb8-ded8d240c949",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "status": "deprecated"
+      },
+      {
+        "slug": "octal",
+        "name": "Octal",
+        "uuid": "128bcbc1-18b3-45e7-9590-c71d8f57c5c1",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "status": "deprecated"
+      },
+      {
+        "slug": "trinary",
+        "name": "Trinary",
+        "uuid": "8b376ef9-ad94-4623-8d0f-e2d7bb6c364a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "status": "deprecated"
+      },
+      {
+        "slug": "accumulate",
+        "name": "Accumulate",
+        "uuid": "cb5bc145-8249-4b3b-bcb3-b8d7805f2a14",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "status": "deprecated",
+        "topics": [
+          "recursion",
+          "transforming"
+        ]
+      },
+      {
+        "slug": "scale-generator",
+        "name": "Scale Generator",
+        "uuid": "1c9dfe22-de66-4437-862b-8921dc7eb25e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "status": "deprecated",
+        "topics": [
+          "loops",
+          "pattern_matching",
+          "strings"
         ]
       },
       {

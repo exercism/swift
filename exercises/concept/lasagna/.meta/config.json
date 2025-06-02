@@ -14,7 +14,7 @@
       ".meta/Sources/Lasagna/LasagnaExemplar.swift"
     ]
   },
-  "language_versions": ">=5.0",
+  "language_versions": ">=6.0",
   "forked_from": [
     "fsharp/lucians-luscious-lasagna"
   ],

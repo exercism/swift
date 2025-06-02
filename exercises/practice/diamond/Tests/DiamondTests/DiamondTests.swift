@@ -1,36 +1,39 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Diamond
 
-class DiamondTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct DiamondTests {
+
+  @Test("Degenerate case with a single 'A' row")
   func testDegenerateCaseWithASingleARow() {
-    XCTAssertEqual(Diamond.makeDiamond(letter: "A"), ["A"])
+    #expect(Diamond.makeDiamond(letter: "A") == ["A"])
   }
 
-  func testDegenerateCaseWithNoRowContaining3DistinctGroupsOfSpaces() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(Diamond.makeDiamond(letter: "B"), [" A ", "B B", " A "])
+  @Test("Degenerate case with no row containing 3 distinct groups of spaces", .enabled(if: RUNALL))
+  func testDegenerateCaseWithNoRowContaining3DistinctGroupsOfSpaces() {
+    #expect(Diamond.makeDiamond(letter: "B") == [" A ", "B B", " A "])
   }
 
-  func testSmallestNonDegenerateCaseWithOddDiamondSideLength() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(Diamond.makeDiamond(letter: "C"), ["  A  ", " B B ", "C   C", " B B ", "  A  "])
+  @Test("Smallest non-degenerate case with odd diamond side length", .enabled(if: RUNALL))
+  func testSmallestNonDegenerateCaseWithOddDiamondSideLength() {
+    #expect(Diamond.makeDiamond(letter: "C") == ["  A  ", " B B ", "C   C", " B B ", "  A  "])
   }
 
-  func testSmallestNonDegenerateCaseWithEvenDiamondSideLength() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      Diamond.makeDiamond(letter: "D"),
-      ["   A   ", "  B B  ", " C   C ", "D     D", " C   C ", "  B B  ", "   A   "])
+  @Test("Smallest non-degenerate case with even diamond side length", .enabled(if: RUNALL))
+  func testSmallestNonDegenerateCaseWithEvenDiamondSideLength() {
+    #expect(
+      Diamond.makeDiamond(letter: "D") == [
+        "   A   ", "  B B  ", " C   C ", "D     D", " C   C ", "  B B  ", "   A   ",
+      ])
   }
 
-  func testLargestPossibleDiamond() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(
-      Diamond.makeDiamond(letter: "Z"),
-      [
+  @Test("Largest possible diamond", .enabled(if: RUNALL))
+  func testLargestPossibleDiamond() {
+    #expect(
+      Diamond.makeDiamond(letter: "Z") == [
         "                         A                         ",
         "                        B B                        ",
         "                       C   C                       ",

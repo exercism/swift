@@ -1,41 +1,45 @@
-import XCTest
-@testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+import Foundation
+import Testing
 
+@testable import {{exercise|camelCase}}
+
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
         {%- if forloop.first %}
-            func test{{case.description |camelCase }}() {
+            @Test("{{case.description}}")
         {%- else %}
-            func test{{case.description |camelCase }}() throws {
-            try XCTSkipIf(true && !runAll) // change true to false to run this test
+            @Test("{{case.description}}", .enabled(if: RUNALL))
         {%- endif %}
+            func test{{case.description |camelCase }}() {
             let bowling = Bowling({{case.input.previousRolls}})
             {% if case.property == "score" -%}
             {% if case.expected.error -%}
-                XCTAssertThrowsError(try bowling.{{case.property}}()) { error in
+                #expect(throws:
                     {% if case.expected.error == "Score cannot be taken until the end of the game" -%}
-                    XCTAssertEqual(error as? BowlingError, BowlingError.gameInProgress)
+                    BowlingError.gameInProgress
                     {% else -%}
-                        XCTAssertEqual(error as? BowlingError, BowlingError.tooManyPinsInFrame)
+                        BowlingError.tooManyPinsInFrame
                     {% endif -%}
-                }
+                    ) {try bowling.{{case.property}}()}
             {% else -%}
-               XCTAssertEqual(try! bowling.{{case.property}}(), {{case.expected}})
+               #expect(try! bowling.{{case.property}}() == {{case.expected}})
             {% endif -%}
             {% else -%}
             {% if case.expected.error -%}
-            XCTAssertThrowsError(try bowling.{{case.property}}(pins: {{case.input.roll}})) { error in
+            #expect(throws: 
                 {%- if case.expected.error == "Negative roll is invalid" %}
-                    XCTAssertEqual(error as? BowlingError, BowlingError.negativePins)
+                    BowlingError.negativePins
                 {%- elif case.expected.error == "Pin count exceeds pins on the lane" %}
-                    XCTAssertEqual(error as? BowlingError, BowlingError.tooManyPinsInFrame)
+                    BowlingError.tooManyPinsInFrame
                 {%- else %}
-                    XCTAssertEqual(error as? BowlingError, BowlingError.gameIsOver)
+                    BowlingError.gameIsOver
                 {%- endif %}
-            }
+                ) {try bowling.{{case.property}}(pins: {{case.input.roll}})}
+            
             {% else -%}
-                XCTAssertEqual(try! bowling.{{case.property}}(pins: {{case.input.roll}}), {{case.expected}})
+                #expect(try! bowling.{{case.property}}(pins: {{case.input.roll}}) == {{case.expected}})
             {% endif -%}
             {% endif -%}
         }

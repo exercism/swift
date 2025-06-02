@@ -5,7 +5,7 @@
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Discourse topics](https://img.shields.io/discourse/topics?color=8A08E6&label=Connect%20&labelColor=FFDF58&logo=Discourse&logoColor=8A08E6&server=https%3A%2F%2Fforum.exercism.org&style=social)](https://forum.exercism.org)
-&nbsp;[![Exercism_II](https://img.shields.io/badge/Exercism--Built-9101FF?logo=swift&logoColor=F05138&labelColor=ffffff&label=Swift%205.8.1%20Powered)](https://exercism.org)
+&nbsp;[![Exercism_II](https://img.shields.io/badge/Exercism--Built-9101FF?logo=swift&logoColor=F05138&labelColor=ffffff&label=Swift%206.1%20Powered)](https://exercism.org)
 &nbsp;[![Exercism_III](https://img.shields.io/badge/Open-11b30e?labelColor=3D454D&label=Contributions)](https://exercism.org/blog/freeing-our-maintainers) &nbsp;[![Build Status](https://github.com/exercism/Swift/workflows/CI/badge.svg)](https://github.com/exercism/swift/actions/workflows/ci.yml)
 
 <br>
@@ -17,8 +17,12 @@ Hi. &nbsp;👋🏽 &nbsp;👋 &nbsp;**We are happy you are here.**&nbsp; 🎉&nb
 **`exercism/Swift`** is one of many programming language tracks on [exercism(dot)org][exercism-website].
 This repo holds all the instructions, tests, code, & support files for Swift _exercises_ currently under development or implemented & available for students.
 
-🌟 &nbsp;&nbsp;Track tooling (_test-runner and Continuous Integration_) runs on Swift `5.8.1`. <br>
-🌟 &nbsp;&nbsp;Most exercises are solvable with Swift `5.3.0` or higher.
+🌟 &nbsp;&nbsp;Track tooling (_test-runner and Continuous Integration_) runs on Swift `6.1.0`. <br>
+🌟 &nbsp;&nbsp;Most exercises are solvable with Swift `6.0.0` or higher.
+
+Currently, the track uses the new [swift-testing][swift-testing] library, requiring Swift 6.0.0 or higher to run the tests.
+If you wish to still run the tests with the old XCTest framework, you can do so by pulling the `5.x` branch.
+**Note:** The `5.x` branch is no longer maintained and will not receive any updates and the solutions uploaded to the website may not work with the old XCTest framework.
 
 This track is made up of **Practice Exercises**. Practice exercises are open-ended, and can be used to practice concepts learned, try out new techniques, and play.
 
@@ -65,7 +69,7 @@ Please keep in mind [Chesterton's Fence][chestertons-fence].
 
 ## Swift Software and Documentation
 
-**Copyright © 2023 Apple Inc. All rights reserved.**
+The Swift logo is a trademark of Apple Inc.
 
 Swift software and documentation are licensed under the [Apache License v2.0][swift-license].
 
@@ -81,7 +85,8 @@ Thanks to Bethany for the allowing us to use her [template][exercism-template] f
 [chestertons-fence]: https://github.com/exercism/docs/blob/main/community/good-member/chestertons-fence.md
 [concept-exercises]: https://github.com/exercism/docs/blob/main/building/tracks/concept-exercises.md
 [config-json]: https://github.com/exercism/swift/blob/main/config.json
-[swift-license]: https://github.com/apple/swift/blob/main/LICENSE.txt
+[swift-license]: https://github.com/swiftlang/swift/blob/main/LICENSE.txt
+[swift-testing]: https://github.com/swiftlang/swift-testing
 [good-first-issues]: https://github.com/exercism/swift/labels/good%20first%20patch
 [exercise-presentation]: https://github.com/exercism/docs/blob/main/building/tracks/presentation.md
 [exercism-admins]: https://github.com/exercism/docs/blob/main/community/administrators.md
