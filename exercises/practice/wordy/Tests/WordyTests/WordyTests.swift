@@ -1,137 +1,140 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Wordy
 
-class WordyTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct WordyTests {
+
+  @Test("just a number")
   func testJustANumber() {
-    XCTAssertEqual(try! wordyAnswer("What is 5?"), 5)
+    #expect(try! wordyAnswer("What is 5?") == 5)
   }
 
-  func testAddition() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is 1 plus 1?"), 2)
+  @Test("addition", .enabled(if: RUNALL))
+  func testAddition() {
+    #expect(try! wordyAnswer("What is 1 plus 1?") == 2)
   }
 
-  func testMoreAddition() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is 53 plus 2?"), 55)
+  @Test("more addition", .enabled(if: RUNALL))
+  func testMoreAddition() {
+    #expect(try! wordyAnswer("What is 53 plus 2?") == 55)
   }
 
-  func testAdditionWithNegativeNumbers() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is -1 plus -10?"), -11)
+  @Test("addition with negative numbers", .enabled(if: RUNALL))
+  func testAdditionWithNegativeNumbers() {
+    #expect(try! wordyAnswer("What is -1 plus -10?") == -11)
   }
 
-  func testLargeAddition() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is 123 plus 45678?"), 45801)
+  @Test("large addition", .enabled(if: RUNALL))
+  func testLargeAddition() {
+    #expect(try! wordyAnswer("What is 123 plus 45678?") == 45801)
   }
 
-  func testSubtraction() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is 4 minus -12?"), 16)
+  @Test("subtraction", .enabled(if: RUNALL))
+  func testSubtraction() {
+    #expect(try! wordyAnswer("What is 4 minus -12?") == 16)
   }
 
-  func testMultiplication() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is -3 multiplied by 25?"), -75)
+  @Test("multiplication", .enabled(if: RUNALL))
+  func testMultiplication() {
+    #expect(try! wordyAnswer("What is -3 multiplied by 25?") == -75)
   }
 
-  func testDivision() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is 33 divided by -3?"), -11)
+  @Test("division", .enabled(if: RUNALL))
+  func testDivision() {
+    #expect(try! wordyAnswer("What is 33 divided by -3?") == -11)
   }
 
-  func testMultipleAdditions() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is 1 plus 1 plus 1?"), 3)
+  @Test("multiple additions", .enabled(if: RUNALL))
+  func testMultipleAdditions() {
+    #expect(try! wordyAnswer("What is 1 plus 1 plus 1?") == 3)
   }
 
-  func testAdditionAndSubtraction() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is 1 plus 5 minus -2?"), 8)
+  @Test("addition and subtraction", .enabled(if: RUNALL))
+  func testAdditionAndSubtraction() {
+    #expect(try! wordyAnswer("What is 1 plus 5 minus -2?") == 8)
   }
 
-  func testMultipleSubtraction() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is 20 minus 4 minus 13?"), 3)
+  @Test("multiple subtraction", .enabled(if: RUNALL))
+  func testMultipleSubtraction() {
+    #expect(try! wordyAnswer("What is 20 minus 4 minus 13?") == 3)
   }
 
-  func testSubtractionThenAddition() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is 17 minus 6 plus 3?"), 14)
+  @Test("subtraction then addition", .enabled(if: RUNALL))
+  func testSubtractionThenAddition() {
+    #expect(try! wordyAnswer("What is 17 minus 6 plus 3?") == 14)
   }
 
-  func testMultipleMultiplication() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is 2 multiplied by -2 multiplied by 3?"), -12)
+  @Test("multiple multiplication", .enabled(if: RUNALL))
+  func testMultipleMultiplication() {
+    #expect(try! wordyAnswer("What is 2 multiplied by -2 multiplied by 3?") == -12)
   }
 
-  func testAdditionAndMultiplication() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is -3 plus 7 multiplied by -2?"), -8)
+  @Test("addition and multiplication", .enabled(if: RUNALL))
+  func testAdditionAndMultiplication() {
+    #expect(try! wordyAnswer("What is -3 plus 7 multiplied by -2?") == -8)
   }
 
-  func testMultipleDivision() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(try! wordyAnswer("What is -12 divided by 2 divided by -3?"), 2)
+  @Test("multiple division", .enabled(if: RUNALL))
+  func testMultipleDivision() {
+    #expect(try! wordyAnswer("What is -12 divided by 2 divided by -3?") == 2)
   }
 
-  func testUnknownOperation() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try wordyAnswer("What is 52 cubed?")) { error in
-      XCTAssertEqual(error as? WordyError, .syntaxError)
+  @Test("unknown operation", .enabled(if: RUNALL))
+  func testUnknownOperation() {
+    #expect(throws: WordyError.syntaxError) {
+      try wordyAnswer("What is 52 cubed?")
     }
   }
 
-  func testNonMathQuestion() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try wordyAnswer("Who is the President of the United States?")) { error in
-      XCTAssertEqual(error as? WordyError, .syntaxError)
+  @Test("Non math question", .enabled(if: RUNALL))
+  func testNonMathQuestion() {
+    #expect(throws: WordyError.syntaxError) {
+      try wordyAnswer("Who is the President of the United States?")
     }
   }
 
-  func testRejectProblemMissingAnOperand() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try wordyAnswer("What is 1 plus?")) { error in
-      XCTAssertEqual(error as? WordyError, .syntaxError)
+  @Test("reject problem missing an operand", .enabled(if: RUNALL))
+  func testRejectProblemMissingAnOperand() {
+    #expect(throws: WordyError.syntaxError) {
+      try wordyAnswer("What is 1 plus?")
     }
   }
 
-  func testRejectProblemWithNoOperandsOrOperators() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try wordyAnswer("What is?")) { error in
-      XCTAssertEqual(error as? WordyError, .syntaxError)
+  @Test("reject problem with no operands or operators", .enabled(if: RUNALL))
+  func testRejectProblemWithNoOperandsOrOperators() {
+    #expect(throws: WordyError.syntaxError) {
+      try wordyAnswer("What is?")
     }
   }
 
-  func testRejectTwoOperationsInARow() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try wordyAnswer("What is 1 plus plus 2?")) { error in
-      XCTAssertEqual(error as? WordyError, .syntaxError)
+  @Test("reject two operations in a row", .enabled(if: RUNALL))
+  func testRejectTwoOperationsInARow() {
+    #expect(throws: WordyError.syntaxError) {
+      try wordyAnswer("What is 1 plus plus 2?")
     }
   }
 
-  func testRejectTwoNumbersInARow() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try wordyAnswer("What is 1 plus 2 1?")) { error in
-      XCTAssertEqual(error as? WordyError, .syntaxError)
+  @Test("reject two numbers in a row", .enabled(if: RUNALL))
+  func testRejectTwoNumbersInARow() {
+    #expect(throws: WordyError.syntaxError) {
+      try wordyAnswer("What is 1 plus 2 1?")
     }
   }
 
-  func testRejectPostfixNotation() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try wordyAnswer("What is 1 2 plus?")) { error in
-      XCTAssertEqual(error as? WordyError, .syntaxError)
+  @Test("reject postfix notation", .enabled(if: RUNALL))
+  func testRejectPostfixNotation() {
+    #expect(throws: WordyError.syntaxError) {
+      try wordyAnswer("What is 1 2 plus?")
     }
   }
 
-  func testRejectPrefixNotation() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try wordyAnswer("What is plus 1 2?")) { error in
-      XCTAssertEqual(error as? WordyError, .syntaxError)
+  @Test("reject prefix notation", .enabled(if: RUNALL))
+  func testRejectPrefixNotation() {
+    #expect(throws: WordyError.syntaxError) {
+      try wordyAnswer("What is plus 1 2?")
     }
   }
 }
