@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-import Numerics
+import RealModule
 
 @testable import FreelancerRates
 
