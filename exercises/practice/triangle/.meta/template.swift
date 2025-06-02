@@ -1,20 +1,23 @@
-import XCTest
-@testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+import Testing
+import Foundation
 
+@testable import {{exercise|camelCase}}
+
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% outer: for case in cases %}
         {%- for subCases in case.cases %}
         {%- if forloop.outer.first and forloop.first %}
-            func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() {
+            @Test("{{subCases.description}}")
         {%- else %}
-            func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() throws {
-            try XCTSkipIf(true && !runAll) // change true to false to run this test
+            @Test("{{subCases.description}}", .enabled(if: RUNALL))
         {%- endif %}
+            func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() {
         {%- if subCases.expected %}
-            XCTAssertTrue(Triangle({{subCases.input.sides}}).is{{subCases.property | capitalize }})
+            #expect(Triangle({{subCases.input.sides}}).is{{subCases.property | capitalize }})
         {%- else %}
-            XCTAssertFalse(Triangle({{subCases.input.sides}}).is{{subCases.property | capitalize }})
+            #expect(!Triangle({{subCases.input.sides}}).is{{subCases.property | capitalize }})
         {%- endif %}
         }
         {% endfor -%}
