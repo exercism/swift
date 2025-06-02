@@ -35,7 +35,7 @@ The else statement needs to be used with an if statement and cannot be used on i
 To declare an else statement you use the `else` keyword after an if statements curly braces, followed by the code to execute in curly braces.
 
 ```swift
-Let precipitationInMM = 0.5
+let precipitationInMM = 0.5
 if precipitationInMM > 0.5 {
   print("You will need an umbrella")
 } else {

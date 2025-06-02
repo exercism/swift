@@ -1,20 +1,22 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
     {% for case in cases %}
     {% if forloop.first -%}
-        func test{{case.description |camelCase }}() {
+        @Test("{{case.description}}")
     {% else -%}
-        func test{{case.description |camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
+        @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
+    func test{{case.description |camelCase }}() {
         {%- ifnot case.expected.error -%}
-        XCTAssertEqual({{case.expected | toStringArray}}, try! translationOfRNA(rna: "{{case.input.strand}}"))
+        #expect(try! translationOfRNA(rna: "{{case.input.strand}}") == {{case.expected | toStringArray}})
         {%- else -%}
-        XCTAssertThrowsError(try translationOfRNA(rna: "{{case.input.strand}}")) { error in
-            XCTAssertEqual(error as? TranslationError, TranslationError.invalidCodon)
+        #expect(throws: TranslationError.invalidCodon) {
+            try translationOfRNA(rna: "{{case.input.strand}}")
         }
         {%- endif -%}
     }

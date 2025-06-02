@@ -1,36 +1,33 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import CollatzConjecture
 
-class CollatzConjectureTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
-  func testZeroStepsForOne() {
-    XCTAssertEqual(0, try! CollatzConjecture.steps(1))
+@Suite struct CollatzConjectureTests {
+
+  @Test("zero steps for one")
+  func testZeroStepsForOne() { #expect(try! CollatzConjecture.steps(1) == 0) }
+
+  @Test("divide if even", .enabled(if: RUNALL))
+  func testDivideIfEven() { #expect(try! CollatzConjecture.steps(16) == 4) }
+
+  @Test("even and odd steps", .enabled(if: RUNALL))
+  func testEvenAndOddSteps() { #expect(try! CollatzConjecture.steps(12) == 9) }
+
+  @Test("large number of even and odd steps", .enabled(if: RUNALL))
+  func testLargeNumberOfEvenAndOddSteps() {
+    #expect(try! CollatzConjecture.steps(1_000_000) == 152)
   }
 
-  func testDivideIfEven() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(4, try! CollatzConjecture.steps(16))
+  @Test("zero is an error", .enabled(if: RUNALL))
+  func testZeroIsAnError() {
+    #expect(throws: (any Error).self) { try CollatzConjecture.steps(0) }
   }
 
-  func testEvenAndOddSteps() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(9, try! CollatzConjecture.steps(12))
-  }
-
-  func testLargeNumberOfEvenAndOddSteps() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(152, try! CollatzConjecture.steps(1_000_000))
-  }
-
-  func testZeroIsAnError() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try CollatzConjecture.steps(0))
-  }
-
-  func testNegativeValueIsAnError() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertThrowsError(try CollatzConjecture.steps(-15))
+  @Test("negative value is an error", .enabled(if: RUNALL))
+  func testNegativeValueIsAnError() {
+    #expect(throws: (any Error).self) { try CollatzConjecture.steps(-15) }
   }
 }

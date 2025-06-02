@@ -1,136 +1,144 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import RomanNumerals
 
-class RomanNumeralsTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct RomanNumeralsTests {
+
+  @Test("1 is I")
   func test1IsI() {
-    XCTAssertEqual(1.toRomanNumeral(), "I")
+    #expect(1.toRomanNumeral() == "I")
   }
 
-  func test2IsIi() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(2.toRomanNumeral(), "II")
+  @Test("2 is II", .enabled(if: RUNALL))
+  func test2IsIi() {
+    #expect(2.toRomanNumeral() == "II")
   }
 
-  func test3IsIii() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(3.toRomanNumeral(), "III")
+  @Test("3 is III", .enabled(if: RUNALL))
+  func test3IsIii() {
+    #expect(3.toRomanNumeral() == "III")
   }
 
-  func test4IsIv() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(4.toRomanNumeral(), "IV")
+  @Test("4 is IV", .enabled(if: RUNALL))
+  func test4IsIv() {
+    #expect(4.toRomanNumeral() == "IV")
   }
 
-  func test5IsV() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(5.toRomanNumeral(), "V")
+  @Test("5 is V", .enabled(if: RUNALL))
+  func test5IsV() {
+    #expect(5.toRomanNumeral() == "V")
   }
 
-  func test6IsVi() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(6.toRomanNumeral(), "VI")
+  @Test("6 is VI", .enabled(if: RUNALL))
+  func test6IsVi() {
+    #expect(6.toRomanNumeral() == "VI")
   }
 
-  func test9IsIx() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(9.toRomanNumeral(), "IX")
+  @Test("9 is IX", .enabled(if: RUNALL))
+  func test9IsIx() {
+    #expect(9.toRomanNumeral() == "IX")
   }
 
-  func test16IsXvi() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(16.toRomanNumeral(), "XVI")
+  @Test("16 is XVI", .enabled(if: RUNALL))
+  func test16IsXvi() {
+    #expect(16.toRomanNumeral() == "XVI")
   }
 
-  func test27IsXxvii() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(27.toRomanNumeral(), "XXVII")
+  @Test("27 is XXVII", .enabled(if: RUNALL))
+  func test27IsXxvii() {
+    #expect(27.toRomanNumeral() == "XXVII")
   }
 
-  func test48IsXlviii() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(48.toRomanNumeral(), "XLVIII")
+  @Test("48 is XLVIII", .enabled(if: RUNALL))
+  func test48IsXlviii() {
+    #expect(48.toRomanNumeral() == "XLVIII")
   }
 
-  func test49IsXlix() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(49.toRomanNumeral(), "XLIX")
+  @Test("49 is XLIX", .enabled(if: RUNALL))
+  func test49IsXlix() {
+    #expect(49.toRomanNumeral() == "XLIX")
   }
 
-  func test59IsLix() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(59.toRomanNumeral(), "LIX")
+  @Test("59 is LIX", .enabled(if: RUNALL))
+  func test59IsLix() {
+    #expect(59.toRomanNumeral() == "LIX")
   }
 
-  func test66IsLxvi() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(66.toRomanNumeral(), "LXVI")
+  @Test("66 is LXVI", .enabled(if: RUNALL))
+  func test66IsLxvi() {
+    #expect(66.toRomanNumeral() == "LXVI")
   }
 
-  func test93IsXciii() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(93.toRomanNumeral(), "XCIII")
+  @Test("93 is XCIII", .enabled(if: RUNALL))
+  func test93IsXciii() {
+    #expect(93.toRomanNumeral() == "XCIII")
   }
 
-  func test141IsCxli() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(141.toRomanNumeral(), "CXLI")
+  @Test("141 is CXLI", .enabled(if: RUNALL))
+  func test141IsCxli() {
+    #expect(141.toRomanNumeral() == "CXLI")
   }
 
-  func test163IsClxiii() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(163.toRomanNumeral(), "CLXIII")
+  @Test("163 is CLXIII", .enabled(if: RUNALL))
+  func test163IsClxiii() {
+    #expect(163.toRomanNumeral() == "CLXIII")
   }
 
-  func test166IsClxvi() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(166.toRomanNumeral(), "CLXVI")
+  @Test("166 is CLXVI", .enabled(if: RUNALL))
+  func test166IsClxvi() {
+    #expect(166.toRomanNumeral() == "CLXVI")
   }
 
-  func test402IsCdii() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(402.toRomanNumeral(), "CDII")
+  @Test("402 is CDII", .enabled(if: RUNALL))
+  func test402IsCdii() {
+    #expect(402.toRomanNumeral() == "CDII")
   }
 
-  func test575IsDlxxv() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(575.toRomanNumeral(), "DLXXV")
+  @Test("575 is DLXXV", .enabled(if: RUNALL))
+  func test575IsDlxxv() {
+    #expect(575.toRomanNumeral() == "DLXXV")
   }
 
-  func test666IsDclxvi() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(666.toRomanNumeral(), "DCLXVI")
+  @Test("666 is DCLXVI", .enabled(if: RUNALL))
+  func test666IsDclxvi() {
+    #expect(666.toRomanNumeral() == "DCLXVI")
   }
 
-  func test911IsCmxi() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(911.toRomanNumeral(), "CMXI")
+  @Test("911 is CMXI", .enabled(if: RUNALL))
+  func test911IsCmxi() {
+    #expect(911.toRomanNumeral() == "CMXI")
   }
 
-  func test1024IsMxxiv() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(1024.toRomanNumeral(), "MXXIV")
+  @Test("1024 is MXXIV", .enabled(if: RUNALL))
+  func test1024IsMxxiv() {
+    #expect(1024.toRomanNumeral() == "MXXIV")
   }
 
-  func test1666IsMdclxvi() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(1666.toRomanNumeral(), "MDCLXVI")
+  @Test("1666 is MDCLXVI", .enabled(if: RUNALL))
+  func test1666IsMdclxvi() {
+    #expect(1666.toRomanNumeral() == "MDCLXVI")
   }
 
-  func test3000IsMmm() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(3000.toRomanNumeral(), "MMM")
+  @Test("3000 is MMM", .enabled(if: RUNALL))
+  func test3000IsMmm() {
+    #expect(3000.toRomanNumeral() == "MMM")
   }
 
-  func test3001IsMmmi() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(3001.toRomanNumeral(), "MMMI")
+  @Test("3001 is MMMI", .enabled(if: RUNALL))
+  func test3001IsMmmi() {
+    #expect(3001.toRomanNumeral() == "MMMI")
   }
 
-  func test3999IsMmmcmxcix() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    XCTAssertEqual(3999.toRomanNumeral(), "MMMCMXCIX")
+  @Test("3888 is MMMDCCCLXXXVIII", .enabled(if: RUNALL))
+  func test3888IsMmmdccclxxxviii() {
+    #expect(3888.toRomanNumeral() == "MMMDCCCLXXXVIII")
+  }
+
+  @Test("3999 is MMMCMXCIX", .enabled(if: RUNALL))
+  func test3999IsMmmcmxcix() {
+    #expect(3999.toRomanNumeral() == "MMMCMXCIX")
   }
 }

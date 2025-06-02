@@ -1,29 +1,31 @@
-import XCTest
+import Testing
+import Foundation
 @testable import {{exercise|camelCase}}
-class {{exercise|camelCase}}Tests: XCTestCase {
-    let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
+@Suite struct {{exercise|camelCase}}Tests {
 
     {% for case in cases %}
     {% if forloop.first -%}
-        func test{{case.description |camelCase }}() {
+        @Test("{{case.description}}")
     {% else -%}
-        func test{{case.description |camelCase }}() throws {
-        try XCTSkipIf(true && !runAll) // change true to false to run this test
+        @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
+        func test{{case.description |camelCase }}() {
     {%- if case.expected.error -%}
-        XCTAssertThrowsError(try Base.outputDigits(inputBase: {{case.input.inputBase}}, inputDigits: {{case.input.digits}}, outputBase: {{case.input.outputBase}})) { error in
         {%- if case.input.inputBase < 2 %}
-            XCTAssertEqual(error as? BaseError, BaseError.invalidInputBase)
+            #expect(throws: BaseError.invalidInputBase) 
         {%- elif case.input.outputBase < 2 %}
-            XCTAssertEqual(error as? BaseError, BaseError.invalidOutputBase)
+            #expect(throws: BaseError.invalidOutputBase) 
         {%- elif case.input.digits | any:"isNegative" %}
-            XCTAssertEqual(error as? BaseError, BaseError.negativeDigit)
+            #expect(throws: BaseError.negativeDigit) 
         {%- else %}
-            XCTAssertEqual(error as? BaseError, BaseError.invalidPositiveDigit)
+            #expect(throws: BaseError.invalidPositiveDigit)
         {%- endif -%}
-        }
+        {try Base.outputDigits(inputBase: {{case.input.inputBase}}, inputDigits: {{case.input.digits}}, outputBase: {{case.input.outputBase}})}
     {%- else -%}
-        XCTAssertEqual(try! Base.outputDigits(inputBase: {{case.input.inputBase}}, inputDigits: {{case.input.digits}}, outputBase: {{case.input.outputBase}}), {{case.expected}})
+        #expect(try! Base.outputDigits(inputBase: {{case.input.inputBase}}, inputDigits: {{case.input.digits}}, outputBase: {{case.input.outputBase}}) == {{case.expected}})
     {%- endif -%}
     }
     {% endfor -%}
