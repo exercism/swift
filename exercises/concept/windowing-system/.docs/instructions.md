@@ -36,10 +36,10 @@ Include a method `resize(newWidth:newHeight:)` that takes new width and height p
 let size1080x764 = Size(width: 1080, height: 764)
 // Returns Size
 var size1200x800 = size1080x764
-// returns Size
+// Returns Size
 size1200x800.resize(newWidth: 1200, newHeight: 800)
 size1200x800.height
-// returns 800
+// Returns 800
 ```
 
 ## 2. Define a Position struct
@@ -51,10 +51,10 @@ Include a method `moveTo(newX:newY:)` that takes new x and y parameters and chan
 
 ```swift
 var point = Position(x: 10, y: 20)
-// returns Position
+// Returns Position
 point.moveTo(newX: 100, newY: -100)
 point.y
-// returns -100
+// Returns -100
 ```
 
 ## 3. Define a Window class
@@ -72,7 +72,7 @@ You should also define an empty initializer for the class.
 ```swift
 let window = Window()
 window.title
-// returns "New Window"
+// Returns "New Window"
 ```
 
 ## 4. Add a method to resize windows
@@ -107,9 +107,9 @@ The `size` and `position` parameters should default to the default values of the
 ```swift
 let window = Window(title: "My First Window", contents: "I 😍 my window")
 window.display()
-// returns "My First Window\nPosition: (0, 0), Size: (80 x 60)\nI 😍 my window\n"
+// Returns "My First Window\nPosition: (0, 0), Size: (80 x 60)\nI 😍 my window\n"
 
 let window2 = Window(title: "My Second Window", contents: "I 😍 my window", size: Size(width: 200, height: 150), position: Position(x: 10, y: 100))
 window2.display()
-// returns "My Second Window\nPosition: (10, 100), Size: (200 x 150)\nI 😍 my window\n"
+// Returns "My Second Window\nPosition: (10, 100), Size: (200 x 150)\nI 😍 my window\n"
 ```
