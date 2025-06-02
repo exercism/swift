@@ -16,13 +16,12 @@ let package = Package(
     .target(
       name: "ComplexNumbers",
       dependencies: [
-        .product(name: "Numerics", package: "swift-numerics")
+        .product(name: "RealModule", package: "swift-numerics")
       ]),
     .testTarget(
       name: "ComplexNumbersTests",
       dependencies: [
-        "ComplexNumbers",
-        .product(name: "Numerics", package: "swift-numerics"),
+        "ComplexNumbers"
       ]),
   ]
 )
