@@ -2,7 +2,7 @@
 
 ## Goal
 
-The goal of this exercise is to introduce the student to the concept of Optionals in Swift].
+The goal of this exercise is to introduce the student to the concept of Optionals in Swift.
 
 ## Learning objectives
 

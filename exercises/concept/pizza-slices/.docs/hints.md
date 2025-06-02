@@ -2,7 +2,7 @@
 
 ## General
 
-- Read about [optionals][optionals]and about [conditionals][conditionals] in Apple's _A Tour of Swift_ .
+- Read about [optionals][optionals] and about [conditionals][conditionals] in Apple's _A Tour of Swift_.
 
 ## 1. Write a function to compute slice sizes which returns nil for invalid input.
 
@@ -17,5 +17,5 @@
 - You cannot compare `nil` directly with non-nil values.
 - You can use switch statements and optional patterns to compare optional values.
 
-[optionals]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID330
-[conditionals]: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID127
+[optionals]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Optionals
+[conditionals]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Conditional-Statements
