@@ -151,7 +151,8 @@
           "tuples"
         ],
         "prerequisites": [
-          "arrays"
+          "arrays",
+          "for-loops"
         ],
         "status": "active"
       },
@@ -169,19 +170,19 @@
         "status": "active"
       },
       {
-        "slug": "master-mixologist",
-        "name": "Master Mixologist",
+        "slug": "expert-mixologist",
+        "name": "Expert Mixologist",
         "uuid": "a11dc279-0c0a-4dca-89c6-f0abbac265c8",
         "concepts": [
-          "loops",
-          "while-loops",
-          "repeat-while",
-          "control-transfer"
+          "while-and-repeat-loops",
+          "control-transfer",
+          "conditionals-switch"
         ],
         "prerequisites": [
           "arrays",
           "optionals",
-          "tuples"
+          "tuples",
+          "for-loops"
         ],
         "status": "active"
       },
@@ -198,7 +199,7 @@
         "prerequisites": [
           "basics",
           "higher-order-functions",
-          "loops"
+          "while-and-repeat-loops"
         ],
         "status": "active"
       },
@@ -1600,8 +1601,8 @@
     },
     {
       "uuid": "07ba1de8-00d6-4659-9be5-a0fa8f88edc0",
-      "slug": "while-loops",
-      "name": "while loops"
+      "slug": "while-and-repeat-loops",
+      "name": "While and repeat loops"
     }
   ],
   "key_features": [

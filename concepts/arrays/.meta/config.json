@@ -1,7 +1,11 @@
 {
   "blurb": "Arrays are a collection of multiple values of the same type.",
   "authors": [
-    "wneumann"
+    "wneumann",
+    "meatball133"
   ],
-  "contributors": []
+  "contributors": [
+    "heitara",
+    "BNAndras"
+  ]
 }
