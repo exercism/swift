@@ -17,9 +17,7 @@ geometricMean(1, 2, 3, 4, 5)
 // => 2.605171084697352
 ```
 
-When using variadic parameters, Swift has two limitations:
+Note that when using variadic parameters, Swift has a limitation.
+If a function has parameters that follow the variadic parameter in the definition, the first parameter following the variadic parameter is _required_ to have an argument label.
 
-1. Swift only allows functions to have one variadic parameter. It has been decided that this restriction will be removed in a future release of Swift, but it is currently still in place.
-2. If a function has parameters that follow the variadic parameter in the definition, the first parameter following the variadic parameter is _required_ to have an argument label.
-
-[variadic-parameters]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID171
+[variadic-parameters]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Variadic-Parameters

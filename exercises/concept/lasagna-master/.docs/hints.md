@@ -27,12 +27,12 @@
 - Nested functions can be called as normal inside the functions the are defined within.
 - Nested functions have access to all of the parameter, constants, and variables of the surrounding function. There is no need to pass them in to the nested function.
 
-[functions]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html
-[type annotations]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID312
-[argument labels]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID166
-[multiple-return-values]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID164
-[implicit-returns]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID607
-[default-parameter-values]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID169
-[variadic-parameters]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID171
-[in-out-parameters]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID173
-[nested-functions]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID178
+[functions]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/
+[type annotations]: [type annotations]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID312
+[argument labels]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Function-Argument-Labels-and-Parameter-Names
+[multiple-return-values]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Functions-with-Multiple-Return-Values
+[implicit-returns]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions#Functions-With-an-Implicit-Return
+[default-parameter-values]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Default-Parameter-Values
+[variadic-parameters]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Variadic-Parameters
+[in-out-parameters]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#In-Out-Parameters
+[nested-functions]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Nested-Functions
