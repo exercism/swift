@@ -21,7 +21,7 @@ Otherwise, the code will not compile.
 
 ```swift
 flip(("red", "yellow", "blue"))
-// returns ("yellow", "red", "blue")
+// Returns ("yellow", "red", "blue")
 ```
 
 ## 2. Write a closure to rotate the wires
@@ -33,7 +33,7 @@ It is important to note that the type has to be the `ChangeClosure` (or a sendab
 
 ```swift
 rotate(("red", "yellow", "blue"))
-// returns ("yellow", "blue", "red")
+// Returns ("yellow", "blue", "red")
 ```
 
 ## 3. Implement a wire shuffle generator
@@ -58,7 +58,7 @@ After the appropriate closures have been applied for all eight bits of the ID, t
 
 ```swift
 let shuffler = makeShuffle(flipper: flip, rotator: rotate)
-// returns (UInt8, (String, String, String)) -> (String, String, String)
+// Returns (UInt8, (String, String, String)) -> (String, String, String)
 shuffler(155, ("red", "yellow", "blue"))
-// returns ("red", "blue", "yellow")
+// Returns ("red", "blue", "yellow")
 ```

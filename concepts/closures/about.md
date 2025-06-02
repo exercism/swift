@@ -5,7 +5,7 @@ Closures also capture values from their environment and use them in their comput
 As they are self contained, they may be passed around in a program like other values or assigned to constants and variables.
 
 Closures may sound a lot like Swift functions; they do, and for good reason.
-Functions in Swift are just special cases of closures which are required to have a name and are defined using a slightly different syntax.
+Functions in Swift are special cases of closures which are required to have a name and are defined using a slightly different syntax.
 
 While functions in Swift are technically closures, when people refer to "closures" in Swift, they are referring to [closure expressions][closure-expressions].
 Closure expressions are written as a parameter list followed by a return type and the keyword `in` followed by the body of the closure, all contained in a pair of curly braces:
