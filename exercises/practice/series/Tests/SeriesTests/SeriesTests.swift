@@ -1,84 +1,93 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import Series
 
-class SeriesTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite struct SeriesTests {
+
+  @Test("slices of one from one")
   func testSlicesOfOneFromOne() {
     let series = Series("1")
-    XCTAssertEqual(try! series.slice(1), ["1"])
+    #expect(try! series.slice(1) == ["1"])
   }
 
-  func testSlicesOfOneFromTwo() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("slices of one from two", .enabled(if: RUNALL))
+  func testSlicesOfOneFromTwo() {
     let series = Series("12")
-    XCTAssertEqual(try! series.slice(1), ["1", "2"])
+    #expect(try! series.slice(1) == ["1", "2"])
   }
 
-  func testSlicesOfTwo() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("slices of two", .enabled(if: RUNALL))
+  func testSlicesOfTwo() {
     let series = Series("35")
-    XCTAssertEqual(try! series.slice(2), ["35"])
+    #expect(try! series.slice(2) == ["35"])
   }
 
-  func testSlicesOfTwoOverlap() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("slices of two overlap", .enabled(if: RUNALL))
+  func testSlicesOfTwoOverlap() {
     let series = Series("9142")
-    XCTAssertEqual(try! series.slice(2), ["91", "14", "42"])
+    #expect(try! series.slice(2) == ["91", "14", "42"])
   }
 
-  func testSlicesCanIncludeDuplicates() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("slices can include duplicates", .enabled(if: RUNALL))
+  func testSlicesCanIncludeDuplicates() {
     let series = Series("777777")
-    XCTAssertEqual(try! series.slice(3), ["777", "777", "777", "777"])
+    #expect(try! series.slice(3) == ["777", "777", "777", "777"])
   }
 
-  func testSlicesOfALongSeries() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("slices of a long series", .enabled(if: RUNALL))
+  func testSlicesOfALongSeries() {
     let series = Series("918493904243")
-    XCTAssertEqual(
-      try! series.slice(5),
-      ["91849", "18493", "84939", "49390", "93904", "39042", "90424", "04243"])
+    #expect(
+      try! series.slice(5) == [
+        "91849", "18493", "84939", "49390", "93904", "39042", "90424", "04243",
+      ])
   }
 
-  func testSliceLengthIsTooLarge() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("slice length is too large", .enabled(if: RUNALL))
+  func testSliceLengthIsTooLarge() {
     let series = Series("12345")
-    XCTAssertThrowsError(try series.slice(6)) { error in
-      XCTAssertEqual(error as? SeriesError, SeriesError.sliceLengthLongerThanSeries)
-    }
+    #expect(
+      throws:
+        SeriesError.sliceLengthLongerThanSeries
+    ) { try series.slice(6) }
   }
 
-  func testSliceLengthIsWayTooLarge() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("slice length is way too large", .enabled(if: RUNALL))
+  func testSliceLengthIsWayTooLarge() {
     let series = Series("12345")
-    XCTAssertThrowsError(try series.slice(42)) { error in
-      XCTAssertEqual(error as? SeriesError, SeriesError.sliceLengthLongerThanSeries)
-    }
+    #expect(
+      throws:
+        SeriesError.sliceLengthLongerThanSeries
+    ) { try series.slice(42) }
   }
 
-  func testSliceLengthCannotBeZero() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("slice length cannot be zero", .enabled(if: RUNALL))
+  func testSliceLengthCannotBeZero() {
     let series = Series("12345")
-    XCTAssertThrowsError(try series.slice(0)) { error in
-      XCTAssertEqual(error as? SeriesError, SeriesError.sliceLengthZeroOrLess)
-    }
+    #expect(
+      throws:
+        SeriesError.sliceLengthZeroOrLess
+    ) { try series.slice(0) }
   }
 
-  func testSliceLengthCannotBeNegative() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("slice length cannot be negative", .enabled(if: RUNALL))
+  func testSliceLengthCannotBeNegative() {
     let series = Series("123")
-    XCTAssertThrowsError(try series.slice(-1)) { error in
-      XCTAssertEqual(error as? SeriesError, SeriesError.sliceLengthZeroOrLess)
-    }
+    #expect(
+      throws:
+        SeriesError.sliceLengthZeroOrLess
+    ) { try series.slice(-1) }
   }
 
-  func testEmptySeriesIsInvalid() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("empty series is invalid", .enabled(if: RUNALL))
+  func testEmptySeriesIsInvalid() {
     let series = Series("")
-    XCTAssertThrowsError(try series.slice(1)) { error in
-      XCTAssertEqual(error as? SeriesError, SeriesError.emptySeries)
-    }
+    #expect(
+      throws:
+        SeriesError.emptySeries
+    ) { try series.slice(1) }
   }
 }
