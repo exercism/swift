@@ -1,22 +1,44 @@
 # Installing Swift
 
-## macOS
+Swift is available on macOS, Linux, and Windows.
+The installation process varies depending on the operating system you are using.
+Important to note with Linux support is that Swift is only (offically) supported on the following distributions:
+- Ubuntu
+- Debian
+- RedHat
+- Fedora
+- Amazon Linux
 
-In order to use the Swift exercises, install Xcode version 10.0 or greater.
-On the first launch of Xcode, install the command line tools when prompted.
+If you are using a different distribution of Linux, you will have to find a way to install Swift yourself.
 
-The current release version is available at the [Mac App Store][xcode].
+## Xcode (macOS)
 
+Swift is included with Xcode, Apple's IDE for macOS and iOS development.
+For the exercism track you will need to have Xcode version 16.0 or greater installed.
+Xcode is available for free on the [Mac App Store][xcode].
 Additional versions of Xcode (including the most recent beta) are available at [Apple's developer center][apple-developer-center].
 
-## Linux & Windows
+## macOS & Linux
 
+For macOS and Linux, there is a Swift installation manager called [swiftly][swiftly].
+It is a command line tool that allows you to install and manage multiple versions of Swift on your system.
+The command to install swiftly on macOS can be found [here][swiftly-macos], and [here][swiftly-linux] for linux.
 
-The latest release is available on [Swift.org][swift-download].
-Swift.org installation [instructions][swift-installation-instructions].
+Other installation methods for macOS is [Homebrew][homebrew].
+For Linux, you can install using the tarball from the official [Swift website][tarball].
 
+## Windows
+
+The recommended way to install Swift on Windows is to use the [WinGet installer][winget-windows].
+It is also possible to install Swift using the Scoop package manager or doing a manual installation.
+For all options, see the [Install Swift for Windows][swift-windows] page.
 
 [xcode]: https://developer.apple.com/xcode/
 [apple-developer-center]: https://developer.apple.com/xcode/downloads/
-[swift-download]: https://swift.org/download/#releases
-[swift-installation-instructions]: https://swift.org/getting-started/#installing-swift
+[swiftly]: https://github.com/swiftlang/swiftly
+[swiftly-macos]: https://www.swift.org/install/macos/swiftly/
+[swiftly-linux]: https://www.swift.org/install/linux/swiftly/
+[homebrew]: https://formulae.brew.sh/formula/swift#default
+[tarball]: https://www.swift.org/install/linux/
+[winget-windows]: https://www.swift.org/install/windows/winget/
+[swift-windows]: https://www.swift.org/install/windows/
