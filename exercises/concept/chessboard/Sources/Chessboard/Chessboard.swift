@@ -7,5 +7,5 @@ func isVaildSquare(rank: Int, file: String) -> Bool {
 }
 
 func getRow(_ board : [String], rank: Int) -> [String] {
-  fatalError("Please implement the isValidSquare(_:rank:) function")
+  fatalError("Please implement the getRow(_:rank:) function")
 }
