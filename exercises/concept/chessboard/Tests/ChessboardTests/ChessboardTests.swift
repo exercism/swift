@@ -33,35 +33,35 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "true"]
   func testValidSquare() {
     let rank = 1
     let file = "A"
-    #expect(isVaildSquare(rank: rank, file: file))
+    #expect(isValidSquare(rank: rank, file: file))
   }
 
   @Test("that it returns true for another valid square", .enabled(if: RUNALL))
   func testAnotherValidSquare() {
     let rank = 8
     let file = "H"
-    #expect(isVaildSquare(rank: rank, file: file))
+    #expect(isValidSquare(rank: rank, file: file))
   }
 
   @Test("that it returns false when rank is out of range", .enabled(if: RUNALL))
   func testRankOutOfRange() {
     let rank = 9
     let file = "B"
-    #expect(!isVaildSquare(rank: rank, file: file))
+    #expect(!isValidSquare(rank: rank, file: file))
   }
 
   @Test("that it returns false when file is out of range", .enabled(if: RUNALL))
   func testFileOutOfRange() {
     let rank = 1
     let file = "I"
-    #expect(!isVaildSquare(rank: rank, file: file))
+    #expect(!isValidSquare(rank: rank, file: file))
   }
 
   @Test("that it returns false when rank is less than one", .enabled(if: RUNALL))
   func testRankLessThanOne() {
     let rank = 0
     let file = "A"
-    #expect(!isVaildSquare(rank: rank, file: file))
+    #expect(!isValidSquare(rank: rank, file: file))
   }
 
   @Test("that is returns correct first row", .enabled(if: RUNALL))
