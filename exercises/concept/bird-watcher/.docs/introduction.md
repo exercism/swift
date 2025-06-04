@@ -46,7 +46,7 @@ number + 1
 
 You can also iterate over a range of numbers using a `for-in` loop.
 This allows you to execute a block of code a specific number of times, for example, the range `1...5` will iterate over the numbers 1, 2, 3, 4, and 5, so the loop will execute 5 times.
-Sometimes you might want to iterate over indexes, in a datastructure like an array, then you can use a `0..<array.count` range.
+Sometimes you might want to iterate over indexes, in a data-structure like an array, then you can use a `0..<array.count` range.
 
 ```swift
 let numbers = [3, 10, 7, 11]
