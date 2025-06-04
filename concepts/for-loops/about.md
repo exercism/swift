@@ -4,7 +4,7 @@ Looping is a fundamental concept in programming that allows you to execute a blo
 In Swift, there are two types of loops: [`for-in` loops][for-loops] and `while` loops. 
 In this chapter, you'll learn about `for-in` loops.
 
-For loops allows you to iterate over a sequence of values, taking each element in turn, and binding it to a variable of your choosing.
+For loops allows you to iterate over a sequence of values, taking each element in turn, binding it to a variable of your choosing.
 Swift allows you to iterate over a variety of sequences, such as ranges, arrays, and strings (and more types which will be covered later).
 When every element of the sequence has been iterated over, the loop exits.
 
