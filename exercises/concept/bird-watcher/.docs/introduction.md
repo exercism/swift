@@ -9,7 +9,7 @@ Swift allows you to iterate over a variety of sequences, such as ranges, arrays,
 When every element of the sequence has been iterated over, the loop exits.
 
 For loops are declared by using the `for` keyword, followed by a variable name, the `in` keyword, and a sequence of values to iterate over.
-The variable given in the `for-in` loop is inmutable, meaning you can't change its value inside the loop.
+The variable given in the `for-in` loop is immutable, meaning you can't change its value inside the loop.
 Here's an example of a `for-in` loop that iterates over an array of numbers:
 
 ```swift
@@ -46,7 +46,7 @@ number + 1
 
 You can also iterate over a range of numbers using a `for-in` loop.
 This allows you to execute a block of code a specific number of times, for example, the range `1...5` will iterate over the numbers 1, 2, 3, 4, and 5, so the loop will execute 5 times.
-Sometimes you might want to iterate over indexes, in a datastructure like an array, then you can use a `0..<array.count` range.
+Sometimes you might want to iterate over indexes, in a data-structure like an array, then you can use a `0..<array.count` range.
 
 ```swift
 let numbers = [3, 10, 7, 11]

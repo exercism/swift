@@ -7,5 +7,5 @@ func birdsInWeek(_ birdsPerDay: [Int], weekNumber: Int) -> Int {
 }
 
 func fixBirdCountLog(_ birdsPerDay: [Int]) -> [Int] {
-  fatalError("Please implement the birdsInWeek(_:) function")
+  fatalError("Please implement the fixBirdCountLog(_:) function")
 }
