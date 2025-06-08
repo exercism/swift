@@ -6,7 +6,7 @@ func createToy(name: String, amount: Int) -> (name: String, amount: Int) {
   return (name, amount)
 }
 
-func updateQuantity(_ items: [(name: String, amount: Int)], toy: String, amount: Int) -> [(name: String, amount: Int)]{
+func updateQuantity(_ items: [(name: String, amount: Int)], toy: String, amount: Int) -> [(name: String, amount: Int)] {
   var result: [(name: String, amount: Int)] = []
   for item in items {
     if getName(item) == toy {
