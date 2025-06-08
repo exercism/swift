@@ -14,7 +14,7 @@ The reason for having two range operators is to create ranges that are inclusive
 
 ~~~~exercism/note
 When creating a range in Swift using the range operators `...` or `..<`, and wanting to call a method on the range, you need to wrap the range in parentheses.
-This is because the otherwise will the method be called on the 2nd argument of the range operator.
+This is because otherwise the method will be called on the 2nd argument of the range operator.
 
 ```swift
 (1...5).contains(3) // Returns true
