@@ -1,8 +1,4 @@
-#if os(Linux)
-    import Glibc
-#elseif os(OSX)
-    import Darwin
-#endif
+import Foundation
 
 extension Int {
     init(_ value: Trinary) {
