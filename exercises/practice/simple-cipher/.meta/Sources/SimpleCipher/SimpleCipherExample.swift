@@ -1,20 +1,5 @@
 import Foundation
 
-#if os(Linux)
-  import Glibc
-#elseif os(OSX)
-  import Darwin
-#endif
-
-func arc4random_uniform(_ input: Int) -> Int {
-  #if os(Linux)
-    return random() % input
-  #elseif os(OSX)
-    let temp = UInt32(input)
-    return Int(arc4random_uniform(temp))
-  #endif
-}
-
 public struct Cipher {
   private let abc = "abcdefghijklmnopqrstuvwxyz"
   private var alphabet: [Character] { return Array(abc) }
@@ -23,7 +8,7 @@ public struct Cipher {
   private func randomKeySet() -> String {
     var tempKey = ""
     for _ in (0..<100).enumerated() {
-      tempKey.append(alphabet[arc4random_uniform(alphabet.count)])
+      tempKey.append(alphabet[Int.random(in: 0..<alphabet.count)])
     }
     return tempKey
   }
