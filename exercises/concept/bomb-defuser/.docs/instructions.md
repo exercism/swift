@@ -46,12 +46,12 @@ Implement the function:
 makeShuffle(
   flipper: @escaping ((String, String, String)) -> (String, String, String),
   rotator: @escaping ((String, String, String)) -> (String, String, String)
-) -> (UInt8, (String, String, String)) -> (String, String, String)
+) -> ([UInt8], (String, String, String)) -> (String, String, String)
 ```
 
 which takes as input a closure that flips two wires and a closure that rotates the three wires and returns a closure.
 This returned closure takes the ID number of the stink-bomb and the order of the three wires, and then computes the order the wires need to be cut.
-This is computed as follows:
+The ID number is made of eight bits, and each bit will determine whether to flip or rotate the wires.
 
 For each bit in the ID number, starting with the rightmost bit, you will apply the `flipper` closure to the wires tuple if the bit is a 0 and you will apply the `rotator` closure if it is a 1 giving the new state of the wires.
 After the appropriate closures have been applied for all eight bits of the ID, the final state of the wires is the order they need to be cut in.
@@ -59,6 +59,6 @@ After the appropriate closures have been applied for all eight bits of the ID, t
 ```swift
 let shuffler = makeShuffle(flipper: flip, rotator: rotate)
 // Returns (UInt8, (String, String, String)) -> (String, String, String)
-shuffler(155, ("red", "yellow", "blue"))
+shuffler([1, 0, 0, 1, 1, 0, 1, 1], ("red", "yellow", "blue"))
 // Returns ("red", "blue", "yellow")
 ```

@@ -8,6 +8,6 @@ typealias ChangeClosure = @Sendable ((String, String, String)) -> (String, Strin
 func makeShuffle(
   flipper: @escaping ((String, String, String)) -> (String, String, String),
   rotator: @escaping ((String, String, String)) -> (String, String, String)
-) -> (UInt8, (String, String, String)) -> (String, String, String) {
+) -> ([UInt8], (String, String, String)) -> (String, String, String) {
   fatalError("Please implement the makeShuffle(flipper:rotator:) function")
 }
