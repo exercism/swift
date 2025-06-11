@@ -2,7 +2,7 @@ class GradeSchool {
   var rosters = [Int: [String]]()
 
    func addStudent(_ name: String, grade: Int) -> Bool {
-    if rosters.values.contains { $0.contains(name) } {
+    if rosters.values.contains(where: { $0.contains(name) }) {
       return false
     }
     rosters[grade, default: []].append(name)

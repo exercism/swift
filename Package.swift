@@ -42,8 +42,8 @@ let conceptExerciseTargets: [Target] = conceptExercises.flatMap {
                 .target(name:"\($0.pascalCased)"),
                 .product(name: "Numerics", package: "swift-numerics")
             ], 
-            path:"./exercises/concept/\($0)/Tests",
-            exclude: ["LinuxMain.swift"])
+            path:"./exercises/concept/\($0)/Tests"
+        )
     ]
 }
 
