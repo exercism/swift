@@ -61,21 +61,21 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("returns a bird count list with the corrected values", .enabled(if: RUNALL))
   func testFixBirdCountLog() {
-    var birdCount = [3, 0, 5, 1, 0, 4, 1, 0, 3, 4, 3, 0]
+    let birdCount = [3, 0, 5, 1, 0, 4, 1, 0, 3, 4, 3, 0]
     let expected = [4, 0, 6, 1, 1, 4, 2, 0, 4, 4, 4, 0]
     #expect(fixBirdCountLog(birdCount) == expected)
   }
 
   @Test("works for a short bird count list", .enabled(if: RUNALL))
   func testFixBirdCountLogShort() {
-    var birdCount = [4, 2]
+    let birdCount = [4, 2]
     let expected = [5, 2]
     #expect(fixBirdCountLog(birdCount) == expected)
   }
 
   @Test("works for a long bird count list", .enabled(if: RUNALL))
   func testFixBirdCountLogLong() {
-    var birdCount = [2, 8, 4, 1, 3, 5, 0, 4, 1, 6, 0, 3, 0, 1, 5, 4, 1, 1, 2, 6]
+    let birdCount = [2, 8, 4, 1, 3, 5, 0, 4, 1, 6, 0, 3, 0, 1, 5, 4, 1, 1, 2, 6]
     let expected = [3, 8, 5, 1, 4, 5, 1, 4, 2, 6, 1, 3, 1, 1, 6, 4, 2, 1, 3, 6]
     #expect(fixBirdCountLog(birdCount) == expected)
   }
