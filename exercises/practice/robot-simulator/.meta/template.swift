@@ -13,7 +13,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
             @Test("{{subCases.description}}", .enabled(if: RUNALL))
         {%- endif %}
             func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() {
-            var robot = SimulatedRobot(x: {{subCases.input.position.x}}, y: {{subCases.input.position.y}}, bearing: .{{subCases.input.direction}})
+            let robot = SimulatedRobot(x: {{subCases.input.position.x}}, y: {{subCases.input.position.y}}, bearing: .{{subCases.input.direction}})
             robot.move(commands: "{{subCases.input.instructions}}")
             let state = robot.state
             #expect(state.x == {{subCases.expected.position.x}} && state.y == {{subCases.expected.position.y}} && state.bearing == .{{subCases.expected.direction}})

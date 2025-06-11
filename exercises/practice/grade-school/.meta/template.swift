@@ -12,7 +12,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
         @Test("{{case.description}}", .enabled(if: RUNALL))
     {% endif -%}
     func test{{case.description |camelCase }}() {
-    var school = GradeSchool()
+    let school = GradeSchool()
     {%- if case.property == "add" %}
         {% for student in case.input.students -%}
         {%- if case.expected[forloop.counter0] %}

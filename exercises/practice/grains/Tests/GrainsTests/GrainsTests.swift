@@ -68,6 +68,6 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("", .enabled(if: RUNALL))
   func test2() {
-    #expect(try! Grains.total == 18_446_744_073_709_551_615)
+    #expect(Grains.total == 18_446_744_073_709_551_615)
   }
 }
