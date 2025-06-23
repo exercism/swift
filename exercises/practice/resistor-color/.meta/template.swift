@@ -24,7 +24,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
         @Test("{{case.description}}", .enabled(if: RUNALL))
         func test{{ case.description | camelCase }}() {
     {% if case.property == "colors" -%}
-            #expect(ResistorColor.{{ case.property }} == {{ case.expected }})
+            #expect(ResistorColor.{{ case.property }} == {{ case.expected | toStringArray }})
     {% endif -%}
         }
     {% endfor -%}
