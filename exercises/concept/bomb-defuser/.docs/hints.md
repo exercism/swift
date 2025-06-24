@@ -14,6 +14,6 @@
 
 ## 3. Implement a wire shuffle generator
 
-- You can return the last bit of a number, `n`, by computing `n % 2`
-- You can remove the last bit of a number, `n`, by computing `n / 2`
-- You need to make variable copies of function and closure parameters if you want to mutate them.
+- There is [a method in Swift which allows you to reverse an array][reverse].
+
+[reverse]: https://developer.apple.com/documentation/swift/array/reverse()

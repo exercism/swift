@@ -31,7 +31,8 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let wires = ("Red", "Yellow", "Black")
     let shuffle = makeShuffle(flipper: flip, rotator: rotate)
     let expected = ("Yellow", "Black", "Red")
-    let got = shuffle(113, wires)
+    let key: [UInt8] = [0, 1, 1, 1, 0, 0, 0, 1]
+    let got = shuffle(key, wires)
     #expect(
       stringify(expected) == stringify(got),
       "shuffle(113, (\"Red\", \"Yellow\", \"Black\")): Expected \(expected), got \(got)")
@@ -42,7 +43,8 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let wires = ("Purple", "Cyan", "Marigold")
     let shuffle = makeShuffle(flipper: flip, rotator: rotate)
     let expected = ("Marigold", "Cyan", "Purple")
-    let got = shuffle(253, wires)
+    let key: [UInt8] = [1, 1, 1, 1, 1, 1, 0, 1]
+    let got = shuffle(key, wires)
     #expect(
       stringify(expected) == stringify(got),
       "shuffle(253, (\"Purple\", \"Cyan\", \"Marigold\")): Expected \(expected), got \(got)")
@@ -53,7 +55,8 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let wires = ("Brown", "Orange", "White")
     let shuffle = makeShuffle(flipper: flip, rotator: rotate)
     let expected = ("Brown", "Orange", "White")
-    let got = shuffle(0, wires)
+    let key : [UInt8] = [0, 0, 0, 0, 0, 0, 0, 0]
+    let got = shuffle(key, wires)
     #expect(
       stringify(expected) == stringify(got),
       "shuffle(0, (\"Brown\", \"Orange\", \"White\")): Expected \(expected), got \(got)")

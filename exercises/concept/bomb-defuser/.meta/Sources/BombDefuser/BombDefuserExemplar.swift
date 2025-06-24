@@ -1,11 +1,11 @@
-typealias RotationClosure = @Sendable ((String, String, String)) -> (String, String, String)
+typealias ChangeClosure = @Sendable ((String, String, String)) -> (String, String, String)
 
-let flip: RotationClosure = { (tuple: (String, String, String)) -> (String, String, String) in
+let flip: ChangeClosure = { (tuple: (String, String, String)) -> (String, String, String) in
   let (a, b, c) = tuple
   return (b, a, c)
 }
 
-let rotate: RotationClosure = { (tuple: (String, String, String)) -> (String, String, String) in
+let rotate: ChangeClosure = { (tuple: (String, String, String)) -> (String, String, String) in
   let (a, b, c) = tuple
   return (b, c, a)
 }
@@ -13,17 +13,15 @@ let rotate: RotationClosure = { (tuple: (String, String, String)) -> (String, St
 func makeShuffle(
   flipper: @escaping ((String, String, String)) -> (String, String, String),
   rotator: @escaping ((String, String, String)) -> (String, String, String)
-) -> (UInt8, (String, String, String)) -> (String, String, String) {
-  { (key: UInt8, wires: (String, String, String)) -> (String, String, String) in
-    var bits = key
+) -> ([UInt8], (String, String, String)) -> (String, String, String) {
+  { (key: [UInt8], wires: (String, String, String)) -> (String, String, String) in
     var order = wires
-    for _ in 1...8 {
-      if bits.isMultiple(of: 2) {
+    for keyBit in key.reversed() {
+      if keyBit == 0 {
         order = flipper(order)
       } else {
         order = rotator(order)
       }
-      bits /= 2
     }
     return order
   }
