@@ -1274,9 +1274,9 @@
         ]
       },
       {
-        "slug": "minesweeper",
-        "name": "Minesweeper",
-        "uuid": "ca6d49c7-e850-4e81-9540-582a1353f604",
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "4b9d68e5-2faa-44b2-b330-92be228da2d9",
         "practices": [],
         "prerequisites": [],
         "difficulty": 7,
@@ -1387,6 +1387,19 @@
           "conditionals",
           "looping",
           "strings"
+        ]
+      },
+      {
+        "slug": "minesweeper",
+        "name": "Minesweeper",
+        "uuid": "ca6d49c7-e850-4e81-9540-582a1353f604",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7,
+        "status": "deprecated",
+        "topics": [
+          "parsing",
+          "transforming"
         ]
       }
     ]
