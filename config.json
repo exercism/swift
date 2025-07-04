@@ -788,6 +788,14 @@
         "difficulty": 3
       },
       {
+        "slug": "resistor-color-trio",
+        "name": "Resistor Color Trio",
+        "uuid": "bfd64381-b035-46e5-827b-99ed8b674cde",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "acronym",
         "name": "Acronym",
         "uuid": "7359a818-ffa5-4ce0-be35-cc66654f9af2",
