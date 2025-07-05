@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "Sencudra"
+  ],
+  "files": {
+    "solution": [
+      "Sources/ResistorColorDuo/ResistorColorDuo.swift"
+    ],
+    "test": [
+      "Tests/ResistorColorDuoTests/ResistorColorDuoTests.swift"
+    ],
+    "example": [
+      ".meta/Sources/ResistorColorDuo/ResistorColorDuoExample.swift"
+    ]
+  },
+  "blurb": "Convert color codes, as used on resistors, to a numeric value.",
+  "source": "Maud de Vries, Erik Schierboom",
+  "source_url": "https://github.com/exercism/problem-specifications/issues/1464"
+}

@@ -521,6 +521,14 @@
         ]
       },
       {
+        "slug": "resistor-color-duo",
+        "name": "Resistor Color Duo",
+        "uuid": "e6b8cbce-c75b-492c-aca4-2a078837bb9d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "binary-search",
         "name": "Binary Search",
         "uuid": "a4a4e5a0-0226-4082-9a82-3cba2c2d4786",
