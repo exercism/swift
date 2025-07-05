@@ -1,0 +1,25 @@
+{
+  "authors": [],
+  "contributors": [
+    "bhargavg",
+    "BNAndras",
+    "harquail",
+    "lyuha",
+    "masters3d",
+    "robtimp",
+    "ThomasHaz",
+    "meatball133"
+  ],
+  "files": {
+    "solution": [
+      "Sources/FlowerField/FlowerField.swift"
+    ],
+    "test": [
+      "Tests/FlowerFieldTests/FlowerFieldTests.swift"
+    ],
+    "example": [
+      ".meta/Sources/FlowerField/FlowerFieldExample.swift"
+    ]
+  },
+  "blurb": "Mark all the flowers in a garden."
+}
