@@ -1182,6 +1182,19 @@
         ]
       },
       {
+        "slug": "spiral-matrix",
+        "name": "Spiral Matrix",
+        "uuid": "a08ec5a6-80dd-4c03-a125-d28a857836c4",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "algorithms",
+          "matrices",
+          "loops"
+        ]
+      },
+      {
         "slug": "bowling",
         "name": "Bowling",
         "uuid": "beb0c7dd-69aa-4e9b-a0df-f1d507221b21",
