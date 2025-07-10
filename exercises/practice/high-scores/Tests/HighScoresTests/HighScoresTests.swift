@@ -3,7 +3,7 @@ import Testing
 
 @testable import HighScores
 
-let RUNALL = true
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
 @Suite struct HighScoresTests {
 

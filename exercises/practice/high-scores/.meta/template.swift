@@ -28,13 +28,9 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
                 #expect(hs.
                 {%- if subCase.property == "personalTopThree" -%}
                     topThree
-                {%- elif subCase.property == "latestAfterTopThree" -%}
+                {%- elif subCase.property == "latestAfterTopThree" or subCase.property == "latestAfterBest" -%}
                     latest
-                {%- elif subCase.property == "scoresAfterTopThree" -%}
-                    scores
-                {%- elif subCase.property == "latestAfterBest" -%}
-                    latest
-                {%- elif subCase.property == "scoresAfterBest" -%}
+                {%- elif subCase.property == "scoresAfterTopThree" or subCase.property == "scoresAfterBest" -%}
                     scores
                 {%- endif %} == {{subCase.expected}})
             }
