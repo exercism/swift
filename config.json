@@ -1182,6 +1182,19 @@
         ]
       },
       {
+        "slug": "rail-fence-cipher",
+        "name": "Rail Fence Cipher",
+        "uuid": "f78800c1-8e89-4aac-83a4-3988e276225f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "algorithms",
+          "strings",
+          "arrays"
+        ]
+      },
+      {
         "slug": "spiral-matrix",
         "name": "Spiral Matrix",
         "uuid": "a08ec5a6-80dd-4c03-a125-d28a857836c4",

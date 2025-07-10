@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "Sencudra"
+  ],
+  "files": {
+    "solution": [
+      "Sources/RailFenceCipher/RailFenceCipher.swift"
+    ],
+    "test": [
+      "Tests/RailFenceCipherTests/RailFenceCipherTests.swift"
+    ],
+    "example": [
+      ".meta/Sources/RailFenceCipher/RailFenceCipherExample.swift"
+    ]
+  },
+  "blurb": "Implement encoding and decoding for the rail fence cipher.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Transposition_cipher#Rail_Fence_cipher"
+}
