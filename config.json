@@ -1040,6 +1040,17 @@
         ]
       },
       {
+        "slug": "word-search",
+        "name": "Word Search",
+        "uuid": "e88da49b-37d7-4f84-ad64-765fb464a721",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "algorithms"
+        ]
+      },
+      {
         "slug": "atbash-cipher",
         "name": "Atbash Cipher",
         "uuid": "c5adab05-2b19-4544-8abd-159af71196f5",
