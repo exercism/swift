@@ -21,7 +21,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
                 {%- if case.expected[word] | isNull -%}
                     nil
                 {%- else -%}
-                    WordLocation(rawInfo: {{case.expected[word]}})
+                    WordLocation(
+                        start: {{case.expected[word]["start"] | toStringDictionary}},
+                        end: {{case.expected[word]["end"] | toStringDictionary}}
+                    )
                 {%- endif %}
             {%- endfor %}
 
@@ -32,14 +35,12 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
 fileprivate extension WordLocation {
 
-    init?(rawInfo: [String: [String: Int]]) {
+    init?(start: [String: Int], end: [String: Int]) {
         guard
-            let startDict = rawInfo["start"],
-            let endDict = rawInfo["end"],
-            let startRow = startDict["row"],
-            let startColumn = startDict["column"],
-            let endRow = endDict["row"],
-             let endColumn = endDict["column"]
+            let startRow = start["row"],
+            let startColumn = start["column"],
+            let endRow = end["row"],
+             let endColumn = end["column"]
         else {
             return nil
         }

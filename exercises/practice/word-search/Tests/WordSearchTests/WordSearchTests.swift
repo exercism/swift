@@ -24,9 +24,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["column": 1, "row": 1], "end": ["column": 7, "row": 1],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 1],
+      end: ["column": 7, "row": 1]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -39,9 +40,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["column": 3, "row": 1], "end": ["column": 9, "row": 1],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 3, "row": 1],
+      end: ["column": 9, "row": 1]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -52,9 +54,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["coffee"]
 
     var expected = [String: WordLocation?]()
-    expected["coffee"] = WordLocation(rawInfo: [
-      "end": ["row": 1, "column": 6], "start": ["column": 1, "row": 1],
-    ])
+    expected["coffee"] = WordLocation(
+      start: ["column": 1, "row": 1],
+      end: ["column": 6, "row": 1]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -66,9 +69,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["coffee"]
 
     var expected = [String: WordLocation?]()
-    expected["coffee"] = WordLocation(rawInfo: [
-      "end": ["column": 7, "row": 1], "start": ["row": 1, "column": 2],
-    ])
+    expected["coffee"] = WordLocation(
+      start: ["column": 2, "row": 1],
+      end: ["column": 7, "row": 1]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -79,9 +83,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["column": 2, "row": 2], "end": ["column": 8, "row": 2],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 2, "row": 2],
+      end: ["column": 8, "row": 2]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -92,9 +97,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "end": ["column": 7, "row": 3], "start": ["column": 1, "row": 3],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 3],
+      end: ["column": 7, "row": 3]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -108,9 +114,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["row": 10, "column": 1], "end": ["row": 10, "column": 7],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 10],
+      end: ["column": 7, "row": 10]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -126,9 +133,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "end": ["column": 7, "row": 9], "start": ["row": 9, "column": 1],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 9],
+      end: ["column": 7, "row": 9]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -142,9 +150,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["fortran"]
 
     var expected = [String: WordLocation?]()
-    expected["fortran"] = WordLocation(rawInfo: [
-      "end": ["row": 7, "column": 7], "start": ["row": 7, "column": 1],
-    ])
+    expected["fortran"] = WordLocation(
+      start: ["column": 1, "row": 7],
+      end: ["column": 7, "row": 7]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -158,12 +167,14 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["fortran", "clojure"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["column": 1, "row": 10], "end": ["column": 7, "row": 10],
-    ])
-    expected["fortran"] = WordLocation(rawInfo: [
-      "start": ["row": 7, "column": 1], "end": ["column": 7, "row": 7],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 10],
+      end: ["column": 7, "row": 10]
+    )
+    expected["fortran"] = WordLocation(
+      start: ["column": 1, "row": 7],
+      end: ["column": 7, "row": 7]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -174,9 +185,10 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["elixir"]
 
     var expected = [String: WordLocation?]()
-    expected["elixir"] = WordLocation(rawInfo: [
-      "start": ["column": 6, "row": 1], "end": ["column": 1, "row": 1],
-    ])
+    expected["elixir"] = WordLocation(
+      start: ["column": 6, "row": 1],
+      end: ["column": 1, "row": 1]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -191,12 +203,14 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["elixir", "clojure"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["row": 10, "column": 1], "end": ["column": 7, "row": 10],
-    ])
-    expected["elixir"] = WordLocation(rawInfo: [
-      "end": ["column": 1, "row": 5], "start": ["row": 5, "column": 6],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 10],
+      end: ["column": 7, "row": 10]
+    )
+    expected["elixir"] = WordLocation(
+      start: ["column": 6, "row": 5],
+      end: ["column": 1, "row": 5]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -210,15 +224,18 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure", "elixir", "ecmascript"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["row": 10, "column": 1], "end": ["row": 10, "column": 7],
-    ])
-    expected["ecmascript"] = WordLocation(rawInfo: [
-      "end": ["column": 10, "row": 10], "start": ["column": 10, "row": 1],
-    ])
-    expected["elixir"] = WordLocation(rawInfo: [
-      "end": ["column": 1, "row": 5], "start": ["row": 5, "column": 6],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 10],
+      end: ["column": 7, "row": 10]
+    )
+    expected["ecmascript"] = WordLocation(
+      start: ["column": 10, "row": 1],
+      end: ["column": 10, "row": 10]
+    )
+    expected["elixir"] = WordLocation(
+      start: ["column": 6, "row": 5],
+      end: ["column": 1, "row": 5]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -232,18 +249,22 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure", "elixir", "ecmascript", "rust"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "end": ["column": 7, "row": 10], "start": ["column": 1, "row": 10],
-    ])
-    expected["ecmascript"] = WordLocation(rawInfo: [
-      "start": ["column": 10, "row": 1], "end": ["column": 10, "row": 10],
-    ])
-    expected["elixir"] = WordLocation(rawInfo: [
-      "start": ["column": 6, "row": 5], "end": ["column": 1, "row": 5],
-    ])
-    expected["rust"] = WordLocation(rawInfo: [
-      "end": ["column": 9, "row": 2], "start": ["row": 5, "column": 9],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 10],
+      end: ["column": 7, "row": 10]
+    )
+    expected["ecmascript"] = WordLocation(
+      start: ["column": 10, "row": 1],
+      end: ["column": 10, "row": 10]
+    )
+    expected["elixir"] = WordLocation(
+      start: ["column": 6, "row": 5],
+      end: ["column": 1, "row": 5]
+    )
+    expected["rust"] = WordLocation(
+      start: ["column": 9, "row": 5],
+      end: ["column": 9, "row": 2]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -257,21 +278,26 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure", "elixir", "ecmascript", "rust", "java"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["row": 10, "column": 1], "end": ["column": 7, "row": 10],
-    ])
-    expected["ecmascript"] = WordLocation(rawInfo: [
-      "start": ["column": 10, "row": 1], "end": ["column": 10, "row": 10],
-    ])
-    expected["elixir"] = WordLocation(rawInfo: [
-      "start": ["column": 6, "row": 5], "end": ["row": 5, "column": 1],
-    ])
-    expected["java"] = WordLocation(rawInfo: [
-      "end": ["column": 4, "row": 4], "start": ["column": 1, "row": 1],
-    ])
-    expected["rust"] = WordLocation(rawInfo: [
-      "end": ["column": 9, "row": 2], "start": ["row": 5, "column": 9],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 10],
+      end: ["column": 7, "row": 10]
+    )
+    expected["ecmascript"] = WordLocation(
+      start: ["column": 10, "row": 1],
+      end: ["column": 10, "row": 10]
+    )
+    expected["elixir"] = WordLocation(
+      start: ["column": 6, "row": 5],
+      end: ["column": 1, "row": 5]
+    )
+    expected["java"] = WordLocation(
+      start: ["column": 1, "row": 1],
+      end: ["column": 4, "row": 4]
+    )
+    expected["rust"] = WordLocation(
+      start: ["column": 9, "row": 5],
+      end: ["column": 9, "row": 2]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -285,24 +311,30 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure", "elixir", "ecmascript", "rust", "java", "lua"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["column": 1, "row": 10], "end": ["row": 10, "column": 7],
-    ])
-    expected["ecmascript"] = WordLocation(rawInfo: [
-      "end": ["row": 10, "column": 10], "start": ["column": 10, "row": 1],
-    ])
-    expected["elixir"] = WordLocation(rawInfo: [
-      "start": ["column": 6, "row": 5], "end": ["column": 1, "row": 5],
-    ])
-    expected["java"] = WordLocation(rawInfo: [
-      "start": ["column": 1, "row": 1], "end": ["column": 4, "row": 4],
-    ])
-    expected["lua"] = WordLocation(rawInfo: [
-      "start": ["row": 9, "column": 8], "end": ["row": 7, "column": 6],
-    ])
-    expected["rust"] = WordLocation(rawInfo: [
-      "start": ["row": 5, "column": 9], "end": ["row": 2, "column": 9],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 10],
+      end: ["column": 7, "row": 10]
+    )
+    expected["ecmascript"] = WordLocation(
+      start: ["column": 10, "row": 1],
+      end: ["column": 10, "row": 10]
+    )
+    expected["elixir"] = WordLocation(
+      start: ["column": 6, "row": 5],
+      end: ["column": 1, "row": 5]
+    )
+    expected["java"] = WordLocation(
+      start: ["column": 1, "row": 1],
+      end: ["column": 4, "row": 4]
+    )
+    expected["lua"] = WordLocation(
+      start: ["column": 8, "row": 9],
+      end: ["column": 6, "row": 7]
+    )
+    expected["rust"] = WordLocation(
+      start: ["column": 9, "row": 5],
+      end: ["column": 9, "row": 2]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -316,27 +348,34 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "end": ["row": 10, "column": 7], "start": ["column": 1, "row": 10],
-    ])
-    expected["ecmascript"] = WordLocation(rawInfo: [
-      "start": ["row": 1, "column": 10], "end": ["row": 10, "column": 10],
-    ])
-    expected["elixir"] = WordLocation(rawInfo: [
-      "end": ["row": 5, "column": 1], "start": ["column": 6, "row": 5],
-    ])
-    expected["java"] = WordLocation(rawInfo: [
-      "start": ["row": 1, "column": 1], "end": ["row": 4, "column": 4],
-    ])
-    expected["lisp"] = WordLocation(rawInfo: [
-      "start": ["row": 6, "column": 3], "end": ["row": 3, "column": 6],
-    ])
-    expected["lua"] = WordLocation(rawInfo: [
-      "start": ["column": 8, "row": 9], "end": ["row": 7, "column": 6],
-    ])
-    expected["rust"] = WordLocation(rawInfo: [
-      "start": ["column": 9, "row": 5], "end": ["column": 9, "row": 2],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 10],
+      end: ["column": 7, "row": 10]
+    )
+    expected["ecmascript"] = WordLocation(
+      start: ["column": 10, "row": 1],
+      end: ["column": 10, "row": 10]
+    )
+    expected["elixir"] = WordLocation(
+      start: ["column": 6, "row": 5],
+      end: ["column": 1, "row": 5]
+    )
+    expected["java"] = WordLocation(
+      start: ["column": 1, "row": 1],
+      end: ["column": 4, "row": 4]
+    )
+    expected["lisp"] = WordLocation(
+      start: ["column": 3, "row": 6],
+      end: ["column": 6, "row": 3]
+    )
+    expected["lua"] = WordLocation(
+      start: ["column": 8, "row": 9],
+      end: ["column": 6, "row": 7]
+    )
+    expected["rust"] = WordLocation(
+      start: ["column": 9, "row": 5],
+      end: ["column": 9, "row": 2]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -350,30 +389,38 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let words = ["clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp", "ruby"]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["column": 1, "row": 10], "end": ["column": 7, "row": 10],
-    ])
-    expected["ecmascript"] = WordLocation(rawInfo: [
-      "end": ["row": 10, "column": 10], "start": ["column": 10, "row": 1],
-    ])
-    expected["elixir"] = WordLocation(rawInfo: [
-      "start": ["column": 6, "row": 5], "end": ["row": 5, "column": 1],
-    ])
-    expected["java"] = WordLocation(rawInfo: [
-      "end": ["row": 4, "column": 4], "start": ["row": 1, "column": 1],
-    ])
-    expected["lisp"] = WordLocation(rawInfo: [
-      "end": ["row": 3, "column": 6], "start": ["column": 3, "row": 6],
-    ])
-    expected["lua"] = WordLocation(rawInfo: [
-      "start": ["row": 9, "column": 8], "end": ["row": 7, "column": 6],
-    ])
-    expected["ruby"] = WordLocation(rawInfo: [
-      "start": ["column": 8, "row": 6], "end": ["column": 5, "row": 9],
-    ])
-    expected["rust"] = WordLocation(rawInfo: [
-      "start": ["row": 5, "column": 9], "end": ["column": 9, "row": 2],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 10],
+      end: ["column": 7, "row": 10]
+    )
+    expected["ecmascript"] = WordLocation(
+      start: ["column": 10, "row": 1],
+      end: ["column": 10, "row": 10]
+    )
+    expected["elixir"] = WordLocation(
+      start: ["column": 6, "row": 5],
+      end: ["column": 1, "row": 5]
+    )
+    expected["java"] = WordLocation(
+      start: ["column": 1, "row": 1],
+      end: ["column": 4, "row": 4]
+    )
+    expected["lisp"] = WordLocation(
+      start: ["column": 3, "row": 6],
+      end: ["column": 6, "row": 3]
+    )
+    expected["lua"] = WordLocation(
+      start: ["column": 8, "row": 9],
+      end: ["column": 6, "row": 7]
+    )
+    expected["ruby"] = WordLocation(
+      start: ["column": 8, "row": 6],
+      end: ["column": 5, "row": 9]
+    )
+    expected["rust"] = WordLocation(
+      start: ["column": 9, "row": 5],
+      end: ["column": 9, "row": 2]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -389,31 +436,39 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     ]
 
     var expected = [String: WordLocation?]()
-    expected["clojure"] = WordLocation(rawInfo: [
-      "start": ["row": 10, "column": 1], "end": ["row": 10, "column": 7],
-    ])
-    expected["ecmascript"] = WordLocation(rawInfo: [
-      "end": ["column": 10, "row": 10], "start": ["row": 1, "column": 10],
-    ])
-    expected["elixir"] = WordLocation(rawInfo: [
-      "end": ["column": 1, "row": 5], "start": ["column": 6, "row": 5],
-    ])
+    expected["clojure"] = WordLocation(
+      start: ["column": 1, "row": 10],
+      end: ["column": 7, "row": 10]
+    )
+    expected["ecmascript"] = WordLocation(
+      start: ["column": 10, "row": 1],
+      end: ["column": 10, "row": 10]
+    )
+    expected["elixir"] = WordLocation(
+      start: ["column": 6, "row": 5],
+      end: ["column": 1, "row": 5]
+    )
     expected["haskell"] = nil
-    expected["java"] = WordLocation(rawInfo: [
-      "start": ["row": 1, "column": 1], "end": ["row": 4, "column": 4],
-    ])
-    expected["lisp"] = WordLocation(rawInfo: [
-      "end": ["column": 6, "row": 3], "start": ["column": 3, "row": 6],
-    ])
-    expected["lua"] = WordLocation(rawInfo: [
-      "end": ["column": 6, "row": 7], "start": ["column": 8, "row": 9],
-    ])
-    expected["ruby"] = WordLocation(rawInfo: [
-      "start": ["column": 8, "row": 6], "end": ["row": 9, "column": 5],
-    ])
-    expected["rust"] = WordLocation(rawInfo: [
-      "start": ["column": 9, "row": 5], "end": ["row": 2, "column": 9],
-    ])
+    expected["java"] = WordLocation(
+      start: ["column": 1, "row": 1],
+      end: ["column": 4, "row": 4]
+    )
+    expected["lisp"] = WordLocation(
+      start: ["column": 3, "row": 6],
+      end: ["column": 6, "row": 3]
+    )
+    expected["lua"] = WordLocation(
+      start: ["column": 8, "row": 9],
+      end: ["column": 6, "row": 7]
+    )
+    expected["ruby"] = WordLocation(
+      start: ["column": 8, "row": 6],
+      end: ["column": 5, "row": 9]
+    )
+    expected["rust"] = WordLocation(
+      start: ["column": 9, "row": 5],
+      end: ["column": 9, "row": 2]
+    )
 
     #expect(search(words: words, in: grid) == expected)
   }
@@ -470,14 +525,12 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
 extension WordLocation {
 
-  fileprivate init?(rawInfo: [String: [String: Int]]) {
+  fileprivate init?(start: [String: Int], end: [String: Int]) {
     guard
-      let startDict = rawInfo["start"],
-      let endDict = rawInfo["end"],
-      let startRow = startDict["row"],
-      let startColumn = startDict["column"],
-      let endRow = endDict["row"],
-      let endColumn = endDict["column"]
+      let startRow = start["row"],
+      let startColumn = start["column"],
+      let endRow = end["row"],
+      let endColumn = end["column"]
     else {
       return nil
     }
