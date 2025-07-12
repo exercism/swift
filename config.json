@@ -529,6 +529,18 @@
         "difficulty": 2
       },
       {
+        "slug": "high-scores",
+        "name": "High Scores",
+        "uuid": "6492df34-e0be-4b67-9218-cd732dea2da7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "arrays",
+          "stored-properties"
+        ]
+      },
+      {
         "slug": "binary-search",
         "name": "Binary Search",
         "uuid": "a4a4e5a0-0226-4082-9a82-3cba2c2d4786",

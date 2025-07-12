@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "Sencudra"
+  ],
+  "files": {
+    "solution": [
+      "Sources/HighScores/HighScores.swift"
+    ],
+    "test": [
+      "Tests/HighScoresTests/HighScoresTests.swift"
+    ],
+    "example": [
+      ".meta/Sources/HighScores/HighScoresExample.swift"
+    ]
+  },
+  "blurb": "Manage a player's High Score list.",
+  "source": "Tribute to the eighties' arcade game Frogger"
+}
