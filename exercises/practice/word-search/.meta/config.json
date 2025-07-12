@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "Sencudra"
+  ],
+  "files": {
+    "solution": [
+      "Sources/WordSearch/WordSearch.swift"
+    ],
+    "test": [
+      "Tests/WordSearchTests/WordSearchTests.swift"
+    ],
+    "example": [
+      ".meta/Sources/WordSearch/WordSearchExample.swift"
+    ]
+  },
+  "blurb": "Create a program to solve a word search puzzle."
+}
