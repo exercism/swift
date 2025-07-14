@@ -15,7 +15,7 @@
       ".meta/Sources/WordSearch/TrieNode.swift"
     ],
     "editor": [
-      ".Sources/WordSearch/WordLocation.swift"
+      "Sources/WordSearch/WordLocation.swift"
     ]
   },
   "blurb": "Create a program to solve a word search puzzle."
