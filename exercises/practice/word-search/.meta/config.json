@@ -10,7 +10,12 @@
       "Tests/WordSearchTests/WordSearchTests.swift"
     ],
     "example": [
-      ".meta/Sources/WordSearch/WordSearchExample.swift"
+      ".meta/Sources/WordSearch/WordSearchExample.swift",
+      ".meta/Sources/WordSearch/WordLocation.swift",
+      ".meta/Sources/WordSearch/TrieNode.swift"
+    ],
+    "editor": [
+      ".Sources/WordSearch/WordLocation.swift"
     ]
   },
   "blurb": "Create a program to solve a word search puzzle."
