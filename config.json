@@ -1220,6 +1220,17 @@
         ]
       },
       {
+        "slug": "word-search",
+        "name": "Word Search",
+        "uuid": "e88da49b-37d7-4f84-ad64-765fb464a721",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "algorithms"
+        ]
+      },
+      {
         "slug": "bowling",
         "name": "Bowling",
         "uuid": "beb0c7dd-69aa-4e9b-a0df-f1d507221b21",
