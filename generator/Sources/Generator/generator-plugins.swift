@@ -5,6 +5,13 @@ class GeneratorPlugins {
   func getPlugins() -> Environment {
     let ext = Extension()
 
+    ext.registerFilter("toBoolean") { (value: Any?) in
+      guard let intValue = value as? Int else {
+        return nil
+      }
+      return intValue != 0
+    }
+
     ext.registerFilter("isNull") { (value: Any?) in
       return NSNull().isEqual(value)
     }
@@ -36,6 +43,10 @@ class GeneratorPlugins {
       } else if let inputArray = value as? [Int] {
         if let number = args.first as? Int {
           return inputArray.contains(number)
+        }
+      } else if let inputDict = value as? [String: Any] {
+        if let string = args.first as? String {
+          return inputDict.keys.contains(string)
         }
       }
       return false
