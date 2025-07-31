@@ -11,129 +11,129 @@ struct CustomSetTests {
   @Test("sets with no elements are empty")
   func testSetsWithNoElementsAreEmpty() {
     let customSet = CustomSet([Int]())
-    #expect(customSet.isEmpty == true)
+    #expect(customSet.isEmpty)
   }
   @Test("sets with elements are not empty", .enabled(if: RUNALL))
   func testSetsWithElementsAreNotEmpty() {
     let customSet = CustomSet([1])
-    #expect(customSet.isEmpty == false)
+    #expect(!customSet.isEmpty)
   }
   @Test("nothing is contained in an empty set", .enabled(if: RUNALL))
   func testNothingIsContainedInAnEmptySet() {
     let customSet = CustomSet([Int]())
-    #expect(customSet.contains(1) == false)
+    #expect(!customSet.contains(1))
   }
   @Test("when the element is in the set", .enabled(if: RUNALL))
   func testWhenTheElementIsInTheSet() {
     let customSet = CustomSet([1, 2, 3])
-    #expect(customSet.contains(1) == true)
+    #expect(customSet.contains(1))
   }
   @Test("when the element is not in the set", .enabled(if: RUNALL))
   func testWhenTheElementIsNotInTheSet() {
     let customSet = CustomSet([1, 2, 3])
-    #expect(customSet.contains(4) == false)
+    #expect(!customSet.contains(4))
   }
   @Test("empty set is a subset of another empty set", .enabled(if: RUNALL))
   func testEmptySetIsASubsetOfAnotherEmptySet() {
     let set1 = CustomSet([Int]())
     let set2 = CustomSet([Int]())
-    #expect(set1.isSubset(of: set2) == true)
+    #expect(set1.isSubset(of: set2))
   }
   @Test("empty set is a subset of non-empty set", .enabled(if: RUNALL))
   func testEmptySetIsASubsetOfNonEmptySet() {
     let set1 = CustomSet([Int]())
     let set2 = CustomSet([1])
-    #expect(set1.isSubset(of: set2) == true)
+    #expect(set1.isSubset(of: set2))
   }
   @Test("non-empty set is not a subset of empty set", .enabled(if: RUNALL))
   func testNonEmptySetIsNotASubsetOfEmptySet() {
     let set1 = CustomSet([1])
     let set2 = CustomSet([Int]())
-    #expect(set1.isSubset(of: set2) == false)
+    #expect(!set1.isSubset(of: set2))
   }
   @Test("set is a subset of set with exact same elements", .enabled(if: RUNALL))
   func testSetIsASubsetOfSetWithExactSameElements() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([1, 2, 3])
-    #expect(set1.isSubset(of: set2) == true)
+    #expect(set1.isSubset(of: set2))
   }
   @Test("set is a subset of larger set with same elements", .enabled(if: RUNALL))
   func testSetIsASubsetOfLargerSetWithSameElements() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([4, 1, 2, 3])
-    #expect(set1.isSubset(of: set2) == true)
+    #expect(set1.isSubset(of: set2))
   }
   @Test("set is not a subset of set that does not contain its elements", .enabled(if: RUNALL))
   func testSetIsNotASubsetOfSetThatDoesNotContainItsElements() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([4, 1, 3])
-    #expect(set1.isSubset(of: set2) == false)
+    #expect(!set1.isSubset(of: set2))
   }
   @Test("the empty set is disjoint with itself", .enabled(if: RUNALL))
   func testTheEmptySetIsDisjointWithItself() {
     let set1 = CustomSet([Int]())
     let set2 = CustomSet([Int]())
-    #expect(set1.isDisjoint(with: set2) == true)
+    #expect(set1.isDisjoint(with: set2))
   }
   @Test("empty set is disjoint with non-empty set", .enabled(if: RUNALL))
   func testEmptySetIsDisjointWithNonEmptySet() {
     let set1 = CustomSet([Int]())
     let set2 = CustomSet([1])
-    #expect(set1.isDisjoint(with: set2) == true)
+    #expect(set1.isDisjoint(with: set2))
   }
   @Test("non-empty set is disjoint with empty set", .enabled(if: RUNALL))
   func testNonEmptySetIsDisjointWithEmptySet() {
     let set1 = CustomSet([1])
     let set2 = CustomSet([Int]())
-    #expect(set1.isDisjoint(with: set2) == true)
+    #expect(set1.isDisjoint(with: set2))
   }
   @Test("sets are not disjoint if they share an element", .enabled(if: RUNALL))
   func testSetsAreNotDisjointIfTheyShareAnElement() {
     let set1 = CustomSet([1, 2])
     let set2 = CustomSet([2, 3])
-    #expect(set1.isDisjoint(with: set2) == false)
+    #expect(!set1.isDisjoint(with: set2))
   }
   @Test("sets are disjoint if they share no elements", .enabled(if: RUNALL))
   func testSetsAreDisjointIfTheyShareNoElements() {
     let set1 = CustomSet([1, 2])
     let set2 = CustomSet([3, 4])
-    #expect(set1.isDisjoint(with: set2) == true)
+    #expect(set1.isDisjoint(with: set2))
   }
   @Test("empty sets are equal", .enabled(if: RUNALL))
   func testEmptySetsAreEqual() {
     let set1 = CustomSet([Int]())
     let set2 = CustomSet([Int]())
-    #expect((set1 == set2) == true)
+    #expect((set1 == set2))
   }
   @Test("empty set is not equal to non-empty set", .enabled(if: RUNALL))
   func testEmptySetIsNotEqualToNonEmptySet() {
     let set1 = CustomSet([Int]())
     let set2 = CustomSet([1, 2, 3])
-    #expect((set1 == set2) == false)
+    #expect(!(set1 == set2))
   }
   @Test("non-empty set is not equal to empty set", .enabled(if: RUNALL))
   func testNonEmptySetIsNotEqualToEmptySet() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([Int]())
-    #expect((set1 == set2) == false)
+    #expect(!(set1 == set2))
   }
   @Test("sets with the same elements are equal", .enabled(if: RUNALL))
   func testSetsWithTheSameElementsAreEqual() {
     let set1 = CustomSet([1, 2])
     let set2 = CustomSet([2, 1])
-    #expect((set1 == set2) == true)
+    #expect((set1 == set2))
   }
   @Test("sets with different elements are not equal", .enabled(if: RUNALL))
   func testSetsWithDifferentElementsAreNotEqual() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([1, 2, 4])
-    #expect((set1 == set2) == false)
+    #expect(!(set1 == set2))
   }
   @Test("set is not equal to larger set with same elements", .enabled(if: RUNALL))
   func testSetIsNotEqualToLargerSetWithSameElements() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([1, 2, 3, 4])
-    #expect((set1 == set2) == false)
+    #expect(!(set1 == set2))
   }
   @Test("add to empty set", .enabled(if: RUNALL))
   func testAddToEmptySet() {

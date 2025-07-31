@@ -52,7 +52,6 @@ The generator also supports plugins, which can be used to add extra functionalit
 The plugins are needed since Stencil doesn't support all the features we need.
 
 The current custom plugins are:
-- `toBoolean`: Converts integer value to Boolean.
 - `isNull`: Checks if a value is null.
 - `camelCase`: Converts a string to camel case.
 - `contains`: Check if value is present in a String, array or dictionary.

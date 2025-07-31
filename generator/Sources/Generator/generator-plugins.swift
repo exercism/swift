@@ -5,13 +5,6 @@ class GeneratorPlugins {
   func getPlugins() -> Environment {
     let ext = Extension()
 
-    ext.registerFilter("toBoolean") { (value: Any?) in
-      guard let intValue = value as? Int else {
-        return nil
-      }
-      return intValue != 0
-    }
-
     ext.registerFilter("isNull") { (value: Any?) in
       return NSNull().isEqual(value)
     }

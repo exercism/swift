@@ -47,15 +47,15 @@ struct {{ exercise|camelCase }}Tests {
                 {%- endif %}
 
                 {%- if subCases.property == "empty" %}
-                    #expect(customSet.isEmpty == {{ subCases.expected|toBoolean }})
+                    #expect({%- if not subCases.expected -%}!{%- endif -%}customSet.isEmpty)
                 {%- elif subCases.property == "contains" %}
-                    #expect(customSet.contains({{ subCases.input.element }}) == {{ subCases.expected|toBoolean }})
+                    #expect({%- if not subCases.expected -%}!{%- endif -%}customSet.contains({{ subCases.input.element }}))
                 {%- elif subCases.property == "subset" %}
-                    #expect(set1.isSubset(of: set2) == {{ subCases.expected|toBoolean }})
+                    #expect({%- if not subCases.expected -%}!{%- endif -%}set1.isSubset(of: set2))
                 {%- elif subCases.property == "disjoint" %}
-                    #expect(set1.isDisjoint(with: set2) == {{ subCases.expected|toBoolean }})
+                    #expect({%- if not subCases.expected -%}!{%- endif -%}set1.isDisjoint(with: set2))
                 {%- elif subCases.property == "equal" %}
-                    #expect((set1 == set2) == {{ subCases.expected|toBoolean }})
+                    #expect({%- if not subCases.expected -%}!{%- endif -%}(set1 == set2))
                 {%- elif subCases.property == "add"%}
                     customSet.add({{subCases.input.element}})
                     #expect(customSet == {{ exercise|camelCase }}({{ subCases.expected }}))
