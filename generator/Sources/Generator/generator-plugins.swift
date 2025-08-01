@@ -37,6 +37,10 @@ class GeneratorPlugins {
         if let number = args.first as? Int {
           return inputArray.contains(number)
         }
+      } else if let inputDict = value as? [String: Any] {
+        if let string = args.first as? String {
+          return inputDict.keys.contains(string)
+        }
       }
       return false
     }

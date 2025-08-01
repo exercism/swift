@@ -1,268 +1,238 @@
-import XCTest
+import Foundation
+import Testing
 
 @testable import CustomSet
 
-class CustomSetTests: XCTestCase {
-  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
-  let emptyArray = [Int]()
+let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
 
+@Suite
+struct CustomSetTests {
+
+  @Test("sets with no elements are empty")
   func testSetsWithNoElementsAreEmpty() {
-    let customSet = CustomSet(emptyArray)
-    XCTAssertTrue(customSet.isEmpty)
+    let customSet = CustomSet([Int]())
+    #expect(customSet.isEmpty)
   }
-
-  func testSetsWithElementsAreNotEmpty() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("sets with elements are not empty", .enabled(if: RUNALL))
+  func testSetsWithElementsAreNotEmpty() {
     let customSet = CustomSet([1])
-    XCTAssertFalse(customSet.isEmpty)
+    #expect(!customSet.isEmpty)
   }
-
-  func testNothingIsContainedInAnEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let customSet = CustomSet(emptyArray)
-    XCTAssertFalse(customSet.contains(1))
+  @Test("nothing is contained in an empty set", .enabled(if: RUNALL))
+  func testNothingIsContainedInAnEmptySet() {
+    let customSet = CustomSet([Int]())
+    #expect(!customSet.contains(1))
   }
-
-  func testWhenTheElementIsInTheSet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when the element is in the set", .enabled(if: RUNALL))
+  func testWhenTheElementIsInTheSet() {
     let customSet = CustomSet([1, 2, 3])
-    XCTAssertTrue(customSet.contains(1))
+    #expect(customSet.contains(1))
   }
-
-  func testWhenTheElementIsNotInTheSet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("when the element is not in the set", .enabled(if: RUNALL))
+  func testWhenTheElementIsNotInTheSet() {
     let customSet = CustomSet([1, 2, 3])
-    XCTAssertFalse(customSet.contains(4))
+    #expect(!customSet.contains(4))
   }
-
-  func testEmptySetIsASubsetOfAnotherEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
-    let set2 = CustomSet(emptyArray)
-    XCTAssertTrue(set1.isSubset(of: set2))
+  @Test("empty set is a subset of another empty set", .enabled(if: RUNALL))
+  func testEmptySetIsASubsetOfAnotherEmptySet() {
+    let set1 = CustomSet([Int]())
+    let set2 = CustomSet([Int]())
+    #expect(set1.isSubset(of: set2))
   }
-
-  func testEmptySetIsASubsetOfNonEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
+  @Test("empty set is a subset of non-empty set", .enabled(if: RUNALL))
+  func testEmptySetIsASubsetOfNonEmptySet() {
+    let set1 = CustomSet([Int]())
     let set2 = CustomSet([1])
-    XCTAssertTrue(set1.isSubset(of: set2))
+    #expect(set1.isSubset(of: set2))
   }
-
-  func testNonEmptySetIsNotASubsetOfEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("non-empty set is not a subset of empty set", .enabled(if: RUNALL))
+  func testNonEmptySetIsNotASubsetOfEmptySet() {
     let set1 = CustomSet([1])
-    let set2 = CustomSet(emptyArray)
-    XCTAssertFalse(set1.isSubset(of: set2))
+    let set2 = CustomSet([Int]())
+    #expect(!set1.isSubset(of: set2))
   }
-
-  func testSetIsASubsetOfSetWithExactSameElements() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("set is a subset of set with exact same elements", .enabled(if: RUNALL))
+  func testSetIsASubsetOfSetWithExactSameElements() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([1, 2, 3])
-    XCTAssertTrue(set1.isSubset(of: set2))
+    #expect(set1.isSubset(of: set2))
   }
-
-  func testSetIsASubsetOfLargerSetWithSameElements() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("set is a subset of larger set with same elements", .enabled(if: RUNALL))
+  func testSetIsASubsetOfLargerSetWithSameElements() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([4, 1, 2, 3])
-    XCTAssertTrue(set1.isSubset(of: set2))
+    #expect(set1.isSubset(of: set2))
   }
-
-  func testSetIsNotASubsetOfSetThatDoesNotContainItsElements() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("set is not a subset of set that does not contain its elements", .enabled(if: RUNALL))
+  func testSetIsNotASubsetOfSetThatDoesNotContainItsElements() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([4, 1, 3])
-    XCTAssertFalse(set1.isSubset(of: set2))
+    #expect(!set1.isSubset(of: set2))
   }
-
-  func testTheEmptySetIsDisjointWithItself() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
-    let set2 = CustomSet(emptyArray)
-    XCTAssertTrue(set1.isDisjoint(with: set2))
+  @Test("the empty set is disjoint with itself", .enabled(if: RUNALL))
+  func testTheEmptySetIsDisjointWithItself() {
+    let set1 = CustomSet([Int]())
+    let set2 = CustomSet([Int]())
+    #expect(set1.isDisjoint(with: set2))
   }
-
-  func testEmptySetIsDisjointWithNonEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
+  @Test("empty set is disjoint with non-empty set", .enabled(if: RUNALL))
+  func testEmptySetIsDisjointWithNonEmptySet() {
+    let set1 = CustomSet([Int]())
     let set2 = CustomSet([1])
-    XCTAssertTrue(set1.isDisjoint(with: set2))
+    #expect(set1.isDisjoint(with: set2))
   }
-
-  func testNonEmptySetIsDisjointWithEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("non-empty set is disjoint with empty set", .enabled(if: RUNALL))
+  func testNonEmptySetIsDisjointWithEmptySet() {
     let set1 = CustomSet([1])
-    let set2 = CustomSet(emptyArray)
-    XCTAssertTrue(set1.isDisjoint(with: set2))
+    let set2 = CustomSet([Int]())
+    #expect(set1.isDisjoint(with: set2))
   }
-
-  func testSetsAreNotDisjointIfTheyShareAnElement() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("sets are not disjoint if they share an element", .enabled(if: RUNALL))
+  func testSetsAreNotDisjointIfTheyShareAnElement() {
     let set1 = CustomSet([1, 2])
     let set2 = CustomSet([2, 3])
-    XCTAssertFalse(set1.isDisjoint(with: set2))
+    #expect(!set1.isDisjoint(with: set2))
   }
-
-  func testSetsAreDisjointIfTheyShareNoElements() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("sets are disjoint if they share no elements", .enabled(if: RUNALL))
+  func testSetsAreDisjointIfTheyShareNoElements() {
     let set1 = CustomSet([1, 2])
     let set2 = CustomSet([3, 4])
-    XCTAssertTrue(set1.isDisjoint(with: set2))
+    #expect(set1.isDisjoint(with: set2))
   }
-
-  func testEmptySetsAreEqual() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
-    let set2 = CustomSet(emptyArray)
-    XCTAssertEqual(set1, set2)
+  @Test("empty sets are equal", .enabled(if: RUNALL))
+  func testEmptySetsAreEqual() {
+    let set1 = CustomSet([Int]())
+    let set2 = CustomSet([Int]())
+    #expect((set1 == set2))
   }
-
-  func testEmptySetIsNotEqualToNonEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
+  @Test("empty set is not equal to non-empty set", .enabled(if: RUNALL))
+  func testEmptySetIsNotEqualToNonEmptySet() {
+    let set1 = CustomSet([Int]())
     let set2 = CustomSet([1, 2, 3])
-    XCTAssertNotEqual(set1, set2)
+    #expect(!(set1 == set2))
   }
-
-  func testNonEmptySetIsNotEqualToEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("non-empty set is not equal to empty set", .enabled(if: RUNALL))
+  func testNonEmptySetIsNotEqualToEmptySet() {
     let set1 = CustomSet([1, 2, 3])
-    let set2 = CustomSet(emptyArray)
-    XCTAssertNotEqual(set1, set2)
+    let set2 = CustomSet([Int]())
+    #expect(!(set1 == set2))
   }
-
-  func testSetsWithTheSameElementsAreEqual() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("sets with the same elements are equal", .enabled(if: RUNALL))
+  func testSetsWithTheSameElementsAreEqual() {
     let set1 = CustomSet([1, 2])
     let set2 = CustomSet([2, 1])
-    XCTAssertEqual(set1, set2)
+    #expect((set1 == set2))
   }
-
-  func testSetsWithDifferentElementsAreNotEqual() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("sets with different elements are not equal", .enabled(if: RUNALL))
+  func testSetsWithDifferentElementsAreNotEqual() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([1, 2, 4])
-    XCTAssertNotEqual(set1, set2)
+    #expect(!(set1 == set2))
   }
-
-  func testSetIsNotEqualToLargerSetWithSameElements() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("set is not equal to larger set with same elements", .enabled(if: RUNALL))
+  func testSetIsNotEqualToLargerSetWithSameElements() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([1, 2, 3, 4])
-    XCTAssertNotEqual(set1, set2)
+    #expect(!(set1 == set2))
   }
-
-  func testAddToEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    var customSet = CustomSet(emptyArray)
+  @Test("add to empty set", .enabled(if: RUNALL))
+  func testAddToEmptySet() {
+    var customSet = CustomSet([Int]())
     customSet.add(3)
-    XCTAssertEqual(customSet, CustomSet([3]))
+    #expect(customSet == CustomSet([3]))
   }
-
-  func testAddToNonEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("add to non-empty set", .enabled(if: RUNALL))
+  func testAddToNonEmptySet() {
     var customSet = CustomSet([1, 2, 4])
     customSet.add(3)
-    XCTAssertEqual(customSet, CustomSet([1, 2, 3, 4]))
+    #expect(customSet == CustomSet([1, 2, 3, 4]))
   }
-
-  func testAddingAnExistingElementDoesNotChangeTheSet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("adding an existing element does not change the set", .enabled(if: RUNALL))
+  func testAddingAnExistingElementDoesNotChangeTheSet() {
     var customSet = CustomSet([1, 2, 3])
     customSet.add(3)
-    XCTAssertEqual(customSet, CustomSet([1, 2, 3]))
+    #expect(customSet == CustomSet([1, 2, 3]))
   }
-
-  func testIntersectionOfTwoEmptySetsIsAnEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
-    let set2 = CustomSet(emptyArray)
-    XCTAssertEqual(set1.intersection(set2), CustomSet([]))
+  @Test("intersection of two empty sets is an empty set", .enabled(if: RUNALL))
+  func testIntersectionOfTwoEmptySetsIsAnEmptySet() {
+    let set1 = CustomSet([Int]())
+    let set2 = CustomSet([Int]())
+    #expect(set1.intersection(set2) == CustomSet([]))
   }
-
-  func testIntersectionOfAnEmptySetAndNonEmptySetIsAnEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
+  @Test("intersection of an empty set and non-empty set is an empty set", .enabled(if: RUNALL))
+  func testIntersectionOfAnEmptySetAndNonEmptySetIsAnEmptySet() {
+    let set1 = CustomSet([Int]())
     let set2 = CustomSet([3, 2, 5])
-    XCTAssertEqual(set1.intersection(set2), CustomSet([]))
+    #expect(set1.intersection(set2) == CustomSet([]))
   }
-
-  func testIntersectionOfANonEmptySetAndAnEmptySetIsAnEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("intersection of a non-empty set and an empty set is an empty set", .enabled(if: RUNALL))
+  func testIntersectionOfANonEmptySetAndAnEmptySetIsAnEmptySet() {
     let set1 = CustomSet([1, 2, 3, 4])
-    let set2 = CustomSet(emptyArray)
-    XCTAssertEqual(set1.intersection(set2), CustomSet([]))
+    let set2 = CustomSet([Int]())
+    #expect(set1.intersection(set2) == CustomSet([]))
   }
-
-  func testIntersectionOfTwoSetsWithNoSharedElementsIsAnEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("intersection of two sets with no shared elements is an empty set", .enabled(if: RUNALL))
+  func testIntersectionOfTwoSetsWithNoSharedElementsIsAnEmptySet() {
     let set1 = CustomSet([1, 2, 3])
     let set2 = CustomSet([4, 5, 6])
-    XCTAssertEqual(set1.intersection(set2), CustomSet([]))
+    #expect(set1.intersection(set2) == CustomSet([]))
   }
-
-  func testIntersectionOfTwoSetsWithSharedElementsIsASetOfTheSharedElements() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "intersection of two sets with shared elements is a set of the shared elements",
+    .enabled(if: RUNALL))
+  func testIntersectionOfTwoSetsWithSharedElementsIsASetOfTheSharedElements() {
     let set1 = CustomSet([1, 2, 3, 4])
     let set2 = CustomSet([3, 2, 5])
-    XCTAssertEqual(set1.intersection(set2), CustomSet([2, 3]))
+    #expect(set1.intersection(set2) == CustomSet([2, 3]))
   }
-
-  func testDifferenceOfTwoEmptySetsIsAnEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
-    let set2 = CustomSet(emptyArray)
-    XCTAssertEqual(set1.difference(set2), CustomSet([]))
+  @Test("difference of two empty sets is an empty set", .enabled(if: RUNALL))
+  func testDifferenceOfTwoEmptySetsIsAnEmptySet() {
+    let set1 = CustomSet([Int]())
+    let set2 = CustomSet([Int]())
+    #expect(set1.difference(set2) == CustomSet([]))
   }
-
-  func testDifferenceOfEmptySetAndNonEmptySetIsAnEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
+  @Test("difference of empty set and non-empty set is an empty set", .enabled(if: RUNALL))
+  func testDifferenceOfEmptySetAndNonEmptySetIsAnEmptySet() {
+    let set1 = CustomSet([Int]())
     let set2 = CustomSet([3, 2, 5])
-    XCTAssertEqual(set1.difference(set2), CustomSet([]))
+    #expect(set1.difference(set2) == CustomSet([]))
   }
-
-  func testDifferenceOfANonEmptySetAndAnEmptySetIsTheNonEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("difference of a non-empty set and an empty set is the non-empty set", .enabled(if: RUNALL))
+  func testDifferenceOfANonEmptySetAndAnEmptySetIsTheNonEmptySet() {
     let set1 = CustomSet([1, 2, 3, 4])
-    let set2 = CustomSet(emptyArray)
-    XCTAssertEqual(set1.difference(set2), CustomSet([1, 2, 3, 4]))
+    let set2 = CustomSet([Int]())
+    #expect(set1.difference(set2) == CustomSet([1, 2, 3, 4]))
   }
-
-  func testDifferenceOfTwoNonEmptySetsIsASetOfElementsThatAreOnlyInTheFirstSet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test(
+    "difference of two non-empty sets is a set of elements that are only in the first set",
+    .enabled(if: RUNALL))
+  func testDifferenceOfTwoNonEmptySetsIsASetOfElementsThatAreOnlyInTheFirstSet() {
     let set1 = CustomSet([3, 2, 1])
     let set2 = CustomSet([2, 4])
-    XCTAssertEqual(set1.difference(set2), CustomSet([1, 3]))
+    #expect(set1.difference(set2) == CustomSet([1, 3]))
   }
-
-  func testUnionOfEmptySetsIsAnEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
-    let set2 = CustomSet(emptyArray)
-    XCTAssertEqual(set1.union(set2), CustomSet([]))
+  @Test("union of empty sets is an empty set", .enabled(if: RUNALL))
+  func testUnionOfEmptySetsIsAnEmptySet() {
+    let set1 = CustomSet([Int]())
+    let set2 = CustomSet([Int]())
+    #expect(set1.union(set2) == CustomSet([]))
   }
-
-  func testUnionOfAnEmptySetAndNonEmptySetIsTheNonEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
-    let set1 = CustomSet(emptyArray)
+  @Test("union of an empty set and non-empty set is the non-empty set", .enabled(if: RUNALL))
+  func testUnionOfAnEmptySetAndNonEmptySetIsTheNonEmptySet() {
+    let set1 = CustomSet([Int]())
     let set2 = CustomSet([2])
-    XCTAssertEqual(set1.union(set2), CustomSet([2]))
+    #expect(set1.union(set2) == CustomSet([2]))
   }
-
-  func testUnionOfANonEmptySetAndEmptySetIsTheNonEmptySet() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("union of a non-empty set and empty set is the non-empty set", .enabled(if: RUNALL))
+  func testUnionOfANonEmptySetAndEmptySetIsTheNonEmptySet() {
     let set1 = CustomSet([1, 3])
-    let set2 = CustomSet(emptyArray)
-    XCTAssertEqual(set1.union(set2), CustomSet([1, 3]))
+    let set2 = CustomSet([Int]())
+    #expect(set1.union(set2) == CustomSet([1, 3]))
   }
-
-  func testUnionOfNonEmptySetsContainsAllUniqueElements() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+  @Test("union of non-empty sets contains all unique elements", .enabled(if: RUNALL))
+  func testUnionOfNonEmptySetsContainsAllUniqueElements() {
     let set1 = CustomSet([1, 3])
     let set2 = CustomSet([2, 3])
-    XCTAssertEqual(set1.union(set2), CustomSet([3, 2, 1]))
+    #expect(set1.union(set2) == CustomSet([3, 2, 1]))
   }
 }

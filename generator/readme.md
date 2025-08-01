@@ -51,9 +51,26 @@ include = false
 The generator also supports plugins, which can be used to add extra functionality to Stencils templates.
 The plugins are needed since Stencil doesn't support all the features we need.
 
-The current plugins are:
+The current custom plugins are:
 - `isNull`: Checks if a value is null.
 - `camelCase`: Converts a string to camel case.
+- `contains`: Check if value is present in a String, array or dictionary.
+- `any`: Checks each element of an integer array for a specific condition: isEven, isOdd, isNegative, isPositive. The condition is passed as an argument.
+- `toStringArray`: Converts input value to array of strings.
+- `toStringDictionary`: Converts input value to dictionary structure.
+- `inspect`: Removes escape characters from string.
+- `minus`: Calculates difference between value and argument.
+- `toTupleArray`: Converts input value to [[Int]] or [[String]].
+- `extractCountKey`: Extracts value under "count" key value from dictionary.
+- `toNilArray`: Converts input value to an array with optional values.
+- `length`: Provides the length of a collection.
+- `toEnumArray`: Converts input value to a enum array.
+- `strain`: Performs problem-specific replacements in string.
+- `round`: Rounds the value with a specified precision.
+- `knapsackItem`: Snapsack specific plugin to generate Items.
+- `complexNumber`: Converts input value to swift syntax.
+- `listOps`: Replaces occurances of "foldr" to "foldRight"
+- `defaultArray`: Provides default value if the input value is null. 
 
 The plugins can be found in the `generator-plugins.swift` file, and can be used like this:
 
