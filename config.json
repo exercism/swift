@@ -1231,6 +1231,17 @@
         ]
       },
       {
+        "slug": "game-of-life",
+        "name": "Conway's Game of Life",
+        "uuid": "ea97e140-6759-4267-8c71-2d3340a33b9c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "arrays"
+        ]
+      },
+      {
         "slug": "bowling",
         "name": "Bowling",
         "uuid": "beb0c7dd-69aa-4e9b-a0df-f1d507221b21",
