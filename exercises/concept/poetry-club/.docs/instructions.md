@@ -24,6 +24,7 @@ splitOnNewlines("Hello.\nHow are you?\n\nI'm doing fine.")
 1. The guard will recite a poem
 2. You will have to split the poem into individual lines.
 3. You will have to get the first letter of each line.
+   - If the line is empty, you should use `_` instead.
 4. You will have to ensable the letters, which will form a word.
 
 For example, one of their favorite writers is Michael Lockwood, who's written the following _acrostic_ poem, which means that the first letter of each sentence form a word:
@@ -58,7 +59,7 @@ Because this is not for everyone, the back door process is a bit more convoluted
 2. You will have to split the poem into lines.
 3. You will have to get the last letter of each line.
    - The line will sometimes have trailing spaces, so you will need to strip them off.
-4. You will have to assemble the letters and then add `", please."` to the end of the word formed by the letters.
+4. You will have to assemble the letters and then add `", please"` to the end of the word formed by the letters.
 
 For example, the poem mentioned before is also _telestich_, which means that the last letter of each sentence form a word:
 
@@ -72,15 +73,15 @@ Eager to leave
 
 When the guard recites the poem, you will split it into individual lines, strip off any trailing spaces, and respond with the first letters of each line, i.e. `["h", "o", "r", "s", "e"]`.
 
-The guard will then give you the word formed by the array of letters you replied with for you to put into capitalized word form and append `", please."`.
-Finally the password you return is `"horse, please."`, and you'll get in.
+The guard will then give you the word formed by the array of letters you replied with for you to put into capitalized word form and append `", please"`.
+Finally the password you return is `"horse, please"`, and you'll get in.
 
 Implement the function `backDoorPassword` that takes a string which represents the poem.
 The function should return the password that you would give to the guard.
 
 ```swift
 backDoorPassword("Stands so high\nHuge hooves too\nImpatiently waits for\nReins and harness\nEager to leave")
-// returns "horse, please."
+// returns "horse, please"
 ```
 
 ## 4. Secret room
