@@ -2,12 +2,22 @@ import Foundation
 import Stencil
 
 class GeneratorPlugins {
+
+  static let escapeChars = ["\t": "\\t", "\n": "\\n", "\r": "\\r", "\\": "\\\\", "\"": "\\\""]
+
   func getPlugins() -> Environment {
     let ext = Extension()
 
     ext.registerFilter("isNull") { (value: Any?) in
       return NSNull().isEqual(value)
     }
+
+    ext.registerFilter("jsonString") { (value: Any?) in
+      guard let value = value as? [String: Any] else { return nil }
+      let json = try JSONSerialization.data(withJSONObject: value, options: [.sortedKeys])
+      guard let jsonString = String(data: json, encoding: .utf8) else { return nil }
+      return jsonString.map { Self.escapeChars[String($0)] ?? String($0) }.joined()
+  }
 
     ext.registerFilter("camelCase") { (value: Any?) in
       if let inputString = value as? String {
@@ -112,8 +122,7 @@ class GeneratorPlugins {
 
     ext.registerFilter("inspect") { (value: Any?) in
       if let inputString = value as? String {
-        let escapeChars = ["\t": "\\t", "\n": "\\n", "\r": "\\r", "\\": "\\\\", "\"": "\\\""]
-        return inputString.map { escapeChars[String($0)] ?? String($0) }.joined()
+        return inputString.map { Self.escapeChars[String($0)] ?? String($0) }.joined()
       }
       return nil
     }
