@@ -1375,6 +1375,19 @@
         ]
       },
       {
+        "slug": "sgf-parsing",
+        "name": "SGF Parsing",
+        "uuid": "488cece4-7cda-48d3-b1c2-99e06d75411b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7,
+        "topics": [
+          "parsing",
+          "strings",
+          "recursion"
+        ]
+      },
+      {
         "slug": "poker",
         "name": "Poker",
         "uuid": "ffd130c2-f816-474c-a989-dc5814e31ea6",

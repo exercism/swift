@@ -24,21 +24,21 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("node without properties", .enabled(if: RUNALL))
   func testNodeWithoutProperties() throws {
-    let expectedTree = CGFTree(jsonString: "{\"children\":[],\"properties\":{}}")
+    let expectedTree = SGFTree(jsonString: "{\"children\":[],\"properties\":{}}")
     let actualTree = try parse("(;)")
     #expect(expectedTree == actualTree, "Expect trees to match")
   }
 
   @Test("single node tree", .enabled(if: RUNALL))
   func testSingleNodeTree() throws {
-    let expectedTree = CGFTree(jsonString: "{\"children\":[],\"properties\":{\"A\":[\"B\"]}}")
+    let expectedTree = SGFTree(jsonString: "{\"children\":[],\"properties\":{\"A\":[\"B\"]}}")
     let actualTree = try parse("(;A[B])")
     #expect(expectedTree == actualTree, "Expect trees to match")
   }
 
   @Test("multiple properties", .enabled(if: RUNALL))
   func testMultipleProperties() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString: "{\"children\":[],\"properties\":{\"A\":[\"b\"],\"C\":[\"d\"]}}")
     let actualTree = try parse("(;A[b]C[d])")
     #expect(expectedTree == actualTree, "Expect trees to match")
@@ -61,7 +61,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("two nodes", .enabled(if: RUNALL))
   func testTwoNodes() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString:
         "{\"children\":[{\"children\":[],\"properties\":{\"B\":[\"C\"]}}],\"properties\":{\"A\":[\"B\"]}}"
     )
@@ -71,7 +71,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("two child trees", .enabled(if: RUNALL))
   func testTwoChildTrees() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString:
         "{\"children\":[{\"children\":[],\"properties\":{\"B\":[\"C\"]}},{\"children\":[],\"properties\":{\"C\":[\"D\"]}}],\"properties\":{\"A\":[\"B\"]}}"
     )
@@ -81,7 +81,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("multiple property values", .enabled(if: RUNALL))
   func testMultiplePropertyValues() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString: "{\"children\":[],\"properties\":{\"A\":[\"b\",\"c\",\"d\"]}}")
     let actualTree = try parse("(;A[b][c][d])")
     #expect(expectedTree == actualTree, "Expect trees to match")
@@ -91,7 +91,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     "within property values, whitespace characters such as tab are converted to spaces",
     .enabled(if: RUNALL))
   func testWithinPropertyValuesWhitespaceCharactersSuchAsTabAreConvertedToSpaces() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString: "{\"children\":[],\"properties\":{\"A\":[\"hello  world\"]}}")
     let actualTree = try parse("(;A[hello\t\tworld])")
     #expect(expectedTree == actualTree, "Expect trees to match")
@@ -99,7 +99,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("within property values, newlines remain as newlines", .enabled(if: RUNALL))
   func testWithinPropertyValuesNewlinesRemainAsNewlines() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString: "{\"children\":[],\"properties\":{\"A\":[\"hello\\n\\nworld\"]}}")
     let actualTree = try parse("(;A[hello\n\nworld])")
     #expect(expectedTree == actualTree, "Expect trees to match")
@@ -109,21 +109,21 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     "escaped closing bracket within property value becomes just a closing bracket",
     .enabled(if: RUNALL))
   func testEscapedClosingBracketWithinPropertyValueBecomesJustAClosingBracket() throws {
-    let expectedTree = CGFTree(jsonString: "{\"children\":[],\"properties\":{\"A\":[\"]\"]}}")
+    let expectedTree = SGFTree(jsonString: "{\"children\":[],\"properties\":{\"A\":[\"]\"]}}")
     let actualTree = try parse("(;A[\\]])")
     #expect(expectedTree == actualTree, "Expect trees to match")
   }
 
   @Test("escaped backslash in property value becomes just a backslash", .enabled(if: RUNALL))
   func testEscapedBackslashInPropertyValueBecomesJustABackslash() throws {
-    let expectedTree = CGFTree(jsonString: "{\"children\":[],\"properties\":{\"A\":[\"\\\\\"]}}")
+    let expectedTree = SGFTree(jsonString: "{\"children\":[],\"properties\":{\"A\":[\"\\\\\"]}}")
     let actualTree = try parse("(;A[\\\\])")
     #expect(expectedTree == actualTree, "Expect trees to match")
   }
 
   @Test("opening bracket within property value doesn't need to be escaped", .enabled(if: RUNALL))
   func testOpeningBracketWithinPropertyValueDoesntNeedToBeEscaped() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString:
         "{\"children\":[{\"children\":[],\"properties\":{\"C\":[\"baz\"]}}],\"properties\":{\"A\":[\"x[y]z\",\"foo\"],\"B\":[\"bar\"]}}"
     )
@@ -133,7 +133,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("semicolon in property value doesn't need to be escaped", .enabled(if: RUNALL))
   func testSemicolonInPropertyValueDoesntNeedToBeEscaped() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString:
         "{\"children\":[{\"children\":[],\"properties\":{\"C\":[\"baz\"]}}],\"properties\":{\"A\":[\"a;b\",\"foo\"],\"B\":[\"bar\"]}}"
     )
@@ -143,7 +143,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("parentheses in property value don't need to be escaped", .enabled(if: RUNALL))
   func testParenthesesInPropertyValueDontNeedToBeEscaped() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString:
         "{\"children\":[{\"children\":[],\"properties\":{\"C\":[\"baz\"]}}],\"properties\":{\"A\":[\"x(y)z\",\"foo\"],\"B\":[\"bar\"]}}"
     )
@@ -153,7 +153,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("escaped tab in property value is converted to space", .enabled(if: RUNALL))
   func testEscapedTabInPropertyValueIsConvertedToSpace() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString: "{\"children\":[],\"properties\":{\"A\":[\"hello world\"]}}")
     let actualTree = try parse("(;A[hello\\\tworld])")
     #expect(expectedTree == actualTree, "Expect trees to match")
@@ -161,7 +161,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("escaped newline in property value is converted to nothing at all", .enabled(if: RUNALL))
   func testEscapedNewlineInPropertyValueIsConvertedToNothingAtAll() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString: "{\"children\":[],\"properties\":{\"A\":[\"helloworld\"]}}")
     let actualTree = try parse("(;A[hello\\\nworld])")
     #expect(expectedTree == actualTree, "Expect trees to match")
@@ -169,7 +169,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
 
   @Test("escaped t and n in property value are just letters, not whitespace", .enabled(if: RUNALL))
   func testEscapedTAndNInPropertyValueAreJustLettersNotWhitespace() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString: "{\"children\":[],\"properties\":{\"A\":[\"t = t and n = n\"]}}")
     let actualTree = try parse("(;A[\\t = t and \\n = n])")
     #expect(expectedTree == actualTree, "Expect trees to match")
@@ -179,7 +179,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     "mixing various kinds of whitespace and escaped characters in property value",
     .enabled(if: RUNALL))
   func testMixingVariousKindsOfWhitespaceAndEscapedCharactersInPropertyValue() throws {
-    let expectedTree = CGFTree(
+    let expectedTree = SGFTree(
       jsonString: "{\"children\":[],\"properties\":{\"A\":[\"]b\\ncd  e\\\\ ]\"]}}")
     let actualTree = try parse("(;A[\\]b\nc\\\nd\t\te\\\\ \\\n\\]])")
     #expect(expectedTree == actualTree, "Expect trees to match")

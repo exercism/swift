@@ -24,7 +24,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
             {%- endif -%}
             { try {{ case.property }}("{{ case.input.encoded|inspect }}") }
         {%- else -%}
-            let expectedTree = CGFTree(jsonString: "{{ case.expected|jsonString }}")
+            let expectedTree = SGFTree(jsonString: "{{ case.expected|jsonString }}")
             let actualTree = try parse("{{ case.input.encoded|inspect }}")
             #expect(expectedTree == actualTree, "Expect trees to match")
         {%- endif -%}

@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "Sencudra"
+  ],
+  "files": {
+    "solution": [
+      "Sources/SgfParsing/SGFParsing.swift"
+    ],
+    "test": [
+      "Tests/SgfParsingTests/SGFParsingTests.swift"
+    ],
+    "example": [
+      ".meta/Sources/SgfParsing/SGFParsingExample.swift",
+      ".meta/Sources/SgfParsing/StringCursor.swift"
+    ],
+    "editor": [
+      "Sources/SgfParsing/SGFTree.swift"
+    ]
+  },
+  "blurb": "Parsing a Smart Game Format string."
+}
