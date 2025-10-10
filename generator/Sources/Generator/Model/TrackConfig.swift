@@ -1,14 +1,13 @@
 import Foundation
 
-struct TrackConfig: Codable {
+struct TrackConfig: Decodable {
     
-    struct Exercise: Codable {
+    struct Exercise: Decodable {
         let slug: String
-        let name: String
         let uuid: String
     }
     
-    struct Exercises: Codable {
+    struct Exercises: Decodable {
         let concept: [Exercise]
         let practice: [Exercise]
     }
