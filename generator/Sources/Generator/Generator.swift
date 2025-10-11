@@ -16,7 +16,7 @@ enum ExerciseKind: String, CaseIterable, ExpressibleByArgument {
 }
 
 @main
-struct Generator: ParsableCommand {
+struct Generator: AsyncParsableCommand {
     
     // MARK: - Static Properties
     
@@ -51,18 +51,18 @@ struct Generator: ParsableCommand {
         help: "The absolute or relative path to the track directory. Defaults to the current directory.",
         transform: { URL(filePath: $0).standardizedFileURL }
     )
-    var trackDirectoryURL: URL = URL(filePath: FileManager.default.currentDirectoryPath)
+    var trackDirectoryPath: URL = URL(filePath: FileManager.default.currentDirectoryPath)
     
     // MARK: - Private Properties
     
     private lazy var exerciseDirectoryURL: URL = {
         guard let exercisePath else {
-            return trackDirectoryURL.appending(components: "exercises", "\(exerciseKind.rawValue)", "\(exerciseSlug)")
+            return trackDirectoryPath.appending(components: "exercises", "\(exerciseKind.rawValue)", "\(exerciseSlug)")
         }
         return exercisePath
     }()
     
-    private lazy var trackConfigURL: URL = { trackDirectoryURL.appending(components: "config.json") }()
+    private lazy var trackConfigURL: URL = { trackDirectoryPath.appending(components: "config.json") }()
     private lazy var exerciseConfigURL: URL = { exerciseDirectoryURL.appending(components: ".meta", "config.json") }()
     private lazy var templateURL: URL = { exerciseDirectoryURL.appending(components: ".meta", "template.swift") }()
     private lazy var tomlURL: URL = { exerciseDirectoryURL.appending(components: ".meta", "tests.toml") }()
@@ -70,7 +70,7 @@ struct Generator: ParsableCommand {
     // MARK: - Internal Methods
     
     mutating func validate() throws {
-        try trackDirectoryURL.validateDirectoryExists()
+        try trackDirectoryPath.validateDirectoryExists()
         try trackConfigURL.validateFileExists()
         
         try exerciseDirectoryURL.validateDirectoryExists()
@@ -122,7 +122,6 @@ struct Generator: ParsableCommand {
     private mutating func getTargetTestFileURL() throws -> URL {
         let config = try ExerciseConfig(from: exerciseConfigURL)
         let testFile = exerciseDirectoryURL.appending(component: try config.getTargetTestFileURL())
-        try testFile.validateFileExists()
         return testFile
     }
 

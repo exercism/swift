@@ -33,6 +33,7 @@ struct CanonicalData {
 extension CanonicalData {
     
     static func fetch(slug: String) async throws -> CanonicalData {
+        print("Loading canonical data for \"\(slug)\"...", terminator: "")
         let urlString = "https://raw.githubusercontent.com/exercism/problem-specifications/master/exercises/\(slug)/canonical-data.json"
         guard let url = URL(string: urlString) else {
             throw GeneratorError.remoteError("Invalid URL for exercise \(slug)")
@@ -42,7 +43,7 @@ extension CanonicalData {
         guard let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
             throw GeneratorError.remoteError("HTTP error with code: \((response as? HTTPURLResponse)?.statusCode ?? -1)")
         }
-        
+        print("OK!")
         guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
             throw GeneratorError.remoteError("Invalid canonical data format")
         }
