@@ -6,7 +6,7 @@ import TOMLKit
 @Test
 func `Testing TOML file not found`() {
     let error = #expect(throws: CocoaError.self) {
-        _ = try TOMLFile(fileURL: URL(filePath: "file.toml"))
+        _ = try TOMLConfig(from: URL(filePath: "file.toml"))
     }
     #expect(error?.code == .fileReadNoSuchFile)
 }
@@ -14,15 +14,15 @@ func `Testing TOML file not found`() {
 @Test
 func `Testing TOML file is empty`() {
     #expect(throws: Never.self) {
-        let file = try TOMLFile(string: "")
+        let file = try TOMLConfig(from: "")
         #expect(file.uuids.isEmpty)
     }
 }
 
 @Test
-func `Testing Malformed toml files are prohibited`() {
+func `Testing Malformed TOML files are prohibited`() {
     #expect(throws: TOMLParseError.self) {
-        let file = try TOMLFile(string: """
+        let file = try TOMLConfig(from: """
         []
         """)
         #expect(file.uuids.isEmpty)
@@ -30,23 +30,23 @@ func `Testing Malformed toml files are prohibited`() {
 }
 
 @Test
-func `Testing a single uuid to be included`() {
+func `Testing a single uuid to be included in TOML`() {
     let expectedUUIDs = Set(["abc"])
     #expect(throws: Never.self) {
-        let file = try TOMLFile(string: "[abc]")
+        let file = try TOMLConfig(from: "[abc]")
         #expect(file.uuids == expectedUUIDs)
     }
 }
 
 @Test
-func `Testing all tests to be included`() {
+func `Testing all tests to be included in TOML`() {
     let expectedUUIDs = Set([
         "1cf3e15a-a3d7-4a87-aeb3-ba1b43bc8dce",
         "b4c6dbb8-b4fb-42c2-bafd-10785abe7709"
     ])
     
     #expect(throws: Never.self) {
-        let file = try TOMLFile(string: """
+        let file = try TOMLConfig(from: """
         [1cf3e15a-a3d7-4a87-aeb3-ba1b43bc8dce]
         description = "no name given"
 
@@ -58,9 +58,9 @@ func `Testing all tests to be included`() {
 }
 
 @Test
-func `Testing no tests to be included`() {
+func `Testing no tests to be included in TOML`() {
     #expect(throws: Never.self) {
-        let file = try TOMLFile(string: """
+        let file = try TOMLConfig(from: """
         [1cf3e15a-a3d7-4a87-aeb3-ba1b43bc8dce]
         description = "no name given"
         include = false
@@ -69,15 +69,14 @@ func `Testing no tests to be included`() {
     }
 }
 
-
 @Test
-func `Testing some tests to be included`() {
+func `Testing some tests to be included in TOML`() {
     let expectedUUIDs = Set([
         "1cf3e15a-a3d7-4a87-aeb3-ba1b43bc8dce"
     ])
     
     #expect(throws: Never.self) {
-        let file = try TOMLFile(string: """
+        let file = try TOMLConfig(from: """
         [3549048d-1a6e-4653-9a79-b0bda163e8d5]
         description = "no name given"
         include = false
@@ -86,5 +85,20 @@ func `Testing some tests to be included`() {
         description = "a name given"
         """)
         #expect(file.uuids == expectedUUIDs)
+    }
+}
+
+@Test
+func `Testing TOML config loads from fixture file`() throws {
+    let expectedUUIDs = Set([
+        "1cf3e15a-a3d7-4a87-aeb3-ba1b43bc8dce",
+        "b4c6dbb8-b4fb-42c2-bafd-10785abe7709",
+        "3549048d-1a6e-4653-9a79-b0bda163e8d5"
+    ])
+    
+    let url = try Bundle.module.urlForResource("valid_toml", fileExtension: "toml", subdirectory: "Resources/TomlFile")
+    #expect(throws: Never.self) {
+        let config = try TOMLConfig(from: url)
+        #expect(expectedUUIDs == config.uuids)
     }
 }

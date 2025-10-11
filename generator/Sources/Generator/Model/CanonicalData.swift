@@ -2,51 +2,18 @@ import Foundation
 
 struct CanonicalData {
     
-    var jsonData: [String: Any]
+    var context: [String: Any]
     
     init(dictionary: [String: Any]) {
-        self.jsonData = dictionary
+        self.context = dictionary
     }
     
-    init?(jsonString: String) {
-        guard let data = jsonString.data(using: .utf8) else { return nil }
-        guard let jsonData = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-            return nil
-        }
-        self.init(dictionary: jsonData)
-    }
-
-}
-
-extension CanonicalData {
-    
-    var uuidSet: Set<String> {
-        var uuids = Set<String>()
-        if let cases = jsonData["cases"] as? [[String: Any]] {
-            uuids.formUnion(collectUUIDs(from: cases))
-        }
-        return uuids
-    }
-    
-    private func collectUUIDs(from cases: [[String: Any]]) -> Set<String> {
-        var uuids = Set<String>()
-        for caseData in cases {
-            if let uuid = caseData["uuid"] as? String {
-                uuids.insert(uuid)
-            }
-            else if let nestedCases = caseData["cases"] as? [[String: Any]] {
-                uuids.formUnion(collectUUIDs(from: nestedCases))
-            }
-        }
-        return uuids
-    }
-
     mutating func whitelistTests(withUUIDs uuidsToKeep: Set<String>) {
-        if let cases = jsonData["cases"] as? [[String: Any]] {
-            jsonData["cases"] = whitelistTests(from: cases, withUUIDs: uuidsToKeep)
+        if let cases = context["cases"] as? [[String: Any]] {
+            context["cases"] = whitelistTests(from: cases, withUUIDs: uuidsToKeep)
         }
     }
-    
+
     private func whitelistTests(from cases: [[String: Any]], withUUIDs uuidsToKeep: Set<String>) -> [[String: Any]] {
         var result = [[String: Any]]()
         for caseData in cases {
@@ -61,7 +28,6 @@ extension CanonicalData {
         return result
     }
 
-    
 }
 
 extension CanonicalData {

@@ -1,11 +1,17 @@
 import Foundation
 import Stencil
 
-enum StencilPlugins {
+enum Stencil {
     
-    static let escapeChars = ["\t": "\\t", "\n": "\\n", "\r": "\\r", "\\": "\\\\", "\"": "\\\""]
+    private static let escapeChars = ["\t": "\\t", "\n": "\\n", "\r": "\\r", "\\": "\\\\", "\"": "\\\""]
     
-    static func registerPlugins() -> Environment {
+    static func render(template: URL, context: [String: Any]) throws -> String {
+        let templateString = try String(contentsOf: template, encoding: .utf8)
+        let pluginsEnvironment = Stencil.registerPlugins()
+        return try pluginsEnvironment.renderTemplate(string: templateString, context: context)
+    }
+    
+    private static func registerPlugins() -> Environment {
         let ext = Extension()
         
         ext.registerFilter("isNull") { (value: Any?) in

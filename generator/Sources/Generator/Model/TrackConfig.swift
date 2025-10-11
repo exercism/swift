@@ -1,6 +1,6 @@
 import Foundation
 
-struct TrackConfig: Decodable {
+struct TrackConfig: Config {
     
     struct Exercise: Decodable {
         let slug: String
@@ -13,21 +13,9 @@ struct TrackConfig: Decodable {
     }
     
     let exercises: Exercises
- 
-    init(fileURL: URL) throws {
-        try self.init(data: Data(contentsOf: fileURL))
-    }
-    
-    init(jsonString: String) throws {
-        try self.init(data: Data(jsonString.utf8))
-    }
-    
-    private init(data: Data) throws {
-        self = try JSONDecoder().decode(TrackConfig.self, from: data)
-    }
     
     func checkExistance(slug: String, kind: ExerciseKind) -> Bool {
-        exercises[kind].contains(slug: slug)
+        exercises[kind].contains { $0.slug == slug }
     }
     
 }
@@ -41,12 +29,4 @@ extension TrackConfig.Exercises {
         }
     }
 
-}
-
-extension Array where Element == TrackConfig.Exercise {
-    
-    fileprivate func contains(slug: String) -> Bool {
-        first(where: { $0.slug == slug }) != nil
-    }
-    
 }

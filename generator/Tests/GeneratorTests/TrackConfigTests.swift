@@ -3,73 +3,73 @@ import Foundation
 @testable import Generator
 
 @Test
-func `Track config file not found`() {
+func `Testing track config file not found`() {
     let error = #expect(throws: CocoaError.self) {
-        _ = try TrackConfig(fileURL: URL(filePath: "config.json"))
+        _ = try TrackConfig(from: URL(filePath: "config.json"))
     }
     #expect(error?.code == .fileReadNoSuchFile)
 }
 
 @Test
-func `Track config file has valid structure`() {
+func `Testing track config file has valid structure`() {
     #expect(throws: Never.self) {
-        _ = try TrackConfig(jsonString: testConfig)
+        _ = try TrackConfig(from: testConfig)
     }
 }
 
 @Test
-func `Track config file has invalid JSON structure`() {
+func `Testing track config file has invalid JSON structure`() {
     #expect(throws: DecodingError.self) {
-        _ = try TrackConfig(jsonString: "{ invalid-json }")
+        _ = try TrackConfig(from: "{ invalid-json }")
     }
 }
 
 @Test
-func `Track config handles empty exercises arrays`() {
+func `Testing track config handles empty exercises arrays`() {
     #expect(throws: Never.self) {
-        let config = try TrackConfig(jsonString: "{\"exercises\": {\"concept\": [],\"practice\": []}}")
+        let config = try TrackConfig(from: "{\"exercises\": {\"concept\": [],\"practice\": []}}")
         #expect(config.checkExistance(slug: "nonexistent", kind: .concept) == false)
         #expect(config.checkExistance(slug: "nonexistent", kind: .practice) == false)
     }
 }
 
 @Test
-func `Track config contains concept exercise`() {
+func `Testing track config contains concept exercise`() {
     #expect(throws: Never.self) {
-        let config = try TrackConfig(jsonString: testConfig)
+        let config = try TrackConfig(from: testConfig)
         #expect(config.checkExistance(slug: "wings-quest", kind: .concept))
     }
 }
 
 @Test
-func `Track config does not contain concept exercise`() {
+func `Testing track config does not contain concept exercise`() {
     #expect(throws: Never.self) {
-        let config = try TrackConfig(jsonString: testConfig)
+        let config = try TrackConfig(from: testConfig)
         #expect(config.checkExistance(slug: "difference-of-squares", kind: .concept) == false)
     }
 }
 
 @Test
-func `Track config contains practice exercise`() {
+func `Testing track config contains practice exercise`() {
     #expect(throws: Never.self) {
-        let config = try TrackConfig(jsonString: testConfig)
+        let config = try TrackConfig(from: testConfig)
         #expect(config.checkExistance(slug: "gigasecond", kind: .practice))
     }
 }
 
 @Test
-func `Track config does not contains practice exercise`() {
+func `Testing track config does not contains practice exercise`() {
     #expect(throws: Never.self) {
-        let config = try TrackConfig(jsonString: testConfig)
+        let config = try TrackConfig(from: testConfig)
         #expect(config.checkExistance(slug: "lasagna", kind: .practice) == false)
     }
 }
 
 @Test
-func `Track config loads from fixture file`() throws {
+func `Testing track config loads from fixture file`() throws {
     let url = try Bundle.module.urlForResource("valid_config", fileExtension: "json", subdirectory: "Resources/TrackConfig")
     #expect(throws: Never.self) {
-        let config = try TrackConfig(fileURL: url)
+        let config = try TrackConfig(from: url)
         #expect(config.checkExistance(slug: "lasagna", kind: .concept))
         #expect(config.checkExistance(slug: "gigasecond", kind: .practice))
     }

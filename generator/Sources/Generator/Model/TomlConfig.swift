@@ -1,15 +1,15 @@
 import Foundation
 import TOMLKit
 
-struct TOMLFile {
+struct TOMLConfig: Config {
     
     let uuids: Set<String>
     
-    init(fileURL: URL) throws {
-        try self.init(string: String(contentsOf: fileURL, encoding: .utf8))
+    init(from url: URL) throws {
+        try self.init(from: String(contentsOf: url, encoding: .utf8))
     }
     
-    init(string: String) throws {
+    init(from string: String) throws {
         let table = try TOMLTable(string: string)
         var uuids = Set<String>()
         for (key, value) in table {
