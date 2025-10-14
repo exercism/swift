@@ -8,36 +8,37 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+  run-exercises-tests:
+    name: Swift ${{ matrix.swift }} on Ubuntu
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
-        os: [macos-15]
-        swift: ["6.1"]
+        swift: ["6.0", "6.1", "6.2"]
+    container:
+      image: swift:${{ matrix.swift }}
     env:
       RUNALL: "true"
     steps:
-      - uses: swift-actions/setup-swift@v2
-        with:
-          swift-version: ${{ matrix.swift }}
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: Run tests
         run: swift test
 
-  generator-tests:
-    runs-on: macos-15
-    env:
-      RUNALL: "true"
+  run-generator-unit-tests:
+    runs-on: ubuntu-24.04
+    container:
+      image: swift:6.2
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Run tests
         run: swift test --package-path ./generator
-  generator-template-tests:
-    runs-on: macos-15
+
+  run-generator-usage-tests:
+    runs-on: ubuntu-24.04
+    container:
+      image: swift:6.2
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
