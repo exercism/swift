@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-exercises-tests:
+  run-exercises-tests-ubuntu:
     name: Run exercise tests for swift ${{ matrix.swift }} on Ubuntu
     runs-on: ubuntu-24.04
     strategy:
@@ -18,6 +18,23 @@ jobs:
       image: swift:${{ matrix.swift }}
     env:
       RUNALL: "true"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Run tests
+        run: swift test
+
+  run-exercises-tests-macos:
+    name: Run exercise tests on macOS ${{ matrix.macOS }} with Xcode ${{ matrix.xcode }}
+    runs-on: macos-${{ matrix.macOS }}
+    strategy:
+      matrix:
+        include:
+          - macOS: '26'
+            xcode: '26.0'
+    env:
+      RUNALL: "true"
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -52,6 +69,7 @@ jobs:
     runs-on: macos-${{ matrix.macOS }}
     strategy:
       matrix:
+        include:
           - macOS: '26'
             xcode: '26.0'
     env:
