@@ -1,4 +1,4 @@
-name: CI
+name: CI Exercises
 
 on:
   pull_request:
