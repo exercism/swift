@@ -1,23 +1,42 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+set -euo pipefail
 
-temp=$(mktemp -d)
+declare TEMP_DIR
+TEMP_DIR=$(mktemp -d)
+
+readonly TEMP_DIR
+readonly GENERATOR_DIR="./generator"
+readonly PRACTICE_DIR="./exercises/practice"
+readonly TEMPLATE_PATH=".meta/template.swift"
 
 swift build --package-path ./generator
 
-for exercise in ./exercises/practice/*; do
-    if [[ -r "${exercise}/.meta/template.swift" ]]; then
-        cp -r "$exercise" "$temp"
-        test_file="${exercise}/$(jq -r '.files.test[0]' ${exercise}/.meta/config.json)"
-        temp_test_file="${temp}/$(basename "$exercise")/$(jq -r '.files.test[0]' ${exercise}/.meta/config.json)"
-        swift run --package-path ./generator Generator $(basename "$exercise") "$temp/$(basename "$exercise")"
-        echo "Comparing $test_file with $temp_test_file"
-        diff "$temp_test_file" "$test_file"
-        if [ $? -ne 0 ]; then
-            exit_code=1
-        fi
+exit_code=0
+for exercise_path in "${PRACTICE_DIR}"/*; do
+    [[ -e "${exercise_path}/${TEMPLATE_PATH}" ]] || continue
+
+    cp -r "${exercise_path}"/. "${TEMP_DIR}"
+
+    # Minify json and extract test file name
+    test_file=$(tr -d '\n\r ' < "${exercise_path}"/.meta/config.json | grep -o '"test":\["[^"]*' | sed 's/.*\["//')
+    original_test="${exercise_path}/${test_file}"
+    temp_test="${TEMP_DIR}/${test_file}"
+
+    exercise_name="${exercise_path##*/}"
+
+    if ! swift run --package-path "${GENERATOR_DIR}" Generator "${exercise_name}" "${TEMP_DIR}"; then
+        printf 'Generation failed for %s\n' "${exercise_name}"
+        exit_code=1
+        continue
+    fi
+
+    if ! diff -u -- "${original_test}" "${temp_test}"; then
+        printf 'Mismatch detected in %s\n' "${exercise_name}"
+        exit_code=1
+    else
+        printf '%s OK\n' "${exercise_name}"
     fi
 done
 
-exit ${exit_code}
+exit "${exit_code}"

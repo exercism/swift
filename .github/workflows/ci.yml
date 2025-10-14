@@ -10,7 +10,7 @@ on:
 jobs:
   run-exercises-tests:
     name: Swift ${{ matrix.swift }} on Ubuntu
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         swift: ["6.0", "6.1", "6.2"]
@@ -25,7 +25,7 @@ jobs:
         run: swift test
 
   run-generator-unit-tests:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     container:
       image: swift:6.2
     steps:
@@ -36,15 +36,32 @@ jobs:
         run: swift test --package-path ./generator
 
   run-generator-usage-tests:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     container:
       image: swift:6.2
     steps:
       - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run generator tests
+        run: ./bin/test_generator.sh
+
+  run-generator-usage-tests-macos:
+    name: Swift on macOS ${{ matrix.macOS }} with Xcode ${{ matrix.xcode }}
+    runs-on: macos-${{ matrix.macOS }}
+    strategy:
+      matrix:
+        include:
+          - macOS: '14'
+            xcode: '16.2'
+          - macOS: '15'
+            xcode: '16.4'
+          - macOS: '26'
+            xcode: '26.0'
+    env:
+      RUNALL: "true"
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
+    steps:
+      - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-
-      - name: 'Setup jq'
-        uses: dcarbone/install-jq-action@b7ef57d46ece78760b4019dbc4080a1ba2a40b45
-
-      - name: Run tests
+      - name: Run generator tests
         run: ./bin/test_generator.sh
