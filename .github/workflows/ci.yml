@@ -9,7 +9,7 @@ on:
 
 jobs:
   run-exercises-tests:
-    name: Swift ${{ matrix.swift }} on Ubuntu
+    name: Run exercise tests for swift ${{ matrix.swift }} on Ubuntu
     runs-on: ubuntu-24.04
     strategy:
       matrix:
@@ -25,6 +25,7 @@ jobs:
         run: swift test
 
   run-generator-unit-tests:
+    name: Run generator unit tests
     runs-on: ubuntu-24.04
     container:
       image: swift:6.2
@@ -36,6 +37,7 @@ jobs:
         run: swift test --package-path ./generator
 
   run-generator-usage-tests:
+    name: Test generator usage on Ubuntu
     runs-on: ubuntu-24.04
     container:
       image: swift:6.2
@@ -46,15 +48,10 @@ jobs:
         run: ./bin/test_generator.sh
 
   run-generator-usage-tests-macos:
-    name: Swift on macOS ${{ matrix.macOS }} with Xcode ${{ matrix.xcode }}
+    name: Test generator usage on macOS ${{ matrix.macOS }} with Xcode ${{ matrix.xcode }}
     runs-on: macos-${{ matrix.macOS }}
     strategy:
       matrix:
-        include:
-          - macOS: '14'
-            xcode: '16.2'
-          - macOS: '15'
-            xcode: '16.4'
           - macOS: '26'
             xcode: '26.0'
     env:
