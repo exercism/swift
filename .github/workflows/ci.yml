@@ -10,7 +10,7 @@ on:
 jobs:
   run-exercises-tests:
     name: Swift ${{ matrix.swift }} on Ubuntu
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         swift: ["6.0", "6.1", "6.2"]
@@ -25,7 +25,7 @@ jobs:
         run: swift test
 
   run-generator-unit-tests:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     container:
       image: swift:6.2
     steps:
@@ -36,7 +36,7 @@ jobs:
         run: swift test --package-path ./generator
 
   run-generator-usage-tests:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     container:
       image: swift:6.2
     steps:
