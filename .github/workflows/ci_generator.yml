@@ -1,0 +1,52 @@
+name: CI Generator
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/ci_generator.yml'
+      - 'generator/**'
+      - 'bin/test_generator.sh'
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-generator-unit-tests:
+    name: Run generator unit tests
+    runs-on: ubuntu-24.04
+    container:
+      image: swift:6.2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Run tests
+        run: swift test --package-path ./generator
+
+  run-generator-usage-tests:
+    name: Test generator usage on Ubuntu
+    runs-on: ubuntu-24.04
+    container:
+      image: swift:6.2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run generator tests
+        run: ./bin/test_generator.sh
+
+  run-generator-usage-tests-macos:
+    name: Test generator usage on macOS ${{ matrix.macOS }} with Xcode ${{ matrix.xcode }}
+    runs-on: macos-${{ matrix.macOS }}
+    strategy:
+      matrix:
+        include:
+          - macOS: '26'
+            xcode: '26.0'
+    env:
+      RUNALL: "true"
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Run generator tests
+        run: ./bin/test_generator.sh
