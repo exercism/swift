@@ -20,7 +20,7 @@ struct Generator: AsyncParsableCommand {
     
     // MARK: - Static Properties
     
-    static var configuration = CommandConfiguration(
+    static let configuration = CommandConfiguration(
         commandName: "Generator",
         abstract: "A Swift track tool for generating Swift test files for an exercise."
     )

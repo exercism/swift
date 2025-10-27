@@ -105,15 +105,3 @@ func `Testing exercise config loads from fixture file`() throws {
         #expect(expectedTestFilePath == config.files.test.first)
     }
 }
-
-fileprivate let testConfigWithSimpleTest = """
-{
-  "files": {
-    "solution": [],
-    "test": [
-      "Tests/AcronymTests/AcronymTests.swift"
-    ],
-    "example": []
-  }
-}
-"""

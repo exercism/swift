@@ -18,17 +18,21 @@ struct CanonicalData {
     }
 
     private func whitelistTests(from cases: [[String: Any]], withUUIDs uuidsToKeep: Set<String>) -> [[String: Any]] {
-        var result = [[String: Any]]()
-        for caseData in cases {
+        return cases.compactMap { caseData in
+            var caseData = caseData
+
             if let uuid = caseData["uuid"] as? String {
-                uuidsToKeep.contains(uuid) ? result.append(caseData) : nil
-            }
-            else if let nestedCases = caseData["cases"] as? [[String: Any]] {
+                return uuidsToKeep.contains(uuid) ? caseData : nil
+            } else if let nestedCases = caseData["cases"] as? [[String: Any]] {
                 let nestedWhitelisted = whitelistTests(from: nestedCases, withUUIDs: uuidsToKeep)
-                nestedWhitelisted.isEmpty ? nil : result.append(["cases": nestedWhitelisted])
+                if !nestedWhitelisted.isEmpty {
+                    caseData["cases"] = nestedWhitelisted
+                    return caseData
+                }
             }
+
+            return nil
         }
-        return result
     }
 
 }
@@ -47,7 +51,7 @@ extension CanonicalData {
             throw GeneratorError.remoteError("HTTP error with code: \((response as? HTTPURLResponse)?.statusCode ?? -1)")
         }
         print("OK!")
-        guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+        guard let jsonData = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
             throw GeneratorError.remoteError("Invalid canonical data format")
         }
         
