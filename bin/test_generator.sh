@@ -2,7 +2,10 @@
 
 set -euo pipefail
 
-readonly TEMP_DIR=$(mktemp -d)
+declare TEMP_DIR
+TEMP_DIR=$(mktemp -d)
+
+readonly TEMP_DIR
 readonly GENERATOR_DIR="./generator"
 readonly PRACTICE_DIR="./exercises/practice"
 readonly TEMPLATE_PATH=".meta/template.swift"
@@ -15,7 +18,8 @@ for exercise_path in "${PRACTICE_DIR}"/*; do
 
     cp -r "${exercise_path}"/. "${TEMP_DIR}"
 
-    test_file=$(jq -r -- '.files.test[0]' "${exercise_path}/.meta/config.json")
+    # Minify json and extract test file name
+    test_file=$(tr -d '\n\r ' < "${exercise_path}"/.meta/config.json | grep -o '"test":\["[^"]*' | sed 's/.*\["//')
     original_test="${exercise_path}/${test_file}"
     temp_test="${TEMP_DIR}/${test_file}"
 
