@@ -5,14 +5,41 @@ The reason for this is that it can be quite tedious to create the test file for 
 
 ## Get started
 
+### Prerequesites
+
 Before starting you need to have the following in place:
 
 - You have a folder called `Test` in the exercise folder.
-- You have added the exercises to the `config.json` file.
+- You have added the exercise to the track's [`config.json`][track-config-json] file.
 - The exercise folder has a `config.json` file.
 - You have added the template for the exercise, which is a file called `template.swift` and found in the `.meta` folder.
 
-Now you can run the generator:
+### Running the generator
+
+```bash
+USAGE: Generator <exercise-slug> [--exercise-kind <exercise-kind>] [--exercise-path <exercise-path>] [--track-directory-path <track-directory-path>]
+
+ARGUMENTS:
+  <exercise-slug>         The slug of the exercise to process.
+
+OPTIONS:
+  -e, --exercise-kind <exercise-kind>
+                          The kind of exercise to process. Possible
+                          values: practice, concept (values:
+                          practice, concept; default: practice)
+  --exercise-path <exercise-path>
+                          The absolute or relative path to the
+                          exercise within the track directory.
+                          Will use exercise kind and track path to
+                          calculate if not specified.
+  --track-directory-path <track-directory-path>
+                          The absolute or relative path to the
+                          track directory. Defaults to the current
+                          directory.
+  -h, --help              Show help information.
+```
+
+You can run the generator using `swift run`, which will compile and run the generator:
 
 ```bash
 # Format:
@@ -20,7 +47,26 @@ $ swift run --package-path ./generator Generator <slug>
 
 # Example:
 $ swift run --package-path ./generator Generator two-fer
+
+# Example with exercise kind
+$ swift run --package-path ./generator Generator two-fer -e concept
 ```
+
+or directly use the binary after compiling it:
+
+```bash
+# Compile and place binary into ./bin folder:
+$ swift build -c release --package-path ./generator && cp "$(find ./generator/.build -type f -path '*/release/Generator' 2>/dev/null)" ./bin/
+
+# Show usage and available arguments:
+$ ./bin/Generator -h
+
+# Example:
+$ ./bin/Generator two-fer
+```
+
+> [!NOTE]
+> Compiling in debug mode is faster, but the generated binary will run slower and be larger since it includes debug information and skips optimization steps.
 
 The generator will automatically format the files for you, so you don't have to worry about that.
 
@@ -72,7 +118,7 @@ The current custom plugins are:
 - `listOps`: Replaces occurances of "foldr" to "foldRight"
 - `defaultArray`: Provides default value if the input value is null. 
 
-The plugins can be found in the `generator-plugins.swift` file, and can be used like this:
+The plugins can be found in the [`Stencil.swift`][stencil-plugins] file, and can be used like this:
 
 ```swift
 {{ "hello world" | camelCase }}
@@ -108,7 +154,7 @@ It will compare the uuids from the toml file with the uuids from the json file, 
 After that will the generator read the template file, and then load the template engine with the plugins.
 The generator will feed the template with the json file, and then render the template and then format the file.
 
-The generator also has an optional 2nd argument, which is the path to the exercise folder, which can be used when not wanting it to run on the normal exercise folders.
-
+[track-config-json]: https://github.com/exercism/swift/blob/main/config.json
 [stencil]: https://github.com/stencilproject/Stencil
+[stencil-plugins]: https://github.com/exercism/swift/tree/main/generator/Sources/Generator/Stencil.swift
 [toml]: https://github.com/LebJe/TOMLKit

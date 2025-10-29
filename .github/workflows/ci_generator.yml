@@ -5,7 +5,7 @@ on:
     paths:
       - '.github/workflows/ci_generator.yml'
       - 'generator/**'
-      - 'bin/test_generator.sh'
+      - 'bin/test-generator.sh'
   push:
     branches:
       - main
@@ -32,7 +32,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Run generator tests
-        run: ./bin/test_generator.sh
+        run: ./bin/test-generator.sh
 
   run-generator-usage-tests-macos:
     name: Test generator usage on macOS ${{ matrix.macOS }} with Xcode ${{ matrix.xcode }}
@@ -49,4 +49,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: Run generator tests
-        run: ./bin/test_generator.sh
+        run: ./bin/test-generator.sh

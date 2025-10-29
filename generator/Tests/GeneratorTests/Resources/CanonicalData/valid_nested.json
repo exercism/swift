@@ -1,0 +1,31 @@
+{
+  "exercise": "acronym",
+  "cases": [
+    { "uuid": "first" },
+    {
+        "cases": [
+            { "uuid": "second" },
+            {
+                "cases": [
+                    { "uuid": "third" },
+                    {
+                        "cases": [
+                            { "uuid": "fourth" },
+                            {
+                                "cases": [
+                                    { "uuid": "fiths" },
+                                    {
+                                        "cases": [
+                                            { "uuid": "sixth" }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+  ]
+}

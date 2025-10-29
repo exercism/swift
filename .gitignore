@@ -2,7 +2,6 @@ bin/configlet
 bin/configlet.exe
 
 # Xcode
-#
 .swiftpm
 build/
 *.pbxuser
@@ -22,7 +21,10 @@ DerivedData
 *.xcuserstate
 .DS_Store
 
-#Idea IDE
+# VS Code
+.vscode
+
+# Idea IDE
 .idea
 
 # Swift

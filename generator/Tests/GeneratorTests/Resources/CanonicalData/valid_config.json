@@ -1,0 +1,59 @@
+{
+  "exercise": "example",
+  "comments": [ "Some comment section" ],
+  "cases": [
+    {
+      "description": "append entries to a list and return the new list",
+      "cases": [
+        {
+          "uuid": "a",
+          "description": "empty lists",
+          "property": "append",
+          "input": {
+            "list1": [],
+            "list2": []
+          },
+          "expected": []
+        },
+        {
+          "uuid": "b",
+          "description": "list to empty list",
+          "property": "append",
+          "input": {
+            "list1": [],
+            "list2": [1, 2, 3, 4]
+          },
+          "expected": [1, 2, 3, 4]
+        }
+      ]
+    },
+    {
+      "description": "folds (reduces) the given list from the right with a function",
+      "comments": [ "For function: acc is the accumulator and el is the current element   "],
+      "cases": [
+        {
+          "uuid": "c",
+          "description": "empty list",
+          "property": "foldr",
+          "input": {
+            "list": [],
+            "initial": 2,
+            "function": "(x, y) -> x * y"
+          },
+          "expected": 2
+        },
+        {
+          "uuid": "d",
+          "description": "direction independent function applied to non-empty list",
+          "property": "foldr",
+          "input": {
+            "list": [1, 2, 3, 4],
+            "initial": 5,
+            "function": "(x, y) -> x + y"
+          },
+          "expected": 15
+        }
+      ]
+    }
+  ]
+}
