@@ -816,6 +816,19 @@
         "difficulty": 3
       },
       {
+        "slug": "yacht",
+        "name": "Yacht",
+        "uuid": "b7909c33-071f-4d8d-806b-34ffcce5c415",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "higher-order-functions",
+          "conditionals",
+          "conditionals-switch"
+        ]
+      },
+      {
         "slug": "acronym",
         "name": "Acronym",
         "uuid": "7359a818-ffa5-4ce0-be35-cc66654f9af2",
