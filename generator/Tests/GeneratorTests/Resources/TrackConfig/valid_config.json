@@ -1,0 +1,99 @@
+{
+  "language": "Swift",
+  "slug": "swift",
+  "active": true,
+  "status": {
+    "concept_exercises": true,
+    "test_runner": true,
+    "representer": false,
+    "analyzer": false
+  },
+  "blurb": "Swift is a modern open-source language with the aim of making programming simple things easy, and difficult things possible while still being fast and safe by design. Swift can run in scripting mode in the included REPL or it can be compiled with full support for C and Objective-C interoperability.",
+  "version": 3,
+  "online_editor": {
+    "indent_style": "space",
+    "indent_size": 2,
+    "highlightjs_language": "swift"
+  },
+  "test_runner": {
+    "average_run_time": 9
+  },
+  "files": {
+    "solution": [
+      "Sources/%{pascal_slug}/%{pascal_slug}.swift"
+    ],
+    "test": [
+      "Tests/%{pascal_slug}Tests/%{pascal_slug}Tests.swift"
+    ],
+    "example": [
+      ".meta/Sources/%{pascal_slug}/%{pascal_slug}Example.swift"
+    ],
+    "exemplar": [
+      ".meta/Sources/%{pascal_slug}/%{pascal_slug}Exemplar.swift"
+    ]
+  },
+  "exercises": {
+    "concept": [
+      {
+        "slug": "lasagna",
+        "name": "Layers of Lasagna",
+        "uuid": "44ae5892-40a5-4483-a181-28e1c38645d6",
+        "concepts": [
+          "basics"
+        ],
+        "prerequisites": [],
+        "status": "active"
+      },
+      {
+        "slug": "wings-quest",
+        "name": "Wings Quest",
+        "uuid": "13a703ee-2180-49c6-86c7-7c848d636a3c",
+        "concepts": [
+          "booleans"
+        ],
+        "prerequisites": [
+          "basics"
+        ],
+        "status": "beta"
+      }
+    ],
+    "practice": [
+      {
+        "slug": "difference-of-squares",
+        "name": "Difference of Squares",
+        "uuid": "ef114733-886b-4d4b-a713-3ba169a85025",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "integers",
+          "math"
+        ]
+      },
+      {
+        "slug": "gigasecond",
+        "name": "Gigasecond",
+        "uuid": "0a1ae85a-1d89-453a-8b97-303181d7874d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "dates"
+        ]
+      }
+    ]
+  },
+  "concepts": [
+    {
+      "uuid": "ca0161f2-1915-4911-8595-3854c391a502",
+      "slug": "arrays",
+      "name": "Arrays"
+    },
+    {
+      "uuid": "e59edeed-a13b-427b-9677-c36f276f440a",
+      "slug": "basics",
+      "name": "Basics"
+    }
+  ],
+  "tags": []
+}

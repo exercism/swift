@@ -25,7 +25,7 @@ for exercise_path in "${PRACTICE_DIR}"/*; do
 
     exercise_name="${exercise_path##*/}"
 
-    if ! swift run --package-path "${GENERATOR_DIR}" Generator "${exercise_name}" "${TEMP_DIR}"; then
+    if ! swift run --package-path "${GENERATOR_DIR}" Generator "${exercise_name}" --exercise-path "${TEMP_DIR}" > /dev/null 2>&1; then
         printf 'Generation failed for %s\n' "${exercise_name}"
         exit_code=1
         continue
