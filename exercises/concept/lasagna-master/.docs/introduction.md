@@ -65,7 +65,7 @@ updateVersion(&dbRecord)
 // dbRecord is now (3, "Exercism")
 ```
 
-~~~~exercism/warrning
+~~~~exercism/warning
 There are a couple of extra rules one should be aware of regarding in-out parameters.
 
 1.  Inside a function with in-out parameters, you are not allowed to reference the variable that was passed in as the in-out parameter.
