@@ -1,0 +1,22 @@
+{
+  "authors": [
+    "Sencudra"
+  ],
+  "files": {
+    "solution": [
+      "Sources/Yacht/Yacht.swift"
+    ],
+    "test": [
+      "Tests/YachtTests/YachtTests.swift"
+    ],
+    "example": [
+      ".meta/Sources/Yacht/YachtExample.swift"
+    ],
+    "editor": [
+      "Sources/Yacht/YachtCategory.swift"
+    ]
+  },
+  "blurb": "Score a single throw of dice in the game Yacht.",
+  "source": "James Kilfiger, using Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Yacht_(dice_game)"
+}
