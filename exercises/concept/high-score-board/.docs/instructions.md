@@ -72,8 +72,8 @@ To update a players score by adding to the previous score, define `updateScore`,
 ```swift
 var highScores = ["Dave Thomas": 0, "José Valim": 486_373]
 addPlayer(&highScores, "Freyja Ćirić", 12_771_008)
-updateScore(&highscores, "Freyja Ćirić", 73)
-// Returns ["Dave Thomas": 0, "José Valim": 486_373, "Freyja Ćirić": 73]
+updateScore(&highScores, "Freyja Ćirić", 73)
+// Returns ["Dave Thomas": 0, "José Valim": 486_373, "Freyja Ćirić": 12_771_081]
 ```
 
 ## 6. Get a list of players with scores ordered by player name
