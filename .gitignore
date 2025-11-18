@@ -1,6 +1,8 @@
 bin/configlet
 bin/configlet.exe
 
+bin/Generator
+
 # Xcode
 .swiftpm
 build/
@@ -13,8 +15,6 @@ build/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata
-*.xccheckout
-*.moved-aside
 DerivedData
 *.hmap
 *.ipa
@@ -29,6 +29,5 @@ DerivedData
 
 # Swift
 .build
-LinuxMain.swift
 Package.resolved
 xswift.xcodeproj/
