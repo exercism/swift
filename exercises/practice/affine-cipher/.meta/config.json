@@ -1,0 +1,22 @@
+{
+  "authors": [
+    "Sencudra"
+  ],
+  "files": {
+    "solution": [
+      "Sources/AffineCipher/AffineCipher.swift"
+    ],
+    "test": [
+      "Tests/AffineCipherTests/AffineCipherTests.swift"
+    ],
+    "example": [
+      ".meta/Sources/AffineCipher/AffineCipherExample.swift"
+    ],
+    "editor": [
+      "Sources/AffineCipher/AffineCipherError.swift"
+    ]
+  },
+  "blurb": "Create an implementation of the Affine cipher, an ancient encryption algorithm from the Middle East.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Affine_cipher"
+}
