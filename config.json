@@ -1255,6 +1255,19 @@
         ]
       },
       {
+        "slug": "affine-cipher",
+        "name": "Affine Cipher",
+        "uuid": "4920e733-75ac-4e8a-adf3-cbd221865192",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "math",
+          "algorithms",
+          "transforming"
+        ]
+      },
+      {
         "slug": "bowling",
         "name": "Bowling",
         "uuid": "beb0c7dd-69aa-4e9b-a0df-f1d507221b21",
