@@ -58,7 +58,7 @@ After the appropriate closures have been applied for all eight bits of the ID, t
 
 ```swift
 let shuffler = makeShuffle(flipper: flip, rotator: rotate)
-// Returns (UInt8, (String, String, String)) -> (String, String, String)
+// Returns ([UInt8], (String, String, String)) -> (String, String, String)
 shuffler([1, 0, 0, 1, 1, 0, 1, 1], ("red", "yellow", "blue"))
 // Returns ("red", "blue", "yellow")
 ```
