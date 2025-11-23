@@ -1,4 +1,3 @@
-
 struct AffineCipher {
 
     func encode(_ phrase: String, keyA: Int, keyB: Int) throws -> String {
