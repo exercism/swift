@@ -36,14 +36,14 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
                     #expect(range ~= character.wisdom)
                     #expect(range ~= character.charisma)
                     #expect(character.hitpoints == 10 + modifier(character.constitution))
-                {% elif case.uuid == "dca2b2ec-f729-4551-84b9-078876bb4808" %}
+                {% elif case.uuid == "dca2b2ec-f729-4551-84b9-078876bb4808" -%}
                     #expect(character.strength == character.strength)
                     #expect(character.dexterity == character.dexterity)
                     #expect(character.constitution == character.constitution)
                     #expect(character.intelligence == character.intelligence)
                     #expect(character.wisdom == character.wisdom)
                     #expect(character.charisma == character.charisma)
-                {% endif %}
+                {% endif -%}
             }
         {% endif %}
     {% endfor %}

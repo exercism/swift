@@ -105,20 +105,17 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     #expect(range ~= character.wisdom)
     #expect(range ~= character.charisma)
     #expect(character.hitpoints == 10 + modifier(character.constitution))
-
   }
 
   @Test("each ability is only calculated once", .enabled(if: RUNALL))
   func testEachAbilityIsOnlyCalculatedOnce() {
     let character = DndCharacter()
-
     #expect(character.strength == character.strength)
     #expect(character.dexterity == character.dexterity)
     #expect(character.constitution == character.constitution)
     #expect(character.intelligence == character.intelligence)
     #expect(character.wisdom == character.wisdom)
     #expect(character.charisma == character.charisma)
-
   }
 
 }
