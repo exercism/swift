@@ -22,7 +22,7 @@ let plancksConstant : Double = 6.62607015e-34 // plancksConstant is a Double
 ## Arithmetic operators
 
 ~~~~exercism/caution
-In Swift can't mix types in arithmetic operations, so you can't use any arithmetic operator on an `Int` with a `Double` or vice versa.
+In Swift you can't mix types in arithmetic operations, so you can't use any arithmetic operator on an `Int` with a `Double` or vice versa.
 Therefore, you have to do a type conversion first.
 ~~~~
 
