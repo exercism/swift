@@ -115,7 +115,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
   @Test("direction dependent function applied to non-empty list", .enabled(if: RUNALL))
   func testDirectionDependentFunctionAppliedToNonEmptyList6() {
     let value = ListOps.foldLeft([1, 2, 3, 4], accumulated: 24.0) { $0 / $1 }
-    let expected = 64.0
+    let expected = 1.0
     #expect(value == expected)
   }
 
