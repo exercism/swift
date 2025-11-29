@@ -541,6 +541,17 @@
         ]
       },
       {
+        "slug": "dnd-character",
+        "name": "D&D Character",
+        "uuid": "eb0f7658-642f-43d7-9ff8-d342bb63ac94",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "randomness"
+        ]
+      },
+      {
         "slug": "binary-search",
         "name": "Binary Search",
         "uuid": "a4a4e5a0-0226-4082-9a82-3cba2c2d4786",
