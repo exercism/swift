@@ -32,7 +32,7 @@ if wheelCount == 4 {
 
 If can be combined with else to execute code when the condition is `false`.
 The else statement needs to be used with an if statement and cannot be used on its own.
-To declare an else statement you use the `else` keyword after an if statements curly braces, followed by the code to execute in curly braces.
+To declare an else statement you use the `else` keyword after an if statement's curly braces, followed by the code to execute in curly braces.
 
 ```swift
 let precipitationInMM = 0.5
