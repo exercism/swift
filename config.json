@@ -552,6 +552,18 @@
         ]
       },
       {
+        "slug": "square-root",
+        "name": "Square Root",
+        "uuid": "e277811f-3dbc-48c5-ae96-8c14c68564e2",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "math",
+          "integers"
+        ]
+      },
+      {
         "slug": "binary-search",
         "name": "Binary Search",
         "uuid": "a4a4e5a0-0226-4082-9a82-3cba2c2d4786",
