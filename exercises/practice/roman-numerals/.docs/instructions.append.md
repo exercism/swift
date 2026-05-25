@@ -1,3 +1,5 @@
+# Instructions append
+
 ## Adding method to the Int structure
 
 This exercise focuses on adding methods to the `Int` structure in Swift.

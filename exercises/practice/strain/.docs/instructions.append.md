@@ -1,3 +1,5 @@
+# Instructions append
+
 ## Adding method to the Array structure
 
 This exercise focuses on adding methods to the `Array` structure in Swift.
