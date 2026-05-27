@@ -1,5 +1,5 @@
 # Instructions append
 
-## Item representation
+## Track specific instructions
 
 The items are represented by the `Item` struct in `Item.swift`.
