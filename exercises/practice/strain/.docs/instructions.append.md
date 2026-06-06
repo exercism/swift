@@ -1,4 +1,6 @@
-## Adding method to the Array structure
+# Instructions append
+
+## Track specific instructions
 
 This exercise focuses on adding methods to the `Array` structure in Swift.
 This is easiest done through using [extensions][extensions].

@@ -1,4 +1,6 @@
-# Append
+# Instructions append
+
+## Track specific instructions
 
 You will have to implement your own equality operator for the `ComplexNumber` object.
 This will pose the challenge of comparing two floating point numbers.
