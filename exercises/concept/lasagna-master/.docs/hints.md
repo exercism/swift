@@ -28,7 +28,7 @@
 - Nested functions have access to all of the parameter, constants, and variables of the surrounding function. There is no need to pass them in to the nested function.
 
 [functions]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/
-[type annotations]: [type annotations]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID312
+[type annotations]: https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID312
 [argument labels]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Function-Argument-Labels-and-Parameter-Names
 [multiple-return-values]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Functions-with-Multiple-Return-Values
 [implicit-returns]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions#Functions-With-an-Implicit-Return
