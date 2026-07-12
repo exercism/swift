@@ -135,6 +135,12 @@ struct CustomSetTests {
     let set2 = CustomSet([1, 2, 3, 4])
     #expect(!(set1 == set2))
   }
+  @Test("set is equal to a set constructed from an array with duplicates", .enabled(if: RUNALL))
+  func testSetIsEqualToASetConstructedFromAnArrayWithDuplicates() {
+    let set1 = CustomSet([1])
+    let set2 = CustomSet([1, 1])
+    #expect((set1 == set2))
+  }
   @Test("add to empty set", .enabled(if: RUNALL))
   func testAddToEmptySet() {
     var customSet = CustomSet([Int]())
@@ -210,6 +216,12 @@ struct CustomSetTests {
     let set1 = CustomSet([3, 2, 1])
     let set2 = CustomSet([2, 4])
     #expect(set1.difference(set2) == CustomSet([1, 3]))
+  }
+  @Test("difference removes all duplicates in the first set", .enabled(if: RUNALL))
+  func testDifferenceRemovesAllDuplicatesInTheFirstSet() {
+    let set1 = CustomSet([1, 1])
+    let set2 = CustomSet([1])
+    #expect(set1.difference(set2) == CustomSet([]))
   }
   @Test("union of empty sets is an empty set", .enabled(if: RUNALL))
   func testUnionOfEmptySetsIsAnEmptySet() {
