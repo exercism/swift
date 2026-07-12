@@ -19,7 +19,7 @@ jobs:
       image: swift:6.2
     steps:
       - name: Checkout code
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
       - name: Run tests
         run: swift test --package-path ./generator
 
@@ -30,7 +30,7 @@ jobs:
       image: swift:6.2
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Run generator tests
         run: ./bin/test-generator.sh
 
@@ -47,6 +47,6 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
     steps:
       - name: Checkout code
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
       - name: Run generator tests
         run: ./bin/test-generator.sh
