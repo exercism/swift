@@ -58,7 +58,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
   func testRejectsSpanLongerThanStringLength() {
     #expect(
       throws:
-        NumberSeriesError.spanLongerThanInput
+        NumberSeriesError.spanIsZeroOrNegative
     ) { try NumberSeries("123").largestProduct(4) }
   }
 
@@ -66,7 +66,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
   func testRejectsEmptyStringAndNonzeroSpan() {
     #expect(
       throws:
-        NumberSeriesError.spanLongerThanInput
+        NumberSeriesError.spanIsZeroOrNegative
     ) { try NumberSeries("").largestProduct(1) }
   }
 
