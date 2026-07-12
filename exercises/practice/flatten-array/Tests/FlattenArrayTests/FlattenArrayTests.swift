@@ -57,32 +57,32 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
   }
 
   @Test(
-    "consecutive null values at the front of the list are omitted from the final result",
+    "consecutive null values at the front of the array are omitted from the final result",
     .enabled(if: RUNALL))
-  func testConsecutiveNullValuesAtTheFrontOfTheListAreOmittedFromTheFinalResult() {
+  func testConsecutiveNullValuesAtTheFrontOfTheArrayAreOmittedFromTheFinalResult() {
     let result: [Int] = flattenArray([nil, nil, 3])
     let expected: [Int] = [3]
     #expect(expected == result)
   }
 
   @Test(
-    "consecutive null values in the middle of the list are omitted from the final result",
+    "consecutive null values in the middle of the array are omitted from the final result",
     .enabled(if: RUNALL))
-  func testConsecutiveNullValuesInTheMiddleOfTheListAreOmittedFromTheFinalResult() {
+  func testConsecutiveNullValuesInTheMiddleOfTheArrayAreOmittedFromTheFinalResult() {
     let result: [Int] = flattenArray([1, nil, nil, 4])
     let expected: [Int] = [1, 4]
     #expect(expected == result)
   }
 
-  @Test("6 level nest list with null values", .enabled(if: RUNALL))
-  func test6LevelNestListWithNullValues() {
+  @Test("6 level nested array with null values", .enabled(if: RUNALL))
+  func test6LevelNestedArrayWithNullValues() {
     let result: [Int] = flattenArray([0, 2, [[2, 3], 8, [[100]], nil, [[nil]]], -2])
     let expected: [Int] = [0, 2, 2, 3, 8, 100, -2]
     #expect(expected == result)
   }
 
-  @Test("all values in nested list are null", .enabled(if: RUNALL))
-  func testAllValuesInNestedListAreNull() {
+  @Test("all values in nested array are null", .enabled(if: RUNALL))
+  func testAllValuesInNestedArrayAreNull() {
     let result: [Int] = flattenArray([nil, [[[nil]]], nil, nil, [[nil, nil], nil], nil])
     let expected: [Int] = []
     #expect(expected == result)
