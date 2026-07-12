@@ -14,7 +14,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     func test{{case.description |camelCase }}() {
     {% if case.expected.error -%}
         #expect(throws: 
-        {% if case.expected.error == "span must be smaller than string length" -%}
+        {% if case.expected.error == "span must be smaller than string length" or case.expected.error == "span must not exceed string length" -%}
             NumberSeriesError.spanLongerThanInput
         {% elif case.expected.error == "digits input must only contain digits" -%}
             NumberSeriesError.invalidCharacter
