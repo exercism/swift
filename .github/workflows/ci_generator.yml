@@ -14,7 +14,7 @@ on:
 jobs:
   run-generator-unit-tests:
     name: Run generator unit tests
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     container:
       image: swift:6.2
     steps:
@@ -25,7 +25,7 @@ jobs:
 
   run-generator-usage-tests:
     name: Test generator usage on Ubuntu
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     container:
       image: swift:6.2
     steps:

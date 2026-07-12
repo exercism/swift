@@ -10,7 +10,7 @@ on:
 jobs:
   run-exercises-tests-ubuntu:
     name: Run exercise tests for swift ${{ matrix.swift }} on Ubuntu
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     strategy:
       matrix:
         swift: ["6.0", "6.1", "6.2"]
