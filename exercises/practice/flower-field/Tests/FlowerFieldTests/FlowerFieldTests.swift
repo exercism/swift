@@ -90,4 +90,11 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     let output = ["1*22*1", "12*322", " 123*2", "112*4*", "1*22*2", "111111"]
     #expect(Board(input).transform() == output)
   }
+
+  @Test("multiple adjacent flowers", .enabled(if: RUNALL))
+  func testMultipleAdjacentFlowers() {
+    let input = [" ** "]
+    let output = ["1**1"]
+    #expect(Board(input).transform() == output)
+  }
 }
