@@ -12,9 +12,29 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     #expect(try! wordyAnswer("What is 5?") == 5)
   }
 
+  @Test("just a zero", .enabled(if: RUNALL))
+  func testJustAZero() {
+    #expect(try! wordyAnswer("What is 0?") == 0)
+  }
+
+  @Test("just a negative number", .enabled(if: RUNALL))
+  func testJustANegativeNumber() {
+    #expect(try! wordyAnswer("What is -123?") == -123)
+  }
+
   @Test("addition", .enabled(if: RUNALL))
   func testAddition() {
     #expect(try! wordyAnswer("What is 1 plus 1?") == 2)
+  }
+
+  @Test("addition with a left hand zero", .enabled(if: RUNALL))
+  func testAdditionWithALeftHandZero() {
+    #expect(try! wordyAnswer("What is 0 plus 2?") == 2)
+  }
+
+  @Test("addition with a right hand zero", .enabled(if: RUNALL))
+  func testAdditionWithARightHandZero() {
+    #expect(try! wordyAnswer("What is 3 plus 0?") == 3)
   }
 
   @Test("more addition", .enabled(if: RUNALL))
