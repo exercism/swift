@@ -2,7 +2,7 @@
 
 ## Numbers
 
-Swift has 2 main types of numbers: integers and floating-point numbers.
+Swift has two main types of numbers: integers and floating-point numbers.
 [Integers][integers] are whole numbers, e.g. `0`, `1`, `-1`, `42`, and `-273`.
 [Floating-point numbers][floatingpoint] are numbers with a fractional component, e.g. `0.0`, `3.14`, and `-1.36969e-10`.
 Swift also allows using underscores to make numbers more readable, e.g. `1_000_000` is the same as `1000000`.
@@ -68,7 +68,8 @@ And as with division, the second argument having the value of zero will result i
 
 ~~~~exercism/note
 In other languages, is this operator also known as the modulo operator.
-But in Swift, it does not work the same way as the modulo operator. Strictly speaking, it returns the remainder, not the modulo.
+But in Swift, it does not work the same way as the modulo operator.
+Strictly speaking, it returns the remainder, not the modulo.
 ~~~~
 
 ```swift
