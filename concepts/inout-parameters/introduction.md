@@ -22,11 +22,26 @@ updateVersion(&dbRecord)
 // dbRecord is now (3, "Exercism")
 ```
 
-~~~~exercism/warning
+~~~~exercism/caution
 There are a couple of extra rules one should be aware of regarding in-out parameters.
 
-1.  Inside a function with in-out parameters, you are not allowed to reference the variable that was passed in as the in-out parameter.
+1.  Inside a function with in-out parameters, you are not allowed to directly reference the variable that was also passed in as the in-out parameter.
 2.  The same variable cannot be passed as multiple in-out parameters in the same function.
+
+```swift
+var directVar = 0
+
+func inoutFunc(_ ioVar: inout Int) {
+  ioVar += 1
+  print(directVar)
+}
+
+inoutFunc(&directVar)
+// raises a compiler error:
+// "main actor-isolated var 'directVar' can not be referenced from a nonisolated context"
+```
+
+[TODO]: # (error message is not beginner-friendly)
 
 ```swift
 func inoutFunc(_ ioVar1: inout Int, _ ioVar2: inout Int) {
@@ -39,5 +54,6 @@ inoutFunc(&mutVar, &mutVar)
 // raises a compiler error: "Inout arguments are not allowed to alias each other"
 ```
 ~~~~
+
 
 [in-out-parameters]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/declarations/#In-Out-Parameters
