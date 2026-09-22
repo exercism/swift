@@ -46,9 +46,8 @@ When using integers, the result will be an integer.
 5 / 2   // equals 2
 ```
 
-When dividing by zero, depending on the type of number, you will get a different result.
-If you divide a floating-point number by zero, the result will be `inf`, or `-inf` if the number being divided is negative.
-Only exception is when you divide zero by zero, and one of them being a floating point number which will result in `nan`.
+If you divide a floating-point number by zero, the result will be `inf`, or `-inf`, matching the sign of the number.
+If you divide zero by zero, and one of them is a floating point number, the result will be `nan`.
 If you divide an integer by zero, you will get a compile error.
 
 ```swift
@@ -62,15 +61,9 @@ print(5 / 0) // error: division by zero
 
 ### Remainder
 
-The [`%` operator][reminder-operator] is used to get the remainder of a division and only works with integers.
-The operator returns the remainder of the division of the first argument by the second argument.
-And as with division, the second argument having the value of zero will result in a compile error.
-
-~~~~exercism/note
-In other languages, is this operator also known as the modulo operator.
-But in Swift, it does not work the same way as the modulo operator.
-Strictly speaking, it returns the remainder, not the modulo.
-~~~~
+The [`%` operator][remainder-operator] gives the remainder of dividing the first argument by the second argument.
+The remainder operator only works with integers.
+As with division, if the second argument is zero, the result is a compiler error.
 
 ```swift
 5 % 2  // equals 1
@@ -80,11 +73,22 @@ Strictly speaking, it returns the remainder, not the modulo.
 5 % 0 // error: division by zero
 ```
 
+~~~~exercism/note
+`%` in Swift is the remainder operator, in contrast to many other languages that use it as a modulo operator.
+The remainder operator (`REM`) and modulo (`MOD`) operator behave differently when used with negative numbers.
+With the _remainder_ operator, the result has the same sign as the first argument; the sign of the second argument does not affect the result.
+With _module_ operators in other languages, the result has the same sign as the second argument.
+
+```swift
++5 % -2 // equals 1
+```
+~~~~
+
 ## Rounding numbers
 
 Rounding numbers is done by using the `rounded()` method on a floating-point number.
 To round to the nearest integer, you can use the `rounded()` method without any arguments.
-To round up or down, you can use the `rounded(.up)` or `rounded(.down)` methods, respectively.
+To round up or round down, you can specify a [rounding rule][rounding-rule]: `rounded(.up)` or `rounded(.down)`.
 
 ```swift
 let x = 3.14
@@ -126,6 +130,7 @@ print(type(of: iPi)) // Prints Int
 [int]: https://developer.apple.com/documentation/swift/int
 [double]: https://developer.apple.com/documentation/swift/double
 [arithmetic-operators]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Arithmetic-Operators
-[reminder-operator]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Remainder-Operator
+[remainder-operator]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Remainder-Operator
+[rounding-rule]: https://docs.swift.org/main/documentation/swift/floatingpointroundingrule
 [typeinference]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Type-Safety-and-Type-Inference
 [type-conversion]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Integer-and-Floating-Point-Conversion
