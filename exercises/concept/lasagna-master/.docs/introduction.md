@@ -68,19 +68,9 @@ updateVersion(&dbRecord)
 ~~~~exercism/warning
 There are a couple of extra rules one should be aware of regarding in-out parameters.
 
-1.  Inside a function with in-out parameters, you are not allowed to reference the variable that was passed in as the in-out parameter.
-2.  The same variable cannot be passed as multiple in-out parameters in the same function.
-
-```swift
-func inoutFunc(_ ioVar1: inout Int, _ ioVar2: inout Int) {
-  ioVar1 += 1
-  ioVar2 += 2
-}
-
-var mutVar = 0
-inoutFunc(&mutVar, &mutVar)
-// raises a compiler error: "Inout arguments are not allowed to alias each other"
-```
+1  Inside a function with in-out parameters, you are not allowed to reference the variable that was passed in as the in-out parameter.
+2. The same variable cannot be passed as multiple in-out parameters in the same function.
+   For example, `inoutFunc(&mutVar, &mutVar)` raises a compiler error.
 ~~~~
 
 ## Nested functions
