@@ -23,8 +23,8 @@ Thereby a function which creates a new toy is needed.
 Implement the function `createToy(name:amount:)`, that takes an argument `name` which holds the name of the toy, and `amount` which holds the quantity of the toy.
 
 ```swift
-getName(name: "Doll", quantity: 10)
-// Returns (name: "Doll", quantity: 10)
+createToy(name: "Doll", amount: 10)
+// Returns (name: "Doll", amount: 10)
 ```
 
 ## 3. Update quantity of a toy
