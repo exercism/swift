@@ -62,6 +62,6 @@ You can also assume that there is no category key already in the toy.
 
 ```swift
 let toys = [(name: "Car", quantity: 5), (name: "Train", quantity: 3)]
-addCategory(toys,, category: "Vehicle")
+addCategory(toys, category: "Vehicle")
 // Returns [(name: "Car", quantity: 5, category: "Vehicle"), (name: "Train", quantity: 3, category: "Vehicle")]
 ```
