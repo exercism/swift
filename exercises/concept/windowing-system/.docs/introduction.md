@@ -134,17 +134,19 @@ myChar.active
 
 ### Self
 
-Instances of structs and classes each have an implicit value named `self` which refers to the instance itself. There are multiple uses for `self`, but it is most commonly used to disambiguate the names of properties and methods of the struct/class when there may be some confusion.
+Every instance of a struct or class has an implicit property named `self`, which refers to the instance itself.
+The most common use of `self` is to disambiguate between an instance property and a parameter that shares the same name:
 
 ```swift
-struct MySelf {
-  var x = 0
+struct Position {
+    var x = 0
 
-  mutating func move(x: Int) {
-    // here if we just say x = x it is unclear if we mean
-    // the property x or the method parameter x, so we use
-    // self for clarity
-    self.x = x
-  }
+    mutating func move(x: Int) {
+        // Here, 'self.x' refers to the struct's property,
+        // while 'x' refers to the parameter passed to the method.
+        self.x = x
+    }
 }
 ```
+
+Swift types also provide a capitalized `Self` keyword, which refers to the *type* of the instance rather than the instance itself.
