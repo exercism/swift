@@ -1,12 +1,17 @@
 # About
 
-Instead of directly indexing into string, one must instead compute a value of type `String.Index` and supply that index instead. Note that these indices are not meant to be human-consumable on their own. They are what is referred to as _opaque indices_ ,as humans need not know what is inside them.
+In Swift, you cannot index into a string using an integer (such as `string[3]`).
+Because Swift strings are composed of variable-length Unicode characters, finding a character requires walking through the preceding characters.
+
+To access a character at a specific position, you must compute an index of type `String.Index`.
+These indices are called *opaque indices* because their internal structure is managed by Swift rather than directly manipulated as raw integers:
 
 ```swift
-let csv = "apple,pear,peach,orange,cherry,lime,goosberry"
+let csv = "apple,pear,peach,orange,cherry,lime,gooseberry"
 let index = csv.index(csv.startIndex, offsetBy: 21)
-csv[index]
-// => "g"
+print(csv[index])
+// Prints "g"
+
 print(index)
-// => Index(_rawBits: 1376513)
+// Prints internal representation: Index(_rawBits: ...)
 ```
