@@ -1,12 +1,15 @@
-# Introduction
+# About
 
-Multiple values can be returned from Swift functions by creating and returning a tuple from the different values.
+In Swift, functions can [return multiple values][multiple-return-values] by returning a tuple:
 
 ```swift
 func reverseAndLength(_ str: String) -> (reverse: String, length: Int) {
-  return (reverse: str.reverse, length: str.count)
+    return (reverse: String(str.reversed()), length: str.count)
 }
 
-reverseAndLength("Hello")
-// => (reverse: "olleH", length: 5)
+let result = reverseAndLength("Hello")
+print(result.reverse) // Prints "olleH"
+print(result.length)  // Prints 5
 ```
+
+[multiple-return-values]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID164
