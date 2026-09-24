@@ -1,15 +1,15 @@
 # About
 
-Strings are a data type that represent a text value.
-[`Strings`][strings-and-characters] in Swift are a collection of `Character`s, which themselves hold a [Unicode scalar value][unicode-scalar-values].
+A string represents textual data.
+In Swift, a [`String`][strings-and-characters] is an ordered collection of `Character` values, where each character represents a Unicode character.
 
-You can create a String through a string literal, which is a series of characters enclosed in double quotation marks (`"`).
-For multi-line strings, you can use triple quotation marks (`"""`).
+You create a string using a string literal, which is a sequence of characters surrounded by double quotation marks (`"`).
+For multi-line strings, use three double quotation marks (`"""`):
 
 ```swift
-let hello : String = "Hello, World!"
+let hello: String = "Hello, World!"
 
-let poem : String = """
+let poem: String = """
 Roses are red,
 Violets are blue.
 Sugar is sweet,
@@ -17,44 +17,44 @@ And so are you.
 """
 ```
 
-Strings in Swift also obtain all of the functionality of the [NSString][nsstring-docs] class which was originally used in Apple's Objective-C libraries.
+Swift strings bridge seamlessly with the Foundation framework's [`NSString`][nsstring-docs] class, providing access to extensive text-processing capabilities.
 
-## Character
+## Characters
 
-`Character` is a data type that stores a single [Unicode scalar value][unicode-scalar-values] that is made up of one or more Unicode code points.
-A Unicode scalar value is any [Unicode code][unicode] point in the range `U+0000` to `U+D7FF` inclusive or `U+E000` to `U+10FFFF` inclusive.
+A `Character` represents a single extended grapheme cluster—a human-readable character composed of one or more [Unicode scalar values][unicode-scalar-values].
+A Unicode scalar value is a 21-bit code point in the range `U+0000` to `U+D7FF` inclusive or `U+E000` to `U+10FFFF` inclusive.
 
 ```swift
-let aChar : Character = "A"
+let aChar: Character = "A"
 ```
 
-## Type inference
+## Type Inference
 
-Swift can infer the type of a string literal, and will by default infer it to be a `String`.
-You can explicitly declare a string to be a `Character` by using the `Character` type annotation, which requires the value to be a single character.
+When you write a string literal, Swift automatically infers its type as `String`.
+To store a single character as a `Character`, you must provide an explicit type annotation:
 
 ```swift
-let aString = "A"
-let aChar: Character = "A"
+let aString = "A"        // Inferred as String
+let aChar: Character = "A" // Explicitly typed as Character
 print(type(of: aString)) // Prints String
 print(type(of: aChar))   // Prints Character
 
-// The following code will not compile
+// The following code will not compile:
 let badChar: Character = "Too many characters"
 // Error: Cannot convert value of type 'String' to specified type 'Character'
 ```
 
 ## Concatenation
 
-In Swift, strings can be [concatenated][] using the `+` operator.
-Characters can **not** be concatenated with strings using the `+` operator without first converting the character to a string.
+You can join strings together using the addition operator (`+`):
 
 ```swift
 print("honey" + "comb")
 // Prints "honeycomb"
 ```
 
-The [`append(_:)`][append] method mutates the string by adding either a string or a character to the end of it.
+You cannot directly concatenate a `Character` to a `String` using `+` without first converting the character to a string.
+However, you can use the [`append(_:)`][append] method to append either a string or a character directly to a mutable string:
 
 ```swift
 var greeting = "Hello"
@@ -68,10 +68,10 @@ greeting.append(period)
 print(greeting) // Prints "Hello, world."
 ```
 
-## String interpolation
+## String Interpolation
 
-[String interpolation][string-interpolation] is a way of constructing a String based on values from different sources like variables and expressions.
-To insert a value into a string using string interpolation, you place an expression or value in parentheses which are preceded by a backslash character.
+[String interpolation][string-interpolation] allows you to construct a string by embedding constants, variables, literals, and expressions inside string literals.
+Wrap each expression in parentheses preceded by a backslash (`\(` ... `)`):
 
 ```swift
 let radius = 5.0
@@ -79,33 +79,37 @@ let circle = "The area of a circle with radius \(radius) is \(Double.pi * radius
 print(circle) // Prints "The area of a circle with radius 5.0 is 78.53981633974483"
 ```
 
-## String and Character properties
+## String and Character Properties
 
-Strings and characters have a few different _properties_ which can be queried to get information about the string or character.
+Strings and characters offer several properties to inspect their content.
 
-### String properties
+### String Properties
 
-Here are some of the most common string properties, but to find all, see the [documentation][string-docs].
+Common string properties include:
 
-| Property  | Description                                    | Example                        |
-| --------- | ---------------------------------------------- | ------------------------------ |
-| `isEmpty` | Returns `true` if the string is empty          | `"Hello".isEmpty equals false` |
-| `count`   | Returns the number of characters in the string | `"Hello".count   equals 5`     |
+| Property  | Description                                    | Example                          |
+| --------- | ---------------------------------------------- | -------------------------------- |
+| `isEmpty` | Returns `true` if the string has no characters | `"Hello".isEmpty` evaluates to `false` |
+| `count`   | Returns the number of characters in the string | `"Hello".count` evaluates to `5`       |
 
-### Character properties
+For a complete list of properties, see the [Apple String documentation][string-docs].
 
-Here are some of the most common character properties, but to find all, see the [documentation][string-docs].
+### Character Properties
 
-| Property       | Description                                   | Example                        |
-| -------------- | --------------------------------------------- | ------------------------------ |
-| `isLowercase`  | Returns `true` if the character is lowercase  | `"a".isLowercase  equals true` |
-| `isUppercase`  | Returns `true` if the character is uppercase  | `"A".isUppercase  equals true` |
-| `isNumber`     | Returns `true` if the character is a number   | `"1".isNumber     equals true` |
-| `isWhitespace` | Returns `true` if the character is whitespace | `" ".isWhitespace equals true` |
+Common character properties include:
 
-## Type conversion
+| Property       | Description                                   | Example                              |
+| -------------- | --------------------------------------------- | ------------------------------------ |
+| `isLowercase`  | Returns `true` if the character is lowercase  | `"a".isLowercase` evaluates to `true` |
+| `isUppercase`  | Returns `true` if the character is uppercase  | `"A".isUppercase` evaluates to `true` |
+| `isNumber`     | Returns `true` if the character is a digit    | `"1".isNumber` evaluates to `true`    |
+| `isWhitespace` | Returns `true` if the character is whitespace | `" ".isWhitespace` evaluates to `true`|
 
-To convert a type to a string, you can use the `String()` initializer, which accepts a variety of types, including `Int`, `Double`, `Character`, and more.
+For a complete list of properties, see the [Apple Character documentation][character-docs].
+
+## Type Conversion
+
+You can convert other types into strings by using the `String(_:)` initializer, which supports standard types like `Int`, `Double`, and `Character`:
 
 ```swift
 let charX: Character = "x"
@@ -114,26 +118,26 @@ print(String(110))       // Prints "110"
 print(String(Double.pi)) // Prints "3.141592653589793"
 ```
 
-## Special characters
+## Special Characters
 
-Swift has a few [special characters][special-characters] that can be used in strings.
+Swift string literals support several [escape sequences][special-characters] for special characters:
 
-| Value    | Description                   |
-| -------- | ----------------------------- |
-| `\0`     | Null character                |
-| `\\`     | Backslash                     |
-| `\t`     | Horizontal tab                |
-| `\n`     | Line feed                     |
-| `\r`     | Carriage return               |
-| `\'`     | Single quote mark             |
-| `\"`     | Double quote mark             |
-| `\uFFFF` | Hexadecimal unicode character |
+| Sequence   | Description                   |
+| ---------- | ----------------------------- |
+| `\0`       | Null character                |
+| `\\`       | Backslash                     |
+| `\t`       | Horizontal tab                |
+| `\n`       | Line feed (newline)           |
+| `\r`       | Carriage return               |
+| `\'`       | Single quotation mark         |
+| `\"`       | Double quotation mark         |
+| `\u{n}`    | Arbitrary Unicode scalar (hexadecimal) |
 
 ```swift
-let quote : String = "\"Hello\", he said."
+let quote: String = "\"Hello\", he said."
 print(quote) // Prints "Hello", he said.
 
-let unicode : Character = "\u{1F496}"
+let unicode: Character = "\u{1F496}"
 print(unicode) // Prints 💖
 ```
 
@@ -143,7 +147,6 @@ print(unicode) // Prints 💖
 [character-docs]: https://developer.apple.com/documentation/swift/character
 [string-interpolation]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/#String-Interpolation
 [unicode-scalar-values]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/
-[unicode]: https://en.wikipedia.org/wiki/Unicode
 [concatenated]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/#Concatenating-Strings-and-Characters
 [append]: https://developer.apple.com/documentation/swift/string/append(_:)-4xa8f
 [special-characters]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/#Special-Characters-in-String-Literals
