@@ -1,25 +1,27 @@
-# Bools
+# About
 
-Swift has a type known as [`Bool`][bools], it is used to represent the values `true` and `false`.
+Swift provides a built-in type called [`Bool`][bools] to represent truth values: `true` and `false`.
 
-## Logical operators
+## Logical Operators
 
-Swift has 3 [logical operators (`!`, `||`, `&&`)][logical-operators] which are used to combine Bools and make expressions that produce different values.
+Swift provides three [logical operators][logical-operators] (`!`, `&&`, and `||`) to combine and evaluate Boolean expressions.
 
-### And(`&&`)
+### Logical AND (`&&`)
 
-The [_and_ operator][and] in Swift is represented by `&&` and returns `true` if both values given are `true` otherwise it returns `false`.
-When using the _and_ operator, one Bool be placed on the right side of the `&&` and another one on the left side.
+The [_and_ operator][and] (`&&`) returns `true` only if both operands are `true`.
+If either operand is `false`, it returns `false`.
+Place an expression or Boolean value on each side of the `&&` symbol:
 
-```Swift
+```swift
 true && true  // true
 true && false // false
 ```
 
-### Or(`||`)
+### Logical OR (`||`)
 
-The [_or_ operator][or] in Swift is represented by `||` and returns `true` if **at least one** of values given is `true` if both of the values are `false` then it returns `false`.
-When using the _or_ operator one bool should be placed on the right side of the `||` and another one on the left side.
+The [_or_ operator][or] (`||`) returns `true` if **at least one** of the operands is `true`.
+It returns `false` only when both operands are `false`.
+Place an expression or Boolean value on each side of the `||` symbol:
 
 ```swift
 true || true   // true
@@ -27,36 +29,37 @@ true || false  // true
 false || false // false
 ```
 
-### Not(`!`)
+### Logical NOT (`!`)
 
-The [_not_ operator][not] in Swift is represented by `!` and returns `true` if the given Bool is `false` and returns `false` if `true` is given.
-When using the _not_ operator one Bool should be placed after the operator (`!`).
+The [_not_ operator][not] (`!`) inverts a Boolean value.
+It returns `true` if the value is `false`, and `false` if the value is `true`.
+Place the `!` operator immediately before the value or expression:
 
 ```swift
 !true  // false
 !false // true
 ```
 
-## Using parentheses(`()`)
+## Using Parentheses (`()`)
 
-When working with booleans you can use [explicit parentheses][explicit-parentheses] to decide which Bools to evaluate first.
-The result can differ depending on how the parentheses are used.
-In Swift, what is in parentheses is evaluated first.
+You can use [parentheses][explicit-parentheses] to group expressions and control the order of evaluation.
+In Swift, expressions inside parentheses are evaluated first:
 
 ```swift
 true && false && false || true   // true
 true && false && (false || true) // false
 ```
 
-Since what is in parentheses is evaluated first, in the following example, the _not_ operator will apply to the expression inside parentheses.
+Grouping with parentheses also determines how the NOT operator applies to complex expressions:
 
-```Swift
-!true && false   // false
-!(true && false) // true
+```swift
+!true && false   // false (evaluates (!true) first, then false && false)
+!(true && false) // true  (evaluates (true && false) first to false, then !false)
 ```
 
 ~~~~exercism/note
-You should only use parentheses when they affect the result, otherwise, should they be omitted.
+Use parentheses when you need to clarify evaluation order or make complex conditions easier to read.
+Avoid adding unnecessary parentheses when the default precedence is already clear.
 ~~~~
 
 [logical-operators]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Logical-Operators
