@@ -1,11 +1,12 @@
 # About
 
-[Ternary operator][ternary-operator] is a short form of an if-else statement.
-It takes a boolean expression and two expressions separated by a colon.
-The first expression is evaluated if the boolean expression is true, otherwise the second expression is evaluated.
-It has the following setup: `Boolean-expression ? expression1 : expression2`.
+The [ternary conditional operator][ternary-operator] is a concise shorthand for an `if-else` expression.
+It evaluates a condition and returns one of two values depending on whether that condition is `true` or `false`.
 
-The ternary operator is great when you want a short form of an if-else statement and the expressions are short:
+The operator uses three parts: `condition ? trueExpression : falseExpression`.
+If `condition` evaluates to `true`, `trueExpression` is evaluated and returned; otherwise, `falseExpression` is evaluated and returned.
+
+The ternary operator is ideal for simple, one-line choices:
 
 ```swift
 let showFahrenheit = true
@@ -16,8 +17,8 @@ print(temperature)
 // Prints 86
 ```
 
-The example above is shorthand for the code below:
-    
+The example above is a compact equivalent to:
+
 ```swift
 let showFahrenheit = true
 let temperatureInCelsius = 30
