@@ -1,5 +1,5 @@
 func newScoreBoard() -> [String: Int] {
-  fatalError("Please implement the addPlayer() function")
+  fatalError("Please implement the newScoreBoard() function")
 }
 
 func addPlayer(_ scores: inout [String: Int], _ name: String, _ score: Int = 0) {
