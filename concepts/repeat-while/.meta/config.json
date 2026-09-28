@@ -1,7 +1,9 @@
 {
-  "blurb": "Repeat-while loops are loops that execute code while a conditional evaluates to true. That condition is evaluated after the body of the loop is executed.",
+  "blurb": "Repeat-while loops are similar to while loops, but with one key difference: the condition check occurs after the body of the loop executes rather than before.",
   "authors": [
     "wneumann"
   ],
-  "contributors": []
+  "contributors": [
+    "IsaacG"
+  ]
 }

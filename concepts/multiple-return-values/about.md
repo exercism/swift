@@ -1,29 +1,30 @@
 # About
 
-## Multiple return values
+## Multiple Return Values
 
-[Multiple values can be returned][multiple-return-values] from Swift functions by creating and returning a tuple from the different values.
-
-```swift
-func reverseAndLength(_ str: String) -> (reverse: String, length: Int) {
-  return (reverse: str.reverse, length: str.count)
-}
-
-reverseAndLength("Hello")
-// => (reverse: "olleH", length: 5)
-```
-
-## Omitting the return
+In Swift, functions can [return multiple values][multiple-return-values] by returning a tuple:
 
 ```swift
 func reverseAndLength(_ str: String) -> (reverse: String, length: Int) {
-  (reverse: str.reverse, length: str.count)
+    return (reverse: String(str.reversed()), length: str.count)
+}
+
+let result = reverseAndLength("Hello")
+print(result.reverse) // Prints "olleH"
+print(result.length)  // Prints 5
+```
+
+## Omitting the Return Keyword
+
+When a function's body consists of a single expression, you can [omit the `return` keyword][implicit-returns]:
+
+```swift
+func reverseAndLength(_ str: String) -> (reverse: String, length: Int) {
+    (reverse: String(str.reversed()), length: str.count)
 }
 ```
 
-In cases where the entire body of a function is a single expression, [the `return` keyword may be omitted][implicit-returns].
-
-Note that this applies for all return types, not just multiple-value returns.
+This implicit return syntax applies to all functions that return a value, not just those returning tuples.
 
 [multiple-return-values]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID164
 [implicit-returns]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID607

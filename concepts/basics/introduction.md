@@ -4,65 +4,68 @@
 
 ### Variables
 
-Values can be associated with names by defining a [variable][constants-variables] and assigning a value to that variable.
-That name may then be used to refer to that value throughout the program.
-Variables are _mutable_, which means that the value can be changed at any time.
+You can store and name values by defining a [variable][constants-variables].
+After defining a variable, you can use its name to refer to that value throughout your code.
+Variables are _mutable_, which means their values can change after they are defined.
 
-Variables are defined using the `var` keyword.
+Define a variable with the `var` keyword:
 
 ```swift
 var variableName = 10
 ```
 
-Swift is a type-safe, statically typed language, which means all values have a type at compile time.
-You can either explicitly specify the type of a variable with [type annotations][type annotations] or let the compiler [infer the type][type-inferring].
+Swift is a statically typed language, which means every value has a known type at compile time.
+You can explicitly declare a type with a [type annotation][type annotations], or you can let the Swift compiler [infer the type][type-inferring] from the assigned value:
 
 ```swift
 var explicitVar: Int = 10 // Explicitly typed
-var implicitVar = 10      // Implicitly typed
+var implicitVar = 10      // Implicitly typed (inferred as Int)
 ```
 
-Updating a variable's value is done using the `=` operator.
+You can update a variable's value using the assignment operator (`=`):
 
 ~~~~exercism/note
-The type of a variable, is fixed once it is initially defined.
+A variable's type cannot change after it is declared.
 
 ```swift
-variableName = 13 // update to new value
+variableName = 13 // Allowed: same type (Int)
 
-// compiler error when assigning a different type
+// Compiler error: cannot assign a different type
 variableName = "Hello, world!" // Cannot assign value of type 'String' to type 'Int'
 ```
 ~~~~
 
-Variables may be declared without assigning a value by specifying the name and type, but they may not be used before a value is assigned.
+You can declare a variable without an initial value by specifying its type, but you must assign a value before using it:
 
 ```swift
 var someInt: Int
 
-// This would trigger a compiler error
+// This triggers a compiler error:
 // print(someInt) // Variable 'someInt' used before being initialized
 
-// Assign a value to the names
+// Assign a value first
 someInt = 169
-
-print(someInt) // Prints '169'
+print(someInt) // Prints 169
 ```
 
 ### Constants
 
-[Constants][constants-variables] are similar to variables in that they are associated with a name and a value, but the value of a constant cannot be changed once it is initially assigned and is thereby _immutable_.
-Constants are defined using the `let` keyword.
+[Constants][constants-variables] also associate a name with a value, but their values cannot be changed after assignment.
+They are _immutable_.
+Define a constant using the `let` keyword:
 
 ```swift
-let constantName = 10          // constant
+let constantName = 10          // Inferred constant
 let explicitConstant: Int = 10 // Explicitly typed constant
 ```
 
-### Addition & Subtraction & Multiplication
+### Arithmetic Operators
 
-Swift has [operators][arithmetical-operators] for addition, subtraction, and multiplication.
-The operators are `+`, `-`, and `*` respectively.
+Swift provides standard [arithmetic operators][arithmetical-operators] for basic math:
+
+- Addition: `+`
+- Subtraction: `-`
+- Multiplication: `*`
 
 ```swift
 print(1 + 1) // Prints 2
@@ -72,55 +75,69 @@ print(2 * 2) // Prints 4
 
 ### Functions
 
-In Swift, [functions][functions] are a chunk of code that performs a task.
-A function has a return type and can thereby be used as a value and be passed as an argument to other functions.
-In Swift, functions are defined using the `func` keyword followed by the name of the function, arguments separated by commas, and a return type.
-
-The arguments are defined by an argument label, a parameter name followed by a colon and then a type.
-The return type is defined by a `->` followed by the type of the return value.
+In Swift, [functions][functions] are self-contained blocks of code that perform a specific task.
+Functions can accept inputs, return a value, and be passed around as values to other functions.
+Define a function using the `func` keyword, followed by the function name, a parameter list in parentheses, and an optional return type:
 
 ```swift
-func functionName(argumentName parameterName: ArgumentType) -> ReturnType {
-  // function body
+func functionName(argumentLabel parameterName: ParameterType) -> ReturnType {
+    // Function body
 }
 ```
 
-Swift arguments are a bit special compared to other languages, they use [argument labels][argument-labels].
-The argument label is used when calling the function.
-The parameter name is used inside the function body to refer to the argument value.
-If you only assign one name to the argument it will be used as both the argument label and the parameter name.
-When assigning the argument label name as: `_` the argument will not have a label when calling the function, e.g: `functionName(argumentValue)`
+Swift functions use [argument labels][argument-labels], which make code read like natural sentences:
 
-To call a function you use the function name followed by the argument label and the argument value, like this:
+- The **argument label** is used when calling the function.
+- The **parameter name** is used inside the function body to access the value.
 
-```swift
-func functionName(argumentLabel parameterName: ArgumentType) -> ReturnType {
-  // function body
-}
-
-// calling the function
-functionName(argumentLabel: argumentValue)
-```
-
-All arguments are immutable by default and can't be changed inside the function.
-When a function has a return type be sure to return a value of that type.
-That is done by using the `return` keyword followed by the value to return.
+If you specify only one name, Swift uses it as both the argument label and the parameter name:
 
 ```swift
-func addTen(number value: Int) -> Int {
-  return value + 10
+func greet(name: String) {
+    print("Hello, \(name)!")
 }
 
-// calling the function
-addTen(number: 10) // Returns 20
+greet(name: "Alice")
 ```
 
-When functions don't return a value they have a return type of `Void`, which is the same as `()`, but the return type can also be omitted in these cases.
+If you do not want an argument label when calling the function, write an underscore (`_`) before the parameter name:
+
+```swift
+func square(_ number: Int) -> Int {
+    return number * number
+}
+
+square(5) // Called without an argument label
+```
+
+All function parameters are constants (`let`) by default, meaning their values cannot be modified inside the function body.
+
+To return a value from a function, specify the return type after `->` and use the `return` keyword:
+
+```swift
+func addTen(to value: Int) -> Int {
+    return value + 10
+}
+
+addTen(to: 10) // Returns 20
+```
+
+When a function does not return a value, its return type is `Void` (equivalent to an empty tuple, `()`).
+You can omit both the `-> Void` return type and the `return` statement in such functions.
 
 ### Comments
 
-Swift supports two types of [comments][comments].
-Single line comments are preceded by `//` and multiline comments are inserted between `/*` and `*/`.
+Swift supports two forms of [comments][comments]:
+
+- **Single-line comments** start with `//` and continue to the end of the line.
+- **Multiline comments** are enclosed between `/*` and `*/`.
+
+```swift
+// This is a single-line comment
+
+/* This is a comment
+   that spans multiple lines */
+```
 
 [comments]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Comments
 [constants-variables]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Constants-and-Variables

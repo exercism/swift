@@ -1,14 +1,16 @@
 # About
 
-[Repeat-while loops][repeat-loops] are similar to while loops, however, these loops differ in that the Boolean expression appears, and is evaluated, _after_ the body of the loop is executed. As a result, these loops always execute at least once.
+[Repeat-while loops][repeat-loops] are similar to `while` loops, but with one key difference: the condition check occurs *after* the body of the loop executes rather than before.
+As a result, a `repeat-while` loop is guaranteed to execute its code block at least once.
 
 ```swift
 repeat {
-  print("This runs at least once")
+    print("This runs at least once")
 } while false
+
 print("Loop done")
 
-// prints:
+// Prints:
 // This runs at least once
 // Loop done
 ```

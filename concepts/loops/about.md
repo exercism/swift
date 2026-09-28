@@ -1,8 +1,12 @@
-# Loops
+# About
 
-There are three primary types of loop constructs in Swift: while loops, which repeat a block of code as long as a stated condition holds, repeat-while loops which are similar to while loops but are guaranteed to execute the block of code at least one time, and for-in loops, which execute a block of code once for each element in a collection.
+Swift provides three primary loop constructs:
 
-For more information, see:
+- **`while` loops**: Repeat a block of code as long as a specified condition remains `true`. The condition is evaluated before running the loop body.
+- **`repeat-while` loops**: Similar to `while` loops, but the condition is evaluated after running the loop body. This guarantees the body executes at least once.
+- **`for-in` loops**: Execute a block of code once for each element in a sequence or collection (such as a range, array, or string).
+
+For more details on each type of loop, see:
 
 - [concept:swift/while-loops]()
 - [concept:swift/repeat-while]()

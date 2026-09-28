@@ -2,21 +2,23 @@
 
 ## Importing
 
-While Swift includes a lot of functionality in its Standard Library, there is much more functionality available in the form of external libraries.
-These libraries may be from the Swift project itself, such as the [Swift Argument Parser][argument-parser], closed source libraries from companies Apple's [Network Framework][network-framework], or third-party libraries, like [Swifty Beaver][swifty-beaver].
+While Swift provides rich functionality in its Standard Library, you can access many additional features by importing external libraries and frameworks.
+These modules may come directly from the Swift project (such as [Swift Argument Parser][argument-parser]), from Apple platform frameworks (such as [Foundation][apple-foundation] and the [Network Framework][network-framework]), or from third-party open-source libraries (such as [SwiftyBeaver][swifty-beaver]).
 
-Some of these modules, like the Network Framework or [Foundation][apple-foundation] (which is probably the most commonly used library in Swift) come with your Swift distribution.
-External third party libraries need to be added to your project before they can be imported, though that is out of the scope of this exercise.
+Core modules like Foundation—one of the most widely used libraries in Swift—are included with the Swift toolchain.
+Third-party libraries must be added to your project configuration (for example, using Swift Package Manager) before they can be imported.
 
-Importing modules is done by writing the `import` keyword followed by the name of the module. So one can import Foundation by adding the following to their program.
+Importing modules is done by writing the `import` keyword followed by the name of the module.
+So one can import Foundation by adding the following to their program.
 
 ```swift
 import Foundation
 ```
 
-This allows access to all of the types, values, and functionality inside that module; for example if one wishes to use the `components(separatedBy:)` String method, that method becomes available to `String` with this import.
+Importing a module makes its types, methods, and functions available to your code.
+For instance, importing Foundation extends `String` with useful utility methods like `components(separatedBy:)`.
 
-While they can be placed in the code anywhere before a pice of code that makes use of one the content of module, import statements are usually placed at the beginning of the file that uses them for greater readability.
+By convention, `import` statements are placed at the top of a Swift file so dependencies are immediately visible to anyone reading the code.
 
 ## String indexing
 
@@ -82,25 +84,24 @@ print(str.suffix(6)) // Prints "world!"
 
 ## String methods
 
-Working with string is a common task in programming.
-Therefore Swift provides a variety of methods to manipulate strings.
-This document will cover some of the most common string methods and properties, some of these require the import of the Foundation framework.
+Working with text is a common task in programming.
+Swift—along with the Foundation framework—provides many convenient methods and properties to inspect, transform, and manipulate strings.
 
-### [`components(separatedBy:)`][components]
+## Splitting Strings with `components(separatedBy:)`
 
-When you want to split a string into an array of substrings, you can use the `components(separatedBy:)` method.
-So say you would want to get every word in a sentence, you can use the space character as the separator.
+To split a string into an array of substrings based on a delimiter, use `components(separatedBy:)` (requires importing Foundation):
 
 ```swift
+import Foundation
+
 let sentence = "Hello, world!"
 let words = sentence.components(separatedBy: " ")
 print(words) // Prints ["Hello,", "world!"]
 ```
 
-### [`hasPrefix(_:)`][hasPrefix], [`hasSuffix(_:)`][hasSuffix]
+## Checking Prefixes and Suffixes with `hasPrefix(_:)` and `hasSuffix(_:)`
 
-When you want to check if a string starts or ends with a certain substring, you can use the `hasPrefix(_:)` and `hasSuffix(_:)` methods.
-Both of these methods take a string as an argument and return a boolean value indicating whether the string starts or ends with the specified substring.
+To check whether a string begins or ends with a specific sequence of characters, use `hasPrefix(_:)` and `hasSuffix(_:)`:
 
 ```swift
 let greeting = "Hello, world!"
@@ -108,34 +109,35 @@ print(greeting.hasPrefix("Hello"))  // Prints true
 print(greeting.hasSuffix("world!")) // Prints true
 ```
 
-### [`lowercased`][lowercased], [`uppercased`][uppercased], [`capitalized`][capitalized]
+## Changing Case
 
-When you want to change the case of a string, you can use the `lowercased`, `uppercased`, and `capitalized` properties.
-The `lowercased` property returns a new string with all characters in lowercase, the `uppercased` property returns a new string with all characters in uppercase, and the `capitalized` property returns a new string with the first character of each word capitalized.
+You can transform the casing of a string using these standard methods and properties:
+
+- `lowercased()`: Returns a lowercase copy of the string.
+- `uppercased()`: Returns an uppercase copy of the string.
+- `capitalized`: Returns a copy where the first letter of each word is capitalized (from Foundation).
 
 ```swift
 let greeting = "hello, world!"
-print(greeting.lowercased)  // Prints "hello, world!"
-print(greeting.uppercased)  // Prints "HELLO, WORLD!"
-print(greeting.capitalized) // Prints "Hello, World!"
+print(greeting.lowercased())  // Prints "hello, world!"
+print(greeting.uppercased())  // Prints "HELLO, WORLD!"
+print(greeting.capitalized)   // Prints "Hello, World!"
 ```
 
-### [`replacingOccurrences(of:with:)`][replacingOccurrences]
+## Replacing Substrings with `replacingOccurrences(of:with:)`
 
-When you want to replace all occurrences of a substring in a string with another substring, you can use the `replacingOccurrences(of:with:)` method.
-This method takes two strings as arguments: the substring to be replaced and the substring to replace it with. It returns a new string with all occurrences of the specified substring replaced.
+To replace all occurrences of a target substring with another string, use `replacingOccurrences(of:with:)` (from Foundation):
 
 ```swift
 let greeting = "Hello, world!"
-let newGreeting = greeting.replacingOccurrences(of: "world", with: "Swift")
-print(newGreeting) // Prints "Hello, Swift!"
+let updated = greeting.replacingOccurrences(of: "world", with: "Swift")
+print(updated) // Prints "Hello, Swift!"
 ```
 
-### [`joined(separator:)`][joined]
+## Joining Strings with `joined(separator:)`
 
-This isn't a method of the String type, but rather of the Array type.
-When you want to join an array of strings into a single string with a specified separator, you can use the `joined(separator:)` method.
-This method takes a string as an argument and returns a new string with all elements of the array joined together, separated by the specified string.
+The `joined(separator:)` method belongs to collections of strings, such as `[String]`.
+It joins elements together into a single string using a separator:
 
 ```swift
 let words = ["Hello", "world"]
