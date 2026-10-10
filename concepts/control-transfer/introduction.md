@@ -1,64 +1,67 @@
 # Introduction
 
-Swift has a set of statements that can be used to alter the normal control flow of loops.
-These are known as control transfer statements.
-You have already seen `return`; this concept will introduce other, which include `continue`, `break`, and labels.
-We won't cover `fallthrough` in this concept, but you can read about it in the [Swift book][fallthrough].
+Swift provides control transfer statements to alter the execution flow of loops and switch statements.
+In addition to `return`, Swift includes `continue`, `break`, loop labels, and `fallthrough`.
 
 ## Continue
 
-Sometimes it is necessary to skip to the next iteration of a loop early, without completing the rest of the statements in the current iteration of the loop.
-The `continue` keyword can be used for this.
-When `continue` is executed, the loop jumps to the next check to see if the next iteration of the loop can be run, i.e. the `while` in while and repeat-while loops or the check if there's another element in the sequence in for-in loops.
+The `continue` statement tells a loop to stop executing the current iteration and begin the next iteration immediately.
+In a `while` or `repeat-while` loop, it jumps straight to the condition check.
+In a `for-in` loop, it advances to the next element in the sequence.
 
 ```swift
-count = 1
+var count = 1
 while count < 6 {
-  count += 1
-  if count == 4 { continue }
-  print(count)
+    count += 1
+    if count == 4 {
+        continue
+    }
+    print(count)
 }
 
-// prints:
+// Prints:
 // 2
 // 3
 // 5
+// 6
 ```
 
 ## Break
 
-Break is used to exit a loop early.
-When `break` is executed, the loop will immediately exit and the program will continue with the first statement after the loop.
+The `break` statement exits an entire loop or switch statement immediately.
+Execution resumes at the first line of code following the loop or switch.
 
 ```swift
 for fruit in ["banana", "grapes", "apple", "strawberry", "kiwi", "lemon"] {
-  if !fruit.count.isMultiple(of: 2) { break }
-  print(fruit)
+    if !fruit.count.isMultiple(of: 2) {
+        break
+    }
+    print(fruit)
 }
 
-// prints:
+// Prints:
 // banana
 // grapes
 ```
 
-## Labels
+## Labeled Statements
 
-When loops are nested, there are times when one may want to use `break` or `continue` to exit or restart the outer loops that contain the loop in which the `break` or `continue` are used.
-In cases like these, labels may be used to specify the loop to be exited or restarted.
-A loop can be labeled by putting a name followed by a colon before the `while`, `repeat`, or `for` that starts the loop.
-
-To see the effect of using labels in this way, consider the following loop.
+In nested loops, you may want `break` or `continue` to affect an outer loop rather than the innermost loop.
+You can label a loop by prefixing it with a name and a colon (`labelName:`).
+You can then pass that label to `break` or `continue`:
 
 ```swift
 outerLoop: for fruit in ["banana", "grapes", "apple", "strawberry", "kiwi", "lemon"] {
-  print("\n--- \(fruit) ---")
-  for letter in fruit {
-    guard letter != "n" else { break outerLoop }
-    print(letter)
-  }
+    print("\n--- \(fruit) ---")
+    for letter in fruit {
+        guard letter != "n" else {
+            break outerLoop
+        }
+        print(letter)
+    }
 }
 
-// prints:
+// Prints:
 // --- banana ---
 // b
 // a
