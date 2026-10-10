@@ -1,11 +1,12 @@
-# About
+# Introduction
 
-A [switch statement][switch] allows you to compare a value against multiple possible matching values.
-It allows you to write more concise code than using multiple `else-if` statements.
-A switch statement starts with the `switch` keyword followed by the value to be compared.
-Then you can define the cases using the `case` keyword followed by the value to be compared against.
-The `default` keyword is used to define the default case when none of the cases match.
-Like `else-if` statements, `switch` statements only execute the block of code associated with the first matching case.
+A [switch statement][switch] compares a value against multiple possible matching patterns.
+It provides a cleaner, more readable alternative to chaining multiple `if-else` statements.
+
+A `switch` statement starts with the `switch` keyword followed by the value to test.
+Each possible match is introduced with the `case` keyword.
+The `default` keyword defines a fallback case that executes if none of the explicit cases match.
+Like `if-else` chains, a `switch` statement executes only the block of code associated with the first matching case.
 
 ```swift
 switch value {
@@ -18,7 +19,7 @@ default:
 }
 ```
 
-Consider the following example:
+Consider the following `if-else` chain:
 
 ```swift
 if str == "apple" {
@@ -32,7 +33,7 @@ if str == "apple" {
 }
 ```
 
-This could instead be written as:
+This can be written more clearly with a `switch` statement:
 
 ```swift
 switch str {
