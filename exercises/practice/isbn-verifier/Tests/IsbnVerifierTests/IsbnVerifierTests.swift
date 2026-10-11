@@ -32,6 +32,12 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
   @Test("X is only valid as a check digit", .enabled(if: RUNALL))
   func testXIsOnlyValidAsACheckDigit() { #expect(!IsbnVerifier.isValid("3-598-2X507-9")) }
 
+  @Test("only one check digit is allowed", .enabled(if: RUNALL))
+  func testOnlyOneCheckDigitIsAllowed() { #expect(!IsbnVerifier.isValid("3-598-21508-96")) }
+
+  @Test("X is not substituted by the value 10", .enabled(if: RUNALL))
+  func testXIsNotSubstitutedByTheValue10() { #expect(!IsbnVerifier.isValid("3-598-2X507-5")) }
+
   @Test("valid isbn without separating dashes", .enabled(if: RUNALL))
   func testValidIsbnWithoutSeparatingDashes() { #expect(IsbnVerifier.isValid("3598215088")) }
 

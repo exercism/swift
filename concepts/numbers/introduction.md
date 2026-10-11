@@ -1,123 +1,122 @@
-# About
+# Introduction
 
 ## Numbers
 
-Swift has 2 main types of numbers: integers and floating-point numbers.
-[Integers][integers] are whole numbers, e.g. `0`, `1`, `-1`, `42`, and `-273`.
-[Floating-point numbers][floatingpoint] are numbers with a fractional component, e.g. `0.0`, `3.14`, and `-1.36969e-10`.
-Swift also allows using underscores to make numbers more readable, e.g. `1_000_000` is the same as `1000000`.
-Floating-points can be written in either decimal or exponential notation.
+Swift provides two primary categories of numbers: integers and floating-point numbers.
 
-In most cases you would define the type for integers as [`Int`][int] and for floating-point numbers as [`Double`][double].
+- [Integers][integers] represent whole numbers with no fractional component, such as `0`, `1`, `-1`, `42`, and `-273`.
+- [Floating-point numbers][floatingpoint] represent numbers with a fractional component, such as `0.0`, `3.14`, and `-1.36969e-10`.
 
-To declare a variable or constant to be of type `Int` or `Double`, you can use a type annotation:
+You can insert underscores into numeric literals to improve readability: `1_000_000` is identical to `1000000`.
+Floating-point literals can be written in decimal or exponential notation.
+
+In most cases, you use [`Int`][int] for integers and [`Double`][double] for floating-point numbers:
 
 ```swift
-let speed: Int = 42                           // speed is an Int
-let pi: Double = 3.14                         // pi is a Double
-let giga: Double = 1_000_000_000              // giga is a Double
-let plancksConstant : Double = 6.62607015e-34 // plancksConstant is a Double
+let speed: Int = 42                           // Explicit Int
+let pi: Double = 3.14                         // Explicit Double
+let giga: Double = 1_000_000_000              // Double with readability underscores
+let plancksConstant: Double = 6.62607015e-34  // Double in scientific notation
 ```
 
-## Arithmetic operators
+## Arithmetic Operators
+
+Swift provides standard [arithmetic operators][arithmetic-operators] for numeric calculations:
+
+| Operator | Description    | Example |
+| -------- | -------------- | ------- |
+| `+`      | Addition       | `4 + 6` evaluates to `10` |
+| `-`      | Subtraction    | `15 - 10` evaluates to `5` |
+| `*`      | Multiplication | `2 * 3` evaluates to `6`  |
 
 ~~~~exercism/caution
-In Swift can't mix types in arithmetic operations, so you can't use any arithmetic operator on an `Int` with a `Double` or vice versa.
-Therefore, you have to do a type conversion first.
+Swift is type-safe and does not allow mixing different numeric types in arithmetic operations.
+You cannot directly add or multiply an `Int` and a `Double`; you must convert one type to match the other first.
 ~~~~
-
-Swift does have a set of [arithmetic operators][arithmetic-operators] that can be used to perform basic mathematical operations.
-The `+` operator is used for addition, the `-` operator is used for subtraction, and the `*` operator is used for multiplication.
-
-| Operator | Example                 |
-| -------- | ----------------------- |
-| `+`      | `4 + 6   // equals  10` |
-| `-`      | `15 - 10 // equals  5`  |
-| `*`      | `2 * 3   // equals  6`  |
 
 ### Division
 
-The `/` operator is used for division.
-When using a floating-point number, the result will be a floating-point number.
-When using integers, the result will be an integer.
+The `/` operator performs division.
+When both operands are integers, integer division truncates any fractional remainder:
 
 ```swift
-5 / 2.0 // equals 2.5
-5 / 2   // equals 2
+5.0 / 2.0 // 2.5 (Double division)
+5 / 2     // 2 (integer division truncates the remainder)
 ```
 
-When dividing by zero, depending on the type of number, you will get a different result.
-If you divide a floating-point number by zero, the result will be `inf`, or `-inf` if the number being divided is negative.
-Only exception is when you divide zero by zero, and one of them being a floating point number which will result in `nan`.
-If you divide an integer by zero, you will get a compile error.
+Dividing a non-zero floating-point number by zero results in `inf` or `-inf`.
+Dividing `0.0` by `0.0` produces `nan` (Not a Number).
+In contrast, dividing an integer by zero causes a compile-time or runtime error:
 
 ```swift
 print(5.0 / 0.0)  // Prints inf
 print(-5.0 / 0.0) // Prints -inf
 print(0.0 / 0.0)  // Prints nan
 
-// The following code will not compile
-print(5 / 0) // error: division by zero
+// The following line will not compile:
+// print(5 / 0) // Error: Division by zero
 ```
 
-### Remainder
+### Remainder Operator
 
-The [`%` operator][reminder-operator] is used to get the remainder of a division and does only work with integers.
-The operator returns the remainder of the division of the first argument by the second argument.
-And as with division, having the second argument having the value of zero will result in a compile error.
-
-~~~~exercism/note
-In other languages, is this operator also known as the modulo operator.
-But in Swift, it does not work the same way as the modulo operator, since it strictly speaking, returns the remainder, not the modulo.
-~~~~
+The [remainder operator][remainder-operator] (`%`) calculates the remainder left over after dividing two integers:
 
 ```swift
-5 % 2  // equals 1
--5 % 2 // equals -1
+5 % 2  // 1
+-5 % 2 // -1
 
-// The following code will not compile
-5 % 0 // error: division by zero
+// Dividing by zero produces an error:
+// 5 % 0 // Error: Division by zero
 ```
 
-## Rounding numbers
+~~~~exercism/note
+In Swift, `%` is a true *remainder* operator rather than a modulo operator.
+The result always takes the sign of the first operand (the dividend), regardless of the sign of the second operand:
 
-Rounding numbers is done by using the `rounded()` method on a floating-point number.
-To round to the nearest integer, you can use the `rounded()` method without any arguments.
-To round up or down, you can use the `rounded(.up)` or `rounded(.down)` methods respectively.
+```swift
+5 % -2  // 1
+-5 % 2  // -1
+```
+~~~~
+
+## Rounding Floating-Point Numbers
+
+You can round a floating-point number using the `rounded()` method.
+By default, `rounded()` rounds to the nearest integer.
+You can also supply a specific [rounding rule][rounding-rule], such as `.up` or `.down`:
 
 ```swift
 let x = 3.14
-let y = x.rounded()      // y equals 3.0
-let w = x.rounded(.down) // w equals 3.0
-let z = x.rounded(.up)   // z equals 4.0
+let y = x.rounded()      // 3.0
+let w = x.rounded(.down) // 3.0
+let z = x.rounded(.up)   // 4.0
 ```
 
-## Type inference
+## Type Inference
 
-Swift can [infer what type][typeinference] a number is based on the context, without extra context will the compiler assume that number is an `Int`.
-If you want to tell the compiler that you want a whole number to be a `Double` you must use either a type annotation or append a `.0` onto the end of the number literal. E.g.
+When you declare a numeric constant or variable without a type annotation, Swift infers its type:
+
+- Whole numbers default to `Int`.
+- Numbers with a decimal point default to `Double`.
 
 ```swift
-let x = 42         // x is an Int
-let y = 42.0       // y is a Double
-let z: Double = 42 // z is a Double
+let x = 42         // Inferred as Int
+let y = 42.0       // Inferred as Double
+let z: Double = 42 // Explicitly typed as Double
 ```
 
 ## Type Conversion
 
-In Swift, to convert a value from one type to another, you need to do a [type Conversion][type-conversion].
-For example, to convert an `Int` to a `Double` and vice versa, you would need to do the following:
+To perform operations between values of different types, convert one value using type initializers like `Double(_:)` or `Int(_:)`:
 
 ```swift
-let x = 42
-let d = Double(x)
-print(d)           // Prints 42.0
-print(type(of: d)) // Prints Double
+let integerCount = 42
+let floatingCount = Double(integerCount)
+print(floatingCount) // Prints 42.0
 
 let pi = 3.14
-let iPi = Int(pi)
-print(iPi)           // Prints 3
-print(type(of: iPi)) // Prints Int
+let integerPi = Int(pi)
+print(integerPi) // Prints 3 (fractional part is truncated)
 ```
 
 [integers]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Integers
@@ -125,6 +124,6 @@ print(type(of: iPi)) // Prints Int
 [int]: https://developer.apple.com/documentation/swift/int
 [double]: https://developer.apple.com/documentation/swift/double
 [arithmetic-operators]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Arithmetic-Operators
-[reminder-operator]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Remainder-Operator
-[typeinference]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Type-Safety-and-Type-Inference
+[remainder-operator]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/#Remainder-Operator
+[rounding-rule]: https://docs.swift.org/main/documentation/swift/floatingpointroundingrule
 [type-conversion]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Integer-and-Floating-Point-Conversion

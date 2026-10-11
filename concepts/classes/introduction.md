@@ -1,77 +1,82 @@
-# About
+# Introduction
 
-Classes are a core building block of Swift programming. It provides a way to group together related data and functions into self-contained units of functionality.
+Classes are a fundamental building block of Swift programs.
+They allow you to group related properties (data) and methods (functions) into self-contained units of functionality.
 
-### Defining classes
+### Defining Classes
 
-To define a class, start with the `class` keyword followed by the type name that is being defined, then the body of the class follows, placed between curly braces.
-
-The body may consist of stored properties, which are defined and behave just like regular constants or variables.
+To define a class, use the `class` keyword followed by the class name, with the class definition enclosed in curly braces:
 
 ```swift
 class GameCharacter {
-  var characterClass: String?
-  var name: String?
-  var active = false
-  let id = makeRandomID()
+    var characterClass: String?
+    var name: String?
+    var active = false
+    let id = makeRandomID()
 }
 ```
 
+The body of a class can contain stored properties, which are defined and behave like regular constants (`let`) or variables (`var`).
+
 ### Instances
 
-As noted above, defining a class is just defining a new _type_. It is just the blueprint for what the values of that type will look like, but it does not actually create any values of that type for you to work with.
+A class definition serves as a blueprint: it defines a new type and describes what its values look like, but it does not create any instances on its own.
 
-In order to create an _instance_ of that type, you need to write the name of the type followed by a pair of parentheses.
+To create an *instance* of a class, call its initializer by writing the class name followed by parentheses:
 
 ```swift
 let someCharacter = GameCharacter()
 ```
 
-This will create values of these types, where the properties are populated with the default values supplied in the definition. Note that in optional cases like GameCharacter's `name` property, unless a value is provided, the property will default to nil, just like defining regular optional types where a value is not immediately provided.
+This creates a new instance whose properties are initialized with the default values specified in the class definition.
+For optional properties without explicit default values (such as `name`), Swift defaults them to `nil`.
 
-### Accessing properties
+### Accessing Properties
 
-Class properties can be accessed using _dot notation_ where the name of the value is followed by a dot (`.`) and the name of the property. If a property of a class has properties of its own, this dot notation can be used to access these nested properties as well.
+You access an instance's properties using *dot notation*: write the instance name, a dot (`.`), and the property name.
+Dot notation also works for nested properties.
 
-This notation can be used both to retrieve the property's value and, where allowed, to change it.
+You can use dot notation to read values and, if the property is mutable (`var`), assign new values:
 
 ```swift
 someCharacter.name
 // => nil
+
 someCharacter.name = "Luther"
 someCharacter.name
 // => "Luther"
 
-someCharacter.id  = "new id"
+someCharacter.id = "new id"
 // Error: Cannot assign to property: 'id' is a 'let' constant
 ```
 
 ### Methods
 
-Like properties, which store data in your classes, you may also define _methods_ which store functions in your class.
+In addition to properties, classes can define *methods*—functions associated with the class.
 
-Methods are defined in the same way as a regular function, only inside the body of the class. Additionally, if a property can be changed by a method, that property must be defined using `var` rather than `let`, just like regular variables.
+Define methods inside the class body using the standard `func` syntax.
+If a method modifies a property, that property must be declared with `var`:
 
 ```swift
-
 class GameCharacter {
-  var characterClass: String?
-  var name: String?
-  var active = false
-  let id: String = makeRandomID()
+    var characterClass: String?
+    var name: String?
+    var active = false
+    let id: String = makeRandomID()
 
-  func takesDamage(_ damage: Double) {
-    if damage > 100 {
-      active = false
+    func takesDamage(_ damage: Double) {
+        if damage > 100 {
+            active = false
+        }
     }
-  }
-  func sayName() -> String {
-    return "My name is \(name ?? "no one"), my class is \(characterClass ?? "undetermined")"
-  }
+
+    func sayName() -> String {
+        return "My name is \(name ?? "no one"), my class is \(characterClass ?? "undetermined")"
+    }
 }
 ```
 
-These methods can be called using dot notation, just like properties.
+Call methods on an instance using dot notation, just like properties:
 
 ```swift
 var myChar = GameCharacter()
@@ -83,4 +88,5 @@ myChar.active
 
 ### Self
 
-Instances classes each have an implicit value named `self` which refers to the instance itself. There are multiple uses for `self`, but it is most commonly used to disambiguate the names of properties and methods of the struct/class when there may be some confusion.
+Every instance of a class has an implicit property named `self`, which refers to the instance itself.
+While often omitted when referring to properties or methods, `self` is commonly used to distinguish between property names and method parameter names when they share the same name.

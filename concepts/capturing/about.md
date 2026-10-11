@@ -1,41 +1,44 @@
 # About
 
-In Swift, closures and functions (which are just special cases of closures) are able to access the parameters and variables of their surrounding environment. Additionally, they are able to maintain access to these values after the enclosing function terminates. This action of obtaining and maintaining access is known as [_capturing_][capturing-values].
+In Swift, closures and functions can access constants and variables from their surrounding scope.
+They can also keep access to these values even after the surrounding scope has finished executing.
+This behavior is called [_capturing values_][capturing-values].
 
 ```swift
- func makeAdder(base: Int) -> (Int) -> Int {
-   func adder(_ i: Int) -> Int {
-     base + i
-   }
-   return adder
- }
- // makeAdder: (Int) -> (Int) -> Int
+func makeAdder(base: Int) -> (Int) -> Int {
+    func adder(_ i: Int) -> Int {
+        base + i
+    }
+    return adder
+}
+// makeAdder: (Int) -> (Int) -> Int
 
- let add10 = makeAdder(base: 10)
- // add10: (Int) -> Int
+let add10 = makeAdder(base: 10)
+// add10: (Int) -> Int
 
- let subtract20 = makeAdder(base: -20)
- // subtract10: (Int) -> Int
+let subtract20 = makeAdder(base: -20)
+// subtract20: (Int) -> Int
 
- add10(5)
- // => 15
+add10(5)
+// => 15
 
- subtract20(5)
- // => -15
+subtract20(5)
+// => -15
 
- func makeLogger(logLevel: String) -> (String) -> () {
-   let logHeader = "[\(logLevel)]: "
-   return { msg in print(logHeader, msg) }
- }
- // makeLogger: (String) -> (String) -> ()
+func makeLogger(logLevel: String) -> (String) -> Void {
+    let logHeader = "[\(logLevel)]: "
+    return { msg in print(logHeader, msg) }
+}
+// makeLogger: (String) -> (String) -> Void
 
- let infoLogger = makeLogger("info")
- // infoLogger: (String) -> ()
+let infoLogger = makeLogger(logLevel: "info")
+// infoLogger: (String) -> Void
 
- infoLogger("This is a log message")
- // prints "[info]: This is a log message"
+infoLogger("This is a log message")
+// prints "[info]: This is a log message"
 ```
 
-This capturing is seen with the `makeAdder(base:)` and `makeLogger(logLevel:)` function above where the returned function and closure and continue to use the captured values of `base` and `logHeader` even after the `makeAdder(base:)` and `makeLogger(logLevel:)` have finished executing.
+In the examples above, both `makeAdder(base:)` and `makeLogger(logLevel:)` return functions or closures that capture values from their enclosing scope.
+The returned functions continue to reference `base` and `logHeader` even after `makeAdder(base:)` and `makeLogger(logLevel:)` have returned.
 
 [capturing-values]: https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID103

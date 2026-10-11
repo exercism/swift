@@ -1,24 +1,25 @@
-# About
+# Introduction
 
-A struct or class can define _stored properties_, which are defined and behave just like regular constants or variables and are stored as part of an instance of that struct/class.
+A struct or class can define **stored properties** to store data as part of an instance.
+Stored properties can be declared as variables (using `var`) if their values can change, or as constants (using `let`) if their values remain fixed once initialized:
 
 ```swift
 class GameCharacter {
-  var health = 10
-  let id = makeRandomID()
+    var health = 10
+    let id = makeRandomID()
 }
 
 let character1 = GameCharacter()
 let character2 = GameCharacter()
 
-character1.health // => 10
-character2.health // => 10
+print(character1.health) // Prints 10
+print(character2.health) // Prints 10
 
 character1.health = 25
 
-character1.health // => 25
-character2.health // => 10
+print(character1.health) // Prints 25
+print(character2.health) // Prints 10
 
-// This would trigger a compiler error due to id being a constant
+// The following line triggers a compiler error because 'id' is a constant:
 // character2.id = 2
 ```

@@ -21,25 +21,30 @@ greeting()
 
 ## Variadic parameters
 
-[_Variadic parameters_][variadic-parameters] in Swift allow zero or more values of the same type to be passed into a single parameter in a function. This is indicated by appending `...` to the type annotation of the parameter.
+[Variadic parameters][variadic-parameters] allow a function to accept zero or more values of a specified type for a single parameter.
+You define a variadic parameter by appending three dots (`...`) to the parameter's type annotation.
 
-These values will be automatically grouped into an array with elements of the same type as the type of the variadic parameter.
+Inside the function body, Swift makes these values available as an array of the specified type:
 
 ```swift
+import Foundation
+
 func geometricMean(_ numbers: Double...) -> Double {
-  var total = 1.0
-  for number in numbers {
-      total *= number
-  }
-  return pow(total, 1.0 / Double(numbers.count))
+    var total = 1.0
+    for number in numbers {
+        total *= number
+    }
+    return pow(total, 1.0 / Double(numbers.count))
 }
 
-geometricMean(1, 2, 3, 4, 5)
-// => 2.605171084697352
+let result = geometricMean(1, 2, 3, 4, 5)
+// result is 2.605171084697352
 ```
 
-Note that when using variadic parameters, Swift has a limitation.
-If a function has parameters that follow the variadic parameter in the definition, the first parameter following the variadic parameter is _required_ to have an argument label.
+~~~~exercism/note
+If a function includes additional parameters after a variadic parameter, the first parameter following the variadic parameter **must** have an explicit argument label so Swift knows where the variadic argument list ends.
+~~~~
+
 
 ## In-out parameters
 
@@ -70,6 +75,7 @@ There are a couple of extra rules one should be aware of regarding in-out parame
 
 1.  Inside a function with in-out parameters, you are not allowed to directly reference the variable that was also passed in as the in-out parameter.
 2.  The same variable cannot be passed as multiple in-out parameters in the same function.
+    For example, `inoutFunc(&mutVar, &mutVar)` raises a compiler error.
 
 ```swift
 var directVar = 0
@@ -100,24 +106,30 @@ inoutFunc(&mutVar, &mutVar)
 
 ## Nested functions
 
-Functions may be defined [inside of other functions][nested-functions].
-This is commonly used to create helper functions which are only useful to their enclosing function and so don't need to pollute the outside namespace.
+In Swift, you can define [functions inside other functions][nested-functions].
+These are known as **nested functions**.
 
-These functions are defined and called just like normal functions, but are not visible outside the enclosing function.
+Nested functions are commonly used as private helpers that perform specific tasks for the enclosing function without cluttering the outer scope:
 
 ```swift
 func makeNumber(_ number: Int) -> Int {
-  func double(_ x: Int) -> Int { 2 * x }
-  func add(_ x: Int) -> Int { x + 1 }
+    func double(_ x: Int) -> Int {
+        x * 2
+    }
 
-  return number.isMultiple(of: 2) ? add(double(number)) : double(number)
+    func increment(_ x: Int) -> Int {
+        x + 1
+    }
+
+    return number.isMultiple(of: 2) ? increment(double(number)) : double(number)
 }
 
-makeNumber(3)
-// Returns 6
-makeNumber(4)
-// Returns 9
+print(makeNumber(3)) // Prints 6
+print(makeNumber(4)) // Prints 9
 ```
+
+Nested functions behave like standard functions, but their visibility is restricted to the enclosing function's body.
+
 
 [nested-functions]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Nested-Functions
 [default-parameter-values]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Default-Parameter-Values

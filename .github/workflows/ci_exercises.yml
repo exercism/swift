@@ -10,7 +10,7 @@ on:
 jobs:
   run-exercises-tests-ubuntu:
     name: Run exercise tests for swift ${{ matrix.swift }} on Ubuntu
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     strategy:
       matrix:
         swift: ["6.0", "6.1", "6.2"]
@@ -20,7 +20,7 @@ jobs:
       RUNALL: "true"
     steps:
       - name: Checkout code
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
       - name: Run tests
         run: swift test
 
@@ -37,6 +37,6 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
     steps:
       - name: Checkout code
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
       - name: Run tests
         run: swift test

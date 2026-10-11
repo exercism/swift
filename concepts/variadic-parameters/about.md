@@ -1,23 +1,27 @@
-# Variadic parameters
+# About
 
-[_Variadic parameters_][variadic-parameters] in Swift allow zero or more values of the same type to be passed into a single parameter in a function. This is indicated by appending `...` to the type annotation of the parameter.
+[Variadic parameters][variadic-parameters] allow a function to accept zero or more values of a specified type for a single parameter.
+You define a variadic parameter by appending three dots (`...`) to the parameter's type annotation.
 
-These values will be automatically grouped into an array with elements of the same type as the type of the variadic parameter.
+Inside the function body, Swift makes these values available as an array of the specified type:
 
 ```swift
+import Foundation
+
 func geometricMean(_ numbers: Double...) -> Double {
-  var total = 1.0
-  for number in numbers {
-      total *= number
-  }
-  return pow(total, 1.0 / Double(numbers.count))
+    var total = 1.0
+    for number in numbers {
+        total *= number
+    }
+    return pow(total, 1.0 / Double(numbers.count))
 }
 
-geometricMean(1, 2, 3, 4, 5)
-// => 2.605171084697352
+let result = geometricMean(1, 2, 3, 4, 5)
+// result is 2.605171084697352
 ```
 
-Note that when using variadic parameters, Swift has a limitation.
-If a function has parameters that follow the variadic parameter in the definition, the first parameter following the variadic parameter is _required_ to have an argument label.
+~~~~exercism/note
+If a function includes additional parameters after a variadic parameter, the first parameter following the variadic parameter **must** have an explicit argument label so Swift knows where the variadic argument list ends.
+~~~~
 
 [variadic-parameters]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Variadic-Parameters

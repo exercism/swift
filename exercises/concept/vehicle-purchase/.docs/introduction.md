@@ -1,52 +1,49 @@
-# About
+# Introduction
 
-## Comparison operators
+## Comparison Operators
 
-[Comparison operators][comparison-operators] are used to compare values and return a `true` or `false` value.
-These operators require 2 values to be compared of the same type.
-If the values are not of the same type then the compiler will throw an error.
-Here is a list of the comparison operators and an example of when they give a `true` value:
+[Comparison operators][comparison-operators] compare two values of the same type and return a `Bool` value (`true` or `false`).
+If you try to compare values of different types, the compiler produces an error.
 
-| Method | Description           | Example |
-| ------ | --------------------- | ------- |
-| ==     | equal                 | 1 == 1  |
-| !=     | not equal             | 1 != 2  |
-| <      | less than             | 4 < 5   |
-| <=     | less than or equal    | 4 <= 4  |
-| >      | greater than          | 3 > 1   |
-| >=     | greater than or equal | 2 >= 2  |
+The standard comparison operators in Swift are:
 
-## If & Else statements
+| Operator | Description              | Example         |
+| -------- | ------------------------ | --------------- |
+| `==`     | Equal to                 | `1 == 1` (true) |
+| `!=`     | Not equal to             | `1 != 2` (true) |
+| `<`      | Less than                | `4 < 5`  (true) |
+| `<=`     | Less than or equal to    | `4 <= 4` (true) |
+| `>`      | Greater than             | `3 > 1`  (true) |
+| `>=`     | Greater than or equal to | `2 >= 2` (true) |
 
-A [conditional statement][conditional-statement] allows you to execute code based on a condition which is either `true` or `false`.
-The most basic conditional statement is an [if statement][if] which executes code when the condition is `true`.
-To declare an if statement you use the `if` keyword followed by the condition and then the code to execute in curly braces.
+## If and Else Statements
+
+A [conditional statement][conditional-statement] executes code based on whether a condition evaluates to `true` or `false`.
+The most common conditional is an [if statement][if], which runs a block of code only when its condition is `true`.
+Write an `if` statement using the `if` keyword, followed by the condition and the code block enclosed in curly braces:
 
 ```swift
 let wheelCount = 4
 if wheelCount == 4 {
-  print("Your vehicle is a car")
+    print("Your vehicle is a car")
 }
 // Prints "Your vehicle is a car"
 ```
 
-If can be combined with else to execute code when the condition is `false`.
-The else statement needs to be used with an if statement and cannot be used on its own.
-To declare an else statement you use the `else` keyword after an if statements curly braces, followed by the code to execute in curly braces.
+You can pair `if` with an `else` clause to run alternative code when the condition is `false`:
 
 ```swift
 let precipitationInMM = 0.5
 if precipitationInMM > 0.5 {
-  print("You will need an umbrella")
+    print("You will need an umbrella")
 } else {
-  print("You will not need an umbrella")
+    print("You will not need an umbrella")
 }
 // Prints "You will not need an umbrella"
 ```
 
-If statements can also be chained together using else if to check multiple conditions.
-It follows the same principle as defining an if statement but the keyword is `else if` instead of `if`.
-As If statement don't they need an else statement to be valid, but they can have one if needed.
+To test multiple conditions in sequence, chain statements together using `else if`.
+An `if` statement does not require an `else` branch, but you can include one to handle cases when none of the conditions match:
 
 ```swift
 let favoriteFruit = "Apple"
@@ -58,37 +55,37 @@ if favoriteFruit == "Banana" {
 } else if favoriteFruit == "Apple" {
     print("Your favorite fruit is an apple")
 } else {
-    print("Your favorite fruit is not a banana, orange or apple")
+    print("Your favorite fruit is not a banana, orange, or apple")
 }
 // Prints "Your favorite fruit is an apple"
 ```
 
-## If expression
+## If Expressions
 
-If statements can also be used as expressions to assign a value to a variable.
-The last statement in the if block is used as the value of the if expression.
-This can be useful when you want to assign a value to a variable based on a condition.
+In modern Swift, `if` statements can also be used as expressions that produce a value.
+Each branch evaluates to a value, making it easy to assign results conditionally:
 
 ```swift
-let CpuBits = 32
-let largest = if CpuBits == 64 {
-  "x86_64"
+let cpuBits = 32
+let architecture = if cpuBits == 64 {
+    "x86_64"
 } else {
-  "x86_32"
+    "x86_32"
 }
 
-print(largest)
+print(architecture)
 // Prints "x86_32"
 ```
 
 ## Ternary operator
 
-[Ternary operator][ternary-operator] is a short form of an if-else statement.
-It takes a boolean expression and two expressions separated by a colon.
-The first expression is evaluated if the boolean expression is true, otherwise the second expression is evaluated.
-It has the following setup: `Boolean-expression ? expression1 : expression2`.
+The [ternary conditional operator][ternary-operator] is a concise shorthand for an `if-else` expression.
+It evaluates a condition and returns one of two values depending on whether that condition is `true` or `false`.
 
-The ternary operator is great when you want a short form of an if-else statement and the expressions are short:
+The operator uses three parts: `condition ? trueExpression : falseExpression`.
+If `condition` evaluates to `true`, `trueExpression` is evaluated and returned; otherwise, `falseExpression` is evaluated and returned.
+
+The ternary operator is ideal for simple, one-line choices:
 
 ```swift
 let showFahrenheit = true
@@ -99,8 +96,8 @@ print(temperature)
 // Prints 86
 ```
 
-The example above is shorthand for the code below:
-    
+The example above is a compact equivalent to:
+
 ```swift
 let showFahrenheit = true
 let temperatureInCelsius = 30

@@ -1,76 +1,72 @@
-# Ranges
+# About
 
 [Ranges][range] represent an interval between two values.
-The most common types that support ranges are `Int`, `String`, and `Date`.
-They can be used for many things, such as quickly creating a collection, slicing an array, checking if a value is in a range, and iteration.
-They are created using the range operator `...` or `..<` (inclusive and exclusive, respectively).
+Ranges are commonly used with types like `Int`, `String`, and `Character` to iterate over sequences, slice collections, or check if a value falls within bounds.
+
+Swift provides two primary range operators:
+
+- **Closed range operator (`...`)**: Includes both the start and end values (`1...5` includes 1, 2, 3, 4, and 5).
+- **Half-open range operator (`..<`)**: Includes the start value but excludes the end value (`1..<5` includes 1, 2, 3, and 4).
 
 ```swift
-1...5 // A range containing 1, 2, 3, 4, 5
-1..<5 // A range containing 1, 2, 3, 4
+let closed = 1...5
+let halfOpen = 1..<5
 ```
 
-The reason for having two range operators is to create ranges that are inclusive or exclusive of the end value, which can be useful when, for example, working with zero-based indexes.
-
 ~~~~exercism/note
-When creating a range in Swift using the range operators `...` or `..<`, and wanting to call a method on the range, you need to wrap the range in parentheses.
-This is because otherwise the method will be called on the 2nd argument of the range operator.
+When calling a method directly on a range literal, wrap the range expression in parentheses so the compiler evaluates the range first:
 
 ```swift
 (1...5).contains(3) // Returns true
-1...5.contains(3) // => Error: value of type 'Int' has no member 'contains'
+// 1...5.contains(3) // Error: value of type 'Int' has no member 'contains'
 ```
 ~~~~
 
-## Convert a range to an array
+## Converting a Range to an Array
 
-To convert a range to an array, you can use the `Array` initializer.
-This can be useful when you want to create a collection of values, without having to write them out.
+You can convert a range of numbers into an `Array` using the `Array(_:)` initializer:
 
 ```swift
 let range = 1...5
-let array = Array(range)
-// Returns [1, 2, 3, 4, 5]
+let numbers = Array(range)
+// numbers is [1, 2, 3, 4, 5]
 ```
 
-## Slice an array
+## Slicing an Array with Ranges
 
-Ranges can be used to slice an array.
+You can use ranges to slice sub-sections of an array:
 
 ```swift
-let array = [1, 2, 3, 4, 5]
-// Returns [1, 2, 3, 4, 5]
+let array = [10, 20, 30, 40, 50]
 let slice = array[1...3]
-// Returns [2, 3, 4]
+// slice contains [20, 30, 40]
 ```
 
-## Range methods
+## Range Properties and Methods
 
-Ranges have a set of methods that can be used to work with them.
-For example, these methods can be used to get the sum of all the values in the range or check if the range includes a value.
+Common operations on ranges include:
 
-| Method                  | Description                                                             | Example                               |
-| ----------------------- | ----------------------------------------------------------------------- | ------------------------------------- |
-| `count`                 | Returns the size of the range                                           | `(1...5).count // returns 5`          |
-| [`contains`][contains]  | Returns `true` if the range includes the given value, otherwise `false` | `(1...5).contains(3) // Returns true` |
+| Member                  | Description                                                | Example                              |
+| ----------------------- | ---------------------------------------------------------- | ------------------------------------ |
+| `count`                 | Returns the number of elements in the range                | `(1...5).count` returns `5`          |
+| [`contains(_:)`][contains] | Returns `true` if the range includes the specified value | `(1...5).contains(3)` returns `true` |
 
-## Endless and beginless ranges
+## One-Sided Ranges
 
-A range can be endless and beginless.
+Swift also supports one-sided (partial) ranges, where you omit either the start or end value:
 
-Using endless and beginless ranges is useful when you want to, for example, slice an array from the beginning or to the end.
+- `array[2...]`: From index 2 to the end of the collection.
+- `array[...2]`: From the start of the collection up to and including index 2.
+- `array[..<2]`: From the start of the collection up to (but not including) index 2.
 
-~~~~exercism/caution
-If not used on a collection, the endless range can cause an endless sequence, if not used with caution.
-~~~~
+## String and Character Ranges
 
-## String ranges
-
-String can be used in ranges and allow you to get an interval of Strings between two Strings.
-For example, this can be handy when you want to get the alphabet.
+Ranges can also be created between characters or strings that conform to `Comparable`:
 
 ```swift
-"a"..."z" // A range containing ["a", "b", "c", ..., "z"]
+let letters = "a"..."z"
+print(letters.contains("m")) // Prints true
+print(letters.contains("A")) // Prints false
 ```
 
 [range]: https://developer.apple.com/documentation/swift/range

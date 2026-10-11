@@ -37,6 +37,11 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     #expect(try! classify(number: 33_550_335) == .abundant)
   }
 
+  @Test("Perfect square abundant number is classified correctly", .enabled(if: RUNALL))
+  func testPerfectSquareAbundantNumberIsClassifiedCorrectly() {
+    #expect(try! classify(number: 196) == .abundant)
+  }
+
   @Test("Smallest prime deficient number is classified correctly", .enabled(if: RUNALL))
   func testSmallestPrimeDeficientNumberIsClassifiedCorrectly() {
     #expect(try! classify(number: 2) == .deficient)

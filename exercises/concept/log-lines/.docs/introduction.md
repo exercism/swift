@@ -1,128 +1,118 @@
 # Introduction
 
-Enums in Swift are a mechanism of creating new types which are inhabited by a finite number of named values which may carry additional associated information, and can have properties and methods attached to them.
+When modeling data that can only take on a specific set of possible states—such as days of the week, compass directions, or buttons on a controller—basic types like `Int` or `String` have major drawbacks.
+With integers or strings, your code must constantly check for invalid values (like a status code of `999` or a typo like `"leftt"`), and human readers cannot easily tell what numbers represent.
+
+Swift solves this problem with [_Enumerations_][enumerations] (often shortened to *enums*).
+An enum defines a common type for a group of related, named values. Because the compiler knows all possible cases ahead of time, it can check your code for accuracy and completeness at compile time.
+Enums can also have methods, initializers, and computed properties.
 
 ## Defining Enums
 
-The most basic enums are defined as seen below.
+Define an enum using the `enum` keyword followed by the type name, with its cases listed inside curly braces.
+By Swift convention, the type name uses `UpperCamelCase`, while each case uses `lowerCamelCase`:
 
 ```swift
 enum NESButton {
-  case up
-  case down
-  case left
-  case right
-  case a
-  case b
-  case select
-  case start
+    case up
+    case down
+    case left
+    case right
+    case a
+    case b
+    case select
+    case start
 }
 ```
 
-For brevity, multiple cases can also be written on a single line, separated by commas, with a single `case` keyword.
+You can also define multiple cases on a single line separated by commas:
 
 ```swift
 enum NESButton {
-  case up, down, left, right, a, b, select, start
+    case up, down, left, right, a, b, select, start
 }
 ```
 
-This defines a new type named `NESButton` with possible values `up`, `down`, `left`, `right`, `a`, `b`, `select`, and `start`. These values can be referred to by following the name of the type with a dot (`.`) and the value. In cases where the type name can be inferred, only the dot and value are needed.
+To refer to an enum case, write the enum type name, a dot (`.`), and the case name. Once the type is known or can be inferred by the compiler, you can omit the type name and use the shorter dot syntax:
 
-## Methods
+```swift
+var lastPressed = NESButton.up
 
-Like other types in Swift, enums may contain methods which allow the enum to provide functionality based on the current value of the enum.
+// Swift infers the type, so you can omit the type name:
+lastPressed = .down
 
-Methods are analogous to functions, only they are defined inside the body of the enum and they are tied to the current enum value. They are accessed via _dot notation_ where the name of the enum value is followed by a dot (`.`) and the name of the method and its parameters.
+let konamiCode: [NESButton] = [.up, .up, .down, .down, .left, .right, .left, .right, .b, .a]
+```
 
-Inside the method, the enum value can be referred to as `self`, and in the type signature, if one is accepting as a parameter or returning a value of the enum they can refer to the type as `Self`.
+## Methods and Initializers
 
-### Initializers
-
-Initializers are special methods that are used to set up a value of the enum. Their definition looks a lot like that of a method only there is no `func` keyword, no return type, and the name must be `init` and the initializer _must_ assign a value of the enum to `self`. Initializers are called either via dot notation or by passing the initializer's parameters to the name of the enum.
+Enums can define methods and custom initializers just like classes and structs. Inside an enum method, `self` refers to the current case value:
 
 ```swift
 enum Coin {
-  case heads
-  case tails
+    case heads
+    case tails
 
-  init(_ i: Int) {
-    if i.isMultiple(of: 2) {
-      self = .heads
-    } else {
-      self = .tails
+    init(_ value: Int) {
+        if value.isMultiple(of: 2) {
+            self = .heads
+        } else {
+            self = .tails
+        }
     }
-  }
 
-  func flip() -> Self {
-    switch self {
-    case .heads: return .tails
-    case .tails: return .heads
+    func flip() -> Coin {
+        switch self {
+        case .heads: return .tails
+        case .tails: return .heads
+        }
     }
-  }
 }
 
-let tails = Coin.init(13)
-// .tails
-let heads = Coin(0)
-// .heads
-let anotherTails = heads.flip()
-// .tails
+let tails = Coin(13)     // .tails
+let heads = Coin(0)      // .heads
+let flipped = heads.flip() // .tails
 ```
 
-### Raw values
+## Raw Values
 
-Enums can also carry with them an internal value known as a _raw value_. The raw values must all be of the same type, which is declared in the definition of the enum. So we could assign, e.g. Character values to our `NESButton` enum by altering the definition:
+Enum cases can be prepopulated with default values called [_raw values_][raw-values].
+All raw values in an enum must share the same type (such as `Int`, `String`, or `Character`):
 
 ```swift
 enum NESButton: Character {
-  case up = "⬆️"
-  case down = "⬇️"
-  case left = "⬅️"
-  case right = "➡️"
-  case a = "🅰️"
-  case b = "🅱️"
-  case select = "✅"
-  case start = "🚦"
+    case up = "⬆️"
+    case down = "⬇️"
+    case left = "⬅️"
+    case right = "➡️"
+    case a = "🅰️"
+    case b = "🅱️"
+    case select = "✅"
+    case start = "🚦"
 }
+
+print(NESButton.left.rawValue) // Prints "⬅️"
 ```
 
-Here, the `: Character` tells the compiler that the raw values will be of type `Character` and the assignment of the raw value follows each value.
-
-Raw values can be accessed through each value's automatically generated `rawValue` property.
+You can initialize an enum from a raw value using `init(rawValue:)`. Because an invalid raw value might be provided, this initializer returns an optional:
 
 ```swift
-NESButton.left.rawValue
-// => "⬅️"
-NESButton.b.rawValue
-// => "🅱️"
+let upButton = NESButton(rawValue: "⬆️") // Optional(NESButton.up)
+let invalid = NESButton(rawValue: "🙄")  // nil
 ```
 
-Swift can implicitly assign raw values for `String` and `Int` raw values. If a raw value type of `String` is specified, the raw value will be implicitly assigned to the name on the value as a String unless the implicit value is overridden with an explicit assignment.
+Swift can automatically assign raw values for `String` and `Int` enums:
 
-If a raw value type of `Int` is specified, the raw value will be implicitly assigned to an int 1 greater than the previous case's raw value, unless overridden with an explicit assignment. The default raw value for the first case is 0 unless otherwise specified.
+- For `String` enums, each case's raw value defaults to its case name.
+- For `Int` enums, raw values start at `0` and increment by 1 unless specified otherwise.
 
 ```swift
-enum Coin: String {
-  case heads
-  case tails = "eagle"
+enum Planet: Int {
+    case mercury = 1, venus, earth, mars
 }
 
-Coin.heads.rawValue
-// => "heads"
-Coin.tails.rawValue
-// => "eagle"
-
-enum Dwarf: Int {
-  case grumpy, sleepy, sneezy, happy = 8, bashful, dopey, doc
-}
-
-Dwarf.grumpy.rawValue
-// => 0
-Dwarf.sneezy.rawValue
-// => 2
-Dwarf.happy.rawValue
-// => 8
-Dwarf.bashful.rawValue
-// => 9
+print(Planet.earth.rawValue) // Prints 3
 ```
+
+[enumerations]: https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html
+[raw-values]: https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html#ID149

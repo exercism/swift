@@ -18,7 +18,7 @@ struct NumberSeries {
   }
 
   func largestProduct(_ numberOfDigits: Int) throws -> Int {
-    guard numberOfDigits >= 0 else {
+    guard numberOfDigits > 0 else {
       throw NumberSeriesError.spanIsZeroOrNegative
     }
 

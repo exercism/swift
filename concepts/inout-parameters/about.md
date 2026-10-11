@@ -27,6 +27,7 @@ There are a couple of extra rules one should be aware of regarding in-out parame
 
 1.  Inside a function with in-out parameters, you are not allowed to directly reference the variable that was also passed in as the in-out parameter.
 2.  The same variable cannot be passed as multiple in-out parameters in the same function.
+    For example, `inoutFunc(&mutVar, &mutVar)` raises a compiler error.
 
 ```swift
 var directVar = 0
