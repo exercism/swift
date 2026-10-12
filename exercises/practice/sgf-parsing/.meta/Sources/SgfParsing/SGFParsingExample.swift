@@ -1,153 +1,111 @@
-import Foundation
-
-/*
-    Backus–Naur form for Smart Game Format
-
-    Collection = GameTree+
-    GameTree   = "(" Sequence GameTree* ")"
-    Sequence   = Node+
-    Node       = ";" Property*
-    Property   = PropIdent PropValue+
-    PropIdent  = UcLetter+
-    PropValue  = "[" CValueType "]"
-    CValueType = (ValueType | Compose)
-    ValueType  = (None | Number | Real | Double | Color | SimpleText | Text | Point | Move | Stone)
-    ; Compose — это специальный тип для парных значений, например "dd:pp"
-    Compose    = ValueType ":" ValueType
-*/
-
-enum SGFParsingError: Error {
-    case missingTree
-    case noNodes
-    case noDelimiter
-    case lowerCaseProperty
-    case parsingError
-}
-
-struct SGFTree: Codable, Equatable {
-    var properties: [String: [String]] = [:]
-    var children: [SGFTree] = []
-}
+// Taken from https://exercism.org/tracks/swift/exercises/sgf-parsing/solutions/cosmichearse
 
 func parse(_ encoded: String) throws -> SGFTree {
-    let cursor = StringCursor(encoded)
-    return try parseGameTree(cursor)
-}
+    var index = encoded.startIndex
 
-// MARK: - Parsing
+    func peek() -> Character? {
+        guard index < encoded.endIndex else { return nil }
 
-fileprivate func parseGameTree(_ cursor: StringCursor) throws -> SGFTree {
-    try expect("(", in: cursor, error: .missingTree)
-    var node = try parseSequence(cursor)
-
-    cursor.skipWhitespace()
-    while cursor.current == "(" {
-        node.children.append(try parseGameTree(cursor))
+        return encoded[index]
     }
 
-    try expect(")", in: cursor, error: .parsingError)
-    return node
-    
-}
-
-fileprivate func parseSequence(_ cursor: StringCursor) throws -> SGFTree {
-    var node = try parseNode(cursor)
-    cursor.skipWhitespace()
-    if cursor.current == ";" {
-        node.children = [try parseSequence(cursor)]
-    }
-    return node
-}
-
-fileprivate func parseNode(_ cursor: StringCursor) throws -> SGFTree {
-    try expect(";", in: cursor, error: .noNodes)
-    cursor.skipWhitespace()
-
-    var properties = [String: [String]]()
-    while let current = cursor.current, current.isLetter {
-        let (key, values) = try parseProperty(cursor)
-        properties[key] = values
-        cursor.skipWhitespace()
-    }
-    return SGFTree(properties: properties, children: []) 
-}
-
-fileprivate func parseProperty(_ cursor: StringCursor) throws -> (key: String, values: [String]) {
-    cursor.skipWhitespace()
-    let key = try readKey(cursor)
-    guard !key.isEmpty else { throw SGFParsingError.parsingError }
-    guard cursor.current == "[" else { throw SGFParsingError.noDelimiter } 
-
-    var values = [String]()
-    while cursor.current == "[" {
-        values.append(try parseValue(cursor))
+    func advance() {
+        index = encoded.index(after: index)
     }
 
-    return (key, values)
-}
+    func parseValue() -> String {
+        var result = ""
 
-fileprivate func parseValue(_ cursor: StringCursor) throws -> String {
-    try expect("[", in: cursor, error: .noDelimiter)
-    var buffer = ""
+        while let ch = peek(), ch != "]" {
+            advance()
 
-    while let current = cursor.current {
-        switch current {
-        case "]":
-            cursor.advance()
-            return buffer
-
-        case "\t":
-            buffer.append(" ")
-
-        case "\\":
-            cursor.advance()
-            guard let next = cursor.current else {
-                throw SGFParsingError.parsingError
+            if ch == "\\" {
+                guard let next = peek() else { break }
+                advance()
+                if next == "\n" {
+                    // escaped newline → nothing
+                } else if next == "\t" || next == " " {
+                    result.append(" ")
+                } else {
+                    result.append(next)
+                }
+            } else if ch == "\t" {
+                result.append(" ")
+            } else {
+                result.append(ch)
             }
-            switch (next) {
-                case "\n":
-                    break
+        }
 
-                case "\t":
-                    buffer.append(" ")
+        advance() // skip ']'
 
-                default: 
-                    buffer.append(next)
+        return result
+    }
+
+    func parseProperties() throws -> [String: [String]] {
+        var properties: [String: [String]] = [:]
+
+        while let ch = peek(), ch.isLetter {
+            guard ch.isUppercase else {
+                throw SGFParsingError.lowerCaseProperty
             }
 
+            var key = ""
+            while let k = peek(), k.isUppercase {
+                key.append(k)
+                advance()
+            }
 
-        default:
-            buffer.append(current)
+            if let k = peek(), k.isLowercase {
+                throw SGFParsingError.lowerCaseProperty
+            }
+
+            guard peek() == "[" else {
+                throw SGFParsingError.noDelimiter
+            }
+
+            var values: [String] = []
+            while peek() == "[" {
+                advance() // skip '['
+                values.append(parseValue())
+            }
+            properties[key, default: []].append(contentsOf: values)
         }
-        cursor.advance()
-    }
-    throw SGFParsingError.parsingError   
-}
 
-fileprivate func readKey(_ cursor: StringCursor) throws -> String {
-    var key = ""
-    while let current = cursor.current, current != "[" {
-        guard current.isLetter else {
-            return key
+        return properties
+    }
+
+    func parseNode() throws -> SGFTree {
+        advance() // skip ';'
+        let properties = try parseProperties()
+        var children: [SGFTree] = []
+
+        if peek() == ";" {
+            children.append(try parseNode())
+        } else {
+            while peek() == "(" {
+                children.append(try parseTree())
+            }
         }
-        guard current.isUppercase else {
-            throw SGFParsingError.lowerCaseProperty
+
+        return SGFTree(properties: properties, children: children)
+    }
+
+    func parseTree() throws -> SGFTree {
+        guard peek() == "(" else {
+            throw SGFParsingError.missingTree
         }
-        key.append(current)
-        cursor.advance()
-    }
-    return key
-}
+        advance() // skip '('
 
-fileprivate func expect(
-    _ char: Character,
-    in cursor: StringCursor,
-    error: SGFParsingError
-) throws {
-    cursor.skipWhitespace()
-    guard let current = cursor.current, current == char else {
-        throw error
-    }
-    cursor.advance()
-}
+        guard peek() == ";" else {
+            throw SGFParsingError.noNodes
+        }
 
+        let tree = try parseNode()
+
+        advance() // skip ')'
+
+        return tree
+    }
+
+    return try parseTree()
+}
