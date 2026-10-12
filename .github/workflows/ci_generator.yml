@@ -16,7 +16,7 @@ jobs:
     name: Run generator unit tests
     runs-on: ubuntu-26.04
     container:
-      image: swift:6.2
+      image: swift:6.4
     steps:
       - name: Checkout code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
@@ -27,7 +27,7 @@ jobs:
     name: Test generator usage on Ubuntu
     runs-on: ubuntu-26.04
     container:
-      image: swift:6.2
+      image: swift:6.4
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
