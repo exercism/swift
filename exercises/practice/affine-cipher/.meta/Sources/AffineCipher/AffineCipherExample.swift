@@ -1,7 +1,3 @@
-enum AffineCipherError: Error {
-    case keysNotCoprime
-}
-
 struct AffineCipher {
     let alphabet: String
     let alphabetCount: Int
