@@ -34,18 +34,3 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
       - name: Run tests
         run: swift test
-    name: Run exercise tests on macOS ${{ matrix.macOS }} with Xcode ${{ matrix.xcode }}
-    runs-on: macos-${{ matrix.macOS }}
-    strategy:
-      matrix:
-        include:
-          - macOS: 27
-            xcode: 27
-    env:
-      RUNALL: "true"
-      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
-      - name: Run tests
-        run: swift test
