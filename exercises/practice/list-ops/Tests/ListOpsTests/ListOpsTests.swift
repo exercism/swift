@@ -147,10 +147,17 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
     #expect(list == expected)
   }
 
-  @Test("non-empty list", .enabled(if: RUNALL))
-  func testNonEmptyList8() {
+  @Test("non-empty even-length list", .enabled(if: RUNALL))
+  func testNonEmptyEvenLengthList8() {
     let list = ListOps.reverse([1, 3, 5, 7])
     let expected = [7, 5, 3, 1]
+    #expect(list == expected)
+  }
+
+  @Test("non-empty odd-length list", .enabled(if: RUNALL))
+  func testNonEmptyOddLengthList8() {
+    let list = ListOps.reverse([1, 3, 5, 7, 9, 11, 13])
+    let expected = [13, 11, 9, 7, 5, 3, 1]
     #expect(list == expected)
   }
 
