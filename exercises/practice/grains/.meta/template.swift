@@ -29,7 +29,7 @@ let RUNALL = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"
         }
         {% endfor -%}
         {%- else %}
-        @Test("{{subCases.description}}", .enabled(if: RUNALL))
+        @Test("{{case.description}}", .enabled(if: RUNALL))
         func test{{subCases.description |camelCase }}{{ forloop.outer.counter }}() {
         #expect(Grains.total == {{case.expected}})
         }
