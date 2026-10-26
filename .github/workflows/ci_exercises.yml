@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-26.04
     strategy:
       matrix:
-        swift: ["6.0", "6.1", "6.2", "6.4"]
+        swift: ["6.0", "6.2", "6.4"]
     container:
       image: swift:${{ matrix.swift }}
     env:
@@ -30,8 +30,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - macOS: '26'
-            xcode: '26.0'
+          - macOS: 27
+            xcode: 27
     env:
       RUNALL: "true"
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app

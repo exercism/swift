@@ -36,12 +36,12 @@ jobs:
 
   run-generator-usage-tests-macos:
     name: Test generator usage on macOS ${{ matrix.macOS }} with Xcode ${{ matrix.xcode }}
-    runs-on: macos-${{ matrix.macOS }}
+    runs-on: xcode-27
     strategy:
       matrix:
         include:
-          - macOS: '26'
-            xcode: '27.0'
+          - macOS: 27
+            xcode: 27
     env:
       RUNALL: "true"
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
