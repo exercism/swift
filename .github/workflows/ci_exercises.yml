@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-26.04
     strategy:
       matrix:
-        swift: ["6.0", "6.1", "6.2"]
+        swift: ["6.0", "6.2", "6.4"]
     container:
       image: swift:${{ matrix.swift }}
     env:
@@ -25,16 +25,10 @@ jobs:
         run: swift test
 
   run-exercises-tests-macos:
-    name: Run exercise tests on macOS ${{ matrix.macOS }} with Xcode ${{ matrix.xcode }}
-    runs-on: macos-${{ matrix.macOS }}
-    strategy:
-      matrix:
-        include:
-          - macOS: '26'
-            xcode: '26.0'
+    name: Run exercise tests on Xcode 27
+    runs-on: xcode-27
     env:
       RUNALL: "true"
-      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
     steps:
       - name: Checkout code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
