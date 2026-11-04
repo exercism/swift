@@ -1,5 +1,7 @@
 # Introduction
 
+## Enumerations
+
 When modeling data that can only take on a specific set of possible states—such as days of the week, compass directions, or buttons on a controller—basic types like `Int` or `String` have major drawbacks.
 With integers or strings, your code must constantly check for invalid values (like a status code of `999` or a typo like `"leftt"`), and human readers cannot easily tell what numbers represent.
 
@@ -7,7 +9,7 @@ Swift solves this problem with [_Enumerations_][enumerations] (often shortened t
 An enum defines a common type for a group of related, named values. Because the compiler knows all possible cases ahead of time, it can check your code for accuracy and completeness at compile time.
 Enums can also have methods, initializers, and computed properties.
 
-## Defining Enums
+### Defining Enums
 
 Define an enum using the `enum` keyword followed by the type name, with its cases listed inside curly braces.
 By Swift convention, the type name uses `UpperCamelCase`, while each case uses `lowerCamelCase`:
@@ -44,7 +46,7 @@ lastPressed = .down
 let konamiCode: [NESButton] = [.up, .up, .down, .down, .left, .right, .left, .right, .b, .a]
 ```
 
-## Methods and Initializers
+### Methods and Initializers
 
 Enums can define methods and custom initializers just like classes and structs. Inside an enum method, `self` refers to the current case value:
 
@@ -74,7 +76,7 @@ let heads = Coin(0)      // .heads
 let flipped = heads.flip() // .tails
 ```
 
-## Raw Values
+### Raw Values
 
 Enum cases can be prepopulated with default values called [_raw values_][raw-values].
 All raw values in an enum must share the same type (such as `Int`, `String`, or `Character`):

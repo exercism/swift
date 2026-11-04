@@ -1,6 +1,8 @@
 # Introduction
 
-## Comparison Operators
+## Conditionals
+
+### Comparison Operators
 
 [Comparison operators][comparison-operators] compare two values of the same type and return a `Bool` value (`true` or `false`).
 If you try to compare values of different types, the compiler produces an error.
@@ -16,7 +18,7 @@ The standard comparison operators in Swift are:
 | `>`      | Greater than             | `3 > 1`  (true) |
 | `>=`     | Greater than or equal to | `2 >= 2` (true) |
 
-## If and Else Statements
+### If and Else Statements
 
 A [conditional statement][conditional-statement] executes code based on whether a condition evaluates to `true` or `false`.
 The most common conditional is an [if statement][if], which runs a block of code only when its condition is `true`.
@@ -60,7 +62,7 @@ if favoriteFruit == "Banana" {
 // Prints "Your favorite fruit is an apple"
 ```
 
-## If Expressions
+### If Expressions
 
 In modern Swift, `if` statements can also be used as expressions that produce a value.
 Each branch evaluates to a value, making it easy to assign results conditionally:

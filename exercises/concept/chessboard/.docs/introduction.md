@@ -1,5 +1,7 @@
 # Introduction
 
+## Ranges
+
 [Ranges][range] represent an interval between two values.
 Ranges are commonly used with types like `Int`, `String`, and `Character` to iterate over sequences, slice collections, or check if a value falls within bounds.
 
@@ -22,7 +24,7 @@ When calling a method directly on a range literal, wrap the range expression in 
 ```
 ~~~~
 
-## Converting a Range to an Array
+### Converting a Range to an Array
 
 You can convert a range of numbers into an `Array` using the `Array(_:)` initializer:
 
@@ -32,7 +34,7 @@ let numbers = Array(range)
 // numbers is [1, 2, 3, 4, 5]
 ```
 
-## Slicing an Array with Ranges
+### Slicing an Array with Ranges
 
 You can use ranges to slice sub-sections of an array:
 
@@ -42,7 +44,7 @@ let slice = array[1...3]
 // slice contains [20, 30, 40]
 ```
 
-## Range Properties and Methods
+### Range Properties and Methods
 
 Common operations on ranges include:
 
@@ -51,7 +53,7 @@ Common operations on ranges include:
 | `count`                 | Returns the number of elements in the range                | `(1...5).count` returns `5`          |
 | [`contains(_:)`][contains] | Returns `true` if the range includes the specified value | `(1...5).contains(3)` returns `true` |
 
-## One-Sided Ranges
+### One-Sided Ranges
 
 Swift also supports one-sided (partial) ranges, where you omit either the start or end value:
 
@@ -59,7 +61,7 @@ Swift also supports one-sided (partial) ranges, where you omit either the start 
 - `array[...2]`: From the start of the collection up to and including index 2.
 - `array[..<2]`: From the start of the collection up to (but not including) index 2.
 
-## String and Character Ranges
+### String and Character Ranges
 
 Ranges can also be created between characters or strings that conform to `Comparable`:
 

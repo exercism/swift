@@ -1,4 +1,6 @@
-# About
+# Introduction
+
+## Closures
 
 [Closures][closures] in Swift are self-contained blocks of code that can be passed parameters to trigger their computation and return values
 Closures also capture values from their environment and use them in their computations.

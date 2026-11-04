@@ -2,6 +2,8 @@
 
 ## Numbers
 
+### Numbers
+
 Swift provides two primary categories of numbers: integers and floating-point numbers.
 
 - [Integers][integers] represent whole numbers with no fractional component, such as `0`, `1`, `-1`, `42`, and `-273`.
@@ -19,7 +21,7 @@ let giga: Double = 1_000_000_000              // Double with readability undersc
 let plancksConstant: Double = 6.62607015e-34  // Double in scientific notation
 ```
 
-## Arithmetic Operators
+### Arithmetic Operators
 
 Swift provides standard [arithmetic operators][arithmetic-operators] for numeric calculations:
 
@@ -34,7 +36,7 @@ Swift is type-safe and does not allow mixing different numeric types in arithmet
 You cannot directly add or multiply an `Int` and a `Double`; you must convert one type to match the other first.
 ~~~~
 
-### Division
+#### Division
 
 The `/` operator performs division.
 When both operands are integers, integer division truncates any fractional remainder:
@@ -57,7 +59,7 @@ print(0.0 / 0.0)  // Prints nan
 // print(5 / 0) // Error: Division by zero
 ```
 
-### Remainder Operator
+#### Remainder Operator
 
 The [remainder operator][remainder-operator] (`%`) calculates the remainder left over after dividing two integers:
 
@@ -79,7 +81,7 @@ The result always takes the sign of the first operand (the dividend), regardless
 ```
 ~~~~
 
-## Rounding Floating-Point Numbers
+### Rounding Floating-Point Numbers
 
 You can round a floating-point number using the `rounded()` method.
 By default, `rounded()` rounds to the nearest integer.
@@ -92,7 +94,7 @@ let w = x.rounded(.down) // 3.0
 let z = x.rounded(.up)   // 4.0
 ```
 
-## Type Inference
+### Type Inference
 
 When you declare a numeric constant or variable without a type annotation, Swift infers its type:
 
@@ -105,7 +107,7 @@ let y = 42.0       // Inferred as Double
 let z: Double = 42 // Explicitly typed as Double
 ```
 
-## Type Conversion
+### Type Conversion
 
 To perform operations between values of different types, convert one value using type initializers like `Double(_:)` or `Int(_:)`:
 

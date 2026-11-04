@@ -1,12 +1,14 @@
 # Introduction
 
+## Booleans
+
 Swift provides a built-in type called [`Bool`][bools] to represent truth values: `true` and `false`.
 
-## Logical Operators
+### Logical Operators
 
 Swift provides three [logical operators][logical-operators] (`!`, `&&`, and `||`) to combine and evaluate Boolean expressions.
 
-### Logical AND (`&&`)
+#### Logical AND (`&&`)
 
 The [_and_ operator][and] (`&&`) returns `true` only if both operands are `true`.
 If either operand is `false`, it returns `false`.
@@ -17,7 +19,7 @@ true && true  // true
 true && false // false
 ```
 
-### Logical OR (`||`)
+#### Logical OR (`||`)
 
 The [_or_ operator][or] (`||`) returns `true` if **at least one** of the operands is `true`.
 It returns `false` only when both operands are `false`.
@@ -29,7 +31,7 @@ true || false  // true
 false || false // false
 ```
 
-### Logical NOT (`!`)
+#### Logical NOT (`!`)
 
 The [_not_ operator][not] (`!`) inverts a Boolean value.
 It returns `true` if the value is `false`, and `false` if the value is `true`.
@@ -40,7 +42,7 @@ Place the `!` operator immediately before the value or expression:
 !false // true
 ```
 
-## Using Parentheses (`()`)
+### Using Parentheses (`()`)
 
 You can use [parentheses][explicit-parentheses] to group expressions and control the order of evaluation.
 In Swift, expressions inside parentheses are evaluated first:

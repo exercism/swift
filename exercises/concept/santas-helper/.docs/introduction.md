@@ -1,5 +1,7 @@
 # Introduction
 
+## Tuples
+
 [Tuples][tuples] group multiple values into a single compound value.
 Unlike arrays, the values in a tuple do not need to share the same type, and a tuple's size is fixed once created.
 
@@ -22,7 +24,7 @@ let item = order.0     // "biscuits"
 let quantity = order.2 // 3
 ```
 
-## Named Tuples
+### Named Tuples
 
 You can give names to individual tuple elements when defining the tuple:
 
@@ -43,7 +45,7 @@ You can also include element names in the type annotation:
 let order: (item: String, price: Double, quantity: Int) = (item: "biscuits", price: 2.99, quantity: 3)
 ```
 
-## Modifying Tuples
+### Modifying Tuples
 
 If a tuple is declared as a variable (`var`), you can update its elements:
 
@@ -57,7 +59,7 @@ print(order)
 // Prints ("cookies", 1.99, 5)
 ```
 
-## Returning Multiple Values
+### Returning Multiple Values
 
 While Swift functions can only return a single value, returning a tuple lets you package and [return multiple values][multiple-return-values] from a function:
 
@@ -73,7 +75,7 @@ print("Quotient: \(result.quotient), Remainder: \(result.remainder)")
 // Prints "Quotient: 3, Remainder: 2"
 ```
 
-## Tuple Decomposition
+### Tuple Decomposition
 
 You can decompose (unpack) a tuple's values into separate constants or variables:
 

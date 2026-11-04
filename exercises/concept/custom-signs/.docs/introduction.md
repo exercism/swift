@@ -1,5 +1,7 @@
 # Introduction
 
+## Characters and Strings
+
 A string represents textual data.
 In Swift, a [`String`][strings-and-characters] is an ordered collection of `Character` values, where each character represents a Unicode character.
 
@@ -19,7 +21,7 @@ And so are you.
 
 Swift strings bridge seamlessly with the Foundation framework's [`NSString`][nsstring-docs] class, providing access to extensive text-processing capabilities.
 
-## Characters
+### Characters
 
 A `Character` represents a single extended grapheme cluster—a human-readable character composed of one or more [Unicode scalar values][unicode-scalar-values].
 A Unicode scalar value is a 21-bit code point in the range `U+0000` to `U+D7FF` inclusive or `U+E000` to `U+10FFFF` inclusive.
@@ -28,7 +30,7 @@ A Unicode scalar value is a 21-bit code point in the range `U+0000` to `U+D7FF` 
 let aChar: Character = "A"
 ```
 
-## Type Inference
+### Type Inference
 
 When you write a string literal, Swift automatically infers its type as `String`.
 To store a single character as a `Character`, you must provide an explicit type annotation:
@@ -44,7 +46,7 @@ let badChar: Character = "Too many characters"
 // Error: Cannot convert value of type 'String' to specified type 'Character'
 ```
 
-## Concatenation
+### Concatenation
 
 You can join strings together using the addition operator (`+`):
 
@@ -68,7 +70,7 @@ greeting.append(period)
 print(greeting) // Prints "Hello, world."
 ```
 
-## String Interpolation
+### String Interpolation
 
 [String interpolation][string-interpolation] allows you to construct a string by embedding constants, variables, literals, and expressions inside string literals.
 Wrap each expression in parentheses preceded by a backslash (`\(` ... `)`):
@@ -79,11 +81,11 @@ let circle = "The area of a circle with radius \(radius) is \(Double.pi * radius
 print(circle) // Prints "The area of a circle with radius 5.0 is 78.53981633974483"
 ```
 
-## String and Character Properties
+### String and Character Properties
 
 Strings and characters offer several properties to inspect their content.
 
-### String Properties
+#### String Properties
 
 Common string properties include:
 
@@ -94,7 +96,7 @@ Common string properties include:
 
 For a complete list of properties, see the [Apple String documentation][string-docs].
 
-### Character Properties
+#### Character Properties
 
 Common character properties include:
 
@@ -107,7 +109,7 @@ Common character properties include:
 
 For a complete list of properties, see the [Apple Character documentation][character-docs].
 
-## Type Conversion
+### Type Conversion
 
 You can convert other types into strings by using the `String(_:)` initializer, which supports standard types like `Int`, `Double`, and `Character`:
 
@@ -118,7 +120,7 @@ print(String(110))       // Prints "110"
 print(String(Double.pi)) // Prints "3.141592653589793"
 ```
 
-## Special Characters
+### Special Characters
 
 Swift string literals support several [escape sequences][special-characters] for special characters:
 
