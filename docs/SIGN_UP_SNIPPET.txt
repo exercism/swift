@@ -1,0 +1,11 @@
+func mostCommonWord(_ text: String) -> String {
+    var counts: [String: Int] = [:]
+    var best = ""
+    for word in text.lowercased().split(separator: " ").map(String.init) {
+        counts[word, default: 0] += 1
+        if counts[word]! > counts[best, default: 0] {
+            best = word
+        }
+    }
+    return "\"\(best)\" appears \(counts[best]!) times"
+}
