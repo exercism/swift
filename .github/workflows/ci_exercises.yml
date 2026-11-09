@@ -34,3 +34,19 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
       - name: Run tests
         run: swift test
+
+  tests:
+    name: Tests
+    needs: [run-exercises-tests-ubuntu, run-exercises-tests-macos]
+    if: always()
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Check that every configuration passed
+        env:
+          UBUNTU_RESULT: ${{ needs.run-exercises-tests-ubuntu.result }}
+          MACOS_RESULT: ${{ needs.run-exercises-tests-macos.result }}
+        run: |
+          if [[ "$UBUNTU_RESULT" != "success" || "$MACOS_RESULT" != "success" ]]; then
+            echo "The exercise tests failed on at least one configuration."
+            exit 1
+          fi
