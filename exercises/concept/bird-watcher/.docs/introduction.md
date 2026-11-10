@@ -1,4 +1,6 @@
-# For loops
+# Introduction
+
+## for loops
 
 Looping is a fundamental concept in programming that allows you to execute a block of code multiple times.
 In Swift, there are two types of loops: [`for-in` loops][for-loops] and `while` loops. 
@@ -42,11 +44,11 @@ number + 1
 ```
 ~~~~
 
-## Iterating over a range
+### Iterating over a range
 
 You can also iterate over a range of numbers using a `for-in` loop.
 This allows you to execute a block of code a specific number of times, for example, the range `1...5` will iterate over the numbers 1, 2, 3, 4, and 5, so the loop will execute 5 times.
-Sometimes you might want to iterate over indexes, in a data-structure like an array, then you can use a `0..<array.count` range.
+Sometimes you might want to iterate over indexes, in a datastructure like an array, then you can use a `0..<array.count` range.
 
 ```swift
 let numbers = [3, 10, 7, 11]
@@ -62,7 +64,7 @@ for i in 0..<numbers.count {
 // 11
 ```
 
-## Iterating over a string
+### Iterating over a string
 
 You can also iterate over a string using a `for-in` loop.
 This allows you to iterate over each character in the string, and note specifically that the type given in the loop is a `Character`.
@@ -83,7 +85,7 @@ for character in message {
 // !
 ```
 
-## stride
+### stride
 
 Swift also provides a `stride` function that allows you to create a sequence over a range with a specific step.
 Which can be then iterated over using a `for-in` loop.

@@ -8,8 +8,7 @@ These modules may come directly from the Swift project (such as [Swift Argument 
 Core modules like Foundation—one of the most widely used libraries in Swift—are included with the Swift toolchain.
 Third-party libraries must be added to your project configuration (for example, using Swift Package Manager) before they can be imported.
 
-Importing modules is done by writing the `import` keyword followed by the name of the module.
-So one can import Foundation by adding the following to their program.
+To import a module, write the `import` keyword followed by the module name:
 
 ```swift
 import Foundation
@@ -20,7 +19,7 @@ For instance, importing Foundation extends `String` with useful utility methods 
 
 By convention, `import` statements are placed at the top of a Swift file so dependencies are immediately visible to anyone reading the code.
 
-## String indexing
+## String Indexing
 
 Individual characters in a `String` can be accessed using the subscripting method used with arrays.
 However, the [indices][string-indices] used for strings are _not_ integers and can not be worked with directly.
@@ -82,12 +81,12 @@ print(str.prefix(5)) // Prints "Hello"
 print(str.suffix(6)) // Prints "world!"
 ```
 
-## String methods
+## String Methods
 
 Working with text is a common task in programming.
 Swift—along with the Foundation framework—provides many convenient methods and properties to inspect, transform, and manipulate strings.
 
-## Splitting Strings with `components(separatedBy:)`
+### Splitting Strings with `components(separatedBy:)`
 
 To split a string into an array of substrings based on a delimiter, use `components(separatedBy:)` (requires importing Foundation):
 
@@ -99,7 +98,7 @@ let words = sentence.components(separatedBy: " ")
 print(words) // Prints ["Hello,", "world!"]
 ```
 
-## Checking Prefixes and Suffixes with `hasPrefix(_:)` and `hasSuffix(_:)`
+### Checking Prefixes and Suffixes with `hasPrefix(_:)` and `hasSuffix(_:)`
 
 To check whether a string begins or ends with a specific sequence of characters, use `hasPrefix(_:)` and `hasSuffix(_:)`:
 
@@ -109,7 +108,7 @@ print(greeting.hasPrefix("Hello"))  // Prints true
 print(greeting.hasSuffix("world!")) // Prints true
 ```
 
-## Changing Case
+### Changing Case
 
 You can transform the casing of a string using these standard methods and properties:
 
@@ -124,7 +123,7 @@ print(greeting.uppercased())  // Prints "HELLO, WORLD!"
 print(greeting.capitalized)   // Prints "Hello, World!"
 ```
 
-## Replacing Substrings with `replacingOccurrences(of:with:)`
+### Replacing Substrings with `replacingOccurrences(of:with:)`
 
 To replace all occurrences of a target substring with another string, use `replacingOccurrences(of:with:)` (from Foundation):
 
@@ -134,7 +133,7 @@ let updated = greeting.replacingOccurrences(of: "world", with: "Swift")
 print(updated) // Prints "Hello, Swift!"
 ```
 
-## Joining Strings with `joined(separator:)`
+### Joining Strings with `joined(separator:)`
 
 The `joined(separator:)` method belongs to collections of strings, such as `[String]`.
 It joins elements together into a single string using a separator:
@@ -145,6 +144,15 @@ let sentence = words.joined(separator: ", ")
 print(sentence) // Prints "Hello, world"
 ```
 
+[argument-parser]: https://apple.github.io/swift-argument-parser/documentation/argumentparser/
+[network-framework]: https://developer.apple.com/documentation/network
+[swifty-beaver]: https://github.com/SwiftyBeaver/SwiftyBeaver
+[apple-foundation]: https://developer.apple.com/documentation/foundation
+[string-docs]: https://developer.apple.com/documentation/swift/String
+[nsstring-docs]: https://developer.apple.com/documentation/foundation/nsstring
+[string-format-specifiers]: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html
+[string-indices]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/#String-Indices
+[unicode]: https://en.wikipedia.org/wiki/Unicode
 [components]: https://developer.apple.com/documentation/foundation/nsstring/components(separatedby:)-238fy
 [hasPrefix]: https://developer.apple.com/documentation/foundation/nsstring/hasprefix(_:)
 [hasSuffix]: https://developer.apple.com/documentation/foundation/nsstring/hassuffix(_:)
@@ -153,12 +161,3 @@ print(sentence) // Prints "Hello, world"
 [capitalized]: https://developer.apple.com/documentation/foundation/nsstring/capitalized
 [replacingOccurrences]: https://developer.apple.com/documentation/foundation/nsstring/replacingoccurrences(of:with:)
 [joined]: https://developer.apple.com/documentation/swift/array/joined(separator:)-7uber
-[string-docs]: https://developer.apple.com/documentation/swift/String
-[nsstring-docs]: https://developer.apple.com/documentation/foundation/nsstring
-[string-format-specifiers]: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html
-[string-indices]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters/#String-Indices
-[unicode]: https://en.wikipedia.org/wiki/Unicode
-[argument-parser]: https://apple.github.io/swift-argument-parser/documentation/argumentparser/
-[network-framework]: https://developer.apple.com/documentation/network
-[swifty-beaver]: https://github.com/SwiftyBeaver/SwiftyBeaver
-[apple-foundation]: https://developer.apple.com/documentation/foundation

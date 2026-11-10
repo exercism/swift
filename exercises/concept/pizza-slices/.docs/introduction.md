@@ -1,6 +1,8 @@
-# About
+# Introduction
 
 ## Optionals
+
+### Optionals
 
 Swift uses [_optionals_][optionals] to allow programmers to represent the possible absence of a value.
 Optional is a type that can either hold a value or be [`nil`][nil], which represents the absence of a value.
@@ -45,7 +47,7 @@ x + y
 // error: value of optional type 'Int?' must be unwrapped to a value of type 'Int'
 ```
 
-## Using optionals
+### Using optionals
 
 Because optional types are not the same types as their base types, the two types cannot be used in the same ways.
 For example: `Int("123") + 1` results in a compiler error "Value of optional type 'Int?' must be unwrapped to a value of type 'Int'".
@@ -91,7 +93,7 @@ let sum = num + 1
 …
 ```
 
-## Comparing optionals
+### Comparing optionals
 
 Note that even if the base type of a pair of optionals can be compared using the standard comparison operators, the optionals themselves cannot be compared.
 They can only be checked for equality.

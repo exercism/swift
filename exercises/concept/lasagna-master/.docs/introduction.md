@@ -1,8 +1,9 @@
 # Introduction
 
-## Default parameter values
+## Default Parameters
 
-[Default parameter values][default-parameter-values] can be supplied for any of a function's parameters by assigning a value to the parameter in the parameter list following the parameter's type annotation. When a default parameter value is specified, the caller of the function can omit that parameter when calling the function and the default value will be used instead.
+[Default parameter values][default-parameter-values] can be supplied for any of a function's parameters by assigning a value to the parameter in the parameter list following the parameter's type annotation.
+When a default parameter value is specified, the caller of the function can omit that parameter when calling the function and the default value will be used instead.
 
 ```swift
 func greeting(name: String = "guest", duration: Int = 2) -> String {
@@ -19,7 +20,7 @@ greeting()
 // Returns "Welcome, guest. Enjoy your 2 night stay."
 ```
 
-## Variadic parameters
+## Variadic Parameters
 
 [Variadic parameters][variadic-parameters] allow a function to accept zero or more values of a specified type for a single parameter.
 You define a variadic parameter by appending three dots (`...`) to the parameter's type annotation.
@@ -45,8 +46,7 @@ let result = geometricMean(1, 2, 3, 4, 5)
 If a function includes additional parameters after a variadic parameter, the first parameter following the variadic parameter **must** have an explicit argument label so Swift knows where the variadic argument list ends.
 ~~~~
 
-
-## In-out parameters
+## Inout Parameters
 
 Within the body of a function, parameters are treated as constants, not variables; trying to modify the value of a parameter will raise a compile-time error.
 If a function wishes to modify the value of a parameter, it must use an [_in-out parameter_][in-out-parameters] to make this mutability explicit.
@@ -78,7 +78,7 @@ There are a couple of extra rules one should be aware of regarding in-out parame
    For example, `inoutFunc(&mutVar, &mutVar)` raises a compiler error.
 ~~~~
 
-## Nested functions
+## Nested Functions
 
 In Swift, you can define [functions inside other functions][nested-functions].
 These are known as **nested functions**.
@@ -104,8 +104,7 @@ print(makeNumber(4)) // Prints 9
 
 Nested functions behave like standard functions, but their visibility is restricted to the enclosing function's body.
 
-
-[nested-functions]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Nested-Functions
 [default-parameter-values]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Default-Parameter-Values
 [variadic-parameters]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Variadic-Parameters
 [in-out-parameters]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/declarations/#In-Out-Parameters
+[nested-functions]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Nested-Functions

@@ -1,8 +1,10 @@
 # Introduction
 
-## Getting Started
+## Basics
 
-### Variables
+### Getting Started
+
+#### Variables
 
 You can store and name values by defining a [variable][constants-variables].
 After defining a variable, you can use its name to refer to that value throughout your code.
@@ -48,7 +50,7 @@ someInt = 169
 print(someInt) // Prints 169
 ```
 
-### Constants
+#### Constants
 
 [Constants][constants-variables] also associate a name with a value, but their values cannot be changed after assignment.
 They are _immutable_.
@@ -59,7 +61,7 @@ let constantName = 10          // Inferred constant
 let explicitConstant: Int = 10 // Explicitly typed constant
 ```
 
-### Arithmetic Operators
+#### Arithmetic Operators
 
 Swift provides standard [arithmetic operators][arithmetical-operators] for basic math:
 
@@ -73,7 +75,7 @@ print(2 - 1) // Prints 1
 print(2 * 2) // Prints 4
 ```
 
-### Functions
+#### Functions
 
 In Swift, [functions][functions] are self-contained blocks of code that perform a specific task.
 Functions can accept inputs, return a value, and be passed around as values to other functions.
@@ -125,7 +127,7 @@ addTen(to: 10) // Returns 20
 When a function does not return a value, its return type is `Void` (equivalent to an empty tuple, `()`).
 You can omit both the `-> Void` return type and the `return` statement in such functions.
 
-### Comments
+#### Comments
 
 Swift supports two forms of [comments][comments]:
 

@@ -1,6 +1,6 @@
 # Introduction
 
-## Switch
+## Conditionals Switch
 
 A [switch statement][switch] compares a value against multiple possible matching patterns.
 It provides a cleaner, more readable alternative to chaining multiple `if-else` statements.
@@ -50,7 +50,7 @@ default:
 }
 ```
 
-## While loops
+## While and repeat loops
 
 A [while loop][while-loops] is a control flow statement that allows code to be executed while a certain condition is true.
 Swift provides two kinds of while loops: while and repeat-while loops.
@@ -100,7 +100,7 @@ repeat {
 print("Liftoff!")
 ```
 
-## Control Transfer
+## Control transfer
 
 Swift provides control transfer statements to alter the execution flow of loops and switch statements.
 In addition to `return`, Swift includes `continue`, `break`, loop labels, and `fallthrough`.
@@ -169,8 +169,8 @@ outerLoop: for fruit in ["banana", "grapes", "apple", "strawberry", "kiwi", "lem
 // a
 ```
 
-[control-transfer]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Control-Transfer-Statements
-[fallthrough]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Fallthrough
+[switch]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Switch
 [while-loops]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#While-Loops
 [repeat-loops]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Repeat-While
-[switch]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Switch
+[control-transfer]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Control-Transfer-Statements
+[fallthrough]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Fallthrough

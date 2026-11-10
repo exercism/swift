@@ -1,5 +1,7 @@
 # Introduction
 
+## Dictionaries
+
 [Dictionaries][dictionaries] are one of Swift's primary collection types.
 A dictionary stores unordered associations between unique keys and corresponding values.
 All keys in a dictionary must be of the same type, and all values must also share the same type.
@@ -37,7 +39,7 @@ var emptyDict2 = [Character: String]()
 var emptyDict3 = Dictionary<Int, Double>()
 ```
 
-## Accessing Values
+### Accessing Values
 
 You can access values using subscript notation: place the key inside square brackets after the dictionary name.
 Because a key might not exist in the dictionary, subscript access returns an *optional* (`Value?`).
@@ -67,7 +69,7 @@ let betty = addresses["Betty Cooper", default: "Address unknown"]
 // Returns "Address unknown"
 ```
 
-## Modifying Dictionaries
+### Modifying Dictionaries
 
 For mutable dictionaries declared with `var`, you can add or update key-value pairs using subscript assignment:
 
@@ -83,7 +85,7 @@ constants["Gelfond's"] = 23.140692
 // Compiler error: Cannot assign through subscript: 'constants' is a 'let' constant
 ```
 
-## Iterating Over a Dictionary
+### Iterating Over a Dictionary
 
 You can iterate through each key-value pair of a dictionary using a `for-in` loop.
 Each item is provided as a `(key, value)` tuple:
@@ -94,7 +96,7 @@ for (name, address) in addresses {
 }
 ```
 
-## Sorting Dictionaries
+### Sorting Dictionaries
 
 Because dictionaries are unordered, sorting them produces an array of key-value pairs.
 You can pass a closure to the `sorted(by:)` method that compares two `(key, value)` tuples and returns `true` if the first tuple should appear before the second:
